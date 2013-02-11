@@ -1,0 +1,26 @@
+@import "ornament/utilities/pinned-footer";
+
+$layout-footer-height:  $space*2.8    !default;
+$layout-footer-gutter:  $space        !default;
+$layout-padding:        $small-space  !default;
+$layout-width:          960px         !default;
+
+.layout {
+  @include pinned-footer-wrapper;
+}
+
+.layout--content {
+  @include pinned-footer-content($layout-footer-height);
+  padding-bottom: $layout-footer-gutter;
+}
+
+.layout--footer {
+  @include pinned-footer($layout-footer-height);
+}
+
+.layout--container {
+  margin: 0 auto;
+  max-width: $layout-width;
+  padding-left: 10px;
+  padding-right: 10px;
+}

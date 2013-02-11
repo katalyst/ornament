@@ -1,0 +1,131 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// This file contains common variables used by ornament.
+//
+// Don't change settings here, do it in settings.css.scss.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+// FONTS
+//
+//
+// The default fonts.
+//
+
+$heading-font:  (Helvetica, sans-serif)  normal  bold    !default;
+$body-font:     (Helvetica, sans-serif)  normal  normal  !default;
+$bold-font:     (Helvetica, sans-serif)  normal  bold    !default;
+$italic-font:   (Helvetica, sans-serif)  italic  normal  !default;
+
+
+
+// TYPOGRAPHY
+//
+//
+// The base font size should be set in pixels.
+//
+// The base line height should be unitless.
+//
+
+$base-font-size:          16px  !default;
+$base-line-height-ratio:  1.5   !default;
+$line-space:              $base-font-size * $base-line-height-ratio !default;
+
+
+
+// COLORS
+//
+// background, foreground, link, hover (optional)
+//
+
+$default-colors:  #ffffff #333333 #00aad5;
+$error-colors:    #990000 #ffcccc #ff0000;
+$notice-colors:   #999900 #ffffcc #ffff00;
+$success-colors:  #009900 #ccffcc #00ff00;
+
+
+
+// BACKGROUNDS & COLORS
+//
+//
+// The default foreground/background colors. black on white
+//
+// Note: The background doesn't need to be a colour:
+//
+//  $background: #000 url(bg.png) 50% 0 repeat-y;
+//
+
+$background:    #fff !default;
+$color:         #333 !default;
+$link-color:    #00aad5 !default;
+$error-color:   #900 !default;
+$success-color: #090 !default;
+$notice-color:  #990 !default;
+
+
+
+// ALTERNATIVE BACKGROUNDS & COLORS
+//
+//
+// Alternative backgrounds and colours. white on black
+//
+// Note: The $alt-color should be legible when placed against either $color,
+// $link-color or $error-color.
+//
+
+$alt-background:  #333 !default;
+$alt-color:       #fff !default;
+$alt-link-color:  #39f !default;
+$alt-error-color: #c00 !default;
+
+
+
+// SPACES
+//
+//
+// Setup a spacing system.
+//
+
+$spacing-ratio: 1.61803398875 !default; // golden ratio
+$spacing-unit:  $line-space   !default;
+
+$xxx-small-space: $spacing-unit * pow($spacing-ratio, -4) !default;
+$xx-small-space:  $spacing-unit * pow($spacing-ratio, -3) !default;
+$x-small-space:   $spacing-unit * pow($spacing-ratio, -2) !default;
+$small-space:     $spacing-unit * pow($spacing-ratio, -1) !default;
+$space:           $spacing-unit * pow($spacing-ratio,  0) !default;
+$large-space:     $spacing-unit * pow($spacing-ratio,  1) !default;
+$x-large-space:   $spacing-unit * pow($spacing-ratio,  2) !default;
+$xx-large-space:  $spacing-unit * pow($spacing-ratio,  3) !default;
+$xxx-large-space: $spacing-unit * pow($spacing-ratio,  4) !default;
+
+
+
+// FORMS
+//
+//
+// Form specific stuff settings.
+//
+
+$form-error-color:    $error-color  !default;
+$form-border-radius:  0             !default;
+
+
+
+// INPUTS
+//
+// Input styling.
+//
+
+$input-background:      #fff            !default;
+$input-border:          1px solid #999  !default;
+$input-border-radius:   0               !default;
+$input-color:           $color          !default;
+$input-padding:         0.2em           !default;
+$input-textarea-height: $space*5        !default;
+$input-width:           20rem           !default;
+
+
+

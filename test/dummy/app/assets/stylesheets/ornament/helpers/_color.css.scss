@@ -1,0 +1,25 @@
+@function background-color($set) {
+  @return nth($set, 1);
+}
+
+@function foreground-color($set) {
+  @return nth($set, 2);
+}
+
+@function link-color($set) {
+  @if (length($set) > 2) {
+    @return nth($set, 3);
+  } @else {
+    @return nth($set, 2);
+  }
+}
+
+@function hover-color($set) {
+  @if (length($set) > 3) {
+    @return nth($set, 4);
+  } @elseif (length($set) > 2) {
+    @return nth($set, 3);
+  } @else {
+    @return nth($set, 2);
+  }
+}

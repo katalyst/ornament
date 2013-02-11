@@ -1,0 +1,40 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/inline-block";
+@import "compass/typography/links";
+
+$button-background: $link-color !default;
+$button-border-radius: $form-border-radius !default;
+$button-color: $alt-color !default;
+$button-dangerous-background: $error-color !default;
+$button-font-size: rem(0.8) !default;
+$button-secondary-background: $alt-background !default;
+
+.button {
+  @include border-radius($button-border-radius);
+  @include font($bold-font);
+  @include inline-block;
+  @include link-colors($button-color, $button-color, $button-color, $button-color, $button-color);
+  background: $button-background;
+  color: $button-color;
+  border: 0;
+  font-size: $button-font-size;
+  padding: 0.5em 0.8em;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.button-dangerous {
+  background: $button-dangerous-background;
+}
+
+.button-secondary {
+  background: $button-secondary-background;
+}
+
+.button-small {
+  font-size: 13px;
+  padding: 0.2em 0.5em;
+}

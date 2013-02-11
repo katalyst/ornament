@@ -1,0 +1,72 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// This is the base CSS file for your app. Import it into your layout.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+// ORNAMENT
+
+@import "fonts";
+@import "settings";
+@import "ornament/core";
+
+
+
+// IMPORTS
+//
+//
+// Components that are going to be used in this project.
+//
+// - Remove any prototype imports you're not using.
+// - Don't import any compass, mixin or function files here.
+// - Add theme imports to the bottom.
+//
+
+@import "prototype/align";
+@import "prototype/button";
+@import "prototype/clearfix";
+@import "prototype/field";
+@import "prototype/float";
+@import "prototype/footer";
+@import "prototype/header";
+@import "prototype/heading";
+@import "prototype/island";
+@import "prototype/layout";
+@import "prototype/rhythm";
+@import "prototype/nav";
+@import "prototype/split";
+@import "prototype/table";
+
+//@import "theme/align";
+//@import "theme/button";
+//@import "theme/clearfix";
+//@import "theme/field";
+//@import "theme/float";
+//@import "theme/footer";
+//@import "theme/header";
+//@import "theme/heading";
+//@import "theme/island";
+//@import "theme/layout";
+//@import "theme/rhythm";
+//@import "theme/nav";
+//@import "theme/split";
+//@import "theme/table";
+
+
+
+// OVERRIDES
+//
+//
+// Add any hacky or temporary CSS here.
+//
+//  /* Client wanted the logo bigger... so I did this. */
+//  .header-generic--logo {
+//    height:200%;
+//    width:200%;
+//  }
+//
+
+
+

@@ -1,0 +1,13 @@
+@import "ornament/utilities/simple-link-colors";
+
+$footer-colors: #ccc #333 !default;
+
+.footer {
+  background: background-color($footer-colors);
+  color: foreground-color($footer-colors);
+  font-size: rem(0.8);
+  padding: $space 0;
+  a {
+    @include simple-link-colors($footer-colors);
+  }
+}
