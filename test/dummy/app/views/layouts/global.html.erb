@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Ornament App</title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <!--[if lt IE 9]><%= javascript_include_tag "IE9.js" %><![endif]-->
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="layout--content rhythm">
+        <header class="header">
+          <div class="layout--container">
+            <h1 class="header--title">
+              <%= image_tag "prototype/header/logo.png", alt: "Ornament Framework" %>
+            </h1>
+          </div>
+        </header>
+        <section class="layout--container rhythm">
+          <p>
+            <%= link_to "Ornament Website", "http://ornament.herokuapp.com/" %>
+          </p>
+          <%= content_for?(:global) ? yield(:global) : yield %>
+        </section>
+      </div>
+      <footer class="layout--footer footer">
+        <div class="layout--container">
+          footer
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
