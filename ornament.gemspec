@@ -7,11 +7,11 @@ require "ornament/version"
 Gem::Specification.new do |s|
   s.name        = "ornament"
   s.version     = Ornament::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Ornament."
-  s.description = "TODO: Description of Ornament."
+  s.authors     = ["Haydn Ewers"]
+  s.email       = ["haydn@particlesystem.com"]
+  s.homepage    = "http://ornament.herokuapp.com/"
+  s.summary     = "Front-end framework for Ruby on Rails."
+  s.description = s.summary
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
