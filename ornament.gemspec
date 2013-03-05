@@ -10,13 +10,13 @@ Gem::Specification.new do |s|
   s.authors     = ["Haydn Ewers"]
   s.email       = ["haydn@particlesystem.com"]
   s.homepage    = "http://ornament.herokuapp.com/"
-  s.summary     = "Front-end framework for Ruby on Rails."
+  s.summary     = "UI framework for Ruby on Rails."
   s.description = s.summary
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.2.11"
+  s.add_dependency "rails", "~> 3.2.12"
 
   s.add_development_dependency "sqlite3"
 end
