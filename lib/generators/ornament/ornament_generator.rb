@@ -8,10 +8,10 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :theme,      :type => :boolean, :default => true
   class_option :ie_support, :type => :boolean, :default => true
   class_option :layouts,    :type => :boolean, :default => true
+  class_option :styleguide, :type => :boolean, :default => true
   class_option :cleanup,    :type => :boolean, :default => true
 
   COMPONENT_IMAGES = [
-    "header/logo.png"
   ]
 
   COMPONENT_STYLESHEETS = [
@@ -90,6 +90,13 @@ class OrnamentGenerator < Rails::Generators::Base
     if options.layouts?
       template "app/views/layouts/global.html.erb"
       copy_file "app/views/layouts/application.html.erb"
+    end
+  end
+
+  def styleguide
+    if options.styleguide?
+      route "match '/styleguide' => 'application#styleguide'"
+      copy_file "app/views/application/styleguide.html.erb"
     end
   end
 

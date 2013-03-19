@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Ornament App</title>
+    <title>Dummy</title>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <!--[if lt IE 9]><%= javascript_include_tag "IE9.js" %><![endif]-->
@@ -14,14 +14,11 @@
         <header class="header">
           <div class="layout--container">
             <h1 class="header--title">
-              <%= image_tag "prototype/header/logo.png", alt: "Ornament Framework" %>
+              <%= image_tag "http://placehold.it/200x100&text=LOGO", alt: "Logo" %>
             </h1>
           </div>
         </header>
         <section class="layout--container rhythm">
-          <p>
-            <%= link_to "Ornament Website", "http://ornament.herokuapp.com/" %>
-          </p>
           <%= content_for?(:global) ? yield(:global) : yield %>
         </section>
       </div>
