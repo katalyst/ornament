@@ -14,6 +14,7 @@
 @import "compass/typography/links/link-colors";
 @import "compass/reset";
 @import "ornament/utilities/font";
+@import "ornament/utilities/simple-link-colors";
 
 
 
@@ -44,8 +45,8 @@ img {
 //
 
 body {
-  background: $background;
-  color: $color;
+  background: background-color($default-colors);
+  color: foreground-color($default-colors);
 }
 
 
@@ -118,7 +119,7 @@ em, i {
 
 a {
   @include hover-link;
-  @include link-colors($link-color, $link-color, $link-color, $link-color, $link-color);
+  @include simple-link-colors($default-colors);
 }
 
 

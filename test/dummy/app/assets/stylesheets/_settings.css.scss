@@ -2,6 +2,8 @@
 //
 // This file contains common variables used by ornament.
 //
+// Don't change settings here, do it in settings.css.scss.
+//
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -12,10 +14,10 @@
 // The default fonts.
 //
 
-//$heading-font:  (Helvetica, sans-serif)  normal  bold;
-//$body-font:     (Helvetica, sans-serif)  normal  normal;
-//$bold-font:     (Helvetica, sans-serif)  normal  bold;
-//$italic-font:   (Helvetica, sans-serif)  italic  normal;
+$heading-font:  (Helvetica, sans-serif)  normal  bold;
+$body-font:     (Helvetica, sans-serif)  normal  normal;
+$bold-font:     (Helvetica, sans-serif)  normal  bold;
+$italic-font:   (Helvetica, sans-serif)  italic  normal;
 
 
 
@@ -27,9 +29,9 @@
 // The base line height should be unitless.
 //
 
-//$base-font-size:          16px;
-//$base-line-height-ratio:  1.5;
-//$line-space:              $base-font-size * $base-line-height-ratio;
+$base-font-size:          16px;
+$base-line-height-ratio:  1.5;
+$line-space:              $base-font-size * $base-line-height-ratio;
 
 
 
@@ -38,45 +40,11 @@
 // background, foreground, link, hover (optional)
 //
 
-//$default-colors:  #ffffff #333333 #00aad5;
-//$error-colors:    #990000 #ffcccc #ff0000;
-//$notice-colors:   #999900 #ffffcc #ffff00;
-//$success-colors:  #009900 #ccffcc #00ff00;
-
-
-
-// BACKGROUNDS & COLORS
-//
-//
-// The default foreground/background colors. black on white
-//
-// Note: The background doesn't need to be a colour:
-//
-//  $background: #000 url(bg.png) 50% 0 repeat-y;
-//
-
-//$background:    #fff;
-//$color:         #333;
-//$link-color:    #00aad5;
-//$error-color:   #900;
-//$success-color: #090;
-//$notice-color:  #990;
-
-
-
-// ALTERNATIVE BACKGROUNDS & COLORS
-//
-//
-// Alternative backgrounds and colours. white on black
-//
-// Note: The $alt-color should be legible when placed against either $color,
-// $link-color or $error-color.
-//
-
-//$alt-background:  #333;
-//$alt-color:       #fff;
-//$alt-link-color:  #39f;
-//$alt-error-color: #c00;
+$default-colors:  #ffffff #333333 #00aad5;
+$inverse-colors:  #ffffff #333333 #00aad5;
+$error-colors:    #990000 #ffcccc #ff0000;
+$notice-colors:   #999900 #ffffcc #ffff00;
+$success-colors:  #009900 #ccffcc #00ff00;
 
 
 
@@ -86,18 +54,18 @@
 // Setup a spacing system.
 //
 
-//$spacing-ratio: 1.61803398875; // golden ratio
-//$spacing-unit:  $line-space;
+$spacing-ratio: 1.61803398875; // golden ratio
+$spacing-unit:  $line-space;
 
-//$xxx-small-space: $spacing-unit * pow($spacing-ratio, -4);
-//$xx-small-space:  $spacing-unit * pow($spacing-ratio, -3);
-//$x-small-space:   $spacing-unit * pow($spacing-ratio, -2);
-//$small-space:     $spacing-unit * pow($spacing-ratio, -1);
-//$space:           $spacing-unit * pow($spacing-ratio,  0);
-//$large-space:     $spacing-unit * pow($spacing-ratio,  1);
-//$x-large-space:   $spacing-unit * pow($spacing-ratio,  2);
-//$xx-large-space:  $spacing-unit * pow($spacing-ratio,  3);
-//$xxx-large-space: $spacing-unit * pow($spacing-ratio,  4);
+$xxx-small-space: $spacing-unit * pow($spacing-ratio, -4);
+$xx-small-space:  $spacing-unit * pow($spacing-ratio, -3);
+$x-small-space:   $spacing-unit * pow($spacing-ratio, -2);
+$small-space:     $spacing-unit * pow($spacing-ratio, -1);
+$space:           $spacing-unit * pow($spacing-ratio,  0);
+$large-space:     $spacing-unit * pow($spacing-ratio,  1);
+$x-large-space:   $spacing-unit * pow($spacing-ratio,  2);
+$xx-large-space:  $spacing-unit * pow($spacing-ratio,  3);
+$xxx-large-space: $spacing-unit * pow($spacing-ratio,  4);
 
 
 
@@ -107,8 +75,8 @@
 // Form specific stuff settings.
 //
 
-//$form-error-color:    $error-color;
-//$form-border-radius:  0;
+$form-error-color:    foreground-color($error-colors);
+$form-border-radius:  0;
 
 
 
@@ -117,13 +85,13 @@
 // Input styling.
 //
 
-//$input-background:      #fff;
-//$input-border:          1px solid #999;
-//$input-border-radius:   0;
-//$input-color:           $color;
-//$input-padding:         0.2em;
-//$input-textarea-height: $space*5;
-//$input-width:           20rem;
+$input-background:      #fff;
+$input-border:          1px solid #999;
+$input-border-radius:   0;
+$input-color:           foreground-color($default-colors);
+$input-padding:         0.2em;
+$input-textarea-height: $space*5;
+$input-width:           20rem;
 
 
 

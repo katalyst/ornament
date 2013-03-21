@@ -4,32 +4,11 @@ class OrnamentGenerator < Rails::Generators::Base
 
   class_option :gems,       :type => :boolean, :default => true
   class_option :core,       :type => :boolean, :default => true
-  class_option :prototype,  :type => :boolean, :default => true
   class_option :theme,      :type => :boolean, :default => true
   class_option :ie_support, :type => :boolean, :default => true
   class_option :layouts,    :type => :boolean, :default => true
   class_option :styleguide, :type => :boolean, :default => true
   class_option :cleanup,    :type => :boolean, :default => true
-
-  COMPONENT_IMAGES = [
-  ]
-
-  COMPONENT_STYLESHEETS = [
-    "_align.css.scss",
-    "_button.css.scss",
-    "_clearfix.css.scss",
-    "_field.css.scss",
-    "_float.css.scss",
-    "_footer.css.scss",
-    "_header.css.scss",
-    "_heading.css.scss",
-    "_island.css.scss",
-    "_layout.css.scss",
-    "_rhythm.css.scss",
-    "_nav.css.scss",
-    "_split.css.scss",
-    "_table.css.scss"
-  ]
 
   def gems
     if options.gems?
@@ -58,25 +37,23 @@ class OrnamentGenerator < Rails::Generators::Base
     end
   end
 
-  def prototype
-    if options.prototype?
-      COMPONENT_IMAGES.each do |file|
-        copy_file "app/assets/images/prototype/#{file}"
-      end
-      COMPONENT_STYLESHEETS.each do |file|
-        copy_file "app/assets/stylesheets/prototype/#{file}"
-      end
-    end
-  end
-
   def theme
     if options.theme?
-      COMPONENT_IMAGES.each do |file|
-        copy_file "app/assets/images/prototype/#{file}", "app/assets/images/theme/#{file}"
-      end
-      COMPONENT_STYLESHEETS.each do |file|
-        copy_file "app/assets/stylesheets/prototype/#{file}", "app/assets/stylesheets/theme/#{file}"
-      end
+
+      copy_file "app/assets/stylesheets/theme/_align.css.scss"
+      copy_file "app/assets/stylesheets/theme/_button.css.scss"
+      copy_file "app/assets/stylesheets/theme/_clearfix.css.scss"
+      copy_file "app/assets/stylesheets/theme/_field.css.scss"
+      copy_file "app/assets/stylesheets/theme/_float.css.scss"
+      copy_file "app/assets/stylesheets/theme/_footer.css.scss"
+      copy_file "app/assets/stylesheets/theme/_header.css.scss"
+      copy_file "app/assets/stylesheets/theme/_heading.css.scss"
+      copy_file "app/assets/stylesheets/theme/_island.css.scss"
+      copy_file "app/assets/stylesheets/theme/_layout.css.scss"
+      copy_file "app/assets/stylesheets/theme/_rhythm.css.scss"
+      copy_file "app/assets/stylesheets/theme/_nav.css.scss"
+      copy_file "app/assets/stylesheets/theme/_split.css.scss"
+      copy_file "app/assets/stylesheets/theme/_table.css.scss"
     end
   end
 
@@ -112,9 +89,8 @@ private
 
   def create_settings(path)
     copy_file "app/assets/stylesheets/ornament/_defaults.css.scss", path
-    gsub_file path, /^\$/, "//$"
     gsub_file path, /\s*\!default;/, ";"
-    gsub_file path, "\n//\n// Don't change settings here, do it in settings.css.scss.", ""
+    gsub_file path, "\n//\n// Don't change settings here, do it in _settings.css.scss.", ""
   end
 
 end

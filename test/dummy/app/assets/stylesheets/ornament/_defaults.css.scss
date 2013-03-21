@@ -41,44 +41,10 @@ $line-space:              $base-font-size * $base-line-height-ratio !default;
 //
 
 $default-colors:  #ffffff #333333 #00aad5;
+$inverse-colors:  #ffffff #333333 #00aad5;
 $error-colors:    #990000 #ffcccc #ff0000;
 $notice-colors:   #999900 #ffffcc #ffff00;
 $success-colors:  #009900 #ccffcc #00ff00;
-
-
-
-// BACKGROUNDS & COLORS
-//
-//
-// The default foreground/background colors. black on white
-//
-// Note: The background doesn't need to be a colour:
-//
-//  $background: #000 url(bg.png) 50% 0 repeat-y;
-//
-
-$background:    #fff !default;
-$color:         #333 !default;
-$link-color:    #00aad5 !default;
-$error-color:   #900 !default;
-$success-color: #090 !default;
-$notice-color:  #990 !default;
-
-
-
-// ALTERNATIVE BACKGROUNDS & COLORS
-//
-//
-// Alternative backgrounds and colours. white on black
-//
-// Note: The $alt-color should be legible when placed against either $color,
-// $link-color or $error-color.
-//
-
-$alt-background:  #333 !default;
-$alt-color:       #fff !default;
-$alt-link-color:  #39f !default;
-$alt-error-color: #c00 !default;
 
 
 
@@ -109,8 +75,8 @@ $xxx-large-space: $spacing-unit * pow($spacing-ratio,  4) !default;
 // Form specific stuff settings.
 //
 
-$form-error-color:    $error-color  !default;
-$form-border-radius:  0             !default;
+$form-error-color:    foreground-color($error-colors) !default;
+$form-border-radius:  0                               !default;
 
 
 
@@ -119,13 +85,13 @@ $form-border-radius:  0             !default;
 // Input styling.
 //
 
-$input-background:      #fff            !default;
-$input-border:          1px solid #999  !default;
-$input-border-radius:   0               !default;
-$input-color:           $color          !default;
-$input-padding:         0.2em           !default;
-$input-textarea-height: $space*5        !default;
-$input-width:           20rem           !default;
+$input-background:      #fff                              !default;
+$input-border:          1px solid #999                    !default;
+$input-border-radius:   0                                 !default;
+$input-color:           foreground-color($default-colors) !default;
+$input-padding:         0.2em                             !default;
+$input-textarea-height: $space*5                          !default;
+$input-width:           20rem                             !default;
 
 
 

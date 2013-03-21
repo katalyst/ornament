@@ -19,40 +19,24 @@
 //
 // Components that are going to be used in this project.
 //
-// - Remove any prototype imports you're not using.
+// - Remove any imports you're not using.
 // - Don't import any compass, mixin or function files here.
-// - Add theme imports to the bottom.
 //
 
-@import "prototype/align";
-@import "prototype/button";
-@import "prototype/clearfix";
-@import "prototype/field";
-@import "prototype/float";
-@import "prototype/footer";
-@import "prototype/header";
-@import "prototype/heading";
-@import "prototype/island";
-@import "prototype/layout";
-@import "prototype/rhythm";
-@import "prototype/nav";
-@import "prototype/split";
-@import "prototype/table";
-
-//@import "theme/align";
-//@import "theme/button";
-//@import "theme/clearfix";
-//@import "theme/field";
-//@import "theme/float";
-//@import "theme/footer";
-//@import "theme/header";
-//@import "theme/heading";
-//@import "theme/island";
-//@import "theme/layout";
-//@import "theme/rhythm";
-//@import "theme/nav";
-//@import "theme/split";
-//@import "theme/table";
+@import "theme/align";
+@import "theme/button";
+@import "theme/clearfix";
+@import "theme/field";
+@import "theme/float";
+@import "theme/footer";
+@import "theme/header";
+@import "theme/heading";
+@import "theme/island";
+@import "theme/layout";
+@import "theme/rhythm";
+@import "theme/nav";
+@import "theme/split";
+@import "theme/table";
 
 
 
@@ -61,12 +45,68 @@
 //
 // Add any hacky or temporary CSS here.
 //
-//  /* Client wanted the logo bigger... so I did this. */
+
+//  /* Client wanted the logo bigger ASAP... */
 //  .header-generic--logo {
 //    height:200%;
 //    width:200%;
 //  }
 //
+
+@import "compass/css3/box-shadow";
+
+.styleguide--setting {
+  cursor: pointer;
+  position: relative;
+  &:after {
+    background: #00aad5;
+    color: #fff;
+    content: "?";
+    font-family: monospace;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 10px;
+    margin: 0 3px;
+    padding: 3px;
+  }
+  &:hover {
+    background: rgba(0, 170, 213, 0.2);
+    &:after {
+      left: 0;
+      position: relative;
+      white-space: nowrap;
+    }
+  }
+}
+
+.styleguide--fonts--heading {
+  @include font($heading-font);
+  &:hover:after {
+    content: "$heading-font: "+$heading-font;
+  }
+}
+
+.styleguide--fonts--body {
+  @include font($body-font);
+  &:hover:after {
+    content: "$body-font: "+$body-font;
+  }
+}
+
+.styleguide--fonts--bold {
+  @include font($bold-font);
+  &:hover:after {
+    content: "$bold-font: "+$bold-font;
+  }
+}
+
+.styleguide--fonts--italic {
+  @include font($italic-font);
+  &:hover:after {
+    content: "$italic-font: "+$italic-font;
+  }
+}
 
 
 

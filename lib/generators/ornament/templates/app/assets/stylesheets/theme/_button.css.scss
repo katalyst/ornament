@@ -2,12 +2,15 @@
 @import "compass/css3/inline-block";
 @import "compass/typography/links";
 
-$button-background: $link-color !default;
-$button-border-radius: $form-border-radius !default;
-$button-color: $alt-color !default;
-$button-dangerous-background: $error-color !default;
-$button-font-size: rem(0.8) !default;
-$button-secondary-background: $alt-background !default;
+$button-background:           #00aad5   !default;
+$button-border-radius:        0         !default;
+$button-color:                #ffffff   !default;
+$button-dangerous-background: #990000   !default;
+$button-dangerous-color:      #ffffff   !default;
+$button-font-size:            rem(1.0)  !default;
+$button-secondary-background: #333333   !default;
+$button-secondary-color:      #ffffff   !default;
+$button-small-font-size:      rem(0.8)  !default;
 
 .button {
   @include border-radius($button-border-radius);
@@ -35,6 +38,6 @@ $button-secondary-background: $alt-background !default;
 }
 
 .button-small {
-  font-size: 13px;
+  font-size: $button-small-font-size;
   padding: 0.2em 0.5em;
 }
