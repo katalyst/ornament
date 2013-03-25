@@ -23,7 +23,6 @@ class OrnamentGenerator < Rails::Generators::Base
   def core
     if options.core?
       copy_file "app/assets/stylesheets/application.css.scss"
-
       copy_file "app/assets/stylesheets/_fonts.css.scss"
       create_settings "app/assets/stylesheets/_settings.css.scss"
       copy_file "app/assets/stylesheets/ornament/_core.css.scss"
@@ -31,6 +30,7 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/stylesheets/ornament/_reset.css.scss"
       copy_file "app/assets/stylesheets/ornament/helpers/_color.css.scss"
       copy_file "app/assets/stylesheets/ornament/helpers/_rem.css.scss"
+      copy_file "app/assets/stylesheets/ornament/utilities/_color-set.css.scss"
       copy_file "app/assets/stylesheets/ornament/utilities/_font.css.scss"
       copy_file "app/assets/stylesheets/ornament/utilities/_pinned-footer.css.scss"
       copy_file "app/assets/stylesheets/ornament/utilities/_simple-link-colors.css.scss"
@@ -39,7 +39,6 @@ class OrnamentGenerator < Rails::Generators::Base
 
   def theme
     if options.theme?
-
       copy_file "app/assets/stylesheets/theme/_align.css.scss"
       copy_file "app/assets/stylesheets/theme/_button.css.scss"
       copy_file "app/assets/stylesheets/theme/_clearfix.css.scss"
