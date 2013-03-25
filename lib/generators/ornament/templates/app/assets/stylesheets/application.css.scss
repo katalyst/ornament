@@ -53,60 +53,214 @@
 //  }
 //
 
-@import "compass/css3/box-shadow";
+@import "compass/css3/box-sizing";
+@import "ornament/utilities/color-set";
+
+.styleguide {
+  padding-right: 50%;
+}
 
 .styleguide--setting {
-  cursor: pointer;
   position: relative;
   &:after {
-    background: #00aad5;
-    color: #fff;
-    content: "?";
+    @include box-sizing(border-box);
+    color: #00aad5;
+    background-color: #fff;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAIAAAAiZtkUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB1JREFUeNpi/P//PwMqYGLAACwQinH1NXyqAAIMAAtgBIk2Zp9XAAAAAElFTkSuQmCC'),
+                      url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAIAAAAiZtkUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi/P//PwMDA+PqawwwwMSAARghqpABFlUAAQYAr84Hg5FHjuoAAAAASUVORK5CYII='),
+                      url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAACCAIAAAD0PzoJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABpJREFUeNpi/P//PwMMMK6+BiSZGDAAQIABAI9hBIMsBQjmAAAAAElFTkSuQmCC');
+    background-position: 0 0, 0 100%, 0 0;
+    background-repeat: no-repeat, no-repeat, repeat-y;
     font-family: monospace;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: normal;
-    line-height: 10px;
-    margin: 0 3px;
-    padding: 3px;
-  }
-  &:hover {
-    background: rgba(0, 170, 213, 0.2);
-    &:after {
-      left: 0;
-      position: relative;
-      white-space: nowrap;
-    }
+    top: 0;
+    right: -100%;
+    line-height: 18px;
+    padding-left: 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 }
 
 .styleguide--fonts--heading {
   @include font($heading-font);
-  &:hover:after {
+  &:after {
     content: "$heading-font: "+$heading-font;
   }
 }
 
 .styleguide--fonts--body {
   @include font($body-font);
-  &:hover:after {
+  &:after {
     content: "$body-font: "+$body-font;
   }
 }
 
 .styleguide--fonts--bold {
   @include font($bold-font);
-  &:hover:after {
+  &:after {
     content: "$bold-font: "+$bold-font;
   }
 }
 
 .styleguide--fonts--italic {
   @include font($italic-font);
-  &:hover:after {
+  &:after {
     content: "$italic-font: "+$italic-font;
   }
 }
 
+.styleguide--typography--base-font-size {
+  font-size: $base-font-size;
+  &:after {
+    content: "$base-font-size: "+$base-font-size;
+  }
+}
 
+.styleguide--typography--base-line-height {
+  line-height: $base-line-height-ratio;
+  &:after {
+    content: "$base-line-height-ratio: "+$base-line-height-ratio;
+  }
+}
 
+.styleguide--typography--line-space {
+  background: #eee;
+  height: $line-space;
+  &:after {
+    content: "$line-space: "+$line-space;
+  }
+}
+
+.styleguide--colors--default-colors {
+  @include color-set($default-colors);
+  &:after {
+    content: "$default-colors: "+$default-colors;
+  }
+}
+
+.styleguide--colors--inverse-colors {
+  @include color-set($inverse-colors);
+  &:after {
+    content: "$inverse-colors: "+$inverse-colors;
+  }
+}
+
+.styleguide--colors--error-colors {
+  @include color-set($error-colors);
+  &:after {
+    content: "$error-colors: "+$error-colors;
+  }
+}
+
+.styleguide--colors--notice-colors {
+  @include color-set($notice-colors);
+  &:after {
+    content: "$notice-colors: "+$notice-colors;
+  }
+}
+
+.styleguide--colors--success-colors {
+  @include color-set($success-colors);
+  &:after {
+    content: "$success-colors: "+$success-colors;
+  }
+}
+
+.styleguide--spacing--spacing-ratio {
+  > * {
+    background: #eee;
+    width: percentage(1/(1+$spacing-ratio));
+  }
+  > * + * {
+    background: #aaa;
+    width: percentage($spacing-ratio/(1+$spacing-ratio));
+  }
+  border-left: 50% solid #eee;
+  &:after {
+    content: "$spacing-ratio: "+$spacing-ratio;
+  }
+}
+
+.styleguide--spacing--spacing-unit {
+  background: #eee;
+  height: $spacing-unit;
+  &:after {
+    content: "$spacing-unit: "+$spacing-unit;
+  }
+}
+
+.styleguide--spacing--xxx-small-space {
+  background: #eee;
+  height: $xxx-small-space;
+  &:after {
+    content: "$xxx-small-space: "+$xxx-small-space;
+  }
+}
+
+.styleguide--spacing--xx-small-space {
+  background: #eee;
+  height: $xx-small-space;
+  &:after {
+    content: "$xx-small-space: "+$xx-small-space;
+  }
+}
+
+.styleguide--spacing--x-small-space {
+  background: #eee;
+  height: $x-small-space;
+  &:after {
+    content: "$x-small-space: "+$x-small-space;
+  }
+}
+
+.styleguide--spacing--small-space {
+  background: #eee;
+  height: $small-space;
+  &:after {
+    content: "$small-space: "+$small-space;
+  }
+}
+
+.styleguide--spacing--space {
+  background: #eee;
+  height: $space;
+  &:after {
+    content: "$space: "+$space;
+  }
+}
+
+.styleguide--spacing--large-space {
+  background: #eee;
+  height: $large-space;
+  &:after {
+    content: "$large-space: "+$large-space;
+  }
+}
+
+.styleguide--spacing--x-large-space {
+  background: #eee;
+  height: $x-large-space;
+  &:after {
+    content: "$x-large-space: "+$x-large-space;
+  }
+}
+
+.styleguide--spacing--xx-large-space {
+  background: #eee;
+  height: $xx-large-space;
+  &:after {
+    content: "$xx-large-space: "+$xx-large-space;
+  }
+}
+
+.styleguide--spacing--xxx-large-space {
+  background: #eee;
+  height: $xxx-large-space;
+  &:after {
+    content: "$xxx-large-space: "+$xxx-large-space;
+  }
+}
