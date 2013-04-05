@@ -1,5 +1,0 @@
-$default-rem-base-size: $base-font-size !default;
-
-@function rem($number, $base-size: $default-rem-base-size) {
-  @return $number * $base-size;
-}

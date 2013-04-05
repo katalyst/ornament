@@ -54,6 +54,11 @@ module Dummy
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # FOR DEVELOPMENT PURPOSES ONLY
+    # Add the generator's assets directory to dummy app's assets path.
+    config.paths["app/assets"] << Rails.root.join("../../lib/generators/ornament/templates/app/assets")
+
   end
 end
 

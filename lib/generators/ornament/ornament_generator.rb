@@ -4,7 +4,8 @@ class OrnamentGenerator < Rails::Generators::Base
 
   class_option :gems,       :type => :boolean, :default => true
   class_option :core,       :type => :boolean, :default => true
-  class_option :theme,      :type => :boolean, :default => true
+  class_option :settings,   :type => :boolean, :default => true
+  class_option :components, :type => :boolean, :default => true
   class_option :ie_support, :type => :boolean, :default => true
   class_option :layouts,    :type => :boolean, :default => true
   class_option :styleguide, :type => :boolean, :default => true
@@ -22,9 +23,9 @@ class OrnamentGenerator < Rails::Generators::Base
 
   def core
     if options.core?
+      copy_file "app/assets/javascripts/application.js"
       copy_file "app/assets/stylesheets/application.css.scss"
       copy_file "app/assets/stylesheets/_fonts.css.scss"
-      create_settings "app/assets/stylesheets/_settings.css.scss"
       copy_file "app/assets/stylesheets/ornament/_core.css.scss"
       copy_file "app/assets/stylesheets/ornament/_defaults.css.scss"
       copy_file "app/assets/stylesheets/ornament/_reset.css.scss"
@@ -37,22 +38,30 @@ class OrnamentGenerator < Rails::Generators::Base
     end
   end
 
-  def theme
-    if options.theme?
-      copy_file "app/assets/stylesheets/theme/_align.css.scss"
-      copy_file "app/assets/stylesheets/theme/_button.css.scss"
-      copy_file "app/assets/stylesheets/theme/_clearfix.css.scss"
-      copy_file "app/assets/stylesheets/theme/_field.css.scss"
-      copy_file "app/assets/stylesheets/theme/_float.css.scss"
-      copy_file "app/assets/stylesheets/theme/_footer.css.scss"
-      copy_file "app/assets/stylesheets/theme/_header.css.scss"
-      copy_file "app/assets/stylesheets/theme/_heading.css.scss"
-      copy_file "app/assets/stylesheets/theme/_island.css.scss"
-      copy_file "app/assets/stylesheets/theme/_layout.css.scss"
-      copy_file "app/assets/stylesheets/theme/_rhythm.css.scss"
-      copy_file "app/assets/stylesheets/theme/_nav.css.scss"
-      copy_file "app/assets/stylesheets/theme/_split.css.scss"
-      copy_file "app/assets/stylesheets/theme/_table.css.scss"
+  def settings
+    if options.settings?
+      copy_file "app/assets/stylesheets/ornament/_defaults.css.scss", "app/assets/stylesheets/_settings.css.scss"
+      gsub_file "app/assets/stylesheets/_settings.css.scss", /\s*\!default;/, ";"
+      gsub_file "app/assets/stylesheets/_settings.css.scss", "\n//\n// Don't change settings here, do it in _settings.css.scss.", ""
+    end
+  end
+
+  def components
+    if options.components?
+      copy_file "app/assets/stylesheets/components/_align.css.scss"
+      copy_file "app/assets/stylesheets/components/_button.css.scss"
+      copy_file "app/assets/stylesheets/components/_clearfix.css.scss"
+      copy_file "app/assets/stylesheets/components/_field.css.scss"
+      copy_file "app/assets/stylesheets/components/_float.css.scss"
+      copy_file "app/assets/stylesheets/components/_footer.css.scss"
+      copy_file "app/assets/stylesheets/components/_header.css.scss"
+      copy_file "app/assets/stylesheets/components/_heading.css.scss"
+      copy_file "app/assets/stylesheets/components/_island.css.scss"
+      copy_file "app/assets/stylesheets/components/_layout.css.scss"
+      copy_file "app/assets/stylesheets/components/_rhythm.css.scss"
+      copy_file "app/assets/stylesheets/components/_nav.css.scss"
+      copy_file "app/assets/stylesheets/components/_split.css.scss"
+      copy_file "app/assets/stylesheets/components/_table.css.scss"
     end
   end
 
@@ -78,18 +87,10 @@ class OrnamentGenerator < Rails::Generators::Base
 
   def cleanup
     if options.cleanup?
-      if yes?("Remove the existing 'application.css' file?")
+      if yes?("Remove the existing 'application.css' file (a 'application.css.scss' file has been created instead)?")
         remove_file "app/assets/stylesheets/application.css"
       end
     end
-  end
-
-private
-
-  def create_settings(path)
-    copy_file "app/assets/stylesheets/ornament/_defaults.css.scss", path
-    gsub_file path, /\s*\!default;/, ";"
-    gsub_file path, "\n//\n// Don't change settings here, do it in _settings.css.scss.", ""
   end
 
 end
