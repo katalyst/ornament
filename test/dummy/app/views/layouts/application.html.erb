@@ -1,4 +1,8 @@
 <% content_for :global do %>
+  <h1>
+    <a id="main" name="main" tabindex="-1"></a>
+    <%= yield :title %>
+  </h1>
   <%= content_for?(:application) ? yield(:application) : yield %>
 <% end %>
 

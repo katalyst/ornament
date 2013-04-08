@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+
     <meta charset="utf-8"/>
-    <title><%= Rails.application.class.name.split("::").first.humanize %></title>
+    <title>
+      <%% if content_for?(:title) %>
+        <%%= yield :title %> &ndash;
+      <%% end %>
+      <%= Rails.application.class.name.split("::").first.humanize %>
+    </title>
+
+    <!-- META -->
+    <%%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=0.6667" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+    <%%= yield :meta %>
+
+    <!-- STYLES -->
     <%%= stylesheet_link_tag "application", :media => "all" %>
+    <%%= yield :styles %>
+
+    <!-- SCRIPTS -->
     <%%= javascript_include_tag "application" %>
     <%- if options.ie_support? -%>
     <!--[if lt IE 9]><%%= javascript_include_tag "IE9.js" %><![endif]-->
     <%- end -%>
-    <%%= csrf_meta_tags %>
+    <%%= yield :scripts %>
+
   </head>
+
   <body>
+
+    <a class="access--skip-link" href="#main">skip to content</a>
+
     <div class="layout">
       <div class="layout--content rhythm">
         <header class="header">
@@ -30,5 +53,7 @@
         </div>
       </footer>
     </div>
+
   </body>
+
 </html>
