@@ -1,12 +1,202 @@
-@media (min-width:1024px) {
+@import "compass/css3/inline-block";
 
-  .nav {
-    > ul > li {
-      display:inline;
-      & + li:before {
-        content: " | ";
-      }
-    }
+$nav-debug: $debug !default;
+
+// Reset OL & UL elements.
+.nav ol,
+.nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+// Reset BUTTON elements to look like links.
+.nav button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  text-transform: inherit;
+  -webkit-box-align: inherit;
+  -webkit-appearance: inherit;
+  height: auto;
+}
+
+.nav-horizontal {
+
+  position: relative;
+
+  ul {
+    // TODO: Remove text spacing.
+  }
+
+  li {
+    @include inline-block;
+    // TODO: Restore text spacing.
+    vertical-align: top;
+  }
+
+  li > a,
+  li > span,
+  li > button {
+    @include inline-block;
+    vertical-align: top;
+  }
+
+  > ul > li ul {
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 2;
+  }
+
+}
+
+.nav-dropdown {
+
+  li > a,
+  li > span,
+  li > button {
+    @include inline-block;
+    vertical-align: top;
+  }
+
+  > ul > li {
+    @include inline-block;
+    // TODO: Restore text spacing.
+    vertical-align: top;
+    position: relative;
+  }
+
+  > ul > li > ul {
+    left: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 2;
+  }
+
+  > ul > li > ul > li > ul {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+
+}
+
+//.nav-mobile {
+//
+//  > li {
+//    border-bottom: 1px solid $grey-medium;
+//    font-weight: bold;
+//  }
+//
+//  > li > a {
+//    color:#FFF;
+//    display:block;
+//    line-height:2;
+//    padding: 0 20px;
+//    &:hover {
+//      text-decoration: none;
+//    }
+//  }
+//
+//  > li > ul {
+//    @include background-image(linear-gradient(#f89e3d, #f18c1d));
+//    background: $secondary-color;
+//    margin: 0;
+//  }
+//
+//  > li > ul > li {
+//    border-top: 1px solid #f3bf83;
+//    font-weight: bold;
+//  }
+//
+//  > li > ul > li > a {
+//    color:#FFF;
+//    display:block;
+//    line-height:2;
+//    padding: 0 20px;
+//    &:hover {
+//      text-decoration: none;
+//    }
+//  }
+//
+//}
+
+//.nav-primary {
+//  > ul {
+//    line-height: 70px;
+//    margin: 0 auto;
+//    width: 960px;
+//
+//    > li {
+//      font-family: $heading-font-family;
+//      margin-left: 1.3em;
+//      font-size: 1.3em;
+//      text-transform: uppercase;
+//
+//      > button,
+//      > span,
+//      > a {
+//        @include link-colors(#fff, #fff, #fff, #fff, #fff);
+//        color: #FFF;
+//      }
+//
+//      > ul {
+//        background-color: $nav-sub-background;
+//        line-height: 40px;
+//
+//        > li {
+//          font-size: 0.7em;
+//          color: $nav-sub-color;
+//
+//          button,
+//          span,
+//          a {
+//            color: $nav-sub-color;
+//          }
+//
+//          padding: 0 10px;
+//        }
+//      }
+//    }
+//  }
+//}
+
+@if $nav-debug {
+
+  .nav > ul {
+    background: lighten(red, 20%);
+  }
+
+  .nav > ul > li {
+    background: red;
+  }
+
+  .nav > ul > li > ul {
+    background: lighten(orange, 20%);
+  }
+
+  .nav > ul > li > ul > li {
+    background: orange;
+  }
+
+  .nav > ul > li > ul > li > ul {
+    background: lighten(yellow, 20%);
+  }
+
+  .nav > ul > li > ul > li > ul > li {
+    background: yellow;
   }
 
 }

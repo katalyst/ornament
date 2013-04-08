@@ -48,6 +48,7 @@ class OrnamentGenerator < Rails::Generators::Base
 
   def components
     if options.components?
+      copy_file "app/assets/javascripts/components/nav.js"
       copy_file "app/assets/stylesheets/components/_align.css.scss"
       copy_file "app/assets/stylesheets/components/_button.css.scss"
       copy_file "app/assets/stylesheets/components/_clearfix.css.scss"
