@@ -5,11 +5,19 @@ The dummy app's "app/assets" configuration includes this path:
 
     ../../lib/generators/ornament/templates/app/assets
 
-This means you only need to re-run the generator when you make changes to the
-view files or the `_defaults.css.scss` file (because it's used to generated the
-`_settings.css.scss` file).
+The dummy app's "app/views" configuration includes this path:
 
-When you do run the generator, make sure you don't generate the asset files or
-gems by including these flags:
+    ../../lib/generators/ornament/templates/app/views
 
-    rails g ornament --skip-gems --skip-core --skip-components --skip-cleanup -f
+This means you can modify the files in the gem and see the changes in the app
+without re-running the generator.
+
+If you make changes to any of these files:
+
+lib/generators/ornament/templates/app/assets/ornament/_defaults.css.scss
+
+When you do run the generator, use this command:
+
+    rails g ornament --skip-gems --skip-core --skip-components --skip-styleguide --skip-cleanup -f
+
+This will make sure you don't generate the asset files, view files or gems.
