@@ -35,23 +35,51 @@
     <a class="access--skip-link" href="#main">skip to content</a>
 
     <div class="layout">
-      <div class="layout--content rhythm">
-        <header class="header">
-          <div class="layout--container">
-            <h1 class="header--title">
-              <%%= image_tag "http://placehold.it/200x100&text=LOGO", alt: "Logo" %>
-            </h1>
-          </div>
-        </header>
-        <section class="layout--container rhythm">
-          <%%= content_for?(:global) ? yield(:global) : yield %>
-        </section>
+
+      <div class="layout--mobile-nav">
+        mobile nav
+        <br />
+        mobile nav
       </div>
-      <footer class="layout--footer footer">
+
+      <div class="layout--content">
+
+        <header class="layout--mobile-header">
+          <button class="layout--switch">open navigation</button>
+          mobile header
+        </header>
+
+        <!-- All container classes are optional. -->
         <div class="layout--container">
-          footer
+          <header class="layout--desktop-header">
+            <div class="layout--container">
+              desktop header
+            </div>
+          </header>
+        </div>
+
+        <!-- All container classes are optional. -->
+        <div class="layout--container">
+          <section class="layout--main" role="main">
+            <div class="layout--container">
+              <%%= content_for?(:global) ? yield(:global) : yield %>
+            </div>
+          </section>
+        </div>
+
+        <footer class="layout--mobile-footer">
+          mobile footer
+        </footer>
+
+      </div>
+
+      <!-- All container classes are optional. -->
+      <footer class="layout--desktop-footer">
+        <div class="layout--container">
+          desktop footer
         </div>
       </footer>
+
     </div>
 
   </body>

@@ -1,26 +1,143 @@
-@import "ornament/utilities/pinned-footer";
+@import "compass/css3/box-sizing";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
 
-$layout-footer-height:  $space*2.8    !default;
-$layout-footer-gutter:  $space        !default;
-$layout-padding:        $small-space  !default;
-$layout-width:          960px         !default;
+$layout-debug:            $debug  !default;
+$layout-footer-height:    100px   !default;
+$layout-container-width:  800px   !default;
+$layout-breakpoint:       960px   !default;
 
-.layout {
-  @include pinned-footer-wrapper;
+// TODO: Rework the class names to have layout-desktop, layout-mobile &
+// layout-mobile-open.
+
+// LAYOUT (MOBILE)
+
+@media (max-width: $layout-breakpoint) {
+
+  .layout {
+    height: 100%;
+  }
+
+  .layout--mobile-nav {
+    display: none;
+  }
+
+  .layout--content {
+    min-height: 100%;
+  }
+
+  .layout--mobile-header {
+
+  }
+
+  .layout--switch {
+
+  }
+
+  .layout--desktop-header {
+    display: none;
+  }
+
+  .layout--main {
+
+  }
+
+  .layout--desktop-footer {
+    display: none;
+  }
+
 }
 
-.layout--content {
-  @include pinned-footer-content($layout-footer-height);
-  padding-bottom: $layout-footer-gutter;
+// LAYOUT-OPEN (MOBILE)
+
+@media (max-width: $layout-breakpoint) {
+
+  .layout-open .layout--mobile-nav {
+    display: block;
+    min-height: 100%;
+  }
+
+  .layout-open .layout--content {
+    height: 100%;
+    left: 80%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
 }
 
-.layout--footer {
-  @include pinned-footer($layout-footer-height);
+// LAYOUT (DESKTOP)
+
+@media (min-width: $layout-breakpoint) {
+
+  .layout {
+    left: 0;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .layout--content {
+    margin-bottom: $layout-footer-height;
+  }
+
+  .layout--mobile-nav {
+    display: none;
+  }
+
+  .layout--mobile-header {
+    display: none;
+  }
+
+  .layout--mobile-footer {
+    display: none;
+  }
+
+  .layout--desktop-footer {
+    bottom: 0;
+    height: $layout-footer-height;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .layout--container {
+    margin: 0 auto;
+    width: $layout-container-width;
+  }
+
 }
 
-.layout--container {
-  margin: 0 auto;
-  max-width: $layout-width;
-  padding-left: 10px;
-  padding-right: 10px;
+@if $layout-debug {
+
+  .layout {
+    background: rgb(191, 191, 191);
+  }
+
+  .layout--mobile-nav {
+    background: rgb(255, 127, 127);
+  }
+
+  .layout--content {
+    background: rgb(127, 255, 127);
+  }
+
+  .layout--mobile-header {
+    background: rgb(127, 127, 255);
+  }
+
+  .layout--desktop-header {
+    background: rgb(127, 127, 255);
+  }
+
+  .layout--main {
+    background: rgb(0, 191, 0);
+  }
+
+  .layout--desktop-footer {
+    background: rgb(127, 127, 255);
+  }
+
 }

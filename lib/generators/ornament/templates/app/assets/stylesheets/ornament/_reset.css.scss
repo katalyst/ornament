@@ -18,6 +18,20 @@
 
 
 
+// FORCE DOCUMENT HEIGHT
+//
+//
+// BODY & HTML elements should always be 100% of the viewports height and width.
+//
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+
+
 // IMPROVED RENDERING
 //
 //
