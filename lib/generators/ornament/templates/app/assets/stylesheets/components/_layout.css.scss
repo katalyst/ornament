@@ -18,7 +18,7 @@ $layout-breakpoint:       960px   !default;
     height: 100%;
   }
 
-  .layout--mobile-nav {
+  .layout--mobile-tray {
     display: none;
   }
 
@@ -52,7 +52,7 @@ $layout-breakpoint:       960px   !default;
 
 @media (max-width: $layout-breakpoint) {
 
-  .layout-open .layout--mobile-nav {
+  .layout-open .layout--mobile-tray {
     display: block;
     min-height: 100%;
   }
@@ -83,7 +83,7 @@ $layout-breakpoint:       960px   !default;
     margin-bottom: $layout-footer-height;
   }
 
-  .layout--mobile-nav {
+  .layout--mobile-tray {
     display: none;
   }
 
@@ -116,7 +116,7 @@ $layout-breakpoint:       960px   !default;
     background: rgb(191, 191, 191);
   }
 
-  .layout--mobile-nav {
+  .layout--mobile-tray {
     background: rgb(255, 127, 127);
   }
 
