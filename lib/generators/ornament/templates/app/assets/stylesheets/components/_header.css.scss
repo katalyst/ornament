@@ -1,15 +1,11 @@
-@import "ornament/utilities/simple-link-colors";
+@import "ornament/utilities/color-set";
 
 $header-colors: #333 #fff #00aad5 #00ccf7 !default;
 
 .header {
-  background: background-color($header-colors);
-  color: foreground-color($header-colors);
+  @include color-set($header-colors);
   padding: $small-space;
-  a {
-    @include simple-link-colors($header-colors);
-    &:hover {
-      text-decoration:none;
-    }
+  a:hover {
+    text-decoration:none;
   }
 }

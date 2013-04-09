@@ -49,32 +49,35 @@
           mobile header
         </header>
 
-        <!-- All container classes are optional. -->
+        <!-- The container is optional. -->
         <div class="layout--container">
           <header class="layout--desktop-header">
+            <!-- The container is optional. -->
             <div class="layout--container">
               desktop header
             </div>
           </header>
         </div>
 
-        <!-- All container classes are optional. -->
+        <!-- The container is optional. -->
         <div class="layout--container">
           <section class="layout--main" role="main">
+            <!-- The container is optional. -->
             <div class="layout--container">
               <%%= content_for?(:global) ? yield(:global) : yield %>
             </div>
           </section>
         </div>
 
+        <!-- The mobile footer is optional. -->
         <footer class="layout--mobile-footer">
           mobile footer
         </footer>
 
       </div>
 
-      <!-- All container classes are optional. -->
       <footer class="layout--desktop-footer">
+        <!-- The container is optional. -->
         <div class="layout--container">
           desktop footer
         </div>

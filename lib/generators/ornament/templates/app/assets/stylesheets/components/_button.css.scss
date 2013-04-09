@@ -1,25 +1,43 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/inline-block";
-@import "compass/typography/links";
+@import "ornament/utilities/simple-link-colors";
 
-$button-background:           #00aad5   !default;
-$button-border-radius:        0         !default;
-$button-color:                #ffffff   !default;
-$button-dangerous-background: #990000   !default;
-$button-dangerous-color:      #ffffff   !default;
-$button-font-size:            rem(1.0)  !default;
-$button-secondary-background: #333333   !default;
-$button-secondary-color:      #ffffff   !default;
-$button-small-font-size:      rem(0.8)  !default;
+$button-border-radius:    0               !default;
+$button-colors:           #00aad5 #ffffff !default;
+$button-dangerous-colors: #990000 #ffffff !default;
+$button-font-size:        rem(1.0)        !default;
+$button-secondary-colors: #333333 #ffffff !default;
+$button-small-font-size:  rem(0.8)        !default;
+
+// Reset BUTTON elements to look like links.
+.button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  text-transform: inherit;
+  -webkit-box-align: inherit;
+  -webkit-appearance: inherit;
+  height: auto;
+}
 
 .button {
   @include border-radius($button-border-radius);
   @include font($bold-font);
   @include inline-block;
-  @include link-colors($button-color, $button-color, $button-color, $button-color, $button-color);
-  background: $button-background;
-  color: $button-color;
+  @include simple-link-colors($button-colors);
+  background: background-color($button-colors);
   border: 0;
+  color: foreground-color($button-colors);
   font-size: $button-font-size;
   padding: 0.5em 0.8em;
   text-decoration: none;
@@ -30,11 +48,15 @@ $button-small-font-size:      rem(0.8)  !default;
 }
 
 .button-dangerous {
-  background: $button-dangerous-background;
+  @include simple-link-colors($button-dangerous-colors);
+  background: background-color($button-dangerous-colors);
+  color: foreground-color($button-dangerous-colors);
 }
 
 .button-secondary {
-  background: $button-secondary-background;
+  @include simple-link-colors($button-secondary-colors);
+  background: background-color($button-secondary-colors);
+  color: foreground-color($button-secondary-colors);
 }
 
 .button-small {
