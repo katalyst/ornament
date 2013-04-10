@@ -14,7 +14,6 @@
     <!-- META -->
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=0.6667" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
     <%= yield :meta %>
 
     <!-- STYLES -->
@@ -23,7 +22,10 @@
 
     <!-- SCRIPTS -->
     <%= javascript_include_tag "application" %>
-    <!--[if lt IE 9]><%= javascript_include_tag "IE9.js" %><![endif]-->
+    <!--[if lt IE 9]>
+      <%= javascript_include_tag "IE9.js" %>
+      <%= javascript_include_tag "css3-mediaqueries.js" %>
+    <![endif]-->
     <%= yield :scripts %>
 
   </head>
@@ -60,6 +62,7 @@
         <!-- The container is optional. -->
         <div class="layout--container">
           <section class="layout--main" role="main">
+            <a id="main" name="main" tabindex="-1"></a>
             <!-- The container is optional. -->
             <div class="layout--container">
               <%= content_for?(:global) ? yield(:global) : yield %>
