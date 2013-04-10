@@ -104,8 +104,8 @@ $layout-breakpoint:       960px   !default;
   }
 
   .layout--container {
+    max-width: $layout-container-width;
     margin: 0 auto;
-    width: $layout-container-width;
   }
 
 }
