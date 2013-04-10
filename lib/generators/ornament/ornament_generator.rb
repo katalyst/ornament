@@ -29,6 +29,7 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/stylesheets/ornament/_core.css.scss"
       copy_file "app/assets/stylesheets/ornament/_defaults.css.scss"
       copy_file "app/assets/stylesheets/ornament/_reset.css.scss"
+      copy_file "app/assets/stylesheets/ornament/_style.css.scss"
       copy_file "app/assets/stylesheets/ornament/helpers/_color.css.scss"
       copy_file "app/assets/stylesheets/ornament/helpers/_rem.css.scss"
       copy_file "app/assets/stylesheets/ornament/utilities/_color-set.css.scss"

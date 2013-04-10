@@ -2,27 +2,6 @@
 
 $nav-debug: $debug !default;
 
-// Reset BUTTON elements to look like links.
-.nav button {
-  -webkit-appearance: inherit;
-  -webkit-box-align: inherit;
-  background: transparent;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  display: inline;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  font: inherit;
-  height: auto;
-  line-height: inherit;
-  margin: 0;
-  padding: 0;
-  text-align: inherit;
-  text-transform: inherit;
-}
-
 .nav-horizontal {
 
   ul {

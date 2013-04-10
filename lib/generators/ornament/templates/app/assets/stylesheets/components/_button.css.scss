@@ -9,27 +9,6 @@ $button-font-size:        rem(1.0)        !default;
 $button-secondary-colors: #333333 #ffffff !default;
 $button-small-font-size:  rem(0.8)        !default;
 
-// Reset BUTTON elements to look like links.
-.button {
-  background: transparent;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  display: inline;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  font: inherit;
-  line-height: inherit;
-  margin: 0;
-  padding: 0;
-  text-align: inherit;
-  text-transform: inherit;
-  -webkit-box-align: inherit;
-  -webkit-appearance: inherit;
-  height: auto;
-}
-
 .button {
   @include border-radius($button-border-radius);
   @include font($bold-font);
