@@ -1,15 +1,17 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-// This is the base CSS file for your app. Import it into your layout.
+// This is the base CSS file for your application. Import this into your layout.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
 
 
 // ORNAMENT
+//
+// Apply Compass & Ornament resets, apply default Ornament styles, import helper
+// functions and import the fonts, settings & headings.
+//
 
-@import "fonts";
-@import "settings";
 @import "ornament/core";
 
 
@@ -17,10 +19,8 @@
 // COMPONENTS
 //
 //
-// Components that are going to be used in this project.
-//
-// - Remove any imports you're not using.
-// - Don't import any compass, mixin or function files here.
+// Import the components this project uses. Instead of importing Compass or
+// Ornament utilities/mixins here, import them directly into your components
 //
 
 @import "components/access";
@@ -45,11 +45,11 @@
 // OVERRIDES
 //
 //
-// Add any hacky or temporary CSS here.
+// Add any hacky or temporary styles here.
 //
 
 //  /* Client wanted the logo bigger ASAP... */
-//  .header-generic--logo {
+//  .header--logo {
 //    height:200%;
 //    width:200%;
 //  }
