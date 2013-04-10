@@ -1,11 +1,15 @@
+@import "compass/typography/links/hover-link";
 @import "ornament/utilities/color-set";
 
-$header-colors: #333 #fff #00aad5 #00ccf7 !default;
+$header-colors: #333 #fff #fff #00ccf7 !default;
 
 .header {
   @include color-set($header-colors);
   padding: $small-space;
-  a:hover {
-    text-decoration:none;
+  a {
+    @include hover-link;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

@@ -1,13 +1,16 @@
-@import "ornament/utilities/simple-link-colors";
+@import "compass/typography/links/hover-link";
+@import "ornament/utilities/color-set";
 
-$footer-colors: #ccc #333 !default;
+$footer-colors: #ccc #333 #333 #666 !default;
 
 .footer {
-  background: background-color($footer-colors);
-  color: foreground-color($footer-colors);
+  @include color-set($footer-colors);
   font-size: rem(0.8);
-  padding: $space 0;
+  padding: $small-space;
   a {
-    @include simple-link-colors($footer-colors);
+    @include hover-link;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
