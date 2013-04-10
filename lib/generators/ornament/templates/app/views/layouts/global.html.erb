@@ -24,7 +24,10 @@
     <!-- SCRIPTS -->
     <%%= javascript_include_tag "application" %>
     <%- if options.ie_support? -%>
-    <!--[if lt IE 9]><%%= javascript_include_tag "IE9.js" %><![endif]-->
+    <!--[if lt IE 9]>
+      <%%= javascript_include_tag "IE9.js" %>
+      <%%= javascript_include_tag "css3-mediaqueries.js" %>
+    <![endif]-->
     <%- end -%>
     <%%= yield :scripts %>
 

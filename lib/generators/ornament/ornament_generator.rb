@@ -72,6 +72,7 @@ class OrnamentGenerator < Rails::Generators::Base
   def ie_support
     if options.ie_support?
       copy_file "vendor/assets/javascripts/IE9.js"
+      copy_file "vendor/assets/javascripts/css3-mediaqueries.js"
     end
   end
 
