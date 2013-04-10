@@ -2,14 +2,15 @@ class OrnamentGenerator < Rails::Generators::Base
 
   source_root File.expand_path("../templates", __FILE__)
 
-  class_option :gems,       :type => :boolean, :default => true
-  class_option :core,       :type => :boolean, :default => true
-  class_option :settings,   :type => :boolean, :default => true
-  class_option :components, :type => :boolean, :default => true
-  class_option :ie_support, :type => :boolean, :default => true
-  class_option :layouts,    :type => :boolean, :default => true
-  class_option :styleguide, :type => :boolean, :default => true
-  class_option :cleanup,    :type => :boolean, :default => true
+  class_option :gems,         :type => :boolean, :default => true
+  class_option :core,         :type => :boolean, :default => true
+  class_option :settings,     :type => :boolean, :default => true
+  class_option :components,   :type => :boolean, :default => true
+  class_option :experimental, :type => :boolean, :default => false
+  class_option :ie_support,   :type => :boolean, :default => true
+  class_option :layouts,      :type => :boolean, :default => true
+  class_option :styleguide,   :type => :boolean, :default => true
+  class_option :cleanup,      :type => :boolean, :default => true
 
   def gems
     if options.gems?
@@ -53,20 +54,25 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/javascripts/components/layout.js"
       copy_file "app/assets/javascripts/components/nav.js"
       copy_file "app/assets/stylesheets/components/_access.css.scss"
-      copy_file "app/assets/stylesheets/components/_align.css.scss"
       copy_file "app/assets/stylesheets/components/_button.css.scss"
+      copy_file "app/assets/stylesheets/components/_footer.css.scss"
+      copy_file "app/assets/stylesheets/components/_header.css.scss"
+      copy_file "app/assets/stylesheets/components/_layout.css.scss"
+      copy_file "app/assets/stylesheets/components/_nav.css.scss"
+      copy_file "app/assets/stylesheets/components/_styleguide.css.scss"
+    end
+  end
+
+  def experimental
+    if options.experimental?
+      copy_file "app/assets/stylesheets/components/_align.css.scss"
       copy_file "app/assets/stylesheets/components/_clearfix.css.scss"
       copy_file "app/assets/stylesheets/components/_field.css.scss"
       copy_file "app/assets/stylesheets/components/_float.css.scss"
-      copy_file "app/assets/stylesheets/components/_footer.css.scss"
-      copy_file "app/assets/stylesheets/components/_header.css.scss"
       copy_file "app/assets/stylesheets/components/_heading.css.scss"
       copy_file "app/assets/stylesheets/components/_island.css.scss"
-      copy_file "app/assets/stylesheets/components/_layout.css.scss"
       copy_file "app/assets/stylesheets/components/_rhythm.css.scss"
-      copy_file "app/assets/stylesheets/components/_nav.css.scss"
       copy_file "app/assets/stylesheets/components/_split.css.scss"
-      copy_file "app/assets/stylesheets/components/_styleguide.css.scss"
       copy_file "app/assets/stylesheets/components/_table.css.scss"
     end
   end

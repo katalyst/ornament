@@ -24,21 +24,36 @@
 //
 
 @import "components/access";
-@import "components/align";
 @import "components/button";
-@import "components/clearfix";
-@import "components/field";
-@import "components/float";
 @import "components/footer";
 @import "components/header";
-@import "components/heading";
-@import "components/island";
 @import "components/layout";
-@import "components/rhythm";
 @import "components/nav";
-@import "components/split";
 @import "components/styleguide";
-@import "components/table";
+
+
+
+// EXPERIMENTAL
+//
+//
+// Import experimental Ornament components.
+//
+// To include the experimental components you need to use the `--experimental`
+// option with the Ornament generator:
+//
+//   rails generate ornament --experimental
+//
+
+// @import "experimental/align";
+// @import "experimental/clearfix";
+// @import "experimental/field";
+// @import "experimental/float";
+// @import "experimental/heading";
+// @import "experimental/island";
+// @import "experimental/rhythm";
+// @import "experimental/split";
+// @import "experimental/table";
+
 
 
 
