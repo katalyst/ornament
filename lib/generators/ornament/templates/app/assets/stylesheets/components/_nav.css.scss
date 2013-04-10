@@ -2,13 +2,6 @@
 
 $nav-debug: $debug !default;
 
-// Reset OL & UL elements.
-.nav ol,
-.nav ul {
-  margin: 0;
-  padding: 0;
-}
-
 // Reset BUTTON elements to look like links.
 .nav button {
   background: transparent;
