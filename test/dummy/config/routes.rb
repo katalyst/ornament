@@ -1,5 +1,6 @@
 Dummy::Application.routes.draw do
   match '/styleguide' => 'application#styleguide'
+  match '/:action' => 'application'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
