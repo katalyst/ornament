@@ -5,12 +5,12 @@ $nav-debug: $debug !default;
 .nav-horizontal {
 
   ul {
-    // TODO: Remove text spacing.
+    // TODO: Remove word/letter spacing.
   }
 
   li {
     @include inline-block;
-    // TODO: Restore text spacing.
+    // TODO: Restore word/letter spacing.
     vertical-align: top;
   }
 
