@@ -52,13 +52,13 @@ class OrnamentGenerator < Rails::Generators::Base
     if options.components?
       copy_file "app/assets/javascripts/components/accessibility.js"
       copy_file "app/assets/javascripts/components/layout.js"
-      copy_file "app/assets/javascripts/components/nav.js"
+      copy_file "app/assets/javascripts/components/navigation.js"
       copy_file "app/assets/stylesheets/components/_accessibility.css.scss"
       copy_file "app/assets/stylesheets/components/_button.css.scss"
       copy_file "app/assets/stylesheets/components/_footer.css.scss"
       copy_file "app/assets/stylesheets/components/_header.css.scss"
       copy_file "app/assets/stylesheets/components/_layout.css.scss"
-      copy_file "app/assets/stylesheets/components/_nav.css.scss"
+      copy_file "app/assets/stylesheets/components/_navigation.css.scss"
       copy_file "app/assets/stylesheets/components/_styleguide.css.scss"
     end
   end

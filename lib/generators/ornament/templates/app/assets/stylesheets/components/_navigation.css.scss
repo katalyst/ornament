@@ -2,7 +2,7 @@
 
 $nav-debug: $debug !default;
 
-.nav-horizontal {
+.navigation-horizontal {
 
   ul {
     // TODO: Remove word/letter spacing.
@@ -31,11 +31,11 @@ $nav-debug: $debug !default;
 
 }
 
-.nav-horizontal--container {
+.navigation-horizontal--container {
   position: relative;
 }
 
-.nav-dropdown {
+.navigation-dropdown {
 
   li > a,
   li > span,
@@ -69,27 +69,27 @@ $nav-debug: $debug !default;
 
 @if $nav-debug {
 
-  .nav > ul {
+  .navigation > ul {
     background: lighten(red, 20%);
   }
 
-  .nav > ul > li {
+  .navigation > ul > li {
     background: red;
   }
 
-  .nav > ul > li > ul {
+  .navigation > ul > li > ul {
     background: lighten(orange, 20%);
   }
 
-  .nav > ul > li > ul > li {
+  .navigation > ul > li > ul > li {
     background: orange;
   }
 
-  .nav > ul > li > ul > li > ul {
+  .navigation > ul > li > ul > li > ul {
     background: lighten(yellow, 20%);
   }
 
-  .nav > ul > li > ul > li > ul > li {
+  .navigation > ul > li > ul > li > ul > li {
     background: yellow;
   }
 
