@@ -38,11 +38,11 @@ $line-space:              $base-font-size * $base-line-height-ratio !default;
 // background, foreground, link, hover (optional)
 //
 
-$default-colors:  #ffffff #333333 #00aad5;
-$inverse-colors:  #ffffff #333333 #00aad5;
-$error-colors:    #990000 #ffcccc #ff0000;
-$notice-colors:   #999900 #ffffcc #ffff00;
-$success-colors:  #009900 #ccffcc #00ff00;
+$default-colors:  #ffffff #333333 #00aad5 !default;
+$inverse-colors:  #ffffff #333333 #00aad5 !default;
+$error-colors:    #990000 #ffcccc #ff0000 !default;
+$notice-colors:   #999900 #ffffcc #ffff00 !default;
+$success-colors:  #009900 #ccffcc #00ff00 !default;
 
 
 
