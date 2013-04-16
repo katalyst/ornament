@@ -64,15 +64,15 @@ class OrnamentGenerator < Rails::Generators::Base
 
   def experimental
     if options.experimental?
-      copy_file "app/assets/stylesheets/components/_align.css.scss"
-      copy_file "app/assets/stylesheets/components/_clearfix.css.scss"
-      copy_file "app/assets/stylesheets/components/_field.css.scss"
-      copy_file "app/assets/stylesheets/components/_float.css.scss"
-      copy_file "app/assets/stylesheets/components/_heading.css.scss"
-      copy_file "app/assets/stylesheets/components/_island.css.scss"
-      copy_file "app/assets/stylesheets/components/_rhythm.css.scss"
-      copy_file "app/assets/stylesheets/components/_split.css.scss"
-      copy_file "app/assets/stylesheets/components/_table.css.scss"
+      copy_file "app/assets/stylesheets/experimental/_align.css.scss"
+      copy_file "app/assets/stylesheets/experimental/_clearfix.css.scss"
+      copy_file "app/assets/stylesheets/experimental/_field.css.scss"
+      copy_file "app/assets/stylesheets/experimental/_float.css.scss"
+      copy_file "app/assets/stylesheets/experimental/_heading.css.scss"
+      copy_file "app/assets/stylesheets/experimental/_island.css.scss"
+      copy_file "app/assets/stylesheets/experimental/_rhythm.css.scss"
+      copy_file "app/assets/stylesheets/experimental/_split.css.scss"
+      copy_file "app/assets/stylesheets/experimental/_table.css.scss"
     end
   end
 
