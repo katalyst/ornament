@@ -1,0 +1,14 @@
+
+.tabs--nav {
+  a {
+    &.is-active {
+      font-weight: bold;
+    }
+  }
+}
+
+.tabs--panes {
+  > div {
+    
+  }
+}
