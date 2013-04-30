@@ -1,0 +1,87 @@
+<% content_for :title, "Component: Button" %>
+<% content_for :scripts do %>
+  <style>
+
+    .columns {
+      overflow: hidden;
+    }
+
+    .columns > div {
+      float: left;
+      padding: 0 20px;
+    }
+
+    .example-columns-1 {
+      margin-left: -4%;
+    }
+
+    .example-columns-2 {
+      margin-left: -2%;
+    }
+
+    .example-columns-1 > div {
+      margin: 0 0 2% 2%;
+      width: 48%;
+    }
+
+    .example-columns-2 > div {
+      border-left: 1px solid #ccc;
+      margin: 0 0 4% 4%;
+      width: 21%;
+    }
+
+    .example-columns-2 > div:first-child {
+      border-left: 0;
+    }
+
+  </style>
+<% end %>
+
+<div class="rhythm">
+
+  <section class="rhythm-tight">
+    <h2>2 Columns, 4% Gutter (<code>@include columns(2,4%);</code>)</h2>
+
+    <div class="columns example-columns-1">
+      <div>
+        <h3>Heading</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, modi adipisci unde veritatis aliquam rem at animi fuga natus cupiditate in recusandae iusto earum pariatur eaque voluptates quis necessitatibus quos!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, excepturi quibusdam adipisci aperiam ipsam ratione suscipit inventore dolorum autem laboriosam qui dicta rerum odit vero magnam fugit vel facere natus.</p>
+      </div>
+      <div>
+        <h3>Heading</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, modi adipisci unde veritatis aliquam rem at animi fuga natus cupiditate in recusandae iusto earum pariatur eaque voluptates quis necessitatibus quos!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, excepturi quibusdam adipisci aperiam ipsam ratione suscipit inventore dolorum autem laboriosam qui dicta rerum odit vero magnam fugit vel facere natus.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rhythm-tight">
+    <h2>4 Columns, 2% Gutter, Bordered (<code>@include columns(4,2%,2%,true);</code>)</h2>
+
+    <div class="columns example-columns-2">
+      <div>
+        <h3>Heading</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, modi adipisci unde veritatis aliquam rem at animi fuga natus cupiditate in recusandae iusto earum pariatur eaque voluptates quis necessitatibus quos!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, excepturi quibusdam adipisci aperiam ipsam ratione suscipit inventore dolorum autem laboriosam qui dicta rerum odit vero magnam fugit vel facere natus.</p>
+      </div>
+      <div>
+        <h3>Heading</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, modi adipisci unde veritatis aliquam rem at animi fuga natus cupiditate in recusandae iusto earum pariatur eaque voluptates quis necessitatibus quos!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, excepturi quibusdam adipisci aperiam ipsam ratione suscipit inventore dolorum autem laboriosam qui dicta rerum odit vero magnam fugit vel facere natus.</p>
+      </div>
+      <div>
+        <h3>Heading</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, modi adipisci unde veritatis aliquam rem at animi fuga natus cupiditate in recusandae iusto earum pariatur eaque voluptates quis necessitatibus quos!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, excepturi quibusdam adipisci aperiam ipsam ratione suscipit inventore dolorum autem laboriosam qui dicta rerum odit vero magnam fugit vel facere natus.</p>
+      </div>
+      <div>
+        <h3>Heading</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, modi adipisci unde veritatis aliquam rem at animi fuga natus cupiditate in recusandae iusto earum pariatur eaque voluptates quis necessitatibus quos!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, excepturi quibusdam adipisci aperiam ipsam ratione suscipit inventore dolorum autem laboriosam qui dicta rerum odit vero magnam fugit vel facere natus.</p>
+      </div>
+  
+    </div>
+  </section>
+
+</div>

@@ -1,0 +1,26 @@
+$border-color: #ccc;
+
+@mixin columns($count, $gutter: 2%, $bottom-gutter: $gutter, $borders: false) {
+  margin-left: -($gutter);
+  overflow: hidden;
+
+  // Check for borders
+  @if $borders == true {
+    
+    > div {
+      border-left: 1px solid $border-color;
+      padding: 0 $space;
+
+      &:first-child {
+        border-left: 0;
+      }
+    }
+  }
+
+  // Column Styles
+  > div {
+    float: left;
+    margin: 0 0 $bottom-gutter $gutter;
+    width: (100 / $count) - $gutter;
+  }
+}
