@@ -1,9 +1,21 @@
 <% content_for :title, "Component: Credit Card Module" %>
+<% content_for :styles do %>
+  <style>
+    .example-1 {
+      float: left;
+      width: 60%;
+    }
+    .example-2 {
+      float: right;
+      width: 36%;
+    }
+  </style>
+<% end %>
 
 <div class="rhythm">
 
   <section class="rhythm-tight">
-    <h2>Mini Tooltips</h2>
+    <h2>Credit Card Module</h2>
     <p>Dependancies: Tooltips</p>
 
     <%= form_tag({:action => "#" },{:class => "credit-card"}) do %>
@@ -17,6 +29,108 @@
           <p>Something important probably.</p>
         </div>
         <span class="tooltip-mega--anchor" data-tooltip-id="credit-card--ccv-tooltip">?</span>
+        <%= label_tag(:cc_ccv, "CCV") %>
+        <%= text_field_tag(:cc_ccv, nil, :placeholder => "101") %>
+      </div>
+      <div class="credit-card--card-holder">
+        <%= label_tag(:cc_holder, "Card Holder") %>
+        <%= text_field_tag(:cc_holder, nil, :placeholder => "John Smith") %>
+      </div>
+      <div class="credit-card--expiration">
+        <%= label_tag(:cc_expiration_month, "Expiration") %>
+        <div class="credit-card--expiration--month">
+          <%= select_tag(:cc_expiration_month, options_for_select([
+            ['1 - January','1'],
+            ['2 - February','2'],
+            ['3 - March','3'],
+            ['4 - April','4'],
+            ['5 - May','5'],
+            ['6 - June','6'],
+            ['7 - July','7'],
+            ['8 - August','8'],
+            ['9 - September','9'],
+            ['10 - October','10'],
+            ['11 - November','11'],
+            ['12 - December','12']
+          ])) %>
+        </div>
+        <div class="credit-card--expiration--year">
+          <% 
+            cc_years = Array.new;
+            (0..10).each do |i| 
+              cc_years << Time.now.year
+            end 
+          %>
+          <%= select_tag(:cc_expiration_year, options_for_select(cc_years)) %>
+        </div>
+      </div>
+    <% end %>
+
+  </section>
+
+  <section class="rhythm-tight">
+    <h2>Adaptable Widths and mobile display</h2>
+    <p>Widths are in percentages so the credit card module can be put in a container of any size. You can apply a secondary class of <code>credit-card-mobile</code> to the module to force it in to mobile mode.</p>
+
+    <%= form_tag({:action => "#" },{:class => "credit-card example-1"}) do %>
+      <div class="credit-card--card-number">
+        <%= label_tag(:cc_number, "Card Number") %>
+        <%= text_field_tag(:cc_number, nil, :placeholder => "1234 5678 9123 4567") %>
+      </div>
+      <div class="credit-card--ccv">
+        <div class="tooltip-mega" id="credit-card--ccv-tooltip-2">
+          <h2>What is a CCV?</h2>
+          <p>Something important probably.</p>
+        </div>
+        <span class="tooltip-mega--anchor" data-tooltip-id="credit-card--ccv-tooltip-2">?</span>
+        <%= label_tag(:cc_ccv, "CCV") %>
+        <%= text_field_tag(:cc_ccv, nil, :placeholder => "101") %>
+      </div>
+      <div class="credit-card--card-holder">
+        <%= label_tag(:cc_holder, "Card Holder") %>
+        <%= text_field_tag(:cc_holder, nil, :placeholder => "John Smith") %>
+      </div>
+      <div class="credit-card--expiration">
+        <%= label_tag(:cc_expiration_month, "Expiration") %>
+        <div class="credit-card--expiration--month">
+          <%= select_tag(:cc_expiration_month, options_for_select([
+            ['1 - January','1'],
+            ['2 - February','2'],
+            ['3 - March','3'],
+            ['4 - April','4'],
+            ['5 - May','5'],
+            ['6 - June','6'],
+            ['7 - July','7'],
+            ['8 - August','8'],
+            ['9 - September','9'],
+            ['10 - October','10'],
+            ['11 - November','11'],
+            ['12 - December','12']
+          ])) %>
+        </div>
+        <div class="credit-card--expiration--year">
+          <% 
+            cc_years = Array.new;
+            (0..10).each do |i| 
+              cc_years << Time.now.year
+            end 
+          %>
+          <%= select_tag(:cc_expiration_year, options_for_select(cc_years)) %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= form_tag({:action => "#" },{:class => "credit-card example-2 credit-card-mobile"}) do %>
+      <div class="credit-card--card-number">
+        <%= label_tag(:cc_number, "Card Number") %>
+        <%= text_field_tag(:cc_number, nil, :placeholder => "1234 5678 9123 4567") %>
+      </div>
+      <div class="credit-card--ccv">
+        <div class="tooltip-mega" id="credit-card--ccv-tooltip-3">
+          <h2>What is a CCV?</h2>
+          <p>Something important probably.</p>
+        </div>
+        <span class="tooltip-mega--anchor" data-tooltip-id="credit-card--ccv-tooltip-3">?</span>
         <%= label_tag(:cc_ccv, "CCV") %>
         <%= text_field_tag(:cc_ccv, nil, :placeholder => "101") %>
       </div>

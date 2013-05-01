@@ -2,6 +2,18 @@
 
 $cc-gutter: $space;
 
+// Mobile display as a mixin
+@mixin credit-card-mobile {
+  float: none !important;
+  padding: 0 !important;
+  width: 100% !important;
+
+  input {
+    margin-bottom: $cc-gutter;
+  }
+}
+
+
 .credit-card {
   border: 1px solid #ccc;
   padding: $cc-gutter;
@@ -54,13 +66,13 @@ $cc-gutter: $space;
     float: left;
 
     @media screen and (max-width: $layout-breakpoint) {
-      float: none !important;
-      padding: 0 !important;
-      width: 100% !important;
-
-      input {
-        margin-bottom: $cc-gutter;
-      }
+      @include credit-card-mobile;
     }
+  }
+}
+
+.credit-card-mobile {
+  > div {
+    @include credit-card-mobile;
   }
 }
