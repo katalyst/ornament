@@ -7,10 +7,6 @@ $cc-gutter: $space;
   padding: $cc-gutter;
   @include pie-clearfix;
 
-  > div {
-    float: left;
-  }
-
   label {
     display: block;
   }
@@ -52,5 +48,19 @@ $cc-gutter: $space;
       }
     }
     
+  }
+
+  > div {
+    float: left;
+
+    @media screen and (max-width: $layout-breakpoint) {
+      float: none !important;
+      padding: 0 !important;
+      width: 100% !important;
+
+      input {
+        margin-bottom: $cc-gutter;
+      }
+    }
   }
 }
