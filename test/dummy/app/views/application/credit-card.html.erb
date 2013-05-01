@@ -9,7 +9,7 @@
     <%= form_tag({:action => "#" },{:class => "credit-card"}) do %>
       <div class="credit-card--card-number">
         <%= label_tag(:cc_number, "Card Number") %>
-        <%= text_field_tag(:cc_number) %>
+        <%= text_field_tag(:cc_number, nil, :placeholder => "1234 5678 9123 4567") %>
       </div>
       <div class="credit-card--ccv">
         <div class="tooltip-mega" id="credit-card--ccv-tooltip">
@@ -18,11 +18,11 @@
         </div>
         <span class="tooltip-mega--anchor" data-tooltip-id="credit-card--ccv-tooltip">?</span>
         <%= label_tag(:cc_ccv, "CCV") %>
-        <%= text_field_tag(:cc_ccv) %>
+        <%= text_field_tag(:cc_ccv, nil, :placeholder => "101") %>
       </div>
       <div class="credit-card--card-holder">
         <%= label_tag(:cc_holder, "Card Holder") %>
-        <%= text_field_tag(:cc_holder) %>
+        <%= text_field_tag(:cc_holder, nil, :placeholder => "John Smith") %>
       </div>
       <div class="credit-card--expiration">
         <%= label_tag(:cc_expiration_month, "Expiration") %>
