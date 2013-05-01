@@ -1,0 +1,56 @@
+@import "compass/utilities/general/clearfix";
+
+$cc-gutter: $space;
+
+.credit-card {
+  border: 1px solid #ccc;
+  padding: $cc-gutter;
+  @include pie-clearfix;
+
+  > div {
+    float: left;
+  }
+
+  label {
+    display: block;
+  }
+
+  input,
+  select {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .credit-card--card-number {
+    width: 75%;
+    padding: 0 $cc-gutter $cc-gutter 0;
+  }
+
+  .credit-card--ccv {
+    width: 25%;
+    padding-bottom: $cc-gutter;
+
+    .tooltip-mega--anchor {
+      float: right;
+    }
+  }
+
+  .credit-card--card-holder {
+    width: 50%;
+    padding-right: $cc-gutter;
+  }
+
+  .credit-card--expiration {
+    width: 50%;
+
+    > div {
+      float: left;
+      width: 50%;
+
+      &.credit-card--expiration--month {
+        padding-right: $cc-gutter;
+      }
+    }
+    
+  }
+}
