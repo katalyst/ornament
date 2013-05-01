@@ -30,12 +30,12 @@ $cc-gutter: $space;
   }
 
   .credit-card--card-number {
-    width: 75%;
+    width: 85%;
     padding: 0 $cc-gutter $cc-gutter 0;
   }
 
   .credit-card--ccv {
-    width: 25%;
+    width: 15%;
     padding-bottom: $cc-gutter;
 
     .tooltip-mega--anchor {
@@ -53,10 +53,14 @@ $cc-gutter: $space;
 
     > div {
       float: left;
-      width: 50%;
 
       &.credit-card--expiration--month {
         padding-right: $cc-gutter;
+        width: 70%;
+      }
+
+      &.credit-card--expiration--year {
+        width: 30%;
       }
     }
     
