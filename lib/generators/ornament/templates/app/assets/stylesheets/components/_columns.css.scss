@@ -10,6 +10,7 @@ $border-color: #ccc;
     > div {
       border-left: 1px solid $border-color;
       padding: 0 $space;
+      display: inline; // ie7 fix
 
       &:first-child {
         border-left: 0;
