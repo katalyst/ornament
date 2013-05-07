@@ -59,6 +59,7 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/stylesheets/components/_layout.css.scss"
       copy_file "app/assets/stylesheets/components/_navigation.css.scss"
       copy_file "app/assets/stylesheets/components/_styleguide.css.scss"
+      copy_file "app/assets/stylesheets/components/_columns.css.scss"
     end
   end
 
