@@ -1,0 +1,34 @@
+@import "compass/typography/links/link-colors";
+
+$tooltip-debug:   $debug  !default;
+$tooltip-width:   300px   !default;
+$tooltip-z-index: 20      !default;
+
+.tooltip {
+  @include link-colors(inherit, inherit, inherit, inherit, inherit);
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.tooltip--outer {
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  z-index: $tooltip-z-index;
+}
+
+.tooltip--inner {
+  left: -($tooltip-width/2);
+  position: absolute;
+  width: $tooltip-width;
+}
+
+@if ($tooltip-debug) {
+  .tooltip--inner {
+    background: #FF2345;
+  }
+}
