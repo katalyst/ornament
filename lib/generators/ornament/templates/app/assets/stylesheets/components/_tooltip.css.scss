@@ -4,31 +4,60 @@ $tooltip-debug:   $debug  !default;
 $tooltip-width:   300px   !default;
 $tooltip-z-index: 20      !default;
 
+/*
+
+<span class="tooltip--wrapper">
+  <a class="tooltip" title="example">example</a>
+  <div class="tooltip--outer">
+    <div class="tooltip--inner">
+      <div class="tooltip--arrow">
+        example
+      </div>
+    </div>
+  </div>
+</span>
+
+*/
+
 .tooltip {
   @include link-colors(inherit, inherit, inherit, inherit, inherit);
   cursor: pointer;
-  position: relative;
   text-decoration: none;
   &:hover {
     text-decoration: none;
   }
 }
 
+.tooltip--wrapper {
+  position: relative;
+}
+
 .tooltip--outer {
-  bottom: 0;
+  top: 100%;
   left: 50%;
   position: absolute;
   z-index: $tooltip-z-index;
 }
 
 .tooltip--inner {
+  background: #4b9dd0;
+  border: 1px solid #fff;
+  color: #fff;
   left: -($tooltip-width/2);
+  padding: 0 10px;
   position: absolute;
+  top: 8px;
   width: $tooltip-width;
 }
 
+.tooltip--arrow {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACtJREFUeNpi/P//PwMSAHEYYRwmZAmfeRdhClAkYRIMyAqYkCVgAKYAIMAA/gcSpqERQbUAAAAASUVORK5CYII=);
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  margin-top: -4px;
+  padding-top: 4px;
+}
+
 @if ($tooltip-debug) {
-  .tooltip--inner {
-    background: #FF2345;
-  }
+  //
 }

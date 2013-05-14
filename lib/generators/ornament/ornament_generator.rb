@@ -37,6 +37,7 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/stylesheets/ornament/utilities/_font.css.scss"
       copy_file "app/assets/stylesheets/ornament/utilities/_pinned-footer.css.scss"
       copy_file "app/assets/stylesheets/ornament/utilities/_simple-link-colors.css.scss"
+      copy_file "vendor/assets/javascripts/jquery.livequery.js"
     end
   end
 
