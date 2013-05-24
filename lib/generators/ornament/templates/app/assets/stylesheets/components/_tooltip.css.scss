@@ -3,6 +3,7 @@
 $tooltip-debug:   $debug  !default;
 $tooltip-width:   300px   !default;
 $tooltip-z-index: 20      !default;
+$tooltip-color:   #4b9dd0 !default;
 
 /*
 
@@ -40,7 +41,7 @@ $tooltip-z-index: 20      !default;
 }
 
 .tooltip--inner {
-  background: #4b9dd0;
+  background: $tooltip-color;
   border: 1px solid #fff;
   color: #fff;
   left: -($tooltip-width/2);
@@ -48,14 +49,15 @@ $tooltip-z-index: 20      !default;
   position: absolute;
   top: 8px;
   width: $tooltip-width;
-}
 
-.tooltip--arrow {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACtJREFUeNpi/P//PwMSAHEYYRwmZAmfeRdhClAkYRIMyAqYkCVgAKYAIMAA/gcSpqERQbUAAAAASUVORK5CYII=);
-  background-position: 50% 0;
-  background-repeat: no-repeat;
-  margin-top: -4px;
-  padding-top: 4px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    border: 10px solid transparent;
+    border-bottom-color: $tooltip-color;
+  }
 }
 
 @if ($tooltip-debug) {
