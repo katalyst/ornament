@@ -1,14 +1,18 @@
 
-.tabs--nav {
-  a {
-    &.is-active {
-      font-weight: bold;
-    }
+.tabs--link {
+  cursor: pointer;
+  
+  &.tabs--link-active {
+    font-weight: bold;
   }
 }
 
-.tabs--panes {
-  > div {
-    
-  }
+.tabs--pane-inactive,
+.tabs--pane + .tabs--pane {
+  display: none;
+}
+
+.tabs--pane-active,
+.tabs--pane + .tabs--pane-active {
+  display: block;
 }
