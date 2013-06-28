@@ -55,6 +55,7 @@ $layout-breakpoint:       960px   !default;
   .layout-open .layout--mobile-tray {
     display: block;
     min-height: 100%;
+    width: 80%;
   }
 
   .layout-open .layout--content {
