@@ -18,6 +18,6 @@ lib/generators/ornament/templates/app/assets/ornament/_defaults.css.scss
 
 When you do run the generator, use this command:
 
-    rails g ornament --skip-gems --skip-core --skip-components --skip-styleguide --skip-cleanup -f
+    rails g ornament --skip-gems --skip-core --skip-components --skip-ie-support --skip-styleguide --skip-cleanup -f
 
 This will make sure you don't generate the asset files, view files or gems.
