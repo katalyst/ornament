@@ -25,18 +25,10 @@ class OrnamentGenerator < Rails::Generators::Base
   def core
     if options.core?
       copy_file "app/assets/javascripts/application.js"
+      directory "app/assets/javascripts/ornament"
       copy_file "app/assets/stylesheets/application.css.scss"
       copy_file "app/assets/stylesheets/_fonts.css.scss"
-      copy_file "app/assets/stylesheets/ornament/_core.css.scss"
-      copy_file "app/assets/stylesheets/ornament/_defaults.css.scss"
-      copy_file "app/assets/stylesheets/ornament/_reset.css.scss"
-      copy_file "app/assets/stylesheets/ornament/_style.css.scss"
-      copy_file "app/assets/stylesheets/ornament/helpers/_color.css.scss"
-      copy_file "app/assets/stylesheets/ornament/helpers/_rem.css.scss"
-      copy_file "app/assets/stylesheets/ornament/utilities/_color-set.css.scss"
-      copy_file "app/assets/stylesheets/ornament/utilities/_font.css.scss"
-      copy_file "app/assets/stylesheets/ornament/utilities/_pinned-footer.css.scss"
-      copy_file "app/assets/stylesheets/ornament/utilities/_simple-link-colors.css.scss"
+      directory "app/assets/stylesheets/ornament"
       copy_file "vendor/assets/javascripts/jquery.livequery.js"
     end
   end
@@ -50,37 +42,15 @@ class OrnamentGenerator < Rails::Generators::Base
 
   def components
     if options.components?
-      copy_file "app/assets/javascripts/components/accessibility.js"
-      copy_file "app/assets/javascripts/components/layout.js"
-      copy_file "app/assets/javascripts/components/navigation.js"
-      copy_file "app/assets/javascripts/components/slider.js"
-      copy_file "app/assets/javascripts/components/tabs.js"
-      copy_file "app/assets/javascripts/components/tooltip.js"
-      copy_file "app/assets/stylesheets/components/_accessibility.css.scss"
-      copy_file "app/assets/stylesheets/components/_button.css.scss"
-      copy_file "app/assets/stylesheets/components/_footer.css.scss"
-      copy_file "app/assets/stylesheets/components/_header.css.scss"
-      copy_file "app/assets/stylesheets/components/_layout.css.scss"
-      copy_file "app/assets/stylesheets/components/_navigation.css.scss"
-      copy_file "app/assets/stylesheets/components/_styleguide.css.scss"
-      copy_file "app/assets/stylesheets/components/_slider.css.scss"
-      copy_file "app/assets/stylesheets/components/_tabs.css.scss"
-      copy_file "app/assets/stylesheets/components/_tooltip.css.scss"
-      copy_file "vendor/assets/javascripts/jquery.flexslider.js"
+      directory "app/assets/javascripts/components"
+      directory "app/assets/stylesheets/components"
     end
   end
 
   def experimental
     if options.experimental?
-      copy_file "app/assets/stylesheets/experimental/_align.css.scss"
-      copy_file "app/assets/stylesheets/experimental/_clearfix.css.scss"
-      copy_file "app/assets/stylesheets/experimental/_field.css.scss"
-      copy_file "app/assets/stylesheets/experimental/_float.css.scss"
-      copy_file "app/assets/stylesheets/experimental/_heading.css.scss"
-      copy_file "app/assets/stylesheets/experimental/_island.css.scss"
-      copy_file "app/assets/stylesheets/experimental/_rhythm.css.scss"
-      copy_file "app/assets/stylesheets/experimental/_split.css.scss"
-      copy_file "app/assets/stylesheets/experimental/_table.css.scss"
+      directory "app/assets/javascripts/experimental"
+      directory "app/assets/stylesheets/experimental"
     end
   end
 
