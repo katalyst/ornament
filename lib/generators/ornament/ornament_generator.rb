@@ -2,18 +2,13 @@ class OrnamentGenerator < Rails::Generators::Base
 
   source_root File.expand_path("../templates", __FILE__)
 
-  class_option :gems,         :type => :boolean, :default => true
-  class_option :core,         :type => :boolean, :default => true
-  class_option :settings,     :type => :boolean, :default => true
-  class_option :components,   :type => :boolean, :default => true
+  class_option :development,  :type => :boolean, :default => false
   class_option :experimental, :type => :boolean, :default => false
-  class_option :ie_support,   :type => :boolean, :default => true
-  class_option :layouts,      :type => :boolean, :default => true
-  class_option :styleguide,   :type => :boolean, :default => true
-  class_option :cleanup,      :type => :boolean, :default => true
+  class_option :gems,         :type => :boolean, :default => true
+  class_option :settings,     :type => :boolean, :default => true
 
   def gems
-    if options.gems?
+    if options.gems? && !options.development?
       gem_group :assets do
         gem "sass-rails",    "~> 3.2.3"
         gem "uglifier",      ">= 1.0.3"
@@ -23,7 +18,7 @@ class OrnamentGenerator < Rails::Generators::Base
   end
 
   def core
-    if options.core?
+    unless options.development?
       copy_file "app/assets/javascripts/application.js"
       directory "app/assets/javascripts/ornament"
       copy_file "app/assets/stylesheets/application.css.scss"
@@ -41,43 +36,43 @@ class OrnamentGenerator < Rails::Generators::Base
   end
 
   def components
-    if options.components?
+    unless options.development?
       directory "app/assets/javascripts/components"
       directory "app/assets/stylesheets/components"
     end
   end
 
   def experimental
-    if options.experimental?
+    if options.experimental? && !options.development?
       directory "app/assets/javascripts/experimental"
       directory "app/assets/stylesheets/experimental"
     end
   end
 
   def ie_support
-    if options.ie_support?
+    unless options.development?
       copy_file "vendor/assets/javascripts/IE9.js"
       copy_file "vendor/assets/javascripts/css3-mediaqueries.js"
     end
   end
 
   def layouts
-    if options.layouts?
-      template "app/views/layouts/global.html.erb"
+    template "app/views/layouts/global.html.erb"
+    unless options.development?
       copy_file "app/views/layouts/application.html.erb"
     end
   end
 
   def styleguide
-    if options.styleguide?
+    unless options.development?
       route "match '/styleguide' => 'application#styleguide'"
       copy_file "app/views/application/styleguide.html.erb"
     end
   end
 
   def cleanup
-    if options.cleanup?
-      if yes?("Remove the existing 'application.css' file (a 'application.css.scss' file has been created instead)?")
+    unless options.development?
+      if yes?("Remove the existing 'application.css' file (a 'application.css.scss' file has been created to replace it)?")
         remove_file "app/assets/stylesheets/application.css"
       end
     end
