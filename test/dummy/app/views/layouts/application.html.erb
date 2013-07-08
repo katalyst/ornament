@@ -1,8 +1,0 @@
-<% content_for :global do %>
-  <h1>
-    <%= yield :title %>
-  </h1>
-  <%= content_for?(:application) ? yield(:application) : yield %>
-<% end %>
-
-<%= render :file => "layouts/global" %>
