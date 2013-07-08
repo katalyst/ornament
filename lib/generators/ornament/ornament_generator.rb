@@ -53,6 +53,7 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/javascripts/components/accessibility.js"
       copy_file "app/assets/javascripts/components/layout.js"
       copy_file "app/assets/javascripts/components/navigation.js"
+      copy_file "app/assets/javascripts/components/tabs.js"
       copy_file "app/assets/javascripts/components/tooltip.js"
       copy_file "app/assets/stylesheets/components/_accessibility.css.scss"
       copy_file "app/assets/stylesheets/components/_button.css.scss"
@@ -61,6 +62,7 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/stylesheets/components/_layout.css.scss"
       copy_file "app/assets/stylesheets/components/_navigation.css.scss"
       copy_file "app/assets/stylesheets/components/_styleguide.css.scss"
+      copy_file "app/assets/stylesheets/components/_tabs.css.scss"
       copy_file "app/assets/stylesheets/components/_tooltip.css.scss"
     end
   end
