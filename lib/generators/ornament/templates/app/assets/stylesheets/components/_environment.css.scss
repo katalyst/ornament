@@ -1,0 +1,20 @@
+%environment {
+  background:#000;
+  border-bottom:0.2em solid #fff;
+  color:#fff;
+  display:block;
+  padding:0.8em 0;
+  text-align:center;
+}
+
+.environment-development:before {
+  @extend %environment;
+  background:#666;
+  content:"DEVELOPMENT";
+}
+
+.environment-staging:before {
+  @extend %environment;
+  background:#900;
+  content:"STAGING";
+}

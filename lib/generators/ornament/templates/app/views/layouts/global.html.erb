@@ -4,6 +4,7 @@
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
 
     <meta charset="utf-8"/>
+
     <title>
       <%% if content_for?(:title) %>
         <%%= yield :title %> &ndash;
@@ -34,7 +35,7 @@
 
   <body>
 
-    <a class="accessibility--skip-link" href="#main">skip to content</a>
+    <a class="skip-link" href="#main">skip to content</a>
 
     <div class="layout">
 
@@ -44,7 +45,7 @@
         mobile nav
       </div>
 
-      <div class="layout--content">
+      <%%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
 
         <header class="layout--mobile-header" role="banner">
           <button class="layout--switch">open navigation</button>
@@ -86,7 +87,7 @@
         </div>
       </footer>
 
-    </div>
+    <%% end %>
 
   </body>
 
