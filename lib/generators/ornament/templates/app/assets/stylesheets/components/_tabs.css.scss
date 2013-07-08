@@ -1,18 +1,11 @@
-
 .tabs--link {
   cursor: pointer;
-  
-  &.tabs--link-active {
-    font-weight: bold;
-  }
 }
 
-.tabs--pane-inactive,
-.tabs--pane + .tabs--pane {
+.tabs--link-active {
+  font-weight: bold;
+}
+
+.tabs--pane-inactive {
   display: none;
-}
-
-.tabs--pane-active,
-.tabs--pane + .tabs--pane-active {
-  display: block;
 }
