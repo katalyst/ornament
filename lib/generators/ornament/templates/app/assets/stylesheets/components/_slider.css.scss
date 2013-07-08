@@ -1,0 +1,51 @@
+
+.slider {
+  position: relative;
+  zoom: 1;
+  overflow: visible;
+  padding-bottom: 2em;
+}
+
+// BULLET NAVIGATION
+
+.slider--control-paging {
+  clear: both;
+  zoom: 1;
+  z-index: 20;
+  position: relative;
+
+  > li {
+    float: left;
+    margin-right: $space;
+
+    a {
+      cursor: pointer;
+
+      &.slider--active {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// NEXT/PREV BUTTONS
+
+.slider--direction-nav {
+  height: 0;
+
+  a {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    margin-top: -10px;
+
+    &.slider--prev {
+      left: 0;
+    }
+
+    &.slider--next {
+      right: 0;
+    }
+  }
+}
