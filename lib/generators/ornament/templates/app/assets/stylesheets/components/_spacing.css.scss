@@ -1,0 +1,21 @@
+$spacing-size:        $space        !default;
+$spacing-tight-size:  $small-space  !default;
+$spacing-loose-size:  $large-space  !default;
+
+.spacing {
+  > * + * {
+    margin-top: $spacing-size;
+  }
+}
+
+.spacing-tight {
+  > * + * {
+    margin-top: $spacing-tight-size;
+  }
+}
+
+.spacing-loose {
+  > * + * {
+    margin-top: $spacing-loose-size;
+  }
+}
