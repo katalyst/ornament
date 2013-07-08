@@ -1,0 +1,65 @@
+@import "compass/typography/links/link-colors";
+
+$tooltip-debug:   $debug  !default;
+$tooltip-width:   300px   !default;
+$tooltip-z-index: 20      !default;
+$tooltip-color:   #4b9dd0 !default;
+
+/*
+
+<span class="tooltip--wrapper">
+  <a class="tooltip" title="example">example</a>
+  <div class="tooltip--outer">
+    <div class="tooltip--inner">
+      <div class="tooltip--arrow">
+        example
+      </div>
+    </div>
+  </div>
+</span>
+
+*/
+
+.tooltip {
+  @include link-colors(inherit, inherit, inherit, inherit, inherit);
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.tooltip--wrapper {
+  position: relative;
+}
+
+.tooltip--outer {
+  top: 100%;
+  left: 50%;
+  position: absolute;
+  z-index: $tooltip-z-index;
+}
+
+.tooltip--inner {
+  background: $tooltip-color;
+  border: 1px solid #fff;
+  color: #fff;
+  left: -($tooltip-width/2);
+  padding: 0 10px;
+  position: absolute;
+  top: 8px;
+  width: $tooltip-width;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    border: 10px solid transparent;
+    border-bottom-color: $tooltip-color;
+  }
+}
+
+@if ($tooltip-debug) {
+  //
+}

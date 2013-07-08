@@ -37,6 +37,7 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/stylesheets/ornament/utilities/_font.css.scss"
       copy_file "app/assets/stylesheets/ornament/utilities/_pinned-footer.css.scss"
       copy_file "app/assets/stylesheets/ornament/utilities/_simple-link-colors.css.scss"
+      copy_file "vendor/assets/javascripts/jquery.livequery.js"
     end
   end
 
@@ -53,7 +54,8 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/javascripts/components/layout.js"
       copy_file "app/assets/javascripts/components/navigation.js"
       copy_file "app/assets/javascripts/components/slider.js"
-      copy_file "app/assets/javascripts/components/_tabs.js"
+      copy_file "app/assets/javascripts/components/tabs.js"
+      copy_file "app/assets/javascripts/components/tooltip.js"
       copy_file "app/assets/stylesheets/components/_accessibility.css.scss"
       copy_file "app/assets/stylesheets/components/_button.css.scss"
       copy_file "app/assets/stylesheets/components/_footer.css.scss"
@@ -63,6 +65,7 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/stylesheets/components/_styleguide.css.scss"
       copy_file "app/assets/stylesheets/components/_slider.css.scss"
       copy_file "app/assets/stylesheets/components/_tabs.css.scss"
+      copy_file "app/assets/stylesheets/components/_tooltip.css.scss"
       copy_file "vendor/assets/javascripts/jquery.flexslider.js"
     end
   end
