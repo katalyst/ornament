@@ -1,76 +1,437 @@
 <% content_for :title, "Styleguide" %>
 
-<div class="rhythm-loose">
+<div class="spacing-loose">
 
-  <section class="rhythm">
+  <section class="spacing">
     <h2>Fonts</h2>
-    <div class="styleguide rhythm-tight">
-      <div class="styleguide--setting styleguide--fonts--heading">Lorem Ipsum</div>
-      <p class="styleguide--setting styleguide--fonts--body">
-        Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-      </p>
-      <p class="styleguide--setting styleguide--fonts--bold">
-        Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-      </p>
-      <p class="styleguide--setting styleguide--fonts--italic">
-        Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-      </p>
-    </div>
+    <table class="styleguide--table">
+      <tbody>
+        <tr>
+          <th scope="row">
+            <code><pre>$heading-font</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--heading-font--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--heading-font--sample">
+              Lorem ipsum!
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$body-font</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--body-font--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--body-font--sample">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$bold-font</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--bold-font--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--bold-font--sample">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$italic-font</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--italic-font--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--italic-font--sample">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
-  <section class="rhythm">
+  <section class="spacing">
     <h2>Typography</h2>
-    <ul class="styleguide rhythm-tight">
-      <li class="styleguide--setting styleguide--typography--base-font-size">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </li>
-      <li class="styleguide--setting styleguide--typography--base-line-height">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </li>
-      <li class="styleguide--setting styleguide--typography--line-space">&nbsp;</li>
-    </ul>
+    <table class="styleguide--table">
+      <tbody>
+        <tr>
+          <th scope="row">
+            <code><pre>$base-font-size</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--base-font-size--value"></pre></code>
+          </td>
+          <td rowspan="3">
+            <span class="styleguide--base-font-size--sample">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$base-line-height</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--base-line-height--value"></pre></code>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$line-space</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--line-space--value"></pre></code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
-  <section class="rhythm">
+  <section class="spacing">
     <h2>Colors</h2>
-    <ul class="styleguide rhythm-tight">
-      <li class="styleguide--setting styleguide--colors--default-colors">Example <a href="#">link</a>.</li>
-      <li class="styleguide--setting styleguide--colors--inverse-colors">Example <a href="#">link</a>.</li>
-      <li class="styleguide--setting styleguide--colors--error-colors">Example <a href="#">link</a>.</li>
-      <li class="styleguide--setting styleguide--colors--notice-colors">Example <a href="#">link</a>.</li>
-      <li class="styleguide--setting styleguide--colors--success-colors">Example <a href="#">link</a>.</li>
-    </ul>
+    <table class="styleguide--table">
+      <tbody>
+        <tr>
+          <th scope="row">
+            <code><pre>$foreground-color</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--foreground-color--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--foreground-color--sample">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$background-color</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--background-color--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--background-color--sample">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$link-color</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--link-color--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--link-color--sample">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$link-hover-color</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--link-hover-color--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--link-hover-color--sample">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$error-color</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--error-color--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--error-color--sample">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$notice-color</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--notice-color--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--notice-color--sample">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$success-color</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--success-color--value"></pre></code>
+          </td>
+          <td>
+            <span class="styleguide--success-color--sample">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
-  <section class="rhythm">
+  <section class="spacing">
     <h2>Spacing</h2>
-    <ul class="styleguide rhythm-tight">
-      <li class="styleguide--setting styleguide--spacing--spacing-ratio">
-        <div>&nbsp;</div>
-        <div>&nbsp;</div>
-      </li>
-      <li class="styleguide--setting styleguide--spacing--spacing-unit">&nbsp;</li>
-      <li class="styleguide--setting styleguide--spacing--xxx-small-space">&nbsp;</li>
-      <li class="styleguide--setting styleguide--spacing--xx-small-space">&nbsp;</li>
-      <li class="styleguide--setting styleguide--spacing--x-small-space">&nbsp;</li>
-      <li class="styleguide--setting styleguide--spacing--small-space">&nbsp;</li>
-      <li class="styleguide--setting styleguide--spacing--space">&nbsp;</li>
-      <li class="styleguide--setting styleguide--spacing--large-space">&nbsp;</li>
-      <li class="styleguide--setting styleguide--spacing--x-large-space">&nbsp;</li>
-      <li class="styleguide--setting styleguide--spacing--xx-large-space">&nbsp;</li>
-      <li class="styleguide--setting styleguide--spacing--xxx-large-space">&nbsp;</li>
-    </ul>
+    <table class="styleguide--table">
+      <tbody>
+        <tr>
+          <th scope="row">
+            <code><pre>$spacing-ratio</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--spacing-ratio--value"></pre></code>
+          </td>
+          <td rowspan="2">
+            <div class="styleguide--spacing-ratio--sample">
+              <span>ABC</span>
+              <span>ABC</span>
+              <span>ABC</span>
+              <span>ABC</span>
+              <span>ABC</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$spacing-unit</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--spacing-unit--value"></pre></code>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$xxx-small-space</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--xxx-small-space--value"></pre></code>
+          </td>
+          <td>
+            <div class="styleguide--xxx-small-space--sample"></div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$xx-small-space</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--xx-small-space--value"></pre></code>
+          </td>
+          <td>
+            <div class="styleguide--xx-small-space--sample"></div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$x-small-space</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--x-small-space--value"></pre></code>
+          </td>
+          <td>
+            <div class="styleguide--x-small-space--sample"></div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$small-space</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--small-space--value"></pre></code>
+          </td>
+          <td>
+            <div class="styleguide--small-space--sample"></div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$space</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--space--value"></pre></code>
+          </td>
+          <td>
+            <div class="styleguide--space--sample"></div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$large-space</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--large-space--value"></pre></code>
+          </td>
+          <td>
+            <div class="styleguide--large-space--sample"></div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$x-large-space</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--x-large-space--value"></pre></code>
+          </td>
+          <td>
+            <div class="styleguide--x-large-space--sample"></div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$xx-large-space</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--xx-large-space--value"></pre></code>
+          </td>
+          <td>
+            <div class="styleguide--xx-large-space--sample"></div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$xxx-large-space</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--xxx-large-space--value"></pre></code>
+          </td>
+          <td>
+            <div class="styleguide--xxx-large-space--sample"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="spacing">
+    <h2>Inputs</h2>
+    <table class="styleguide--table">
+      <tbody>
+        <tr>
+          <th scope="row">
+            <code><pre>$input-background</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--input-background--value"></pre></code>
+          </td>
+          <td rowspan="7">
+            <div class="styleguide--input-background--sample spacing-tight">
+              <input type="text" value="Example"/>
+              <input type="password" value="Example"/>
+              <textarea>Example</textarea>
+              <ul>
+                <li>
+                  <label><input type="checkbox"/> Example A</label>
+                </li>
+                <li>
+                  <label><input type="checkbox"/> Example B</label>
+                </li>
+                <li>
+                  <label><input type="checkbox"/> Example C</label>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <label><input type="radio" name="example"/> Example A</label>
+                </li>
+                <li>
+                  <label><input type="radio" name="example"/> Example B</label>
+                </li>
+                <li>
+                  <label><input type="radio" name="example"/> Example C</label>
+                </li>
+              </ul>
+              <select>
+                <option>Example A</option>
+                <option>Example B</option>
+                <option>Example C</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$input-border</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--input-border--value"></pre></code>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$input-border-radius</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--input-border-radius--value"></pre></code>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$input-color</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--input-color--value"></pre></code>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$input-padding</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--input-padding--value"></pre></code>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$input-width</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--input-width--value"></pre></code>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <code><pre>$textarea-height</pre></code>
+          </th>
+          <td>
+            <code><pre class="styleguide--textarea-height--value"></pre></code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
 </div>

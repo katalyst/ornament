@@ -1,211 +1,298 @@
-@import "compass/css3/box-sizing";
-@import "ornament/utilities/color-set";
-
-.styleguide {
-  padding-right: 50%;
-}
-
-.styleguide--setting {
-  position: relative;
-  &:after {
-    @include box-sizing(border-box);
-    color: #00aad5;
-    background-color: #fff;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAIAAAAiZtkUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB1JREFUeNpi/P//PwMqYGLAACwQinH1NXyqAAIMAAtgBIk2Zp9XAAAAAElFTkSuQmCC'),
-                      url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAIAAAAiZtkUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi/P//PwMDA+PqawwwwMSAARghqpABFlUAAQYAr84Hg5FHjuoAAAAASUVORK5CYII='),
-                      url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAACCAIAAAD0PzoJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABpJREFUeNpi/P//PwMMMK6+BiSZGDAAQIABAI9hBIMsBQjmAAAAAElFTkSuQmCC');
-    background-position: 0 0, 0 100%, 0 0;
-    background-repeat: no-repeat, no-repeat, repeat-y;
-    font-family: monospace;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: normal;
-    top: 0;
-    right: -100%;
-    line-height: 18px;
-    padding-left: 20px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.styleguide--table {
+  th, td {
+    padding: 0.3em 0.5em;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
   }
 }
 
-.styleguide--fonts--heading {
+@media screen and (max-width: $layout-breakpoint) {
+  .styleguide--table tr > * {
+    display: none;
+  }
+  .styleguide--table tr > * + * + * {
+    display: table-cell;
+    padding: 0.3em 0;
+  }
+}
+
+/* FONTS */
+
+.styleguide--heading-font--value:before {
+  content: ""+$heading-font;
+}
+
+.styleguide--heading-font--sample {
   @include font($heading-font);
-  &:after {
-    content: "$heading-font: "+$heading-font;
-  }
 }
 
-.styleguide--fonts--body {
+.styleguide--body-font--value:before {
+  content: ""+$body-font;
+}
+
+.styleguide--body-font--sample {
   @include font($body-font);
-  &:after {
-    content: "$body-font: "+$body-font;
-  }
 }
 
-.styleguide--fonts--bold {
+.styleguide--bold-font--value:before {
+  content: ""+$bold-font;
+}
+
+.styleguide--bold-font--sample {
   @include font($bold-font);
-  &:after {
-    content: "$bold-font: "+$bold-font;
-  }
 }
 
-.styleguide--fonts--italic {
+.styleguide--italic-font--value:before {
+  content: ""+$italic-font;
+}
+
+.styleguide--italic-font--sample {
   @include font($italic-font);
-  &:after {
-    content: "$italic-font: "+$italic-font;
-  }
 }
 
-.styleguide--typography--base-font-size {
+/* TYPOGRAPHY */
+
+.styleguide--base-font-size--value:before {
+  content: ""+$base-font-size;
+}
+
+.styleguide--base-font-size--sample {
   font-size: $base-font-size;
-  &:after {
-    content: "$base-font-size: "+$base-font-size;
+}
+
+.styleguide--base-line-height--value:before {
+  content: ""+$base-line-height;
+}
+
+.styleguide--line-space--value:before {
+  content: ""+$line-space;
+}
+
+/* COLOURS */
+
+.styleguide--foreground-color--value:before {
+  content: ""+$foreground-color;
+}
+
+.styleguide--foreground-color--sample {
+  color: $foreground-color;
+}
+
+.styleguide--background-color--value:before {
+  content: ""+$background-color;
+}
+
+.styleguide--background-color--sample {
+  color: $background-color;
+}
+
+.styleguide--link-color--value:before {
+  content: ""+$link-color;
+}
+
+.styleguide--link-color--sample {
+  color: $link-color;
+}
+
+.styleguide--link-hover-color--value:before {
+  content: ""+$link-hover-color;
+}
+
+.styleguide--link-hover-color--sample {
+  @if ($link-hover-color == false) {
+    color: $link-color;
+  } @else {
+    color: $link-hover-color;
   }
 }
 
-.styleguide--typography--base-line-height {
-  line-height: $base-line-height-ratio;
-  &:after {
-    content: "$base-line-height-ratio: "+$base-line-height-ratio;
+.styleguide--error-color--value:before {
+  content: ""+$error-color;
+}
+
+.styleguide--error-color--sample {
+  color: $error-color;
+}
+
+.styleguide--notice-color--value:before {
+  content: ""+$notice-color;
+}
+
+.styleguide--notice-color--sample {
+  color: $notice-color;
+}
+
+.styleguide--success-color--value:before {
+  content: ""+$success-color;
+}
+
+.styleguide--success-color--sample {
+  color: $success-color;
+}
+
+/* SPACES */
+
+.styleguide--spacing-ratio--value:before {
+  content: ""+$spacing-ratio;
+}
+
+.styleguide--spacing-ratio--sample {
+  * {
+    font-size: percentage(pow($spacing-ratio, -2));
+  }
+  * + * {
+    font-size: percentage(pow($spacing-ratio, -1));
+  }
+  * + * + * {
+    font-size: percentage(pow($spacing-ratio, 0));
+  }
+  * + * + * + * {
+    font-size: percentage(pow($spacing-ratio, 1));
+  }
+  * + * + * + * + * {
+    font-size: percentage(pow($spacing-ratio, 2));
   }
 }
 
-.styleguide--typography--line-space {
-  background: #eee;
-  height: $line-space;
-  &:after {
-    content: "$line-space: "+$line-space;
-  }
+.styleguide--spacing-unit--value:before {
+  content: ""+$spacing-unit;
 }
 
-.styleguide--colors--default-colors {
-  @include color-set($default-colors);
-  &:after {
-    content: "$default-colors: "+$default-colors;
-  }
+.styleguide--xxx-small-space--value:before {
+  content: ""+$xxx-small-space;
 }
 
-.styleguide--colors--inverse-colors {
-  @include color-set($inverse-colors);
-  &:after {
-    content: "$inverse-colors: "+$inverse-colors;
-  }
-}
-
-.styleguide--colors--error-colors {
-  @include color-set($error-colors);
-  &:after {
-    content: "$error-colors: "+$error-colors;
-  }
-}
-
-.styleguide--colors--notice-colors {
-  @include color-set($notice-colors);
-  &:after {
-    content: "$notice-colors: "+$notice-colors;
-  }
-}
-
-.styleguide--colors--success-colors {
-  @include color-set($success-colors);
-  &:after {
-    content: "$success-colors: "+$success-colors;
-  }
-}
-
-.styleguide--spacing--spacing-ratio {
-  > * {
-    background: #eee;
-    width: percentage(1/(1+$spacing-ratio));
-  }
-  > * + * {
-    background: #aaa;
-    width: percentage($spacing-ratio/(1+$spacing-ratio));
-  }
-  border-left: 50% solid #eee;
-  &:after {
-    content: "$spacing-ratio: "+$spacing-ratio;
-  }
-}
-
-.styleguide--spacing--spacing-unit {
-  background: #eee;
-  height: $spacing-unit;
-  &:after {
-    content: "$spacing-unit: "+$spacing-unit;
-  }
-}
-
-.styleguide--spacing--xxx-small-space {
-  background: #eee;
+.styleguide--xxx-small-space--sample {
+  background: #333;
   height: $xxx-small-space;
-  &:after {
-    content: "$xxx-small-space: "+$xxx-small-space;
-  }
+  min-width: 2em;
+  width: 100%;
 }
 
-.styleguide--spacing--xx-small-space {
-  background: #eee;
+.styleguide--xx-small-space--value:before {
+  content: ""+$xx-small-space;
+}
+
+.styleguide--xx-small-space--sample {
+  background: #333;
   height: $xx-small-space;
-  &:after {
-    content: "$xx-small-space: "+$xx-small-space;
-  }
+  min-width: 2em;
+  width: 100%;
 }
 
-.styleguide--spacing--x-small-space {
-  background: #eee;
+.styleguide--x-small-space--value:before {
+  content: ""+$x-small-space;
+}
+
+.styleguide--x-small-space--sample {
+  background: #333;
   height: $x-small-space;
-  &:after {
-    content: "$x-small-space: "+$x-small-space;
-  }
+  min-width: 2em;
+  width: 100%;
 }
 
-.styleguide--spacing--small-space {
-  background: #eee;
+.styleguide--small-space--value:before {
+  content: ""+$small-space;
+}
+
+.styleguide--small-space--sample {
+  background: #333;
   height: $small-space;
-  &:after {
-    content: "$small-space: "+$small-space;
-  }
+  min-width: 2em;
+  width: 100%;
 }
 
-.styleguide--spacing--space {
-  background: #eee;
+.styleguide--space--value:before {
+  content: ""+$space;
+}
+
+.styleguide--space--sample {
+  background: #333;
   height: $space;
-  &:after {
-    content: "$space: "+$space;
-  }
+  min-width: 2em;
+  width: 100%;
 }
 
-.styleguide--spacing--large-space {
-  background: #eee;
+.styleguide--large-space--value:before {
+  content: ""+$large-space;
+}
+
+.styleguide--large-space--sample {
+  background: #333;
   height: $large-space;
-  &:after {
-    content: "$large-space: "+$large-space;
-  }
+  min-width: 2em;
+  width: 100%;
 }
 
-.styleguide--spacing--x-large-space {
-  background: #eee;
+.styleguide--x-large-space--value:before {
+  content: ""+$x-large-space;
+}
+
+.styleguide--x-large-space--sample {
+  background: #333;
   height: $x-large-space;
-  &:after {
-    content: "$x-large-space: "+$x-large-space;
-  }
+  min-width: 2em;
+  width: 100%;
 }
 
-.styleguide--spacing--xx-large-space {
-  background: #eee;
+.styleguide--xx-large-space--value:before {
+  content: ""+$xx-large-space;
+}
+
+.styleguide--xx-large-space--sample {
+  background: #333;
   height: $xx-large-space;
-  &:after {
-    content: "$xx-large-space: "+$xx-large-space;
-  }
+  min-width: 2em;
+  width: 100%;
 }
 
-.styleguide--spacing--xxx-large-space {
-  background: #eee;
-  height: $xxx-large-space;
-  &:after {
-    content: "$xxx-large-space: "+$xxx-large-space;
-  }
+.styleguide--xxx-large-space--value:before {
+  content: ""+$xxx-large-space;
 }
+
+.styleguide--xxx-large-space--sample {
+  background: #333;
+  height: $xxx-large-space;
+  min-width: 2em;
+  width: 100%;
+}
+
+/* INPUTS */
+
+.styleguide--input-background--value:before {
+  content: ""+$input-background;
+}
+
+.styleguide--input-background--sample {
+  background: $input-background;
+}
+
+.styleguide--input-border--value:before {
+  content: ""+$input-border;
+}
+
+.styleguide--input-border-radius--value:before {
+  content: ""+$input-border-radius;
+}
+
+.styleguide--input-color--value:before {
+  content: ""+$input-color;
+}
+
+.styleguide--input-padding--value:before {
+  content: ""+$input-padding;
+}
+
+.styleguide--input-width--value:before {
+  content: ""+$input-width;
+}
+
+.styleguide--textarea-height--value:before {
+  content: ""+$textarea-height;
+}
+
+

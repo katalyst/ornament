@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-// This file contains common variables used by ornament.
+// This file contains common variables used by Ornament.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -24,25 +24,27 @@ $italic-font:   (Helvetica, sans-serif)  italic  normal;
 //
 // The base font size should be set in pixels.
 //
-// The base line height should be unitless.
+// The base line height should be unitless (ratio of line height to font size).
 //
 
-$base-font-size:          16px;
-$base-line-height-ratio:  1.5;
-$line-space:              $base-font-size * $base-line-height-ratio;
+$base-font-size:    16px;
+$base-line-height:  1.5;
+$line-space:        $base-font-size * $base-line-height;
 
 
 
 // COLORS
 //
-// background, foreground, link, hover (optional)
+// Default colors.
 //
 
-$default-colors:  #ffffff #333333 #00aad5;
-$inverse-colors:  #ffffff #333333 #00aad5;
-$error-colors:    #990000 #ffcccc #ff0000;
-$notice-colors:   #999900 #ffffcc #ffff00;
-$success-colors:  #009900 #ccffcc #00ff00;
+$foreground-color:  #333333;
+$background-color:  #ffffff;
+$link-color:        #00aad5;
+$link-hover-color:  false;
+$error-color:       #990000;
+$notice-color:      #999900;
+$success-color:     #009900;
 
 
 
@@ -67,29 +69,18 @@ $xxx-large-space: $spacing-unit * pow($spacing-ratio,  4);
 
 
 
-// FORMS
-//
-//
-// Form specific stuff settings.
-//
-
-$form-error-color:    foreground-color($error-colors);
-$form-border-radius:  0;
-
-
-
 // INPUTS
 //
 // Input styling.
 //
 
-$input-background:      #fff;
-$input-border:          1px solid #999;
-$input-border-radius:   0;
-$input-color:           foreground-color($default-colors);
-$input-padding:         0.2em;
-$input-textarea-height: $space*5;
-$input-width:           20rem;
+$input-background:    #ffffff;
+$input-border:        1px solid #999;
+$input-border-radius: 0;
+$input-color:         #333333;
+$input-padding:       0.2em;
+$input-width:         100%;
+$textarea-height:     $line-space*5;
 
 
 

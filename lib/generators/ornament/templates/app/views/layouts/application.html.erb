@@ -1,8 +1,12 @@
 <% content_for :global do %>
-  <h1>
-    <%= yield :title %>
-  </h1>
-  <%= content_for?(:application) ? yield(:application) : yield %>
+  <div class="spacing-loose">
+    <h1>
+      <%= yield :title %>
+    </h1>
+    <div>
+      <%= content_for?(:application) ? yield(:application) : yield %>
+    </div>
+  </div>
 <% end %>
 
 <%= render :file => "layouts/global" %>

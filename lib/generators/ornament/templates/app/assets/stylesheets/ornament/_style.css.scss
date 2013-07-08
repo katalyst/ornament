@@ -9,8 +9,9 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/inline-block";
 @import "compass/typography/links/hover-link";
+@import "ornament/utilities/color-link";
+@import "ornament/utilities/decorate-link";
 @import "ornament/utilities/font";
-@import "ornament/utilities/simple-link-colors";
 
 
 
@@ -21,8 +22,8 @@
 //
 
 body {
-  background: background-color($default-colors);
-  color: foreground-color($default-colors);
+  background: $background-color;
+  color: $foreground-color;
 }
 
 
@@ -36,7 +37,7 @@ body {
 html {
   @include font($body-font);
   font-size: $base-font-size;
-  line-height: $base-line-height-ratio;
+  line-height: $base-line-height;
 }
 
 
@@ -64,8 +65,8 @@ em, i {
 //
 
 a, button {
-  @include hover-link;
-  @include simple-link-colors($default-colors);
+  @include decorate-link(none, underline);
+  @include color-link($link-color, $link-hover-color);
 }
 
 
@@ -82,14 +83,14 @@ th {
 
 
 
-// FORMS & INPUTS
+// INPUTS
 //
 //
-// Minimal form cleanup.
+// Basic form styling.
 //
 
 fieldset {
-  @include inline-block; // What's this do?
+  @include inline-block;
   width: 100%;
 }
 
@@ -100,13 +101,25 @@ legend {
 [type="text"], [type="password"], [type="date"], [type="datetime"],
 [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"],
 [type="url"], textarea {
-  @include border-radius($input-border-radius); // Reset for Safari iOS
+  @include border-radius($input-border-radius);
   background: $input-background;
   border: $input-border;
   color: $input-color;
-  max-width: $input-width;
   padding: $input-padding;
-  width: 100%;
+  width: $input-width;
+}
+
+[type="radio"], [type="checkbox"], [type="submit"] {
+  cursor: pointer;
+}
+
+[type="radio"], [type="checkbox"] {
+  margin: -0.2em 0 0 0.2em;
+}
+
+[type="submit"] {
+  line-height: inherit;
+  margin: 0;
 }
 
 input, select {
@@ -114,22 +127,13 @@ input, select {
 }
 
 input, textarea, keygen, select {
-  @include inline-block; // What's this do?
+  @include inline-block;
   font-size: $base-font-size;
 }
 
 textarea {
-  height: $input-textarea-height;
-  overflow: auto; // Remove scrollbar for text areas in IE.
-}
-
-[type="radio"], [type="checkbox"], [type="submit"] {
-  cursor: pointer;
-}
-
-[type="submit"] {
-  line-height: inherit;
-  margin: 0;
+  height: $textarea-height;
+  overflow: auto;
 }
 
 

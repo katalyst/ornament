@@ -1,15 +1,19 @@
-@import "compass/typography/links/hover-link";
-@import "ornament/utilities/color-set";
+@import "ornament/utilities/decorate-link";
 
-$header-colors: #333 #fff #fff #00ccf7 !default;
+$header-background-color: #333333         !default;
+$header-font-size:        $base-font-size !default;
+$header-foreground-color: #ffffff         !default;
+$header-link-color:       #ffffff         !default;
+$header-link-hover-color: #00ccf7         !default;
+$header-padding:          $small-space    !default;
 
 .header {
-  @include color-set($header-colors);
-  padding: $small-space;
+  color: $header-foreground-color;
+  background: $header-background-color;
+  font-size: $header-font-size;
+  padding: $header-padding;
   a {
-    @include hover-link;
-    &:hover {
-      text-decoration: none;
-    }
+    @include decorate-link(none, none);
+    @include color-link($header-link-color, $header-link-hover-color);
   }
 }

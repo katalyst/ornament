@@ -1,9 +1,0 @@
-@import "ornament/utilities/simple-link-colors";
-
-@mixin color-set($set) {
-  background: background-color($set);
-  color: foreground-color($set);
-  a {
-    @include simple-link-colors($set);
-  }
-}

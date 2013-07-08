@@ -1,16 +1,20 @@
-@import "compass/typography/links/hover-link";
-@import "ornament/utilities/color-set";
+@import "ornament/utilities/decorate-link";
 
-$footer-colors: #ccc #333 #333 #666 !default;
+$footer-background-color: #cccccc           !default;
+$footer-font-size:        rem(0.8)          !default;
+$footer-foreground-color: #333333           !default;
+$footer-link-color:       $link-color       !default;
+$footer-link-hover-color: $link-hover-color !default;
+$footer-padding:          $small-space      !default;
 
 .footer {
-  @include color-set($footer-colors);
-  font-size: rem(0.8);
-  padding: $small-space;
+  color: $footer-foreground-color;
+  background: $footer-background-color;
+  font-size: $footer-font-size;
+  height: 100%;
+  padding: $footer-padding;
   a {
-    @include hover-link;
-    &:hover {
-      text-decoration: none;
-    }
+    @include decorate-link(none, none);
+    @include color-link($footer-link-color, $footer-link-hover-color);
   }
 }

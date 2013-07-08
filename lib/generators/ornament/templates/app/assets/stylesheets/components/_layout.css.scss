@@ -1,11 +1,12 @@
-@import "compass/css3/box-sizing";
-@import "compass/css3/transform";
-@import "compass/css3/transition";
-
-$layout-debug:            $debug  !default;
-$layout-footer-height:    100px   !default;
-$layout-container-width:  800px   !default;
-$layout-breakpoint:       960px   !default;
+$layout-breakpoint:         960px         !default;
+$layout-container-width:    800px         !default;
+$layout-debug:              $debug        !default;
+$layout-desktop-footer-gap: $space        !default;
+$layout-desktop-header-gap: $space        !default;
+$layout-footer-height:      100px         !default;
+$layout-mobile-edge-gap:    $small-space  !default;
+$layout-mobile-footer-gap:  $small-space  !default;
+$layout-mobile-header-gap:  $small-space  !default;
 
 // TODO: Rework the class names to have layout-desktop, layout-mobile &
 // layout-mobile-open.
@@ -39,7 +40,10 @@ $layout-breakpoint:       960px   !default;
   }
 
   .layout--main {
-
+    padding-bottom: $layout-mobile-footer-gap;
+    padding-left: $layout-mobile-edge-gap;
+    padding-right: $layout-mobile-edge-gap;
+    padding-top: $layout-mobile-header-gap;
   }
 
   .layout--desktop-footer {
@@ -104,7 +108,13 @@ $layout-breakpoint:       960px   !default;
     width: 100%;
   }
 
+  .layout--main {
+    padding-bottom: $layout-desktop-footer-gap;
+    padding-top: $layout-desktop-header-gap;
+  }
+
   .layout--container {
+    height: 100%;
     max-width: $layout-container-width;
     margin: 0 auto;
   }
