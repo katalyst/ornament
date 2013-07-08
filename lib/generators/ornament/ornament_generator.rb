@@ -64,7 +64,6 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "app/assets/stylesheets/components/_slider.css.scss"
       copy_file "app/assets/stylesheets/components/_tabs.css.scss"
       copy_file "vendor/assets/javascripts/jquery.flexslider.js"
-
     end
   end
 
