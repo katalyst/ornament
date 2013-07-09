@@ -1,16 +1,18 @@
+@import "ornament/utilities/color-link";
 @import "ornament/utilities/decorate-link";
+@import "ornament/utilities/typeface";
 
 $header-background-color: #333333;
-$header-font-size:        $base-font-size;
+$header-typeface:         $body-font, $base-font-size;
 $header-foreground-color: #ffffff;
 $header-link-color:       #ffffff;
 $header-link-hover-color: #00ccf7;
 $header-padding:          $small-unit;
 
 .header {
+  @include typeface($header-typeface);
   color: $header-foreground-color;
   background: $header-background-color;
-  font-size: $header-font-size;
   padding: $header-padding;
   a {
     @include decorate-link(none, none);

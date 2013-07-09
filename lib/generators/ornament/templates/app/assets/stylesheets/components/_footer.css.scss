@@ -1,16 +1,18 @@
+@import "ornament/utilities/color-link";
 @import "ornament/utilities/decorate-link";
+@import "ornament/utilities/typeface";
 
 $footer-background-color: #cccccc;
-$footer-font-size:        $base-font-size * 0.8;
-$footer-foreground-color: #333333;
+$footer-typeface:         $body-font, $base-font-size * 0.8;
+$footer-color:            #333333;
 $footer-link-color:       $link-color;
 $footer-link-hover-color: $link-hover-color;
 $footer-padding:          $small-unit;
 
 .footer {
-  color: $footer-foreground-color;
+  @include typeface($footer-typeface);
+  color: $footer-color;
   background: $footer-background-color;
-  font-size: $footer-font-size;
   height: 100%;
   padding: $footer-padding;
   a {
