@@ -1,7 +1,6 @@
 $layout-background:         transparent;
 $layout-breakpoint:         960px;
 $layout-container-width:    800px;
-$layout-debug:              $debug;
 $layout-desktop-edge-gap:   0;
 $layout-desktop-footer-gap: $default-unit;
 $layout-desktop-header-gap: $default-unit;
@@ -123,38 +122,6 @@ $layout-mobile-header-gap:  $small-unit;
     height: 100%;
     max-width: $layout-container-width;
     margin: 0 auto;
-  }
-
-}
-
-@if $layout-debug {
-
-  .layout {
-    background: rgb(191, 191, 191);
-  }
-
-  .layout--mobile-tray {
-    background: rgb(255, 127, 127);
-  }
-
-  .layout--content {
-    background: rgb(127, 255, 127);
-  }
-
-  .layout--mobile-header {
-    background: rgb(127, 127, 255);
-  }
-
-  .layout--desktop-header {
-    background: rgb(127, 127, 255);
-  }
-
-  .layout--main {
-    background: rgb(0, 191, 0);
-  }
-
-  .layout--desktop-footer {
-    background: rgb(127, 127, 255);
   }
 
 }

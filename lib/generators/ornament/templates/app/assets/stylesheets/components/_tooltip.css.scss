@@ -1,6 +1,5 @@
 @import "compass/typography/links/link-colors";
 
-$tooltip-debug:   $debug;
 $tooltip-width:   300px;
 $tooltip-z-index: 20;
 $tooltip-color:   #4b9dd0;
@@ -58,8 +57,4 @@ $tooltip-color:   #4b9dd0;
     border: 10px solid transparent;
     border-bottom-color: $tooltip-color;
   }
-}
-
-@if ($tooltip-debug) {
-  //
 }
