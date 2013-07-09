@@ -1,7 +1,7 @@
 @import "compass/utilities/general/clearfix";
 
-$default-input-error-color:     $form-error-color !default;
-$default-input-required-color:  $form-error-color !default;
+$default-input-error-color:     $form-error-color;
+$default-input-required-color:  $form-error-color;
 
 .field {
   @include clearfix;

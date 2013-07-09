@@ -1,11 +1,11 @@
 @import "ornament/utilities/decorate-link";
 
-$footer-background-color: #cccccc               !default;
-$footer-font-size:        $base-font-size * 0.8 !default;
-$footer-foreground-color: #333333               !default;
-$footer-link-color:       $link-color           !default;
-$footer-link-hover-color: $link-hover-color     !default;
-$footer-padding:          $small-unit          !default;
+$footer-background-color: #cccccc;
+$footer-font-size:        $base-font-size * 0.8;
+$footer-foreground-color: #333333;
+$footer-link-color:       $link-color;
+$footer-link-hover-color: $link-hover-color;
+$footer-padding:          $small-unit;
 
 .footer {
   color: $footer-foreground-color;

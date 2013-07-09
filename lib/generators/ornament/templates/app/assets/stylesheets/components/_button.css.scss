@@ -4,16 +4,16 @@
 @import "ornament/utilities/font";
 @import "ornament/utilities/decorate-link";
 
-$button-background-color:           #00aad5               !default;
-$button-border-radius:              0                     !default;
-$button-dangerous-background-color: #990000               !default;
-$button-dangerous-foreground-color: #ffffff               !default;
-$button-font-size:                  $base-font-size * 1.0 !default;
-$button-font:                       $bold-font            !default;
-$button-foreground-color:           #ffffff               !default;
-$button-secondary-background-color: #333333               !default;
-$button-secondary-foreground-color: #ffffff               !default;
-$button-small-font-size:            $base-font-size * 0.8 !default;
+$button-background-color:           #00aad5;
+$button-border-radius:              0;
+$button-dangerous-background-color: #990000;
+$button-dangerous-foreground-color: #ffffff;
+$button-font-size:                  $base-font-size * 1.0;
+$button-font:                       $bold-font;
+$button-foreground-color:           #ffffff;
+$button-secondary-background-color: #333333;
+$button-secondary-foreground-color: #ffffff;
+$button-small-font-size:            $base-font-size * 0.8;
 
 .button {
   @include border-radius($button-border-radius);

@@ -1,14 +1,14 @@
-$layout-background:         transparent       !default;
-$layout-breakpoint:         960px             !default;
-$layout-container-width:    800px             !default;
-$layout-debug:              $debug            !default;
-$layout-desktop-edge-gap:   0                 !default;
-$layout-desktop-footer-gap: $default-unit     !default;
-$layout-desktop-header-gap: $default-unit     !default;
-$layout-footer-height:      100px             !default;
-$layout-mobile-edge-gap:    $small-unit       !default;
-$layout-mobile-footer-gap:  $small-unit       !default;
-$layout-mobile-header-gap:  $small-unit       !default;
+$layout-background:         transparent;
+$layout-breakpoint:         960px;
+$layout-container-width:    800px;
+$layout-debug:              $debug;
+$layout-desktop-edge-gap:   0;
+$layout-desktop-footer-gap: $default-unit;
+$layout-desktop-header-gap: $default-unit;
+$layout-footer-height:      100px;
+$layout-mobile-edge-gap:    $small-unit;
+$layout-mobile-footer-gap:  $small-unit;
+$layout-mobile-header-gap:  $small-unit;
 
 // TODO: Rework the class names to have layout-desktop, layout-mobile &
 // layout-mobile-open.
