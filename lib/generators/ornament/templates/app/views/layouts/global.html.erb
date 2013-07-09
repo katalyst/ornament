@@ -14,7 +14,10 @@
 
     <!-- META -->
     <%%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=0.6667" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=0.6667"/>
+    <%% unless Rails.env == "production" %>
+      <meta name="robots" content="noindex,nofollow"/>
+    <%% end  %>
     <%%= yield :meta %>
 
     <!-- STYLES -->
