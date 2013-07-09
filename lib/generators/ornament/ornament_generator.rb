@@ -21,7 +21,9 @@ class OrnamentGenerator < Rails::Generators::Base
     unless options.development?
       copy_file "app/assets/javascripts/application.js"
       directory "app/assets/javascripts/ornament"
-      copy_file "app/assets/stylesheets/application.css.scss"
+    end
+    template "app/assets/stylesheets/application.css.scss.erb", "app/assets/stylesheets/application.css.scss"
+    unless options.development?
       copy_file "app/assets/stylesheets/_fonts.css.scss"
       directory "app/assets/stylesheets/ornament"
       copy_file "vendor/assets/javascripts/jquery.livequery.js"

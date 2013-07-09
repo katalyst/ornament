@@ -21,11 +21,11 @@ without re-running the generator.
 However, you'll need to re-run the generator if you make changes to either of
 these files:
 
+    lib/generators/ornament/templates/app/assets/application.css.scss.erb
     lib/generators/ornament/templates/app/assets/ornament/_defaults.css.scss
-    lib/generators/ornament/templates/app/views/layouts/global.html.erb
 
 When you run the generator, use this command to ensure you only regenerate the
-global layout and settings files:
+application CSS and settings files:
 
     rails g ornament --development -f
 

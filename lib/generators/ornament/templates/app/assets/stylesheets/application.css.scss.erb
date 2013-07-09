@@ -8,8 +8,7 @@
 
 // ORNAMENT
 //
-// Apply Compass & Ornament resets, apply default Ornament styles, import helper
-// functions and import the fonts, settings & headings.
+// Apply resets, apply default Ornament styles and import fonts & settings.
 //
 
 @import "ornament/core";
@@ -38,16 +37,12 @@
 @import "components/tooltip";
 
 
+<%- if options.experimental? || options.development? -%>
 
 // EXPERIMENTAL
 //
 //
 // Import experimental components.
-//
-// To include the experimental components you need to use the `--experimental`
-// option with the Ornament generator:
-//
-//   rails generate ornament --experimental
 //
 
 // @import "experimental/align";
@@ -59,7 +54,7 @@
 // @import "experimental/table";
 
 
-
+<%- end -%>
 
 // OVERRIDES
 //
