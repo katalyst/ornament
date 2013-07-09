@@ -56,8 +56,8 @@ class OrnamentGenerator < Rails::Generators::Base
   end
 
   def layouts
-    template "app/views/layouts/global.html.erb"
     unless options.development?
+      copy_file "app/views/layouts/global.html.erb"
       copy_file "app/views/layouts/application.html.erb"
     end
   end
