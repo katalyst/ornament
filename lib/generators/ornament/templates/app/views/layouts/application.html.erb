@@ -1,8 +1,10 @@
 <% content_for :global do %>
   <div class="spacing-loose">
-    <h1>
-      <%= yield :title %>
-    </h1>
+    <% if content_for? :title %>
+      <h1 class="heading-one">
+        <%= yield :title %>
+      </h1>
+    <% end %>
     <div>
       <%= content_for?(:application) ? yield(:application) : yield %>
     </div>
