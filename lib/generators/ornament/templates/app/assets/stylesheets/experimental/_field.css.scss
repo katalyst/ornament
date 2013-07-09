@@ -1,7 +1,7 @@
 @import "compass/utilities/general/clearfix";
 
-$default-input-error-color:     $form-error-color;
-$default-input-required-color:  $form-error-color;
+$field-error-color:     $error-color;
+$field-required-color:  $error-color;
 
 .field {
   @include clearfix;
@@ -26,13 +26,13 @@ $default-input-required-color:  $form-error-color;
   @include font($bold-font);
   display: block;
   > abbr[title="required"] {
-    color: $default-input-error-color;
+    color: $field-error-color;
   }
 }
 
 .field--error {
   font-size: $base-font-size * 0.75;
-  color: $default-input-required-color;
+  color: $field-required-color;
 }
 
 .field--hint {

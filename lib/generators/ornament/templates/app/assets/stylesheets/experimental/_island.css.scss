@@ -1,13 +1,18 @@
-$island-colors:         $inverse-colors;
-$island-error-colors:   $error-colors;
-$island-success-colors: $success-colors;
-$island-padding:        $small-unit;
-$island-tight-padding:  $x-small-unit;
-$island-loose-padding:  $default-unit;
+$island-background:         #333333;
+$island-color:              #ffffff;
+$island-error-background:   #ffcccc;
+$island-error-color:        $error-color;
+$island-loose-padding:      $default-unit;
+$island-notice-background:  #ffffcc;
+$island-notice-color:       $notice-color;
+$island-padding:            $small-unit;
+$island-success-background: #ccffcc;
+$island-success-color:      $success-color;
+$island-tight-padding:      $x-small-unit;
 
 .island {
-  background: background-color($island-colors);
-  color: foreground-color($island-colors);
+  background: $island-background;
+  color: $island-color;
   padding: $island-padding;
 }
 
@@ -19,16 +24,21 @@ $island-loose-padding:  $default-unit;
   padding: $island-loose-padding;
 }
 
-.island-error,
-.island-alert {
-  background: background-color($island-error-colors);
-  border: 1px solid foreground-color($island-error-colors);
-  color: foreground-color($island-error-colors);
+.island-alert,
+.island-error {
+  background: $island-error-background;
+  border: 1px solid;
+  color: $island-error-color;
 }
 
-.island-success,
 .island-notice {
-  background: background-color($island-success-colors);
-  border: 1px solid foreground-color($island-success-colors);
-  color: foreground-color($island-success-colors);
+  background: $island-notice-background;
+  border: 1px solid;
+  color: $island-notice-color;
+}
+
+.island-success {
+  background: $island-success-background;
+  border: 1px solid;
+  color: $island-success-color;
 }
