@@ -1,0 +1,119 @@
+@import "compass/css3/inline-block";
+@import "ornament/utilities/color-link";
+@import "ornament/utilities/decorate-link";
+
+$navigation-dropdown-z-index:               2;
+
+$navigation-dropdown-level-1-active-color:  $link-color;
+$navigation-dropdown-level-1-background:    transparent;
+$navigation-dropdown-level-1-color:         $foreground-color;
+$navigation-dropdown-level-1-hover-color:   $link-color;
+$navigation-dropdown-level-1-padding:       0.2em 0;
+$navigation-dropdown-level-1-spacing:       0.5em;
+
+$navigation-dropdown-level-2-active-color:  $navigation-dropdown-level-1-active-color;
+$navigation-dropdown-level-2-background:    #333333;
+$navigation-dropdown-level-2-color:         #ffffff;
+$navigation-dropdown-level-2-hover-color:   $navigation-dropdown-level-1-hover-color;
+$navigation-dropdown-level-2-padding:       0.2em 0.5em;
+$navigation-dropdown-level-2-width:         10em;
+
+$navigation-dropdown-level-3-active-color:  $navigation-dropdown-level-2-active-color;
+$navigation-dropdown-level-3-background:    #111111;
+$navigation-dropdown-level-3-color:         $navigation-dropdown-level-2-color;
+$navigation-dropdown-level-3-hover-color:   $navigation-dropdown-level-2-hover-color;
+$navigation-dropdown-level-3-padding:       $navigation-dropdown-level-2-padding;
+$navigation-dropdown-level-3-width:         $navigation-dropdown-level-2-width;
+
+.navigation-dropdown {
+
+  li > a,
+  li > span,
+  li > button {
+    @include inline-block;
+    vertical-align: top;
+  }
+
+  > ul > li {
+    @include inline-block;
+    // TODO: Restore text spacing.
+    vertical-align: top;
+    position: relative;
+  }
+
+  > ul > li > ul {
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    z-index: $navigation-dropdown-z-index;
+  }
+
+  > ul > li > ul > li > ul {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    z-index: $navigation-dropdown-z-index;
+  }
+
+  /* Level 1 */
+
+  > ul {
+    background: $navigation-dropdown-level-1-background;
+    color: $navigation-dropdown-level-1-color;
+  }
+
+  > ul > li + li {
+    margin-left: $navigation-dropdown-level-1-spacing;
+  }
+
+  > ul > li > a,
+  > ul > li > button {
+    @include color-link($navigation-dropdown-level-1-color, $navigation-dropdown-level-1-hover-color);
+    padding: $navigation-dropdown-level-1-padding;
+  }
+
+  > ul > .navigation--active-item > a,
+  > ul > .navigation--active-item > button {
+    @include color-link($navigation-dropdown-level-1-active-color, $navigation-dropdown-level-1-hover-color);
+  }
+
+  /* Level 2 */
+
+  > ul > li > ul {
+    background: $navigation-dropdown-level-2-background;
+    color: $navigation-dropdown-level-2-color;
+    width: $navigation-dropdown-level-2-width;
+  }
+
+  > ul > li > ul > li > a,
+  > ul > li > ul > li > button {
+    @include color-link($navigation-dropdown-level-2-color, $navigation-dropdown-level-2-hover-color);
+    padding: $navigation-dropdown-level-2-padding;
+  }
+
+  > ul > li > ul > .navigation--active-item > a,
+  > ul > li > ul > .navigation--active-item > button {
+    @include color-link($navigation-dropdown-level-2-active-color, $navigation-dropdown-level-2-hover-color);
+  }
+
+  /* Level 3 */
+
+  > ul > li > ul > li > ul {
+    background: $navigation-dropdown-level-3-background;
+    color: $navigation-dropdown-level-3-color;
+    width: $navigation-dropdown-level-3-width;
+  }
+
+  > ul > li > ul > li > ul > li > a,
+  > ul > li > ul > li > ul > li > button {
+    @include color-link($navigation-dropdown-level-3-color, $navigation-dropdown-level-3-hover-color);
+    padding: $navigation-dropdown-level-3-padding;
+  }
+
+  > ul > li > ul > li > ul > .navigation--active-item > a,
+  > ul > li > ul > li > ul > .navigation--active-item > button {
+    @include color-link($navigation-dropdown-level-3-active-color, $navigation-dropdown-level-3-hover-color);
+  }
+
+}

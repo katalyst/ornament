@@ -1,96 +1,85 @@
 @import "compass/css3/inline-block";
+@import "ornament/utilities/color-link";
+@import "ornament/utilities/decorate-link";
 
-$nav-debug: $debug;
+$navigation-level-1-active-color: $link-color;
+$navigation-level-1-background:   transparent;
+$navigation-level-1-color:        $foreground-color;
+$navigation-level-1-hover-color:  $link-color;
+$navigation-level-1-padding:      0.2em 0.5em;
 
-.navigation-horizontal {
+$navigation-level-2-active-color: $navigation-level-1-active-color;
+$navigation-level-2-background:   #222222;
+$navigation-level-2-color:        #ffffff;
+$navigation-level-2-hover-color:  $navigation-level-1-hover-color;
+$navigation-level-2-padding:      $navigation-level-1-padding;
 
-  ul {
-    // TODO: Remove word/letter spacing.
-  }
+$navigation-level-3-active-color: $navigation-level-2-active-color;
+$navigation-level-3-background:   #111111;
+$navigation-level-3-color:        $navigation-level-2-color;
+$navigation-level-3-hover-color:  $navigation-level-2-hover-color;
+$navigation-level-3-padding:      $navigation-level-2-padding;
 
-  li {
+.navigation {
+
+  a,
+  button {
+    @include decorate-link(none, none);
     @include inline-block;
-    // TODO: Restore word/letter spacing.
-    vertical-align: top;
   }
 
-  li > a,
-  li > span,
-  li > button {
-    @include inline-block;
-    vertical-align: top;
+  /* Level 1 */
+
+  > ul {
+    background: $navigation-level-1-background;
+    color: $navigation-level-1-color;
   }
 
-  > ul > li ul {
-    left: 0;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    z-index: 2;
+  > ul > li > a,
+  > ul > li > button {
+    @include color-link($navigation-level-1-color, $navigation-level-1-hover-color);
+    padding: $navigation-level-1-padding;
   }
 
-}
-
-.navigation-horizontal--container {
-  position: relative;
-}
-
-.navigation-dropdown {
-
-  li > a,
-  li > span,
-  li > button {
-    @include inline-block;
-    vertical-align: top;
+  > ul > .navigation--active-item > a,
+  > ul > .navigation--active-item > button {
+    @include color-link($navigation-level-1-active-color, $navigation-level-1-hover-color);
   }
 
-  > ul > li {
-    @include inline-block;
-    // TODO: Restore text spacing.
-    vertical-align: top;
-    position: relative;
-  }
+  /* Level 2 */
 
   > ul > li > ul {
-    left: 0;
-    position: absolute;
-    top: 100%;
-    z-index: 2;
+    background: $navigation-level-2-background;
+    color: $navigation-level-2-color;
   }
+
+  > ul > li > ul > li > a,
+  > ul > li > ul > li > button {
+    @include color-link($navigation-level-2-color, $navigation-level-2-hover-color);
+    padding: $navigation-level-2-padding;
+  }
+
+  > ul > li > ul > .navigation--active-item > a,
+  > ul > li > ul > .navigation--active-item > button {
+    @include color-link($navigation-level-2-active-color, $navigation-level-2-hover-color);
+  }
+
+  /* Level 3 */
 
   > ul > li > ul > li > ul {
-    left: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 2;
+    background: $navigation-level-3-background;
+    color: $navigation-level-3-color;
   }
 
-}
-
-@if $nav-debug {
-
-  .navigation > ul {
-    background: lighten(red, 20%);
+  > ul > li > ul > li > ul > li > a,
+  > ul > li > ul > li > ul > li > button {
+    @include color-link($navigation-level-3-color, $navigation-level-3-hover-color);
+    padding: $navigation-level-3-padding;
   }
 
-  .navigation > ul > li {
-    background: red;
-  }
-
-  .navigation > ul > li > ul {
-    background: lighten(orange, 20%);
-  }
-
-  .navigation > ul > li > ul > li {
-    background: orange;
-  }
-
-  .navigation > ul > li > ul > li > ul {
-    background: lighten(yellow, 20%);
-  }
-
-  .navigation > ul > li > ul > li > ul > li {
-    background: yellow;
+  > ul > li > ul > li > ul > .navigation--active-item > a,
+  > ul > li > ul > li > ul > .navigation--active-item > button {
+    @include color-link($navigation-level-3-active-color, $navigation-level-3-hover-color);
   }
 
 }
