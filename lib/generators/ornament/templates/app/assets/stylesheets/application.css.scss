@@ -27,6 +27,7 @@
 @import "components/environment";
 @import "components/footer";
 @import "components/header";
+@import "components/heading";
 @import "components/layout";
 @import "components/navigation";
 @import "components/skip-link";
@@ -41,7 +42,7 @@
 // EXPERIMENTAL
 //
 //
-// Import experimental Ornament components.
+// Import experimental components.
 //
 // To include the experimental components you need to use the `--experimental`
 // option with the Ornament generator:
@@ -53,7 +54,6 @@
 // @import "experimental/clearfix";
 // @import "experimental/field";
 // @import "experimental/float";
-// @import "experimental/heading";
 // @import "experimental/island";
 // @import "experimental/split";
 // @import "experimental/table";

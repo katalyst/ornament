@@ -1,6 +1,6 @@
-$spacing-size:        $space        !default;
-$spacing-tight-size:  $small-space  !default;
-$spacing-loose-size:  $large-space  !default;
+$spacing-size:        $default-unit !default;
+$spacing-tight-size:  $small-unit  !default;
+$spacing-loose-size:  $large-unit  !default;
 
 .spacing {
   > * + * {

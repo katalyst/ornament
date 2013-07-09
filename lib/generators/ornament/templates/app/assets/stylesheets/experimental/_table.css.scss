@@ -3,7 +3,7 @@ $table-border: 1px solid #ccc !default;
 .table {
   td,
   th {
-    padding: rem(0.5) rem(1);
+    padding: 0.5em 1em;
   }
 }
 
@@ -19,10 +19,10 @@ $table-border: 1px solid #ccc !default;
 }
 
 .table-small {
-  font-size: rem(0.8);
+  font-size: 0.8em;
   td,
   th {
-    padding: rem(0.1) rem(0.2);
+    padding: 0.1em 0.2em;
   }
 }
 

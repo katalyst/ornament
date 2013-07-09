@@ -1,12 +1,14 @@
-$layout-breakpoint:         960px         !default;
-$layout-container-width:    800px         !default;
-$layout-debug:              $debug        !default;
-$layout-desktop-footer-gap: $space        !default;
-$layout-desktop-header-gap: $space        !default;
-$layout-footer-height:      100px         !default;
-$layout-mobile-edge-gap:    $small-space  !default;
-$layout-mobile-footer-gap:  $small-space  !default;
-$layout-mobile-header-gap:  $small-space  !default;
+$layout-background:         transparent       !default;
+$layout-breakpoint:         960px             !default;
+$layout-container-width:    800px             !default;
+$layout-debug:              $debug            !default;
+$layout-desktop-edge-gap:   0                 !default;
+$layout-desktop-footer-gap: $default-unit     !default;
+$layout-desktop-header-gap: $default-unit     !default;
+$layout-footer-height:      100px             !default;
+$layout-mobile-edge-gap:    $small-unit       !default;
+$layout-mobile-footer-gap:  $small-unit       !default;
+$layout-mobile-header-gap:  $small-unit       !default;
 
 // TODO: Rework the class names to have layout-desktop, layout-mobile &
 // layout-mobile-open.
@@ -40,6 +42,7 @@ $layout-mobile-header-gap:  $small-space  !default;
   }
 
   .layout--main {
+    background: $layout-background;
     padding-bottom: $layout-mobile-footer-gap;
     padding-left: $layout-mobile-edge-gap;
     padding-right: $layout-mobile-edge-gap;
@@ -109,7 +112,10 @@ $layout-mobile-header-gap:  $small-space  !default;
   }
 
   .layout--main {
+    background: $layout-background;
     padding-bottom: $layout-desktop-footer-gap;
+    padding-left: $layout-desktop-edge-gap;
+    padding-right: $layout-desktop-edge-gap;
     padding-top: $layout-desktop-header-gap;
   }
 

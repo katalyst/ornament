@@ -5,7 +5,7 @@ $header-font-size:        $base-font-size !default;
 $header-foreground-color: #ffffff         !default;
 $header-link-color:       #ffffff         !default;
 $header-link-hover-color: #00ccf7         !default;
-$header-padding:          $small-space    !default;
+$header-padding:          $small-unit    !default;
 
 .header {
   color: $header-foreground-color;

@@ -1,0 +1,9 @@
+@import "ornament/utilities/font";
+
+@mixin typeface($list) {
+  @include font(nth($list, 1));
+  font-size: nth($list, 2);
+  @if (nth($list, 3) != false) {
+    line-height: nth($list, 3);
+  }
+}

@@ -6,20 +6,16 @@
 
 
 
-// FONTS
+// DEBUG
 //
+// Debug CSS (show vibrant background colours etc).
 //
-// The default fonts.
-//
 
-$heading-font:  (Helvetica, sans-serif)  normal  bold;
-$body-font:     (Helvetica, sans-serif)  normal  normal;
-$bold-font:     (Helvetica, sans-serif)  normal  bold;
-$italic-font:   (Helvetica, sans-serif)  italic  normal;
+$debug: false;
 
 
 
-// TYPOGRAPHY
+// BASE UNITS
 //
 //
 // The base font size should be set in pixels.
@@ -29,7 +25,36 @@ $italic-font:   (Helvetica, sans-serif)  italic  normal;
 
 $base-font-size:    16px;
 $base-line-height:  1.5;
-$line-space:        $base-font-size * $base-line-height;
+$base-line-size:   $base-font-size * $base-line-height;
+
+
+
+// FONTS
+//
+//
+// The default fonts (family, style, weight).
+//
+
+$body-font:           (Helvetica, sans-serif)  normal  normal;
+$heading-alpha-font:  (Helvetica, sans-serif)  normal  bold;
+$heading-beta-font:   (Helvetica, sans-serif)  normal  bold;
+$bold-font:           (Helvetica, sans-serif)  normal  bold;
+$italic-font:         (Helvetica, sans-serif)  italic  normal;
+
+
+
+// TYPEFACES
+//
+// The default typefaces (font, size, line height).
+//
+
+$body-typeface:           $body-font,           $base-font-size,        $base-line-height;
+$heading-one-typeface:    $heading-alpha-font,  $base-font-size * 4.0,  1.0;
+$heading-two-typeface:    $heading-alpha-font,  $base-font-size * 2.0,  1.1;
+$heading-three-typeface:  $heading-beta-font,   $base-font-size * 1.8,  1.2;
+$heading-four-typeface:   $heading-beta-font,   $base-font-size * 1.5,  1.3;
+$heading-five-typeface:   $bold-font,           $base-font-size * 1.2,  1.4;
+$heading-six-typeface:    $bold-font,           $base-font-size * 1.0,  1.5;
 
 
 
@@ -48,24 +73,24 @@ $success-color:     #009900;
 
 
 
-// SPACES
+// SIZES
 //
 //
-// Setup a spacing system.
+// Setup a sizing units.
 //
 
-$spacing-ratio: 1.61803398875; // golden ratio
-$spacing-unit:  $line-space;
+$sizing-ratio: 1.61803398875; // golden ratio
+$sizing-unit:  $base-line-size;
 
-$xxx-small-space: $spacing-unit * pow($spacing-ratio, -4);
-$xx-small-space:  $spacing-unit * pow($spacing-ratio, -3);
-$x-small-space:   $spacing-unit * pow($spacing-ratio, -2);
-$small-space:     $spacing-unit * pow($spacing-ratio, -1);
-$space:           $spacing-unit * pow($spacing-ratio,  0);
-$large-space:     $spacing-unit * pow($spacing-ratio,  1);
-$x-large-space:   $spacing-unit * pow($spacing-ratio,  2);
-$xx-large-space:  $spacing-unit * pow($spacing-ratio,  3);
-$xxx-large-space: $spacing-unit * pow($spacing-ratio,  4);
+$xxx-small-unit: $sizing-unit * pow($sizing-ratio, -4);
+$xx-small-unit:  $sizing-unit * pow($sizing-ratio, -3);
+$x-small-unit:   $sizing-unit * pow($sizing-ratio, -2);
+$small-unit:     $sizing-unit * pow($sizing-ratio, -1);
+$default-unit:   $sizing-unit * pow($sizing-ratio,  0);
+$large-unit:     $sizing-unit * pow($sizing-ratio,  1);
+$x-large-unit:   $sizing-unit * pow($sizing-ratio,  2);
+$xx-large-unit:  $sizing-unit * pow($sizing-ratio,  3);
+$xxx-large-unit: $sizing-unit * pow($sizing-ratio,  4);
 
 
 
@@ -74,19 +99,14 @@ $xxx-large-space: $spacing-unit * pow($spacing-ratio,  4);
 // Input styling.
 //
 
-$input-background:    #ffffff;
-$input-border:        1px solid #999;
-$input-border-radius: 0;
-$input-color:         #333333;
-$input-padding:       0.2em;
-$input-width:         100%;
-$textarea-height:     $line-space*5;
-
-
-
-// DEBUG
-//
-
-$debug: false;
+$checkbox-radio-padding:  -0.2em 0 0 0.2em;
+$input-background:        #ffffff;
+$input-border:            1px solid #999;
+$input-border-radius:     0;
+$input-color:             #333333;
+$input-typeface:          $body-font, $base-font-size, 1.5;
+$input-padding:           0.3em 0.2em 0.1em;
+$input-width:             100%;
+$textarea-height:         $base-line-size*5;
 
 

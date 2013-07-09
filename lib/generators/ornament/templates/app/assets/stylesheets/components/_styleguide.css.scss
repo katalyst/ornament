@@ -1,4 +1,5 @@
 .styleguide--table {
+  width: 100%;
   th, td {
     padding: 0.3em 0.5em;
     &:first-child {
@@ -20,15 +21,25 @@
   }
 }
 
+/* BASE UNITS */
+
+.styleguide--base-font-size--value:before {
+  content: ""+$base-font-size;
+}
+
+.styleguide--base-font-size--sample {
+  font-size: $base-font-size;
+}
+
+.styleguide--base-line-height--value:before {
+  content: ""+$base-line-height;
+}
+
+.styleguide--base-line-size--value:before {
+  content: ""+$base-line-size;
+}
+
 /* FONTS */
-
-.styleguide--heading-font--value:before {
-  content: ""+$heading-font;
-}
-
-.styleguide--heading-font--sample {
-  @include font($heading-font);
-}
 
 .styleguide--body-font--value:before {
   content: ""+$body-font;
@@ -36,6 +47,22 @@
 
 .styleguide--body-font--sample {
   @include font($body-font);
+}
+
+.styleguide--heading-alpha-font--value:before {
+  content: ""+$heading-alpha-font;
+}
+
+.styleguide--heading-alpha-font--sample {
+  @include font($heading-alpha-font);
+}
+
+.styleguide--heading-beta-font--value:before {
+  content: ""+$heading-beta-font;
+}
+
+.styleguide--heading-beta-font--sample {
+  @include font($heading-beta-font);
 }
 
 .styleguide--bold-font--value:before {
@@ -54,22 +81,62 @@
   @include font($italic-font);
 }
 
-/* TYPOGRAPHY */
+/* TYPEFACES */
 
-.styleguide--base-font-size--value:before {
-  content: ""+$base-font-size;
+.styleguide--body-typeface--value:before {
+  content: ""+$body-typeface;
 }
 
-.styleguide--base-font-size--sample {
-  font-size: $base-font-size;
+.styleguide--body-typeface--sample {
+  @include typeface($body-typeface);
 }
 
-.styleguide--base-line-height--value:before {
-  content: ""+$base-line-height;
+.styleguide--heading-one-typeface--value:before {
+  content: ""+$heading-one-typeface;
 }
 
-.styleguide--line-space--value:before {
-  content: ""+$line-space;
+.styleguide--heading-one-typeface--sample {
+  @include typeface($heading-one-typeface);
+}
+
+.styleguide--heading-two-typeface--value:before {
+  content: ""+$heading-two-typeface;
+}
+
+.styleguide--heading-two-typeface--sample {
+  @include typeface($heading-two-typeface);
+}
+
+.styleguide--heading-three-typeface--value:before {
+  content: ""+$heading-three-typeface;
+}
+
+.styleguide--heading-three-typeface--sample {
+  @include typeface($heading-three-typeface);
+}
+
+.styleguide--heading-four-typeface--value:before {
+  content: ""+$heading-four-typeface;
+}
+
+.styleguide--heading-four-typeface--sample {
+  @include typeface($heading-four-typeface);
+}
+
+.styleguide--heading-five-typeface--value:before {
+  content: ""+$heading-five-typeface;
+}
+
+.styleguide--heading-five-typeface--sample {
+  @include typeface($heading-five-typeface);
+}
+
+.styleguide--heading-six-typeface--value:before {
+  content: ""+$heading-six-typeface;
+}
+
+.styleguide--heading-six-typeface--sample {
+  @include typeface($heading-six-typeface);
 }
 
 /* COLOURS */
@@ -136,139 +203,139 @@
 
 /* SPACES */
 
-.styleguide--spacing-ratio--value:before {
-  content: ""+$spacing-ratio;
+.styleguide--sizing-ratio--value:before {
+  content: ""+$sizing-ratio;
 }
 
-.styleguide--spacing-ratio--sample {
+.styleguide--sizing-ratio--sample {
   * {
-    font-size: percentage(pow($spacing-ratio, -2));
+    font-size: percentage(pow($sizing-ratio, -2));
   }
   * + * {
-    font-size: percentage(pow($spacing-ratio, -1));
+    font-size: percentage(pow($sizing-ratio, -1));
   }
   * + * + * {
-    font-size: percentage(pow($spacing-ratio, 0));
+    font-size: percentage(pow($sizing-ratio, 0));
   }
   * + * + * + * {
-    font-size: percentage(pow($spacing-ratio, 1));
+    font-size: percentage(pow($sizing-ratio, 1));
   }
   * + * + * + * + * {
-    font-size: percentage(pow($spacing-ratio, 2));
+    font-size: percentage(pow($sizing-ratio, 2));
   }
 }
 
-.styleguide--spacing-unit--value:before {
-  content: ""+$spacing-unit;
+.styleguide--sizing-unit--value:before {
+  content: ""+$sizing-unit;
 }
 
-.styleguide--xxx-small-space--value:before {
-  content: ""+$xxx-small-space;
+.styleguide--xxx-small-unit--value:before {
+  content: ""+$xxx-small-unit;
 }
 
-.styleguide--xxx-small-space--sample {
+.styleguide--xxx-small-unit--sample {
   background: #333;
-  height: $xxx-small-space;
+  height: $xxx-small-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--xx-small-space--value:before {
-  content: ""+$xx-small-space;
+.styleguide--xx-small-unit--value:before {
+  content: ""+$xx-small-unit;
 }
 
-.styleguide--xx-small-space--sample {
+.styleguide--xx-small-unit--sample {
   background: #333;
-  height: $xx-small-space;
+  height: $xx-small-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--x-small-space--value:before {
-  content: ""+$x-small-space;
+.styleguide--x-small-unit--value:before {
+  content: ""+$x-small-unit;
 }
 
-.styleguide--x-small-space--sample {
+.styleguide--x-small-unit--sample {
   background: #333;
-  height: $x-small-space;
+  height: $x-small-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--small-space--value:before {
-  content: ""+$small-space;
+.styleguide--small-unit--value:before {
+  content: ""+$small-unit;
 }
 
-.styleguide--small-space--sample {
+.styleguide--small-unit--sample {
   background: #333;
-  height: $small-space;
+  height: $small-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--space--value:before {
-  content: ""+$space;
+.styleguide--default-unit--value:before {
+  content: ""+$default-unit;
 }
 
-.styleguide--space--sample {
+.styleguide--default-unit--sample {
   background: #333;
-  height: $space;
+  height: $default-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--large-space--value:before {
-  content: ""+$large-space;
+.styleguide--large-unit--value:before {
+  content: ""+$large-unit;
 }
 
-.styleguide--large-space--sample {
+.styleguide--large-unit--sample {
   background: #333;
-  height: $large-space;
+  height: $large-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--x-large-space--value:before {
-  content: ""+$x-large-space;
+.styleguide--x-large-unit--value:before {
+  content: ""+$x-large-unit;
 }
 
-.styleguide--x-large-space--sample {
+.styleguide--x-large-unit--sample {
   background: #333;
-  height: $x-large-space;
+  height: $x-large-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--xx-large-space--value:before {
-  content: ""+$xx-large-space;
+.styleguide--xx-large-unit--value:before {
+  content: ""+$xx-large-unit;
 }
 
-.styleguide--xx-large-space--sample {
+.styleguide--xx-large-unit--sample {
   background: #333;
-  height: $xx-large-space;
+  height: $xx-large-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--xxx-large-space--value:before {
-  content: ""+$xxx-large-space;
+.styleguide--xxx-large-unit--value:before {
+  content: ""+$xxx-large-unit;
 }
 
-.styleguide--xxx-large-space--sample {
+.styleguide--xxx-large-unit--sample {
   background: #333;
-  height: $xxx-large-space;
+  height: $xxx-large-unit;
   min-width: 2em;
   width: 100%;
 }
 
 /* INPUTS */
 
-.styleguide--input-background--value:before {
-  content: ""+$input-background;
+.styleguide--checkbox-radio-padding--value:before {
+  content: ""+$checkbox-radio-padding;
 }
 
-.styleguide--input-background--sample {
-  background: $input-background;
+.styleguide--input-background--value:before {
+  content: ""+$input-background;
 }
 
 .styleguide--input-border--value:before {
@@ -281,6 +348,10 @@
 
 .styleguide--input-color--value:before {
   content: ""+$input-color;
+}
+
+.styleguide--input-typeface--value:before {
+  content: ""+$input-typeface;
 }
 
 .styleguide--input-padding--value:before {

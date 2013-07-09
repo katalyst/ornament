@@ -1,0 +1,25 @@
+@import "ornament/utilities/typeface";
+
+.heading-one {
+  @include typeface($heading-one-typeface);
+}
+
+.heading-two {
+  @include typeface($heading-two-typeface);
+}
+
+.heading-three {
+  @include typeface($heading-three-typeface);
+}
+
+.heading-four {
+  @include typeface($heading-four-typeface);
+}
+
+.heading-five {
+  @include typeface($heading-five-typeface);
+}
+
+.heading-six {
+  @include typeface($heading-six-typeface);
+}

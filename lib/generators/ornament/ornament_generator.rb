@@ -31,7 +31,6 @@ class OrnamentGenerator < Rails::Generators::Base
   def settings
     if options.settings?
       copy_file "app/assets/stylesheets/ornament/_defaults.css.scss", "app/assets/stylesheets/_settings.css.scss"
-      gsub_file "app/assets/stylesheets/_settings.css.scss", /\s*\!default;/, ";"
     end
   end
 

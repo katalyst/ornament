@@ -1,9 +1,9 @@
 $island-colors:         $inverse-colors !default;
 $island-error-colors:   $error-colors   !default;
 $island-success-colors: $success-colors !default;
-$island-padding:        $small-space    !default;
-$island-tight-padding:  $x-small-space  !default;
-$island-loose-padding:  $space          !default;
+$island-padding:        $small-unit    !default;
+$island-tight-padding:  $x-small-unit  !default;
+$island-loose-padding:  $default-unit   !default;
 
 .island {
   background: background-color($island-colors);
