@@ -66,8 +66,10 @@ class OrnamentGenerator < Rails::Generators::Base
 
   def styleguide
     unless options.development?
-      route "match '/styleguide' => 'application#styleguide'"
-      copy_file "app/views/application/styleguide.html.erb"
+      route "match '/styleguide' => 'styleguide#index'"
+      route "match '/styleguide/:action' => 'styleguide'"
+      copy_file "app/controllers/styleguide_controller.rb"
+      directory "app/views/styleguide"
     end
   end
 

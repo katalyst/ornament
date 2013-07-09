@@ -1,8 +1,8 @@
 Dummy::Application.routes.draw do
 
-  match '/styleguide' => 'application#styleguide'
-  match '/:action' => 'application'
+  match '/styleguide' => 'styleguide#index'
+  match '/styleguide/:action' => 'styleguide'
 
-  root :to => 'application#index'
+  root :to => 'styleguide#index'
 
 end
