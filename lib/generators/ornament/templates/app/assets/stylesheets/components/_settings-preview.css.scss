@@ -1,4 +1,4 @@
-.styleguide--table {
+.settings-preview--table {
   width: 100%;
   th, td {
     padding: 0.3em 0.5em;
@@ -12,10 +12,10 @@
 }
 
 @media screen and (max-width: $layout-breakpoint) {
-  .styleguide--table tr > * {
+  .settings-preview--table tr > * {
     display: none;
   }
-  .styleguide--table tr > * + * + * {
+  .settings-preview--table tr > * + * + * {
     display: table-cell;
     padding: 0.3em 0;
   }
@@ -23,153 +23,153 @@
 
 /* BASE UNITS */
 
-.styleguide--base-font-size--value:before {
+.settings-preview--base-font-size--value:before {
   content: ""+$base-font-size;
 }
 
-.styleguide--base-font-size--sample {
+.settings-preview--base-font-size--sample {
   font-size: $base-font-size;
 }
 
-.styleguide--base-line-height--value:before {
+.settings-preview--base-line-height--value:before {
   content: ""+$base-line-height;
 }
 
-.styleguide--base-line-size--value:before {
+.settings-preview--base-line-size--value:before {
   content: ""+$base-line-size;
 }
 
 /* FONTS */
 
-.styleguide--body-font--value:before {
+.settings-preview--body-font--value:before {
   content: ""+$body-font;
 }
 
-.styleguide--body-font--sample {
+.settings-preview--body-font--sample {
   @include font($body-font);
 }
 
-.styleguide--heading-alpha-font--value:before {
+.settings-preview--heading-alpha-font--value:before {
   content: ""+$heading-alpha-font;
 }
 
-.styleguide--heading-alpha-font--sample {
+.settings-preview--heading-alpha-font--sample {
   @include font($heading-alpha-font);
 }
 
-.styleguide--heading-beta-font--value:before {
+.settings-preview--heading-beta-font--value:before {
   content: ""+$heading-beta-font;
 }
 
-.styleguide--heading-beta-font--sample {
+.settings-preview--heading-beta-font--sample {
   @include font($heading-beta-font);
 }
 
-.styleguide--bold-font--value:before {
+.settings-preview--bold-font--value:before {
   content: ""+$bold-font;
 }
 
-.styleguide--bold-font--sample {
+.settings-preview--bold-font--sample {
   @include font($bold-font);
 }
 
-.styleguide--italic-font--value:before {
+.settings-preview--italic-font--value:before {
   content: ""+$italic-font;
 }
 
-.styleguide--italic-font--sample {
+.settings-preview--italic-font--sample {
   @include font($italic-font);
 }
 
 /* TYPEFACES */
 
-.styleguide--body-typeface--value:before {
+.settings-preview--body-typeface--value:before {
   content: ""+$body-typeface;
 }
 
-.styleguide--body-typeface--sample {
+.settings-preview--body-typeface--sample {
   @include typeface($body-typeface);
 }
 
-.styleguide--heading-one-typeface--value:before {
+.settings-preview--heading-one-typeface--value:before {
   content: ""+$heading-one-typeface;
 }
 
-.styleguide--heading-one-typeface--sample {
+.settings-preview--heading-one-typeface--sample {
   @include typeface($heading-one-typeface);
 }
 
-.styleguide--heading-two-typeface--value:before {
+.settings-preview--heading-two-typeface--value:before {
   content: ""+$heading-two-typeface;
 }
 
-.styleguide--heading-two-typeface--sample {
+.settings-preview--heading-two-typeface--sample {
   @include typeface($heading-two-typeface);
 }
 
-.styleguide--heading-three-typeface--value:before {
+.settings-preview--heading-three-typeface--value:before {
   content: ""+$heading-three-typeface;
 }
 
-.styleguide--heading-three-typeface--sample {
+.settings-preview--heading-three-typeface--sample {
   @include typeface($heading-three-typeface);
 }
 
-.styleguide--heading-four-typeface--value:before {
+.settings-preview--heading-four-typeface--value:before {
   content: ""+$heading-four-typeface;
 }
 
-.styleguide--heading-four-typeface--sample {
+.settings-preview--heading-four-typeface--sample {
   @include typeface($heading-four-typeface);
 }
 
-.styleguide--heading-five-typeface--value:before {
+.settings-preview--heading-five-typeface--value:before {
   content: ""+$heading-five-typeface;
 }
 
-.styleguide--heading-five-typeface--sample {
+.settings-preview--heading-five-typeface--sample {
   @include typeface($heading-five-typeface);
 }
 
-.styleguide--heading-six-typeface--value:before {
+.settings-preview--heading-six-typeface--value:before {
   content: ""+$heading-six-typeface;
 }
 
-.styleguide--heading-six-typeface--sample {
+.settings-preview--heading-six-typeface--sample {
   @include typeface($heading-six-typeface);
 }
 
 /* COLOURS */
 
-.styleguide--foreground-color--value:before {
+.settings-preview--foreground-color--value:before {
   content: ""+$foreground-color;
 }
 
-.styleguide--foreground-color--sample {
+.settings-preview--foreground-color--sample {
   color: $foreground-color;
 }
 
-.styleguide--background-color--value:before {
+.settings-preview--background-color--value:before {
   content: ""+$background-color;
 }
 
-.styleguide--background-color--sample {
+.settings-preview--background-color--sample {
   color: $background-color;
 }
 
-.styleguide--link-color--value:before {
+.settings-preview--link-color--value:before {
   content: ""+$link-color;
 }
 
-.styleguide--link-color--sample {
+.settings-preview--link-color--sample {
   color: $link-color;
 }
 
-.styleguide--link-hover-color--value:before {
+.settings-preview--link-hover-color--value:before {
   content: ""+$link-hover-color;
 }
 
-.styleguide--link-hover-color--sample {
+.settings-preview--link-hover-color--sample {
   @if ($link-hover-color == false) {
     color: $link-color;
   } @else {
@@ -177,37 +177,37 @@
   }
 }
 
-.styleguide--error-color--value:before {
+.settings-preview--error-color--value:before {
   content: ""+$error-color;
 }
 
-.styleguide--error-color--sample {
+.settings-preview--error-color--sample {
   color: $error-color;
 }
 
-.styleguide--notice-color--value:before {
+.settings-preview--notice-color--value:before {
   content: ""+$notice-color;
 }
 
-.styleguide--notice-color--sample {
+.settings-preview--notice-color--sample {
   color: $notice-color;
 }
 
-.styleguide--success-color--value:before {
+.settings-preview--success-color--value:before {
   content: ""+$success-color;
 }
 
-.styleguide--success-color--sample {
+.settings-preview--success-color--sample {
   color: $success-color;
 }
 
 /* SPACES */
 
-.styleguide--sizing-ratio--value:before {
+.settings-preview--sizing-ratio--value:before {
   content: ""+$sizing-ratio;
 }
 
-.styleguide--sizing-ratio--sample {
+.settings-preview--sizing-ratio--sample {
   * {
     font-size: percentage(pow($sizing-ratio, -2));
   }
@@ -225,103 +225,103 @@
   }
 }
 
-.styleguide--sizing-unit--value:before {
+.settings-preview--sizing-unit--value:before {
   content: ""+$sizing-unit;
 }
 
-.styleguide--xxx-small-unit--value:before {
+.settings-preview--xxx-small-unit--value:before {
   content: ""+$xxx-small-unit;
 }
 
-.styleguide--xxx-small-unit--sample {
+.settings-preview--xxx-small-unit--sample {
   background: #333;
   height: $xxx-small-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--xx-small-unit--value:before {
+.settings-preview--xx-small-unit--value:before {
   content: ""+$xx-small-unit;
 }
 
-.styleguide--xx-small-unit--sample {
+.settings-preview--xx-small-unit--sample {
   background: #333;
   height: $xx-small-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--x-small-unit--value:before {
+.settings-preview--x-small-unit--value:before {
   content: ""+$x-small-unit;
 }
 
-.styleguide--x-small-unit--sample {
+.settings-preview--x-small-unit--sample {
   background: #333;
   height: $x-small-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--small-unit--value:before {
+.settings-preview--small-unit--value:before {
   content: ""+$small-unit;
 }
 
-.styleguide--small-unit--sample {
+.settings-preview--small-unit--sample {
   background: #333;
   height: $small-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--default-unit--value:before {
+.settings-preview--default-unit--value:before {
   content: ""+$default-unit;
 }
 
-.styleguide--default-unit--sample {
+.settings-preview--default-unit--sample {
   background: #333;
   height: $default-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--large-unit--value:before {
+.settings-preview--large-unit--value:before {
   content: ""+$large-unit;
 }
 
-.styleguide--large-unit--sample {
+.settings-preview--large-unit--sample {
   background: #333;
   height: $large-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--x-large-unit--value:before {
+.settings-preview--x-large-unit--value:before {
   content: ""+$x-large-unit;
 }
 
-.styleguide--x-large-unit--sample {
+.settings-preview--x-large-unit--sample {
   background: #333;
   height: $x-large-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--xx-large-unit--value:before {
+.settings-preview--xx-large-unit--value:before {
   content: ""+$xx-large-unit;
 }
 
-.styleguide--xx-large-unit--sample {
+.settings-preview--xx-large-unit--sample {
   background: #333;
   height: $xx-large-unit;
   min-width: 2em;
   width: 100%;
 }
 
-.styleguide--xxx-large-unit--value:before {
+.settings-preview--xxx-large-unit--value:before {
   content: ""+$xxx-large-unit;
 }
 
-.styleguide--xxx-large-unit--sample {
+.settings-preview--xxx-large-unit--sample {
   background: #333;
   height: $xxx-large-unit;
   min-width: 2em;
@@ -330,39 +330,39 @@
 
 /* INPUTS */
 
-.styleguide--checkbox-radio-padding--value:before {
+.settings-preview--checkbox-radio-padding--value:before {
   content: ""+$checkbox-radio-padding;
 }
 
-.styleguide--input-background--value:before {
+.settings-preview--input-background--value:before {
   content: ""+$input-background;
 }
 
-.styleguide--input-border--value:before {
+.settings-preview--input-border--value:before {
   content: ""+$input-border;
 }
 
-.styleguide--input-border-radius--value:before {
+.settings-preview--input-border-radius--value:before {
   content: ""+$input-border-radius;
 }
 
-.styleguide--input-color--value:before {
+.settings-preview--input-color--value:before {
   content: ""+$input-color;
 }
 
-.styleguide--input-typeface--value:before {
+.settings-preview--input-typeface--value:before {
   content: ""+$input-typeface;
 }
 
-.styleguide--input-padding--value:before {
+.settings-preview--input-padding--value:before {
   content: ""+$input-padding;
 }
 
-.styleguide--input-width--value:before {
+.settings-preview--input-width--value:before {
   content: ""+$input-width;
 }
 
-.styleguide--textarea-height--value:before {
+.settings-preview--textarea-height--value:before {
   content: ""+$textarea-height;
 }
 
