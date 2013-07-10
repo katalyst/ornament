@@ -7,6 +7,18 @@ $table-border: 1px solid #ccc;
   }
 }
 
+.table-flush {
+  td,
+  th {
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
 .table-ruled {
   td,
   th {
