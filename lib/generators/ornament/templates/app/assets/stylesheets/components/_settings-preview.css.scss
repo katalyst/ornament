@@ -1,3 +1,5 @@
+@import "compass/css3/inline-block";
+
 .settings-preview--table {
   width: 100%;
   th, td {
@@ -18,6 +20,98 @@
   .settings-preview--table tr > * + * + * {
     display: table-cell;
     padding: 0.3em 0;
+  }
+}
+
+/* CONTAINER WIDTH */
+
+.settings-preview--container-width--value:before {
+  content: ""+$container-width;
+}
+
+.settings-preview--container-width--sample {
+  * {
+    @include inline-block;
+    background: #333;
+    &:before {
+      background: red;
+      content: "";
+      display: block;
+      height: 100%;
+      margin: 0 auto;
+      width: $container-width/25;
+    }
+    &:after {
+      display: block;
+      font-size: 9px;
+      text-align: center;
+    }
+  }
+  * {
+    height: (1024px)/25;
+    width: (1280px)/25;
+    &:after {
+      content: "1280x1024";
+    }
+  }
+  * + * {
+    height: (768px)/25;
+    width: (1366px)/25;
+    &:after {
+      content: "1366x768";
+    }
+  }
+  * + * + * {
+    height: (1050px)/25;
+    width: (1680px)/25;
+    &:after {
+      content: "1680x1050";
+    }
+  }
+  * + * + * + * {
+    height: (1080px)/25;
+    width: (1920px)/25;
+    &:after {
+      content: "1920x1080";
+    }
+  }
+}
+
+/* BREAKPOINTS */
+
+.settings-preview--small-breakpoint--value:before {
+  content: ""+$small-breakpoint;
+}
+
+@media (min-width: $small-breakpoint) {
+  .settings-preview--small-breakpoint--sample:before {
+    color: green;
+    content: "Viewport is wider than the small breakpoint.";
+  }
+}
+
+@media (max-width: $small-breakpoint) {
+  .settings-preview--small-breakpoint--sample:before {
+    color: red;
+    content: "Viewport is thiner than the small breakpoint.";
+  }
+}
+
+.settings-preview--large-breakpoint--value:before {
+  content: ""+$large-breakpoint;
+}
+
+@media (min-width: $large-breakpoint) {
+  .settings-preview--large-breakpoint--sample:before {
+    color: green;
+    content: "Viewport is wider than the large breakpoint.";
+  }
+}
+
+@media (max-width: $large-breakpoint) {
+  .settings-preview--large-breakpoint--sample:before {
+    color: red;
+    content: "Viewport is thiner than the large breakpoint.";
   }
 }
 
