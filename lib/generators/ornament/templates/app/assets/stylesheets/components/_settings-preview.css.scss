@@ -11,7 +11,7 @@
   }
 }
 
-@media screen and (max-width: $layout-breakpoint) {
+@media screen and (max-width: $large-breakpoint) {
   .settings-preview--table tr > * {
     display: none;
   }

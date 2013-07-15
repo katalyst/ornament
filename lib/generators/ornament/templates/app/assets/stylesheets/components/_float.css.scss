@@ -1,6 +1,6 @@
 $float-gutter: $small-unit;
 
-@media (min-width:480px) {
+@media (min-width: $small-breakpoint) {
 
   .float-left {
     float: left;

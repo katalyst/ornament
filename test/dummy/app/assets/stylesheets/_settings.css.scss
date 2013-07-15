@@ -6,6 +6,27 @@
 
 
 
+// CONTAINER WIDTH
+//
+// Width of the container (desktop only).
+//
+
+$container-width: 960px;
+
+
+
+// BREAKPOINTS
+//
+// The two breakpoints provide three different sizes:
+//
+// mobile < $small-breakpoint < tablet < $large-breakpoint < desktop
+//
+
+$small-breakpoint: 600px;
+$large-breakpoint: 800px;
+
+
+
 // BASE UNITS
 //
 //
@@ -16,7 +37,7 @@
 
 $base-font-size:    16px;
 $base-line-height:  1.5;
-$base-line-size:   $base-font-size * $base-line-height;
+$base-line-size:    $base-font-size * $base-line-height;
 
 
 

@@ -1,6 +1,6 @@
 $layout-background:         transparent;
-$layout-breakpoint:         960px;
-$layout-container-width:    800px;
+$layout-breakpoint:         $container-width;
+$layout-container-width:    $large-breakpoint;
 $layout-desktop-edge-gap:   0;
 $layout-desktop-footer-gap: $default-unit;
 $layout-desktop-header-gap: $default-unit;
