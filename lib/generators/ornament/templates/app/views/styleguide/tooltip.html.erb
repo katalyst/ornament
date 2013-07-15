@@ -1,17 +1,25 @@
-<% content_for :title, "Component: Tooltip" %>
+<% content_for :title, "Tooltip" %>
 
-<div class="rhythm">
+<div class="spacing">
 
-  <section class="rhythm-tight">
+  <section class="spacing-tight">
     <p>
-      <a class="tooltip" title="This is a tooltip">Simple Tooltip</a>
+      <a class="tooltip" title="Tooltip 1">Simple Tooltip</a>
     </p>
     <p>
-      <a class="tooltip tooltip-toggle" href="#tooltip-example">Complex Tooltip with Toggle</a>
+      <a class="tooltip tooltip-toggle" title="Tooltip 2">Simple Tooltip with Toggle</a>
     </p>
-    <div id="tooltip-example">
-      <h2>Tooltip Example</h2>
-      <p>This is a larger tooltip that can contain lots of text and images.</p>
+    <p>
+      <a class="tooltip" href="#footnote-1">Complex Tooltip</a>
+    </p>
+    <p>
+      <a class="tooltip tooltip-toggle" href="#footnote-2">Complex Tooltip with Toggle</a>
+    </p>
+    <div id="footnote-1">
+      <p>Tooltip 3</p>
+    </div>
+    <div id="footnote-2">
+      <p>Tooltip 4</p>
     </div>
   </section>
 

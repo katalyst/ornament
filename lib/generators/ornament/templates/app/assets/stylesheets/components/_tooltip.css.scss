@@ -1,34 +1,19 @@
-@import "compass/typography/links/link-colors";
-
-$tooltip-width:   300px;
-$tooltip-z-index: 20;
-$tooltip-color:   #4b9dd0;
-
-/*
-
-<span class="tooltip--wrapper">
-  <a class="tooltip" title="example">example</a>
-  <div class="tooltip--outer">
-    <div class="tooltip--inner">
-      <div class="tooltip--arrow">
-        example
-      </div>
-    </div>
-  </div>
-</span>
-
-*/
+$tooltip-arrow:         false; // this can be a url()
+$tooltip-arrow-height:  10px;
+$tooltip-background:    #4b9dd0;
+$tooltip-border:        none;
+$tooltip-color:         #fff;
+$tooltip-gap:           $xxx-small-unit;
+$tooltip-padding:       $x-small-unit;
+$tooltip-width:         300px;
+$tooltip-z-index:       20;
 
 .tooltip {
-  @include link-colors(inherit, inherit, inherit, inherit, inherit);
-  cursor: pointer;
-  text-decoration: none;
-  &:hover {
-    text-decoration: none;
-  }
+  //
 }
 
 .tooltip--wrapper {
+  cursor: pointer;
   position: relative;
 }
 
@@ -40,21 +25,28 @@ $tooltip-color:   #4b9dd0;
 }
 
 .tooltip--inner {
-  background: $tooltip-color;
-  border: 1px solid #fff;
-  color: #fff;
+  background: $tooltip-background;
+  border: $tooltip-border;
+  color: $tooltip-color;
   left: -($tooltip-width/2);
-  padding: 0 10px;
   position: absolute;
-  top: 8px;
+  top: $tooltip-arrow-height+$tooltip-gap;
   width: $tooltip-width;
+}
 
-  &:before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    border: 10px solid transparent;
-    border-bottom-color: $tooltip-color;
+.tooltip--content {
+  padding: $tooltip-padding;
+}
+
+.tooltip--arrow {
+  @if ($tooltip-arrow == false) {
+    border: $tooltip-arrow-height solid transparent;
+    border-bottom-color: $tooltip-background;
+    margin: -($tooltip-arrow-height * 2) auto 0;
+    width: $tooltip-arrow-height * 2;
+  } @else {
+    background: transparent $tooltip-arrow 50% 0 no-repeat;
+    margin-top: -($tooltip-arrow-height);
+    padding-top: $tooltip-arrow-height;
   }
 }
