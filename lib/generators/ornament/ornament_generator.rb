@@ -30,9 +30,10 @@ class OrnamentGenerator < Rails::Generators::Base
 
       if options.gems?
         gem_group :assets do
-          gem "sass-rails",    "~> 3.2.3"
-          gem "uglifier",      ">= 1.0.3"
-          gem "compass-rails", "~> 1.0.3"
+          gem "sass-rails",     "~> 3.2.3"
+          gem "uglifier",       ">= 1.0.3"
+          gem "compass-rails",  "~> 1.0.3"
+          gem "turbolinks",     "~> 1.3.0"
         end
       end
 
