@@ -15,17 +15,15 @@ The dummy app's "vendor/assets" configuration includes this path:
 
     ../../lib/generators/ornament/templates/vendor/assets
 
-This means you can modify the files in the gem and see the changes in the app
-without re-running the generator.
+This means you can modify the files in the generator template and see the
+changes in the test app without re-running the generator.
 
-However, you'll need to re-run the generator if you make changes to either of
-these files:
+However, you'll need to re-run the generator if you make changes to this file:
 
-    lib/generators/ornament/templates/app/assets/application.css.scss.erb
     lib/generators/ornament/templates/app/assets/ornament/_defaults.css.scss
 
 When you run the generator, use this command to ensure you only regenerate the
-application CSS and settings files:
+settings files:
 
     rails g ornament --development -f
 

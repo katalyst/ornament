@@ -22,41 +22,30 @@
 // Ornament utilities/mixins here, import them directly into your components
 //
 
+@import "components/align";
 @import "components/button";
+@import "components/clearfix";
 @import "components/environment";
+@import "components/field";
+@import "components/float";
 @import "components/footer";
 @import "components/header";
 @import "components/heading";
+@import "components/island";
 @import "components/layout";
 @import "components/navigation";
-@import "components/navigation-horizontal";
 @import "components/navigation-dropdown";
+@import "components/navigation-horizontal";
 @import "components/settings-preview";
 @import "components/skip-link";
 @import "components/slider";
 @import "components/spacing";
+@import "components/split";
+@import "components/table";
 @import "components/tabs";
 @import "components/tooltip";
 
 
-<%- if options.experimental? || options.development? -%>
-
-// EXPERIMENTAL
-//
-//
-// Import experimental components.
-//
-
-@import "experimental/align";
-@import "experimental/clearfix";
-@import "experimental/field";
-@import "experimental/float";
-@import "experimental/island";
-@import "experimental/split";
-@import "experimental/table";
-
-
-<%- end -%>
 
 // OVERRIDES
 //
