@@ -67,6 +67,7 @@ $heading-three-typeface:  $heading-beta-font,   $base-font-size * 1.8,  $base-li
 $heading-four-typeface:   $heading-beta-font,   $base-font-size * 1.5,  $base-line-height / 1.2;
 $heading-five-typeface:   $bold-font,           $base-font-size * 1.2,  $base-line-height / 1.1;
 $heading-six-typeface:    $bold-font,           $base-font-size * 1.0,  $base-line-height / 1.0;
+$small-typeface:          $body-font,           $base-font-size * 0.8,  $base-line-height / 1.1;
 
 
 
@@ -80,7 +81,7 @@ $background-color:  #ffffff;
 $link-color:        #00aad5;
 $link-hover-color:  false;
 $error-color:       #990000;
-$notice-color:      #999900;
+$notice-color:      #ff6600;
 $success-color:     #009900;
 
 

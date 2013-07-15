@@ -1,40 +1,50 @@
+@import "compass/css3/inline-block";
 @import "compass/utilities/general/clearfix";
+@import "ornament/utilities/typeface";
 
-$field-error-color:     $error-color;
-$field-required-color:  $error-color;
+$field-error-color:             $error-color;
+$field-hanging-required-marks:  true;
+$field-label-typeface:          $heading-six-typeface;
+$field-required-color:          $notice-color;
 
 .field {
-  @include clearfix;
+  @include pie-clearfix;
 }
 
-.field-reversed {
-  input {
-    float: left;
-    margin-right: $x-small-unit;
-    width: 10em;
+.field--label {
+  @include typeface($field-label-typeface);
+  display: block;
+  > abbr[title="required"] {
+    @if ($field-hanging-required-marks) {
+      float: left;
+      margin-left: -0.8em;
+    }
+    color: $field-required-color;
   }
+}
+
+.field--error {
+  @include typeface($small-typeface);
+  color: $field-error-color;
+}
+
+.field--hint {
+  @include typeface($small-typeface);
+}
+
+.field-horizontal {
   .field--label {
+    padding: 5px 0;
     float: left;
+    width: 20%;
+  }
+  input,
+  select,
+  textarea {
+    width: 80%;
   }
   .field--hint,
   .field--error {
     clear: both;
   }
-}
-
-.field--label {
-  @include font($bold-font);
-  display: block;
-  > abbr[title="required"] {
-    color: $field-error-color;
-  }
-}
-
-.field--error {
-  font-size: $base-font-size * 0.75;
-  color: $field-required-color;
-}
-
-.field--hint {
-  font-size: $base-font-size * 0.75;
 }

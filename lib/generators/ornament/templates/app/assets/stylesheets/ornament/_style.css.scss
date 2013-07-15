@@ -30,7 +30,7 @@ body {
 
 
 
-// STRONG & EM, BOLD & ITALIC
+// STRONG & EM, BOLD & ITALIC AND SMALL
 //
 //
 // Set the defaults for bold and italic in a font-face friendly way.
@@ -42,6 +42,10 @@ strong, b {
 
 em, i {
   @include font($italic-font);
+}
+
+small {
+  @include typeface($small-typeface);
 }
 
 
