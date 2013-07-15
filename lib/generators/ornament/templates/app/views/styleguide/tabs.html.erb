@@ -1,51 +1,13 @@
-<% content_for :title, "Component: Tabs" %>
+<% content_for :title, "Tabs" %>
 
-<% content_for :scripts do %>
-  <script>
+<div class="spacing">
 
-    $(function () {
+  <section class="spacing-tight">
 
-      // this simulates an ajax load
-      $(".demo--load-more").on("click", function () {
-        var fauxAjax = '<h2 style="margin: 20px 0; font-size: 1.5em; font-weight: bold;">Simulated Ajax Load</h2>';
-        fauxAjax += '<div class="tabs">';
-        fauxAjax += '<nav class="navigation-horizontal">';
-        fauxAjax += '<ul>';
-        fauxAjax += '<li><a href="#tab1" class="tabs--link">Tab #1</a></li>';
-        fauxAjax += '<li><a href="#tab2" class="tabs--link">Tab #2</a></li>';
-        fauxAjax += '<li><a href="#tab3" class="tabs--link">Tab #3</a></li>';
-        fauxAjax += '</ul>';
-        fauxAjax += '</nav>';
-        fauxAjax += '<div>';
-        fauxAjax += '<div class="tabs--pane">';
-        fauxAjax += 'Tab #1';
-        fauxAjax += '</div>';
-        fauxAjax += '<div class="tabs--pane">';
-        fauxAjax += 'Tab #2';
-        fauxAjax += '</div>';
-        fauxAjax += '<div class="tabs--pane">';
-        fauxAjax += 'Tab #3';
-        fauxAjax += '</div>';
-        fauxAjax += '</div>';
-        fauxAjax += '</div>';
-        $(".layout--main").append(fauxAjax);
-        $(document).trigger("ornament:refresh");
-      });
-
-    });
-
-  </script>
-<% end %>
-
-<div class="rhythm">
-
-  <span class="demo--load-more" style="display: inline-block; font-weight: bold; background: #222; color: #fff; border-radius: 3px; padding: 0 13px; line-height: 32px; margin: 20px 0; cursor: pointer;">Load more tabbed areas</span>
-
-  <section class="rhythm-tight">
-    <h2>Horizontal Tabs</h2>
+    <h2 class="heading-two">Horizontal Tabs</h2>
 
     <div class="tabs">
-      <nav class="navigation-horizontal tabs-links">
+      <nav class="tabs-links">
         <ul>
           <li><a href="#tab1" class="tabs--link">Tab #1</a></li>
           <li><a href="#tab2" class="tabs--link">Tab #2</a></li>
