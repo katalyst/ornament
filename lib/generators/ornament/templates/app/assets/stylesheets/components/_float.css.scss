@@ -1,27 +1,17 @@
+$float-gutter: $small-unit;
+
 @media (min-width:480px) {
 
   .float-left {
     float: left;
-    margin-bottom: $small-unit;
-    margin-right: $small-unit;
+    margin-bottom: $float-gutter;
+    margin-right: $float-gutter;
   }
 
   .float-right {
     float: right;
-    margin-bottom: $small-unit;
-    margin-left: $small-unit;
-  }
-
-  .float-small {
-    width: 25%;
-  }
-
-  .float-small {
-    width: 25%;
-  }
-
-  .float-large {
-    width: 25%;
+    margin-bottom: $float-gutter;
+    margin-left: $float-gutter;
   }
 
 }
