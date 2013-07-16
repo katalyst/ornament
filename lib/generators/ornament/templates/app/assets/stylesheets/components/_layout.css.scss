@@ -1,16 +1,18 @@
-$layout-background:         transparent;
-$layout-breakpoint:         $large-breakpoint;
-$layout-container-width:    $container-width;
-$layout-desktop-edge-gap:   0;
-$layout-desktop-footer-gap: $default-unit;
-$layout-desktop-header-gap: $default-unit;
-$layout-footer-height:      100px;
-$layout-mobile-edge-gap:    $small-unit;
-$layout-mobile-footer-gap:  $small-unit;
-$layout-mobile-header-gap:  $small-unit;
+@import "compass/css3/transform";
+@import "compass/css3/transition";
 
-// TODO: Rework the class names to have layout-desktop, layout-mobile &
-// layout-mobile-open.
+$layout-animation-duration:     0.5s;
+$layout-background:             $background-color;
+$layout-breakpoint:             $large-breakpoint;
+$layout-container-width:        $container-width;
+$layout-desktop-edge-gap:       0;
+$layout-desktop-footer-gap:     $default-unit;
+$layout-desktop-header-gap:     $default-unit;
+$layout-footer-height:          100px;
+$layout-mobile-tray-background: #cccccc;
+$layout-mobile-edge-gap:        $small-unit;
+$layout-mobile-footer-gap:      $small-unit;
+$layout-mobile-header-gap:      $small-unit;
 
 // LAYOUT (MOBILE)
 
@@ -21,10 +23,13 @@ $layout-mobile-header-gap:  $small-unit;
   }
 
   .layout--mobile-tray {
+    background: $layout-mobile-tray-background;
     display: none;
   }
 
   .layout--content {
+    @include single-transition(transform, $layout-animation-duration);
+    background: $layout-background;
     min-height: 100%;
   }
 
@@ -33,7 +38,7 @@ $layout-mobile-header-gap:  $small-unit;
   }
 
   .layout--switch {
-
+    background: red;
   }
 
   .layout--desktop-header {
@@ -41,7 +46,6 @@ $layout-mobile-header-gap:  $small-unit;
   }
 
   .layout--main {
-    background: $layout-background;
     padding-bottom: $layout-mobile-footer-gap;
     padding-left: $layout-mobile-edge-gap;
     padding-right: $layout-mobile-edge-gap;
@@ -58,18 +62,57 @@ $layout-mobile-header-gap:  $small-unit;
 
 @media screen and (max-width: $layout-breakpoint) {
 
-  .layout-open .layout--mobile-tray {
-    display: block;
-    min-height: 100%;
-    width: 80%;
+  .layout-open {
+
+    .layout--mobile-tray {
+      display: block;
+      min-height: 100%;
+      padding-right: 20%;
+      width: 100%;
+    }
+
+    .layout--content {
+      @include translate(80%, 0);
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .layout--switch {
+      background: green;
+    }
+
   }
 
-  .layout-open .layout--content {
-    height: 100%;
-    left: 80%;
-    position: fixed;
-    top: 0;
+}
+
+// LAYOUT-TRANSITIONING (MOBILE)
+
+@media screen and (max-width: $layout-breakpoint) {
+
+  .layout-transitioning {
+
+    overflow: hidden;
+    position: relative;
     width: 100%;
+
+    .layout--mobile-tray {
+      display: block;
+      min-height: 100%;
+      padding-right: 20%;
+      width: 100%;
+    }
+
+    .layout--content {
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
   }
 
 }
@@ -86,12 +129,12 @@ $layout-mobile-header-gap:  $small-unit;
     width: 100%;
   }
 
-  .layout--content {
-    margin-bottom: $layout-footer-height;
-  }
-
   .layout--mobile-tray {
     display: none;
+  }
+
+  .layout--content {
+    margin-bottom: $layout-footer-height;
   }
 
   .layout--mobile-header {
