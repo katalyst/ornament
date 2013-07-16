@@ -33,4 +33,4 @@ Use [JSLint](http://www.jslint.com/) with the following settings to validate
 your JavaScript files:
 
     /*jslint browser: true, indent: 2, todo: true, unparam: true */
-    /*global jQuery*/
+    /*global jQuery,Ornament */
