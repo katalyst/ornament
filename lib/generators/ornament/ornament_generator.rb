@@ -21,10 +21,7 @@ class OrnamentGenerator < Rails::Generators::Base
       if options.core?
 
         copy_file "app/assets/stylesheets/application.css.scss"
-
-        if yes?("Remove the existing 'application.css' file (a 'application.css.scss' file has been created to replace it)?")
-          remove_file "app/assets/stylesheets/application.css"
-        end
+        remove_file "app/assets/stylesheets/application.css"
 
       end
 
