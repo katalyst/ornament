@@ -1,3 +1,5 @@
+@import "compass/css3/text-shadow";
+
 // BREAKPOINT HELPER
 .environment-development {
   &:after {
@@ -11,19 +13,19 @@
     z-index: 9050;
     @include text-shadow(1px 1px 0 rgba(#fff,0.5));
 
-    @include mq($breakpoint-large) {
+    @include media-query($breakpoint-large) {
       content: "breakpoint-large (#{$breakpoint-large})";
     }
 
-    @include mq($breakpoint-medium) {
+    @include media-query($breakpoint-medium) {
       content: "breakpoint-medium (#{$breakpoint-medium})";
     }
 
-    @include mq($breakpoint-small) {
+    @include media-query($breakpoint-small) {
       content: "breakpoint-small (#{$breakpoint-small})";
     }
 
-    @include mq(320px) {
+    @include media-query(320px) {
       content: "less than 320";
     }
   }

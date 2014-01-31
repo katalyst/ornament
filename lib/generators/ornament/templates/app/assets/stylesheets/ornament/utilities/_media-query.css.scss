@@ -1,0 +1,37 @@
+// MEDIA QUERY MIXIN
+// uses massive, big, medium, small keywords
+// OR custom with min/max + size specifics
+// eg media-query(massive) {}
+// eg media-query(960px, max) {}
+
+@mixin media-query($media-query, $size: max){
+
+  @if $media-query == massive {
+    @media only screen and (max-width:$breakpoint-massive) { @content; }
+  }
+
+  @if $media-query == big {
+    @media only screen and (max-width:$breakpoint-big) { @content; }
+  }
+
+  @if $media-query == medium {
+    @media only screen and (max-width:$breakpoint-medium) { @content; }
+  }
+
+  @if $media-query == small {
+    @media only screen and (max-width:$breakpoint-small) { @content; }
+  }
+
+  @if $media-query == micro {
+    @media only screen and (max-width:$breakpoint-micro) { @content; }
+  }
+
+  @else {
+    @if $size == max {
+      @media only screen and (max-width:$media-query) { @content; }
+    }
+    @else {
+      @media only screen and (min-width:$media-query) { @content; } 
+    }
+  }
+}
