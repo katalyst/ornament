@@ -24,32 +24,10 @@
 //
 
 body {
-  @include typeface($body-typeface);
+  // @include typeface($body-typeface);
   background: $background-color;
   color: $foreground-color;
 }
-
-
-
-// STRONG & EM, BOLD & ITALIC AND SMALL
-//
-//
-// Set the defaults for bold and italic in a font-face friendly way.
-//
-
-strong, b {
-  @include font($bold-font);
-}
-
-em, i {
-  @include font($italic-font);
-}
-
-small {
-  @include typeface($small-typeface);
-}
-
-
 
 // LINKS
 //
@@ -95,7 +73,6 @@ legend {
 [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"],
 [type="url"], textarea {
   @include border-radius($input-border-radius);
-  @include typeface($input-typeface);
   background: $input-background;
   border: $input-border;
   color: $input-color;

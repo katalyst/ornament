@@ -1,0 +1,269 @@
+@import "ornament/utilities/font";
+@import "ornament/utilities/decorate-link";
+@import "ornament/utilities/color-link";
+@import "ornament/utilities/media-query";
+
+// FONTS
+
+$body-font: ('Myriad W01 Regular', sans-serif) normal normal;
+$italic-font: ('Myriad W01 It', sans-serif) normal normal;
+
+$bold-font: ('Myriad W01 Bd', sans-serif) normal normal;
+$bold--italic-font: ('Myriad W01 Bd It', sans-serif) normal normal;
+
+$heading-alpha-font: ('Myriad W01 Bd', sans-serif) normal normal;
+$heading-alpha-font-italic: ('Myriad W01 Bd It', sans-serif) normal normal;
+
+$heading-beta-font: ('Myriad W01 SmBd', sans-serif) normal normal;
+$heading-beta-font-italic: ('Myriad W01 SmBd It', sans-serif) normal normal;
+
+$semibold-font: ('Myriad W01 SmBd', sans-serif) normal normal;
+$semibold-italic: ('Myriad W01 SmBd It', sans-serif) normal normal;
+
+$input-typeface: $body-font;
+
+$mucura: ('mucura', sans-serif) normal normal;
+
+
+// BODY
+
+@mixin body-type() {
+ @include font($body-font);
+ font-size: $base-font-size;
+ line-height: $base-line-height;
+}
+
+body, .body-type {
+  @include body-type();
+}
+
+
+// HEADINGS
+
+@mixin heading-one() {
+  @include font($heading-alpha-font);
+  font-size: $xxx-large-unit;
+  line-height: 1;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.heading-one {
+  @include heading-one();
+}
+
+@mixin heading-two() {
+  @include font($heading-alpha-font);
+  font-size: $large-unit;
+  line-height: 1;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.heading-two {
+  @include heading-two();
+}
+
+@mixin heading-three() {
+  @include font($heading-alpha-font);
+  font-size: $large-unit;
+  line-height: 1;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.heading-three {
+  @include heading-three();
+}
+
+@mixin heading-four() {
+  @include font($heading-alpha-font);
+  font-size: $large-unit;
+  line-height: 1;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.heading-four {
+  @include heading-four();
+}
+
+@mixin heading-five() {
+  @include font($heading-alpha-font);
+  font-size: $default-unit;
+  line-height: 1;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.heading-five {
+  @include heading-five();
+}
+
+@mixin heading-six() {
+  @include font($heading-alpha-font);
+  font-size: $default-unit;
+  line-height: 1;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.heading-six {
+  @include heading-six();
+}
+
+
+// INLINE STYLES
+
+strong, b {
+  @include font($bold-font);
+}
+
+em, i {
+  @include font($italic-font);
+}
+
+small {
+  @include font($body-font);
+  font-size: $small-unit;
+  line-height: 1;
+}
+
+
+// LINKS
+
+a, button {
+  @include decorate-link(none, underline);
+  @include color-link($link-color, $link-hover-color);
+}
+
+
+// FORMS
+
+[type="text"], [type="password"], [type="date"], [type="datetime"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], textarea {
+  font-family: $input-typeface;
+}
+
+
+// TABLES
+
+th {
+  @include font($bold-font);
+}
+
+
+// TYPEFACES - LEGACY
+
+$body-typeface:
+  $body-font,
+  $base-font-size,
+  $base-line-height
+;
+
+$heading-one-typeface:
+  $heading-alpha-font,
+  $xxx-large-unit,
+  1
+;
+
+$heading-two-typeface:
+  $heading-alpha-font,
+  $base-font-size * 2.0,
+  1
+;
+
+$heading-three-typeface:
+  $heading-alpha-font,
+  20px,
+  1
+;
+
+$heading-four-typeface:
+  $heading-beta-font,
+  $base-font-size * 1.5,
+  $base-line-height
+;
+
+$heading-five-typeface:
+  $bold-font,
+  $base-font-size * 1.2,
+  $base-line-height
+;
+
+$heading-six-typeface:
+  $bold-font,
+  $base-font-size * 1.0,
+  $base-line-height
+;
+
+$small-typeface:
+  $body-font,
+  $base-font-size * 0.8,
+  $base-line-height
+;
+
+$input-typeface:
+  $body-font,
+  $base-font-size,
+  1.5
+;
+
+// BASE TYPOGRAPHY
+
+body {
+  @include typeface($body-typeface);
+}
+
+strong, b {
+  @include font($bold-font);
+}
+
+em, i {
+  @include font($italic-font);
+}
+
+small {
+  @include typeface($small-typeface);
+}
+
+[type="text"], [type="password"], [type="date"], [type="datetime"],
+[type="email"], [type="number"], [type="search"], [type="tel"], [type="time"],
+[type="url"], textarea {
+  @include typeface($input-typeface);
+}

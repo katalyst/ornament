@@ -1,0 +1,125 @@
+@mixin content-children {
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.content--title {
+  margin-bottom: $xx-large-unit;
+}
+
+.content-lite {
+  @include mq($breakpoint-medium,"min") {
+    font-size: $large-font-size;
+  }
+}
+
+.content {
+  @extend .content-lite;
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  p {
+    margin-top: $default-unit;
+    margin-bottom: $default-unit;
+  }
+
+  ul,ol {
+    margin-left: 2em;
+    margin-bottom: $default-unit;
+  }
+
+  // pulling ul,ol up under paragraphs
+  p + ul,
+  p + ol {
+    margin-top: -($default-unit);
+  }
+
+  h1 {
+    @include heading-one;
+  }
+
+  h2 {
+    @include heading-two;
+    margin-top: $large-unit;
+    margin-bottom: $large-unit;
+  }
+
+  h3 {
+    @include heading-three;
+  }
+
+  h4 {
+    @include heading-four;
+  }
+
+  h5 {
+    @include heading-five;
+  }
+
+  h6 {
+    @include heading-six;
+  }
+
+  img {
+    @include border-radius($border-radius);
+  }
+
+  // koi-inserted images working resposively
+  img[style*='height'] {
+    height: auto !important;
+  }
+
+  // image + caption styles
+  figure {
+
+    // &.figure_with-caption {
+    //   border-bottom: 0;
+
+    //   img {
+    //     @include border-radius($border-radius $border-radius 0 0);
+    //   }
+    // }
+
+    // inheriting some styles from fotorama_custom.css
+    position: relative;
+
+    img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      z-index: 2;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  :first-child {
+    margin-top: 0;
+  }
+  :last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+blockquote cite {
+  display: block;
+  margin: $xx-small-unit 0 $default-unit;
+  @include content-children;
+}
