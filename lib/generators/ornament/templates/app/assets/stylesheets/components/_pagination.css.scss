@@ -83,7 +83,7 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
       right: auto;
       top: $default-unit;
 
-      @include mq($pagination-breakpoint-firstlast) {
+      @include media-query($pagination-breakpoint-firstlast) {
         left: 15px;
       }
     }
@@ -103,7 +103,7 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
       right: $default-unit;
       top: $default-unit;
 
-      @include mq($pagination-breakpoint-firstlast) {
+      @include media-query($pagination-breakpoint-firstlast) {
         right: 15px;
       }
     }
@@ -134,7 +134,7 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
 
   .next,
   .prev {
-    @include mq($pagination-breakpoint-nextprev) {
+    @include media-query($pagination-breakpoint-nextprev) {
       display: none;
     }
   }
@@ -143,7 +143,7 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   .first a,
   .last.disabled,
   .last a {
-    @include mq($pagination-breakpoint-firstlast) {
+    @include media-query($pagination-breakpoint-firstlast) {
       text-indent: -9999px;
       width: $button-height;
       padding-left: 0;

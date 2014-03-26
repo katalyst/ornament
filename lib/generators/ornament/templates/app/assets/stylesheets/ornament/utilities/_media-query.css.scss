@@ -7,31 +7,26 @@
 @mixin media-query($media-query, $size: max){
 
   @if $media-query == massive {
-    @media only screen and (max-width:$breakpoint-massive) { @content; }
+    @media only screen and (#{$size}-width:$breakpoint-massive) { @content; }
   }
 
   @if $media-query == big {
-    @media only screen and (max-width:$breakpoint-big) { @content; }
+    @media only screen and (#{$size}-width:$breakpoint-big) { @content; }
   }
 
   @if $media-query == medium {
-    @media only screen and (max-width:$breakpoint-medium) { @content; }
+    @media only screen and (#{$size}-width:$breakpoint-medium) { @content; }
   }
 
   @if $media-query == small {
-    @media only screen and (max-width:$breakpoint-small) { @content; }
+    @media only screen and (#{$size}-width:$breakpoint-small) { @content; }
   }
 
   @if $media-query == micro {
-    @media only screen and (max-width:$breakpoint-micro) { @content; }
+    @media only screen and (#{$size}-width:$breakpoint-micro) { @content; }
   }
 
   @else {
-    @if $size == max {
-      @media only screen and (max-width:$media-query) { @content; }
-    }
-    @else {
-      @media only screen and (min-width:$media-query) { @content; } 
-    }
+    @media only screen and (min-width:$media-query) { @content; }
   }
 }
