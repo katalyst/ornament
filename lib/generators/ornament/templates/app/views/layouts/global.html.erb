@@ -41,9 +41,20 @@
     <div class="layout">
 
       <div class="layout--mobile-tray">
-        mobile nav
-        <br />
-        mobile nav
+        <nav class="navigation-mobile">
+          <div class="pane-wrapper">
+            <div class="pane">
+              <div class="pane--navigation-container">
+                <ul class="non-pane">
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
 
       <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>

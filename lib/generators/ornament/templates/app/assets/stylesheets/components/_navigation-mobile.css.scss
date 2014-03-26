@@ -1,0 +1,276 @@
+@import "compass/css3/transition";
+
+$navigation-hitbox:                   44px;
+$navigation-second-level-background:  $brand-blue;
+$navigation-border-color:             #339bd3;
+
+.navigation-mobile--content {
+  display: none;
+}
+
+.navigation-mobile {
+  overflow: hidden;
+  height: 100%;
+
+  // setting up wrapper div
+  > div {
+    position: relative;
+    height: 100%;
+    -webkit-transform: translateZ(0);
+    @include transition(.15s linear);
+    @include translate(0%, 0);
+    -webkit-backface-visibility: hidden;
+
+    .no-csstransforms & {
+      left: 0%;
+    }
+  }
+
+  // loop through pane levels
+  @for $i from 2 through 10 {
+    &[data-level="#{$i}"] > .pane-wrapper {
+      $offsetLevel: $i - 1;
+      $offset: $offsetLevel * 100%;
+      @include translate( -($offset), 0 );
+
+      .no-csstransforms & {
+        left: -($offset);
+      }
+    }
+  }
+
+  // setting up panes
+  > div .pane {
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    // line-height: $navigation-hitbox;
+
+    .active > a {
+      background: $brand-blue;
+    }
+  }
+
+  .pane--navigation-container ul {
+    border-bottom: 1px solid $navigation-border-color;
+  }
+
+  // global link styles
+  .pane-wrapper .pane {
+    a, .faux-link {
+      position: relative;
+      @include color-link(#fff,#fff);
+      @include font($bold-font);
+      @include line-height-padding($navigation-hitbox);
+    }
+  }
+
+  // first level links
+  .pane-wrapper .pane_first .pane--navigation-container {
+    > li {
+      border-top: 1px solid $navigation-border-color;
+    }
+  }
+
+  // second level links
+  .pane-wrapper .pane .pane {
+    left: 100%;
+    background: $navigation-second-level-background;
+
+    a {
+      color: #fff;
+      border-top-color: $navigation-border-color;
+    }
+
+    .forward {
+      color: #fff;
+    }
+
+    .active > a {
+      background: $brand-blue;
+
+      &:before {
+        background: $brand-blue;
+      }
+    }
+  }
+
+  // making active children a higher z-index
+  li.selected > div {
+    z-index: 2;
+  }
+
+  // positioning buttons
+  .navigation-item {
+    > a,
+    > span.faux-link,
+    > button {
+      display: block;
+      position: relative;
+      padding-left: $default-unit;
+      padding-right: $navigation-hitbox + $xx-small-unit;
+
+      &:before {
+        content: "";
+        display: block;
+        width: $navigation-hitbox;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: $brand-blue;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        margin-top: -6px;
+        right: 18px;
+        background: url('/assets/sprite.png') no-repeat -148px -218px;
+        width: 7px;
+        height: 12px;
+      }
+    }
+    // forward buttons
+    &.has-children {
+      > a:after,
+      > span.faux-link:after,
+      > button:after {
+        background-position: -122px -105px;
+        width: 12px;
+        height: 12px;
+        right: 16px;
+      }
+    }
+  }
+
+  .pane--navigation-container li + li > a,
+  .pane--navigation-container li + li > .faux-link {
+    border-top: 1px solid $navigation-border-color;
+  }
+
+  // description blocks
+  .description--title {
+    @include font($bold-font);
+    color: #fff;
+  }
+  .description--body {
+    color: #fff;
+    margin-top: $x-small-unit;
+  }
+  .pane-wrapper .pane .description--overview a {
+    margin-top: $x-small-unit;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-top: 0;
+    display: block;
+
+    &:before {
+      top: 5px;
+    }
+  }
+
+  // back buttons
+  .back {
+    background: $brand-blue;
+
+    a {
+      cursor: pointer;
+      display: block;
+      margin-left: 23px;
+      padding-left: 7px;
+      @include border-top-left-radius(0);
+      @include border-bottom-left-radius(0);
+    }
+
+    a:before {
+      top: 15px;
+      left: -8px;
+      z-index: 2;
+    }
+
+    a:after {
+      content: "";
+      background: url("/assets/sprite.png") -137px -420px no-repeat;
+      width: 23px;
+      height: 44px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-left: -23px;
+      z-index: 1;
+    }
+
+    a:hover {
+      background: $brand-blue;
+    }
+  }
+
+  // search
+  .navigation-mobile--search {
+    .search--input {
+      width: 184px;
+    }
+    .search--button {
+      background: $brand-blue;
+    }
+    ul {
+      @include pie-clearfix;
+      padding-top: $default-unit;
+      text-align: center;
+    }
+    li + li {
+      border-left-color: $navigation-border-color;
+    }
+    li, a {
+      display: inline;
+      float: none;
+    }
+    a {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  // enquiries
+  .navigation-mobile--enquiries {
+    background: $brand-blue;
+    color: #fff;
+    text-align: center;
+    border-bottom: 1px solid $navigation-border-color;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    @include pie-clearfix;
+
+    a {
+      @include color-link(#fff,#fff);
+      @include decorate-link(none,none);
+    }
+
+    .icon_phone_white:before {
+      top: 0;
+    }
+  }
+
+  // my options button
+  .navigation-mobile--options {
+    padding-top: 0;
+    a.button_my-choices {
+      @include decorate-link(none,none);
+      display: block;
+      width: 100%;
+      @include line-height-padding($navigation-hitbox);
+
+      span {
+        float: right;
+      }
+    }
+  }
+
+}

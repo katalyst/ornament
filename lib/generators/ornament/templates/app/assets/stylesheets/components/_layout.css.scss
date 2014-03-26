@@ -80,6 +80,7 @@ $layout-mobile-header-gap:      $small-unit;
       position: fixed;
       top: 0;
       width: 100%;
+      @include box-shadow(0 0 10px rgba(0,0,0,0.1));
     }
 
     .layout--switch {
@@ -113,6 +114,7 @@ $layout-mobile-header-gap:      $small-unit;
       position: fixed;
       top: 0;
       width: 100%;
+      @include box-shadow(0 0 10px rgba(0,0,0,0.1));
     }
 
   }
