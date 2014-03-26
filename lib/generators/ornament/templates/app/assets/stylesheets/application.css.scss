@@ -13,7 +13,13 @@
 // Moving hint text up under label
 // Moving errors in line with label
 // Defaults for en.yml for common things - ie. pagination
-// Conver to ems
+// Consolodated media-query mixin
+// Rebuild styleguide pages
+// * Conforming columns
+// * Forms
+// * Spang
+// *
+// Convert to ems
 
 
 // ORNAMENT
@@ -49,13 +55,13 @@
 @import "components/navigation-horizontal";
 // @import "components/settings-preview";
 @import "components/skip-link";
-@import "components/slider";
 @import "components/spacing";
 @import "components/split";
 @import "components/table";
 @import "components/tabs";
 @import "components/tooltip";
 @import "fotorama";
+@import "components/fotorama-custom";
 
 
 
