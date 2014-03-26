@@ -13,7 +13,7 @@
     z-index: 9050;
     @include text-shadow(1px 1px 0 rgba(#fff,0.5));
 
-    @include media-query($breakpoint-large) {
+    @include media-query($breakpoint-large, "max") {
       content: "breakpoint-large (#{$breakpoint-large})";
     }
 

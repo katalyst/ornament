@@ -27,6 +27,6 @@
   }
 
   @else {
-    @media only screen and (min-width:$media-query) { @content; }
+    @media only screen and (#{$size}-width:$media-query) { @content; }
   }
 }
