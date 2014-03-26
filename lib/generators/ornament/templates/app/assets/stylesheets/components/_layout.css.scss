@@ -10,6 +10,7 @@ $layout-desktop-footer-gap:     $default-unit;
 $layout-desktop-header-gap:     $default-unit;
 $layout-footer-height:          100px;
 $layout-mobile-tray-background: #cccccc;
+$layout-mobile-tray-width:      250px;
 $layout-mobile-edge-gap:        $small-unit;
 $layout-mobile-footer-gap:      $small-unit;
 $layout-mobile-header-gap:      $small-unit;
@@ -39,6 +40,7 @@ $layout-mobile-header-gap:      $small-unit;
 
   .layout--switch {
     background: red;
+    float: right;
   }
 
   .layout--desktop-header {
@@ -67,12 +69,12 @@ $layout-mobile-header-gap:      $small-unit;
     .layout--mobile-tray {
       display: block;
       min-height: 100%;
-      padding-right: 20%;
-      width: 100%;
+      float: right;
+      width: $layout-mobile-tray-width;
     }
 
     .layout--content {
-      @include translate(80%, 0);
+      @include translate(-($layout-mobile-tray-width), 0);
       height: 100%;
       left: 0;
       position: fixed;
@@ -101,8 +103,8 @@ $layout-mobile-header-gap:      $small-unit;
     .layout--mobile-tray {
       display: block;
       min-height: 100%;
-      padding-right: 20%;
-      width: 100%;
+      float: right;
+      width: $layout-mobile-tray-width;
     }
 
     .layout--content {

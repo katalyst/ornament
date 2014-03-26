@@ -66,6 +66,9 @@ textarea,
   &.input_flat-left {
     @include input_flat-left;
   }
+  &:focus {
+    outline: none;
+  }
 }
 
 input[type=file] {
