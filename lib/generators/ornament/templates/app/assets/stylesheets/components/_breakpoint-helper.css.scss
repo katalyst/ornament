@@ -13,16 +13,11 @@
     z-index: 9050;
     @include text-shadow(1px 1px 0 rgba(#fff,0.5));
 
-    @include media-query($breakpoint-large, "max") {
-      content: "breakpoint-large (#{$breakpoint-large})";
-    }
-
-    @include media-query($breakpoint-medium) {
-      content: "breakpoint-medium (#{$breakpoint-medium})";
-    }
-
-    @include media-query($breakpoint-small) {
-      content: "breakpoint-small (#{$breakpoint-small})";
+    $reverse-breakpoints: reverse-list($site-breakpoints);
+    @each $breakpoint in $reverse-breakpoints {
+      @include media-query(nth($breakpoint, 2)) {
+        content: "breakpoint-#{nth($breakpoint, 1)} (#{nth($breakpoint, 2)})";
+      }
     }
 
     @include media-query(320px) {
