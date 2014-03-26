@@ -1,0 +1,160 @@
+$pagination-bubbles-height:        30px;
+$pagination-breakpoint-nextprev:   $breakpoint-small;
+$pagination-breakpoint-firstlast:  $breakpoint-tiny;
+
+.pagination {
+  text-align: center;
+  margin-top: $default-unit;
+  @include pie-clearfix;
+  @include border-radius(75px);
+
+  a:visited,
+  a:link {
+    @include color-link($white,$white);
+  }
+
+  a:hover {
+    @include decorate-link(none,none);
+  }
+
+  .disabled {
+    opacity: 0.10;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+  }
+
+  // icon extends
+  .first a,
+  .first.disabled {
+    @extend .icon_arrow_double-left;
+    padding-left: $xx-large-unit;
+
+  }
+  .prev a,
+  .prev.disabled {
+    @extend .icon_arrow_left;
+    padding-left: $x-large-unit;
+    margin-left: $x-small-unit;
+
+  }
+  .next a,
+  .next.disabled {
+    @extend .icon_arrow_right;
+    padding-right: $x-large-unit;
+    margin-right: $x-small-unit;
+
+  }
+  .last a,
+  .last.disabled {
+    @extend .icon_arrow_double-right;
+    padding-right: $xx-large-unit;
+
+  }
+
+  // general button styles
+  .first a,
+  .first.disabled,
+  .prev a,
+  .prev.disabled,
+  .next a,
+  .next.disabled,
+  .last a,
+  .last.disabled,
+  .page a,
+  .page.current {
+    position: relative;
+    background: $brand-blue;
+    color: #fff;
+    @include font($bold-font);
+    @include border-radius(75px);
+    @include line-height-padding($button-height);
+  }
+
+  // left buttons
+  .first a,
+  .first.disabled,
+  .prev a,
+  .prev.disabled {
+    float: left;
+    padding-right: $default-unit;
+
+    &:before {
+      position: absolute;
+      left: $default-unit;
+      right: auto;
+      top: $default-unit;
+
+      @include mq($pagination-breakpoint-firstlast) {
+        left: 15px;
+      }
+    }
+  }
+
+  // right buttons
+  .next a,
+  .next.disabled,
+  .last a,
+  .last.disabled {
+    float: right;
+    padding-left: $default-unit;
+
+    &:before {
+      position: absolute;
+      left: auto;
+      right: $default-unit;
+      top: $default-unit;
+
+      @include mq($pagination-breakpoint-firstlast) {
+        right: 15px;
+      }
+    }
+  }
+
+  // page buttons
+  .page a,
+  .page.current {
+    display: inline-block;
+    font-weight: bold;
+    margin: 0 $xx-small-unit;
+    width: $button-height;
+    text-align: center;
+  }
+
+  .page.current {
+    background: $brand-green;
+    color: #fff;
+  }
+
+  .page.gap {
+    @include media-query(small) {
+      display: none;
+    }
+  }
+
+  // Breakpoint changes
+
+  .next,
+  .prev {
+    @include mq($pagination-breakpoint-nextprev) {
+      display: none;
+    }
+  }
+
+  .first.disabled,
+  .first a,
+  .last.disabled,
+  .last a {
+    @include mq($pagination-breakpoint-firstlast) {
+      text-indent: -9999px;
+      width: $button-height;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  // Page counter
+  .pagination--pages {
+    display: inline;
+    line-height: $button-height;
+  }
+
+}
