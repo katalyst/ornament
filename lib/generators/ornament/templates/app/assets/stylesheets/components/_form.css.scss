@@ -46,7 +46,7 @@ input[type=email],
 select,
 textarea,
 .form-label-combo {
-  border: 0;
+  border: $input-border;
   background: $white;
   line-height: $base-line-size;
   @include line-height-padding($form-line-height);
@@ -271,12 +271,20 @@ $file-thumbnail-width: 100px;
   clear: both;
 }
 
-p.help-block { // hint
+p.hint-block { // hint
   color: $hint-color;
   font-style: italic;
 }
 
-span.help-block { // error
+span.error-block { // error
+  color: $error-color;
+  &:before {
+    content: " ";
+  }
+}
+
+// LABELS WITH ERRORS
+.error .control-label {
   color: $error-color;
 }
 

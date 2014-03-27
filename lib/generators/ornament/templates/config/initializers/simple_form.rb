@@ -50,8 +50,8 @@ SimpleForm.setup do |config|
     b.wrapper :tag => 'div', :class => 'controls' do |ba|
       ba.use :input
       ba.use :label, :wrap_with => { :class => 'control-label' }
+      ba.use :error, :wrap_with => { :tag => 'span', :class => 'error-block' }
     end
-    b.use :error, :wrap_with => { :tag => 'span', :class => 'error-block' }
     b.use :hint,  :wrap_with => { :tag => 'p', :class => 'hint-block' }
   end
 
@@ -59,10 +59,10 @@ SimpleForm.setup do |config|
     b.use :html5
     b.use :placeholder
     b.use :label
+    b.use :error, :wrap_with => { :tag => 'span', :class => 'error-block' }
+    b.use :hint,  :wrap_with => { :tag => 'p', :class => 'hint-block' }
     b.wrapper :tag => 'div', :class => 'controls' do |ba|
       ba.use :input
-      ba.use :error, :wrap_with => { :tag => 'span', :class => 'error-block' }
-      ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'hint-block' }
     end
   end
 
@@ -93,7 +93,7 @@ SimpleForm.setup do |config|
   end
 
   config.wrappers :checkbox, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
-    b.wrapper :tag => 'div', :class => 'controls' do |ba|
+    b.wrapper :tag => 'div', :class => 'controls test' do |ba|
       ba.use :label_input
     end
   end
