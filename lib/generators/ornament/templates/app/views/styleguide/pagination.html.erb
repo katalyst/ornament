@@ -1,0 +1,30 @@
+<% content_for :title, "Pagination" %>
+
+<p>Pagination styles via Kaminari</p>
+
+<nav class="pagination" role="navigation">
+  <span class="first disabled">
+    First
+  </span>
+
+  <span class="prev disabled">
+    Previous
+  </span>
+
+  <span class="page current">
+    1
+  </span>
+
+  <span class="page">
+    <a href="/news_items?page=2" rel="next" title="Go to page 2">2</a>
+  </span>
+
+  <span class="last">
+    <a href="/news_items?page=2" title="Go to last page">Last</a>
+  </span>
+
+  <span class="next">
+    <a href="/news_items?page=2" rel="next" title="Go to next page">Next</a>
+  </span>
+
+</nav>
