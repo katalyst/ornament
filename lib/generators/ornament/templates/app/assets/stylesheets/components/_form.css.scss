@@ -287,8 +287,9 @@ span.error-block { // error
 }
 
 // REQUIRED FIELDS
-.control-label abbr {
-  // color: $brand-blue;
+.control-label abbr,
+abbr[title=required] {
+  color: $brand-blue;
   margin-right: -3px;
 }
 
