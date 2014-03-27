@@ -48,3 +48,16 @@ $button-small-typeface:             $bold-font, $base-font-size * 0.8;
     background: darken($button-secondary-background-color,10);
   }
 }
+
+// BUTTON GROUPS
+.button-group {
+  @include pie-clearfix;
+
+  .button_back {
+    float: left;
+  }
+
+  .button_forward {
+    float: right;
+  }
+}
