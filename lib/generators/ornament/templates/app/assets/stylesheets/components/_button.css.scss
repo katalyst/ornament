@@ -4,6 +4,7 @@
 @import "ornament/utilities/decorate-link";
 @import "ornament/utilities/font";
 @import "ornament/utilities/typeface";
+@import "compass/css3/transition";
 
 $button-background-color:           #00aad5;
 $button-border-radius:              $border-radius;
@@ -22,11 +23,16 @@ $button-small-typeface:             $bold-font, $base-font-size * 0.8;
   @include color-link($button-foreground-color, $button-foreground-color);
   @include decorate-link(none, none);
   @include inline-block;
+  @include transition(background .2s);
   background: $button-background-color;
   border: 0;
   color: $button-foreground-color;
   cursor: pointer;
   padding: $button-padding;
+
+  &:hover {
+    background: darken($button-background-color,10);
+  }
 }
 
 .button_full {
@@ -37,4 +43,8 @@ $button-small-typeface:             $bold-font, $base-font-size * 0.8;
   @include color-link($button-secondary-foreground-color, $button-secondary-foreground-color);
   background: $button-secondary-background-color;
   color: $button-secondary-foreground-color;
+
+  &:hover {
+    background: darken($button-secondary-background-color,10);
+  }
 }
