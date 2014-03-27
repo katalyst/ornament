@@ -4,7 +4,7 @@
   &:#{$type} {
     content: "";
     position: absolute;
-    background: url("/assets/sprite.png") $x $y no-repeat;
+    // background: url("/assets/sprite.png") $x $y no-repeat;
     width: $width;
     height: $height;
   }
