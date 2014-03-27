@@ -37,8 +37,6 @@
 
 .fotorama__nav-wrap {
   margin-top: $xx-small-unit;
-  padding: $x-small-unit;
-  // background: $xxx-light-blue;
   @include border-radius($border-radius);
 }
 
@@ -78,6 +76,8 @@
   width: $button-height;
   text-align: center;
   color: #fff;
+  top: 50%;
+  margin-top: $button-height * -0.5;
   @include border-radius(50%);
 
   &:before {

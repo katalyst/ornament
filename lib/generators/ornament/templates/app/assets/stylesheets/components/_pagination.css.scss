@@ -25,28 +25,64 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   // icon extends
   .first a,
   .first.disabled {
-    @extend .icon_arrow_double-left;
+    // @extend .icon_arrow_double-left;
     padding-left: $xx-large-unit;
+
+    &:before {
+      content: "<<";
+      position: absolute;
+      top: 50%;
+      margin-top: -6px;
+      left: $default-unit;
+      color: #fff;
+    }
 
   }
   .prev a,
   .prev.disabled {
-    @extend .icon_arrow_left;
+    // @extend .icon_arrow_left;
     padding-left: $x-large-unit;
     margin-left: $x-small-unit;
+
+    &:before {
+      content: "<";
+      position: absolute;
+      top: 50%;
+      margin-top: -6px;
+      left: $default-unit;
+      color: #fff;
+    }
 
   }
   .next a,
   .next.disabled {
-    @extend .icon_arrow_right;
+    // @extend .icon_arrow_right;
     padding-right: $x-large-unit;
     margin-right: $x-small-unit;
+
+    &:before {
+      content: ">";
+      position: absolute;
+      top: 50%;
+      margin-top: -6px;
+      right: $default-unit;
+      color: #fff;
+    }
 
   }
   .last a,
   .last.disabled {
-    @extend .icon_arrow_double-right;
+    // @extend .icon_arrow_double-right;
     padding-right: $xx-large-unit;
+
+    &:before {
+      content: ">>";
+      position: absolute;
+      top: 50%;
+      margin-top: -6px;
+      left: $default-unit;
+      color: #fff;
+    }
 
   }
 

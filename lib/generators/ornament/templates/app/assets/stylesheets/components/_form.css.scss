@@ -54,6 +54,7 @@ textarea,
   padding-right: $x-small-unit;
   margin: 0;
   @include border-radius($border-radius);
+  @include transition(border-color .2s);
 
   .layout--body & {
     border: $input-border;
@@ -68,6 +69,7 @@ textarea,
   }
   &:focus {
     outline: none;
+    border-color: darken($input-border-color,20);
   }
 }
 
@@ -160,47 +162,35 @@ $radio-offset: 24px;
 .form_inline {
   @include pie-clearfix;
   position: relative;
-}
-
-.form_inline--label {
-  line-height: $form-inline-height;
-  padding-right: $small-unit;
-  @include font($bold-font);
-}
-
-.form_inline--input,
-.form_inline--button {
-  float: left;
-}
-
-.form_inline--input {
   width: 200px;
+}
+
+.form_inline--input-container {
+  width: 100%;
+  padding-right: $button-height;
+}
+
+input.form_inline--input {
+  width: 100%;
   height: $form-inline-height;
   line-height: $form-inline-height;
   padding: $x-small-unit $small-unit 6px;
+  border-right-width: 0;
+  @include input_flat-right;
 }
 
 .form_inline--button {
-  @include border-radius(0 $border-radius $border-radius 0);
+  @include input_flat-left;
   width: $form-inline-height;
   height: $form-inline-height;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .form_inline_full {
-  position: relative;
-
-  .form_inline--input-container {
-    width: 100%;
-    padding-right: $button-height;
-  }
-  .form_inline--input {
-    width: 100%;
-  }
-  .form_inline--button {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+  @extend .form_inline;
+  width: 100%;
 }
 
 button, input[type=submit] {
@@ -291,22 +281,16 @@ span.error-block { // error
 }
 
 // REQUIRED FIELDS
-.control-label abbr {
-  // color: $brand-blue;
+.control-label abbr,
+abbr[title=required] {
+  color: $brand-blue;
   margin-right: -3px;
 }
 
 select {
-  max-width: 100%;
+  width: 100%;
   font: inherit;
   color: $input-color;
-}
-
-// GROUPED SELECT MENUS (eg. month/year)
-.form--grouped-select {
-  .control-group + .control-group {
-    margin-left: $x-small-unit;
-  }
 }
 
 // WEBKIT SELECT MENU OVER-RIDE

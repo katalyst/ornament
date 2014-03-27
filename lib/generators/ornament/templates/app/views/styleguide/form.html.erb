@@ -5,18 +5,29 @@
   <h2>Inline form</h2>
 
   <form class="form_inline">
-    <input class="form_inline--input" />
+    <div class="form_inline--input-container">
+      <input type="text" class="form_inline--input" />
+    </div>
     <input type="submit" class="button form_inline--button" value=">" />
   </form>
 
   <h2>Full-length inline form</h2>
 
-  <form class="form_inline_full ">
+  <form class="form_inline_full">
     <div class="form_inline--input-container">
-      <input class="form_inline--input" />
+      <input type="text" class="form_inline--input" />
     </div>
     <input type="submit" class="button form_inline--button" value=">" />
-  </form>  
+  </form>
+
+  <h2>Form label combo</h2>
+
+  <div class="control-group form-label-combo form--medium">
+    <label class="control-label">Q</label>
+    <div class="controls">
+      <input type="text" />
+    </div>
+  </div>
 
   <h2>Long form</h2>
 
@@ -31,7 +42,7 @@
 
       <div class="control-group string required enrollment_enrollers_name form--medium error">
         <label class="string required control-label" for="enrollment_enrollers_name">
-          <abbr title="required">*</abbr> Enrollers name<span class='error-block'>can't be blank</span>
+          <abbr title="required">*</abbr> Your name<span class='error-block'>can't be blank</span>
           <p class='hint-block'>This is a hint message.</p>
         </label>
         <div class="controls">
@@ -49,8 +60,8 @@
       <div class="control-group string optional enrollment_mobile_number form--medium"><label class="string optional control-label" for="enrollment_mobile_number">Mobile number</label><div class="controls"><input class="string optional" id="enrollment_mobile_number" name="enrollment[mobile_number]" size="50" type="text"></div></div>
       <div class="control-group email optional enrollment_email form--medium"><label class="email optional control-label" for="enrollment_email">Email</label><div class="controls"><input class="string email optional" id="enrollment_email" name="enrollment[email]" size="50" type="email"></div></div>
 
-      <div class="control-group radio_buttons required enrollment_do_you_have_skills_for_all_number"><label class="radio_buttons required control-label"><abbr title="required">*</abbr> Do you have a Skills For All number?</label><div class="controls"><label class="radio"><input class="radio_buttons required" id="enrollment_do_you_have_skills_for_all_number_true" name="enrollment[do_you_have_skills_for_all_number]" type="radio" value="true">Yes</label><label class="radio"><input class="radio_buttons required" id="enrollment_do_you_have_skills_for_all_number_false" name="enrollment[do_you_have_skills_for_all_number]" type="radio" value="false">No</label></div></div>
-      <div class="control-group string required enrollment_skills_for_all_number form--medium" data-show="enrollment_do_you_have_skills_for_all_number_true" style="display: none;"><label class="string required control-label" for="enrollment_skills_for_all_number"><abbr title="required">*</abbr> Skills For All number</label><div class="controls"><input class="string required" id="enrollment_skills_for_all_number" name="enrollment[skills_for_all_number]" size="50" type="text"></div></div>
+      <div class="control-group radio_buttons required enrollment_do_you_have_skills_for_all_number"><label class="radio_buttons required control-label"><abbr title="required">*</abbr> Show hidden field?</label><div class="controls"><label class="radio"><input class="radio_buttons required" id="enrollment_do_you_have_skills_for_all_number_true" name="enrollment[do_you_have_skills_for_all_number]" type="radio" value="true">Yes</label><label class="radio"><input class="radio_buttons required" id="enrollment_do_you_have_skills_for_all_number_false" name="enrollment[do_you_have_skills_for_all_number]" type="radio" value="false">No</label></div></div>
+      <div class="control-group string required enrollment_skills_for_all_number form--medium" data-show="enrollment_do_you_have_skills_for_all_number_true" style="display: none;"><label class="string required control-label" for="enrollment_skills_for_all_number"><abbr title="required">*</abbr> Hidden field</label><div class="controls"><input class="string required" id="enrollment_skills_for_all_number" name="enrollment[skills_for_all_number]" size="50" type="text"></div></div>
 
       <h2 class="heading-two">Residential address</h2>
 
