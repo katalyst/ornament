@@ -165,12 +165,6 @@ $radio-offset: 24px;
   width: 200px;
 }
 
-.form_inline--label {
-  line-height: $form-inline-height;
-  padding-right: $small-unit;
-  @include font($bold-font);
-}
-
 .form_inline--input-container {
   width: 100%;
   padding-right: $button-height;
@@ -297,13 +291,6 @@ select {
   width: 100%;
   font: inherit;
   color: $input-color;
-}
-
-// GROUPED SELECT MENUS (eg. month/year)
-.form--grouped-select {
-  .control-group + .control-group {
-    margin-left: $x-small-unit;
-  }
 }
 
 // WEBKIT SELECT MENU OVER-RIDE
