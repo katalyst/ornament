@@ -176,4 +176,5 @@ Classes
 
 ul.row, ol.row, .row {
   @include row();
+  @include rowV();
 }
