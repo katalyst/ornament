@@ -187,6 +187,8 @@ $radio-offset: 24px;
 }
 
 .form_inline_full {
+  position: relative;
+
   .form_inline--input-container {
     width: 100%;
     padding-right: $button-height;
