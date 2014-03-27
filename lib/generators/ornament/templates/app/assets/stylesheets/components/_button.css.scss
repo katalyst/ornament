@@ -6,44 +6,35 @@
 @import "ornament/utilities/typeface";
 
 $button-background-color:           #00aad5;
-$button-border-radius:              0;
+$button-border-radius:              $border-radius;
 $button-dangerous-background-color: #990000;
 $button-dangerous-foreground-color: #ffffff;
 $button-typeface:                   $bold-font, $base-font-size;
 $button-foreground-color:           #ffffff;
-$button-padding:                    0.5em 0.8em 0.3em;
+$button-padding:                    $xx-small-unit $default-unit;
 $button-secondary-background-color: #333333;
 $button-secondary-foreground-color: #ffffff;
-$button-small-padding:              0.2em 0.5em 0.1em;
+$button-small-padding:              $xx-small-unit $x-small-unit;
 $button-small-typeface:             $bold-font, $base-font-size * 0.8;
 
 .button {
   @include border-radius($button-border-radius);
   @include color-link($button-foreground-color, $button-foreground-color);
   @include decorate-link(none, none);
-  @include typeface($button-typeface);
   @include inline-block;
   background: $button-background-color;
   border: 0;
   color: $button-foreground-color;
   cursor: pointer;
   padding: $button-padding;
-  text-transform: uppercase;
 }
 
-.button-dangerous {
-  @include color-link($button-dangerous-foreground-color, $button-dangerous-foreground-color);
-  background: $button-dangerous-background-color;
-  color: $button-dangerous-foreground-color;
+.button_full {
+  width: 100%;
 }
 
-.button-secondary {
+.button_secondary {
   @include color-link($button-secondary-foreground-color, $button-secondary-foreground-color);
   background: $button-secondary-background-color;
   color: $button-secondary-foreground-color;
-}
-
-.button-small {
-  @include typeface($button-small-typeface);
-  padding: $button-small-padding;
 }
