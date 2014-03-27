@@ -1,0 +1,63 @@
+$panel-border:          $background-color;
+
+.panel {
+  @include border-radius($border-radius);
+  @include pie-clearfix;
+}
+
+.panel--padding-border {
+  border-top: 1px solid $panel-border;
+}
+
+// COLOUR VARIANTS
+
+.panel_blue {
+  @extend .panel;
+  background: $brand-blue;
+  color: $white;
+  a {
+    @include color-link($white,$white);
+  }
+}
+
+// PADDING VARIANTS
+
+.panel--padding_x-tight {
+  padding: $panel-padding-tiny;
+}
+
+.panel--padding_tight {
+  padding: $panel-padding-small;
+}
+
+.panel--padding {
+  padding: $panel-padding;
+
+  @include media-query($breakpoint-tiny) {
+    padding: $panel-padding-small;
+  }
+}
+
+.panel--padding_large {
+  padding: $panel-padding-large;
+
+  @include media-query($breakpoint-medium) {
+    padding: $panel-padding;
+  }
+
+  @include media-query($breakpoint-tiny) {
+    padding: $panel-padding-small;
+  }
+}
+
+// BORDER RADIUS VARIANTS
+
+.panel_no-top-radius {
+  @include border-top-left-radius(0);
+  @include border-top-right-radius(0);
+}
+
+.panel_no-bottom-radius {
+  @include border-bottom-left-radius(0);
+  @include border-bottom-right-radius(0);
+}
