@@ -187,83 +187,19 @@ th {
   @include font($bold-font);
 }
 
-
-// TYPEFACES - LEGACY
-
-$body-typeface:
-  $body-font,
-  $base-font-size,
-  $base-line-height
-;
-
-$heading-one-typeface:
-  $heading-alpha-font,
-  $xxx-large-unit,
-  1
-;
-
-$heading-two-typeface:
-  $heading-alpha-font,
-  $base-font-size * 2.0,
-  1
-;
-
-$heading-three-typeface:
-  $heading-alpha-font,
-  20px,
-  1
-;
-
-$heading-four-typeface:
-  $heading-beta-font,
-  $base-font-size * 1.5,
-  $base-line-height
-;
-
-$heading-five-typeface:
-  $bold-font,
-  $base-font-size * 1.2,
-  $base-line-height
-;
-
-$heading-six-typeface:
-  $bold-font,
-  $base-font-size * 1.0,
-  $base-line-height
-;
-
-$small-typeface:
-  $body-font,
-  $base-font-size * 0.8,
-  $base-line-height
-;
-
-$input-typeface:
-  $body-font,
-  $base-font-size,
-  1.5
-;
-
 // BASE TYPOGRAPHY
 
 body {
-  @include typeface($body-typeface);
-}
-
-strong, b {
-  @include font($bold-font);
-}
-
-em, i {
-  @include font($italic-font);
-}
-
-small {
-  @include typeface($small-typeface);
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  @include font($body-font);
 }
 
 [type="text"], [type="password"], [type="date"], [type="datetime"],
 [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"],
 [type="url"], textarea {
-  @include typeface($input-typeface);
+  font: inherit;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  @include font($body-font);
 }

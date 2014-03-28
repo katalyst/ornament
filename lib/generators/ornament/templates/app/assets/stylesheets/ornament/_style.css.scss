@@ -12,7 +12,6 @@
 @import "ornament/utilities/color-link";
 @import "ornament/utilities/decorate-link";
 @import "ornament/utilities/font";
-@import "ornament/utilities/typeface";
 @import "ornament/utilities/media-query";
 
 
@@ -24,7 +23,6 @@
 //
 
 body {
-  // @include typeface($body-typeface);
   background: $background-color;
   color: $foreground-color;
 }
