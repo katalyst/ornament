@@ -112,7 +112,8 @@ $navigation-border-color:             #339bd3;
       display: block;
       position: relative;
       padding-left: $default-unit;
-      padding-right: $navigation-hitbox + $xx-small-unit;
+      // TODO: fix for ems
+      // padding-right: $navigation-hitbox + $xx-small-unit;
 
       &:before {
         content: "";

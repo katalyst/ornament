@@ -215,7 +215,8 @@ $file-thumbnail-width: 100px;
   }
 
   .media-body {
-    padding-left: ($file-thumbnail-width + $small-unit);
+    // TODO: Fix for ems
+    // padding-left: ($file-thumbnail-width + $small-unit);
     min-height: $file-thumbnail-width;
   }
 }
