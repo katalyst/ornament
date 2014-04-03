@@ -1,19 +1,6 @@
-@import "ornament/utilities/color-link";
-@import "ornament/utilities/decorate-link";
-
-$footer-background-color: #cccccc;
-$footer-color:            #333333;
-$footer-link-color:       $link-color;
-$footer-link-hover-color: $link-hover-color;
-$footer-padding:          $small-unit;
-
 .footer {
-  color: $footer-color;
-  background: $footer-background-color;
+  color: $foreground-color;
+  background: #ccc;
   height: 100%;
-  padding: $footer-padding;
-  a {
-    @include decorate-link(none, none);
-    @include color-link($footer-link-color, $footer-link-hover-color);
-  }
+  padding: $small-unit;
 }

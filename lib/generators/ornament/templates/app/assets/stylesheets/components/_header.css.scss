@@ -1,18 +1,8 @@
 @import "ornament/utilities/color-link";
 @import "ornament/utilities/decorate-link";
 
-$header-background-color: #333333;
-$header-foreground-color: #ffffff;
-$header-link-color:       #ffffff;
-$header-link-hover-color: #00ccf7;
-$header-padding:          $small-unit;
-
 .header {
-  color: $header-foreground-color;
-  background: $header-background-color;
-  padding: $header-padding;
-  a {
-    @include decorate-link(none, none);
-    @include color-link($header-link-color, $header-link-hover-color);
-  }
+  color: #fff;
+  background: #333;
+  padding: $small-unit;
 }
