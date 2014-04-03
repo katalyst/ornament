@@ -112,8 +112,7 @@ $navigation-border-color:             #339bd3;
       display: block;
       position: relative;
       padding-left: $default-unit;
-      // TODO: fix for ems
-      // padding-right: $navigation-hitbox + $xx-small-unit;
+      padding-right: 2.8em + $xx-small-unit; // 2.8 = roughly the size of the nav button
 
       &:before {
         content: "";
