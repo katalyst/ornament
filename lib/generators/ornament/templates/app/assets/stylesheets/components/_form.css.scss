@@ -5,10 +5,55 @@ $form-inline-height:  $button-height;
 $form-width:          748px; // used for calculating % widths of inputs
 $hint-color:          $grey;
 
-.form {
-
+// FORMS NORMALISATION
+fieldset {
+  @include inline-block;
+  width: 100%;
 }
 
+legend {
+  display: none;
+}
+
+[type="text"], [type="password"], [type="date"], [type="datetime"],
+[type="email"], [type="number"], [type="search"], [type="tel"], [type="time"],
+[type="url"], textarea {
+  @include border-radius($input-border-radius);
+  background: $input-background;
+  border: $input-border;
+  color: $input-color;
+  padding: $input-padding;
+  width: $input-width;
+}
+
+[type="radio"], [type="checkbox"], [type="submit"] {
+  cursor: pointer;
+}
+
+[type="radio"], [type="checkbox"] {
+  margin: $checkbox-radio-padding;
+}
+
+[type="submit"] {
+  line-height: inherit;
+  margin: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+input, textarea, keygen, select {
+  @include inline-block;
+}
+
+textarea {
+  height: $textarea-height;
+  overflow: auto;
+  max-width: 100%;
+}
+
+// FORM STYLING
 .form-embedded {
   margin-top: $xx-large-unit;
 }
@@ -74,10 +119,6 @@ textarea,
 }
 
 input[type=file] {
-  max-width: 100%;
-}
-
-textarea {
   max-width: 100%;
 }
 

@@ -187,7 +187,13 @@ th {
 body {
   font-size: $base-font-size;
   line-height: $base-line-height;
+  color: $foreground-color;
   @include font($body-font);
+}
+
+a, button {
+  @include decorate-link(none, underline);
+  @include color-link($link-color, $link-hover-color);
 }
 
 [type="text"], [type="password"], [type="date"], [type="datetime"],
