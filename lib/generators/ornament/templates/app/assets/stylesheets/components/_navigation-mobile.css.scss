@@ -132,7 +132,7 @@ $navigation-border-color:             #339bd3;
         top: 50%;
         margin-top: -6px;
         right: 18px;
-        background: url('/assets/sprite.png') no-repeat -148px -218px;
+        // background: url('/assets/sprite.png') no-repeat -148px -218px;
         width: 7px;
         height: 12px;
       }
@@ -197,7 +197,7 @@ $navigation-border-color:             #339bd3;
 
     a:after {
       content: "";
-      background: url("/assets/sprite.png") -137px -420px no-repeat;
+      // background: url("/assets/sprite.png") -137px -420px no-repeat;
       width: 23px;
       height: 44px;
       position: absolute;
