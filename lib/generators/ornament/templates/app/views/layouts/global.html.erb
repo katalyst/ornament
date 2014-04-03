@@ -25,9 +25,12 @@
     <%= yield :styles %>
 
     <!-- SCRIPTS -->
+    <%= render "webfonts" -%>
+
+    <%= javascript_include_tag "modernizr.js" %>
     <%= javascript_include_tag "application" %>
     <!--[if lt IE 9]>
-      <%= javascript_include_tag "IE9.js" %>
+      <%= javascript_include_tag "selectivizr.js" %>
       <%= javascript_include_tag "css3-mediaqueries.js" %>
     <![endif]-->
     <%= yield :scripts %>
