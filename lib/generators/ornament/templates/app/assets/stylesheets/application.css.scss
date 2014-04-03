@@ -9,6 +9,7 @@
 // Rebuild styleguide pages
 // Re-assess navigation stylesheets
 // Print stylesheet?
+// Tooltip that repositions based on viewport constraints
 
 // ORNAMENT
 //
@@ -37,7 +38,6 @@
 @import "components/island";
 @import "components/layout";
 @import "components/navigation";
-@import "components/navigation-dropdown";
 @import "components/navigation-horizontal";
 @import "components/navigation-mobile";
 @import "components/pagination";
