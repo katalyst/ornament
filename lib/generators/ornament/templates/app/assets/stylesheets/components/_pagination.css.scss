@@ -98,7 +98,7 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   .page a,
   .page.current {
     position: relative;
-    background: $brand-blue;
+    background: $primary-color;
     color: #fff;
     @include font($bold-font);
     @include border-radius(75px);
@@ -156,7 +156,7 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   }
 
   .page.current {
-    background: $brand-green;
+    background: $primary-color;
     color: #fff;
   }
 

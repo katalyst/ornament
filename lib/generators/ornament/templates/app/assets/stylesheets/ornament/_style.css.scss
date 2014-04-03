@@ -39,19 +39,6 @@ a, button {
 }
 
 
-
-// TABLES
-//
-//
-// Bold TH's for tables.
-//
-
-th {
-  @include font($bold-font);
-}
-
-
-
 // INPUTS
 //
 //
@@ -97,7 +84,6 @@ input, select {
 
 input, textarea, keygen, select {
   @include inline-block;
-  font-size: $base-font-size;
 }
 
 textarea {

@@ -1,7 +1,7 @@
 @import "compass/css3/transition";
 
 $navigation-hitbox:                   44px;
-$navigation-second-level-background:  $brand-blue;
+$navigation-second-level-background:  $primary-color;
 $navigation-border-color:             #339bd3;
 
 .navigation-mobile--content {
@@ -51,7 +51,7 @@ $navigation-border-color:             #339bd3;
     // line-height: $navigation-hitbox;
 
     .active > a {
-      background: $brand-blue;
+      background: $primary-color;
     }
   }
 
@@ -91,10 +91,10 @@ $navigation-border-color:             #339bd3;
     }
 
     .active > a {
-      background: $brand-blue;
+      background: $primary-color;
 
       &:before {
-        background: $brand-blue;
+        background: $primary-color;
       }
     }
   }
@@ -123,7 +123,7 @@ $navigation-border-color:             #339bd3;
         top: 0;
         right: 0;
         bottom: 0;
-        background: $brand-blue;
+        background: $primary-color;
       }
 
       &:after {
@@ -179,7 +179,7 @@ $navigation-border-color:             #339bd3;
 
   // back buttons
   .back {
-    background: $brand-blue;
+    background: $primary-color;
 
     a {
       cursor: pointer;
@@ -209,7 +209,7 @@ $navigation-border-color:             #339bd3;
     }
 
     a:hover {
-      background: $brand-blue;
+      background: $primary-color;
     }
   }
 
@@ -219,7 +219,7 @@ $navigation-border-color:             #339bd3;
       width: 184px;
     }
     .search--button {
-      background: $brand-blue;
+      background: $primary-color;
     }
     ul {
       @include pie-clearfix;
@@ -241,7 +241,7 @@ $navigation-border-color:             #339bd3;
 
   // enquiries
   .navigation-mobile--enquiries {
-    background: $brand-blue;
+    background: $primary-color;
     color: #fff;
     text-align: center;
     border-bottom: 1px solid $navigation-border-color;

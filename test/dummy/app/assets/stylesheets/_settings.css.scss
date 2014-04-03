@@ -23,13 +23,7 @@ $small-font-size:     0.8em;
 $base-font-size:      $base-pixel;
 $large-font-size:     1.1em;
 $base-line-height:    1.5;
-$line-height-small:   1.4;
-$line-height-tiny:    1.2;
-$line-height-mucura:  1.4;
 $base-line-size:      $base-font-size * $base-line-height;
-
-$font-size-small: 0.9em;
-$font-size-large: 1.1em;
 
 
 // SIZES
@@ -107,7 +101,7 @@ $site-gutters:
 // Default colors.
 //
 
-$brand-blue: #0082c8;
+$primary-color: #0082c8;
 
 $foreground-color: #222;
 $background-color: #fff;
@@ -116,7 +110,7 @@ $link-hover-color: false;
 $error-color: #990000;
 $error-background: red;
 $notice-color: #ff6600;
-$success-color: $brand-green;
+$success-color: green;
 $input-border-color: #c5cbd4;
 
 $white: #fff;

@@ -13,7 +13,7 @@ $panel-border:          $background-color;
 
 .panel_blue {
   @extend .panel;
-  background: $brand-blue;
+  background: $primary-color;
   color: $white;
   a {
     @include color-link($white,$white);

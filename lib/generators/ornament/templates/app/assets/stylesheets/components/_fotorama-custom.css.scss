@@ -11,8 +11,8 @@
 
 .fotorama__caption,
 .content figcaption {
-  background: $brand-blue;
-  background: rgba($brand-blue,0.8);
+  background: $primary-color;
+  background: rgba($primary-color,0.8);
   right: 0;
   color: #fff;
   padding: 10px $default-unit;
@@ -41,7 +41,7 @@
 }
 
 .fotorama__thumb-border {
-  border-color: $brand-blue;
+  border-color: $primary-color;
 }
 
 // Arrows
@@ -70,8 +70,8 @@
 
 .fotorama__arr.fotorama__arr--prev,
 .fotorama__arr.fotorama__arr--next {
-  background: $brand-blue;
-  background: rgba($brand-blue,0.8);
+  background: $primary-color;
+  background: rgba($primary-color,0.8);
   height: $button-height;
   width: $button-height;
   text-align: center;
