@@ -36,6 +36,8 @@ class OrnamentGenerator < Rails::Generators::Base
       if options.core?
 
         copy_file "app/assets/javascripts/application.js"
+        copy_file "app/assets/javascripts/application_bottom.js"
+        copy_file "app/assets/javascripts/settings.js"
         directory "app/assets/javascripts/ornament"
 
         copy_file "app/assets/stylesheets/_fonts.css.scss"
@@ -51,6 +53,9 @@ class OrnamentGenerator < Rails::Generators::Base
       if options.layouts?
         copy_file "app/views/layouts/global.html.erb"
         copy_file "app/views/layouts/application.html.erb"
+        copy_file "app/views/layouts/_webfonts.html.erb"
+        directory "app/views/errors"
+        directory "app/views/kaminari"
       end
 
       directory "vendor/assets"
