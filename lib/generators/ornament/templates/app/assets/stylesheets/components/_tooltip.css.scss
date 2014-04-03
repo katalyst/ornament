@@ -30,8 +30,7 @@ $tooltip-z-index:       20;
   color: $tooltip-color;
   left: -($tooltip-width/2);
   position: absolute;
-  // TODO: Fix for ems
-  // top: $tooltip-arrow-height+$tooltip-gap;
+  top: 1em;
   width: $tooltip-width;
 }
 
