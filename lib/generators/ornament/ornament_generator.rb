@@ -43,6 +43,11 @@ class OrnamentGenerator < Rails::Generators::Base
         copy_file "app/assets/stylesheets/_fonts.css.scss"
         directory "app/assets/stylesheets/ornament"
 
+        directory "app/assets/images"
+
+        copy_file "config/initializers/simple_form.rb"
+        copy_file "config/locales/en.yml"
+
       end
 
       if options.components?
