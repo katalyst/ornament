@@ -12,14 +12,12 @@
 }
 
 .content-lite {
-  @include mq($breakpoint-medium,"min") {
+  @include media-query($breakpoint-medium,"min") {
     font-size: $large-font-size;
   }
 }
 
-.content {
-  @extend .content-lite;
-
+.content-lists {
   ul {
     list-style: disc;
   }
@@ -27,22 +25,33 @@
   ol {
     list-style: decimal;
   }
+}
 
+.content-spacing {
   p {
-    margin-top: $default-unit;
-    margin-bottom: $default-unit;
+    margin-top: $small-unit;
+    margin-bottom: $small-unit;
   }
 
   ul,ol {
     margin-left: 2em;
-    margin-bottom: $default-unit;
+    margin-bottom: $small-unit;
   }
 
-  // pulling ul,ol up under paragraphs
-  p + ul,
-  p + ol {
-    margin-top: -($default-unit);
+  h1 {
+    margin-top: $large-unit;
+    margin-bottom: $large-unit;
   }
+
+  h2 {
+    margin-top: $large-unit;
+    margin-bottom: $large-unit;
+  }
+
+}
+
+.content {
+  @extend .content-lite;
 
   h1 {
     @include heading-one;

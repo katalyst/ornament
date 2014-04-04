@@ -163,6 +163,7 @@ $radio-offset: 24px;
     position: relative;
     padding-left: $radio-offset;
     margin-right: $x-small-unit;
+    display: inline-block;
 
     input {
       position: absolute;

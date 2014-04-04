@@ -1,8 +1,92 @@
 <% content_for :title, "Form styles" %>
 
-<div class="spacing">
+<%- content_for :styles do -%>
+  <style>
+    .showjs_tick { color: #bada55; float: left; margin-right: .5em; }
+  </style>
+<%- end -%>
 
-  <h2>Inline form</h2>
+<div class="content-spacing">
+
+  <h2 class="heading-two">Show.js Samples</h2>
+
+  <div class="spacing">
+
+    <div class="control-group radio_buttons">
+      <label class="radio_buttons required control-label">
+        <span data-show="showjs_example_1_true" class="showjs_tick">✔</span> Select Yes
+      </label>
+      <div class="controls">
+        <label class="radio">
+          <input class="radio_buttons required" id="showjs_example_1_true" name="showjs_example_1" type="radio" value="true">
+          Yes
+        </label>
+        <label class="radio">
+          <input class="radio_buttons required" id="showjs_example_1_false" name="showjs_example_1" type="radio" value="false">
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group check_boxes">
+      <label class="check_boxes required control-label">
+        Tick Yes <span data-show="showjs_example_2_true" class="showjs_tick">✔</span>
+      </label>
+      <div class="controls">
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_2_true" name="showjs_example_2_true" type="checkbox" value="true">
+          Yes
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_2_false" name="showjs_example_2_false" type="checkbox" value="false">
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group check_boxes">
+      <label class="check_boxes required control-label">
+        Select 3 <span data-show="showjs_example_3" data-show-option="3" class="showjs_tick">✔</span>
+      </label>
+      <div class="controls">
+        <select class="select" id="showjs_example_3" name="showjs_example_3">
+          <option value="">Please select</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group check_boxes">
+      <label class="check_boxes required control-label">
+        Tick Raphael and Donatello <span data-show="showjs_example_4_raphael_&_showjs_example_4_donatello" class="showjs_tick">✔</span>
+      </label>
+      <div class="controls">
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_4_leonardo" name="showjs_example_4_leonardo" type="checkbox" value="true">
+          Leonardo
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_4_donatello" name="showjs_example_4_donatello" type="checkbox" value="true">
+          Donatello
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_4_raphael" name="showjs_example_4_raphael" type="checkbox" value="true">
+          Raphael
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_4_michaelangelo" name="showjs_example_4_michaelangelo" type="checkbox" value="true">
+          Michaelangelo
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="heading-two">Inline form</h2>
 
   <form class="form_inline">
     <div class="form_inline--input-container">
@@ -11,7 +95,7 @@
     <input type="submit" class="button form_inline--button" value=">" />
   </form>
 
-  <h2>Full-length inline form</h2>
+  <h2 class="heading-two">Full-length inline form</h2>
 
   <form class="form_inline_full">
     <div class="form_inline--input-container">
@@ -20,7 +104,7 @@
     <input type="submit" class="button form_inline--button" value=">" />
   </form>
 
-  <h2>Form label combo</h2>
+  <h2 class="heading-two">Form label combo</h2>
 
   <div class="control-group form-label-combo form--medium">
     <label class="control-label">Q</label>
@@ -29,7 +113,7 @@
     </div>
   </div>
 
-  <h2>Long form</h2>
+  <h2 class="heading-one">Long form</h2>
 
   <form accept-charset="UTF-8" action="#" class="simple_form" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="9Wj+qpC6PVLLhfW6D2Gzd9tBmG4cGhQJtm/Uv28XNJs="></div>
     <div class="inputs">
