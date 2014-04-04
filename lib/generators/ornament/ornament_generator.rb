@@ -5,7 +5,7 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :components,   :type => :boolean, :default => true
   class_option :core,         :type => :boolean, :default => true
   class_option :development,  :type => :boolean, :default => false
-  class_option :gems,         :type => :boolean, :default => true
+  class_option :gems,         :type => :boolean, :default => false
   class_option :layouts,      :type => :boolean, :default => true
   class_option :settings,     :type => :boolean, :default => true
   class_option :styleguide,   :type => :boolean, :default => true
@@ -27,7 +27,7 @@ class OrnamentGenerator < Rails::Generators::Base
 
       if options.gems?
         gem_group :assets do
-          gem "sass-rails",     "~> 3.2.3"
+          gem 'sass',           '3.3.0.alpha.149'
           gem "uglifier",       ">= 1.0.3"
           gem "compass-rails",  "~> 1.0.3"
         end
