@@ -272,8 +272,6 @@ $file-thumbnail-width: 100px;
 
   label {
     @include line-height-padding($form-line-height);
-    padding-left: $x-small-unit;
-    padding-right: $x-small-unit;
     border-right: $input-border;
     width: 30px;
     text-align: center;
