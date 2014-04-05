@@ -1,0 +1,81 @@
+@import "ornament/core";
+
+// STYLEGUIDE VARIABLES
+// only used for styleguide layout
+$sg-font:           arial, sans-serif;
+$sg-grey:           #ccc;
+$sg-light-grey:     lighten($sg-grey, 15);
+$sg-dark-grey:      darken($sg-grey, 10);
+$sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
+
+// STYLEGUIDE TYPOGRAPHY
+
+body {
+  font-family: $sg-font;
+  strong {
+    font-weight: bold;
+  }
+  em {
+    font-style: italic;
+  }
+}
+
+.heading-one, .heading-two, .heading-three, .heading-four {
+  font-family: $sg-font;
+  font-weight: bold;
+}
+
+// STYLEGUIDE LAYOUT
+.sg-back {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 2em;
+}
+
+// CODE SAMPLES
+
+pre {
+  border: 1px solid $sg-grey;
+  background: $sg-light-grey;
+  padding: 0.5em;
+  margin: 1.5em 0;
+  font-family: $sg-code-font;
+  overflow: auto;
+  word-wrap: normal;
+
+  strong {
+    font-weight: bold;
+    font-family: $sg-code-font;
+  }
+}
+
+code {
+  border: 1px solid $sg-grey;
+  background: $sg-light-grey;
+  font-family: $sg-code-font;
+  padding: 0 .3em;
+}
+
+// SPANG
+
+.spang-50 {
+  @include spang(1,2);
+  @include spanc(small);
+  @include guttersV();
+
+  > div {
+    border: 1px solid red;
+  }
+}
+
+.spang-6 {
+  @include spang(1,6);
+  @include spang(1,3,medium);
+  @include spanc(small);
+  @include guttersV();
+
+  > div {
+    border: 1px solid red;
+  }
+}

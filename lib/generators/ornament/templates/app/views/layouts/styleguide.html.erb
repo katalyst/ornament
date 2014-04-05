@@ -1,0 +1,15 @@
+<% content_for :global do %>
+  <%= stylesheet_link_tag "styleguide" %>
+<% end %>
+
+<% content_for :global do %>
+  <% if content_for? :title %>
+    <h1 class="sg-title heading-one">
+      <%= yield :title %>
+    </h1>
+    <%= link_to "< back to styleguide", "/styleguide", class: "sg-back" -%>
+  <% end %>
+  <%= content_for?(:application) ? yield(:application) : yield %>
+<% end %>
+
+<%= render :file => "layouts/global" %>
