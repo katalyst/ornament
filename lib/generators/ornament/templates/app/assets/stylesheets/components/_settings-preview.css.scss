@@ -1,5 +1,38 @@
   @import "compass/css3/inline-block";
 
+// STYLEGUIDE VARIABLES
+// only used for styleguide layout
+$sg-grey:           #ccc;
+$sg-light-grey:     lighten($sg-grey, 15);
+$sg-dark-grey:      darken($sg-grey, 10);
+$sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
+
+// CODE SAMPLES
+
+.sg-pre {
+  border: 1px solid $sg-grey;
+  background: $sg-light-grey;
+  padding: 0.5em;
+  margin: $large-unit 0;
+  font-family: $sg-code-font;
+  overflow: auto;
+  word-wrap: normal;
+
+  strong {
+    font-weight: bold;
+    font-family: $sg-code-font;
+  }
+}
+
+.sg-code {
+  border: 1px solid $sg-grey;
+  background: $sg-light-grey;
+  font-family: $sg-code-font;
+  padding: 0 .3em;
+}
+
+// SPANG
+
 .spang-50 {
   @include spang(1,2);
   @include spanc(small);
