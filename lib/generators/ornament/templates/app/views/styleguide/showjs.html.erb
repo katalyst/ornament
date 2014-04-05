@@ -1,0 +1,131 @@
+<% content_for :title, "Form styles" %>
+
+<%- content_for :styles do -%>
+  <style>
+    .showjs_tick { color: #bada55; float: left; margin-right: .5em; }
+  </style>
+<%- end -%>
+
+<div class="content-spacing">
+
+  <h2 class="heading-two">Show.js Samples</h2>
+
+  <div class="spacing">
+
+    <div class="control-group radio_buttons">
+      <label class="radio_buttons required control-label">
+        <span data-show="showjs_example_1_true" class="showjs_tick">✔</span> Select Yes
+      </label>
+      <div class="controls">
+        <label class="radio">
+          <input class="radio_buttons required" id="showjs_example_1_true" name="showjs_example_1" type="radio" value="true">
+          Yes
+        </label>
+        <label class="radio">
+          <input class="radio_buttons required" id="showjs_example_1_false" name="showjs_example_1" type="radio" value="false">
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group check_boxes">
+      <label class="check_boxes required control-label">
+        Tick Yes <span data-show="showjs_example_2_true" class="showjs_tick">✔</span>
+      </label>
+      <div class="controls">
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_2_true" name="showjs_example_2_true" type="checkbox" value="true">
+          Yes
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_2_false" name="showjs_example_2_false" type="checkbox" value="false">
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group check_boxes">
+      <label class="check_boxes required control-label">
+        Select 3 <span data-show="showjs_example_3" data-show-option="3" class="showjs_tick">✔</span>
+      </label>
+      <div class="controls">
+        <select class="select" id="showjs_example_3" name="showjs_example_3">
+          <option value="">Please select</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group check_boxes">
+      <label class="check_boxes required control-label">
+        <span data-show="showjs_example_4" data-show-input="hello world" class="showjs_tick">✔</span> Type "Hello World" (without quotes, case insensitive)
+      </label>
+      <div class="controls">
+        <input type="text" id="showjs_example_4" name="showjs_example_4" />
+      </div>
+    </div>
+
+    <div class="control-group check_boxes">
+      <label class="check_boxes required control-label">
+        <span data-show="showjs_example_7" data-show-input="hello" data-show-type="any" class="showjs_tick">✔</span> Type anything that includes the word "hello" (without quotes, case insensitive)
+      </label>
+      <div class="controls">
+        <input type="text" id="showjs_example_7" name="showjs_example_7" />
+      </div>
+    </div>
+
+    <div class="control-group check_boxes">
+      <label class="check_boxes required control-label">
+        Tick Raphael AND Donatello <span data-show="showjs_example_5_raphael_&_showjs_example_5_donatello" class="showjs_tick">✔</span>
+      </label>
+      <div class="controls">
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_5_leonardo" name="showjs_example_5_leonardo" type="checkbox" value="true">
+          Leonardo
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_5_donatello" name="showjs_example_5_donatello" type="checkbox" value="true">
+          Donatello
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_5_raphael" name="showjs_example_5_raphael" type="checkbox" value="true">
+          Raphael
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_5_michaelangelo" name="showjs_example_5_michaelangelo" type="checkbox" value="true">
+          Michaelangelo
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group check_boxes">
+      <label class="check_boxes required control-label">
+        Tick Leonardo OR Michaelangelo <span data-show="showjs_example_6_leonardo_&_showjs_example_6_michaelangelo" data-show-type="any" class="showjs_tick">✔</span>
+      </label>
+      <div class="controls">
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_6_leonardo" name="showjs_example_6_leonardo" type="checkbox" value="true">
+          Leonardo
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_6_donatello" name="showjs_example_5_donatello" type="checkbox" value="true">
+          Donatello
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_6_raphael" name="showjs_example_6_raphael" type="checkbox" value="true">
+          Raphael
+        </label>
+        <label class="checkbox">
+          <input class="check_boxes required" id="showjs_example_6_michaelangelo" name="showjs_example_6_michaelangelo" type="checkbox" value="true">
+          Michaelangelo
+        </label>
+      </div>
+    </div>
+
+
+  </div>
+</div>
