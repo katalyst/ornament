@@ -135,24 +135,12 @@ body {
     display: none;
   }
 
-  .layout--content {
-    margin-bottom: $layout-footer-height;
-  }
-
   .layout--mobile-header {
     display: none;
   }
 
   .layout--mobile-footer {
     display: none;
-  }
-
-  .layout--desktop-footer {
-    bottom: 0;
-    height: $layout-footer-height;
-    left: 0;
-    position: absolute;
-    width: 100%;
   }
 
   .layout--main {
@@ -167,6 +155,19 @@ body {
     height: 100%;
     max-width: $layout-container-width;
     margin: 0 auto;
+  }
+
+  .layout_fixed-footer {
+    .layout--content {
+      margin-bottom: $layout-footer-height;
+    }
+    .layout--desktop-footer {
+      bottom: 0;
+      height: $layout-footer-height;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
   }
 
 }
