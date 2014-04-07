@@ -1,0 +1,14 @@
+@media print {
+
+  // hiding irrelevant elements
+  .environment-development:before,
+  .environment-staging:before,
+  .layout--mobile-tray,
+  .layout--mobile-header,
+  .layout--desktop-header,
+  .layout--mobile-footer,
+  .layout--desktop-footer {
+    display: none;
+  }
+
+}
