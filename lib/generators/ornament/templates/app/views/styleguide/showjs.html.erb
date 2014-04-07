@@ -35,10 +35,10 @@
     </li>
 
     <li>
-      Input fields can be matched to exact words using <code class="sg-code">data-show-input</code> which contains the text to match against:
+      Input fields can be matched to exact words using <code class="sg-code">data-show-input</code> which contains the text to match against. Matches are exact but not case sensative. ie. matching for "Hello" will accept "hello" but not "helloooo".
       <pre class="sg-pre">
 &lt;input type="text" <strong>id="input_me"</strong> name="input_me" />
-&lt;div <strong>data-show="select_me" data-show-input="hello"</strong>>Hidden element&lt;/div></pre>
+&lt;div <strong>data-show="input_me" data-show-input="hello"</strong>>Hidden element&lt;/div></pre>
     </li>
   </ol>
 
@@ -62,10 +62,10 @@
     </li>
 
     <li>
-      Input fields can also be matched loosely by also adding <code class="sg-code">data-show-type="any"</code> to the element.
+      Input fields can also be matched loosely by also adding <code class="sg-code">data-show-type="any"</code> to the element. Matches are still not case sensative.
       <pre class="sg-pre">
 &lt;input type="text" <strong>id="input_me"</strong> name="input_me" />
-&lt;div <strong>data-show="select_me" data-show-input="hello" data-show-type="any"</strong>>Hidden element&lt;/div></pre>
+&lt;div <strong>data-show="input_me" data-show-input="hello" data-show-type="any"</strong>>Hidden element&lt;/div></pre>
     </li>
   </ol>
 
