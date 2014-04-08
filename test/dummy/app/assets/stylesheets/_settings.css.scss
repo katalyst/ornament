@@ -32,16 +32,16 @@ $base-line-size:      $base-font-size * $base-line-height;
 // Setup a sizing units.
 //
 
-$xx-small-unit: 0.7em;
-$x-small-unit: 0.8em;
-$small-unit: 0.9em;
+$xx-small-unit: 0.25em;
+$x-small-unit: 0.5em;
+$small-unit: 0.75em;
 $default-unit: 1em;
-$large-unit: 1.1em;
-$x-large-unit: 1.2em;
-$xx-large-unit: 1.3em;
-$xxx-large-unit: 1.4em;
-$xxxx-large-unit: 1.5em;
-$xxxxx-large-unit: 1.6em;
+$large-unit: 1.25em;
+$x-large-unit: 1.5em;
+$xx-large-unit: 2em;
+$xxx-large-unit: 2.5em;
+$xxxx-large-unit: 3em;
+$xxxxx-large-unit: 4em;
 
 $border-radius:   4px;
 $button-height:   44px;
