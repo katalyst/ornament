@@ -52,6 +52,8 @@
 
 .content {
   @extend .content-lite;
+  @extend .content-spacing;
+  @extend .content-lists;
 
   h1 {
     @include heading-one;
