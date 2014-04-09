@@ -48,10 +48,14 @@ body {
     display: none;
   }
 
+  .layout--container {
+    max-width: $layout-container-width;
+    width: $container-percentage;
+    margin: 0 auto;
+  }
+
   .layout--main {
     padding-bottom: $layout-mobile-footer-gap;
-    padding-left: $layout-mobile-edge-gap;
-    padding-right: $layout-mobile-edge-gap;
     padding-top: $layout-mobile-header-gap;
   }
 
@@ -154,6 +158,7 @@ body {
   .layout--container {
     height: 100%;
     max-width: $layout-container-width;
+    width: $container-percentage;
     margin: 0 auto;
   }
 
