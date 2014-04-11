@@ -1,0 +1,27 @@
+<% content_for :title, "Sticky Header" %>
+
+<%- content_for :scripts do -%>
+  <script>
+    $(function(){
+      var $stickyTarget = $(".layout--desktop-header .layout--container");
+      $("#sticky_toggle").on("click", function(e){
+        e.preventDefault();
+        if( $stickyTarget.hasClass("sticky-header") ) {
+          $stickyTarget.removeClass("sticky-header");
+          $(".layout--main").height("auto");
+        } else {
+          $stickyTarget.addClass("sticky-header");
+          $(".layout--main").height(2000);
+        }
+        $(document).trigger("ornament:sticky-header");
+      });
+    });
+  </script>
+<%- end -%>
+
+<div class="content-spacing content-list">
+
+  <p>Simply add <code>sticky-header</code> class to the element you wish to stick.</p>
+  <p><a href="#" id="sticky_toggle">Toggle sticky header on this page.</a></p>
+
+</div>
