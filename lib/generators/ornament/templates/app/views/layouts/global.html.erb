@@ -20,13 +20,14 @@
     <% end  %>
     <%= yield :meta %>
 
+    <!-- WEBFONTS -->
+    <%= render "layouts/webfonts" -%>
+
     <!-- STYLES -->
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= yield :styles %>
 
     <!-- SCRIPTS -->
-    <%= render "layouts/webfonts" -%>
-
     <%= javascript_include_tag "modernizr.js" %>
     <%= javascript_include_tag "application" %>
     <!--[if lt IE 9]>
