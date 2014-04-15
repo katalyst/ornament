@@ -53,6 +53,14 @@ pre {
     font-weight: bold;
     font-family: $sg-code-font;
   }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 code {
