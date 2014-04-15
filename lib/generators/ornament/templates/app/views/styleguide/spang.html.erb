@@ -1,8 +1,75 @@
 <% content_for :title, "Spang" %>
 
-<div class="spacing">
+<div class="content-spacing content-lists">
 
-  <h2 class="heading-two">2 columns</h2>
+  <h2 class="heading-two">How to use Spang</h2>
+  <p>First we need to create a <strong>row</strong> element to keep all our columns in:</p>
+
+  <pre>
+&lt;div class='row'>
+  columns go here..
+&lt;/div></pre>
+
+  <p>Once we have a row, we then need to create some columns:</p>
+
+  <pre>
+&lt;div class='row'>
+  &lt;div class='column-one'>column-one&lt;/div>
+  &lt;div class='column-two'>column-two&lt;/div>
+&lt;/div></pre>
+
+  <p>There are no default spang column classes, all columns are made using a SASS Mixin. To create our columns we will use the following CSS code:</p>
+
+  <pre>
+.column-one {
+  @include spang(4,12);
+}
+.column-one {
+  @include spang(6,12);
+}</pre>
+
+  <p>The spang mixin takes three arguments:</p>
+
+  <ol>
+    <li>Column count</li>
+    <li>Grid count</li>
+    <li>Media query (optional)</li>
+  </ol>
+
+  <p>The column count is how wide the column should be and the grid count is the total number of columns in the grid.</p>
+
+  <p>For example, the basic usage of spang is <code>spang(1,3)</code>, which is like saying, "This element should take up one column of a three column grid."</p>
+
+  <p>If you had a grid made of 24 columns and you wanted something to go to 50%, you could use <code>spang(12,24)</code>. However, spang is only used to do the math of calculating percentage widths, so you could also do <code>spang(1,2)</code> as it results in the same percentage (50%). <code>spang(6,12)</code> and <code>spang(50,100)</code> will also have the same result.</p>
+
+  <h2 class="heading-two">Advanced usage</h2>
+
+  <p>You can pass in a media query to the spang mixin. This will over-ride the columns at a certain breakpoint defined in your settings.</p>
+
+  <pre>
+.column-one {
+  @include spang(4,12);
+  @include spang(6,12,medium);
+}</pre>
+
+  <p>In this example, the column will span 4 columns of a 12 column grid but at the medium breakpoint, it will switch to a 6 of 12 column grid. </p>
+
+  <p>You can clear spangs using the <code>spanc</code> mixin. Clearing a spang will make the column span 100%.</p>
+
+  <pre>
+.column-one {
+  @include spang(4,12);
+  @include spang(6,12,medium);
+  @include spanc(small);
+}</pre>
+
+  <p>In this example, the column will span 4 of 12, then at the medium breakpoint go to 6 of 12, then at small, will clear the spang making it go full-width.</p>
+
+  <p>Clearing a spang is essentially like saying <code>spang(1,1,small)</code>.
+
+  <h2 class="heading-one">Examples</h2>
+
+  <h3 class="heading-two">2 columns</h3>
   <p>clear at [small-breakpoint], conformed heights</p>
 
   <div class="row" data-conform-columns>
@@ -38,7 +105,7 @@
     </div>  
   </div>
 
-  <h2 class="heading-two">6 columns</h2>
+  <h3 class="heading-two">6 columns</h3>
   <p>breaks to 3 columns at [medium-breakpoint], clears at [small-breakpoint]</p>
 
   <div class="row">
