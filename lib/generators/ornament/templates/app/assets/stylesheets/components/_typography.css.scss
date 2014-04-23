@@ -149,6 +149,13 @@ em, i {
   @include font($italic-font);
 }
 
+em b, em strong,
+i b, i strong,
+b i, b em,
+strong i, strong em {
+  @include font($bold--italic-font);
+}
+
 small {
   @include font($body-font);
   font-size: $small-unit;
