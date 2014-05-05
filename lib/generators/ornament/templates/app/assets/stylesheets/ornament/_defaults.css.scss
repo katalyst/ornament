@@ -17,17 +17,13 @@
 // The base line height should be unitless (ratio of line height to font size).
 //
 
-$small-font-size:     14px;
-$base-font-size:      16px;
-$large-font-size:     18px;
-$base-line-height:    1.5;
-$line-height-small:   1.4;
-$line-height-tiny:    1.2;
-$line-height-mucura:  1.4;
-$base-line-size:      $base-font-size * $base-line-height;
+$base-pixel:          16px;
 
-$font-size-small: 0.9em;
-$font-size-large: 1.1em;
+$small-font-size:     0.8em;
+$base-font-size:      $base-pixel;
+$large-font-size:     1.1em;
+$base-line-height:    1.5;
+$base-line-size:      $base-font-size * $base-line-height;
 
 
 // SIZES
@@ -36,18 +32,18 @@ $font-size-large: 1.1em;
 // Setup a sizing units.
 //
 
-$xx-small-unit: 4px;
-$x-small-unit: 8px;
-$small-unit: 12px;
-$default-unit: 16px;
-$large-unit: 24px;
-$x-large-unit: 32px;
-$xx-large-unit: 40px;
-$xxx-large-unit: 48px;
-$xxxx-large-unit: 64px;
-$xxxxx-large-unit: 80px;
+$xx-small-unit: 0.25em;
+$x-small-unit: 0.5em;
+$small-unit: 0.75em;
+$default-unit: 1em;
+$large-unit: 1.25em;
+$x-large-unit: 1.5em;
+$xx-large-unit: 2em;
+$xxx-large-unit: 2.5em;
+$xxxx-large-unit: 3em;
+$xxxxx-large-unit: 4em;
 
-$border-radius: 4px;
+$border-radius:   4px;
 $button-height:   44px;
 
 $panel-padding-large:   $x-large-unit;
@@ -105,12 +101,11 @@ $site-gutters:
 // Default colors.
 //
 
-$brand-green: #8cc63e;
 $primary-color: #0082c8;
 
 $foreground-color: #222;
 $background-color: #fff;
-$link-color: #ccc;
+$link-color: blue;
 $link-hover-color: false;
 $error-color: #990000;
 $error-background: red;
@@ -137,31 +132,3 @@ $input-color:             $foreground-color;
 $input-padding:           0.3em 0.2em 0.1em;
 $input-width:             100%;
 $textarea-height:         $base-line-size*5;
-
-
-//------------------------------ LEGACY - remove as soon as possible -----------------------------//
-
-
-// BREAKPOINTS
-//
-// The two breakpoints provide three different sizes:
-//
-// mobile < $small-breakpoint < tablet < $large-breakpoint < desktop
-//
-
-$small-breakpoint: 600px;
-$large-breakpoint: 800px;
-
-
-
-// FONTS
-//
-//
-// The default fonts (family, style, weight).
-//
-
-$body-font:           (Helvetica, sans-serif)  normal  normal;
-$heading-alpha-font:  (Helvetica, sans-serif)  normal  bold;
-$heading-beta-font:   (Helvetica, sans-serif)  normal  bold;
-$bold-font:           (Helvetica, sans-serif)  normal  bold;
-$italic-font:         (Helvetica, sans-serif)  italic  normal;
