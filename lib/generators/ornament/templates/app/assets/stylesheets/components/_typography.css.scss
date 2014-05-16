@@ -174,7 +174,7 @@ a, button {
 // FORMS
 
 [type="text"], [type="password"], [type="date"], [type="datetime"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], textarea {
-  font-family: $input-typeface;
+  @include font($input-typeface);
 }
 
 
