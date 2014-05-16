@@ -4,10 +4,12 @@
 
 ### Features
 
-- Added spang for grids  
-- Added breakpoint helper  
-- Reworked typography and content styles  
 - Converted spacing units to `em`  
+- Reworked typography and content styles  
+- Spang - Easy grids
+- Vetre - Vertically centred responsive image
+- Breakpoint helper  
+- Flash Message partial
 - Added sliding nested mobile navigation 
 - Styleguide layout and styleguide stylesheet
 - Basic print stylesheet
