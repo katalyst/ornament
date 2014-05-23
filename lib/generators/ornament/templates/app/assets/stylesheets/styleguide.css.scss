@@ -40,7 +40,8 @@ body {
 
 // CODE SAMPLES
 
-pre {
+pre,
+pre.prettyprint {
   border: 1px solid $sg-grey;
   background: $sg-light-grey;
   padding: 0.5em;

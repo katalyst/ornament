@@ -5,14 +5,14 @@
   <h2 class="heading-two">How to use Spang</h2>
   <p>First we need to create a <strong>row</strong> element to keep all our columns in:</p>
 
-  <pre>
+  <pre class="prettyprint">
 &lt;div class='row'>
   columns go here..
 &lt;/div></pre>
 
   <p>Once we have a row, we then need to create some columns:</p>
 
-  <pre>
+  <pre class="prettyprint">
 &lt;div class='row'>
   &lt;div class='column-one'>column-one&lt;/div>
   &lt;div class='column-two'>column-two&lt;/div>
@@ -20,7 +20,7 @@
 
   <p>There are no default spang column classes, all columns are made using a SASS Mixin. To create our columns we will use the following CSS code:</p>
 
-  <pre>
+  <pre class="prettyprint">
 .column-one {
   @include spang(4,12);
 }
@@ -46,7 +46,7 @@
 
   <p>You can pass in a media query to the spang mixin. This will over-ride the columns at a certain breakpoint defined in your settings.</p>
 
-  <pre>
+  <pre class="prettyprint">
 .column-one {
   @include spang(4,12);
   @include spang(6,12,medium);
@@ -56,7 +56,7 @@
 
   <p>You can clear spangs using the <code>spanc</code> mixin. Clearing a spang will make the column span 100%.</p>
 
-  <pre>
+  <pre class="prettyprint">
 .column-one {
   @include spang(4,12);
   @include spang(6,12,medium);

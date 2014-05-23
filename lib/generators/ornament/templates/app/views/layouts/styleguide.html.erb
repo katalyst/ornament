@@ -1,5 +1,8 @@
-<% content_for :global do %>
+<% content_for :styles do %>
   <%= stylesheet_link_tag "styleguide" %>
+<% end %>
+<% content_for :styles do %>
+  <%= javascript_include_tag "https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&lang=css" -%>
 <% end %>
 
 <% content_for :global do %>

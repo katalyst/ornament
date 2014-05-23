@@ -18,14 +18,14 @@
 
     <li>
       To listen for a checkbox or radio, you only need the <code class="sg-code">data-show</code> attribute:
-      <pre class="sg-pre">
+      <pre class="sg-pre prettyprint">
 &lt;input type="checkbox" <strong>id="click_me"</strong> name="click_me" />
 &lt;div <strong>data-show="click_me"</strong>>Hidden element&lt;/div></pre>
     </li>
 
     <li>
       For a select menu, you also need a <code class="sg-code">data-show-option</code> attribute with the option you want to listen for.
-      <pre class="sg-pre">
+      <pre class="sg-pre prettyprint">
 &lt;select <strong>id="select_me"</strong> name="select_me">
   &lt;option val="">Please select..&lt;/option>
   &lt;option <strong>val="show"</strong>>Show the field&lt;/option>
@@ -36,7 +36,7 @@
 
     <li>
       Input fields can be matched to exact words using <code class="sg-code">data-show-input</code> which contains the text to match against. Matches are exact but not case sensative. ie. matching for "Hello" will accept "hello" but not "helloooo".
-      <pre class="sg-pre">
+      <pre class="sg-pre prettyprint">
 &lt;input type="text" <strong>id="input_me"</strong> name="input_me" />
 &lt;div <strong>data-show="input_me" data-show-input="hello"</strong>>Hidden element&lt;/div></pre>
     </li>
@@ -47,7 +47,7 @@
   <ol start="4">
     <li>
       You can pass in multiple checkbox/radio target ids by seperating the ids with <code class="sg-code">_&_</code>. Now both checkboxes will need to be selected in order to show the hidden element.
-      <pre class="sg-pre">
+      <pre class="sg-pre prettyprint">
 &lt;input type="checkbox" <strong>id="click_me_1"</strong> name="click_me_1" />
 &lt;input type="checkbox" <strong>id="click_me_2"</strong> name="click_me_2" />
 &lt;div <strong>data-show="click_me_1_&_click_me_2"</strong>>Hidden element&lt;/div></pre>
@@ -55,7 +55,7 @@
 
     <li>
       What if, instead of requiring both, you wanted either option to show the hidden element? You can add <code class="sg-code">data-show-type="any"</code> to the element. Now ticking either box will show the element:
-      <pre class="sg-pre">
+      <pre class="sg-pre prettyprint">
 &lt;input type="checkbox" <strong>id="click_me_1"</strong> name="click_me_1" />
 &lt;input type="checkbox" <strong>id="click_me_2"</strong> name="click_me_2" />
 &lt;div <strong>data-show="click_me_1_&_click_me_2" data-show-type="any"</strong>>Hidden element&lt;/div></pre>
@@ -63,7 +63,7 @@
 
     <li>
       Input fields can also be matched loosely by also adding <code class="sg-code">data-show-type="any"</code> to the element. Matches are still not case sensative.
-      <pre class="sg-pre">
+      <pre class="sg-pre prettyprint">
 &lt;input type="text" <strong>id="input_me"</strong> name="input_me" />
 &lt;div <strong>data-show="input_me" data-show-input="hello" data-show-type="any"</strong>>Hidden element&lt;/div></pre>
     </li>
