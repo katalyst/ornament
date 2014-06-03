@@ -1,0 +1,15 @@
+@mixin {{prefix}}{{name}} {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    background-image: url('{{datauri}}');
+    background-repeat: no-repeat;
+  }
+}
+
+{{#each customselectors}}{{this}},{{/each}}
+{{prefix}}{{name}} {
+  @include {{prefix}}{{name}};
+}
