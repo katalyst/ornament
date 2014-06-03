@@ -11,3 +11,10 @@
 @import "settings";
 @import "ornament/reset";
 @import "ornament/style";
+
+.svg {
+  @import "grunticon/icon-svg";
+}
+.no-svg {
+  @import "grunticon/icon-png";
+}

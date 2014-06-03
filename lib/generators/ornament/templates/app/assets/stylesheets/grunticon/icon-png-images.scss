@@ -1,4 +1,4 @@
-@mixin .icon-arrow-down-white {
+@mixin icon-arrow-down-white {
   position: relative;
 
   &:before {
@@ -6,15 +6,17 @@
     display: block;
     background-image: url('assets/images/png-icons/arrow-down-white.png');
     background-repeat: no-repeat;
+    width: 15px;
+    height: 11px;
   }
 }
 
 
 .icon-arrow-down-white {
-  @include .icon-arrow-down-white;
+  @include icon-arrow-down-white;
 }
 
-@mixin .icon-arrow-down {
+@mixin icon-arrow-down {
   position: relative;
 
   &:before {
@@ -22,11 +24,13 @@
     display: block;
     background-image: url('assets/images/png-icons/arrow-down.png');
     background-repeat: no-repeat;
+    width: 15px;
+    height: 11px;
   }
 }
 
 
 .icon-arrow-down {
-  @include .icon-arrow-down;
+  @include icon-arrow-down;
 }
 

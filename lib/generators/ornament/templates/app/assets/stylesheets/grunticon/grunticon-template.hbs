@@ -1,4 +1,4 @@
-@mixin {{prefix}}{{name}} {
+@mixin icon-{{name}} {
   position: relative;
 
   &:before {
@@ -6,10 +6,12 @@
     display: block;
     background-image: url('{{datauri}}');
     background-repeat: no-repeat;
+    width: {{width}};
+    height: {{height}};
   }
 }
 
 {{#each customselectors}}{{this}},{{/each}}
 {{prefix}}{{name}} {
-  @include {{prefix}}{{name}};
+  @include icon-{{name}};
 }
