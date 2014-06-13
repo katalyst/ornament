@@ -1,0 +1,32 @@
+<%= content_for :title, "Headings and Typography" -%>
+
+<div class="content">
+
+  <h2 class="heading-two">Ornament is an empty canvas.</h2>
+
+  <p>By default, Ornament typography is very simple and essentially <em>unstyled</em>.</p>
+
+  <p>The reason being is that we belive that heading styles and the heading tags should be separate. Semantically, you may want a <code>h3</code>, but you actually want that <code>h3</code> to be styled up as a <code>h4</code>. Instead of having a default style for <code>h3</code> and then over-ride it for <code>h4</code>, why not just cherry pick our heading styles from the very beginning. </p>
+
+  <p>This results in a nice workflow in which you can create heading tags in the correct semenatic way, without having to worry about how the styles are going to cascade.</p>
+
+  <h2 class="heading-two">Applying heading classes</h2>
+
+  <p>Heading classes are simply namespaced as a <code>heading-</code>.</p>
+
+  <ul>
+    <li><span class="heading-one">.heading-one</span></li>
+    <li><span class="heading-two">.heading-two</span></li>
+    <li><span class="heading-three">.heading-three</span></li>
+    <li><span class="heading-four">.heading-four</span></li>
+    <li><span class="heading-five">.heading-five</span></li>
+    <li><span class="heading-six">.heading-six</span></li>
+  </ul>
+
+  <p>Heading classes are completely separate from heading tags. They can be applied to any tags such as paragraphs or spans.</p>
+
+  <p>On the SASS side, there are also mixins that you can use to apply heading styles without touching HTML.</p>
+
+  <p><code>.my-fake-heading { @include heading-one(); }</code></p>
+
+</div>

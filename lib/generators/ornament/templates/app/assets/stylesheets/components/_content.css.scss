@@ -11,30 +11,33 @@
   margin-bottom: $xx-large-unit;
 }
 
-.content-lite {
+.content-large {
   @include media-query($breakpoint-medium,"min") {
     font-size: $large-font-size;
   }
 }
 
-.content-lists {
-  ul {
-    list-style: disc;
-  }
+ul.content-lists,
+ol.content-lists,
+.content-lists ul,
+.content-lists ol {
+  margin-left: 2em;
+  margin-bottom: $small-unit;
+}
 
-  ol {
-    list-style: decimal;
-  }
+ul.content-lists,
+.content-lists ul {
+  list-style: disc;
+}
+
+ol.content-lists,
+.content-lists ol {
+  list-style: decimal;
 }
 
 .content-spacing {
   p {
     margin-top: $small-unit;
-    margin-bottom: $small-unit;
-  }
-
-  ul,ol {
-    margin-left: 2em;
     margin-bottom: $small-unit;
   }
 
@@ -51,7 +54,7 @@
 }
 
 .content {
-  @extend .content-lite;
+  @extend .content-large;
   @extend .content-spacing;
   @extend .content-lists;
 
