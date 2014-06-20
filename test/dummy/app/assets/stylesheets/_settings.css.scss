@@ -4,10 +4,6 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-// Spinner template:
-// http://spiffygif.com/?rotate=2&color=ffffff&corners=0.9&lines=7&bgColor=0082c8&trail=76&length=0&radius=5&width=5&halo=true
-
-
 
 // BASE UNITS
 //
@@ -24,6 +20,15 @@ $base-font-size:      $base-pixel;
 $large-font-size:     1.1em;
 $base-line-height:    1.5;
 $base-line-size:      $base-font-size * $base-line-height;
+
+
+// CONTAINER WIDTH
+//
+// Width of the container (desktop only).
+//
+
+$container-width: 1072px;
+$container-percentage: 92%;
 
 
 // SIZES
@@ -50,14 +55,6 @@ $panel-padding-large:   $x-large-unit;
 $panel-padding:         $large-unit;
 $panel-padding-small:   $default-unit;
 $panel-padding-tiny:    $x-small-unit;
-
-// CONTAINER WIDTH
-//
-// Width of the container (desktop only).
-//
-
-$container-width: 1072px;
-$container-percentage: 92%;
 
 
 // BREAKPOINTS
@@ -118,6 +115,7 @@ $facebook: #5e78aa;
 $grey: #bbb;
 
 $image-border: 0;
+
 
 // INPUTS
 //

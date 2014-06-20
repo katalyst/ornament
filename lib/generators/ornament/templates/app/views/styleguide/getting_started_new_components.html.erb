@@ -62,4 +62,11 @@
   });
 }(document, window, jQuery));</pre>
 
+  <p>Once you've created your javascript file you can add it in to either <code>application.js</code> or <code>application_bottom.js</code></p>
+
+  <p>The difference between the two files is that <code>application.js</code> is loaded in the website's <code>head</code> tag, the <code>application_bottom.js</code> file is loaded shortly before the end of the <code>body</code>. </p>
+
+  <p>The easiest way to figure out which one to put it in is by asking yourself, "Is this code super important for page load?"<br />
+  If the answer is yes, put it in the high-priority <code>application.js</code> file. If it's code that can be executed a few seconds after the page has loaded, put it in <code>application_bottom.js</code>.</p>
+
 </div>
