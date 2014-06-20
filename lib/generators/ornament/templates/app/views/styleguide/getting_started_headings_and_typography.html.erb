@@ -1,6 +1,6 @@
 <%= content_for :title, "Headings and Typography" -%>
 
-<div class="content">
+<div class="content-spacing">
 
   <h2 class="heading-two">Ornament is an empty canvas.</h2>
 
@@ -27,6 +27,28 @@
 
   <p>On the SASS side, there are also mixins that you can use to apply heading styles without touching HTML.</p>
 
-  <p><code>.my-fake-heading { @include heading-one(); }</code></p>
+  <pre class="sg-pre prettyprint">.my-fake-heading { 
+  @include heading-one(); 
+}</pre>
+
+  <h2 class="heading-two">Applying fonts</h2>
+
+  <p>All fonts are defined in <code>typography.css.scss</code>. These fonts are defined as variables such as <code>$bold-font</code>.</p>
+
+  <p>You can use the <code>font</code> mixin to apply these fonts:</p>
+
+  <pre class="sg-pre prettyprint">.my-bold-paragraph {
+  @include font($bold-font);
+}</pre>
+
+  <h2 class="heading-two">Webfont Loader</h2>
+
+  <p>To bring in new webfonts, we use the <a href="https://github.com/typekit/webfontloader" target="_blank">webfont loader</a> from Typekit.</p>
+
+  <p>The definitions are in a partial: <code>/app/views/layouts/_webfonts.html.erb</code></p>
+
+  <p>The documentation for the loader is pretty easy to follow, so adding new fonts from various hosts is pretty effortless.</p>
+
+  <p>Any Javascript that needs to be re-run after fonts have loaded (eg. heights change when fonts load in) can be called again using the <code>active</code> callback.</p>
 
 </div>
