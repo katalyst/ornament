@@ -1,0 +1,18 @@
+<% content_for :title, "The Media Query Mixin" %>
+
+<div class="content-spacing content-lists">
+
+  <p>The media query mixin can be used in the following ways:</p>
+
+  <ul>
+    <li><code>@include media-query(large) {}</code></li>
+    <li><code>@include media-query(medium,min) {}</code></li>
+    <li><code>@include media-query(200px,min) {}</code></li>
+    <li><code>@include media-query($my-custom-breakpoint)</code></li>
+  </ul>
+
+  <p>Breakppoints can be passed in either in variable format ($my-custom-breakpoint), value format (530px, 42em) or a breakpoint key word, found in the css settings file (small, medium, large).</p>
+
+  <p>A mobile-first approach can be taken by also passing in "min" as the second variable. This turns the media-query in to a min-width query rather than the max-width default.</p>
+
+</div>
