@@ -3,7 +3,7 @@
 <%- content_for :scripts do -%>
   <script>
     $(function(){
-      var $stickyTarget = $(".layout--desktop-header .layout--container");
+      var $stickyTarget = $(".layout--header .layout--container");
       $("#sticky_toggle").on("click", function(e){
         e.preventDefault();
         if( $stickyTarget.hasClass("sticky-header") ) {
