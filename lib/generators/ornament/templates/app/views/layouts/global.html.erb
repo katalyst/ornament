@@ -63,19 +63,11 @@
 
       <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
 
-        <header class="layout--mobile-header" role="banner">
-          <div class="header">
-            <div class="layout--container">
-              <button class="layout--switch">open navigation</button>
-              mobile header
-            </div>
-          </div>
-        </header>
-
-        <header class="layout--desktop-header" role="banner">
+        <header class="layout--header" role="banner">
           <div class="layout--container">
             <div class="header">
               desktop header
+              <button class="layout--switch">open navigation</button>
             </div>
           </div>
         </header>
@@ -87,21 +79,12 @@
           </section>
         </div>
 
-        <div class="layout--desktop-footer">
+        <footer class="layout--footer" role="contentinfo">
           <div class="layout--container">
-            <footer class="layout--footer" role="contentinfo">
-              <div class="footer">
-                desktop footer
-              </div>
-            </footer>
-          </div>
-        </div>
-        <div class="layout--mobile-footer footer">
-          <footer class="layout--footer" role="contentinfo">
-            <div class="layout--container">
-              mobile footer
+            <div class="footer">
+              desktop footer
             </div>
-          </footer>
+          </div>
         </div>
 
       </div>

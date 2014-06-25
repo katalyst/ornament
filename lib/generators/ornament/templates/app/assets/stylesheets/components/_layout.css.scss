@@ -1,6 +1,6 @@
 $layout-animation-duration:     0.5s;
 $layout-background:             $background-color;
-$layout-breakpoint:             $breakpoint-large;
+$layout-breakpoint:             $breakpoint-small;
 $layout-container-width:        $container-width;
 $layout-desktop-edge-gap:       0;
 $layout-desktop-footer-gap:     $default-unit;
@@ -17,162 +17,101 @@ body {
   overflow-y: scroll;
 }
 
-// LAYOUT (MOBILE)
-@media screen and (max-width: $layout-breakpoint) {
-
-  .layout {
-    height: 100%;
-  }
-
-  .layout--mobile-tray {
-    background: $layout-mobile-tray-background;
-    display: none;
-  }
-
-  .layout--content {
-    @include single-transition(transform, $layout-animation-duration);
-    background: $layout-background;
-    min-height: 100%;
-  }
-
-  .layout--mobile-header {
-
-  }
-
-  .layout--switch {
-    background: red;
-    float: right;
-  }
-
-  .layout--desktop-header {
-    display: none;
-  }
-
-  .layout--container {
-    max-width: $layout-container-width;
-    width: $container-percentage;
-    margin: 0 auto;
-  }
-
-  .layout--main {
-    padding-bottom: $layout-mobile-footer-gap;
-    padding-top: $layout-mobile-header-gap;
-  }
-
-  .layout--desktop-footer {
-    display: none;
-  }
-
+.layout {
+  height: 100%;
 }
 
-// LAYOUT-OPEN (MOBILE)
-@media screen and (max-width: $layout-breakpoint) {
-
-  .layout-open {
-
-    .layout--mobile-tray {
-      display: block;
-      min-height: 100%;
-      float: right;
-      width: $layout-mobile-tray-width;
-    }
-
-    .layout--content {
-      @include translate(-($layout-mobile-tray-width), 0);
-      height: 100%;
-      left: 0;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      @include box-shadow(0 0 10px rgba(0,0,0,0.2));
-    }
-
-    .layout--switch {
-      background: green;
-    }
-
-  }
-
+.layout--mobile-tray {
+  background: $layout-mobile-tray-background;
+  display: none;
 }
 
-// LAYOUT-TRANSITIONING (MOBILE)
-@media screen and (max-width: $layout-breakpoint) {
-
-  .layout-transitioning {
-
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-
-    .layout--mobile-tray {
-      display: block;
-      min-height: 100%;
-      float: right;
-      width: $layout-mobile-tray-width;
-    }
-
-    .layout--content {
-      height: 100%;
-      left: 0;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      @include box-shadow(0 0 10px rgba(0,0,0,0.1));
-    }
-
-  }
-
+.layout--content {
+  @include single-transition(transform, $layout-animation-duration);
+  background: $layout-background;
+  min-height: 100%;
 }
 
-// LAYOUT (DESKTOP)
-@media screen and (min-width: $layout-breakpoint) {
-
-  .layout {
-    left: 0;
-    min-height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  .layout--mobile-tray {
+.layout--switch {
+  background: red;
+  float: right;
+  @include media-query($layout-breakpoint,min) {
     display: none;
   }
+}
 
-  .layout--mobile-header {
-    display: none;
-  }
+.layout--container {
+  height: 100%;
+  max-width: $layout-container-width;
+  width: $container-percentage;
+  margin: 0 auto;
+}
 
-  .layout--mobile-footer {
-    display: none;
-  }
+.layout--main {
+  padding-bottom: $layout-mobile-footer-gap;
+  padding-top: $layout-mobile-header-gap;
 
-  .layout--main {
+  @include media-query($layout-breakpoint,min) {
     background: $layout-background;
     padding-bottom: $layout-desktop-footer-gap;
     padding-left: $layout-desktop-edge-gap;
     padding-right: $layout-desktop-edge-gap;
     padding-top: $layout-desktop-header-gap;
   }
+}
 
-  .layout--container {
-    height: 100%;
-    max-width: $layout-container-width;
-    width: $container-percentage;
-    margin: 0 auto;
+
+// MENU OPEN
+// 
+
+.layout-open {
+
+  .layout--mobile-tray {
+    display: block;
+    min-height: 100%;
+    float: right;
+    width: $layout-mobile-tray-width;
   }
 
-  .layout_fixed-footer {
-    .layout--content {
-      margin-bottom: $layout-footer-height;
-    }
-    .layout--desktop-footer {
-      bottom: 0;
-      height: $layout-footer-height;
-      left: 0;
-      position: absolute;
-      width: 100%;
-    }
+  .layout--content {
+    @include translate(-($layout-mobile-tray-width), 0);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    @include box-shadow(0 0 10px rgba(0,0,0,0.2));
+  }
+
+  .layout--switch {
+    background: green;
+  }
+
+}
+
+// MENU TRANSITIONING
+//
+
+.layout-transitioning {
+
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  .layout--mobile-tray {
+    display: block;
+    min-height: 100%;
+    float: right;
+    width: $layout-mobile-tray-width;
+  }
+
+  .layout--content {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    @include box-shadow(0 0 10px rgba(0,0,0,0.1));
   }
 
 }
