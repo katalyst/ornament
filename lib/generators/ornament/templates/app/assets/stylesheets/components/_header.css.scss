@@ -1,6 +1,12 @@
 .header {
   background: #ccc;
   padding: $small-unit;
+  @include pie-clearfix;
+}
+
+.header--menu {
+  @include grunticon("menu-white", 24px);
+  @include icon-block(44px, 24px);
 }
 
 // Sticky Header
