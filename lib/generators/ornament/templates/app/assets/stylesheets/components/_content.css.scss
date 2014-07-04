@@ -70,10 +70,14 @@ ol.content-lists,
 
   h3 {
     @include heading-three;
+    margin-top: $large-unit;
+    margin-bottom: $large-unit;
   }
 
   h4 {
     @include heading-four;
+    margin-top: $large-unit;
+    margin-bottom: $large-unit;
   }
 
   h5 {
