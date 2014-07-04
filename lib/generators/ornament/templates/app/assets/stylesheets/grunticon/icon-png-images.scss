@@ -1,36 +1,24 @@
-@mixin icon-arrow-down-white {
-  position: relative;
+.grunticon-chevron-left-16-white { background-image: url('assets/images/png-icons/chevron-left-16-white.png'); background-repeat: no-repeat; }
 
-  &:before {
-    content: "";
-    display: block;
-    background-image: url('assets/images/png-icons/arrow-down-white.png');
-    background-repeat: no-repeat;
-    width: 15px;
-    height: 11px;
-  }
-}
+.grunticon-chevron-left-16 { background-image: url('assets/images/png-icons/chevron-left-16.png'); background-repeat: no-repeat; }
 
+.grunticon-chevron-left-32-white { background-image: url('assets/images/png-icons/chevron-left-32-white.png'); background-repeat: no-repeat; }
 
-.icon-arrow-down-white {
-  @include icon-arrow-down-white;
-}
+.grunticon-chevron-left-32 { background-image: url('assets/images/png-icons/chevron-left-32.png'); background-repeat: no-repeat; }
 
-@mixin icon-arrow-down {
-  position: relative;
+.grunticon-chevron-right-16-white { background-image: url('assets/images/png-icons/chevron-right-16-white.png'); background-repeat: no-repeat; }
 
-  &:before {
-    content: "";
-    display: block;
-    background-image: url('assets/images/png-icons/arrow-down.png');
-    background-repeat: no-repeat;
-    width: 15px;
-    height: 11px;
-  }
-}
+.grunticon-chevron-right-16 { background-image: url('assets/images/png-icons/chevron-right-16.png'); background-repeat: no-repeat; }
 
+.grunticon-chevron-right-32-white { background-image: url('assets/images/png-icons/chevron-right-32-white.png'); background-repeat: no-repeat; }
 
-.icon-arrow-down {
-  @include icon-arrow-down;
-}
+.grunticon-chevron-right-32 { background-image: url('assets/images/png-icons/chevron-right-32.png'); background-repeat: no-repeat; }
+
+.grunticon-navicon-16-white { background-image: url('assets/images/png-icons/navicon-16-white.png'); background-repeat: no-repeat; }
+
+.grunticon-navicon-16 { background-image: url('assets/images/png-icons/navicon-16.png'); background-repeat: no-repeat; }
+
+.grunticon-navicon-32-white { background-image: url('assets/images/png-icons/navicon-32-white.png'); background-repeat: no-repeat; }
+
+.grunticon-navicon-32 { background-image: url('assets/images/png-icons/navicon-32.png'); background-repeat: no-repeat; }
 
