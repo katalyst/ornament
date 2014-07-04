@@ -111,6 +111,7 @@ $navigation-border-color:             #339bd3;
       position: relative;
       padding-left: $default-unit;
       padding-right: 2.8em + $xx-small-unit; // 2.8 = roughly the size of the nav button
+      @include grunticon("chevron-right-16-white", 16px, $psuedo:after);
 
       &:before {
         content: "";
@@ -128,11 +129,8 @@ $navigation-border-color:             #339bd3;
         display: block;
         position: absolute;
         top: 50%;
-        margin-top: -6px;
-        right: 18px;
-        // background: url('/assets/sprite.png') no-repeat -148px -218px;
-        width: 7px;
-        height: 12px;
+        margin-top: -8px;
+        right: 14px;
       }
     }
     // forward buttons

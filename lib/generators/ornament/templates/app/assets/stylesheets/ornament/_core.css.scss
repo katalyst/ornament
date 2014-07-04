@@ -24,7 +24,7 @@
 @import "ornament/utilities/color-link";
 @import "ornament/utilities/decorate-link";
 @import "ornament/utilities/font";
-@import "ornament/utilities/icon-creator";
+@import "ornament/utilities/icon-tools";
 @import "ornament/utilities/line-height-padding";
 @import "ornament/utilities/lists";
 @import "ornament/utilities/media-query";
@@ -35,3 +35,10 @@
 @import "fonts";
 @import "ornament/reset";
 @import "components/typography";
+
+.svg {
+  @import "grunticon/icon-svg";
+}
+.no-svg {
+  @import "grunticon/icon-png";
+}
