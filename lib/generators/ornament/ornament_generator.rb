@@ -5,7 +5,7 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :components,   :type => :boolean, :default => true
   class_option :core,         :type => :boolean, :default => true
   class_option :development,  :type => :boolean, :default => false
-  class_option :gems,         :type => :boolean, :default => false
+  class_option :gems,         :type => :boolean, :default => true
   class_option :layouts,      :type => :boolean, :default => true
   class_option :settings,     :type => :boolean, :default => true
   class_option :styleguide,   :type => :boolean, :default => true
