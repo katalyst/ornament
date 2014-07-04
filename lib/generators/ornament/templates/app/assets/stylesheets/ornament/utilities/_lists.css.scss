@@ -1,0 +1,44 @@
+@mixin list-vertical($space: $x-small-unit, $border: false, $all: false) {
+  @include pie-clearfix;
+
+  // first level list items
+  > li {
+    padding: $space 0;
+  }
+
+  @if($border != false) {
+    @if($all == true) {
+      > li {
+        border-top: $border;
+      }
+    } @else {
+      > li + li {
+        border-top: $border;
+      }
+    }
+  }
+
+}
+
+@mixin list-horizontal($space: $x-small-unit, $border: false, $all: false) {
+  @include pie-clearfix;
+
+  // first level list items
+  > li {
+    padding: 0 $space;
+    float: left;
+  }
+
+  @if($border != false) {
+    @if($all == true) {
+      > li {
+        border-left: $border;
+      }
+    } @else {
+      > li + li {
+        border-left: $border;
+      }
+    }
+  }
+
+}
