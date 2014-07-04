@@ -13,7 +13,7 @@ class OrnamentGenerator < Rails::Generators::Base
   def generate
 
     if options.settings?
-      copy_file "app/assets/stylesheets/ornament/_defaults.css.scss", "app/assets/stylesheets/_settings.css.scss"
+      copy_file "app/assets/stylesheets/_settings.css.scss"
     end
 
     unless options.development?
