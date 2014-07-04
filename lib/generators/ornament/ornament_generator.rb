@@ -49,11 +49,15 @@ class OrnamentGenerator < Rails::Generators::Base
         copy_file "config/initializers/simple_form.rb"
         copy_file "config/locales/en.yml"
 
+        copy_file "Gruntfile.js"
+        copy_file "package.json"
+
       end
 
       if options.components?
         directory "app/assets/javascripts/components"
         directory "app/assets/stylesheets/components"
+        directory "app/assets/stylesheets/grunticon"
       end
 
       if options.layouts?
