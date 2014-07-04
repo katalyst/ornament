@@ -1,0 +1,94 @@
+<% content_for :title, "Lists" %>
+
+
+<div class="content-spacing">
+
+  <h2 class="heading-two">Horizontal Spacing</h2>
+
+  <p>Spacing list items horizontally.</p>
+  <pre class="sg-pre prettyprint">@include list-horizontal($small-unit);</pre>
+  <ul class="lists--example lists--example-1">
+    <li>Lorem</li>
+    <li>ipsum</li>
+    <li>dolor</li>
+    <li>sit</li>
+    <li>amet</li>
+  </ul>
+
+  <p>Adding a border between list items.</p>
+  <pre class="sg-pre prettyprint">@include list-horizontal($small-unit, 1px solid #ccc);</pre>
+  <ul class="lists--example lists--example-2">
+    <li>Lorem</li>
+    <li>ipsum</li>
+    <li>dolor</li>
+    <li>sit</li>
+    <li>amet</li>
+  </ul>
+
+  <p>Adding borders to first and last items as well.</p>
+  <pre class="sg-pre prettyprint">@include list-horizontal($small-unit, 1px solid #ccc, true);</pre>
+  <ul class="lists--example lists--example-3">
+    <li>Lorem</li>
+    <li>ipsum</li>
+    <li>dolor</li>
+    <li>sit</li>
+    <li>amet</li>
+  </ul>
+
+  <h2 class="heading-two">Vertical Spacing</h2>
+
+  <p>Vertically spacing some list items.</p>
+  <pre class="sg-pre prettyprint">@include list-vertical($small-unit);</pre>
+  <ul class="lists--example lists--example-4">
+    <li>Lorem</li>
+    <li>ipsum</li>
+    <li>dolor</li>
+    <li>sit</li>
+    <li>amet</li>
+  </ul>
+
+  <p>Adding a border between items.</p>
+  <pre class="sg-pre prettyprint">@include list-vertical($small-unit, 1px solid #ccc);</pre>
+  <ul class="lists--example lists--example-5">
+    <li>Lorem</li>
+    <li>ipsum</li>
+    <li>dolor</li>
+    <li>sit</li>
+    <li>amet</li>
+  </ul>
+
+  <p>Adding a border to first and last items.</p>
+  <pre class="sg-pre prettyprint">@include list-vertical($small-unit, 1px solid #ccc, true);</pre>
+  <ul class="lists--example lists--example-6">
+    <li>Lorem</li>
+    <li>ipsum</li>
+    <li>dolor</li>
+    <li>sit</li>
+    <li>amet</li>
+  </ul>
+
+  <h2 class="heading-two">Flushing Lists</h2>
+
+  <p>Making our horizontal list flush on left and right</p>
+  <pre class="sg-pre prettyprint">@include list-horizontal($small-unit, 1px solid #ccc);
+@include list-flush("left and right")</pre>
+  <ul class="lists--example lists--example-3b">
+    <li>Lorem</li>
+    <li>ipsum</li>
+    <li>dolor</li>
+    <li>sit</li>
+    <li>amet</li>
+  </ul>
+
+  <p>Making our vertical list flush on top and bottom</p>
+  <pre class="sg-pre prettyprint">@include list-vertical($small-unit, 1px solid #ccc);
+@include list-flush("top and bottom")</pre>
+  <ul class="lists--example lists--example-6b">
+    <li>Lorem</li>
+    <li>ipsum</li>
+    <li>dolor</li>
+    <li>sit</li>
+    <li>amet</li>
+  </ul>
+  
+</div>

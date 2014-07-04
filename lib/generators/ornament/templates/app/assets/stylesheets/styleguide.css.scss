@@ -93,3 +93,45 @@ code {
     border: 1px solid red;
   }
 }
+
+// LISTS 
+
+.lists--example {
+  margin-bottom: $xx-large-unit;
+  background: #eee;
+}
+
+.lists--example-1 {
+  @include list-horizontal;
+}
+
+.lists--example-2 {
+  @include list-horizontal($small-unit, 1px solid #ccc);
+}
+
+.lists--example-3 {
+  @include list-horizontal($small-unit, 1px solid #ccc, true);
+}
+
+.lists--example-3b {
+  @include list-horizontal($small-unit, 1px solid #ccc);
+  @include list-flush("left and right");
+}
+
+.lists--example-4 {
+  @include list-vertical($small-unit);
+}
+
+.lists--example-5 {
+  @include list-vertical($small-unit, 1px solid #ccc);
+}
+
+.lists--example-6 {
+  @include list-vertical($small-unit, 1px solid #ccc, true);
+}
+
+.lists--example-6b {
+  @include list-vertical($small-unit, 1px solid #ccc);
+  @include list-flush("top and bottom");
+}
+
