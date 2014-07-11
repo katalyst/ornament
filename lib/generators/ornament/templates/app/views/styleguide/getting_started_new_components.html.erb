@@ -11,15 +11,15 @@
   <p>The component needs be named. For example, if we needed to create a component called "advanced button", we would name our files advanced-button. Our stylesheet and javascript files live in the components folder for each:</p>
 
   <ul>
-    <li>/app/assets/stylesheets/components/advanced-button.css.scss</li>
-    <li>/app/assets/javascripts/components/advanced-button.js</li>
+    <li><code>/app/assets/stylesheets/components/advanced-button.css.scss</code></li>
+    <li><code>/app/assets/javascripts/components/advanced-button.js</code></li>
   </ul>
 
   <p>Any associated third-party stylesheets or javascripts should be included in:</p>
 
   <ul>
-    <li>/vendor/assets/stylesheets/</li>
-    <li>/vendor/assets/javascripts</li>
+    <li><code>/vendor/assets/stylesheets/</code></li>
+    <li><code>/vendor/assets/javascripts/</code></li>
   </ul>
 
   <p>Any vendor files that are directly associated with a component should be included in the component files itself. For example, if advanced-button for some reason relied on colourbox, our components javascript file would include the <code>//= require colorbox</code> line at the top, rather than including in our global <code>application.js</code>. </p>
@@ -28,7 +28,7 @@
 
   <h2 class="heading-two">CSS Coding Style</h2>
 
-  <p>Our CSS coding style uses a varation of BEM, replacing the B (Block) with the component.</p>
+  <p>Our CSS coding style uses a varation of <a href='http://bem.info/method/' target='_blank'>BEM</a>, replacing the B (Block) with the component.</p>
 
   <p>Our BEM implementation is: <code>.component--child-element__varation</code></p>
 
