@@ -6,23 +6,24 @@
 
 - Converted spacing units to `em`  
 - Reworked typography and content styles  
-- Spang - Easy grids
-- Vetre - Vertically centred responsive image
+- Spang - Easy grids  
+- Vetre - Vertically centred responsive image  
+- Media Query mixin  
 - Breakpoint helper  
-- Flash Message partial
-- Added sliding nested mobile navigation 
-- Styleguide layout and styleguide stylesheet
-- Basic print stylesheet
-- Icon creator mixin
-- Media Query mixin
+- Flash Message partial  
+- Added sliding nested mobile navigation   
+- Basic print stylesheet  
+- Grunticon with sample icons for pagination, mobile menu, menu button etc.  
+- Styleguide layout and styleguide stylesheet  
+- Getting started section for the styleguide  
 
 ### Changes
 
-- Merged mobile footer and desktop footer in to one location. 
+- Merged mobile footer and desktop footer in to one location.  
 
 ### Removals
 
 - Prototyping components like split and float. 
-- Navigation dropdown stylesheet
-- Removed some of the duplicate `.layout--container` elements from the global stylesheet
-- Typography mixin
+- Navigation-dropdown & navigation-horizontal  
+- Removed some of the duplicate `.layout--container` elements from the global stylesheet  
+- Typography mixin  

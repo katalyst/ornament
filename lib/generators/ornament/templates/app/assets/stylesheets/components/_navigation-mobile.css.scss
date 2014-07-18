@@ -135,13 +135,10 @@ $navigation-border-color:             #339bd3;
     }
     // forward buttons
     &.has-children {
-      > a:after,
-      > span.faux-link:after,
-      > button:after {
-        background-position: -122px -105px;
-        width: 12px;
-        height: 12px;
-        right: 16px;
+      > a,
+      > span.faux-link,
+      > button {
+        @include grunticon("plus-16-white", 16px, $psuedo:after);
       }
     }
   }
@@ -152,6 +149,9 @@ $navigation-border-color:             #339bd3;
   }
 
   // description blocks
+  .description {
+    border-top: 1px solid $navigation-border-color;
+  }
   .description--title {
     @include font($bold-font);
     color: #fff;
@@ -179,29 +179,20 @@ $navigation-border-color:             #339bd3;
     a {
       cursor: pointer;
       display: block;
-      margin-left: 23px;
-      padding-left: 7px;
-      @include border-top-left-radius(0);
-      @include border-bottom-left-radius(0);
+      @include grunticon("chevron-left-16-white", 16px, $psuedo:before);
+      @include icon-inline;
     }
 
-    a:before {
-      top: 15px;
-      left: -8px;
-      z-index: 2;
-    }
-
-    a:after {
-      content: "";
-      // background: url("/assets/sprite.png") -137px -420px no-repeat;
-      width: 23px;
-      height: 44px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      margin-left: -23px;
-      z-index: 1;
-    }
+    // a:before {
+    //   content: "";
+    //   width: 23px;
+    //   height: 44px;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   margin-left: -23px;
+    //   z-index: 1;
+    // }
 
     a:hover {
       background: $primary-color;
