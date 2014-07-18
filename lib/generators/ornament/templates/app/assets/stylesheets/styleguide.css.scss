@@ -81,6 +81,15 @@ code {
   padding: .3em .3em .2em;
   @include border-radius($border-radius);
   text-shadow: 1px 1px #fff;
+
+  // remove some styling for codes inside pre tags
+  pre & {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    @include border-radius(none);
+    text-shadow: none;
+  }
 }
 
 // SPANG
@@ -179,4 +188,9 @@ code {
 
 .sg--heading-beta-font-italic {
   @include font($heading-beta-font-italic);
+}
+
+// CONTENT SAMPLE EXTENSIONS
+.example table {
+  @extend .table;
 }
