@@ -41,6 +41,21 @@
   @include font($bold-font);
 }</pre>
 
+  <p>Here are the default font styles:</p>
+
+  <ul>
+    <li class="sg--body-font">@include font($body-font);</li>
+    <li class="sg--italic-font">@include font($italic-font);</li>
+    <li class="sg--bold-font">@include font($bold-font);</li>
+    <li class="sg--bold-italic-font">@include font($bold-italic-font);</li>
+    <li class="sg--heading-alpha-font">@include font($heading-alpha-font);</li>
+    <li class="sg--heading-alpha-font-italic">@include font($heading-alpha-font-italic);</li>
+    <li class="sg--heading-beta-font">@include font($heading-beta-font);</li>
+    <li class="sg--heading-beta-font-italic">@include font($heading-beta-font-italic);</li>
+  </ul>
+
+  <p>These variables can change project-to-project so be sure to check the <code>typography.css.scss</code> file to see what font options you have.</p>
+
   <h2 class="heading-two">Webfont Loader</h2>
 
   <p>To bring in new webfonts, we use the <a href="https://github.com/typekit/webfontloader" target="_blank">webfont loader</a> from Typekit.</p>

@@ -25,63 +25,42 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   // icon extends
   .first a,
   .first.disabled {
-    // @extend .icon_arrow_double-left;
-    padding-left: $xx-large-unit;
+    @include grunticon("chevron-double-left-16-white", 16px);
+    padding-left: $xxx-large-unit;
 
     &:before {
-      content: "<<";
-      position: absolute;
-      top: 50%;
-      margin-top: -6px;
       left: $default-unit;
-      color: #fff;
     }
-
   }
   .prev a,
   .prev.disabled {
-    // @extend .icon_arrow_left;
-    padding-left: $x-large-unit;
+    @include grunticon("chevron-left-16-white", 16px);
+    padding-left: $xx-large-unit;
     margin-left: $x-small-unit;
 
     &:before {
-      content: "<";
-      position: absolute;
-      top: 50%;
-      margin-top: -6px;
       left: $default-unit;
-      color: #fff;
     }
 
   }
   .next a,
   .next.disabled {
-    // @extend .icon_arrow_right;
-    padding-right: $x-large-unit;
+    @include grunticon("chevron-right-16-white", 16px);
+    padding-right: $xx-large-unit;
     margin-right: $x-small-unit;
 
     &:before {
-      content: ">";
-      position: absolute;
-      top: 50%;
-      margin-top: -6px;
       right: $default-unit;
-      color: #fff;
     }
 
   }
   .last a,
   .last.disabled {
-    // @extend .icon_arrow_double-right;
-    padding-right: $xx-large-unit;
+    @include grunticon("chevron-double-right-16-white", 16px);
+    padding-right: $xxx-large-unit;
 
     &:before {
-      content: ">>";
-      position: absolute;
-      top: 50%;
-      margin-top: -6px;
-      left: $default-unit;
-      color: #fff;
+      right: $default-unit;
     }
 
   }
@@ -103,6 +82,13 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
     @include font($bold-font);
     @include border-radius(75px);
     @include line-height-padding($button-height);
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-top: -8px;
+    }
   }
 
   // left buttons
@@ -112,17 +98,6 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   .prev.disabled {
     float: left;
     padding-right: $default-unit;
-
-    &:before {
-      position: absolute;
-      left: $default-unit;
-      right: auto;
-      top: $default-unit;
-
-      @include media-query($pagination-breakpoint-firstlast) {
-        left: 15px;
-      }
-    }
   }
 
   // right buttons
@@ -132,17 +107,6 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   .last.disabled {
     float: right;
     padding-left: $default-unit;
-
-    &:before {
-      position: absolute;
-      left: auto;
-      right: $default-unit;
-      top: $default-unit;
-
-      @include media-query($pagination-breakpoint-firstlast) {
-        right: 15px;
-      }
-    }
   }
 
   // page buttons

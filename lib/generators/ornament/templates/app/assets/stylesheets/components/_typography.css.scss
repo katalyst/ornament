@@ -4,7 +4,7 @@ $body-font: (sans-serif) normal normal;
 $italic-font: (sans-serif) italic normal;
 
 $bold-font: (sans-serif) normal bold;
-$bold--italic-font: (sans-serif) italic bold;
+$bold-italic-font: (sans-serif) italic bold;
 
 $heading-alpha-font: (sans-serif) normal bold;
 $heading-alpha-font-italic: (sans-serif) italic bold;
@@ -16,7 +16,7 @@ $heading-beta-font-italic: (sans-serif) italic bold;
 // $italic-font: ('Myriad W01 It', sans-serif) normal normal;
 
 // $bold-font: ('Myriad W01 Bd', sans-serif) normal normal;
-// $bold--italic-font: ('Myriad W01 Bd It', sans-serif) normal normal;
+// $bold-italic-font: ('Myriad W01 Bd It', sans-serif) normal normal;
 
 // $heading-alpha-font: ('Myriad W01 Bd', sans-serif) normal normal;
 // $heading-alpha-font-italic: ('Myriad W01 Bd It', sans-serif) normal normal;
@@ -165,7 +165,7 @@ em b, em strong,
 i b, i strong,
 b i, b em,
 strong i, strong em {
-  @include font($bold--italic-font);
+  @include font($bold-italic-font);
 }
 
 small {

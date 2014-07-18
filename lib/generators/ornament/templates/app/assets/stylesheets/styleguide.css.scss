@@ -135,3 +135,36 @@ code {
   @include list-flush("top and bottom");
 }
 
+// TYPOGRAPHY SAMPLES
+
+.sg--body-font {
+  @include font($body-font);
+}
+
+.sg--italic-font {
+  @include font($italic-font);
+}
+
+.sg--bold-font {
+  @include font($bold-font);
+}
+
+.sg--bold-italic-font {
+  @include font($bold-italic-font);
+}
+
+.sg--heading-alpha-font {
+  @include font($heading-alpha-font);
+}
+
+.sg--heading-alpha-font-italic {
+  @include font($heading-alpha-font-italic);
+}
+
+.sg--heading-beta-font {
+  @include font($heading-beta-font);
+}
+
+.sg--heading-beta-font-italic {
+  @include font($heading-beta-font-italic);
+}
