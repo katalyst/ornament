@@ -1,5 +1,6 @@
 @import "ornament/core";
 @import "components/settings-preview";
+@import "components/table";
 
 // STYLEGUIDE VARIABLES
 // only used for styleguide layout
@@ -191,6 +192,11 @@ code {
 }
 
 // CONTENT SAMPLE EXTENSIONS
+.example table caption {
+  @extend .heading-three;
+}
 .example table {
   @extend .table;
+  @extend .table-ruled;
+  @extend .table-flush;
 }
