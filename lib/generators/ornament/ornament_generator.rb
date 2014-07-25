@@ -22,6 +22,7 @@ class OrnamentGenerator < Rails::Generators::Base
 
         copy_file "app/assets/stylesheets/application.css.scss"
         remove_file "app/assets/stylesheets/application.css"
+        copy_file "app/assets/stylesheets/styleguide.css.scss"
 
       end
 
@@ -45,6 +46,7 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/assets/stylesheets/ornament"
 
         directory "app/assets/images"
+        directory "app/assets/icons"
 
         copy_file "config/initializers/simple_form.rb"
         copy_file "config/locales/en.yml"
@@ -64,6 +66,7 @@ class OrnamentGenerator < Rails::Generators::Base
         copy_file "app/views/layouts/global.html.erb"
         copy_file "app/views/layouts/application.html.erb"
         copy_file "app/views/layouts/_webfonts.html.erb"
+        copy_file "app/views/layouts/styleguide.html.erb"
         directory "app/views/errors"
         directory "app/views/kaminari"
       end
