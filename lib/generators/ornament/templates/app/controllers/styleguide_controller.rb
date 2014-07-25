@@ -1,3 +1,3 @@
 class StyleguideController < ActionController::Base
-  layout "application"
+  layout "styleguide"
 end
