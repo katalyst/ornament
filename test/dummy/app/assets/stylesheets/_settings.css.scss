@@ -37,16 +37,22 @@ $container-percentage: 92%;
 // Setup a sizing units.
 //
 
-$xx-small-unit: 0.25em;
-$x-small-unit: 0.5em;
-$small-unit: 0.75em;
-$default-unit: 1em;
-$large-unit: 1.25em;
-$x-large-unit: 1.5em;
-$xx-large-unit: 2em;
-$xxx-large-unit: 2.5em;
-$xxxx-large-unit: 3em;
-$xxxxx-large-unit: 4em;
+$xxxxx-small-unit:      8px;
+$xxxx-small-unit:       12px;
+$xxx-small-unit:        16px;
+$xx-small-unit:         20px;
+$x-small-unit:          24px;
+$small-unit:            28px;
+$default-unit:          32px;
+$large-unit:            36px;
+$x-large-unit:          40px;
+$xx-large-unit:         44px;
+$xxx-large-unit:        48px;
+$xxxx-large-unit:       56px;
+$xxxxx-large-unit:      64px;
+$xxxxxx-large-unit:     72px;
+$xxxxxxx-large-unit:    80px;
+
 
 $border-radius:   4px;
 $button-height:   44px;
@@ -62,6 +68,7 @@ $panel-padding-tiny:    $x-small-unit;
 // Desktop first breakpoints. Used in conjunction with media-query util. (Breakpoint keyword, Desktop first breakpoint)
 //
 
+$breakpoint-typography: 480px;
 $breakpoint-large: 1080px;
 $breakpoint-medium: 935px;
 $breakpoint-small: 780px;

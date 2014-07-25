@@ -42,13 +42,47 @@ ol.content-lists,
   }
 
   h1 {
-    margin-top: $large-unit;
-    margin-bottom: $large-unit;
+    margin-top: $default-unit;
+    margin-bottom: $default-unit;
+    @include content-children;
+
+    @include media-query($breakpoint-typography) {
+      margin-top: $small-unit;
+      margin-bottom: $small-unit;
+    }
   }
 
   h2 {
-    margin-top: $large-unit;
-    margin-bottom: $large-unit;
+    margin-top: $xx-small-unit;
+    margin-bottom: $xx-small-unit;
+    @include content-children;
+
+    @include media-query($breakpoint-typography) {
+      margin-top: $xxx-small-unit;
+      margin-bottom: $xxx-small-unit;
+    }
+  }
+
+  h3 {
+    margin-top: $xx-small-unit;
+    margin-bottom: $xx-small-unit;
+    @include content-children;
+
+    @include media-query($breakpoint-typography) {
+      margin-top: $xxx-small-unit;
+      margin-bottom: $xxx-small-unit;
+    }
+  }
+
+  h4 {
+    margin-top: $xx-small-unit;
+    margin-bottom: $xx-small-unit;
+    @include content-children;
+
+    @include media-query($breakpoint-typography) {
+      margin-top: $xxx-small-unit;
+      margin-bottom: $xxx-small-unit;
+    }
   }
 
 }
