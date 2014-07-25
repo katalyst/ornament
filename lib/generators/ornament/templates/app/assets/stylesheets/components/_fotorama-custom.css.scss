@@ -48,25 +48,17 @@
 // Arrows
 
 .fotorama__arr.fotorama__arr--prev {
-  // @include icon-creator(-128px,-218px,7px,12px);
+  @include grunticon("chevron-left-16-white", 16px);
   @include translate3d($default-unit, 0, 0);
   position: absolute;
   padding: 0;
-
-  &:before {
-    margin-left: -4px;
-  }
 }
 
 .fotorama__arr.fotorama__arr--next {
-  // @include icon-creator(-148px,-218px,7px,12px);
+  @include grunticon("chevron-right-16-white", 16px);
   @include translate3d(-($default-unit), 0, 0);
   position: absolute;
   padding: 0;
-
-  &:before {
-    margin-left: -3px;
-  }
 }
 
 .fotorama__arr.fotorama__arr--prev,
@@ -80,10 +72,6 @@
   top: 50%;
   margin-top: $button-height * -0.5;
   @include border-radius(50%);
-
-  &:before {
-    left: 50%;
-    top: 50%;
-    margin-top: -6px;
-  }
+  @include icon-block($button-height, 16px);
+  position: absolute;
 }
