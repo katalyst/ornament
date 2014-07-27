@@ -1,15 +1,18 @@
 $tooltip-arrow:         false; // this can be a url()
-$tooltip-arrow-height:  10px;
+$tooltip-arrow-height:  6px;
 $tooltip-background:    #4b9dd0;
 $tooltip-border:        none;
 $tooltip-color:         #fff;
-$tooltip-gap:           $xx-small-unit;
-$tooltip-padding:       $x-small-unit;
-$tooltip-width:         300px;
+$tooltip-padding:       $xxxx-small-unit;
+$tooltip-width:         280px;
 $tooltip-z-index:       20;
 
 .tooltip {
   //
+}
+
+.tooltip--hide {
+  display: none;
 }
 
 .tooltip--wrapper {
@@ -28,10 +31,25 @@ $tooltip-z-index:       20;
   background: $tooltip-background;
   border: $tooltip-border;
   color: $tooltip-color;
-  left: -($tooltip-width/2);
   position: absolute;
-  top: 1em;
   width: $tooltip-width;
+  @include border-radius($border-radius);
+
+  .tooltip--outer.left & {
+    left: -10px;
+  }
+
+  .tooltip--outer.right & {
+    left: 10px;
+  }
+
+  .tooltip--outer.top & {
+    top: -10px;
+  }
+
+  .tooltip--outer.bottom & {
+    top: 10px;
+  }
 }
 
 .tooltip--content {
@@ -39,14 +57,24 @@ $tooltip-z-index:       20;
 }
 
 .tooltip--arrow {
-  @if ($tooltip-arrow == false) {
-    border: $tooltip-arrow-height solid transparent;
-    border-bottom-color: $tooltip-background;
-    margin: -($tooltip-arrow-height * 2) auto 0;
-    width: $tooltip-arrow-height * 2;
-  } @else {
-    background: transparent $tooltip-arrow 50% 0 no-repeat;
-    margin-top: -($tooltip-arrow-height);
-    padding-top: $tooltip-arrow-height;
+  position: absolute;
+  border: $tooltip-arrow-height solid transparent;
+
+  .tooltip--outer.right & {
+    left: -12px;
+    border-right-color: $tooltip-background;
+  }
+
+  .tooltip--outer.left & {
+    right: -12px;
+    border-left-color: $tooltip-background;
+  }
+
+  .tooltip--outer.top & {
+    top: 13px;
+  }
+
+  .tooltip--outer.bottom & {
+    bottom: 13px;
   }
 }

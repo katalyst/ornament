@@ -82,6 +82,7 @@ code {
   padding: .3em .3em .2em;
   @include border-radius($border-radius);
   text-shadow: 1px 1px #fff;
+  white-space: nowrap;
 
   // remove some styling for codes inside pre tags
   pre & {
@@ -116,7 +117,7 @@ code {
   }
 }
 
-// LISTS 
+// LISTS
 
 .lists--example {
   margin-bottom: $xx-large-unit;
