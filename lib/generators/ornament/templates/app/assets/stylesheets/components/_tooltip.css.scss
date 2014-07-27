@@ -35,19 +35,27 @@ $tooltip-z-index:       20;
   width: $tooltip-width;
   @include border-radius($border-radius);
 
-  .tooltip--outer.left & {
+  .tooltip--outer.tleft & {
     left: -10px;
   }
 
-  .tooltip--outer.right & {
+  .tooltip--outer.tright & {
     left: 10px;
   }
 
-  .tooltip--outer.top & {
+  .tooltip--outer.ttop & {
     top: -10px;
   }
 
-  .tooltip--outer.bottom & {
+  .tooltip--outer.tbottom & {
+    top: 10px;
+  }
+
+  .tooltip--outer.atop & {
+    top: -10px;
+  }
+
+  .tooltip--outer.abottom & {
     top: 10px;
   }
 }
@@ -60,21 +68,51 @@ $tooltip-z-index:       20;
   position: absolute;
   border: $tooltip-arrow-height solid transparent;
 
-  .tooltip--outer.right & {
+  .tooltip--outer.tright & {
     left: -12px;
     border-right-color: $tooltip-background;
   }
 
-  .tooltip--outer.left & {
+  .tooltip--outer.tleft & {
     right: -12px;
     border-left-color: $tooltip-background;
   }
 
-  .tooltip--outer.top & {
+  .tooltip--outer.ttop & {
+    bottom: -12px;
+    border-top-color: $tooltip-background;
+  }
+
+  .tooltip--outer.tbottom & {
+    top: -12px;
+    border-bottom-color: $tooltip-background;
+  }
+
+  .tooltip--outer.atop & {
     top: 13px;
   }
 
-  .tooltip--outer.bottom & {
+  .tooltip--outer.abottom & {
     bottom: 13px;
+  }
+
+  .tooltip--outer.aleft & {
+    left: 13px;
+  }
+
+  .tooltip--outer.aright & {
+    right: 13px;
+  }
+
+  .tooltip--outer.tleft.amiddle &,
+  .tooltip--outer.tright.amiddle & {
+    top: 50%;
+    margin-top: -($tooltip-arrow-height);
+  }
+
+  .tooltip--outer.ttop.amiddle &,
+  .tooltip--outer.tbottom.amiddle & {
+    left: 50%;
+    margin-left: -($tooltip-arrow-height);
   }
 }

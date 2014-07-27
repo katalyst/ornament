@@ -68,7 +68,6 @@
   This tooltip follows the mouse.
 &lt;/div></pre>
 
-<!--
   <h2 class="heading-two">Custom positioning</h2>
 
   <p>You can pass in a custom position as a <code>data-position</code> attribute. The attribute takes two values, one for the tooltip and one for the arrow.</p>
@@ -76,38 +75,36 @@
   <p>Available tooltip positions are top, left, right, bottom.<br />
     Available arrow positions are top, left, middle, right, bottom.</p>
 
-  <p>The tooltip position is where the tooltip appears in relation to the anchor. The arrow position is where the arrow appears in relation to the anchor. Here are some examples to illustrate the feature:</p>
+  <p>The tooltip position is where the tooltip appears in relation to the anchor. The arrow position is where the arrow appears in relation to the tooltip. Here are some examples to illustrate the feature:</p>
 
   <p>
-    <span class="tooltip" data-tooltip="tooltip-1" data-tooltip-position="top left">Top left</span>
+    <div class="tooltip--hide" data-tooltip-for="tooltip-position">
+      <strong>Tooltip</strong><br />
+      This a tooltip that is custom positioned.
+    </div>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="top left">Top left</span>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="top middle">Top middle</span>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="top right">Top right</span>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="bottom left">Bottom left</span>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="bottom middle">Bottom middle</span>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="bottom right">Bottom right</span>
+    <br />
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="right top">Right top</span>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="right middle">Right middle</span>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="right bottom">Right bottom</span>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="left top">Left top</span>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="left middle">Left middle</span>
+    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="left bottom">Left bottom</span>
   </p>
--->
 
   <h2 class="heading-two">Global over-rides</h2>
 
-  <p>If you want all tooltips to be toggle or follow-mouse variations, you can open up <code>tooltip.js</code> and change the settings at the top:</p>
+  <p>There are some global settings in the <code>tooltip.js</code> file that you can hard-code to over-ride on a global basis:</p>
 
-  <pre>var followMouse       = false;
+  <pre>var defaultPosition   = "right top"
+var followMouse       = false;
 var toggleTooltips    = false;</pre>
 
-  <p>Changing these settings will over-ride all tooltips to follow the mouse or to be toggleable without having to add in the required <code>data</code> attributes.</p>
-
-  <!--
-  <p>
-    <a class="tooltip tooltip-toggle" title="Tooltip 2">Simple Tooltip with Toggle</a>
-  </p>
-  <p>
-    <a class="tooltip" href="#footnote-1">Complex Tooltip</a>
-  </p>
-  <p>
-    <a class="tooltip tooltip-toggle" href="#footnote-2">Complex Tooltip with Toggle</a>
-  </p>
-  <div id="footnote-1">
-    <p>Tooltip 3</p>
-  </div>
-  <div id="footnote-2">
-    <p>Tooltip 4</p>
-  </div>
-  -->
+  <p>Changing these settings will over-ride all tooltips without having to add in the required <code>data</code> attributes.</p>
 
 </div>
