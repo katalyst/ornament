@@ -19,7 +19,7 @@
     </div>
   </p>
 
-  <pre>&lt;span <strong>data-tooltip="tooltip-1"</strong>>This is my anchor&lt;/span>
+  <pre class="sg-pre prettyprint">&lt;span <strong>data-tooltip="tooltip-1"</strong>>This is my anchor&lt;/span>
 &lt;div class="tooltip--hide" <strong>data-tooltip-for="tooltip-1"</strong>>This is my tooltip.&lt;/div></pre>
 
   <p>The <code>.tooltip--hide</code> class is a helper class that hides the tooltip's content from being displayed on the page.</p>
@@ -46,7 +46,7 @@
     </div>
   </p>
 
-  <pre>&lt;span class="tooltip" data-tooltip="tooltip-3" <strong>data-tooltip-toggle</strong>>Toggle Tooltip&lt;/span>
+  <pre class="sg-pre prettyprint">&lt;span class="tooltip" data-tooltip="tooltip-3" <strong>data-tooltip-toggle</strong>>Toggle Tooltip&lt;/span>
 &lt;div class="tooltip--hide" data-tooltip-for="tooltip-3">
   &lt;strong>Toggle Tooltip&lt;/strong>&lt;br />
   This tooltip will toggle on and off with a click.
@@ -62,7 +62,7 @@
     </div>
   </p>
 
-  <pre>&lt;span class="tooltip" data-tooltip="tooltip-4" <strong>data-tooltip-follow</strong>>Follow Mouse&lt;/span>
+  <pre class="sg-pre prettyprint">&lt;span class="tooltip" data-tooltip="tooltip-4" <strong>data-tooltip-follow</strong>>Follow Mouse&lt;/span>
 &lt;div class="tooltip--hide" data-tooltip-for="tooltip-4">
   &lt;strong>Tooltip&lt;/strong>&lt;br />
   This tooltip follows the mouse.
@@ -108,11 +108,30 @@
     </div>
   </p>
 
+  <pre class="sg-pre prettyprint">&lt;span class="tooltip" data-tooltip="tooltip-show" <strong>data-tooltip-show</strong> data-tooltip-position="right middle">This is an anchor&lt;/span>
+&lt;div class="tooltip--hide" data-tooltip-for="tooltip-show">
+  This tooltip is always on.
+&lt;/div></pre>
+
+  <p><code>data-tooltip-show</code> can be combined with <code>data-tooltip-toggle</code> to create a toggle tooltip that defaults to visible.</p>
+
+  <p>
+    <span class="tooltip" data-tooltip="tooltip-show-2" data-tooltip-show data-tooltip-toggle data-tooltip-position="right middle">Toggle anchor</span>
+    <div class="tooltip--hide" data-tooltip-for="tooltip-show-2">
+      This is my tooltip.
+    </div>
+  </p>
+
+  <pre class="sg-pre prettyprint">&lt;span class="tooltip" data-tooltip="tooltip-show-2" <strong>data-tooltip-show data-tooltip-toggle</strong> data-tooltip-position="right middle">Toggle anchor&lt;/span>
+&lt;div class="tooltip--hide" data-tooltip-for="tooltip-show-2">
+  This is my tooltip.
+&lt;/div></pre>
+
   <h2 class="heading-two">Global over-rides</h2>
 
   <p>There are some global settings in the <code>tooltip.js</code> file that you can hard-code to over-ride on a global basis:</p>
 
-  <pre>var defaultPosition   = "right top"
+  <pre class="sg-pre prettyprint">var defaultPosition   = "right top"
 var followMouse       = false;
 var toggleTooltips    = false;</pre>
 
