@@ -97,6 +97,17 @@
     <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="left bottom">Left bottom</span>
   </p>
 
+  <h2 class="heading-two">Auto-show</h2>
+
+  <p>Adding the <code>data-tooltip-show</code> attribute will make the tooltip appear always-on.</p>
+
+  <p>
+    <span class="tooltip" data-tooltip="tooltip-show" data-tooltip-show data-tooltip-position="right middle">This is an anchor</span>
+    <div class="tooltip--hide" data-tooltip-for="tooltip-show">
+      This tooltip is always on.
+    </div>
+  </p>
+
   <h2 class="heading-two">Global over-rides</h2>
 
   <p>There are some global settings in the <code>tooltip.js</code> file that you can hard-code to over-ride on a global basis:</p>
