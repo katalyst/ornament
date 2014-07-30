@@ -53,12 +53,12 @@ textarea {
 
 // FORM STYLING
 .form-embedded {
-  margin-top: $xx-large-unit;
+  margin-top: $default-unit;
 }
 
 .control-group {
   .controls {
-    margin-top: $x-small-unit;
+    margin-top: $xxx-small-unit;
   }
 }
 
@@ -73,7 +73,7 @@ textarea {
 }
 
 .inputs {
-  @extend .spacing;
+  @extend .spacing-xx-tight;
 
   label {
     display: inline-block;
@@ -97,8 +97,8 @@ textarea,
   background: $white;
   line-height: $base-line-size;
   @include line-height-padding($form-line-height);
-  padding-left: $x-small-unit;
-  padding-right: $x-small-unit;
+  padding-left: $xxx-small-unit;
+  padding-right: $xxx-small-unit;
   margin: 0;
   @include border-radius($border-radius);
   @include transition(border-color .2s);
@@ -164,7 +164,7 @@ $radio-offset: 24px;
   .checkbox {
     position: relative;
     padding-left: $radio-offset;
-    margin-right: $x-small-unit;
+    margin-right: $xxx-small-unit;
     display: inline-block;
 
     input {
@@ -181,7 +181,7 @@ $radio-offset: 24px;
   .radio,
   .checkbox {
     float: left;
-    margin-right: $small-unit;
+    margin-right: $xx-small-unit;
   }
 }
 
@@ -218,7 +218,7 @@ input.form_inline--input {
   width: 100%;
   height: $form-inline-height;
   line-height: $form-inline-height;
-  padding: $x-small-unit $small-unit 6px;
+  padding: $xxxxx-small-unit $xxxx-small-unit 6px;
   border-right-width: 0;
   @include input_flat-right;
 }
@@ -289,9 +289,8 @@ $file-thumbnail-width: 100px;
     border: 0;
     background: transparent;
     @include box-shadow(none);
-    padding-left: $x-small-unit;
-    padding-right: $x-small-unit;
-    @include font($bold-font);
+    padding-left: $xxxx-small-unit;
+    padding-right: $xxxx-small-unit;
     // Due to firefox line-height bug, line-height needs to be defined by padding
     // http://www.cssnewbie.com/input-button-line-height-bug/#.UvwMSEKSwt0
     line-height: 1.2; // bring in line with firefox
