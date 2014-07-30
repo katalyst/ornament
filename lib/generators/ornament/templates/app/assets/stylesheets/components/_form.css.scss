@@ -87,7 +87,7 @@ input[type=search],
 input[type=tel],
 input[type=email],
 input[type=url],
-input[type=date], 
+input[type=date],
 input[type=datetime],
 input[type=time],
 select,
@@ -308,6 +308,7 @@ $file-thumbnail-width: 100px;
 p.hint-block { // hint
   color: $hint-color;
   font-style: italic;
+  margin: 0;
 }
 
 span.error-block { // error
