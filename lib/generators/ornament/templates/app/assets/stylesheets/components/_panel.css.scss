@@ -3,6 +3,7 @@ $panel-border:          $background-color;
 .panel {
   @include border-radius($border-radius);
   @include pie-clearfix;
+  background: $grey;
 }
 
 .panel--padding-border {
@@ -11,7 +12,7 @@ $panel-border:          $background-color;
 
 // COLOUR VARIANTS
 
-.panel_blue {
+.panel__blue {
   @extend .panel;
   background: $primary-color;
   color: $white;
@@ -22,11 +23,11 @@ $panel-border:          $background-color;
 
 // PADDING VARIANTS
 
-.panel--padding_x-tight {
+.panel--padding__x-tight {
   padding: $panel-padding-tiny;
 }
 
-.panel--padding_tight {
+.panel--padding__tight {
   padding: $panel-padding-small;
 }
 
@@ -38,7 +39,7 @@ $panel-border:          $background-color;
   }
 }
 
-.panel--padding_large {
+.panel--padding__large {
   padding: $panel-padding-large;
 
   @include media-query($breakpoint-medium) {
@@ -52,12 +53,12 @@ $panel-border:          $background-color;
 
 // BORDER RADIUS VARIANTS
 
-.panel_no-top-radius {
+.panel__no-top-radius {
   @include border-top-left-radius(0);
   @include border-top-right-radius(0);
 }
 
-.panel_no-bottom-radius {
+.panel__no-bottom-radius {
   @include border-bottom-left-radius(0);
   @include border-bottom-right-radius(0);
 }
