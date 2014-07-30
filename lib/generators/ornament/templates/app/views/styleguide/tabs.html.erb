@@ -4,50 +4,95 @@
 
   <section class="spacing-tight">
 
-    <h2 class="heading-two">Horizontal Tabs</h2>
+    <p>Example tabset:</p>
 
     <div class="tabs">
       <nav class="tabs-links">
         <ul>
-          <li><a href="#tab1" class="tabs--link" data-tab-for="tab1">Tab #1</a></li>
-          <li><a href="#tab2" class="tabs--link">Tab #2</a></li>
-          <li><a href="#tab3" class="tabs--link">Tab #3</a></li>
+          <li><a href="#tab1_1" class="tabs--link" data-tab="tab1_1">Tab #1</a></li>
+          <li><a href="#tab1_2" class="tabs--link" data-tab="tab1_2">Tab #2</a></li>
+          <li><a href="#tab1_3" class="tabs--link" data-tab="tab1_3">Tab #3</a></li>
         </ul>
       </nav>
-      <div>
-        <div class="tabs--pane" data-tab-id="tab1">
+      <div class="tabs--panes">
+        <div class="tabs--pane" data-tab-for="tab1_1">
           Tab #1
         </div>
-        <div class="tabs--pane" data-tab-id="tab2">
+        <div class="tabs--pane" data-tab-for="tab1_2">
           Tab #2
         </div>
-        <div class="tabs--pane" data-tab-id="tab3">
+        <div class="tabs--pane" data-tab-for="tab1_3">
           Tab #3
         </div>
       </div>
     </div>
 
-    <pre class="prettyprint">
-&lt;div class="tabs">
+    <pre class="sg-pre prettyprint">&lt;div class="tabs">
   &lt;nav class="tabs-links">
     &lt;ul>
-      &lt;li>&lt;a href="#tab1" class="tabs--link" data-tab-for="tab1">Tab #1&lt;/a>&lt;/li>
-      &lt;li>&lt;a href="#tab2" class="tabs--link" data-tab-for="tab2">Tab #2&lt;/a>&lt;/li>
-      &lt;li>&lt;a href="#tab3" class="tabs--link" data-tab-for="tab3">Tab #3&lt;/a>&lt;/li>
+      &lt;li>&lt;a href="#tab1_1" class="tabs--link" data-tab="tab1_1">Tab #1&lt;/a>&lt;/li>
+      &lt;li>&lt;a href="#tab1_2" class="tabs--link" data-tab="tab1_2">Tab #2&lt;/a>&lt;/li>
+      &lt;li>&lt;a href="#tab1_3" class="tabs--link" data-tab="tab1_3">Tab #3&lt;/a>&lt;/li>
     &lt;/ul>
   &lt;/nav>
-  &lt;div>
-    &lt;div class="tabs--pane" data-tab-id="tab1">
+  &lt;div class="tabs--panes">
+    &lt;div class="tabs--pane" data-tab-for="tab1_1">
       Tab #1
     &lt;/div>
-    &lt;div class="tabs--pane" data-tab-id="tab2">
+    &lt;div class="tabs--pane" data-tab-for="tab1_2">
       Tab #2
     &lt;/div>
-    &lt;div class="tabs--pane" data-tab-id="tab3">
+    &lt;div class="tabs--pane" data-tab-for="tab1_3">
       Tab #3
     &lt;/div>
   &lt;/div>
 &lt;/div></pre>
+
+    <h2 class="heading-two">Passive Deeplinking</h2>
+
+    <p>Passive deeplinking allows you to employ a tabset and deeplink to a particular pane. Interacting with the tabs will not update the URL.</p>
+
+    <p>You can passively deeplink to a tab by passing in the <code>data-tab</code> attribute as a hash in the URL. <code>&lt;a href="/my-page#tab-2"></code> will link to tab-2 on /my-page.</p>
+
+    <p>You can also open a tab with a link outside of the tabset, as long as it has a matching tab id inside a <code>data-tab-link</code> attribute. eg. <a href="#tab1_3" data-tab-link="tab1_3">This link</a> will open up tab three. The link has a data attribute of <code>data-tab-link="tab1_3"</code>, which is the <code>data-tab</code> id of the third tab. It's worth also adding the tab id to the <code>href</code> so that if the user opens the link in a new window, it will still deeplink to the tab. Here is how to properly write a link that opens up a tab outside of the tab container:</p>
+
+    <pre class="sg-pre prettyprint">...
+&lt;li>&lt;a href="#tab1_1" class="tabs--link" data-tab="tab1_1">Tab #1&lt;a>&lt;/li>
+&lt;li>&lt;a href="#tab1_2" class="tabs--link" data-tab="tab1_2">Tab #2&lt;a>&lt;/li>
+&lt;li>&lt;a href="#tab1_3" class="tabs--link" <strong>data-tab="tab1_3"</strong>>Tab #3&lt;a>&lt;/li>
+...
+&lt;a <strong>href="#tab1_3" data-tab-link="tab1_3"</strong>>This link lives outside of a tabset, but will open a tab.&lt;/a></pre>
+
+    <h2 class="heading-two">Active Deeplinking</h2>
+
+    <p>You can turn on active deeplinking by adding <code>data-tabs-deeplink</code> to the main tabs container. Active deeplinking will update the URL as the user clicks on the tabs. </p>
+
+    <p>Notice that clicking on these tabs will update your URL. </p>
+
+    <div class="tabs" data-tabs-deeplink>
+      <nav class="tabs-links">
+        <ul>
+          <li><a href="#tab2_1" class="tabs--link" data-tab="tab2_1">Tab #1</a></li>
+          <li><a href="#tab2_2" class="tabs--link" data-tab="tab2_2">Tab #2</a></li>
+          <li><a href="#tab2_1" class="tabs--link" data-tab="tab2_3">Tab #3</a></li>
+        </ul>
+      </nav>
+      <div class="tabs--panes">
+        <div class="tabs--pane" data-tab-for="tab2_1">
+          Tab #1
+        </div>
+        <div class="tabs--pane" data-tab-for="tab2_2">
+          Tab #2
+        </div>
+        <div class="tabs--pane" data-tab-for="tab2_3">
+          Tab #3
+        </div>
+      </div>
+    </div>
+
+    <pre class="sg-pre prettyprint">&lt;div class="tabs" <strong>data-tabs-deeplink</strong>>
+  &lt;nav class="tabs-links">
+  ...</pre>
 
   </section>
 

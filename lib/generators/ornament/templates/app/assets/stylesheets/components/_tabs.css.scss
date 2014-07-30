@@ -1,6 +1,7 @@
 .tabs-links {
   li {
     @include inline-block;
+    vertical-align: top;
   }
 }
 
@@ -8,10 +9,14 @@
   cursor: pointer;
 }
 
-.tabs--link-active {
+.tabs--link__active {
   font-weight: bold;
 }
 
-.tabs--pane-inactive {
+.tabs--pane {
   display: none;
+}
+
+.tabs--pane__active {
+  display: block;
 }

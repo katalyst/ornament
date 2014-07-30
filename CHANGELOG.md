@@ -4,26 +4,29 @@
 
 ### Features
 
-- Converted spacing units to `em`  
-- Reworked typography and content styles  
-- Spang - Easy grids  
-- Vetre - Vertically centred responsive image  
-- Media Query mixin  
-- Breakpoint helper  
-- Flash Message partial  
-- Added sliding nested mobile navigation   
-- Basic print stylesheet  
-- Grunticon with sample icons for pagination, mobile menu, menu button etc.  
-- Styleguide layout and styleguide stylesheet  
-- Getting started section for the styleguide  
+- Reworked typography and content styles
+- Spang - Easy grids
+- Vetre - Vertically centred responsive image
+- Media Query mixin
+- Breakpoint helper
+- Flash Message partial
+- Added sliding nested mobile navigation
+- Basic print stylesheet
+- Added `Ornament.windowWidth` and `Ornament.windowHeight` for browser agnostic window measurements
+- Grunticon with sample icons for pagination, mobile menu, menu button etc.
+- Styleguide layout and styleguide stylesheet
+- Getting started section for the styleguide
+- Documentation
 
 ### Changes
 
-- Merged mobile footer and desktop footer in to one location.  
+- Merged mobile footer and desktop footer in to one location.
+- Rebuilt tooltips using data-attributes
+- Rebuilt tabs using data-attributes
 
 ### Removals
 
-- Prototyping components like split and float. 
-- Navigation-dropdown & navigation-horizontal  
-- Removed some of the duplicate `.layout--container` elements from the global stylesheet  
-- Typography mixin  
+- Prototyping components like split and float.
+- Navigation-dropdown & navigation-horizontal
+- Removed some of the duplicate `.layout--container` elements from the global stylesheet
+- Typography mixin
