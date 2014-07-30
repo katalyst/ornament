@@ -4,14 +4,14 @@
   <script>
     $(function(){
       var $stickyTarget = $(".layout--header .layout--container");
+      $(".layout--main").height(2000);
+      
       $("#sticky_toggle").on("click", function(e){
         e.preventDefault();
         if( $stickyTarget.hasClass("sticky-header") ) {
           $stickyTarget.removeClass("sticky-header");
-          $(".layout--main").height("auto");
         } else {
           $stickyTarget.addClass("sticky-header");
-          $(".layout--main").height(2000);
         }
         $(document).trigger("ornament:sticky-header");
       });
@@ -23,5 +23,14 @@
 
   <p>Simply add <code>sticky-header</code> class to the element you wish to stick.</p>
   <p><a href="#" id="sticky_toggle">Toggle sticky header on this page.</a></p>
+
+  <pre class="sg-pre prettyprint">&lt;header class="layout--header" role="banner">
+  &lt;div class="layout--container <strong>sticky-header</strong>">
+    &lt;div class="header">
+      This will be my sticky header
+      &lt;button class="layout--switch header--menu">open navigation&lt;/button>
+    &lt;/div>
+  &lt;/div>
+&lt;/header></pre>
 
 </div>
