@@ -31,7 +31,7 @@
 
   <h2 class="heading-two">Spacing classes</h2>
 
-  <p>You can also apply <code>spacing-*</code> classes to parent elements which will space all direct child elements evenly.</p>
+  <p>You can also apply <code>spacing-*</code> classes to parent elements which will space all direct child block-level elements evenly.</p>
 
   <p>These spacing classes are named after our the spacing units in our <code>settings.css.scss</code> file.</p>
 
@@ -46,6 +46,16 @@
     <li><code>.spacing-xx-tight</code> - uses <code>$xx-small-unit</code></li>
     <li><code>.spacing-xxx-tight</code> - uses <code>$xxx-small-unit</code></li>
   </ul>
+
+  <p>To use them, simply wrap the elements you want spaced in a spacer class, like so:</p>
+
+  <pre>&lt;div class='spacing'>
+  &lt;div>I'm spaced.&lt;/div>
+  &lt;div>I'm also spaced.&lt;/div>
+  &lt;div>Spaaaaaaaace.&lt;/div>
+  &lt;div><a href="http://www.youtube.com/watch?v=xYk9q9UBnmg">Spaceship</a>!&lt;/div>
+  &lt;div>Mucho espacio&lt;/div>
+&lt;/div></pre>
 
   <h2 class="heading-two">Live-action Spacing Class:</h2>
 
