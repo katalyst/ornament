@@ -1,4 +1,4 @@
-$pagination-bubbles-height:        30px;
+ $pagination-bubbles-height:        30px;
 $pagination-breakpoint-nextprev:   $breakpoint-small;
 $pagination-breakpoint-firstlast:  $breakpoint-tiny;
 $pagination-current-color:         #ccc;
@@ -30,17 +30,17 @@ $pagination-current-color:         #ccc;
     padding-left: $xx-large-unit;
 
     &:before {
-      left: $xx-small-unit;
+      left: $xxx-small-unit;
     }
   }
   .prev a,
   .prev.disabled {
     @include grunticon("chevron-left-16-white", 16px);
     padding-left: $x-large-unit;
-    margin-left: $x-small-unit;
+    margin-left: $xxx-small-unit;
 
     &:before {
-      left: $xx-small-unit;
+      left: $xxx-small-unit;
     }
 
   }
@@ -48,10 +48,10 @@ $pagination-current-color:         #ccc;
   .next.disabled {
     @include grunticon("chevron-right-16-white", 16px);
     padding-right: $x-large-unit;
-    margin-right: $x-small-unit;
+    margin-right: $xxx-small-unit;
 
     &:before {
-      right: $xx-small-unit;
+      right: $xxx-small-unit;
     }
 
   }
@@ -61,7 +61,7 @@ $pagination-current-color:         #ccc;
     padding-right: $xx-large-unit;
 
     &:before {
-      right: $xx-small-unit;
+      right: $xxx-small-unit;
     }
 
   }
@@ -80,9 +80,9 @@ $pagination-current-color:         #ccc;
     position: relative;
     background: $primary-color;
     color: #fff;
+    line-height: $button-height;
     @include font($bold-font);
     @include border-radius(75px);
-    @include line-height-padding($button-height);
 
     &:before {
       content: "";
