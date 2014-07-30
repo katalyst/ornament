@@ -1,31 +1,114 @@
 <% content_for :title, "Form styles" %>
 
-<div class="content-spacing">
+<div class="content-spacing content-lists">
 
   <h2 class="heading-two">Inline form</h2>
 
-  <form class="form_inline">
-    <div class="form_inline--input-container">
-      <input type="text" class="form_inline--input" />
+  <p>An inline form consists of an input field with a joined button:</p>
+
+  <form class="form__inline">
+    <div class="form__inline--input-container">
+      <input type="text" class="form__inline--input" />
     </div>
-    <input type="submit" class="button form_inline--button" value=">" />
+    <input type="submit" class="button form__inline--button" value=">" />
   </form>
+
+  <pre class="sg-pre prettyprint">&lt;form class="form__inline">
+  &lt;div class="form__inline--input-container">
+    &lt;input type="text" class="form__inline--input" />
+  &lt;/div>
+  &lt;input type="submit" class="button form__inline--button" value=">" />
+&lt;/form></pre>
+
+  <p>Applying an icon to the inline button requires some slightly different markup.</p>
+
+  <p><strong>Note:</strong> icons cannot be applied to <code>input</code> tags, all icon buttons must be <code>button</code> elements.</p>
+
+  <form class="form__inline">
+    <div class="form__inline--input-container">
+      <input type="text" class="form__inline--input" />
+    </div>
+    <button type="submit" class="icon-chevron-right button form__inline--button form__inline--button__icon"></button>
+  </form>
+
+  <pre class="sg-pre prettyprint">&lt;form class="form__inline">
+    &lt;div class="form__inline--input-container">
+      &lt;input type="text" class="form__inline--input" />
+    &lt;/div>
+    <strong>&lt;button type="submit" class="icon-chevron-right button form__inline--button form__inline--button__icon">&lt;/button></strong>
+  &lt;/form></pre>
 
   <h2 class="heading-two">Full-length inline form</h2>
 
-  <form class="form_inline_full">
-    <div class="form_inline--input-container">
-      <input type="text" class="form_inline--input" />
+  <p>A full-length variant of the form above:</p>
+
+  <form class="form__inline__full">
+    <div class="form__inline--input-container">
+      <input type="text" class="form__inline--input" />
     </div>
-    <input type="submit" class="button form_inline--button" value=">" />
+    <input type="submit" class="button form__inline--button" value=">" />
   </form>
+
+  <pre class="sg-pre prettyprint">&lt;form class="form__inline__full">
+  &lt;div class="form__inline--input-container">
+    &lt;input type="text" class="form__inline--input" />
+  &lt;/div>
+  &lt;input type="submit" class="button form__inline--button" value=">" />
+&lt;/form></pre>
 
   <h2 class="heading-two">Form label combo</h2>
 
+  <p>A form label combo uses a label on the left side of the input field:</p>
+
   <div class="control-group form-label-combo form--medium">
-    <label class="control-label">Q</label>
+    <label class="control-label" for="combo">Q</label>
     <div class="controls">
-      <input type="text" />
+      <input type="text" id="combo" />
+    </div>
+  </div>
+
+  <pre class="sg-pre prettyprint">&lt;div class="control-group form-label-combo form--medium">
+  &lt;label class="control-label" for="combo">Q&lt;/label>
+  &lt;div class="controls">
+    &lt;input type="text" id="combo" />
+  &lt;/div>
+&lt;/div></pre>
+
+  <h2 class="heading-two">Form field lengths</h2>
+
+  <p>Field lengths can be controlled with <code>form--*</code> classes.</p>
+
+  <p>They can either be applied on the <code>&lt;form></code> element itself, which will then control the lengths of <strong>every</strong> field inside it, or they can be applied on a field-by-field basis.</p>
+
+  <p>The available lengths are:</p>
+
+  <div class="inputs">
+    <div class="control-group form--large">
+      <label class="optional control-label"><code>.form--large</code></label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div>
+
+    <div class="control-group form--medium">
+      <label class="optional control-label"><code>.form--medium</code></label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div>
+
+    <div class="control-group form--small">
+      <label class="optional control-label"><code>.form--small</code></label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div>
+
+    <div class="control-group form--x-small">
+      <label class="optional control-label"><code>.form--x-small</code></label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
     </div>
   </div>
 

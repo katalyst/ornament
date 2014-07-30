@@ -62,12 +62,12 @@ textarea {
   }
 }
 
-@mixin input_flat-right {
+@mixin input__flat-right {
   @include border-top-right-radius(0);
   @include border-bottom-right-radius(0);
 }
 
-@mixin input_flat-left {
+@mixin input__flat-left {
   @include border-top-left-radius(0);
   @include border-bottom-left-radius(0);
 }
@@ -108,11 +108,11 @@ textarea,
     @include box-shadow(inset 2px 2px 2px #dfe0e2);
   }
 
-  &.input_flat-right {
-    @include input_flat-right;
+  &.input__flat-right {
+    @include input__flat-right;
   }
-  &.input_flat-left {
-    @include input_flat-left;
+  &.input__flat-left {
+    @include input__flat-left;
   }
   &:focus {
     outline: none;
@@ -203,28 +203,28 @@ $radio-offset: 24px;
 // INLINE FORMS
 // [input]button
 
-.form_inline {
+.form__inline {
   @include pie-clearfix;
   position: relative;
   width: 200px;
 }
 
-.form_inline--input-container {
+.form__inline--input-container {
   width: 100%;
   padding-right: $button-height;
 }
 
-input.form_inline--input {
+input.form__inline--input {
   width: 100%;
   height: $form-inline-height;
   line-height: $form-inline-height;
   padding: $xxxxx-small-unit $xxxx-small-unit 6px;
   border-right-width: 0;
-  @include input_flat-right;
+  @include input__flat-right;
 }
 
-.form_inline--button {
-  @include input_flat-left;
+.form__inline--button {
+  @include input__flat-left;
   width: $form-inline-height;
   height: $form-inline-height;
   position: absolute;
@@ -232,8 +232,13 @@ input.form_inline--input {
   right: 0;
 }
 
-.form_inline_full {
-  @extend .form_inline;
+.form__inline--button.form__inline--button__icon {
+  @include icon-block($form-inline-height, 16px);
+  position: absolute;
+}
+
+.form__inline__full {
+  @extend .form__inline;
   width: 100%;
 }
 
