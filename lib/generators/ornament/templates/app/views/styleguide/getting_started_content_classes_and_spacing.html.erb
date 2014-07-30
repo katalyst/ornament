@@ -1,10 +1,10 @@
 <%= content_for :title, "Content Classes and Spacing" -%>
 
-<div class="content-spacing">
+<div class="content-spacing content-lists">
 
   <p>Content classes can be applied to areas to speed up spacing and typography styles.</p>
 
-  <h2 class="heading-two">Varations of content classes</h2>
+  <h2 class="heading-two">Variations of content classes</h2>
 
   <p><code>.content-large</code> will bump up the font-size and apply breakpoints that reduce the font-size back down through screen size changes.</p>
 
@@ -13,5 +13,38 @@
   <p><code>.content-spacing</code> will apply spacing around paragraphs and headings. Spacing is automatically removed from the top of the first element and from the bottom of the last element.</p>
 
   <p><code>.content</code> takes everything and smushes it all in to one easy-to-use class.</p>
+
+  <h2 class="heading-two">Spacing classes</h2>
+
+  <p>You can also apply <code>spacing-*</code> classes to parent elements which will space all direct child elements evenly.</p>
+
+  <p>These spacing classes are named after our the spacing units in our <code>settings.css.scss</code> file.</p>
+
+  <ul>
+    <li><code>.spacing-xxx-loose</code> - uses <code>$xxx-large-unit</code></li>
+    <li><code>.spacing-xx-loose</code> - uses <code>$xx-large-unit</code></li>
+    <li><code>.spacing-x-loose</code> - uses <code>$x-large-unit</code></li>
+    <li><code>.spacing-loose</code> - uses <code>$large-unit</code></li>
+    <li><code>.spacing</code> - uses <code>$default-unit</code></li>
+    <li><code>.spacing-tight</code> - uses <code>$small-unit</code></li>
+    <li><code>.spacing-x-tight</code> - uses <code>$x-small-unit</code></li>
+    <li><code>.spacing-xx-tight</code> - uses <code>$xx-small-unit</code></li>
+    <li><code>.spacing-xxx-tight</code> - uses <code>$xxx-small-unit</code></li>
+  </ul>
+
+<!--
+  <h2 class="heading-two">Live-action Spacing Class:</h2>
+
+  <p>
+    <label for="spacing-xxx-loose"><input type="radio" id="spacing-xxx-loose" value="spacing-xxx-loose" name="spacing-unit"> .spacing-xxx-loose</label>
+    <label for="spacing-xx-loose"><input type="radio" id="spacing-xx-loose" value="spacing-xx-loose" name="spacing-unit"> .spacing-xx-loose</label>
+  </p>
+
+  <div class="spacing">
+    <div style="background: red; height: 3px;"></div>
+    <div style="background: red; height: 3px;"></div>
+    <div style="background: red; height: 3px;"></div>
+  </div>
+-->
 
 </div>
