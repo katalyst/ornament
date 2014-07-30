@@ -109,8 +109,8 @@ $navigation-border-color:             #339bd3;
     > button {
       display: block;
       position: relative;
-      padding-left: $default-unit;
-      padding-right: $button-height + $xx-small-unit;
+      padding-left: $xxx-small-unit;
+      padding-right: $button-height + $xxx-small-unit;
       @include grunticon("chevron-right-16-white", 16px, $psuedo:after);
 
       &:before {

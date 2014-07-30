@@ -1,6 +1,7 @@
 $pagination-bubbles-height:        30px;
 $pagination-breakpoint-nextprev:   $breakpoint-small;
 $pagination-breakpoint-firstlast:  $breakpoint-tiny;
+$pagination-current-color:         #ccc;
 
 .pagination {
   text-align: center;
@@ -26,41 +27,41 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   .first a,
   .first.disabled {
     @include grunticon("chevron-double-left-16-white", 16px);
-    padding-left: $xxx-large-unit;
+    padding-left: $xx-large-unit;
 
     &:before {
-      left: $default-unit;
+      left: $xx-small-unit;
     }
   }
   .prev a,
   .prev.disabled {
     @include grunticon("chevron-left-16-white", 16px);
-    padding-left: $xx-large-unit;
+    padding-left: $x-large-unit;
     margin-left: $x-small-unit;
 
     &:before {
-      left: $default-unit;
+      left: $xx-small-unit;
     }
 
   }
   .next a,
   .next.disabled {
     @include grunticon("chevron-right-16-white", 16px);
-    padding-right: $xx-large-unit;
+    padding-right: $x-large-unit;
     margin-right: $x-small-unit;
 
     &:before {
-      right: $default-unit;
+      right: $xx-small-unit;
     }
 
   }
   .last a,
   .last.disabled {
     @include grunticon("chevron-double-right-16-white", 16px);
-    padding-right: $xxx-large-unit;
+    padding-right: $xx-large-unit;
 
     &:before {
-      right: $default-unit;
+      right: $xx-small-unit;
     }
 
   }
@@ -97,7 +98,7 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   .prev a,
   .prev.disabled {
     float: left;
-    padding-right: $default-unit;
+    padding-right: $xx-small-unit;
   }
 
   // right buttons
@@ -106,7 +107,7 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   .last a,
   .last.disabled {
     float: right;
-    padding-left: $default-unit;
+    padding-left: $xx-small-unit;
   }
 
   // page buttons
@@ -114,13 +115,13 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
   .page.current {
     display: inline-block;
     font-weight: bold;
-    margin: 0 $xx-small-unit;
+    margin: 0 2px;
     width: $button-height;
     text-align: center;
   }
 
   .page.current {
-    background: $primary-color;
+    background: $pagination-current-color;
     color: #fff;
   }
 
@@ -148,6 +149,11 @@ $pagination-breakpoint-firstlast:  $breakpoint-tiny;
       width: $button-height;
       padding-left: 0;
       padding-right: 0;
+
+      &:before {
+        left: 50%;
+        margin-left: -8px;
+      }
     }
   }
 
