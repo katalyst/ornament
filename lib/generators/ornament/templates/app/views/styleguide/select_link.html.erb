@@ -7,8 +7,8 @@
   <p>
     <select data-select-link class="form--medium">
       <option value="">Select a page...</option>
-      <option value="http://google.com.au">http://google.com.au</option>
-      <option value="http://katalyst.com.au">http://katalyst.com.au</option>
+      <option value="http://google.com.au">Google</option>
+      <option value="http://katalyst.com.au">Visit the Katalyst Website</option>
     </select>
   </p>
 
@@ -16,8 +16,8 @@
 
   <pre class="sg-pre prettyprint">&lt;select data-select-link class="form--medium">
   &lt;option value="">Select a page...&lt;/option>
-  &lt;option value="http://google.com.au">http://google.com.au&lt;/option>
-  &lt;option value="http://katalyst.com.au">http://katalyst.com.au&lt;/option>
+  &lt;option value="http://google.com.au">Google&lt;/option>
+  &lt;option value="http://katalyst.com.au">Visit the Katalyst Website&lt;/option>
 &lt;/select></pre>
 
   <p>If the select contains a link that matches the URL of the page the user is currently on, it will automatically make that one selected on page load. This is helpful if using it as a navigation tool:</p>
@@ -25,11 +25,11 @@
   <p>
     <select data-select-link class="form--medium">
       <option value="">Select a page...</option>
-      <option value="http://google.com.au">http://google.com.au</option>
-      <option value="http://google.com.au">http://google.com.au</option>
-      <option value="http://google.com.au">http://google.com.au</option>
+      <option value="http://google.com.au">Google</option>
+      <option value="http://google.com.au">Google</option>
+      <option value="http://google.com.au">Google</option>
       <option value="<%= request.path -%>"><%= request.path -%></option>
-      <option value="http://google.com.au">http://google.com.au</option>
+      <option value="http://google.com.au">Google</option>
     </select>
   </p>
 
