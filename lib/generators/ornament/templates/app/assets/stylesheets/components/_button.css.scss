@@ -27,11 +27,11 @@ $button-small-typeface:             $bold-font, $base-font-size * 0.8;
   }
 }
 
-.button_full {
+.button__full {
   width: 100%;
 }
 
-.button_secondary {
+.button__secondary {
   @include color-link($button-secondary-foreground-color, $button-secondary-foreground-color);
   background: $button-secondary-background-color;
   color: $button-secondary-foreground-color;
@@ -39,6 +39,25 @@ $button-small-typeface:             $bold-font, $base-font-size * 0.8;
   &:hover {
     background: darken($button-secondary-background-color,10);
   }
+}
+
+
+// BUTTONS WITH ICONS
+.button__icon-right,
+.button__icon-left {
+  &:before {
+    position: relative;
+    top: 3px;
+  }
+}
+
+.button__icon-right:before {
+  float: right;
+  margin-left: $xxxxx-small-unit;
+}
+.button__icon-left:before {
+  float: left;
+  margin-right: $xxxxx-small-unit;
 }
 
 // BUTTON GROUPS
