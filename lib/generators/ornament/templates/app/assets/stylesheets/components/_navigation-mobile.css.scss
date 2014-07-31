@@ -67,13 +67,6 @@ $navigation-border-color:             #339bd3;
     }
   }
 
-  // first level links
-  .pane-wrapper .pane_first .pane--navigation-container {
-    > li {
-      border-top: 1px solid $navigation-border-color;
-    }
-  }
-
   // second level links
   .pane-wrapper .pane .pane {
     left: 100%;
