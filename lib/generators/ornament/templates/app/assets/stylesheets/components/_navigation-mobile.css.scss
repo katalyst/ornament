@@ -144,6 +144,7 @@ $navigation-border-color:             #339bd3;
   // description blocks
   .description {
     border-top: 1px solid $navigation-border-color;
+    padding: $xx-small-unit;
   }
   .description--title {
     @include font($bold-font);
@@ -151,10 +152,10 @@ $navigation-border-color:             #339bd3;
   }
   .description--body {
     color: #fff;
-    margin-top: $x-small-unit;
+    margin-top: $xxx-small-unit;
   }
   .pane-wrapper .pane .description--overview a {
-    margin-top: $x-small-unit;
+    margin-top: $xxx-small-unit;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     border-top: 0;
@@ -168,6 +169,7 @@ $navigation-border-color:             #339bd3;
   // back buttons
   .back {
     background: $primary-color;
+    padding: $xx-small-unit;
 
     a {
       cursor: pointer;
