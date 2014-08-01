@@ -22,3 +22,10 @@
 .tabs--pane__active {
   display: block;
 }
+
+// Swiping tabs
+.tabs[data-tabs-swipable] {
+  .tabs-links {
+    overflow: auto;
+  }
+}

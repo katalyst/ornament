@@ -7,25 +7,23 @@
 
 // TODO
 
-// Mobile menu rebuild:
-// - Anchor behaviour
-// - Keep scroll position option
-// Tooltips:
-// - Responsive considerations
-// - HoverIntent option
-// - Hoverable tooltips, close buttons
-// Forms:
-// - More dynamic label-with-input combo
-// - <label><input><button> combo
-// Tabs:
-// - Select menu nav
-// - tabs/select combo for breakpoints
-// - Swipable tabs
-// Rebuild Sticky Header
 // Google Map embed
 // - Lock/unlock
 // - Colours to be plug 'n play from snazzymaps
 // - Infoboxes with customisable data
+// - Multiple latlngs
+// Forms:
+// - More dynamic label-with-input combo
+// - <label><input><button> combo
+// Tabs:
+// - Swipable tabs
+// Mobile menu rebuild:
+// - Anchor behaviour
+// Tooltips:
+// - Responsive considerations
+// - HoverIntent option
+// - Hoverable tooltips, close buttons
+// Drag 'n Drop Form Upload Docs
 
 // ORNAMENT
 //
@@ -55,6 +53,7 @@
 @import "components/island";
 @import "components/kat-image-upload";
 @import "components/layout";
+@import "components/map";
 @import "components/navigation-mobile";
 @import "components/pagination";
 @import "components/panel";
