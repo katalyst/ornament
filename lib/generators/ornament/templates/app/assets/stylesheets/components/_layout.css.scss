@@ -6,7 +6,6 @@ $layout-desktop-edge-gap:       0;
 $layout-desktop-footer-gap:     $default-unit;
 $layout-desktop-header-gap:     $default-unit;
 $layout-footer-height:          100px;
-$layout-mobile-tray-background: #cccccc;
 $layout-mobile-tray-width:      250px;
 $layout-mobile-edge-gap:        $small-unit;
 $layout-mobile-footer-gap:      $small-unit;
@@ -22,7 +21,6 @@ body {
 }
 
 .layout--mobile-tray {
-  background: $layout-mobile-tray-background;
   display: none;
 }
 
