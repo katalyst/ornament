@@ -68,7 +68,7 @@
   </p>
   <p>
     <code>mobileNav.simple</code>
-    Returns true or false based on the related setting. See <a href="#settings">settings</a> for more.
+    Returns true or false based on the related setting. See <a href="#settings">settings</a> for more info on that.
   </p>
 
   <h3 class="heading-three">Public Functions</h3>
@@ -98,8 +98,20 @@
     Go to the ID of a navigation item (either on the LI or A)
   </p>
   <p>
+    <code>mobileNav.goBack();</code><br />
+    Go back one level
+  </p>
+  <p>
+    <code>mobileNav.goToRoot();</code><br />
+    Goes back to first pane.
+  </p>
+  <p>
     <code>mobileNav.updateMenuHeight();</code><br />
     Will recalculate everything on the currently visible pane and update the height of the mobile menu accordingly. 
+  </p>
+  <p>
+    <code>mobileNav.updateMenuHeightWithDelay();</code><br />
+    Runs the height update function after waiting the appropriate amount of time for a pane transition to finish. 
   </p>
   <p>
     <code>mobileNav.updateMenuBindings();</code><br />
