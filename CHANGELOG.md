@@ -23,6 +23,7 @@
 - Merged mobile footer and desktop footer in to one location.
 - Rebuilt tooltips using data-attributes
 - Rebuilt tabs using data-attributes
+- Rebuilt mobile nav with tonnes of settings and public functions
 
 ### Removals
 
