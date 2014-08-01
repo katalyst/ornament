@@ -1,6 +1,8 @@
 .tabs-links {
+  @include pie-clearfix;
+
   li {
-    @include inline-block;
+    float: left;
     vertical-align: top;
   }
 }

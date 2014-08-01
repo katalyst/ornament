@@ -94,6 +94,51 @@
   &lt;nav class="tabs-links">
   ...</pre>
 
+  <h2 class="heading-two">Select menu fallback on smaller screens</h2>
+
+  <p>To make your tabs fall back to a <code>select</code> menu, simple add <code>data-tabs-fallback-select</code> attribute. to your tabs container.</p>
+
+  <p>The select menu will appear when the tabs are too long to fit on the screen.</p>
+
+  <div class="tabs" data-tabs-fallback-select>
+    <nav class="tabs-links">
+      <ul>
+        <li><a href="#tab_select_1" class="tabs--link" data-tab="tab_select_1">Tab #1</a></li>
+        <li><a href="#tab_select_2" class="tabs--link" data-tab="tab_select_2">Tab #2</a></li>
+        <li><a href="#tab_select_3" class="tabs--link" data-tab="tab_select_3">Tab #3</a></li>
+        <li><a href="#tab_select_4" class="tabs--link" data-tab="tab_select_4">Tab #4</a></li>
+        <li><a href="#tab_select_5" class="tabs--link" data-tab="tab_select_5">Tab #5</a></li>
+        <li><a href="#tab_select_6" class="tabs--link" data-tab="tab_select_6">Tab #6</a></li>
+        <li><a href="#tab_select_7" class="tabs--link" data-tab="tab_select_7">Tab #7</a></li>
+      </ul>
+    </nav>
+    <div class="tabs--panes">
+      <div class="tabs--pane" data-tab-for="tab_select_1">
+        Tab #1
+      </div>
+      <div class="tabs--pane" data-tab-for="tab_select_2">
+        Tab #2
+      </div>
+      <div class="tabs--pane" data-tab-for="tab_select_3">
+        Tab #3
+      </div>
+      <div class="tabs--pane" data-tab-for="tab_select_4">
+        Tab #4
+      </div>
+      <div class="tabs--pane" data-tab-for="tab_select_5">
+        Tab #5
+      </div>
+      <div class="tabs--pane" data-tab-for="tab_select_6">
+        Tab #6
+      </div>
+      <div class="tabs--pane" data-tab-for="tab_select_7">
+        Tab #7
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-two">Swipable Tabs</h2>
+
   </section>
 
 </div>
