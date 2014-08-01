@@ -48,7 +48,7 @@ $navigation-border-color:             #339bd3;
     z-index: 1;
     // line-height: $navigation-hitbox;
 
-    .active > a {
+    .selected > a {
       background: $primary-color;
     }
   }
