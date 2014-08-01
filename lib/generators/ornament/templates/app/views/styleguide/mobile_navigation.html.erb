@@ -62,61 +62,37 @@
 
   <h3 class="heading-three">Public Values</h3>
 
-  <p>
-    <code>mobileNav.currentLevel</code><br />
-    Returns how many panes deep the menu is open to.
-  </p>
-  <p>
-    <code>mobileNav.simple</code>
-    Returns true or false based on the related setting. See <a href="#settings">settings</a> for more info on that.
-  </p>
+  <ul>
+    <li>
+      <code>mobileNav.currentLevel</code> - Returns how many panes deep the menu is open to.
+    </li>
+    <li>
+      <code>mobileNav.simple</code> - Returns true or false based on the related setting. See <a href="#settings">settings</a> for more info on that.
+    </li>
+  </ul>
+
+  <h3 class="heading-three">DOM Elements</h3>
+
+  <ul>
+    <li><code>mobileNav.anchor</code> - The menu button that opens/closes the tray.</li>
+    <li><code>mobileNav.tray</code> - The tray
+  </ul>
 
   <h3 class="heading-three">Public Functions</h3>
 
-  <p>
-    <code>mobileNav.openMenu();</code><br />
-    Slide the menu open.
-  </p>
-  <p>
-    <code>mobileNav.closeMenu();</code><br />
-    Slide the menu closed.
-  </p>
-  <p>
-    <code>mobileNav.toggleMenu();</code><br />
-    Either close or open the menu.
-  </p>
-  <p>
-    <code>mobileNav.isOpen();</code><br />
-    Returns true or false depending on if the menu is open or not.
-  </p>
-  <p>
-    <code>mobileNav.getCurrentTab();</code><br />
-    Returns a jQuery object of the parent of the currently open pane.
-  </p>
-  <p>
-    <code>mobileNav.goToId(id);</code><br />
-    Go to the ID of a navigation item (either on the LI or A)
-  </p>
-  <p>
-    <code>mobileNav.goBack();</code><br />
-    Go back one level
-  </p>
-  <p>
-    <code>mobileNav.goToRoot();</code><br />
-    Goes back to first pane.
-  </p>
-  <p>
-    <code>mobileNav.updateMenuHeight();</code><br />
-    Will recalculate everything on the currently visible pane and update the height of the mobile menu accordingly. 
-  </p>
-  <p>
-    <code>mobileNav.updateMenuHeightWithDelay();</code><br />
-    Runs the height update function after waiting the appropriate amount of time for a pane transition to finish. 
-  </p>
-  <p>
-    <code>mobileNav.updateMenuBindings();</code><br />
-    Updates bindings on the anchor, back and forward buttons in case they somehow get lost via AJAX or DOM manipulation.
-  </p>
+  <ul>
+    <li><code>mobileNav.openMenu();</code> - Slide the menu open.</li>
+    <li><code>mobileNav.closeMenu();</code> - Slide the menu closed.</li>
+    <li><code>mobileNav.toggleMenu();</code> - Either close or open the menu.</li>
+    <li><code>mobileNav.isOpen();</code> - Returns true or false depending on if the menu is open or not.</li>
+    <li><code>mobileNav.getCurrentTab();</code> - Returns a jQuery object of the parent of the currently open pane.</li>
+    <li><code>mobileNav.goToId(id);</code> - Go to the ID of a navigation item (either on the LI or A)</li>
+    <li><code>mobileNav.goBack();</code> - Go back one level</li>
+    <li><code>mobileNav.goToRoot();</code> - Goes back to first pane.</li>
+    <li><code>mobileNav.updateMenuHeight();</code> - Will recalculate everything on the currently visible pane and update the height of the mobile menu accordingly.</li>
+    <li><code>mobileNav.updateMenuHeightWithDelay();</code> - Runs the height update function after waiting the appropriate amount of time for a pane transition to finish.</li>
+    <li><code>mobileNav.updateMenuBindings();</code> - Updates bindings on the anchor, back and forward buttons in case they somehow get lost via AJAX or DOM manipulation.</li>
+  </ul>
 
   <h2 class="heading-two" id="settings">Settings</h2>
 
