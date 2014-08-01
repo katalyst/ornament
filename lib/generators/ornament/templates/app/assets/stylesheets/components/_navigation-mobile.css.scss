@@ -22,7 +22,7 @@ $navigation-secondary-pane-link-color:  #fff;
   background: $navigation-tray-background;
 }
 
-.navigation-mobile {
+.navigation-mobile.complex {
   overflow: hidden;
   height: 100%;
 
@@ -219,5 +219,35 @@ $navigation-secondary-pane-link-color:  #fff;
       top: 5px;
     }
   }
+}
 
+.navigation-mobile.simple {
+
+  // First level menus
+  a {
+    display: block;
+    padding: $xxx-small-unit;
+    border-bottom: 1px solid $navigation-first-pane-border;
+  }
+
+  // Second level menus
+  ul ul {
+    border-bottom: 1px solid $navigation-first-pane-border;
+    padding: $xxx-small-unit;
+  }
+  ul ul a {
+    border-bottom: 0;
+    padding: 0;
+    display: inline;
+  }
+
+  // Nested menus hidden by default
+  ul ul {
+    display: none;
+  }
+
+  // Visible with the appropriate class
+  ul li.visible ul {
+    display: block;
+  }
 }
