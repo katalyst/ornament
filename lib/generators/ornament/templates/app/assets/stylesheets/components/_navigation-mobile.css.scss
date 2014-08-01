@@ -91,7 +91,7 @@ $navigation-border-color:             #339bd3;
   }
 
   // making active children a higher z-index
-  li.selected > div {
+  li.active > div {
     z-index: 2;
   }
 
