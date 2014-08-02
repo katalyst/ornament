@@ -64,11 +64,11 @@ $button-small-typeface:             $bold-font, $base-font-size * 0.8;
 .button-group {
   @include pie-clearfix;
 
-  .button_back {
+  .button__back {
     float: left;
   }
 
-  .button_forward {
+  .button__forward {
     float: right;
   }
 }
