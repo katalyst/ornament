@@ -1,8 +1,7 @@
 <% content_for :title, "Map" %>
 
 <%- content_for :scripts do -%>
-  <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjgOvjmIVHFO-1IVSYWeZN-1Yp_MkjeW0&sensor=true">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjgOvjmIVHFO-1IVSYWeZN-1Yp_MkjeW0&sensor=true">
   </script>
 <%- end -%>
 
@@ -13,18 +12,31 @@
   <p>Include the Google Maps API script tag on your page, preferably in a <code>content_for :scripts</code> block:</p>
 
   <pre class="sg-pre prettyprint">&lt;%- content_for :scripts do -%>
-  &lt;script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjgOvjmIVHFO-1IVSYWeZN-1Yp_MkjeW0&sensor=true">
+  &lt;script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjgOvjmIVHFO-1IVSYWeZN-1Yp_MkjeW0&sensor=true">
   &lt;/script>
 &lt;%- end -%></pre>
 
   <h2 class="heading-two">Creating a Google Map</h2>
 
+  <p>Maps are made up of a container element that has a <code>data-map</code> attribute. Inside the container goes your pin elements. The pin element has the data attribute of <code>data-map-pin</code> which takes the latitude and longitude of your pin. You can also optionally pass in <code>data-map-pin-title</code> to specify a hover title for the pin. </p>
+
   <div data-map>
-    <div data-map-pin="-34.921619,138.599257"></div>
+    <div data-map-pin="-34.921619,138.599257" data-map-pin-title="This is a pin!"></div>
   </div>
 
   <pre class="sg-pre prettyprint">&lt;div data-map>
+  &lt;div data-map-pin="-34.921619,138.599257" data-map-pin-title="This is a pin!>&lt;/div>
+&lt;/div></pre>
+
+  <h2 class="heading-two">Custom centering</h2>
+
+  <p>By default the map will centre on your pin. If you don't want it to, you can pass in <code>data-map-position</code> in to your container element:</p>
+
+  <div data-map data-map-position="-34.924548,138.594808">
+    <div data-map-pin="-34.921619,138.599257"></div>
+  </div>
+
+  <pre class="sg-pre prettyprint">&lt;div data-map data-map-position="-34.924548,138.594808">
   &lt;div data-map-pin="-34.921619,138.599257">&lt;/div>
 &lt;/div></pre>
 
@@ -80,29 +92,51 @@
   <h2 class="heading-two">Multiple Pins on a Map</h2>
 
   <p>Adding multiple pins is as simple as adding multiple pin elements.</p>
-  <p>If there is more than one pin to a map, it will automatically zoom and position the map to fit all pins on screen.</p>
+  <p>If you want the map to automatically position and zoom to all pins on the map, you can pass <code>data-map-bounds</code> in to your container element. <code>data-map-bounds</code> will ignore <code>data-map-position</code> and <code>data-map-zoom</code> for obvious reasons.</p>
 
-  <div data-map>
+  <div data-map data-map-bounds>
     <div data-map-pin="-34.921619,138.599257"></div>
     <div data-map-pin="-34.924548,138.594808"></div>
   </div>
 
-  <pre class="sg-pre prettyprint">&lt;div data-map>
+  <pre class="sg-pre prettyprint">&lt;div data-map data-map-bounds>
   &lt;div data-map-pin="-34.921619,138.599257">&lt;/div>
   &lt;div data-map-pin="-34.924548,138.594808">&lt;/div>
 &lt;/div></pre>
 
   <h2 class="heading-two">Adding infowindow popups</h2>
 
-  <h2 class="heading-two">Geolocate</h2>
+  <p>Want to add infowindows? You can do by adding any content inside the pin element.</p>
+  <p>Styling of infowindow typography can be done in <code>map.css.scss</code>.</p>
+
+  <div data-map>
+    <div data-map-pin="-34.921619,138.599257">
+      <h2 class="heading-two">Infowindow</h2>
+      <p>This is my infowindow, isn't it awesome?</p>
+      <p><a href="#">Here's a link.</a></p>
+    </div>
+    <div data-map-pin="-34.924548,138.594808">
+      <p>This is another infowindow</p>
+    </div>
+  </div>
+
+  <pre class="sg-pre prettyprint">&lt;div data-map>
+  &lt;div data-map-pin="-34.921619,138.599257">
+    &lt;h2 class="heading-two">Infowindow&lt;/h2>
+    &lt;p>This is my infowindow, isn't it awesome?&lt;/p>
+    &lt;p>&lt;a href="#">Here's a link.&lt;/a>&lt;/p>
+  &lt;/div>
+  &lt;div data-map-pin="-34.924548,138.594808">
+    &lt;p>This is another infowindow&lt;/p>
+  &lt;/div>
+&lt;/div></pre>
 
   <h2 class="heading-two">Locking a map for responsive</h2>
-<!--
 
   <p>Users on touch devices can often get stuck on large maps. To fix this we have implemented a locking feature.</p>
 
   <div data-map data-map-locked>
     <div data-map-pin="-34.921619,138.599257"></div>
   </div>
--->
+
 </div>
