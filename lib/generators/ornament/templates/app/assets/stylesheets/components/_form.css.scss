@@ -97,8 +97,8 @@ textarea,
   background: $white;
   line-height: $base-line-size;
   @include line-height-padding($form-line-height);
-  padding-left: $xxx-small-unit;
-  padding-right: $xxx-small-unit;
+  padding-left: $xxxx-small-unit;
+  padding-right: $xxxx-small-unit;
   margin: 0;
   @include border-radius($border-radius);
   @include transition(border-color .2s);
@@ -116,7 +116,12 @@ textarea,
   }
   &:focus {
     outline: none;
-    border-color: darken($input-border-color,20);
+    border-color: $input-border-focus-color;
+  }
+
+  &[disabled] {
+    background: lighten($grey,20);
+    cursor: not-allowed;
   }
 }
 

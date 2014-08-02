@@ -116,6 +116,7 @@ $error-background: red;
 $notice-color: #ff6600;
 $success-color: green;
 $input-border-color: #c5cbd4;
+$input-border-focus-color: darken($input-border-color,20);
 
 $white: #fff;
 $facebook: #5e78aa;

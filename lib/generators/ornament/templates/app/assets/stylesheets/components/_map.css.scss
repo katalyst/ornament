@@ -26,6 +26,11 @@
   text-align: center;
   color: #fff;
   cursor: pointer;
+  padding: $xxx-small-unit;
+
+  @include media-query($breakpoint-medium, min) {
+    display: none;
+  }
 
   h2, p {
     margin: 0;
