@@ -4,26 +4,27 @@
 
 ### Features
 
-- Reworked typography and content styles
-- Spang - Easy grids
-- Vetre - Vertically centred responsive image
-- Media Query mixin
-- Breakpoint helper
-- Flash Message partial
-- Added sliding nested mobile navigation
-- Basic print stylesheet
-- Added `Ornament.windowWidth` and `Ornament.windowHeight` for browser agnostic window measurements
-- Grunticon with sample icons for pagination, mobile menu, menu button etc.
+- Documentation!
 - Styleguide layout and styleguide stylesheet
 - Getting started section for the styleguide
-- Documentation
+- Reworked typography and content styles with smart defaults
+- Spang - Easy grids
+- Vetre - Vertically centred responsive image
+- Maps component for easily adding google maps
+- Media Query mixin
+- Breakpoint helper
+- Sliding nested mobile navigation with heaps of public functions to control from anywhere
+- `Ornament.windowWidth` and `Ornament.windowHeight` for browser agnostic window measurements
+- Grunticon with sample icons for pagination, mobile menu, menu button etc.
+- Basic print stylesheet
+- Flash Message partial
 
 ### Changes
 
 - Merged mobile footer and desktop footer in to one location.
 - Rebuilt tooltips using data-attributes
 - Rebuilt tabs using data-attributes
-- Rebuilt mobile nav with tonnes of settings and public functions
+- Re-organised existing form styles and added form-groups
 
 ### Removals
 
