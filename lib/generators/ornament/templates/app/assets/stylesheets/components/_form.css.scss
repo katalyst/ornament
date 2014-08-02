@@ -3,6 +3,16 @@ $form-inline-height:  $button-height;
 $form-width:          748px; // used for calculating % widths of inputs
 $hint-color:          $grey;
 
+@mixin input__flat-right {
+  @include border-top-right-radius(0);
+  @include border-bottom-right-radius(0);
+}
+
+@mixin input__flat-left {
+  @include border-top-left-radius(0);
+  @include border-bottom-left-radius(0);
+}
+
 // FORMS NORMALISATION
 fieldset {
   @include inline-block;
@@ -51,26 +61,21 @@ textarea {
   max-width: 100%;
 }
 
+input[type=file] {
+  max-width: 100%;
+}
+
+button, input[type=submit] {
+  -webkit-appearance: none;
+}
+
+// Firefox 2px button issue fix
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
 // FORM STYLING
-.form-embedded {
-  margin-top: $default-unit;
-}
-
-.control-group {
-  .controls {
-    margin-top: $xxx-small-unit;
-  }
-}
-
-@mixin input__flat-right {
-  @include border-top-right-radius(0);
-  @include border-bottom-right-radius(0);
-}
-
-@mixin input__flat-left {
-  @include border-top-left-radius(0);
-  @include border-bottom-left-radius(0);
-}
 
 .inputs {
   @extend .spacing-xx-tight;
@@ -80,6 +85,19 @@ textarea {
   }
 }
 
+// Push embedded forms away from content
+.form-embedded {
+  margin-top: $default-unit;
+}
+
+// Spacing between inputs and labels
+.control-group {
+  .controls {
+    margin-top: $xxx-small-unit;
+  }
+}
+
+// Styling input fields
 input[type=text],
 input[type=password],
 input[type=number],
@@ -125,26 +143,8 @@ textarea,
   }
 }
 
-input[type=file] {
-  max-width: 100%;
-}
-
-// FIELD LENGTHS
-.form--large {
-  max-width: spanf(3,4,$form-width);
-}
-
-.form--medium {
-  max-width: spanf(1,2,$form-width);
-}
-.form--small {
-  max-width: spanf(1,3,$form-width);
-}
-.form--x-small {
-  max-width: spanf(1,4,$form-width);
-}
-
 // PLACEHOLDERS
+
 $placeholder-color: #ccc;
 ::-webkit-input-placeholder {
    color: $placeholder-color;
@@ -157,187 +157,6 @@ $placeholder-color: #ccc;
 }
 :-ms-input-placeholder {
    color: $placeholder-color;
-}
-
-// RADIOS AND CHECKBOXES
-
-$radio-offset: 24px;
-
-.radio_buttons,
-.check_boxes {
-  .radio,
-  .checkbox {
-    position: relative;
-    padding-left: $radio-offset;
-    margin-right: $xxx-small-unit;
-    display: inline-block;
-
-    input {
-      position: absolute;
-      top: 7px;
-      left: 0;
-    }
-  }
-}
-
-.form--horizontal {
-  @include pie-clearfix;
-
-  .radio,
-  .checkbox {
-    float: left;
-    margin-right: $xx-small-unit;
-  }
-}
-
-// SINGLE CHECKBOXES
-
-.checkbox_single {
-  position: relative;
-
-  .control-label {
-    padding-left: $radio-offset;
-  }
-  .controls label {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-}
-
-// INLINE FORMS
-// [input]button
-
-.form__inline {
-  @include pie-clearfix;
-  position: relative;
-  width: 200px;
-}
-
-.form__inline--input-container {
-  width: 100%;
-  padding-right: $button-height;
-}
-
-input.form__inline--input {
-  width: 100%;
-  height: $form-inline-height;
-  line-height: $form-inline-height;
-  padding: $xxxxx-small-unit $xxxx-small-unit 6px;
-  border-right-width: 0;
-  @include input__flat-right;
-}
-
-.form__inline--button {
-  @include input__flat-left;
-  width: $form-inline-height;
-  height: $form-inline-height;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.form__inline--button.form__inline--button__icon {
-  @include icon-block($form-inline-height, 16px);
-  position: absolute;
-}
-
-.form__inline__full {
-  @extend .form__inline;
-  width: 100%;
-}
-
-button, input[type=submit] {
-  -webkit-appearance: none;
-}
-
-// Firefox 2px button issue fix
-button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-// FILE UPLOAD
-$file-thumbnail-width: 100px;
-.form--file-upload {
-  position: relative;
-
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .media-body {
-    // TODO: Fix for ems
-    // padding-left: ($file-thumbnail-width + $small-unit);
-    min-height: $file-thumbnail-width;
-  }
-}
-
-// COMBINED FIELDS WITH LABEL INPUTS
-.form-label-combo {
-  padding: 0 !important;
-  position: relative;
-  @include pie-clearfix;
-  @include font($bold-font);
-
-  label {
-    @include line-height-padding($form-line-height);
-    border-right: $input-border;
-    width: 30px;
-    text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .controls {
-    padding-left: 30px;
-    margin-top: 0;
-  }
-  .controls input {
-    border: 0;
-    background: transparent;
-    @include box-shadow(none);
-    padding-left: $xxxx-small-unit;
-    padding-right: $xxxx-small-unit;
-    // Due to firefox line-height bug, line-height needs to be defined by padding
-    // http://www.cssnewbie.com/input-button-line-height-bug/#.UvwMSEKSwt0
-    line-height: 1.2; // bring in line with firefox
-    padding-top: 11px;
-    padding-bottom: 11px;
-  }
-}
-
-// ERRORS & HINTS
-.help-block {
-  display: block;
-  clear: both;
-}
-
-p.hint-block { // hint
-  color: $hint-color;
-  font-style: italic;
-  margin: 0;
-}
-
-span.error-block { // error
-  color: $error-color;
-  &:before {
-    content: " ";
-  }
-}
-
-// LABELS WITH ERRORS
-.error .control-label {
-  color: $error-color;
-}
-
-// REQUIRED FIELDS
-.control-label abbr,
-abbr[title=required] {
-  color: $primary-color;
-  margin-right: -3px;
 }
 
 select {
@@ -375,4 +194,214 @@ select {
     padding-right: 1.5em;
   }
 
+}
+
+// FIELD LENGTH MODIFIERS
+
+.form--large {
+  max-width: spanf(3,4,$form-width);
+}
+
+.form--medium {
+  max-width: spanf(1,2,$form-width);
+}
+.form--small {
+  max-width: spanf(1,3,$form-width);
+}
+.form--x-small {
+  max-width: spanf(1,4,$form-width);
+}
+
+// RADIOS AND CHECKBOXES
+
+$radio-offset: 24px;
+
+.radio_buttons,
+.check_boxes {
+  .radio,
+  .checkbox {
+    position: relative;
+    padding-left: $radio-offset;
+    margin-right: $xxx-small-unit;
+    display: inline-block;
+
+    input {
+      position: absolute;
+      top: 7px;
+      left: 0;
+    }
+  }
+}
+
+.form--horizontal {
+  @include pie-clearfix;
+
+  .radio,
+  .checkbox {
+    float: left;
+    margin-right: $xx-small-unit;
+  }
+}
+
+// SINGLE CHECKBOXES
+.checkbox_single {
+  position: relative;
+
+  .control-label {
+    padding-left: $radio-offset;
+  }
+  .controls label {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+// ERRORS & HINTS
+.help-block {
+  display: block;
+  clear: both;
+}
+
+p.hint-block { // hint
+  color: $hint-color;
+  font-style: italic;
+  margin: 0;
+}
+
+span.error-block { // error
+  color: $error-color;
+  &:before {
+    content: " ";
+  }
+}
+
+// LABELS WITH ERRORS
+.error .control-label {
+  color: $error-color;
+}
+
+// REQUIRED FIELDS
+.control-label abbr,
+abbr[title=required] {
+  color: $primary-color;
+  margin-right: -3px;
+}
+
+// FILE UPLOAD
+$file-thumbnail-width: 100px;
+.form--file-upload {
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .media-body {
+    padding-left: ($file-thumbnail-width + $xx-small-unit);
+    min-height: $file-thumbnail-width;
+  }
+}
+
+// INLINE FORMS
+// [input]button
+
+.form-inline {
+  @include pie-clearfix;
+  position: relative;
+  width: 200px;
+}
+
+.form-inline--input-container {
+  width: 100%;
+  padding-right: $form-inline-height;
+}
+
+.form-inline--input-container .form-inline--input {
+  width: 100%;
+  height: $form-inline-height;
+  line-height: $form-inline-height;
+  padding: $xxxxx-small-unit $xxxx-small-unit 6px;
+  border-right-width: 0;
+  @include input__flat-right;
+}
+
+.form-inline--button {
+  @include input__flat-left;
+  @include icon-block($form-inline-height, 16px);
+  position: absolute !important;
+  top: 0;
+  right: 0;
+}
+
+.form-inline__full {
+  @extend .form-inline;
+  width: 100%;
+}
+
+// FULL-WIDTH SEARCH FIELD WITH LABEL
+
+.form-search {
+  @include pie-clearfix;
+
+  .form-search--label,
+  .form-inline {
+    float: left;
+  }
+
+  .form-search--label {
+    width: span(4,12);
+    @include font($bold-font);
+    @include line-height-padding($form-inline-height);
+
+    @include media-query($breakpoint-small) {
+      width: 100%;
+      padding-top: 0;
+    }
+  }
+
+  .form-inline {
+    width: span(8,12);
+
+    @include media-query($breakpoint-small) {
+      width: 100%;
+      clear: both;
+    }
+  }
+}
+
+// COMBINED FIELDS WITH LABEL INPUTS
+.form-label-combo {
+  padding: 0 !important;
+  position: relative;
+  @include pie-clearfix;
+  @include font($bold-font);
+
+  label {
+    @include line-height-padding($form-line-height);
+    border-right: $input-border;
+    width: 30px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .controls {
+    padding-left: 30px;
+    margin-top: 0;
+  }
+  .controls input {
+    border: 0;
+    background: transparent;
+    @include box-shadow(none);
+    padding-left: $xxxx-small-unit;
+    padding-right: $xxxx-small-unit;
+    // Due to firefox line-height bug, line-height needs to be defined by padding
+    // http://www.cssnewbie.com/input-button-line-height-bug/#.UvwMSEKSwt0
+    line-height: 1.2; // bring in line with firefox
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
 }

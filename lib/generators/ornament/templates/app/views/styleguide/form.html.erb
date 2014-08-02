@@ -2,60 +2,58 @@
 
 <div class="content-spacing content-lists">
 
-  <h2 class="heading-two">Inline form</h2>
+  <h2 class="heading-two">Inline Forms Groups</h2>
 
-  <p>An inline form consists of an input field with a joined button:</p>
-
-  <form class="form__inline">
-    <div class="form__inline--input-container">
-      <input type="text" class="form__inline--input" />
-    </div>
-    <input type="submit" class="button form__inline--button" value=">" />
-  </form>
-
-  <pre class="sg-pre prettyprint">&lt;form class="form__inline">
-  &lt;div class="form__inline--input-container">
-    &lt;input type="text" class="form__inline--input" />
-  &lt;/div>
-  &lt;input type="submit" class="button form__inline--button" value=">" />
-&lt;/form></pre>
-
-  <p>Applying an icon to the inline button requires some slightly different markup.</p>
-
+  <p>A self-contained inline form consists of an input field with a joined button:</p>
   <p><strong>Note:</strong> icons cannot be applied to <code>input</code> tags, all icon buttons must be <code>button</code> elements.</p>
 
-  <form class="form__inline">
-    <div class="form__inline--input-container">
-      <input type="text" class="form__inline--input" />
+  <form class="form-inline">
+    <div class="form-inline--input-container">
+      <input type="text" class="form-inline--input" />
     </div>
-    <button type="submit" class="icon-chevron-right button form__inline--button form__inline--button__icon"></button>
+    <button class="button form-inline--button icon-chevron-right"></button>
   </form>
 
-  <pre class="sg-pre prettyprint">&lt;form class="form__inline">
-    &lt;div class="form__inline--input-container">
-      &lt;input type="text" class="form__inline--input" />
-    &lt;/div>
-    <strong>&lt;button type="submit" class="icon-chevron-right button form__inline--button form__inline--button__icon">&lt;/button></strong>
-  &lt;/form></pre>
+  <pre class="sg-pre prettyprint">&lt;form class="form-inline">
+  &lt;div class="form-inline--input-container">
+    &lt;input type="text" class="form-inline--input" />
+  &lt;/div>
+  &lt;button class="button form-inline--button icon-chevron-right">&lt;/button>
+&lt;/form></pre>
 
-  <h2 class="heading-two">Full-length inline form</h2>
+  <h3 class="heading-three">Full-length inline form</h3>
 
   <p>A full-length variant of the form above:</p>
 
-  <form class="form__inline__full">
-    <div class="form__inline--input-container">
-      <input type="text" class="form__inline--input" />
+  <form class="form-inline__full">
+    <div class="form-inline--input-container">
+      <input type="text" class="form-inline--input" />
     </div>
-    <input type="submit" class="button form__inline--button" value=">" />
+    <button type="submit" class="button form-inline--button icon-chevron-right"></button>
   </form>
 
-  <pre class="sg-pre prettyprint">&lt;form class="form__inline__full">
-  &lt;div class="form__inline--input-container">
-    &lt;input type="text" class="form__inline--input" />
+  <pre class="sg-pre prettyprint">&lt;form <strong>class="form-inline__full"</strong>>
+  &lt;div class="form-inline--input-container">
+    &lt;input type="text" class="form-inline--input" />
   &lt;/div>
-  &lt;input type="submit" class="button form__inline--button" value=">" />
+  &lt;button class="button form-inline--button">&lt;/button>
 &lt;/form></pre>
 
+  <h2 class="heading-two">Full-width search field</h2>
+
+  <p>A common pattern for search pages:</p>
+
+  <form class="form-search">
+    <label for="search_things" class="form-search--label">Search Things:</label>
+    <div class="form-inline">
+      <div class="form-inline--input-container">
+        <input type="text" class="form-inline--input" id="search_things" name="search_things" />
+      </div>
+      <button type="submit" class="button form-inline--button icon-search"></button>
+    </div>
+  </form>
+
+<!--
   <h2 class="heading-two">Form label combo</h2>
 
   <p>A form label combo uses a label on the left side of the input field:</p>
@@ -73,10 +71,7 @@
     &lt;input type="text" id="combo" />
   &lt;/div>
 &lt;/div></pre>
-
-  <h2 class="heading-two">Full-width search field</h2>
-
-  <p>A common pattern for search pages:</p>
+-->
 
   <h2 class="heading-two">Form field lengths</h2>
 

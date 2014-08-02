@@ -7,6 +7,10 @@
   @include grunticon("chevron-right-16-white", 16px);
 }
 
+.icon-search {
+  @include grunticon("search-16-white", 16px);
+}
+
 // inline icons as a class
 .icon-inline {
   @include icon-inline;

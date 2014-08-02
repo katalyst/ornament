@@ -10,7 +10,7 @@
   }
 }
 
-// Block Icons 
+// Block Icons
 // icon-block(40px, 16px) = a 40x40 box with a 16x16 icon inside it.
 @mixin icon-block($block-size, $icon-size:$block-size) {
   position: relative;
@@ -28,7 +28,7 @@
     height: $icon-size;
     margin-top: -($icon-size)/2;
     margin-left: -($icon-size)/2;
-  }  
+  }
 }
 
 // Inline Icons
