@@ -22,6 +22,17 @@ body {
   }
 }
 
+// CONCEPT MARKER
+.poc {
+  background: $primary-color;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 3px 5px;
+  @include border-radius($border-radius);
+  @include font($body-font);
+}
+
 .heading-one, .heading-two, .heading-three, .heading-four {
   font-family: $sg-font;
   font-weight: bold;
