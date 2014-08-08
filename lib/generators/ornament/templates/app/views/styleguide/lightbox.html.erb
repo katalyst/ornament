@@ -1,5 +1,10 @@
 <%- content_for :title, "Lightbox" -%>
 
+<%- content_for :scripts do -%>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjgOvjmIVHFO-1IVSYWeZN-1Yp_MkjeW0&sensor=true">
+  </script>
+<%- end -%>
+
 <div class="content-spacing content-lists">
 
   <p>Lightboxes are implemented using <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank">Magnific Popup</a>.</p>
@@ -27,8 +32,15 @@
   <%- end -%>
 
   <%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-sample-map" } do -%>
-    <div data-map>
-      <div data-map-pin="-34.921619,138.599257" data-map-pin-title="This is a pin!"></div>
+    <div data-map data-map-colour>
+      <div data-map-pin="-34.921619,138.599257">
+        <h2 class="heading-two">Infowindow</h2>
+        <p>This is my infowindow, isn't it awesome?</p>
+        <p><a href="#">Here's a link.</a></p>
+      </div>
+      <div data-map-pin="-34.924548,138.594808">
+        <p>This is another infowindow</p>
+      </div>
     </div>
   <%- end -%>
 
@@ -55,7 +67,7 @@
   <ul>
     <li><a href="#lightbox-sample-1" data-lightbox data-lightbox-flush>Small lightbox with heading</a></li>
     <li><a href="#lightbox-sample-2" data-lightbox data-lightbox-flush>Small lightbox without heading</a></li>
-    <li><a href="#lightbox-sample-map" data-lightbox data-lightbox-flush>Map in a lightbox</a></li>
+    <li><a href="#lightbox-sample-map" data-lightbox data-lightbox-flush>Map in a box</a></li>
   </ul>  
 
   <h2 class="heading-two">AJAX Lightbox</h2>
