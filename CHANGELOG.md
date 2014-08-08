@@ -13,6 +13,9 @@
 - Maps component for easily adding google maps
 - Media Query mixin
 - Breakpoint helper
+- Map component for easily adding Google maps
+- Lightbox compenent using Magnific Popup
+- Select Links for turning a select menu in to a navigation control
 - Sliding nested mobile navigation with heaps of public functions to control from anywhere
 - `Ornament.windowWidth` and `Ornament.windowHeight` for browser agnostic window measurements
 - Grunticon with sample icons for pagination, mobile menu, menu button etc.
