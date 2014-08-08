@@ -1,0 +1,12 @@
+<%- 
+  title ||= false
+-%>
+
+<div class="mfp-hide lightbox--body" id="<%= inline_id -%>">
+  <%- if title -%>
+    <h2 class="heading-two lightbox--heading"><%= title -%></h2>
+  <%- end -%>
+  <div class="lightbox--content  content-spacing">
+    <%= yield -%>
+  </div>
+</div>
