@@ -26,6 +26,10 @@
 // Lightbox Content
 .lightbox--content {
   padding: $small-unit;
+
+  .lightbox__flush & {
+    padding: 0;
+  }
 }
 
 // Lightbox Buttons
@@ -67,6 +71,12 @@
 
   &:active {
     top: -$xxxxx-small-unit; 
+  }
+
+  .lightbox__flush &,
+  .lightbox__flush &:active {
+    top: -$xxx-small-unit;
+    right: -$xxx-small-unit;
   }
 }
 
