@@ -63,12 +63,10 @@ class OrnamentGenerator < Rails::Generators::Base
       end
 
       if options.layouts?
-        copy_file "app/views/layouts/global.html.erb"
-        copy_file "app/views/layouts/application.html.erb"
-        copy_file "app/views/layouts/_webfonts.html.erb"
-        copy_file "app/views/layouts/styleguide.html.erb"
+        directory "app/views/layouts"
         directory "app/views/errors"
         directory "app/views/kaminari"
+        directory "app/views/shared"
       end
 
       directory "vendor/assets"

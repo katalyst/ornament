@@ -39,6 +39,7 @@ ol.content-lists,
   p {
     margin-top: $xx-small-unit;
     margin-bottom: $xx-small-unit;
+    @include content-children;
   }
 
   h1 {

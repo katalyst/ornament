@@ -1,0 +1,143 @@
+<%- content_for :title, "Lightbox" -%>
+
+<%- content_for :scripts do -%>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjgOvjmIVHFO-1IVSYWeZN-1Yp_MkjeW0&sensor=true">
+  </script>
+<%- end -%>
+
+<div class="content-spacing content-lists">
+
+  <p>Lightboxes are implemented using <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank">Magnific Popup</a>.</p>
+
+  <h2 class="heading-two">Lighbox for inline (on-page) content</h2>
+
+  <p>There is a partial available for making scaffolding inline content for a lightbox really easy. Simply render <code>/shared/inline-lightbox</code>. Anything passed inside the render block will be the content that appears in your lightbox. Make sure you pass in a <code>inline_id</code> so that you can link to it from your anchor. You can optionally pass in a <code>title</code> to give the lightbox a separated heading.</p>
+
+  <pre class="sg-pre prettyprint">&lt;%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-sample-1", title: "Example Title" } do -%>
+  Lightbox content
+&lt;%- end -%></pre>
+
+  <p>The <code>title</code> variable in the render determines what displays in the lightbox heading area. If you don't pass in a <code>title</code> then no heading will be displayed.</p>
+
+  <p>To create the anchors, you need to give the anchor a <code>href</code> matching the inline id used in your partial, then also give it a <code>data-lightbox</code> attribute:</p>
+
+  <pre class="sg-pre prettyprint">&lt;a href="#lightbox-sample-1" data-lightbox>Example lightbox&lt;/a></pre>
+
+  <%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-sample-1", title: "Example Title" } do -%>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aliquid sed obcaecati officia quasi magni quam asperiores eum delectus, eius.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid qui, praesentium temporibus accusantium at cupiditate fugiat dolores explicabo odit hic assumenda molestias, facere reprehenderit, earum ipsa vitae sunt iste! Laboriosam est, illo, voluptatem quasi enim qui, eos ullam laudantium eum deleniti ipsa nam. Quos ipsam, expedita commodi, iure neque blanditiis.</p>
+  <%- end -%>
+
+  <%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-sample-2" } do -%>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aliquid sed obcaecati officia quasi magni quam asperiores eum delectus, eius.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid qui, praesentium temporibus accusantium at cupiditate fugiat dolores explicabo odit hic assumenda molestias, facere reprehenderit, earum ipsa vitae sunt iste! Laboriosam est, illo, voluptatem quasi enim qui, eos ullam laudantium eum deleniti ipsa nam. Quos ipsam, expedita commodi, iure neque blanditiis.</p>
+  <%- end -%>
+
+  <%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-sample-map" } do -%>
+    <div data-map data-map-colour>
+      <div data-map-pin="-34.921619,138.599257">
+        <h2 class="heading-two">Infowindow</h2>
+        <p>This is my infowindow, isn't it awesome?</p>
+        <p><a href="#">Here's a link.</a></p>
+      </div>
+      <div data-map-pin="-34.924548,138.594808">
+        <p>This is another infowindow</p>
+      </div>
+    </div>
+  <%- end -%>
+
+  <ul>
+    <li><a href="#lightbox-sample-1" data-lightbox>Example lightbox with heading</a></li>
+    <li><a href="#lightbox-sample-2" data-lightbox>Example lightbox without heading</a></li>
+  </ul>
+
+  <h2 class="heading-two">Alternate Lightbox Styles</h2>
+
+  <p>You can add a <code>data-lightbox-small</code> attribute to use a smaller width lightbox:</p>
+
+  <pre class="sg-pre prettyprint">&lt;a href="#lightbox-sample-1" data-lightbox data-lightbox-small>Example lightbox&lt;/a></pre>
+
+  <ul>
+    <li><a href="#lightbox-sample-1" data-lightbox data-lightbox-small>Small lightbox with heading</a></li>
+    <li><a href="#lightbox-sample-2" data-lightbox data-lightbox-small>Small lightbox without heading</a></li>
+  </ul>
+
+  <p>Want our content to be flush to the sides of the lightbox? No worries, add in a <code>data-lightbox-flush</code> to the mix and you'll get flush content:</p>
+
+  <pre class="sg-pre prettyprint">&lt;a href="#lightbox-sample-1" data-lightbox data-lightbox-flush>Example lightbox&lt;/a></pre>
+
+  <ul>
+    <li><a href="#lightbox-sample-1" data-lightbox data-lightbox-flush>Flush lightbox with heading</a></li>
+    <li><a href="#lightbox-sample-2" data-lightbox data-lightbox-flush>Flush lightbox without heading</a></li>
+    <li><a href="#lightbox-sample-map" data-lightbox data-lightbox-flush>Map in a box</a></li>
+  </ul>  
+
+  <h2 class="heading-two">AJAX Lightbox</h2>
+
+  <p>Simply pass in the URL you would like to AJAX in as the <code>href</code> and update your <code>data-lightbox</code> attribute to pass in <code>ajax</code>:</p>
+
+  <pre class="sg-pre prettyprint">&lt;a href="/styleguide/lightbox_ajax_sample" data-lightbox="ajax"></pre>
+
+  <ul>
+    <li><a href="/styleguide/lightbox_ajax_sample" data-lightbox="ajax">Open example AJAX content</a></li>
+  </ul>
+
+  <h2 class="heading-two">Images and Galleries</h2>
+
+  <p>To lightbox up a single image, pass <code>data-lightbox="image"</code> in to the anchor:</p>
+
+  <pre class="sg-pre prettyprint">&lt;a href="http://placehold.it/500x500" data-lightbox="image">
+  &lt;img src="http://placehold.it/150x150" />
+&lt;/a></pre>
+
+  <p>
+    <a href="http://placehold.it/500x500" data-lightbox="image">
+      <img src="http://placehold.it/150x150" />
+    </a>
+  </p>
+
+  <p>To lightbox up a gallery of images, simply create a container with <code>data-lightbox-gallery</code> attribute. No data-attributes are needed on the images or anchors themselves as it's all delegated through this container.</p>
+
+  <div data-lightbox-gallery>
+    <a href="http://placehold.it/500x500">
+      <img src="http://placehold.it/150x150" />
+    </a>
+    <a href="http://placehold.it/500x500">
+      <img src="http://placehold.it/150x150" />
+    </a>
+    <a href="http://placehold.it/500x500">
+      <img src="http://placehold.it/150x150" />
+    </a>
+    <a href="http://placehold.it/500x500">
+      <img src="http://placehold.it/150x150" />
+    </a>
+  </div>
+
+  <pre class="sg-pre prettyprint">&lt;div data-lightbox-gallery>
+  &lt;a href="http://placehold.it/500x500">
+    &lt;img src="http://placehold.it/150x150" />
+  &lt;/a>
+  ...
+&lt;/div></pre>
+
+  <h2 class="heading-two">Rails <code>data-confirm</code> replacement</h2>
+
+  <p>Rails has a method for easily adding a yes/no dialog confirmation box to links via it's <code>data-confirm="[message]"</code> attribute. Ornament over-rides that behaviour to turn it in to a much nicer lightbox with no other requirements:</p>
+
+  <pre class="sg-pre prettyprint">&lt;a href="#" data-confirm="Are you sure?">Delete my account&lt;/a></pre>
+
+  <ul>
+    <li><a href="/styleguide" data-confirm="Are you sure?">Delete my account</a></li>
+  </ul>
+
+  <p>The text of the link is pulled in to the header of the lightbox. The text in the <code>data-confirm</code> attribute is used for the text in the lightbox.</p>
+
+  <p>You can over-ride the text on the confirm and cancel buttons by passing in <code>data-confirm-cancel=""</code> and <code>data-confirm-confirm=""</code>. 
+
+  <pre class="sg-pre prettyprint">&lt;a href="/styleguide" data-confirm="Do you really, really want to delete your account?" data-confirm-cancel="No! I don't want to any more!" data-confirm-confirm="Yes! I really, really do.">Delete my account&lt;/a></pre>
+
+  <ul>
+    <li><a href="/styleguide" data-confirm="Do you really, really want to delete your account?" data-confirm-cancel="No! I don't want to any more!" data-confirm-confirm="Yes! I really, really do.">Delete my account</a></li>
+  </ul>
+
+</div>

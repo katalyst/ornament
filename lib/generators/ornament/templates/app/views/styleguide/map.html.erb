@@ -89,6 +89,34 @@
     <div data-map-pin="-34.921619,138.599257"></div>
   </div>
 
+  <h2 class="heading-two">Static with a Link</h2>
+
+  <p>You can pass in a value to the <code>data-map-static</code> attribute which will turn the static map in to a link, using the value as the page it links to:</p>
+
+  <pre class="sg-pre prettyprint">&lt;div data-map data-map-controls="false" data-map-static="https://www.google.com.au/maps/place/North+Terrace,+Adelaide+SA">
+  &lt;div data-map-pin="-34.921619,138.599257">&lt;/div>
+&lt;/div></pre>
+
+  <div data-map data-map-controls="false" data-map-static="https://www.google.com.au/maps/place/North+Terrace,+Adelaide+SA">
+    <div data-map-pin="-34.921619,138.599257"></div>
+  </div>
+
+  <h2 class="heading-two">Static with Lightbox</h2>
+
+  <p>You can combine the static map with the <a href="/styleguide/lightbox">Lightbox component</a> to create a static map that opens an interactive lightbox map:</p>
+
+  <%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-map" } do -%>
+    <div data-map>
+      <div data-map-pin="-34.921619,138.599257"></div>
+    </div>
+  <%- end -%>
+
+  <a href="#lightbox-map" data-lightbox data-lightbox-flush>
+    <div data-map data-map-controls="false" data-map-static>
+      <div data-map-pin="-34.921619,138.599257"></div>
+    </div>
+  </a>
+
   <h2 class="heading-two">Multiple Pins on a Map</h2>
 
   <p>Adding multiple pins is as simple as adding multiple pin elements.</p>
@@ -139,5 +167,15 @@
   <div data-map data-map-locked>
     <div data-map-pin="-34.921619,138.599257"></div>
   </div>
+
+  <h2 class="heading-two">Global Settings</h2>
+
+  <p>Want to make all your maps behave in the same way without having to worry about adding in data attributes everywhere? No worries, open up your <code>map.js</code> file edit the variables at the top.</p>
+
+  <pre class="sg-pre prettyprint">var mapPinImage = "/assets/pin.png";
+var mapDefaultZoom = 15;
+var allMapsColoured = true/false;
+var allMapsMobileLocked = true/false;
+var allMapsStatic = true/false;</pre>
 
 </div>

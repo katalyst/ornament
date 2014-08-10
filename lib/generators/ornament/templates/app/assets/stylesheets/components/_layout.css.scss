@@ -11,9 +11,12 @@ $layout-mobile-edge-gap:        $small-unit;
 $layout-mobile-footer-gap:      $small-unit;
 $layout-mobile-header-gap:      $small-unit;
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   background: $background-color;
-  overflow-y: scroll;
 }
 
 .layout {

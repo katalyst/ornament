@@ -28,11 +28,11 @@
     <%= yield :styles %>
 
     <!-- SCRIPTS -->
-    <%= javascript_include_tag "modernizr.js" %>
+    <%= javascript_include_tag "modernizr" %>
     <%= javascript_include_tag "application" %>
     <!--[if lt IE 9]>
-      <%= javascript_include_tag "selectivizr.js" %>
-      <%= javascript_include_tag "css3-mediaqueries.js" %>
+      <%= javascript_include_tag "selectivizr" %>
+      <%= javascript_include_tag "css3-mediaqueries" %>
     <![endif]-->
     <%= yield :scripts %>
 
