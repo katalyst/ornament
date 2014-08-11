@@ -3,7 +3,7 @@ Ornament
 
 A front-end framework for your Rails app.
 
-Visit the [Ornament website](http://ornament.herokuapp.com/) for more information.
+Visit the [Ornament website](http://ornament.katalyst.com.au/) for more information.
 
 Installation
 ------------
@@ -12,7 +12,7 @@ Installation
 
     ```ruby
     group :development do
-      gem "ornament", :git => "git@github.com:ketchup/ornament.git"
+      gem "ornament", :git => "git@github.com:katalyst/ornament.git"
     end
     ```
 
