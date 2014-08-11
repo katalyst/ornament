@@ -1,0 +1,26 @@
+# Ornament To-Do List
+
+- Anchor over-ride for sticky header
+- Mobile menu
+  - Anchor behaviour, tie in with anchor over-ride
+- Forms
+  - Rails image upload form field
+  - Drag 'n Drop Form Upload Docs
+- Fotorama Presets
+- Google Map embed
+  - Lock/unlock styling
+  - Geolocate centreing
+  - Clustering
+- Tabs
+  - Momentum scrolling for swipable tabs
+  - Swipable body to change tabs
+- Multi-object slider
+  - A slider that has multiple objects inside it
+  - Can slide 1 object across
+  - Can slide all visible objects across
+  - Reponsive, 3 objects goes to 2, then 1
+  - Swipable, controllable, bullets
+- Tooltips
+  - Responsive considerations
+  - HoverIntent option
+  - Hoverable tooltips, close buttons
