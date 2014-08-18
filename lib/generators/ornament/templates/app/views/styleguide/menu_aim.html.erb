@@ -1,0 +1,39 @@
+<% content_for :title, "Menu Aim" %>
+
+<div class="content-spacing">
+
+  <p>Menu-aim uses the <a href="https://github.com/kamens/jQuery-menu-aim" target="_blank">jQuery-menu-aim plugin</a> to create Amazon-style menu behaviours.</p>
+
+  <p>Simply wrap your list in a div with the <code>data-menu-aim</code> attribute:</p>
+
+  <pre class="sg-pre prettyprint">&lt;div class="menu-aim" data-menu-aim>
+  &lt;ul>
+    <%- (1..2).each do |i| -%>
+      &lt;li>
+        &lt;a href="#">Menu Item >&lt;/a>
+        &lt;ul>
+          <%- (1..2).each do |i| -%>
+            &lt;li>&lt;a href="#">Submenu Item&lt;/a>&lt;/li>
+          <%- end -%>
+        &lt;/ul>
+      &lt;/li>
+    <%- end -%>
+  &lt;/ul>
+&lt;/div></pre>  
+
+  <div class="menu-aim" data-menu-aim>
+    <ul>
+      <%- (1..20).each do |i| -%>
+        <li>
+          <a href="#">Menu Item ></a>
+          <ul>
+            <%- (1..5).each do |i| -%>
+              <li><a href="#">Submenu Item</a></li>
+            <%- end -%>
+          </ul>
+        </li>
+      <%- end -%>
+    </ul>
+  </div>
+
+</div>
