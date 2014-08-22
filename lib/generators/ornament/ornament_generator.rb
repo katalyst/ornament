@@ -11,12 +11,6 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :styleguide,   :type => :boolean, :default => true
   class_option :example,      :type => :boolean, :default => false
 
-  if options.example?
-    options.gems = false;
-    options.layouts = false;
-    options.styleguide = false;
-  end
-
   def generate
 
     if options.settings?
@@ -33,7 +27,7 @@ class OrnamentGenerator < Rails::Generators::Base
 
       end
 
-      if options.gems?
+      if options.gems? && !options.example?
         gem_group :assets do
           gem 'sass',           '3.2.18'
           gem "sass-rails",     "~> 3.2.6"
@@ -69,7 +63,7 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/assets/stylesheets/grunticon"
       end
 
-      if options.layouts?
+      if options.layouts? && !options.example?
         directory "app/views/layouts"
         directory "app/views/errors"
         directory "app/views/kaminari"
@@ -78,7 +72,7 @@ class OrnamentGenerator < Rails::Generators::Base
 
       directory "vendor/assets"
 
-      if options.styleguide?
+      if options.styleguide? && !options.example?
 
         route "match '/styleguide' => 'styleguide#index'"
         route "match '/styleguide/:action' => 'styleguide'"
