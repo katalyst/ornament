@@ -1,25 +1,5 @@
 <% content_for :title, "Fotorama" %>
 
-<style>
-  .banner--caption {
-    position: absolute;
-    background: #ccc;
-    color: #222;
-    padding: 15px;
-    width: 200px;
-    z-index: 3;
-    box-sizing: border-box;
-  }
-  .banner--text-left .banner--caption {
-    bottom: 20px;
-    left: 20px;
-  }
-  .banner--text-right .banner--caption {
-    bottom: 20px;
-    right: 20px;
-  }
-</style>
-
 <div class="rhythm">
 
   <section class="spacing">
@@ -31,11 +11,7 @@
       <li><a href="http://fotorama.io/customize/" target="_blank">Documentation</a></li>
     </ul>
 
-    <h2 class="heading-two">Ready-to-go Examples</h2>
-
-    <p>
-      <strong>Basic Slider</strong>
-    </p>
+    <h2 class="heading-two">Basic Slider</h2>
 
     <div class="fotorama">
       <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/1-lo.jpg">
@@ -51,62 +27,9 @@
       <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/5-lo.jpg">
     </div>'%></pre>
 
-    <p>
-      <strong>Banner Module</strong><br />
-      Banner 1: Image only<br />
-      Banner 2: Text Left, Image Right<br />
-      Banner 3: Image Left, Text Right<br />
-      Banner 4: Image only with a link
-    </p>
-
-    <div class="fotorama" data-width="700" data-ratio="700/467" data-max-width="100%" data-autoplay="true" data-loop="true" data-stop-autoplay-on-touch="true">
-      <div class="banner--image-only">
-        <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/1-lo.jpg">
-      </div>
-      <div class="banner--text-left">
-        <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/2-lo.jpg">
-        <div class="banner--caption">
-          This is some example HTML content
-        </div>
-      </div>
-      <div class="banner--text-right">
-        <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/9-lo.jpg">
-        <div class="banner--caption">
-          This is some example HTML content
-        </div>
-      </div>
-      <div class="banner--text-right">
-        <a href="http://google.com.au/">
-          <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/3-lo.jpg">
-        </a>
-      </div>
-    </div>
-
-    <pre class="sg-pre prettyprint"><%=h '   <div class="fotorama" data-width="700" data-ratio="700/467" data-max-width="100%" data-autoplay="true" data-loop="true" data-stop-autoplay-on-touch="true">
-      <div class="banner--image-only">
-        <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/1-lo.jpg">
-      </div>
-      <div class="banner--text-left">
-        <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/2-lo.jpg">
-        <div class="banner--caption">
-          This is some example HTML content
-        </div>
-      </div>
-      <div class="banner--text-right">
-        <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/9-lo.jpg">
-        <div class="banner--caption">
-          This is some example HTML content
-        </div>
-      </div>
-      <div class="banner--text-right">
-        <a href="http://google.com.au/" target="_blank">
-          <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/3-lo.jpg">
-        </a>
-      </div>
-    </div>'%></pre>
+    <h2 class="heading-two">Gallery</h2>
 
     <p>
-      <strong>Gallery</strong><br />
       Banners with thumbnails, lazy-loading, fullscreen
     </p>
 
