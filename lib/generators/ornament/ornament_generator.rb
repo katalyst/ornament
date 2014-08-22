@@ -9,6 +9,13 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :layouts,      :type => :boolean, :default => true
   class_option :settings,     :type => :boolean, :default => true
   class_option :styleguide,   :type => :boolean, :default => true
+  class_option :example,      :type => :boolean, :default => false
+
+  if options.example?
+    options.gems = false;
+    options.layouts = false;
+    options.styleguide = false;
+  end
 
   def generate
 
