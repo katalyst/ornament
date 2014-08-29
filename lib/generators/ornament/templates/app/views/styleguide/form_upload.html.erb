@@ -1,0 +1,93 @@
+<%- content_for :title, "Image Uploader" -%>
+
+<div class="content-spacing content-lists">
+
+  <h2 class="heading-two">Prerequisites</h2>
+
+  <p>To enable the drag and drop image uploader, you will need to generate the ornament uploader dependancies. To do so, simply run:</p>
+
+  <p>
+    <code>rails generate oranament --uploader</code>
+  </p>
+
+  <p>This will install some required files for the image uploader to work.</p>
+
+  <p>You will get a new controller for handling uploads, a new route and a crud view for image uploads</p>
+
+  <p>To use the image uploader in your project, simply replace your form field with:</p>
+
+  <p><code>&lt;%= render "form_field_image", { :f => f, :attr => :image } %></code></p>
+
+  <p>The partial takes a few values:</p>
+
+  <ul>
+    <li>attr: The field name, ie. image, banner_image, logo etc. Required.</li>
+    <li>max_size: The maximum file size of the file in megabytes. Defaults to 5.</li>
+    <li>types: Allowed extensions to upload. Defaults to jpg,jpeg,gif</li>
+  </ul>
+  
+  <h2 class="heading-two">Demo</h2>
+
+  <div class="input upload optional">
+    <label>Example Image</label><span class='error-block'>that might have an error message</span>
+    <div class="form--file-upload--hint-position"></div>
+
+    <div class="form--file-upload">
+      <div>
+        <input type="file" class="file-upload-demo" data-file-max-count="1" data-file-max-size="10" data-file-types="jpg,jpeg,gif" />
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-two">Fallback</h2>
+
+  <p>This component uses Modernizr to test for FileAPI and DragAndDrop capabilities. If it finds that the browser doesn't support one of these, it will immediately fall back to a regular file upload field. Example:</p>
+
+  <div class="input upload optional">
+    <label>Fallback Image Uploader</label><span class='error-block'>that might have an error message</span>
+    <div class="form--file-upload--hint-position"></div>
+
+    <div class="form--file-upload">
+      <div>
+        <input type="file" class="file-upload-negative" data-file-max-count="1" data-file-max-size="10" data-file-types="jpg,jpeg,gif" />
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-two">Options</h2>
+
+  <p>By default, the partial adds the class <code>file-upload</code> to the input field and assumes that the files being uploaded are images. To change the behaviour of the uploader, pass in the <code>html_class</code> attribute to your partial, then target the class using the <code>katFileUpload()</code> jQuery plugin:</p>
+
+  <pre class="sg-prettyprint sg-pre">$(function(){
+  $(".file-upload-demo").katFileUpload({
+    debug: boolean,
+    demo: boolean,
+    uploadPath: string,
+    beforeUpload: function(),
+    afterImageUpload: function(f,thumbnail,thumbnailTarget,$fileElement),
+    afterFileUpload: function(f,thumbnail,thumbnailTarget,$fileElement),
+    afterDrop: function()
+  });
+});</pre>
+
+  <p><code>demo: true</code> will prevent files from uploading. You can drag and drop and add them via the browse button, but nothing will happen server side.</p>
+
+  <p><code>debug: true</code> will pollute your console with all sorts of debug information.</p>
+
+  <p><code>uploadPath</code> will change where the images are AJAXed to. By default it's /uploads/image</p>
+
+  <p><code>beforeUpload</code> allows you to do stuff before files are uploaded.</p>
+
+  <p><code>afterImageUpload</code> and <code>afterFileUpload</code> allow you to run some code after an image has uploaded. You have access to the file (f), thumbnail, thumbnailTarget and $fileElement. You might use this to generate extra data around the thumbnail, for example additional fields such as an alt tag field or caption or something.</p>
+
+</div>
+
+<%- content_for :scripts_bottom do -%>
+  <script>
+    $(function(){
+      $(".file-upload-demo").katFileUpload({
+        demo: true
+      });
+    });
+  </script>
+<%- end -%>

@@ -10,6 +10,7 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :settings,     :type => :boolean, :default => true
   class_option :styleguide,   :type => :boolean, :default => true
   class_option :example,      :type => :boolean, :default => false
+  class_option :uploader,     :type => :boolean, :default => false
 
   def generate
 
@@ -17,7 +18,7 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "../../../../test/dummy/app/assets/stylesheets/_settings.css.scss", "app/assets/stylesheets/_settings.css.scss"
     end
 
-    unless options.development?
+    unless options.development? || options.uploader?
 
       if options.core?
 
@@ -54,13 +55,13 @@ class OrnamentGenerator < Rails::Generators::Base
 
         copy_file "Gruntfile.js"
         copy_file "package.json"
-
       end
 
       if options.components?
         directory "app/assets/javascripts/components"
         directory "app/assets/stylesheets/components"
         directory "app/assets/stylesheets/grunticon"
+        directory "vendor/assets"
       end
 
       if options.layouts? && !options.example?
@@ -70,18 +71,22 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/views/shared"
       end
 
-      directory "vendor/assets"
-
       if options.styleguide? && !options.example?
-
         route "match '/styleguide' => 'styleguide#index'"
         route "match '/styleguide/:action' => 'styleguide'"
 
         copy_file "app/controllers/styleguide_controller.rb"
         directory "app/views/styleguide"
-
       end
 
+    elsif options.uploader?
+        # drag and drop image uploader dependancies
+        route "resources :uploads do"
+        route "  post :image, on: :collection"
+        route "end"
+        copy_file "app/controllers/uploads_controller.rb"
+        copy_file "app/views/koi/crud/_form_field_image.html.erb"
+      end
     end
 
   end
