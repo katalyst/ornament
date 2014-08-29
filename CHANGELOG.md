@@ -15,6 +15,8 @@
 - Breakpoint helper
 - Map component for easily adding Google maps
 - Lightbox compenent using Magnific Popup
+- Text limiter for input fields
+- Drag and Drop image uploader
 - Select Links for turning a select menu in to a navigation control
 - Sliding nested mobile navigation with heaps of public functions to control from anywhere
 - `Ornament.windowWidth` and `Ornament.windowHeight` for browser agnostic window measurements
