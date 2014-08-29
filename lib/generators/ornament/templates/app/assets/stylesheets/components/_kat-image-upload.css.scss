@@ -112,8 +112,8 @@ $file-upload-breakpoint: 545px;
 }
 
 .file-upload--message {
-  font-size: 1.1em;
-  padding: 15px;
+  font-size: $large-font-size;
+  padding: $xxx-small-unit;
   text-align: center;
   margin-left: $file-upload-thumbnail-width;
 
@@ -125,6 +125,7 @@ $file-upload-breakpoint: 545px;
   @include media-query($file-upload-breakpoint) {
     margin-left: 0;
     clear: both;
+    padding: $xxx-small-unit 0 0 0;
   }
 }
 
@@ -163,6 +164,7 @@ $file-upload-breakpoint: 545px;
   background: $file-upload-thumbnail-background;
   color: $white;
   cursor: pointer;
+  text-align: center;
 }
 
 // gallery zone
