@@ -1,26 +1,25 @@
-// KAT FILE UPLOAD
+$file-upload-thumbnail-width: 200px;
+$file-upload-thumbnail-background: #444;
+$file-upload-breakpoint: 545px;
 
 // dropzone for images/files
 .file-upload--dropzone {
   @include pie-clearfix;
-  border: 2px dashed #bbb;
-  padding: $small-unit;
-  margin-top: $default-unit;
-
-  a {
-    color: #bada55;
-  }
+  border: 2px dashed $input-border-color;
+  padding: $xxxx-small-unit;
+  margin-top: $xxxx-small-unit;
+  @include transition(border-color .2s);
 
   &.file-upload--dropzone--over {
-    border-color: #bada55;
+    border-color: $input-border-focus-color;
   }
 }
 
 .file-upload--thumbnail {
   float: left;
-  width: 200px;
-  height: 200px;
-  background: #444;
+  width: $file-upload-thumbnail-width;
+  height: $file-upload-thumbnail-width;
+  background: $file-upload-thumbnail-background;
   margin-right: 10px;
 
   .file-upload--image {
@@ -28,8 +27,9 @@
     max-height: 100%;
   }
 
-  .file-upload--dropzone--over & {
-    opacity: 0.8;
+  @include media-query($file-upload-breakpoint) {
+    float: none;
+    margin: 0 auto;
   }
 }
 
@@ -69,14 +69,17 @@
   }
 
   .thumbnail--remove {
-    position: absolute;
     top: 0;
     right: 0;
     z-index: 2;
-    background: red;
-    color: #fff;
-    padding: 2px 8px;
+    background: $error-background;
     cursor: pointer;
+    @include border-radius(50%);
+    @include icon-block(32px, 16px);
+    @include grunticon("close-16-white", 16px);
+    position: absolute;
+    margin-top: -6px;
+    margin-right: -6px;
     display: none;
   }
 
@@ -112,14 +115,25 @@
   font-size: 1.1em;
   padding: 15px;
   text-align: center;
+  margin-left: $file-upload-thumbnail-width;
+
+  span {
+    display: block;
+    margin-bottom: $xxx-small-unit;
+  }
+
+  @include media-query($file-upload-breakpoint) {
+    margin-left: 0;
+    clear: both;
+  }
 }
 
 // Thumbnail container and undo styles
 .file-upload--undo,
 .thumbnail-container {
   float: left;
-  width: 200px;
-  height: 200px;
+  width: $file-upload-thumbnail-width;
+  height: $file-upload-thumbnail-width;
   background: #444;
   margin-right: 10px;
   position: relative;
@@ -146,8 +160,8 @@
 }
 
 .file-upload--undo {
-  background: #ccc;
-  color: #222;
+  background: $file-upload-thumbnail-background;
+  color: $white;
   cursor: pointer;
 }
 
@@ -163,8 +177,8 @@
   }
 
   .dragging {
-    border: 2px dashed #000;
-    background: #ccc;
+    border: 2px dashed $input-border-focus-color;
+    background: $file-upload-thumbnail-background;
 
     .thumb {
       opacity: 0;
@@ -173,24 +187,5 @@
 
   .dragover {
     opacity: 0.2;
-  }
-}
-
-// custom css for custom class version
-.dropzone_file-upload-with-callback {
-  .thumbnail-container {
-    @include pie-clearfix;
-    background: transparent;
-    float: none;
-    width: 100%;
-  }
-  .thumb {
-    float: left;
-    width: 33%;
-  }
-  .file-upload-with-callback--fields {
-    float: left;
-    width: 66%;
-    padding-left: $default-unit;
   }
 }

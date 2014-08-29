@@ -1,11 +1,6 @@
 # Ornament To-Do List
 
 - Anchor over-ride for sticky header
-- Mobile menu
-  - Anchor behaviour, tie in with anchor over-ride
-- Forms
-  - Rails image upload form field
-  - Drag 'n Drop Form Upload Docs
 - Fotorama Presets
 - Google Map embed
   - Lock/unlock styling
