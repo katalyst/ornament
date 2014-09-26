@@ -17,6 +17,8 @@ $header-line-height: $button-height;
   float: left;
   @include heading-four;
   line-height: $header-line-height;
+  @include color-link($foreground-color, $foreground-color);
+  @include decorate-link(none, none);
 }
 
 .header--aside {
@@ -24,6 +26,10 @@ $header-line-height: $button-height;
 
   ul {
     line-height: $header-line-height;
+  }
+
+  ul a {
+    @include color-link($foreground-color, $foreground-color);
   }
 
   ul, form {

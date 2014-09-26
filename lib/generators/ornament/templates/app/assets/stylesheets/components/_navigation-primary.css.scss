@@ -1,3 +1,6 @@
+$navigation-background: $primary-color;
+$navigation-children-background: $secondary-color;
+
 // Primary drop-down navigation module
 .navigation-primary {
 
@@ -15,8 +18,7 @@
 }
 
 .navigation-primary nav {
-  background: $primary-color;
-  overflow: hidden;
+  background: $navigation-background;
   @include border-radius($border-radius);
 }
 
@@ -27,16 +29,48 @@
 
 // First level
 .navigation-primary nav > ul {
-  @include list-horizontal($xx-small-unit, 1px solid $primary-color-dark, $delegate: a);
+  @include list-horizontal($xxx-small-unit, 1px solid darken($navigation-background, 10), true, $delegate: "> a");
+}
+.navigation-primary nav > ul > li {
+  position: relative;
+
+  &:first-child {
+    border-left: 0
+  }
+
+  &.has-children a {
+    padding-right: $x-large-unit;
+    // TODO: chevron-down icon
+  }
+}
+.navigation-primary nav > ul > li:first-child > a {
+  @include border-top-left-radius($border-radius);
+  @include border-bottom-left-radius($border-radius);
 }
 .navigation-primary nav > ul > li > a {
   line-height: $navigation-height;
 }
-.navigation-primary nav > ul > li > a:hover {
-  background: $primary-color-x-dark;
+.navigation-primary nav > ul > li > a:hover,
+.navigation-primary nav > ul > li:hover > a {
+  background: $navigation-children-background;
 }
 
 // Second level
 .navigation-primary nav > ul ul {
   display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  min-width: 190px;
+  background: $navigation-children-background;
+  padding: $xxx-small-unit 0;
+
+  a {
+    padding: 0 $xxx-small-unit;
+    display: block;
+  }
+}
+.navigation-primary nav > ul > li:hover > ul {
+  display: block;
 }

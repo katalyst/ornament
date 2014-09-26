@@ -107,14 +107,18 @@ $site-gutters:
 // Default colors.
 //
 
-$primary-color: #0082c8;
+$primary-color: #1ABC9C;
 $primary-color-dark: darken($primary-color, 10);
 $primary-color-x-dark: darken($primary-color, 20);
+
+$secondary-color: #34495E;
+$secondary-color-dark: darken($secondary-color, 10);
+$secondary-color-x-dark: darken($secondary-color, 20);
 
 $white: #fff;
 $grey: #bbb;
 
-$foreground-color: #222;
+$foreground-color: #2C3E50;
 $background-color: #fff;
 $link-color: blue;
 $link-hover-color: false;
