@@ -1,8 +1,8 @@
 $tooltip-arrow:         false; // this can be a url()
-$tooltip-arrow-height:  6px;
-$tooltip-background:    #4b9dd0;
+$tooltip-arrow-height:  8px;
+$tooltip-background:    $passive-color;
 $tooltip-border:        none;
-$tooltip-color:         #fff;
+$tooltip-color:         $foreground-color;
 $tooltip-padding:       $xxxx-small-unit;
 $tooltip-width:         280px;
 $tooltip-z-index:       20;
@@ -33,6 +33,7 @@ $tooltip-z-index:       20;
   color: $tooltip-color;
   position: absolute;
   width: $tooltip-width;
+  font-size: $small-font-size;
   @include border-radius($border-radius);
 
   .tooltip--outer.tleft & {
@@ -69,22 +70,22 @@ $tooltip-z-index:       20;
   border: $tooltip-arrow-height solid transparent;
 
   .tooltip--outer.tright & {
-    left: -12px;
+    left: -($tooltip-arrow-height * 2);
     border-right-color: $tooltip-background;
   }
 
   .tooltip--outer.tleft & {
-    right: -12px;
+    right: -($tooltip-arrow-height * 2);
     border-left-color: $tooltip-background;
   }
 
   .tooltip--outer.ttop & {
-    bottom: -12px;
+    bottom: -($tooltip-arrow-height * 2);
     border-top-color: $tooltip-background;
   }
 
   .tooltip--outer.tbottom & {
-    top: -12px;
+    top: -($tooltip-arrow-height * 2);
     border-bottom-color: $tooltip-background;
   }
 
