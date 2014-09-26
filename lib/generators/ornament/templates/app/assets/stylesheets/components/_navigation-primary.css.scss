@@ -66,8 +66,13 @@ $navigation-children-background: $secondary-color;
   padding: $xxx-small-unit 0;
 
   a {
+    @include decorate-link(none, underline);
     padding: 0 $xxx-small-unit;
     display: block;
+  }
+
+  li + li {
+    margin-top: $xxxx-small-unit;
   }
 }
 .navigation-primary nav > ul > li:hover > ul {

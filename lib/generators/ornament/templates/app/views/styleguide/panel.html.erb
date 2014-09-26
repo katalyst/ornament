@@ -1,59 +1,59 @@
-<% content_for :title, "Panels" %>
+<% content_for :page_title, "Panels" %>
 
-<div class="content-spacing">
+<div class="spacing">
 
-  <h2 class="heading-two">Panels and colour variants</h2>
+  <h2 class="heading-two">Panel grid</h2>
 
-  <p>To create a panel, all you need is a <code>panel</code> class:</p>
-
-  <div class="panel">
-    This is a panel
+  <div>
+    <div class="grid__three" data-conform-columns="panels">
+      <%- (1..10).each do |i| -%>
+        <div class="column">
+          <div class="panel__default content-spacing__compressed" data-conform="panels">
+            <h2 class="heading-six">Panel</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+            <p>
+              <a href="#" class="button button__full">Action Button!</a>
+            </p>
+          </div>
+        </div>
+      <%- end -%>
+    </div>
   </div>
 
-  <p>To create a blue panel, you can use the <code>panel__blue</code> class instead:</p>
+  <h2 class="heading-two clear">Grouped panels</h2>
 
-  <div class="panel__blue">
-    Blue panel
+  <div>
+    <div class="grid__three">
+      <div class="column">
+        <div class="panel">
+          <div class="panel--padding">
+            This is the top panel.
+          </div>
+          <div class="panel--padding panel--padding-border">
+            This is a second, joined panel.
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="panel">
+          <div class="panel--padding panel__primary">
+            This is a primary panel.
+          </div>
+          <div class="panel--padding panel--padding-border panel__error">
+            This is an error panel.
+          </div>
+          <div class="panel--padding panel--padding-border panel__warning">
+            This is a warning panel.
+          </div>
+          <div class="panel--padding panel--padding-border panel__success">
+            This is a success panel.
+          </div>
+          <div class="panel--padding panel--padding-border">
+            This is a regular panel.
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <p>You can create custom panel classes by adding colour variations to the <code>panel.css.scss</code> file.</p>
-
-  <h2 class="heading-two">Panel padding</h2>
-
-  <p>There are a few options you have when applying padding to a panel. You can use <code>panel--padding__large</code>, which has large padding:</p>
-
-  <div class="panel panel--padding__large">
-    Panel with large, responsive padding
-  </div>
-
-  <p>You can use <code>panel--padding</code>, which has regular padding:</p>
-
-  <div class="panel panel--padding">
-    Panel with responsive padding
-  </div>
-
-  <p>Or you can use the <code>panel--padding__tight</code> class, which has small padding:</p>
-
-  <div class="panel panel--padding__tight">
-    Panel with tight padding
-  </div>
-
-  <p>The large and regular padding variants use reponsive padding, which means as the screen size shrinks, so does the padding.</p>
-
-  <p>The large becomes regular, then tight. The regular becomes tight. The tight padding variant is already at the smallest padding size, so that one is not responsive. </p>
-
-  <h2 class="heading-two">Stacking panels</h2>
-
-  <p>You can stack panels by adding in the <code>panel__no-bottom-radius</code> and <code>panel__no-top-radius</code> classes:</p>
-
-  <div class="panel panel__blue panel--padding panel__no-bottom-radius">
-    Blue panel with no bottom radius
-  </div>
-
-  <div class="panel panel--padding panel__no-top-radius">
-    Panel with no top radius
-  </div>
-
-  <p>This is the reason why panels don't have padding by default, so that panels can stack and have independant padding.</p>
 
 </div>

@@ -6,18 +6,19 @@ $button-success:                    $success-color;
 $button-disabled:                   $passive-color;
 
 .button {
-  @include border-radius($border-radius);
   color: $white;
   @include color-link($white, $white);
   @include decorate-link(none, none);
+  @include border-radius($border-radius);
   @include inline-block;
   @include transition(background .2s);
   background: $button-background;
   border: 0;
-  cursor: pointer;
   @include line-height-padding($button-height);
   padding-left: $x-small-unit;
   padding-right: $x-small-unit;
+  cursor: pointer;
+  font-size: $large-font-size;
 
   &:hover {
     background: darken($button-background,10);
@@ -75,6 +76,7 @@ $button-disabled:                   $passive-color;
 // BUTTON MODIFIERS
 .button__full {
   width: 100%;
+  text-align: center;
 }
 
 // BUTTONS WITH ICONS

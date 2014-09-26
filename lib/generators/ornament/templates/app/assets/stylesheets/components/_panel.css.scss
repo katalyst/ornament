@@ -1,9 +1,17 @@
 $panel-border:          $background-color;
 
+// Single panels
+
 .panel {
   @include border-radius($border-radius);
   @include pie-clearfix;
-  background: $grey;
+  background: $passive-color;
+  overflow: hidden;
+}
+
+.panel__default {
+  @extend .panel;
+  @extend .panel--padding;
 }
 
 .panel--padding-border {
@@ -12,14 +20,38 @@ $panel-border:          $background-color;
 
 // COLOUR VARIANTS
 
-.panel__blue {
-  @extend .panel;
+.panel__primary {
   background: $primary-color;
   color: $white;
   a {
     @include color-link($white,$white);
   }
 }
+
+.panel__error {
+  background: $error-color;
+  color: $white;
+  a {
+    @include color-link($white,$white);
+  }
+}
+
+.panel__warning {
+  background: $warning-color;
+  color: $white;
+  a {
+    @include color-link($white,$white);
+  }
+}
+
+.panel__success {
+  background: $success-color;
+  color: $white;
+  a {
+    @include color-link($white,$white);
+  }
+}
+
 
 // PADDING VARIANTS
 

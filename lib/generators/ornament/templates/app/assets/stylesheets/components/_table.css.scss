@@ -1,56 +1,49 @@
-$table-border: 1px solid #ccc;
-
+// General table styles
 table {
   width: 100%;
+  border: 2px solid $table-border-color;
+  border-width: 2px 0;
 }
 
-.table {
-  td,
-  th {
-    padding: 0.5em 1em;
+table th,
+table td {
+  padding: $xxx-small-unit;
+}
+
+table thead {
+  border-bottom: 2px solid $table-border-color;
+}
+
+table thead th {
+  @include font($bold-font);
+}
+
+table td {
+  border-top: 1px solid $table-border-color;
+}
+
+// Tables with flush left/right paddings
+.table__flush {
+  th:first-child,
+  td:first-child {
+    padding-left: 0;
+  }
+  th:last-child,
+  td:last-child {
+    padding-right: 0;
   }
 }
 
-.table-flush {
-  td,
+.table__vertical {
   th {
-    &:first-child {
-      padding-left: 0;
-    }
-    &:last-child {
-      padding-right: 0;
-    }
+    background: $passive-color;
+    border-top: 1px solid $table-border-color;
   }
 }
 
-.table-ruled {
-  td,
-  th {
-    border-bottom: $table-border;
-  }
-}
-
-.table-full-width {
-  width: 100%;
-}
-
-.table-small {
-  font-size: 0.8em;
-  td,
-  th {
-    padding: 0.1em 0.2em;
-  }
-}
-
-.table-2-cols {
-  td,
-  th {
-    width: 50%;
-  }
-}
-
-.table-container {
+// Scrollable Table
+.table-scroll {
   max-width: 100%;
   overflow: auto;
-  -webkit-overflow-scroll: touch;
+  -webkit-overflow-scroll: touch;  
 }

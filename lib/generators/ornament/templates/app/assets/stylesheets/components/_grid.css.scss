@@ -1,0 +1,56 @@
+$columnCount: 12;
+
+// can also use .row
+.grid,
+.columns {
+  @include row();
+  @include rowV();
+  clear: both;
+}
+
+// grid-x
+// eg. grid-4 is 4/12
+@for $i from 1 through $columnCount {
+  .grid-#{$i} {
+    @include spang($i, $columnCount);
+    @include guttersV();
+  }
+}
+
+// equalise columns with easy to use containers
+.grid__four {
+  @include row();
+  @include rowV();
+  clear: both;
+
+  .column {
+    @include spang(1,4);
+    @include spang(1,3,medium);
+    @include spang(1,2,small);
+    @include guttersV();
+  }
+}
+
+.grid__three {
+  @include row();
+  @include rowV();
+  clear: both;
+
+  .column {
+    @include spang(1,3);
+    @include spang(1,2,medium);
+    @include spanc(tiny);
+    @include guttersV();
+  }
+}
+
+.grid__two {
+  @include row();
+  @include rowV();
+  clear: both;
+
+  .column {
+    @include spang(1,2);
+    @include guttersV();
+  }
+}

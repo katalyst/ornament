@@ -27,6 +27,7 @@
 @import "components/error-page";
 @import "components/footer";
 @import "components/form";
+@import "components/grid";
 @import "components/header";
 @import "components/icons";
 @import "components/island";
@@ -63,4 +64,10 @@
 //  }
 //
 
+.clear {
+  clear: both;
+}
 
+.clearfix {
+  @include pie-clearfix;
+}

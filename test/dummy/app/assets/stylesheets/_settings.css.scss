@@ -15,9 +15,9 @@
 
 $base-pixel:          14px;
 
-$small-font-size:     0.8em;
+$small-font-size:     13px;
 $base-font-size:      $base-pixel;
-$large-font-size:     1.1em;
+$large-font-size:     16px;
 $base-line-height:    1.5;
 $base-line-size:      $base-font-size * $base-line-height;
 
@@ -129,8 +129,9 @@ $background-color: #fff;
 $link-color: $primary-color;
 $link-hover-color: false;
 
-$input-border-color: #c5cbd4;
+$input-border-color: #D3D3D3;
 $input-border-focus-color: darken($input-border-color,20);
+$table-border-color: #BDC3C7;
 
 $white: #fff;
 $grey: #bbb;
