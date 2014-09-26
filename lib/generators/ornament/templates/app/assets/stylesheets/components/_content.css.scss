@@ -2,9 +2,12 @@
   background: #eee;
   padding: $xxxx-large-unit 0;
 
-  .attached-navigation & {
-    @include media-query($header-breakpoint, min) {
+  @include media-query($header-breakpoint, min) {
+    .attached-navigation & {
       padding-top: $xxxx-large-unit + ($navigation-height / 2);
+    }
+    .attached-navigation .navigation-primary + & {
+      margin-top: -($navigation-height / 2);
     }
   }
 }

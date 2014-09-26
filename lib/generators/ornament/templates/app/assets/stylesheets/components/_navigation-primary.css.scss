@@ -8,7 +8,6 @@ $navigation-children-background: $secondary-color;
   .attached-navigation & {
     position: relative;
     margin-top: -($navigation-height / 2);
-    margin-bottom: -($navigation-height / 2);
   }
 
   @include media-query($header-breakpoint) {
