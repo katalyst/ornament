@@ -33,6 +33,7 @@ $input-typeface: $body-font;
  @include font($body-font);
  font-size: $base-font-size;
  line-height: $base-line-height;
+ color: $foreground-color;
 }
 
 body, .body-type {
@@ -128,25 +129,6 @@ body, .body-type {
 @mixin heading-five() {}
 @mixin heading-six() {}
 
-@mixin heading-module {
-  @include font($heading-alpha-font);
-  font-size: 36px;
-  line-height: 48px;
-  em {
-    @include font($heading-alpha-font-italic);
-  }
-  &:first-child {
-    margin-top: 0;
-  }
-  &:last-child {
-    margin-bottom: 0;
-  }
-  @include media-query($breakpoint-typography) {
-    font-size: 30px;
-    line-height: 40px;
-  }
-}
-
 
 // INLINE STYLES
 
@@ -179,39 +161,18 @@ a, button {
   @include color-link($link-color, $link-hover-color);
 }
 
-
-// FORMS
-
-[type="text"], [type="password"], [type="date"], [type="datetime"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], textarea {
-  @include font($input-typeface);
-}
-
-
 // TABLES
 
 th {
   @include font($bold-font);
 }
 
-// BASE TYPOGRAPHY
-
-body {
-  font-size: $base-font-size;
-  line-height: $base-line-height;
-  color: $foreground-color;
-  @include font($body-font);
-}
-
-a, button {
-  @include decorate-link(none, underline);
-  @include color-link($link-color, $link-hover-color);
-}
+// FORMS
 
 [type="text"], [type="password"], [type="date"], [type="datetime"],
 [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"],
 [type="url"], textarea {
-  font: inherit;
   font-size: $base-font-size;
   line-height: $base-line-height;
-  @include font($body-font);
+  @include font($input-typeface);
 }
