@@ -1,46 +1,81 @@
-$button-background-color:           $primary-color;
-$button-border-radius:              $border-radius;
-$button-dangerous-background-color: #990000;
-$button-dangerous-foreground-color: #ffffff;
-$button-typeface:                   $bold-font, $base-font-size;
-$button-foreground-color:           #ffffff;
-$button-padding:                    $xxxxx-small-unit $xxxx-small-unit;
-$button-secondary-background-color: #333333;
-$button-secondary-foreground-color: #ffffff;
-$button-small-padding:              $xx-small-unit $x-small-unit;
-$button-small-typeface:             $bold-font, $base-font-size * 0.8;
+$button-background:                 $default-color;
+$button-primary:                    $primary-color;
+$button-warning:                    $warning-color;
+$button-error:                      $error-color;
+$button-success:                    $success-color;
+$button-disabled:                   $passive-color;
 
 .button {
-  @include border-radius($button-border-radius);
-  @include color-link($button-foreground-color, $button-foreground-color);
+  @include border-radius($border-radius);
+  color: $white;
+  @include color-link($white, $white);
   @include decorate-link(none, none);
   @include inline-block;
   @include transition(background .2s);
-  background: $button-background-color;
+  background: $button-background;
   border: 0;
-  color: $button-foreground-color;
   cursor: pointer;
-  padding: $button-padding;
+  @include line-height-padding($button-height);
+  padding-left: $x-small-unit;
+  padding-right: $x-small-unit;
 
   &:hover {
-    background: darken($button-background-color,10);
+    background: darken($button-background,10);
   }
 }
 
+// COLOUR VARIATIONS
+
+.button__primary {
+  @extend .button;
+  background: $button-primary;
+
+  &:hover {
+    background: darken($button-primary,10);
+  }
+}
+
+.button__warning {
+  @extend .button;
+  background: $button-warning;
+
+  &:hover {
+    background: darken($button-warning,10);
+  }
+}
+
+.button__error {
+  @extend .button;
+  background: $button-error;
+
+  &:hover {
+    background: darken($button-error,10);
+  }
+}
+
+.button__success {
+  @extend .button;
+  background: $button-success;
+
+  &:hover {
+    background: darken($button-success,10);
+  }
+}
+
+.button__disabled {
+  @extend .button;
+  background: $button-disabled;
+
+  &:hover {
+    background: $button-disabled;
+  }
+}
+
+
+// BUTTON MODIFIERS
 .button__full {
   width: 100%;
 }
-
-.button__secondary {
-  @include color-link($button-secondary-foreground-color, $button-secondary-foreground-color);
-  background: $button-secondary-background-color;
-  color: $button-secondary-foreground-color;
-
-  &:hover {
-    background: darken($button-secondary-background-color,10);
-  }
-}
-
 
 // BUTTONS WITH ICONS
 .button__icon-right,

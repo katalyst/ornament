@@ -107,33 +107,36 @@ $site-gutters:
 // Default colors.
 //
 
-$primary-color: #1ABC9C;
-$primary-color-dark: darken($primary-color, 10);
-$primary-color-x-dark: darken($primary-color, 20);
+$primary-color: #3498DB;
+
+$default-color: #1ABC9C;
+$default-color-dark: darken($default-color, 10);
+$default-color-x-dark: darken($default-color, 20);
 
 $secondary-color: #34495E;
 $secondary-color-dark: darken($secondary-color, 10);
 $secondary-color-x-dark: darken($secondary-color, 20);
 
-$white: #fff;
-$grey: #bbb;
+$error-color: #E74C3C;
+$notice-color: #ff6600;
+$success-color: #2ECC71;
+$warning-color: #F1C40F;
+$passive-color: #ECF0F1;
 
 $foreground-color: #2C3E50;
 $background-color: #fff;
-$link-color: blue;
+
+$link-color: $primary-color;
 $link-hover-color: false;
-$error-color: #990000;
-$error-background: red;
-$notice-color: #ff6600;
-$success-color: green;
+
 $input-border-color: #c5cbd4;
 $input-border-focus-color: darken($input-border-color,20);
 
+$white: #fff;
+$grey: #bbb;
 $facebook: #3b5998;
 $twitter: #44ccf6;
 $linkedin: #1b86bd;
-
-$image-border: 0;
 
 
 // INPUTS
