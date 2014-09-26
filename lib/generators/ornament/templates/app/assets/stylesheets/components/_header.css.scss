@@ -1,12 +1,54 @@
+$header-background: #ccc;
+$header-line-height: $button-height;
+
 .header {
-  background: #ccc;
-  padding: $xx-small-unit;
+  background: $header-background;
+  padding: $default-unit 0;
   @include pie-clearfix;
+
+  .attached-navigation & {
+    @include media-query($header-breakpoint, min) {
+      padding-bottom: $default-unit + ($navigation-height / 2); 
+    }
+  }
+}
+
+.header--logo {
+  float: left;
+  @include heading-four;
+  line-height: $header-line-height;
+}
+
+.header--aside {
+  float: right;
+
+  ul {
+    line-height: $header-line-height;
+  }
+
+  ul, form {
+    float: left;
+  }
+
+  form {
+    margin-left: $x-small-unit;
+  }
+
+  @include media-query($header-breakpoint) {
+    display: none;
+  }
 }
 
 .header--menu {
   @include grunticon("menu-white", 24px);
   @include icon-block(44px, 24px);
+  float: right;
+  background: $primary-color;
+  @include border-radius($border-radius);
+
+  @include media-query($header-breakpoint,min) {
+    display: none;
+  }
 }
 
 // Sticky Header

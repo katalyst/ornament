@@ -13,14 +13,13 @@
 // The base line height should be unitless (ratio of line height to font size).
 //
 
-$base-pixel:          16px;
+$base-pixel:          14px;
 
 $small-font-size:     0.8em;
 $base-font-size:      $base-pixel;
 $large-font-size:     1.1em;
 $base-line-height:    1.5;
 $base-line-size:      $base-font-size * $base-line-height;
-
 
 // CONTAINER WIDTH
 //
@@ -29,7 +28,6 @@ $base-line-size:      $base-font-size * $base-line-height;
 
 $container-width: 1072px;
 $container-percentage: 92%;
-
 
 // SIZES
 //
@@ -53,6 +51,8 @@ $xxxxx-large-unit:      64px;
 $xxxxxx-large-unit:     72px;
 $xxxxxxx-large-unit:    80px;
 
+// GLOBAL UNITS
+//
 
 $border-radius:   4px;
 $button-height:   44px;
@@ -62,6 +62,7 @@ $panel-padding:         $xx-small-unit;
 $panel-padding-small:   $xxx-small-unit;
 $panel-padding-tiny:    $xxxx-small-unit;
 
+$navigation-height: 56px;
 
 // BREAKPOINTS
 //
@@ -73,6 +74,7 @@ $breakpoint-large: 1080px;
 $breakpoint-medium: 935px;
 $breakpoint-small: 780px;
 $breakpoint-tiny: 620px;
+$header-breakpoint: $breakpoint-medium;
 
 $site-breakpoints:
   (tiny, $breakpoint-tiny),
@@ -106,6 +108,8 @@ $site-gutters:
 //
 
 $primary-color: #0082c8;
+$primary-color-dark: darken($primary-color, 10);
+$primary-color-x-dark: darken($primary-color, 20);
 
 $white: #fff;
 $grey: #bbb;

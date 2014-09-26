@@ -1,0 +1,42 @@
+// Primary drop-down navigation module
+.navigation-primary {
+
+  // attach the primary navigation to the header
+  .attached-navigation & {
+    position: relative;
+    margin-top: -($navigation-height / 2);
+    margin-bottom: -($navigation-height / 2);
+  }
+
+  @include media-query($header-breakpoint) {
+    display: none;
+  }
+
+}
+
+.navigation-primary nav {
+  background: $primary-color;
+  overflow: hidden;
+  @include border-radius($border-radius);
+}
+
+.navigation-primary a {
+  @include color-link($white, $white);
+  @include decorate-link(none, none);
+}
+
+// First level
+.navigation-primary nav > ul {
+  @include list-horizontal($xx-small-unit, 1px solid $primary-color-dark, $delegate: a);
+}
+.navigation-primary nav > ul > li > a {
+  line-height: $navigation-height;
+}
+.navigation-primary nav > ul > li > a:hover {
+  background: $primary-color-x-dark;
+}
+
+// Second level
+.navigation-primary nav > ul ul {
+  display: none;
+}

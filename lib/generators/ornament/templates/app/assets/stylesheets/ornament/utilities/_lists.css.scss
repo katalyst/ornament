@@ -23,13 +23,23 @@
 
 }
 
-@mixin list-horizontal($space: $x-small-unit, $border: false, $all: false) {
+@mixin list-horizontal($space: $x-small-unit, $border: false, $all: false, $delegate: false) {
   @include pie-clearfix;
 
   // first level list items
-  > li {
-    padding: 0 $space;
-    float: left;
+  @if($delegate) {
+    > li {
+      float: left;
+    }
+    > li #{$delegate} {
+      padding: 0 $space;
+      display: block;
+    }
+  } @else {
+    > li {
+      padding: 0 $space;
+      float: left;
+    }
   }
 
   @if($border != false) {
@@ -90,4 +100,11 @@
       padding-right: 0;
     }
   }
+}
+
+// Classes
+
+.list-horizontal {
+  @include list-horizontal($xxxx-small-unit, false);
+  @include list-flush("left and right");
 }

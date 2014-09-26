@@ -33,14 +33,6 @@ body {
   min-height: 100%;
 }
 
-.layout--switch {
-  background: red;
-  float: right;
-  @include media-query($layout-breakpoint,min) {
-    display: none;
-  }
-}
-
 .layout--container {
   max-width: $layout-container-width;
   width: $container-percentage;

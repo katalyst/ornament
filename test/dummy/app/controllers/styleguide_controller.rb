@@ -1,5 +1,5 @@
 class StyleguideController < ActionController::Base
-  layout "styleguide"
+  layout "global"
 
   def lightbox_ajax_sample
     render layout: "lightbox_ajax"

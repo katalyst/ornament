@@ -1,14 +1,12 @@
-@mixin content-children {
-  &:first-child {
-    margin-top: 0;
-  }
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
 .content--title {
-  margin-bottom: $xx-large-unit;
+  background: #eee;
+  padding: $xxxx-large-unit 0;
+
+  .attached-navigation & {
+    @include media-query($header-breakpoint, min) {
+      padding-top: $xxxx-large-unit + ($navigation-height / 2);
+    }
+  }
 }
 
 .content-large {
@@ -39,13 +37,13 @@ ol.content-lists,
   p {
     margin-top: $xx-small-unit;
     margin-bottom: $xx-small-unit;
-    @include content-children;
+    @include flush-children;
   }
 
   h1 {
     margin-top: $default-unit;
     margin-bottom: $default-unit;
-    @include content-children;
+    @include flush-children;
 
     @include media-query($breakpoint-typography) {
       margin-top: $small-unit;
@@ -56,7 +54,7 @@ ol.content-lists,
   h2 {
     margin-top: $xx-small-unit;
     margin-bottom: $xx-small-unit;
-    @include content-children;
+    @include flush-children;
 
     @include media-query($breakpoint-typography) {
       margin-top: $xxx-small-unit;
@@ -67,7 +65,7 @@ ol.content-lists,
   h3 {
     margin-top: $xx-small-unit;
     margin-bottom: $xx-small-unit;
-    @include content-children;
+    @include flush-children;
 
     @include media-query($breakpoint-typography) {
       margin-top: $xxx-small-unit;
@@ -78,7 +76,7 @@ ol.content-lists,
   h4 {
     margin-top: $xx-small-unit;
     margin-bottom: $xx-small-unit;
-    @include content-children;
+    @include flush-children;
 
     @include media-query($breakpoint-typography) {
       margin-top: $xxx-small-unit;
@@ -163,7 +161,7 @@ ol.content-lists,
   blockquote + figcaption {
     display: block;
     margin: $xx-small-unit 0 $default-unit;
-    @include content-children;
+    @include flush-children;
     font-size: $base-font-size;
   }
 

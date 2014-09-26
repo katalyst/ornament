@@ -39,7 +39,7 @@
 
   </head>
 
-  <body>
+  <body class="attached-navigation <%= yield :body_class -%>">
 
     <a class="skip-link" href="#main">skip to content</a>
 
@@ -74,19 +74,56 @@
 
       <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
 
-        <header class="layout--header" role="banner">
+        <header class="header layout--header" role="banner">
           <div class="layout--container">
-            <div class="header">
-              header
-              <button class="layout--switch header--menu">open navigation</button>
+              
+            <a href="<%= root_url -%>" class="header--logo">Site Name</a>
+            <div class="header--aside">
+              <ul class="list-horizontal">
+                <li><a href="#">Elit Fringilla</a></li>
+                <li><a href="#">Elit Fringilla</a></li>
+              </ul>
+              <%= render "shared/search", search_class: "header--search" -%>
             </div>
+
+            <button class="layout--switch header--menu">open navigation</button>
+  
           </div>
         </header>
+
+        <div class="navigation-primary">
+          <div class="layout--container">
+            <nav>
+              <ul>
+                <li><a href="#">Tristique Elit Fringilla</a></li>
+                <li><a href="#">Tristique Elit Fringilla</a></li>
+                <li>
+                  <a href="#">Tristique Elit Fringilla</a>
+                  <ul>
+                    <li><a href="#">Tristique Elit Fringilla</a></li>
+                    <li><a href="#">Tristique Elit Fringilla</a></li>
+                    <li><a href="#">Tristique Elit Fringilla</a></li>
+                    <li><a href="#">Tristique Elit Fringilla</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Tristique Elit Fringilla</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <%- if content_for? :page_title -%>
+          <div class="content--title">
+            <div class="layout--container">
+              <h1 class="heading-one"><%= yield :page_title %></h1>
+            </div>
+          </div>
+        <%- end -%>
 
         <div class="layout--container">
           <section class="layout--main" role="main">
             <a id="main" name="main" tabindex="-1"></a>
-              <%= content_for?(:global) ? yield(:global) : yield %>
+            <%= content_for?(:global) ? yield(:global) : yield %>
           </section>
         </div>
 
