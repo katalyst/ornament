@@ -122,45 +122,48 @@
   <form accept-charset="UTF-8" action="#" class="simple_form" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="9Wj+qpC6PVLLhfW6D2Gzd9tBmG4cGhQJtm/Uv28XNJs="></div>
     <div class="inputs">
 
-      <div class="island island-error">
+      <div class="island island__error">
         Some errors were found, please take a look:
       </div>
 
       <h2 class="heading-two">Your Information</h2>
 
-      <div class="control-group string required enrollment_enrollers_name form--medium error">
-        <label class="string required control-label" for="enrollment_enrollers_name">
-          <abbr title="required">*</abbr> Your name<span class='error-block'>can't be blank</span>
+      <div class="control-group string required example_enrollers_name form--medium error">
+        <label class="string required control-label" for="example_enrollers_name">
+          <abbr title="required">*</abbr> Your name
+          <span class='error-block'>can't be blank</span>
           <p class='hint-block'>This is a hint message.</p>
         </label>
         <div class="controls">
-          <input class="string required" id="enrollment_enrollers_name" name="enrollment[enrollers_name]" size="50" type="text">
+          <input class="string required" id="example_enrollers_name" name="example[enrollers_name]" size="50" type="text">
         </div>
       </div>
 
-      <div class="control-group string required enrollment_date_of_birth form--small"><label class="string required control-label" for="enrollment_date_of_birth"><abbr title="required">*</abbr> Date of birth</label><div class="controls"><input class="string required datemask" id="enrollment_date_of_birth" name="enrollment[date_of_birth]" size="50" type="text"></div></div>
+      <div class="control-group string required example_date_of_birth form--small"><label class="string required control-label" for="example_date_of_birth"><abbr title="required">*</abbr> Date of birth</label><div class="controls"><input class="string required datemask" id="example_date_of_birth" name="example[date_of_birth]" size="50" type="text"></div></div>
+
+      <div class="control-group string required example_description form--medium"><label class="string required control-label" for="example_date_of_birth"><abbr title="required">*</abbr> Description</label><div class="controls"><textarea class="text required" id="example_date_of_birth" name="example[date_of_birth]"></textarea></div></div>
 
       <div class="control-group">
-        <abbr title="required">*</abbr> You must enter either a mobile or phone number
+        <label><abbr title="required">*</abbr> You must enter either a mobile or phone number</label>
       </div>
 
-      <div class="control-group tel optional enrollment_phone_number form--medium"><label class="tel optional control-label" for="enrollment_phone_number">Phone number</label><div class="controls"><input class="string tel optional" id="enrollment_phone_number" name="enrollment[phone_number]" size="50" type="tel"></div></div>
-      <div class="control-group string optional enrollment_mobile_number form--medium"><label class="string optional control-label" for="enrollment_mobile_number">Mobile number</label><div class="controls"><input class="string optional" id="enrollment_mobile_number" name="enrollment[mobile_number]" size="50" type="text" disabled></div></div>
-      <div class="control-group email optional enrollment_email form--medium"><label class="email optional control-label" for="enrollment_email">Email</label><div class="controls"><input class="string email optional" id="enrollment_email" name="enrollment[email]" size="50" type="email"></div></div>
+      <div class="control-group tel optional example_phone_number form--medium"><label class="tel optional control-label" for="example_phone_number">Phone number</label><div class="controls"><input class="string tel optional" id="example_phone_number" name="example[phone_number]" size="50" type="tel"></div></div>
+      <div class="control-group string optional example_mobile_number form--medium"><label class="string optional control-label" for="example_mobile_number">Mobile number</label><div class="controls"><input class="string optional" id="example_mobile_number" name="example[mobile_number]" size="50" type="text" disabled></div></div>
+      <div class="control-group email optional example_email form--medium"><label class="email optional control-label" for="example_email">Email</label><div class="controls"><input class="string email optional" id="example_email" name="example[email]" size="50" type="email"></div></div>
 
-      <div class="control-group radio_buttons required enrollment_do_you_have_skills_for_all_number"><label class="radio_buttons required control-label"><abbr title="required">*</abbr> Show hidden field?</label><div class="controls"><label class="radio"><input class="radio_buttons required" id="enrollment_do_you_have_skills_for_all_number_true" name="enrollment[do_you_have_skills_for_all_number]" type="radio" value="true">Yes</label><label class="radio"><input class="radio_buttons required" id="enrollment_do_you_have_skills_for_all_number_false" name="enrollment[do_you_have_skills_for_all_number]" type="radio" value="false">No</label></div></div>
-      <div class="control-group string required enrollment_skills_for_all_number form--medium" data-show="enrollment_do_you_have_skills_for_all_number_true" style="display: none;"><label class="string required control-label" for="enrollment_skills_for_all_number"><abbr title="required">*</abbr> Hidden field</label><div class="controls"><input class="string required" id="enrollment_skills_for_all_number" name="enrollment[skills_for_all_number]" size="50" type="text"></div></div>
+      <div class="control-group radio_buttons required example_do_you_have_skills_for_all_number"><label class="radio_buttons required control-label"><abbr title="required">*</abbr> Show hidden field?</label><div class="controls"><label class="radio"><input class="radio_buttons required" id="example_do_you_have_skills_for_all_number_true" name="example[do_you_have_skills_for_all_number]" type="radio" value="true">Yes</label><label class="radio"><input class="radio_buttons required" id="example_do_you_have_skills_for_all_number_false" name="example[do_you_have_skills_for_all_number]" type="radio" value="false">No</label></div></div>
+      <div class="control-group string required example_skills_for_all_number form--medium" data-show="example_do_you_have_skills_for_all_number_true" style="display: none;"><label class="string required control-label" for="example_skills_for_all_number"><abbr title="required">*</abbr> Hidden field</label><div class="controls"><input class="string required" id="example_skills_for_all_number" name="example[skills_for_all_number]" size="50" type="text"></div></div>
 
       <h2 class="heading-two">Residential address</h2>
 
-      <div class="control-group string required enrollment_residential_address_1 form--medium"><label class="string required control-label" for="enrollment_residential_address_1"><abbr title="required">*</abbr> Address 1</label><div class="controls"><input class="string required" id="enrollment_residential_address_1" name="enrollment[residential_address_1]" size="50" type="text"></div></div>
-      <div class="control-group string optional enrollment_residential_address_2 form--medium"><label class="string optional control-label" for="enrollment_residential_address_2">Address 2</label><div class="controls"><input class="string optional" id="enrollment_residential_address_2" name="enrollment[residential_address_2]" size="50" type="text"></div></div>
-      <div class="control-group string required enrollment_residential_suburb form--medium"><label class="string required control-label" for="enrollment_residential_suburb"><abbr title="required">*</abbr> Suburb</label><div class="controls"><input class="string required" id="enrollment_residential_suburb" name="enrollment[residential_suburb]" size="50" type="text"></div></div>
-      <div class="control-group string required enrollment_residential_city form--medium"><label class="string required control-label" for="enrollment_residential_city"><abbr title="required">*</abbr> City</label><div class="controls"><input class="string required" id="enrollment_residential_city" name="enrollment[residential_city]" size="50" type="text"></div></div>
-      <div class="control-group string required enrollment_residential_postcode form--medium"><label class="string required control-label" for="enrollment_residential_postcode"><abbr title="required">*</abbr> Postcode</label><div class="controls"><input class="string required" id="enrollment_residential_postcode" name="enrollment[residential_postcode]" size="50" type="text"></div></div>
+      <div class="control-group string required example_residential_address_1 form--medium"><label class="string required control-label" for="example_residential_address_1"><abbr title="required">*</abbr> Address 1</label><div class="controls"><input class="string required" id="example_residential_address_1" name="example[residential_address_1]" size="50" type="text"></div></div>
+      <div class="control-group string optional example_residential_address_2 form--medium"><label class="string optional control-label" for="example_residential_address_2">Address 2</label><div class="controls"><input class="string optional" id="example_residential_address_2" name="example[residential_address_2]" size="50" type="text"></div></div>
+      <div class="control-group string required example_residential_suburb form--medium"><label class="string required control-label" for="example_residential_suburb"><abbr title="required">*</abbr> Suburb</label><div class="controls"><input class="string required" id="example_residential_suburb" name="example[residential_suburb]" size="50" type="text"></div></div>
+      <div class="control-group string required example_residential_city form--medium"><label class="string required control-label" for="example_residential_city"><abbr title="required">*</abbr> City</label><div class="controls"><input class="string required" id="example_residential_city" name="example[residential_city]" size="50" type="text"></div></div>
+      <div class="control-group string required example_residential_postcode form--medium"><label class="string required control-label" for="example_residential_postcode"><abbr title="required">*</abbr> Postcode</label><div class="controls"><input class="string required" id="example_residential_postcode" name="example[residential_postcode]" size="50" type="text"></div></div>
 
-      <div class="control-group country required enrollment_residential_country form--medium"><label class="country required control-label" for="enrollment_residential_country"><abbr title="required">*</abbr> Country</label><div class="controls">
-        <select class="country required" id="enrollment_residential_country" name="enrollment[residential_country]">
+      <div class="control-group country required example_residential_country form--medium"><label class="country required control-label" for="example_residential_country"><abbr title="required">*</abbr> Country</label><div class="controls">
+        <select class="country required" id="example_residential_country" name="example[residential_country]">
           <option value="">Please select</option>
           <option value="AU">Australia</option>&lt;option value="" disabled="disabled"&gt;-------------&lt;/option&gt;
           <option value="AF">Afghanistan</option>
@@ -412,9 +415,9 @@
         </select>
       </div></div>
 
-      <div class="control-group boolean optional enrollment_terms checkbox_single"><label class="boolean optional control-label" for="enrollment_terms">I have read and agreed to these terms &amp; conditions.</label><div class="controls"><input name="enrollment[terms]" type="hidden" value="0"><label class="checkbox"><input class="boolean optional" id="enrollment_terms" name="enrollment[terms]" type="checkbox" value="1"></label></div></div>
+      <div class="control-group boolean optional example_terms checkbox_single"><label class="boolean optional control-label" for="example_terms">I have read and agreed to these terms &amp; conditions.</label><div class="controls"><input name="example[terms]" type="hidden" value="0"><label class="checkbox"><input class="boolean optional" id="example_terms" name="example[terms]" type="checkbox" value="1"></label></div></div>
 
-      <div class="control-group hidden enrollment_amount"><div class="controls"><input class="hidden" id="enrollment_amount" name="enrollment[amount]" type="hidden" value="0"></div></div>
+      <div class="control-group hidden example_amount"><div class="controls"><input class="hidden" id="example_amount" name="example[amount]" type="hidden" value="0"></div></div>
 
     </div>
 
