@@ -348,6 +348,21 @@ $file-thumbnail-width: 100px;
   width: 100%;
 }
 
+// INLINE AND CONTAINED FIELD
+.form-inline__contained {
+  background: $white;
+  position: relative;
+  @include border-radius($input-border-radius);
+
+  .form-inline--input {
+    background: transparent;
+    border: 0;
+  }
+  .form-inline--button {
+    background: transparent;
+  }
+}
+
 // FULL-WIDTH SEARCH FIELD WITH LABEL
 
 .form-search {
