@@ -1,3 +1,46 @@
+$island-default-background: mix($primary-color, $white, 10);
+$island-warning-background: mix($warning-color, $white, 10);
+$island-success-background: mix($success-color, $white, 10);
+$island-error-background:   mix($error-color, $white, 10);
+
+.island {
+  position: relative;
+  clear: both;
+  background: $island-default-background;
+  padding: $xxx-small-unit;
+  padding-left: $xxxxx-large-unit;
+  @include border-radius($border-radius);
+  @include pie-clearfix;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: $xxx-small-unit;
+    left: $xxx-small-unit;
+    width: 24px;
+    height: 24px;
+    background: red;
+  }
+}
+
+// Colour variations
+.island__warning {
+  @extend .island;
+  background: $island-warning-background;
+}
+
+.island__error {
+  @extend .island;
+  background: $island-error-background;
+}
+
+.island__success {
+  @extend .island;
+  background: $island-success-background;
+}
+
+/*
 $island-background:         #333333;
 $island-color:              #ffffff;
 $island-error-background:   #ffcccc;
@@ -42,3 +85,4 @@ $island-tight-padding:      $xxxx-small-unit;
   border: 1px solid;
   color: $island-success-color;
 }
+*/

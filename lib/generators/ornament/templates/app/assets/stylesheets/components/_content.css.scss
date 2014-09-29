@@ -1,8 +1,10 @@
 .content--title {
   background: #eee;
-  padding: $xxxx-large-unit 0;
+  padding: $default-unit 0;
 
   @include media-query($header-breakpoint, min) {
+    padding: $xxxx-large-unit 0;
+    
     .attached-navigation & {
       padding-top: $xxxx-large-unit + ($navigation-height / 2);
     }
@@ -88,10 +90,12 @@ ol.content-lists,
   }
 }
 
+.content__compressed,
+.content__tight,
 .content-spacing__compressed {
   p {
-    margin-top: $xx-small-unit;
-    margin-bottom: $xx-small-unit;
+    margin-top: $xxxxx-small-unit;
+    margin-bottom: $xxxxx-small-unit;
     @include flush-children;
   }
 
