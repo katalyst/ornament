@@ -64,6 +64,7 @@ $navigation-children-background: $secondary-color;
   min-width: 190px;
   background: $navigation-children-background;
   padding: $xxx-small-unit 0;
+  z-index: 1000;
 
   a {
     @include decorate-link(none, underline);
