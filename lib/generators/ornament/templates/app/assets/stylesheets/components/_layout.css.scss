@@ -1,6 +1,6 @@
 $layout-animation-duration:     0.5s;
 $layout-background:             $background-color;
-$layout-breakpoint:             $breakpoint-small;
+$layout-breakpoint:             $header-breakpoint;
 $layout-container-width:        $container-width;
 $layout-desktop-edge-gap:       0;
 $layout-desktop-footer-gap:     $default-unit;
@@ -74,10 +74,6 @@ body {
       top: 0;
       width: 100%;
       @include box-shadow(0 0 10px rgba(0,0,0,0.2));
-    }
-
-    .layout--switch {
-      background: green;
     }
 
   }

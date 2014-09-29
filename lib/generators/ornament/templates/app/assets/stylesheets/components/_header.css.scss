@@ -2,14 +2,33 @@ $header-background: #ccc;
 $header-line-height: $button-height;
 
 .header {
-  background: $header-background;
-  padding: $default-unit 0;
   @include pie-clearfix;
+  padding: $default-unit 0;
 
-  .attached-navigation & {
+  @include media-query($header-breakpoint) {
+    padding: $xxx-small-unit 0;
+  }
+
+  &.header__primary {
+    background: $header-background;
+  }
+
+  .attached-navigation &.header__primary {
     @include media-query($header-breakpoint, min) {
       padding-bottom: $default-unit + ($navigation-height / 2); 
     }
+  }
+}
+
+.header--menu {
+  @include grunticon("menu-white", 24px);
+  @include icon-block(44px, 24px);
+  float: right;
+  background: $secondary-color;
+  @include border-radius($border-radius);
+
+  @include media-query($header-breakpoint,min) {
+    display: none;
   }
 }
 
@@ -41,18 +60,6 @@ $header-line-height: $button-height;
   }
 
   @include media-query($header-breakpoint) {
-    display: none;
-  }
-}
-
-.header--menu {
-  @include grunticon("menu-white", 24px);
-  @include icon-block(44px, 24px);
-  float: right;
-  background: $primary-color;
-  @include border-radius($border-radius);
-
-  @include media-query($header-breakpoint,min) {
     display: none;
   }
 }

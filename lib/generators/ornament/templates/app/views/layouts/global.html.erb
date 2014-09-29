@@ -50,6 +50,11 @@
           <div class="pane-wrapper">
 
             <div class="pane">
+
+              <div class="header header__mobile">
+                <%= link_to "Site Name", root_path, class: "header--logo" -%>
+              </div>
+
               <div class="pane--navigation-container">
 
                 <ul class="non-pane">
@@ -74,7 +79,7 @@
 
       <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
 
-        <header class="header layout--header" role="banner">
+        <header class="header header__primary layout--header" role="banner">
           <div class="layout--container">
               
             <a href="<%= root_path -%>" class="header--logo">Site Name</a>
