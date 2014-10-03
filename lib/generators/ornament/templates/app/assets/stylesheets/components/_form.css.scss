@@ -198,10 +198,11 @@ select {
   select,
   select[size='0'],
   select[size='1'] {
-    background-image: url('/assets/select_arrow.gif');
+    background-image: url('/assets/select_arrow.png');
     background-repeat: no-repeat;
     background-position: right center;
     padding-right: 1.5em;
+    @include box-shadow(none);
   }
 
 }
