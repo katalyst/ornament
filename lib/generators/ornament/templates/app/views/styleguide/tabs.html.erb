@@ -15,14 +15,65 @@
         </ul>
       </nav>
       <div class="tabs--panes">
-        <div class="tabs--pane" data-tab-for="tab1_1">
-          Tab #1
+        <div class="tabs--pane content__compressed" data-tab-for="tab1_1">
+          <h2 class="heading-six">Etiam Justo Cursus Fringilla</h2>
+          <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+          <p>
+            <%= link_to "Button 1", "#", class: "button__primary" -%>
+            <%= link_to "Button 1", "#", class: "button" -%>
+          </p>
         </div>
-        <div class="tabs--pane" data-tab-for="tab1_2">
-          Tab #2
+        <div class="tabs--pane content__compressed" data-tab-for="tab1_2">
+          <h2 class="heading-six">Etiam Justo Cursus Fringilla #2</h2>
+          <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+          <p>
+            <%= link_to "Button 1", "#", class: "button__primary" -%>
+            <%= link_to "Button 1", "#", class: "button" -%>
+          </p>
         </div>
-        <div class="tabs--pane" data-tab-for="tab1_3">
-          Tab #3
+        <div class="tabs--pane content__compressed" data-tab-for="tab1_3">
+          <h2 class="heading-six">Etiam Justo Cursus Fringilla #3</h2>
+          <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+          <p>
+            <%= link_to "Button 1", "#", class: "button__primary" -%>
+            <%= link_to "Button 1", "#", class: "button" -%>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabs tabs__filled">
+      <nav class="tabs-links">
+        <ul>
+          <li><a href="#tab1_1" class="tabs--link" data-tab="tab1_1">Tab #1</a></li>
+          <li><a href="#tab1_2" class="tabs--link" data-tab="tab1_2">Tab #2</a></li>
+          <li><a href="#tab1_3" class="tabs--link" data-tab="tab1_3">Tab #3</a></li>
+        </ul>
+      </nav>
+      <div class="tabs--panes">
+        <div class="tabs--pane content__compressed" data-tab-for="tab1_1">
+          <h2 class="heading-six">Etiam Justo Cursus Fringilla</h2>
+          <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+          <p>
+            <%= link_to "Button 1", "#", class: "button__primary" -%>
+            <%= link_to "Button 1", "#", class: "button" -%>
+          </p>
+        </div>
+        <div class="tabs--pane content__compressed" data-tab-for="tab1_2">
+          <h2 class="heading-six">Etiam Justo Cursus Fringilla #2</h2>
+          <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+          <p>
+            <%= link_to "Button 1", "#", class: "button__primary" -%>
+            <%= link_to "Button 1", "#", class: "button" -%>
+          </p>
+        </div>
+        <div class="tabs--pane content__compressed" data-tab-for="tab1_3">
+          <h2 class="heading-six">Etiam Justo Cursus Fringilla #3</h2>
+          <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+          <p>
+            <%= link_to "Button 1", "#", class: "button__primary" -%>
+            <%= link_to "Button 1", "#", class: "button" -%>
+          </p>
         </div>
       </div>
     </div>
@@ -123,7 +174,7 @@
 
     <p>As always, adding a data attribute will enable this, <code>data-tabs-swipable</code>.</p>
 
-    <div class="tabs" data-tabs-swipable style="max-width: 300px;">
+    <div class="tabs" style="width: 400px;" data-tabs-swipable>
       <nav class="tabs-links">
         <ul>
           <%- (1..10).each do |i| -%>

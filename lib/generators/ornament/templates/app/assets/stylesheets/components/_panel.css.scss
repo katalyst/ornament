@@ -62,15 +62,7 @@ a.panel {
 
 // PADDING VARIANTS
 
-.panel--padding__x-tight {
-  padding: $panel-padding-tiny;
-}
-
-.panel--padding__tight {
-  padding: $panel-padding-small;
-}
-
-.panel--padding {
+@mixin panel-padding {
   padding: $panel-padding;
 
   @include media-query($breakpoint-tiny) {
@@ -78,7 +70,7 @@ a.panel {
   }
 }
 
-.panel--padding__large {
+@mixin panel-padding-large {
   padding: $panel-padding-large;
 
   @include media-query($breakpoint-medium) {
@@ -88,6 +80,22 @@ a.panel {
   @include media-query($breakpoint-tiny) {
     padding: $panel-padding-small;
   }
+}
+
+.panel--padding__x-tight {
+  padding: $panel-padding-tiny;
+}
+
+.panel--padding__tight {
+  padding: $panel-padding-small;
+}
+
+.panel--padding {
+  @include panel-padding;
+}
+
+.panel--padding__large {
+  @include panel-padding-large;
 }
 
 // BORDER RADIUS VARIANTS
