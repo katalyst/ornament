@@ -1,0 +1,10 @@
+[data-flexible-input-container] {
+  position: relative;
+}
+
+[data-flexible-input] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  @include transition(width .2s);
+}
