@@ -1,4 +1,4 @@
-$header-background: #ccc;
+$header-background: $passive-color;
 $header-line-height: $button-height;
 
 .header {
@@ -11,11 +11,15 @@ $header-line-height: $button-height;
 
   &.header__primary {
     background: $header-background;
+
+    @include media-query($header-breakpoint) {
+      background: $secondary-color;
+    }
   }
 
   .attached-navigation &.header__primary {
     @include media-query($header-breakpoint, min) {
-      padding-bottom: $default-unit + ($navigation-height / 2); 
+      padding-bottom: $default-unit + ($navigation-height / 2);
     }
   }
 }
@@ -24,7 +28,8 @@ $header-line-height: $button-height;
   @include grunticon("menu-white", 24px);
   @include icon-block(44px, 24px);
   float: right;
-  background: $secondary-color;
+  background: $default-color;
+  background: rgba($default-color, .2);
   @include border-radius($border-radius);
 
   @include media-query($header-breakpoint,min) {
@@ -38,6 +43,12 @@ $header-line-height: $button-height;
   line-height: $header-line-height;
   @include color-link($foreground-color, $foreground-color);
   @include decorate-link(none, none);
+
+  @include media-query($header-breakpoint) {
+    @include heading-five;
+    line-height: $header-line-height;
+    @include color-link($white, $white);
+  }
 }
 
 .header--aside {

@@ -3,14 +3,14 @@
 $body-font: ('Gotham SSm A', 'Gotham SSm B', sans-serif) normal normal;
 $italic-font: ('Gotham SSm A', 'Gotham SSm B', sans-serif) italic normal;
 
-$bold-font: ('Gotham SSm A', 'Gotham SSm B', sans-serif) normal bold;
-$bold-italic-font: ('Gotham SSm A', 'Gotham SSm B', sans-serif) italic bold;
+$bold-font: ('Gotham SSm A', 'Gotham SSm B', sans-serif) normal 700;
+$bold-italic-font: ('Gotham SSm A', 'Gotham SSm B', sans-serif) italic 700;
 
-$heading-alpha-font: ('Gotham SSm A', 'Gotham SSm B', sans-serif) normal bold;
-$heading-alpha-font-italic: ('Gotham SSm A', 'Gotham SSm B', sans-serif) italic bold;
+$heading-alpha-font: ('Gotham SSm A', 'Gotham SSm B', sans-serif) normal 700;
+$heading-alpha-font-italic: ('Gotham SSm A', 'Gotham SSm B', sans-serif) italic 700;
 
-$heading-beta-font: ('Gotham SSm A', 'Gotham SSm B', sans-serif) normal bold;
-$heading-beta-font-italic: ('Gotham SSm A', 'Gotham SSm B', sans-serif) italic bold;
+$heading-beta-font: ('Gotham SSm A', 'Gotham SSm B', sans-serif) normal 500;
+$heading-beta-font-italic: ('Gotham SSm A', 'Gotham SSm B', sans-serif) italic 500;
 
 $input-typeface: $body-font;
 
@@ -68,11 +68,11 @@ body, .body-type {
 }
 
 @mixin heading-three {
-  @include font($heading-alpha-font);
+  @include font($heading-beta-font);
   font-size: 32px;
   line-height: 38px;
   em {
-    @include font($heading-alpha-font-italic);
+    @include font($heading-beta-font-italic);
   }
   @include flush-children;
 
@@ -85,11 +85,11 @@ body, .body-type {
 }
 
 @mixin heading-four {
-  @include font($heading-alpha-font);
+  @include font($heading-beta-font);
   font-size: 28px;
   line-height: 36px;
   em {
-    @include font($heading-alpha-font-italic);
+    @include font($heading-beta-font-italic);
   }
   @include flush-children;
 }
@@ -98,16 +98,16 @@ body, .body-type {
 }
 
 @mixin heading-five {
-  @include font($heading-alpha-font);
+  @include font($heading-beta-font);
   font-size: 24px;
   line-height: 30px;
   em {
-    @include font($heading-alpha-font-italic);
+    @include font($heading-beta-font-italic);
   }
   @include flush-children;
 
   @include media-query($breakpoint-typography) {
-    
+
   }
 }
 .heading-five {
@@ -115,16 +115,16 @@ body, .body-type {
 }
 
 @mixin heading-six {
-  @include font($heading-alpha-font);
+  @include font($heading-beta-font);
   font-size: 20px;
   line-height: 25px;
   em {
-    @include font($heading-alpha-font-italic);
+    @include font($heading-beta-font-italic);
   }
   @include flush-children;
 
   @include media-query($breakpoint-typography) {
-    
+
   }
 }
 .heading-six {

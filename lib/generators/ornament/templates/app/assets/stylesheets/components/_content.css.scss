@@ -1,5 +1,6 @@
 .content--title {
-  background: #eee;
+  background: $passive-color;
+  background: rgba($passive-color, .33);
   padding: $default-unit 0;
 
   @include media-query($header-breakpoint, min) {
