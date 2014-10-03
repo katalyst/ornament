@@ -151,7 +151,7 @@ strong i, strong em {
 
 small {
   @include font($body-font);
-  font-size: $small-unit;
+  font-size: $small-font-size;
   line-height: 1;
 }
 
