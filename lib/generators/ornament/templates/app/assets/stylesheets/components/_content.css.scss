@@ -1,7 +1,10 @@
 .content--title {
-  background: $passive-color;
-  background: rgba($passive-color, .33);
   padding: $default-unit 0;
+  @include background-image(linear-gradient(rgba($passive-color,.33) 0%, rgba($passive-color,.66) 100%));
+
+  .no-cssgradients & {
+    background: $passive-color;
+  }
 
   @include media-query($header-breakpoint, min) {
     padding: $xxxx-large-unit 0;
