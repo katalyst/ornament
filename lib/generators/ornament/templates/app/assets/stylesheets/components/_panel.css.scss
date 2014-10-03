@@ -1,12 +1,19 @@
 $panel-border:          $background-color;
 
-// Single panels
+// SINGLE PANELS
 
 .panel {
   @include border-radius($border-radius);
   @include pie-clearfix;
+  display: block;
   background: $passive-color;
   overflow: hidden;
+}
+
+a.panel {
+  display: block;
+  @include color-link($foreground-color, $foreground-color);
+  @include decorate-link(none,none);
 }
 
 .panel__default {
@@ -93,4 +100,13 @@ $panel-border:          $background-color;
 .panel__no-bottom-radius {
   @include border-bottom-left-radius(0);
   @include border-bottom-right-radius(0);
+}
+
+// THINGS IN PANELS
+
+.panel--avatar {
+  img {
+    display: block;
+    margin: 0 auto;
+  }
 }

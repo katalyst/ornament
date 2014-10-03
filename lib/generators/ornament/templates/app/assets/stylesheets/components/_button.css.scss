@@ -5,7 +5,7 @@ $button-error:                      $error-color;
 $button-success:                    $success-color;
 $button-disabled:                   $passive-color;
 
-.button {
+@mixin button {
   color: $white;
   @include color-link($white, $white);
   @include decorate-link(none, none);
@@ -14,64 +14,99 @@ $button-disabled:                   $passive-color;
   @include transition(background .2s);
   background: $button-background;
   border: 0;
-  @include line-height-padding($button-height);
-  padding-left: $x-small-unit;
-  padding-right: $x-small-unit;
   cursor: pointer;
   font-size: $large-font-size;
+  padding-left: $xxx-small-unit;
+  padding-right: $xxx-small-unit;
+  @include line-height-padding(44px, 24px);
+}
 
-  &:hover {
+@mixin button__default {
+  @include button;
+  background: $button-background;
+
+  &:hover, 
+  a.panel:hover & {
     background: darken($button-background,10);
   }
 }
 
+.button {
+  @include button__default;
+}
+
 // COLOUR VARIATIONS
 
-.button__primary {
-  @extend .button;
+@mixin button__primary {
+  @include button;
   background: $button-primary;
 
-  &:hover {
+  &:hover,
+  a.panel:hover & {
     background: darken($button-primary,10);
   }
 }
 
-.button__warning {
-  @extend .button;
+@mixin button__warning {
+  @include button;
   background: $button-warning;
 
-  &:hover {
+  &:hover,
+  a.panel:hover & {
     background: darken($button-warning,10);
   }
 }
 
-.button__error {
-  @extend .button;
+@mixin button__error {
+  @include button;
   background: $button-error;
 
-  &:hover {
+  &:hover,
+  a.panel:hover & {
     background: darken($button-error,10);
   }
 }
 
-.button__success {
-  @extend .button;
+@mixin button__success {
+  @include button;
   background: $button-success;
 
-  &:hover {
+  &:hover,
+  a.panel:hover & {
     background: darken($button-success,10);
   }
 }
 
-.button__disabled {
+@mixin button__disabled {
   @extend .button;
   background: $button-disabled;
 
-  &:hover {
+  &:hover,
+  a.panel:hover & {
     background: $button-disabled;
   }
 }
 
+.button__primary {
+  @include button__primary;
+}
+
+.button__warning {
+  @include button__warning;
+}
+
+.button__error {
+  @include button__error;
+}
+
+.button__success {
+  @include button__success;
+}
+
+button[disabled],
+.button__disabled {
+  @include button__disabled;
+}
 
 // BUTTON MODIFIERS
 .button__full {

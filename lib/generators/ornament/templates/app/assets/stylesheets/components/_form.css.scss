@@ -85,6 +85,7 @@ button::-moz-focus-inner {
 }
 
 // Spacing between inputs and labels
+.input,
 .control-group {
   .controls {
     margin-top: $xxx-small-unit;
@@ -93,6 +94,11 @@ button::-moz-focus-inner {
     font-size: $large-font-size;
     display: inline-block;
   }
+}
+
+// Spacing between inputs and labels for ember
+.input label {
+  margin-bottom: $xxx-small-unit;
 }
 
 // Styling input fields
@@ -124,7 +130,8 @@ textarea,
     @include box-shadow(inset 1px 1px 3px 0px rgba(0,0,0,0.20));
   }
 
-  .layout--main .error & {
+  .layout--main .error &,
+  .layout--main .fieldWithErrors & {
     border-color: $error-color;
     @include box-shadow(inset 2px 2px 2px 0px rgba($error-color,0.20));
   }
@@ -266,15 +273,17 @@ $radio-offset: 24px;
   clear: both;
 }
 
-p.hint-block { 
+.input .hint,
+p.hint-block {
   color: $hint-color;
   font-style: italic;
   font-size: $small-font-size;
   margin: 0;
 }
 
+.fieldWithErrors .error,
 span.error-block,
-p.error-block { 
+p.error-block {
   color: $error-color;
   font-size: $small-font-size;
 
