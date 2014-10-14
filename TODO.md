@@ -1,5 +1,7 @@
 # Ornament To-Do List
 
+- Responsive gutter mixin
+- $(document).trigger("ornament:resize") with debounced alternative
 - Anchor over-ride for sticky header
 - Fotorama Presets
 - Google Map embed
