@@ -9,7 +9,10 @@
   - Geolocate centreing
   - Clustering
 - Tabs
-  - Momentum scrolling for swipable tabs
+  - Swipable tabs:
+    - Momentum scrolling: http://www.hnldesign.nl/work/code/momentum-scrolling-using-jquery/
+    - Scroll to tab when deeplinking
+    - Tabs retain shadow behaviour when width of tabset has been reduced, then increased again
   - Swipable body to change tabs
 - Multi-object slider
   - A slider that has multiple objects inside it
