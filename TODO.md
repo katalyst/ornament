@@ -10,6 +10,7 @@
   - Clustering
 - Tabs
   - Momentum scrolling for swipable tabs
+    - http://www.hnldesign.nl/work/code/momentum-scrolling-using-jquery/
   - Swipable body to change tabs
 - Multi-object slider
   - A slider that has multiple objects inside it
