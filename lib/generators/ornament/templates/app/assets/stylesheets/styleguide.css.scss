@@ -1,26 +1,9 @@
-@import "ornament/core";
-@import "components/settings-preview";
-@import "components/table";
-
 // STYLEGUIDE VARIABLES
 // only used for styleguide layout
-$sg-font:           arial, sans-serif;
-$sg-grey:           #ccc;
-$sg-light-grey:     lighten($sg-grey, 15);
-$sg-dark-grey:      darken($sg-grey, 10);
+$sg-grey:           $passive-color;
+$sg-light-grey:     lighten($passive-color,10);
+$sg-dark-grey:      darken($passive-color, 10);
 $sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
-
-// STYLEGUIDE TYPOGRAPHY
-
-body {
-  font-family: $sg-font;
-  strong {
-    font-weight: bold;
-  }
-  em {
-    font-style: italic;
-  }
-}
 
 // CONCEPT MARKER
 .poc {
@@ -31,23 +14,6 @@ body {
   padding: 3px 5px;
   @include border-radius($border-radius);
   @include font($body-font);
-}
-
-.heading-one, .heading-two, .heading-three, .heading-four {
-  font-family: $sg-font;
-  font-weight: bold;
-}
-
-.sg-title {
-  margin-bottom: 2em;
-}
-
-// STYLEGUIDE LAYOUT
-.sg-back {
-  font-size: 0.8em;
-  text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: 2em;
 }
 
 // CODE SAMPLES
@@ -167,46 +133,4 @@ code {
 .lists--example-6b {
   @include list-vertical($small-unit, 1px solid #ccc);
   @include list-flush("top and bottom");
-}
-
-// TYPOGRAPHY SAMPLES
-
-.sg--body-font {
-  @include font($body-font);
-}
-
-.sg--italic-font {
-  @include font($italic-font);
-}
-
-.sg--bold-font {
-  @include font($bold-font);
-}
-
-.sg--bold-italic-font {
-  @include font($bold-italic-font);
-}
-
-.sg--heading-alpha-font {
-  @include font($heading-alpha-font);
-}
-
-.sg--heading-alpha-font-italic {
-  @include font($heading-alpha-font-italic);
-}
-
-.sg--heading-beta-font {
-  @include font($heading-beta-font);
-}
-
-.sg--heading-beta-font-italic {
-  @include font($heading-beta-font-italic);
-}
-
-// CONTENT SAMPLE EXTENSIONS
-.example table caption {
-  @extend .heading-three;
-}
-.example table {
-  
 }

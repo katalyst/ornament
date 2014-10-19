@@ -27,6 +27,7 @@ $tab-inactive-color: #ECF0F1;
   @include background-image(linear-gradient($tab-inactive-color 0%, $tab-inactive-color 85%, #cad0d2 100%));
   cursor: pointer;
   color: $foreground-color;
+  @include color-link($foreground-color);
   padding-left: $x-small-unit;
   padding-right: $x-small-unit;
   @include line-height-padding($button-height);
@@ -39,6 +40,7 @@ $tab-inactive-color: #ECF0F1;
   // border-color: $primary-color;
   position: relative;
   color: $white;
+  @include color-link($white);
 
   &:before,
   &:after {
