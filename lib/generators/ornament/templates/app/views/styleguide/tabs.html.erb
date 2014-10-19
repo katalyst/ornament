@@ -2,6 +2,7 @@
 
 <div class="spacing">
 
+<!--
   <section class="spacing-tight">
 
     <p>Example tabset:</p>
@@ -116,6 +117,7 @@
         <%- end -%>
       </div>
     </div>
+-->
 
     <h2 class="heading-two">Swipable Tabs <span class="poc" title="Warning: untested and unfinalised. Should not be used in production.">Proof of Concept</span></h2>
 
@@ -143,6 +145,12 @@
     <h2 class="heading-two">Global settings</h2>
 
     <p>Active deeplinking can be enabled at the top of the javascript file by changing <code>activeDeeplinking</code> to true.</p>
+
+    <h2 class="heading-two">Events</h2>
+
+    <p>You can call javascript functions when a tab changes with:</p>
+
+    <pre class="sg-pre pretty-print">$(document).on("ornament:tab-change", function(){ ... })</pre>
 
   </section>
 
