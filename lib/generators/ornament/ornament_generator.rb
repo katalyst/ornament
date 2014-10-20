@@ -87,8 +87,8 @@ class OrnamentGenerator < Rails::Generators::Base
           directory "app/views/styleguide"
 
           unless options.example?
-            route "match '/styleguide' => 'styleguide#index'"
-            route "match '/styleguide/:action' => 'styleguide'"
+            route "get '/styleguide' => 'styleguide#index'"
+            route "get '/styleguide/:action' => 'styleguide'"
 
             copy_file "app/controllers/styleguide_controller.rb"
           end
