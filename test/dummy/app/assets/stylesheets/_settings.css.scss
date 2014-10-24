@@ -95,9 +95,8 @@ $tiny-gutter:     $default-unit;
 
 $site-gutters:
   (large, $large-gutter),
-  (medium, $medium-gutter),
-  (small, $small-gutter),
-  (tiny, $tiny-gutter)
+  (medium, $tiny-gutter),
+  false
 ;
 
 // COLORS

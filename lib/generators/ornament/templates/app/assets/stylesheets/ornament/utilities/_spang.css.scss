@@ -1,5 +1,7 @@
 @import "compass/utilities/general/clearfix";
 
+$site-gutters: () !default;
+
 /* 
 -------------
 Functions
@@ -35,8 +37,10 @@ Mixins
   @include pie-clearfix;
   @include rowGenerate($desktop-gutters);
   @each $gutter in $site-gutters {
-    @include media-query(nth($gutter, 1)) {
-      @include rowGenerate(nth($gutter, 2));
+    @if $gutter != false {
+      @include media-query(nth($gutter, 1)) {
+        @include rowGenerate(nth($gutter, 2));
+      }
     }
   }
 }
@@ -49,8 +53,10 @@ Mixins
 @mixin rowV(){
   @include rowVGenerate($desktop-gutters);
   @each $gutter in $site-gutters {
-    @include media-query(nth($gutter, 1)) {
-      @include rowVGenerate(nth($gutter, 2));
+    @if $gutter != false {
+      @include media-query(nth($gutter, 1)) {
+        @include rowVGenerate(nth($gutter, 2));
+      }
     }
   }
 }
@@ -65,8 +71,10 @@ Mixins
 @mixin gutters() {
   @include guttersGenerate($desktop-gutters);
   @each $gutter in $site-gutters {
-    @include media-query(nth($gutter, 1)) {
-      @include guttersGenerate(nth($gutter, 2));
+    @if $gutter != false {
+      @include media-query(nth($gutter, 1)) {
+        @include guttersGenerate(nth($gutter, 2));
+      }
     }
   }
 }
@@ -79,8 +87,10 @@ Mixins
 @mixin guttersV() {
   @include guttersVGenerate($desktop-gutters);
   @each $gutter in $site-gutters {
-    @include media-query(nth($gutter, 1)) {
-      @include guttersVGenerate(nth($gutter, 2));
+    @if $gutter != false {
+      @include media-query(nth($gutter, 1)) {
+        @include guttersVGenerate(nth($gutter, 2));
+      }
     }
   }
 }
