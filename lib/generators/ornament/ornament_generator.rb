@@ -39,14 +39,12 @@ class OrnamentGenerator < Rails::Generators::Base
 
         end
 
-        if options.gems? && !options.example?
-          gem_group :assets do
-            gem 'sass',           '~> 3.2.18'
-            gem "sass-rails",     "~> 3.2.6"
-            gem "uglifier",       ">= 1.0.3"
-            gem "compass-rails",  "~> 1.1.7"
-          end
-        end
+        puts "Please ensure the following gems are in your local Gemfile:"
+        puts ""
+        puts "  gem 'sass-rails'"
+        puts "  gem 'uglifier'"
+        puts "  gem 'compass-rails'"
+        puts ""
 
         if options.core?
 

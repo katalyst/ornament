@@ -10,6 +10,14 @@ table td {
   padding: $xxx-small-unit;
 }
 
+.table {
+  display: table;
+}
+
+.table-cell {
+  display: table-cell;
+}
+
 table thead {
   border-bottom: 2px solid $table-border-color;
 }
