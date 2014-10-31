@@ -5,6 +5,14 @@ table {
 }
 
 .table {
+  display: table;
+}
+
+.table-cell {
+  display: table-cell;
+}
+
+.table {
   td,
   th {
     padding: 0.5em 1em;
