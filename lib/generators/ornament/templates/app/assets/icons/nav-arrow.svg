@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="7px"
+	 viewBox="0 0 10 7" enable-background="new 0 0 10 7" xml:space="preserve">
+<title>Arrow</title>
+<desc>Created with Sketch.</desc>
+<g id="Components" sketch:type="MSPage">
+	<g id="Header" transform="translate(-765.000000, -130.000000)" sketch:type="MSArtboardGroup">
+		<g sketch:type="MSLayerGroup">
+			<g id="Drop-Down" transform="translate(587.000000, 104.000000)" sketch:type="MSShapeGroup">
+				<g id="Drop-Down-2" transform="translate(16.000000, 17.000000)">
+					<g id="Arrow">
+						<path fill="#FFFFFF" d="M167.126,15.5L167.126,15.5c-0.289,0-0.562-0.124-0.752-0.342l-3.5-4
+							c-0.364-0.416-0.322-1.047,0.094-1.411c0.416-0.364,1.047-0.322,1.411,0.094l2.748,3.14l2.748-3.14
+							c0.365-0.416,0.996-0.457,1.411-0.094c0.416,0.364,0.458,0.996,0.095,1.411l-3.501,4
+							C167.689,15.376,167.415,15.5,167.126,15.5z"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

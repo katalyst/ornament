@@ -37,9 +37,16 @@ $navigation-children-background: $secondary-color;
     border-left: 0
   }
 
-  &.has-children a {
+  &.has-children > a {
     padding-right: $x-large-unit;
-    // TODO: chevron-down icon
+    @include grunticon("nav-arrow", 11px, 7px);
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      right: $xxx-small-unit;
+      margin-top: -3px;
+    }
   }
 }
 .navigation-primary nav > ul > li:first-child > a {
