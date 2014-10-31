@@ -16,8 +16,8 @@ gem "jquery-rails"
 # To use debugger
 # gem 'debugger'
 
-gem "sass-rails", "~> 4.0"
+gem "sass-rails", "~> 3.2.6"
 gem "compass-rails", "~> 1.1.7"
-gem 'coffee-rails', '~> 4.0'
+gem 'coffee-rails', '~> 3.2.1'
 gem 'uglifier', '>= 1.0.3'
 gem 'turbolinks', '~> 1.3.0'
