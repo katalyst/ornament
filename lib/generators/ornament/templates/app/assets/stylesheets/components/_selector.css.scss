@@ -1,4 +1,5 @@
 $selector-border-color: $input-border-color;
+$selector-active-background: $passive-color;
 
 .selector {
   border: 1px solid $selector-border-color;
@@ -95,7 +96,7 @@ $selector-border-color: $input-border-color;
   @include pie-clearfix;
 
   &.selector--list--active {
-    background: #eee;
+    background: $selector-active-background;
   }
 
   .table-cell {

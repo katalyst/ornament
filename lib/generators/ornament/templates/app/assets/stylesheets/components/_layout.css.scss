@@ -31,6 +31,11 @@ body {
   @include single-transition(transform, $layout-animation-duration);
   background: $layout-background;
   min-height: 100%;
+
+  // Offset for fixed header on mobile
+  @include media-query($header-breakpoint) {
+    padding-top: 76px;
+  }
 }
 
 .layout--container {
