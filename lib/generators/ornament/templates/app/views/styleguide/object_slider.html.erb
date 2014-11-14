@@ -1,11 +1,77 @@
 <%= content_for :title, "Object Slider" -%>
 
-<div class="oslide" data-oslide>
-  <%- (1..10).each do |i| -%>
-    <div class="slide" data-slide>
-      <img src="http://placehold.it/180x300" />
-    </div>
-  <%- end -%>
+<div class="content-spacing">
+
+  <div class="oslide" data-oslide>
+    <%- (1..10).each do |i| -%>
+      <div class="slide" data-slide>
+        <img src="http://placehold.it/180x300" />
+      </div>
+    <%- end -%>
+  </div>
+
+  <h2 class="heading-two">Marking up your Object Slider</h2>
+
+  <pre class="sg-pre prettyprint">&lt;div class="oslide" data-oslide>
+  <% (1..3).each do |i| %>
+  &lt;div data-slide>
+    &lt;img src="http://placehold.it/180x300" />
+  &lt;/div>
+  <% end %>
+&lt;/div></pre>
+
+  <h2 class="heading-two">Triggers</h2>
+
+  <p>
+    <code>$(".my-oslide").trigger("oslide:next")</code><br />
+    Goes to the next slide
+  </p>
+  
+  <p>
+    <code>$(".my-oslide").trigger("oslide:previous")</code><br />
+    Goes to the previous slide
+  </p>
+
+  <p>
+    <code>$(".my-oslide").trigger("oslide:update-shadows")</code><br />
+    Resets the shadows
+  </p>
+
+  <h2 class="heading-two">All Options</h2>
+
+  <pre class="sg-pre prettyprint">$(".oslide").oslide({
+
+  // Functional settings
+  slideBy                 : 1,
+  itemWidth               : 190,
+  slideTiming             : 300,
+  
+  // Selectors
+  slideSelector           : "[data-slide]",
+  
+  // Classes
+  oslideContainerClass    : "oslide--container",
+  slideContainerClass     : "oslide--slides",
+  slideClass              : "oslide--slide",
+  slideActiveClass        : "oslide--slide__active",
+  nextButtonClass         : "oslide--next",
+  previousButtonClass     : "oslide--previous",
+  initialisedClass        : "oslide__init",
+  shadowLeftClass         : "shadow-left",
+  shadowRightClass        : "shadow-right",
+
+  // Text Customisations
+  nextButtonText          : "Next",
+  previousButtonText      : "Previous",
+
+  // Callbacks
+  onSetup                 : null,
+  onDestroy               : null,
+  afterSlide              : null,
+  afterPreviousSlide      : null,
+  afterNextSlide          : null
+});</pre>
+
 </div>
 
 <%- content_for :scripts_bottom do -%>
