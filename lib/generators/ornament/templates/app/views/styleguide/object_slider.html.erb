@@ -39,12 +39,13 @@
 
   <h2 class="heading-two">All Options</h2>
 
-  <pre class="sg-pre prettyprint">$(".oslide").oslide({
+  <pre class="sg-pre prettyprint">$(".my-oslide").oslide({
 
   // Functional settings
-  slideBy                 : 1,
-  itemWidth               : 190,
-  slideTiming             : 300,
+  slideBy                 : 1,       // can be number or "visible"
+  itemWidth               : 190,     // width of slides
+  slideTiming             : 300,     // amount of time taken to slide
+  activeSlide             : false,   // index of default slide if not first
   
   // Selectors
   slideSelector           : "[data-slide]",
