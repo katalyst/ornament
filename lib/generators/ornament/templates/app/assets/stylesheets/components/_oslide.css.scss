@@ -1,0 +1,53 @@
+$oslide-gutter: 10px;
+$oslide-background: #f4f4f4;
+
+.oslide--container {
+  position: relative;
+  overflow: hidden;
+}
+
+.oslide {
+  position: relative;
+  background: $oslide-background;
+  @include pie-clearfix;
+
+  [data-slide] {
+    float: left; 
+    padding-left: $oslide-gutter / 2;
+    padding-right: $oslide-gutter / 2;
+
+    img {
+      display: block;
+    }
+  }
+}
+
+.oslide--slides {
+  @include pie-clearfix;
+}
+
+.oslide--slide__active {
+  border-bottom: 5px solid red;
+}
+
+.oslide--next,
+.oslide--previous {
+  @include icon-block($button-height, 16px);
+  @include border-radius(50%);
+  background: red;
+  top: 50%;
+  margin-top: -($button-height / 2);
+  cursor: pointer;
+}
+
+.oslide--previous {
+  @include grunticon("chevron-left-16-white", 16px);
+  position: absolute;
+  left: -10px;
+}
+
+.oslide--next {
+  @include grunticon("chevron-right-16-white", 16px);
+  position: absolute;
+  right: -10px;
+}

@@ -1,0 +1,19 @@
+<%= content_for :title, "Object Slider" -%>
+
+<div class="oslide" data-oslide>
+  <%- (1..10).each do |i| -%>
+    <div class="slide" data-slide>
+      <img src="http://placehold.it/180x300" />
+    </div>
+  <%- end -%>
+</div>
+
+<%- content_for :scripts_bottom do -%>
+  <script>
+    $(document).on("ornament:refresh", function(){
+      $(".oslide").oslide({
+        itemWidth: 190
+      });
+    });
+  </script>
+<%- end -%>
