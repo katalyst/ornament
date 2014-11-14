@@ -73,6 +73,18 @@ button::-moz-focus-inner {
   padding: 0;
 }
 
+// Removing spinners from input fields
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    display: none;
+}
+
+input[type="number"] {
+  -moz-appearance:textfield;
+}
+
 // FORM STYLING
 
 .inputs {
