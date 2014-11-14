@@ -65,11 +65,11 @@ $oslide-background: #f4f4f4;
 .oslide--previous {
   @include grunticon("chevron-left-16-white", 16px);
   position: absolute;
-  left: -10px;
+  left: -($button-height / 2);
 }
 
 .oslide--next {
   @include grunticon("chevron-right-16-white", 16px);
   position: absolute;
-  right: -10px;
+  right: -($button-height / 2);
 }

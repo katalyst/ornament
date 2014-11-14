@@ -4,7 +4,7 @@
 
   <h2 class="heading-two">Basic - Image Gallery</h2>
 
-  <div class="oslide" data-oslide>
+  <div class="oslide oslide-1" data-oslide>
     <%- (1..10).each do |i| -%>
       <div class="slide" data-slide>
         <img src="http://placehold.it/180x300" />
@@ -14,16 +14,42 @@
 
   <h2 class="heading-two">HTML Example</h2>
 
-  <div class="oslide oslide__html" data-oslide>
+  <div class="oslide oslide-1 oslide__html" data-oslide>
     <%- (1..10).each do |i| -%>
       <div class="slide content-spacing" data-slide>
         <p>
           <img src="http://placehold.it/180x120" />
         </p>
-        <h3 class="heading-four"><a href="#">Title</a></h3>
+        <h3 class="heading-four"><a href="#">Item <%= i -%></a></h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus repudiandae deserunt ad unde at facere optio magni doloribus, inventore laborum nisi dicta amet quod vero.
         </p>
+      </div>
+    <%- end -%>
+  </div>
+
+  <h2 class="heading-two">Disabled Looping</h2>
+
+  <div class="oslide oslide-2" data-oslide>
+    <%- (1..10).each do |i| -%>
+      <div class="slide content-spacing" data-slide>
+        <p>
+          <img src="http://placehold.it/180x120" />
+        </p>
+        <h3 class="heading-four"><a href="#">Item <%= i -%></a></h3>
+      </div>
+    <%- end -%>
+  </div>
+
+  <h2 class="heading-two">SlideBy 1 at a time</h2>
+
+  <div class="oslide oslide-3" data-oslide>
+    <%- (1..10).each do |i| -%>
+      <div class="slide content-spacing" data-slide>
+        <p>
+          <img src="http://placehold.it/180x120" />
+        </p>
+        <h3 class="heading-four"><a href="#">Item <%= i -%></a></h3>
       </div>
     <%- end -%>
   </div>
@@ -96,10 +122,16 @@
 <%- content_for :scripts_bottom do -%>
   <script>
     $(document).on("ornament:refresh", function(){
-      $(".oslide").oslide({
-        slideBy: "visible",
+      $(".oslide-1").oslide({
+        itemWidth: 190
+      });
+      $(".oslide-2").oslide({
         itemWidth: 190,
         loop: false
+      });
+      $(".oslide-3").oslide({
+        slideBy: 1,
+        itemWidth: 190
       });
     });
   </script>
