@@ -1,10 +1,7 @@
 $oslide-gutter: 10px;
 $oslide-background: #f4f4f4;
 
-.oslide--container {
-  position: relative;
-  overflow: hidden;
-}
+// Slide Container
 
 .oslide {
   position: relative;
@@ -43,6 +40,13 @@ $oslide-background: #f4f4f4;
   }
 }
 
+.oslide--container {
+  position: relative;
+  overflow: hidden;
+}
+
+// Slides
+
 .oslide--slides {
   @include pie-clearfix;
 }
@@ -50,6 +54,8 @@ $oslide-background: #f4f4f4;
 .oslide--slide__active {
   // border-bottom: 5px solid $primary-color;
 }
+
+// Navigation Buttons
 
 .oslide--next,
 .oslide--previous {
@@ -72,4 +78,35 @@ $oslide-background: #f4f4f4;
   @include grunticon("chevron-right-16-white", 16px);
   position: absolute;
   right: -($button-height / 2);
+}
+
+// Minimap
+
+.oslide--minimap {
+  margin: 0 auto;
+  margin-top: $xx-small-unit;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  height: 20px;
+}
+
+.oslide--minimap--map {
+  background: #ddd;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.oslide--minimap--marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 20%;
+  border: 2px solid $primary-color;
+  z-index: 2;
 }
