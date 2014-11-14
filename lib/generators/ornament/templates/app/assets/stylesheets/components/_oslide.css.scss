@@ -11,9 +11,10 @@ $oslide-background: #f4f4f4;
   background: $oslide-background;
 
   [data-slide] {
-    float: left; 
+    float: left;
     padding-left: $oslide-gutter / 2;
     padding-right: $oslide-gutter / 2;
+    width: 190px;
 
     img {
       display: block;
@@ -47,7 +48,7 @@ $oslide-background: #f4f4f4;
 }
 
 .oslide--slide__active {
-  border-bottom: 5px solid $primary-color;
+  // border-bottom: 5px solid $primary-color;
 }
 
 .oslide--next,

@@ -2,10 +2,28 @@
 
 <div class="content-spacing">
 
+  <h2 class="heading-two">Basic - Image Gallery</h2>
+
   <div class="oslide" data-oslide>
     <%- (1..10).each do |i| -%>
       <div class="slide" data-slide>
         <img src="http://placehold.it/180x300" />
+      </div>
+    <%- end -%>
+  </div>
+
+  <h2 class="heading-two">HTML Example</h2>
+
+  <div class="oslide oslide__html" data-oslide>
+    <%- (1..10).each do |i| -%>
+      <div class="slide content-spacing" data-slide>
+        <p>
+          <img src="http://placehold.it/180x120" />
+        </p>
+        <h3 class="heading-four"><a href="#">Title</a></h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus repudiandae deserunt ad unde at facere optio magni doloribus, inventore laborum nisi dicta amet quod vero.
+        </p>
       </div>
     <%- end -%>
   </div>
@@ -26,7 +44,7 @@
     <code>$(".my-oslide").trigger("oslide:next")</code><br />
     Goes to the next slide
   </p>
-  
+
   <p>
     <code>$(".my-oslide").trigger("oslide:previous")</code><br />
     Goes to the previous slide
@@ -46,10 +64,10 @@
   itemWidth               : 190,     // width of slides
   slideTiming             : 300,     // amount of time taken to slide
   activeSlide             : false,   // index of default slide if not first
-  
+
   // Selectors
   slideSelector           : "[data-slide]",
-  
+
   // Classes
   oslideContainerClass    : "oslide--container",
   slideContainerClass     : "oslide--slides",
@@ -80,7 +98,8 @@
     $(document).on("ornament:refresh", function(){
       $(".oslide").oslide({
         slideBy: "visible",
-        itemWidth: 190
+        itemWidth: 190,
+        loop: false
       });
     });
   </script>
