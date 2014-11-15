@@ -1,25 +1,36 @@
 # Ornament To-Do List
 
-- Responsive gutter mixin
-- $(document).trigger("ornament:resize") with debounced alternative
+## Components
+
 - Anchor over-ride for sticky header
+- Responsive gutter mixin
+- Shadows:
+  - Pull shadows out of tabs/selector/oslide and turn in to a re-usable component
+- Momentum scrolling:
+  - Can be applied to things like swipable tabs, oslide etc.
+  - http://www.hnldesign.nl/work/code/momentum-scrolling-using-jquery/
+
+## Enhancements
+
 - Fotorama Presets
+  - Drop-in classes/markup for setting up various types of sliders
 - Google Map embed
   - Lock/unlock styling
   - Geolocate centreing
   - Clustering
 - Tabs
   - Swipable tabs:
-    - Momentum scrolling: http://www.hnldesign.nl/work/code/momentum-scrolling-using-jquery/
+    - Momentum scrolling
     - Scroll to tab when deeplinking
     - Tabs retain shadow behaviour when width of tabset has been reduced, then increased again
   - Swipable body to change tabs
-- Multi-object slider
-  - A slider that has multiple objects inside it
-  - Can slide 1 object across
-  - Can slide all visible objects across
-  - Reponsive, 3 objects goes to 2, then 1
-  - Swipable, controllable, bullets
+- Oslide:
+  - Calculate itemWidth programatically
+  - Gutters options to remove left/right internal gutter
+  - Extend minimap functionality to allow for click to jump
+  - Swipeable
+- Flexible Inputs:
+  - Dynamic anchoring to available space
 - Tooltips
   - Responsive considerations
   - HoverIntent option
