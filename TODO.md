@@ -35,3 +35,10 @@
   - Responsive considerations
   - HoverIntent option
   - Hoverable tooltips, close buttons
+
+## Known bugs
+
+- Oslide:
+  - [general] Cutting in to slides can cause miscalculations for isLastSlideVisible
+  - [slideBy visible] Reaching the end, then sliding back only goes by 1
+    - Possibly issue with marking something other than the left-most slide as active
