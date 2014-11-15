@@ -1,0 +1,61 @@
+<%- content_for :title, "Flexible Input" -%>
+
+<div class="content-spacing">
+
+  <p>A flexible input is an input field that starts off small but grows when focused:</p>
+
+  <div data-flexible-input-container>
+    <div data-flexible-input="140/300">
+      <input type="text" />
+    </div>
+  </div>
+
+  <p>The flexible input needs two elements to wrap around the input field:</p>
+
+  <pre class="sg-pre prettyprint">&lt;div data-flexible-input-container>
+  &lt;div data-flexible-input="140/300">
+    &lt;input type="text" />
+  &lt;/div>
+&lt;/div></pre>
+
+  <p>The outer wrapper needs <code>data-flexible-input-container</code> and the inner wrapper needs <code>data-flexible-input</code>. The inner wrapper takes one value in the form of <code>initial-size/focus-size</code>.
+
+  <p>To anchor the flexible input to the right and extend to the left, simply add <code>data-flexible-input-right</code> to your <code>data-flexible-input</code> element:</p>
+
+  <div data-flexible-input-container>
+    <div data-flexible-input="140/300" data-flexible-input-right>
+      <input type="text" />
+    </div>
+  </div>
+
+  <pre class="sg-pre prettyprint">&lt;div data-flexible-input-container>
+  &lt;div data-flexible-input="140/300" data-flexible-input-right>
+    &lt;input type="text" />
+  &lt;/div>
+&lt;/div></pre>
+
+  <p>An example with <code>data-flexible-input</code> value of 200/800:</p>
+
+  <div data-flexible-input-container>
+    <div data-flexible-input="200/800">
+      <input type="text" placeholder="200/800" />
+    </div>
+  </div>
+
+  <p>An example with 20/400:</p>
+
+  <div data-flexible-input-container>
+    <div data-flexible-input="20/400">
+      <input type="text" placeholder="20/400" />
+    </div>
+  </div>
+
+  <p>An example with 300/100, getting smaller on focus:</p>
+
+  <div data-flexible-input-container>
+    <div data-flexible-input="300/100">
+      <input type="text" placeholder="300/100" />
+    </div>
+  </div>
+
+</div>
