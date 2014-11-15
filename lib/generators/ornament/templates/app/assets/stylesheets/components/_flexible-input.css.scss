@@ -1,0 +1,16 @@
+[data-flexible-input-container] {
+  position: relative;
+  @include pie-clearfix;
+}
+
+[data-flexible-input] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include transition(width .2s);
+}
+
+[data-flexible-input-right] {
+  left: auto;
+  right: 0;
+}
