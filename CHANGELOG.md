@@ -18,6 +18,9 @@
 - Text limiter for input fields
 - Drag and Drop image uploader
 - Select Links for turning a select menu in to a navigation control
+- Flexible Inputs
+- Selector component
+- Object slider
 - Sliding nested mobile navigation with heaps of public functions to control from anywhere
 - `Ornament.windowWidth` and `Ornament.windowHeight` for browser agnostic window measurements
 - Grunticon with sample icons for pagination, mobile menu, menu button etc.

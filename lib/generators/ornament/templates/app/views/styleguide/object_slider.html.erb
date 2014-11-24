@@ -1,0 +1,190 @@
+<%= content_for :title, "Object Slider" -%>
+
+<div class="content-spacing">
+
+  <h2 class="heading-two">Basic - Image Gallery</h2>
+
+  <div class="oslide oslide-1" data-oslide>
+    <%- (1..10).each do |i| -%>
+      <div class="slide" data-slide>
+        <img src="http://placehold.it/180x300" />
+      </div>
+    <%- end -%>
+  </div>
+
+  <h2 class="heading-two">HTML Example</h2>
+
+  <div class="oslide oslide-1 oslide__html" data-oslide>
+    <%- (1..10).each do |i| -%>
+      <div class="slide content-spacing" data-slide>
+        <p>
+          <img src="http://placehold.it/180x120" />
+        </p>
+        <h3 class="heading-four"><a href="#">Item <%= i -%></a></h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus repudiandae deserunt ad unde at facere optio magni doloribus, inventore laborum nisi dicta amet quod vero.
+        </p>
+      </div>
+    <%- end -%>
+  </div>
+
+  <h2 class="heading-two">Disabled Looping</h2>
+
+  <div class="oslide oslide-2" data-oslide>
+    <%- (1..10).each do |i| -%>
+      <div class="slide content-spacing" data-slide>
+        <p>
+          <img src="http://placehold.it/180x120" />
+        </p>
+        <h3 class="heading-four"><a href="#">Item <%= i -%></a></h3>
+      </div>
+    <%- end -%>
+  </div>
+
+  <h2 class="heading-two">SlideBy 1 at a time</h2>
+
+  <div class="oslide oslide-3" data-oslide>
+    <%- (1..10).each do |i| -%>
+      <div class="slide content-spacing" data-slide>
+        <p>
+          <img src="http://placehold.it/180x120" />
+        </p>
+        <h3 class="heading-four"><a href="#">Item <%= i -%></a></h3>
+      </div>
+    <%- end -%>
+  </div>
+
+  <h2 class="heading-two">Minimap</h2>
+
+  <div class="oslide oslide-4" data-oslide>
+    <%- (1..10).each do |i| -%>
+      <div class="slide content-spacing" data-slide>
+        <img src="http://placehold.it/180x300" />
+      </div>
+    <%- end -%>
+  </div>
+
+  <h2 class="heading-two">Custom Navigation Buttons</h2>
+
+  <p>
+    Using the <a href="#triggers">triggers</a> for <code>oslide:next</code> and
+    <code>oslide:previous</code> you can create custom buttons for your slider.
+  </p>
+
+  <div class="oslide oslide-5" data-oslide>
+    <%- (1..10).each do |i| -%>
+      <div class="slide content-spacing" data-slide>
+        <img src="http://placehold.it/180x300" />
+      </div>
+    <%- end -%>
+  </div>
+
+  <p>
+    <button class="button" id="oslide-5--previous">Previous slide</button>
+    <button class="button" id="oslide-5--next">Next slide</button>
+  </p>
+
+  <h2 class="heading-two">Marking up your Object Slider</h2>
+
+  <p>At the very least the markup needs to be:</p>
+
+  <pre class="sg-pre prettyprint">&lt;div class="oslide" data-oslide>
+  <% (1..3).each do |i| %>
+  &lt;div data-slide>
+    &lt;img src="http://placehold.it/180x300" />
+  &lt;/div>
+  <% end %>
+&lt;/div></pre>
+
+  <p>Then to apply the plugin to your oslide module:</p>
+
+  <pre class="sg-pre prettyprint">$(".oslide").oslide();</pre>
+
+  <h2 class="heading-two" id="triggers">Triggers</h2>
+
+  <p>Various triggers are available to control the slider outside of the plugin.</p>
+
+  <p>These bindings are triggered on the slider element itself. These examples assume your oslide element is <code>$(".my-oslide");</code></p>
+
+  <p>
+    <code>$(".my-oslide").trigger("oslide:next")</code> - Goes to the next slide
+  </p>
+
+  <p>
+    <code>$(".my-oslide").trigger("oslide:previous")</code> - Goes to the previous slide
+  </p>
+
+  <p>
+    <code>$(".my-oslide").trigger("oslide:refresh")</code> - Refreshes various features of the slider such as shadows, minimap, whether next/previous button should be visible if loop is turned off etc.
+  </p>
+
+  <h2 class="heading-two">All Options and Callbacks</h2>
+
+  <pre class="sg-pre prettyprint">$(".my-oslide").oslide({
+
+  // Functional settings
+  slideBy                 : 1,       // can be number or "visible"
+  itemWidth               : 190,     // width of slides
+  slideTiming             : 300,     // amount of time taken to slide
+  activeSlide             : false,   // index of default slide if not first
+
+  // Selectors
+  slideSelector           : "[data-slide]",
+
+  // Classes
+  oslideContainerClass    : "oslide--container",
+  slideContainerClass     : "oslide--slides",
+  slideClass              : "oslide--slide",
+  slideActiveClass        : "oslide--slide__active",
+  nextButtonClass         : "oslide--next",
+  previousButtonClass     : "oslide--previous",
+  initialisedClass        : "oslide__init",
+  shadowLeftClass         : "shadow-left",
+  shadowRightClass        : "shadow-right",
+
+  // Text Customisations
+  nextButtonText          : "Next",
+  previousButtonText      : "Previous",
+
+  // Callbacks
+  onSetup                 : null,
+  onDestroy               : null,
+  afterSlide              : null,
+  afterPreviousSlide      : null,
+  afterNextSlide          : null
+});</pre>
+
+</div>
+
+<%- content_for :scripts_bottom do -%>
+  <script>
+    $(document).on("ornament:refresh", function(){
+      $(".oslide-1").oslide({
+        itemWidth: 190
+      });
+      $(".oslide-2").oslide({
+        itemWidth: 190,
+        loop: false
+      });
+      $(".oslide-3").oslide({
+        slideBy: 1,
+        itemWidth: 190
+      });
+      $(".oslide-4").oslide({
+        itemWidth: 190,
+        minimap: true,
+        slideBy: "visible"
+      });
+      $(".oslide-5").oslide({
+        itemWidth: 190,
+        showNavigation: false
+      });
+      $("#oslide-5--next").on("click", function(){
+        $(".oslide-5").trigger("oslide:next");
+      });
+      $("#oslide-5--previous").on("click", function(){
+        $(".oslide-5").trigger("oslide:previous");
+      });
+    });
+  </script>
+<%- end -%>
