@@ -38,7 +38,9 @@
     <input type="text" placeholder="Filter for your favourite number" class="" id="selector_4" />
   </div>
   
-  <p id="selector_4_callback_box"></p>
+  <div class="selector--pane--wrapper">
+    <div class="selector--pane"></div>
+  </div>
 
   <h2 class="heading-two">Usage</h2>
 
@@ -58,6 +60,7 @@
       }],
       inputName: "my-selector",
       hiddenField: null,
+      checkbox: false,
       template: null,
       preventEnter: true,
       onChange: null,
