@@ -30,6 +30,16 @@
 
   <p id="selector_3_callback_box"></p>
 
+  <h2 class="heading-two">Checkbox</h2>
+
+  <p>Text will update below the selector when you make a selection.</p>
+
+  <div class="control-group">
+    <input type="text" placeholder="Filter for your favourite number" class="" id="selector_4" />
+  </div>
+  
+  <p id="selector_4_callback_box"></p>
+
   <h2 class="heading-two">Usage</h2>
 
   <p>Selector was created as a jQuery plugin so that you could pass in custom JSON lists. You can create a selector like so:</p>
@@ -55,6 +65,8 @@
     })
   });
 &lt;/script></pre>
+
+  <p>When using with SimpleForm and Ornament's SimpleForm initialiser, it helps to add <code>&lt;div class="control-group">&lt;/div></code> around the input field.</p>
 
   <h2 class="heading-two">Options, events and callbacks</h2>
 
@@ -125,6 +137,15 @@
           }
         }
       }); 
+
+      $("#selector_4").katSelector({
+        list: sampleList,
+        checkbox: true,
+        inputName: "example-4",
+        onChange: function($selectedLabel, value) {
+          var $field = $("#selector_4_callback_box");
+        }
+      });
 
     });
   </script>
