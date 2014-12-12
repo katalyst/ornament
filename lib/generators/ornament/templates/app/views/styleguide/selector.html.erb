@@ -30,13 +30,15 @@
 
   <p id="selector_3_callback_box"></p>
 
-  <h2 class="heading-two">Checkbox</h2>
+  <h2 class="heading-two">Checkbox with a holding area for selections</h2>
 
   <p>Text will update below the selector when you make a selection.</p>
 
   <div class="control-group">
     <input type="text" placeholder="Filter for your favourite number" class="" id="selector_4" />
   </div>
+
+  <input type="text" id="selector_4_field" />
   
   <div class="selector--pane--wrapper">
     <div class="selector--pane"></div>
@@ -141,12 +143,27 @@
         }
       }); 
 
+      var selector4Holding = [];
+
       $("#selector_4").katSelector({
         list: sampleList,
         checkbox: true,
         inputName: "example-4",
-        onChange: function($selectedLabel, value) {
-          var $field = $("#selector_4_callback_box");
+        onChange: function($selectedLabel, value, $selector) {
+          var $holdingArea = $("#selector_4_callback_box");
+          var $field       = $("#selector_4_field");
+          // find all selected fields
+          var checkedFields = $selector.find("input:checked");
+          // reset holding array
+          selector4Holding = [];
+          // loop over each fields to find the checked ones
+          $.each(checkedFields, function(){
+            // push the IDs to the holding array
+            var thisId = $(this).attr("id");
+            selector4Holding.push(thisId);
+          });
+          // send value to hidden field
+          $field.val(selector4Holding.toString());
         }
       });
 
