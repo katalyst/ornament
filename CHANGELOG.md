@@ -26,6 +26,7 @@
 - Grunticon with sample icons for pagination, mobile menu, menu button etc.
 - Basic print stylesheet
 - Flash Message partial
+- Responsive embeds
 
 ### Changes
 

@@ -44,5 +44,3 @@
   - [general] Cutting in to slides can cause miscalculations for isLastSlideVisible
   - [slideBy visible] Reaching the end, then sliding back only goes by 1
     - Possibly issue with marking something other than the left-most slide as active
-- Media Query mixin
-  - 1px deadzone when using a min and a max media-query, eg media-query(700px, min) and media-query(700px, max) will result in one pixel where neither rules are applied. 
