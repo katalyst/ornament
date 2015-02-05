@@ -1,9 +1,14 @@
 # Ornament To-Do List
 
+## Changes
+
+- Change content.css to aspects folder
+- Move some JS components in to a JS utilities folder as they are more utilities (eg. conform.js, show.js)
+
 ## Components
 
+- Conform.js Rebuild
 - Anchor over-ride for sticky header
-- Responsive gutter mixin
 - Shadows:
   - Pull shadows out of tabs/selector/oslide and turn in to a re-usable component
 - Momentum scrolling:
