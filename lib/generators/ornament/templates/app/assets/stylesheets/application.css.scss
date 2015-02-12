@@ -11,6 +11,17 @@
 
 @import "ornament/core";
 
+// ASPECTS
+//
+//
+// Spacing around elements in different areas of the website
+//
+
+@import "aspects/normal";
+@import "aspects/compressed";
+@import "aspects/expanded";
+@import "aspects/inputs";
+
 // COMPONENTS
 //
 //
@@ -22,7 +33,6 @@
 @import "components/breakpoint-helper";
 @import "components/button";
 @import "components/clearfix";
-@import "components/content";
 @import "components/embed";
 @import "components/environment";
 @import "components/error-page";

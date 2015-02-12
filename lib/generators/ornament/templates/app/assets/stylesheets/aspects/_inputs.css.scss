@@ -1,0 +1,21 @@
+@mixin input-spacing {
+
+  // Basic spacing between child elements
+  > * + * {
+    margin-top: $xx-small-unit;
+  }
+
+  // Inlining labels
+  label {
+    display: inline-block;
+  }
+
+  // Buttons after form inputs
+  & + .actions {
+    margin-top: $xx-small-unit;
+  }
+}
+
+.inputs {
+  @include input-spacing;
+}

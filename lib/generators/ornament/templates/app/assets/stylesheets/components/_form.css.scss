@@ -87,15 +87,6 @@ input[type="number"] {
 }
 
 // FORM STYLING
-
-.inputs {
-  @extend .spacing-xx-tight;
-
-  label {
-    display: inline-block;
-  }
-}
-
 // Push embedded forms away from content
 .form-embedded {
   margin-top: $default-unit;

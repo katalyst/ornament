@@ -4,7 +4,14 @@
 
 ### Features
 
+- Added SVG fix for IE9-11
+- Created aspects folder in stylesheets
+
 ### Changes
+
+- Moved content.css in to the new aspects folder and separated in to different aspects. 
+- Moved input spacing out of forms.css and in to the aspects folder as inputs.css
+- Changed content--title to page--title and moved in to new page.css file
 
 ## v1.0.0
 

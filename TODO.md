@@ -2,11 +2,13 @@
 
 ## Changes
 
-- Change content.css to aspects folder
 - Move some JS components in to a JS utilities folder as they are more utilities (eg. conform.js, show.js)
+- OpenGraph yields in global template
+- SimpleForm initialiser update to use new config.label_text to avoid crashing when uncommenting the config.label_text
 
 ## Components
 
+- Twitter Fetcher
 - Conform.js Rebuild
 - Anchor over-ride for sticky header
 - Shadows:
