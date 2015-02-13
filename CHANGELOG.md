@@ -15,6 +15,8 @@
 - Moved grunticon loader JS file in to /grunt as it's not used for anything
 - Moved show.js in to javascripts/utilities rather than javascripts/components.
 - Upgraded conform.js and moved in to javascripts/utilities
+- Updated docs for event tracking, moved in to new javascript utilities section in docs.
+- Updated SimpleForm initialiser to use new config.label_text to avoid crashing when uncommenting the config.label_text
 
 ## v1.0.0
 
