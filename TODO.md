@@ -3,11 +3,11 @@
 ## Changes
 
 - OpenGraph yields in global template
+- Basic Page templates
 
 ## Components
 
 - Twitter Fetcher
-- Conform.js Rebuild
 - Anchor over-ride for sticky header
 - Shadows:
   - Pull shadows out of tabs/selector/oslide and turn in to a re-usable component
