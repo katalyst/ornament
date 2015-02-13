@@ -12,6 +12,9 @@
 - Moved content.css in to the new aspects folder and separated in to different aspects. 
 - Moved input spacing out of forms.css and in to the aspects folder as inputs.css
 - Changed content--title to page--title and moved in to new page.css file
+- Moved grunticon loader JS file in to /grunt as it's not used for anything
+- Moved show.js in to javascripts/utilities rather than javascripts/components.
+- Upgraded conform.js and moved in to javascripts/utilities
 
 ## v1.0.0
 
