@@ -13,7 +13,7 @@
 - Added above_layout and below_layout yields + docs  
 - Added a flexible page layout with sidebar and sidebar_right yields   
 - Removed VERSION file in favour of `/ornament/version.rb`, showing version on styleguide.
-- Ornament.measure($element, metric) is a new Ornament JS function to measure a hidden element. 
+- `Ornament.measure($element, metric)` is a new Ornament JS function to measure a hidden element. 
 
 ### Changes
 
