@@ -25,6 +25,9 @@
 - Updated docs for event tracking, moved in to new javascript utilities section in docs.
 - Updated SimpleForm initialiser to use new config.label_text to avoid crashing when uncommenting the config.label_text
 
+### Bugfixes
+
+- Mobile Navigation - First pane is now sized based on the entire height of the `firstPaneClass` element rather than just the navigation elements. This way navigation won't cut off if the first pane contains something other than navigation such as a logo.
 
 ## v1.0.0
 
