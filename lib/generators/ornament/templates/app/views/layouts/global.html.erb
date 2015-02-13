@@ -106,12 +106,14 @@
           </div>
         </header>
 
-        <div class="layout--container">
-          <section class="layout--main" role="main">
-            <a id="main" name="main" tabindex="-1"></a>
-              <%= content_for?(:global) ? yield(:global) : yield %>
-          </section>
-        </div>
+        <%= yield :above_layout -%>
+          <div class="layout--container">
+            <section class="layout--main" role="main">
+              <a id="main" name="main" tabindex="-1"></a>
+                <%= content_for?(:global) ? yield(:global) : yield %>
+            </section>
+          </div>
+        <%= yield :below_layout -%>
 
         <footer class="layout--footer" role="contentinfo">
           <div class="layout--container">

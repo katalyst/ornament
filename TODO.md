@@ -2,7 +2,6 @@
 
 ## Changes
 
-- OpenGraph yields in global template
 - Basic Page templates
 
 ## Components
