@@ -5,11 +5,13 @@
 
 ### Features
 
-- Added SVG fix for IE9-11
-- Added OpenGraph yields to global template
-- Created aspects folder in stylesheets
-- Conform.js rebuild - [Documentation](https://bitbucket.org/dbaines/conform/overview)
-- Added CommonControllerActions (commented out) in styleguide controller for Koi support
+- Added SVG fix for IE9-11  
+- Added OpenGraph yields to global template  
+- Created aspects folder in stylesheets  
+- Conform.js rebuild - [Documentation](https://bitbucket.org/dbaines/conform/overview)  
+- Added CommonControllerActions (commented out) in styleguide controller for Koi support  
+- Added above_layout and below_layout yields + docs  
+- Added a flexible page layout with sidebar and sidebar_right yields   
 
 ### Changes
 

@@ -8,6 +8,8 @@
     <title>
       <% if content_for?(:title) %>
         <%= yield :title %> &ndash;
+      <% elsif content_for(:page_title) -%>
+        <%= yield :page_title %> &ndash;
       <% end %>
       <%= Rails.application.class.name.split("::").first.humanize %>
     </title>

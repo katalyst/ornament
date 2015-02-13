@@ -2,8 +2,6 @@
 
 ## Changes
 
-- Basic Page templates
-
 ## Components
 
 - Twitter Fetcher
