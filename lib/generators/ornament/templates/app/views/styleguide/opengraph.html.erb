@@ -1,1 +1,15 @@
 <%= content_for :title, "Opengraph" -%>
+
+<div class="content-spacing content-lists">
+
+  <p>Ornament has a few OpenGraph yields that you can send data to on a per-page basis:</p>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_title, @module.title -%></pre>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_image, @module.image.thumb("200x200#").url -%></pre>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_description, @module.description -%></pre>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_url, module_path(@module) -%></pre>
+
+</div>
