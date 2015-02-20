@@ -3,6 +3,8 @@
 
 ## v1.1.0
 
+This update is focused on making a better default application state for your website and less on new and modified components. 
+
 ### Features
 
 - Added SVG fix for IE9-11  
