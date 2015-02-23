@@ -1,5 +1,6 @@
 .footer {
   color: $foreground-color;
-  background: #ccc;
+  background: $passive-color;
   padding: $xx-small-unit;
+  @include border-radius($border-radius);
 }
