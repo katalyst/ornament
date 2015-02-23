@@ -1,3 +1,6 @@
+// NOTE: Potentially transitioning from .content-* to .normal-*
+// For now both classes are being used during the transition preiod.
+
 .content--title {
   padding: $default-unit 0;
   @include background-image(linear-gradient(rgba($passive-color,.33) 0%, rgba($passive-color,.66) 100%));
@@ -18,31 +21,38 @@
   }
 }
 
-.content-large {
-  @include media-query($breakpoint-medium,"min") {
-    font-size: $large-font-size;
+// LISTS
+// Normalising bullets and numbered lists
+
+@mixin normal-lists($list-type:false) {
+  margin-left: 2em;
+  margin-bottom: $small-unit;
+
+  @if ($list-type == ul) {
+    li {
+      list-style: disc;
+    }
+  } 
+  @else if ($list-type == ol) {
+    li {
+      list-style: decimal;
+    }
   }
 }
 
-ul.content-lists,
-ol.content-lists,
 .content-lists ul,
-.content-lists ol {
-  margin-left: 2em;
-  margin-bottom: $small-unit;
+ul.content-lists {
+  @include normal-lists(ul);
 }
 
-ul.content-lists,
-.content-lists ul {
-  list-style: disc;
+.content-lists ol,
+ol.content-lists {
+  @include normal-lists(ol);
 }
 
-ol.content-lists,
-.content-lists ol {
-  list-style: decimal;
-}
+// NORMAL SPACING 
 
-.content-spacing {
+@mixin normal-spacing {
   p {
     margin-top: $xx-small-unit;
     margin-bottom: $xx-small-unit;
@@ -200,11 +210,22 @@ ol.content-lists,
   }
 }
 
-.content {
-  @extend .content-large;
-  @extend .content-spacing;
-  @extend .content-lists;
+.normal-spacing,
+.content-spacing {
+  @include normal-spacing;
+}
 
+// FONT SIZE INCREASER
+
+@mixin normal-sizing {
+  @include media-query($breakpoint-medium,"min") {
+    font-size: $large-font-size;
+  }
+}
+
+// NORMALISE HEADINGS
+
+@mixin normal-headings {
   h1 {
     @include heading-one;
   }
@@ -228,6 +249,19 @@ ol.content-lists,
   h6 {
     @include heading-six;
   }
+}
+
+.normal-headings,
+.content-headings {
+  @include normal-headings;
+}
+
+// EVERYTHING ALL TOGETHER IN ONE CLASS
+
+.content {
+  @include normal-spacing;
+  @include normal-sizing;
+  @include normal-headings;
 
   img {
     @include border-radius($border-radius);
@@ -238,7 +272,7 @@ ol.content-lists,
     height: auto !important;
   }
 
-  // image + caption styles
+  // Images with captions
   figure {
     position: relative;
 
@@ -278,12 +312,4 @@ ol.content-lists,
     @include flush-children;
     font-size: $base-font-size;
   }
-
-  :first-child {
-    margin-top: 0;
-  }
-  :last-child {
-    margin-bottom: 0;
-  }
-
 }
