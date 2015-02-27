@@ -78,16 +78,26 @@
   @include button-background($success-color);
 }
 
-// confirm line style
-.button__confirm__line {
+// line styles
+.button__line {
   @extend .button;
-  @include button-line($success-color, false, $success-color);
+  @include button-line($default-color, false, $default-color);
 }
-
-// cancel line style
-.button__cancel__line {
+.button__primary__line {
+  @extend .button;
+  @include button-line($primary-color, false, $primary-color);
+}
+.button__warning__line {
+  @extend .button;
+  @include button-line($warning-color, false, $warning-color);
+}
+.button__error__line {
   @extend .button;
   @include button-line($error-color, false, $error-color);
+}
+.button__success__line {
+  @extend .button;
+  @include button-line($success-color, false, $success-color);
 }
 
 // disabled buttons
