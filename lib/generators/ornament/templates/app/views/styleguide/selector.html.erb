@@ -1,44 +1,136 @@
 <% content_for :title, "Selector" %>
 
+<%- content_for :scripts do -%>
+  <script>
+    var sampleList = [
+      <%- (1..25).each do |i| -%>
+        {
+          name: "<%= i.ordinalize -%>",
+          value: "<%= i -%>",
+          category: "<%= ['Category 1', 'Category 2', 'Category 3'].shuffle.first -%>"
+        },
+      <%- end -%>
+    ]
+  </script>
+<%- end -%>
+
 <div class="content-spacing">
 
   <p>Selector provides an easy way to manage a long list of items that user can select from.</p>
 
-  <p>Example "hidden" field that the data is sent to:</p>
+  <%- content_for :example_1 do -%>
+<p>Example "hidden" field that the data is sent to:</p>
 
-  <input type="text" id="selector_1_field" />
+<input type="text" id="selector_1_field" />
 
-  <p>Example selector that sends values to the "hidden" field above:</p>
-
-  <div class="control-group">
-    <input type="text" placeholder="Filter for your favourite number" class="" id="selector_1" />
-  </div>
+<p>Example selector that sends values to the "hidden" field above:</p>
+<div class="control-group">
+  <input type="text" placeholder="Filter for your favourite number" class="" id="selector_1" />
+</div>
+<script>
+  $(function(){
+    $("#selector_1").katSelector({
+      list: sampleList,
+      hiddenField: $("#selector_1_field"),
+      inputName: "example-1"
+    });
+  });
+</script>
+  <%- end -%>
+  <%= yield :example_1 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
 
   <h2 class="heading-two">Custom list template</h2>
 
-  <div class="control-group">
-    <input type="text" placeholder="Filter for your favourite number" class="" id="selector_2" />
-  </div>
+  <%- content_for :custom_list_template do -%>
+<div class="control-group">
+  <input type="text" placeholder="Filter for your favourite number" class="" id="selector_2" />
+</div>
+<script>
+  $(function(){
+    $("#selector_2").katSelector({
+      list: sampleList,
+      inputName: "example-2",
+      template: function(itemObject, item, label, title, option, $selector) {
+        var custom_template = "<div class='category'>" + itemObject.category + "</div>";
+        custom_template += "<div data-selector-name>" + itemObject.name + "</div>";
+        return custom_template;
+      }
+    });
+  });
+</script>
+  <%- end -%>
+  <%= yield :custom_list_template -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :custom_list_template) -%></pre>
 
   <h2 class="heading-two">Change callback</h2>
 
   <p>Text will update below the selector when you make a selection.</p>
 
-  <div class="control-group">
-    <input type="text" placeholder="Filter for your favourite number" class="" id="selector_3" />
-  </div>
-
+  <%- content_for :callback do -%>
+<div class="control-group">
+  <input type="text" placeholder="Filter for your favourite number" class="" id="selector_3" />
   <p id="selector_3_callback_box"></p>
+</div>
+<script>
+  $(function(){
+    $("#selector_3").katSelector({
+      list: sampleList,
+      inputName: "example-3",
+      onChange: function($selectedLabel, value){
+        var callbackText = "Selected Value: " + value + ", " + "Field Label: " + $selectedLabel.text();
+        if(value) {
+          $("#selector_3_callback_box").text(callbackText);
+        } else {
+          $("#selector_3_callback_box").text("");
+        }
+      }
+    }); 
+  });
+</script>
+  <%- end -%>
+  <%= yield :callback -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :callback) -%></pre>
 
   <h2 class="heading-two">Checkbox with a holding area for selections</h2>
 
   <p>Text will update below the selector when you make a selection.</p>
 
-  <div class="control-group">
-    <input type="text" placeholder="Filter for your favourite number" class="" id="selector_4" />
-  </div>
+  <%- content_for :holding do -%>
+<div class="control-group">
+  <input type="text" placeholder="Filter for your favourite number" class="" id="selector_4" />
+</div>
+<input type="text" id="selector_4_field" />
+<script>
+  $(function(){
+    var selector4Holding = [];
 
-  <input type="text" id="selector_4_field" />
+    $("#selector_4").katSelector({
+      list: sampleList,
+      checkbox: true,
+      inputName: "example-4",
+      onChange: function($selectedLabel, value, $selector) {
+        var $holdingArea = $("#selector_4_callback_box");
+        var $field       = $("#selector_4_field");
+        // find all selected fields
+        var checkedFields = $selector.find("input:checked");
+        // reset holding array
+        selector4Holding = [];
+        // loop over each fields to find the checked ones
+        $.each(checkedFields, function(){
+          // push the IDs to the holding array
+          var thisId = $(this).attr("id");
+          selector4Holding.push(thisId);
+        });
+        // send value to hidden field
+        $field.val(selector4Holding.toString());
+      }
+    });
+  });
+</script>
+  <%- end -%>
+  <%= yield :holding -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :holding) -%></pre>
   
   <div class="selector--pane--wrapper">
     <div class="selector--pane"></div>
@@ -99,74 +191,3 @@
   </ul>
 
 </div>
-
-<%- content_for :scripts do -%>
-  <script>
-    $(function(){
-
-      var sampleList = [
-        <%- (1..25).each do |i| -%>
-          {
-            name: "<%= i.ordinalize -%>",
-            value: "<%= i -%>",
-            category: "<%= ['Category 1', 'Category 2', 'Category 3'].shuffle.first -%>"
-          },
-        <%- end -%>
-      ]
-
-      $("#selector_1").katSelector({
-        list: sampleList,
-        hiddenField: $("#selector_1_field"),
-        inputName: "example-1"
-      });
-
-      $("#selector_2").katSelector({
-        list: sampleList,
-        inputName: "example-2",
-        template: function(itemObject, item, label, title, option, $selector) {
-          var custom_template = "<div class='category'>" + itemObject.category + "</div>";
-          custom_template += "<div data-selector-name>" + itemObject.name + "</div>";
-          return custom_template;
-        }
-      });
-
-      $("#selector_3").katSelector({
-        list: sampleList,
-        inputName: "example-3",
-        onChange: function($selectedLabel, value){
-          var callbackText = "Selected Value: " + value + ", " + "Field Label: " + $selectedLabel.text();
-          if(value) {
-            $("#selector_3_callback_box").text(callbackText);
-          } else {
-            $("#selector_3_callback_box").text("");
-          }
-        }
-      }); 
-
-      var selector4Holding = [];
-
-      $("#selector_4").katSelector({
-        list: sampleList,
-        checkbox: true,
-        inputName: "example-4",
-        onChange: function($selectedLabel, value, $selector) {
-          var $holdingArea = $("#selector_4_callback_box");
-          var $field       = $("#selector_4_field");
-          // find all selected fields
-          var checkedFields = $selector.find("input:checked");
-          // reset holding array
-          selector4Holding = [];
-          // loop over each fields to find the checked ones
-          $.each(checkedFields, function(){
-            // push the IDs to the holding array
-            var thisId = $(this).attr("id");
-            selector4Holding.push(thisId);
-          });
-          // send value to hidden field
-          $field.val(selector4Holding.toString());
-        }
-      });
-
-    });
-  </script>
-<%- end -%>

@@ -64,22 +64,10 @@ a.panel {
 
 @mixin panel-padding {
   padding: $panel-padding;
-
-  @include media-query($breakpoint-tiny) {
-    padding: $panel-padding-small;
-  }
 }
 
 @mixin panel-padding-large {
   padding: $panel-padding-large;
-
-  @include media-query($breakpoint-medium) {
-    padding: $panel-padding;
-  }
-
-  @include media-query($breakpoint-tiny) {
-    padding: $panel-padding-small;
-  }
 }
 
 .panel--padding__x-tight {

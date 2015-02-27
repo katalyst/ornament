@@ -2,7 +2,9 @@
 
 <p>Pagination styles via Kaminari</p>
 
+  <%- content_for :pagination do -%>
 <nav class="pagination" role="navigation">
+
   <span class="first disabled">
     First
   </span>
@@ -28,3 +30,7 @@
   </span>
 
 </nav>
+  <%- end -%>
+  <%= yield :pagination -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :pagination) -%></pre>
