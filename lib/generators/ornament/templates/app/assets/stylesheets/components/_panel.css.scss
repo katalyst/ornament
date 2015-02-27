@@ -21,10 +21,6 @@ a.panel {
   @extend .panel--padding;
 }
 
-.panel--padding-border {
-  border-top: 1px solid $panel-border;
-}
-
 // COLOUR VARIANTS
 
 .panel__primary {
@@ -59,6 +55,21 @@ a.panel {
   }
 }
 
+// SPACING PANELS
+
+.panel-spacing {
+  .panel + .panel,
+  .panel + .tabs,
+  .panel + .panel-spacer,
+  .tabs + .panel,
+  .tabs + .pane-spacer,
+  .tabs + .tabs,
+  .panel-spacer + .tabs,
+  .panel-spacer + .panel,
+  .panel-spacer + .panel-spacer {
+    margin: $default-unit 0;
+  }
+}
 
 // PADDING VARIANTS
 
@@ -86,6 +97,11 @@ a.panel {
   @include panel-padding-large;
 }
 
+.panel--padding__border {
+  @extend .panel-padding;
+  border-top: 1px solid $panel-border;
+}
+
 // BORDER RADIUS VARIANTS
 
 .panel__no-top-radius {
@@ -96,6 +112,9 @@ a.panel {
 .panel__no-bottom-radius {
   @include border-bottom-left-radius(0);
   @include border-bottom-right-radius(0);
+}
+.panel__joint {
+  @include border-radius(0);
 }
 
 // THINGS IN PANELS
