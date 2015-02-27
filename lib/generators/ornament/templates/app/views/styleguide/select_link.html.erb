@@ -2,35 +2,37 @@
 
 <div class="content-spacing">
 
-  <p>Select links convert <code>select</code> elements in to linkable objects:</p>
-
-  <p>
-    <select data-select-link class="form--medium">
-      <option value="">Select a page...</option>
-      <option value="http://google.com.au">Google</option>
-      <option value="http://katalyst.com.au">Visit the Katalyst Website</option>
-    </select>
-  </p>
+  <p>Select links convert <code>select</code> elements in to linkable objects.</p>
 
   <p>All you need to do to make this happen is add <code>data-select-link</code> on your select element, then use the URLs as the <code>value</code> for each <code>option</code>.</p>
 
-  <pre class="sg-pre prettyprint">&lt;select data-select-link class="form--medium">
-  &lt;option value="">Select a page...&lt;/option>
-  &lt;option value="http://google.com.au">Google&lt;/option>
-  &lt;option value="http://katalyst.com.au">Visit the Katalyst Website&lt;/option>
-&lt;/select></pre>
+  <%- content_for :example_1 do -%>
+<select data-select-link class="form--medium">
+  <option value="">Select a page...</option>
+  <option value="http://google.com.au">Google</option>
+  <option value="http://katalyst.com.au">Visit the Katalyst Website</option>
+</select>
+  <%- end -%>
+  <p>
+    <%= yield :example_1 -%>
+  </p>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
 
   <p>If the select contains a link that matches the URL of the page the user is currently on, it will automatically make that one selected on page load. This is helpful if using it as a navigation tool:</p>
 
+  <%- content_for :example_2 do -%>
+<select data-select-link class="form--medium">
+  <option value="">Select a page...</option>
+  <option value="http://google.com.au">Google</option>
+  <option value="http://google.com.au">Google</option>
+  <option value="http://google.com.au">Google</option>
+  <option value="<%= request.path -%>"><%= request.path -%></option>
+  <option value="http://google.com.au">Google</option>
+</select>
+  <%- end -%>
   <p>
-    <select data-select-link class="form--medium">
-      <option value="">Select a page...</option>
-      <option value="http://google.com.au">Google</option>
-      <option value="http://google.com.au">Google</option>
-      <option value="http://google.com.au">Google</option>
-      <option value="<%= request.path -%>"><%= request.path -%></option>
-      <option value="http://google.com.au">Google</option>
-    </select>
+    <%= yield :example_2 -%>
   </p>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_2) -%></pre>
 
 </div>

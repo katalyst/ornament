@@ -170,6 +170,23 @@
 
   <pre class="sg-pre prettyprint"><%= render_source(yield :horizontal_radios) -%></pre>
 
+  <%- content_for :single_checkbox do -%>
+<div class="control-group boolean optional checkbox__single">
+  <label class="boolean optional control-label" for="terms">
+    A single checkbox / boolean with the wrapper class <code>checkbox__single</code>
+  </label>
+  <div class="controls">
+    <input name="enrollment[terms]" type="hidden" value="0">
+    <label class="checkbox">
+      <input class="boolean optional" id="terms" name="form[terms]" type="checkbox" value="1">
+    </label>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :single_checkbox -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :single_checkbox) -%></pre>
+
   <h2 class="heading-two">Split buttons</h2>
 
   <%- content_for :split_buttons do -%>
