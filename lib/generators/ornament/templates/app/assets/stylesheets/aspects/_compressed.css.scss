@@ -52,8 +52,13 @@
     }
   }
 
+  .button-group,
   .button {
     margin: $xx-small-unit 0;
     @include flush-children;
+  }
+
+  .button-group .button {
+    margin: 0;
   }
 }
