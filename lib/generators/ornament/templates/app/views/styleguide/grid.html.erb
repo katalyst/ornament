@@ -9,20 +9,22 @@
   <p>To create two columns, one 4/12, the other 8/12, can be done using <code>grid-4</code> and <code>grid-8</code>.</p>
 
   <div>
-    <div class="grid">
-
-      <div class="grid-4">
-        <div class="panel__default">
-          This column has a class of grid-4
-        </div>
-      </div>
-      <div class="grid-8">
-        <div class="panel__default">
-          This column has a class of grid-8
-        </div>
-      </div>
-
+    <%- content_for :basic do -%>
+<div class="grid">
+  <div class="grid-4">
+    <div class="panel__default">
+      This column has a class of grid-4
     </div>
+  </div>
+  <div class="grid-8">
+    <div class="panel__default">
+      This column has a class of grid-8
+    </div>
+  </div>
+</div>
+    <%- end -%>
+    <%= yield :basic -%>
+    <pre class="sg-pre prettyprint"><%= render_source(yield :basic) -%></pre>
   </div>
 
   <p>These are percentage-based grids, so they will respond down as you scale your browser.</p>
@@ -32,42 +34,46 @@
   <p>If you want to alter the grids on mobile, you can pass in <code>grid-x-small</code> classes as well:</p>
 
   <div>
-    <div class="grid">
-
-      <div class="grid-4 grid-12-small">
-        <div class="panel__default">
-          This column has a class of grid-4 and grid-12-small
-        </div>
-      </div>
-      <div class="grid-8 grid-12-small">
-        <div class="panel__default">
-          This column has a class of grid-8 and grid-12-small
-        </div>
-      </div>
-
+    <%- content_for :mobile do -%>
+<div class="grid">
+  <div class="grid-4 grid-12-small">
+    <div class="panel__default">
+      This column has a class of grid-4 and grid-12-small
     </div>
+  </div>
+  <div class="grid-8 grid-12-small">
+    <div class="panel__default">
+      This column has a class of grid-8 and grid-12-small
+    </div>
+  </div>
+</div>
+    <%- end -%>
+    <%= yield :mobile -%>
+    <pre class="sg-pre prettyprint"><%= render_source(yield :mobile) -%></pre>
   </div>
 
   <h2 class="heading-four">Equal grids</h2>
 
   <p>To create equal grids, you can swap your wrapper class for <code>grid__x</code>, where x represents the word for a number. Each of the grid columns will then use the class <code>column</code>, rather than a <code>grid-x</code> class.</p>
 
+  <p>These pre-made grid layouts have pre-defined breakpoints. As you scale the browser you can see the four column grid break to three, then two, then one.</p>
+
   <p>To create a four column grid, you would use <code>grid__four</code>.</p>
 
   <div>
-    <div class="grid__four">
-
-      <%- (1..4).each do |i| -%>
-        <div class="column">
-          <div class="panel__default">
-            This column only has a class of column
-          </div>
-        </div>
-      <%- end -%>
-
+    <%- content_for :even do -%>
+<div class="grid__four">
+  <%- (1..4).each do |i| -%>
+  <div class="column">
+    <div class="panel__default">
+      This column only has a class of column
     </div>
-  </div>  
-
-  <p>These pre-made grid layouts have pre-defined breakpoints. As you scale the browser you can see the four column grid break to three, then two, then one.</p>
+  </div>
+  <%- end -%>
+</div>
+    <%- end -%>
+    <%= yield :even -%>
+    <pre class="sg-pre prettyprint"><%= render_source(yield :even) -%></pre>
+  </div>
 
 </div>
