@@ -40,6 +40,7 @@
 
 ## Known bugs
 
+- Selector filtering isn't working anymore
 - Mobile Menu:
   - Open/close animation doesn't work in Firefox
 - Oslide:

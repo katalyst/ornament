@@ -34,6 +34,7 @@ This update is focused on making a better default application state for your web
   - Menu Aim
   - Pagination
   - Panels
+  - Selector
   - Tables
   - Tabs
 - Cleaned up the markup in the form samples page
