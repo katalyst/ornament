@@ -1,3 +1,6 @@
+.content__compressed,
+.content__tight,
+.content-spacing__compressed,
 .compressed {
   p {
     margin-top: $xxxxx-small-unit;
@@ -47,5 +50,10 @@
       margin-top: $xxx-small-unit;
       margin-bottom: $xxx-small-unit;
     }
+  }
+
+  .button {
+    margin: $xx-small-unit 0;
+    @include flush-children;
   }
 }

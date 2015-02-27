@@ -16,6 +16,7 @@ This update is focused on making a better default application state for your web
 - Added a flexible page layout with sidebar and sidebar_right yields   
 - Removed VERSION file in favour of `/ornament/version.rb`, showing version on styleguide.
 - `Ornament.measure($element, metric)` is a new Ornament JS function to measure a hidden element. 
+- Added `.panel-spacing` class to space out panels.
 
 ### Changes
 
