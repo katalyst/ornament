@@ -60,19 +60,33 @@
   }
 }
 
-// alternate button
+// button colours
 .button__secondary {
   @extend .button;
   @include button-background(#333);
 }
+.button__confirm {
+  @extend .button;
+  @include button-background($success-color);
+}
+.button__cancel {
+  @extend .button;
+  @include button-background($error-color);
+}
 
-// confirm line style
+// line styles
+.button__line {
+  @extend .button;
+  @include button-line($primary-color, false, $primary-color);
+}
+.button__secondary__line {
+  @extend .button;
+  @include button-line(#333, false, #333);
+}
 .button__confirm__line {
   @extend .button;
   @include button-line($success-color, false, $success-color);
 }
-
-// cancel line style
 .button__cancel__line {
   @extend .button;
   @include button-line($error-color, false, $error-color);
