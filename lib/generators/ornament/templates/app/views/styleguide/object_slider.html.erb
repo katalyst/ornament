@@ -2,6 +2,22 @@
 
 <div class="content-spacing">
 
+  <h2 class="heading-two">Marking up your Object Slider</h2>
+
+  <p>At the very least the markup needs to be:</p>
+
+  <pre class="sg-pre prettyprint">&lt;div class="oslide" data-oslide>
+  <% (1..3).each do |i| %>
+  &lt;div data-slide>
+    &lt;img src="http://placehold.it/180x300" />
+  &lt;/div>
+  <% end %>
+&lt;/div></pre>
+
+  <p>Then to apply the plugin to your oslide module:</p>
+
+  <pre class="sg-pre prettyprint">$(".oslide").oslide();</pre>
+
   <h2 class="heading-two">Basic - Image Gallery</h2>
 
   <div class="oslide oslide-1" data-oslide>
@@ -155,22 +171,6 @@
   <%- end -%>
   <%= yield :custom_nav -%>
   <pre class="sg-pre prettyprint"><%= render_source(yield :custom_nav) -%></pre>
-
-  <h2 class="heading-two">Marking up your Object Slider</h2>
-
-  <p>At the very least the markup needs to be:</p>
-
-  <pre class="sg-pre prettyprint">&lt;div class="oslide" data-oslide>
-  <% (1..3).each do |i| %>
-  &lt;div data-slide>
-    &lt;img src="http://placehold.it/180x300" />
-  &lt;/div>
-  <% end %>
-&lt;/div></pre>
-
-  <p>Then to apply the plugin to your oslide module:</p>
-
-  <pre class="sg-pre prettyprint">$(".oslide").oslide();</pre>
 
   <h2 class="heading-two" id="triggers">Triggers</h2>
 
