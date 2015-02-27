@@ -1,32 +1,67 @@
 <% content_for :title, "Button" %>
 
-<div class="spacing">
+<div class="content-spacing">
 
-  <div>
-    <button class="button">.button</button>
-    <button class="button__primary">.button__primary</button>
-    <button class="button__warning">.button__warning</button>
-    <button class="button__error">.button__error</button>
-    <button class="button__success">.button__success</button>
-  </div>
+  <h2 class="heading-two">Button colours</h2>
 
-  <p>Disabled buttons can be created by applying <code>.button__disabled</code> or by adding the <code>disabled</code> attribute to the button:</p>
+  <p>
+    <a href="#" class="button">a.button</a>
+    <button class="button">button.button</button>
+  </p>
 
-  <div>
-    <button class="button__disabled">.button__disabled</button>
-    <button class="button" disabled>button[disabled]</button>
-  </div>
+  <p>
+    <a href="#" class="button__primary">.button__primary</a>
+  </p>
 
-  <p>Full width buttons can be created by adding <code>.button__full</code>:</p>
+  <p>
+    <a href="#" class="button__warning">.button__warning</a>
+  </p>
 
-  <div>
-    <button class="button button__full">Full width button</button>
-  </div>
-  
-  <p>Add an icon to the button using the icon classes:</p>
+  <p>
+    <a href="#" class="button__error">.button__error</a>
+  </p>
 
-  <div>
-    <button class="button button__icon-left icon-chevron-left">.button.button__icon-left.icon-chevron-left</button>
-  </div>
+  <p>
+    <a href="#" class="button__success">.button__success</a>
+  </p>
+
+  <h2 class="heading-two">Disabled buttons</h2>
+
+  <p>
+    <a href="#" class="button__disabled">.button__disabled</a>
+  </p>
+
+  <p>
+    <a href="#" class="button" disabled>.button[disabled]</a>
+  </p>
+
+  <h2 class="heading-two">Button modifiers</h2>
+
+  <p>
+    <a href="#" class="button button__full">.button.button__full</a>
+  </p>
+
+  <h2 class="heading-two">Button group</h2>
+
+  <%- content_for :groups do -%>
+<div class="button-group">
+  <a href="#" class="button__primary">Left</a>
+  <a href="#" class="button">Center</a>
+  <a href="#" class="button__success">Right</a>
+</div>
+  <%- end -%>
+  <%= yield :groups -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :groups) -%></pre>
+
+  <h2 class="heading-two">Forward and Back buttons</h2>
+
+  <%- content_for :sides do -%>
+<div class="button-sides">
+  <a href="#" class="button button__back">Back</a>
+  <a href="#" class="button__primary button__forward">Forward</a>
+</div>
+  <%- end -%>
+  <%= yield :sides -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :sides) -%></pre>
 
 </div>

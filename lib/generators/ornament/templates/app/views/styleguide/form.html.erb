@@ -187,18 +187,6 @@
 
   <pre class="sg-pre prettyprint"><%= render_source(yield :single_checkbox) -%></pre>
 
-  <h2 class="heading-two">Split buttons</h2>
-
-  <%- content_for :split_buttons do -%>
-<div class="button-group actions">
-  <a href="#" class="button button__back button__secondary">Back</a>
-  <button class="button button__forward">Proceed</button>
-</div>
-  <%- end -%>
-  <%= yield :split_buttons -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :split_buttons) -%></pre>
-
   <h2 class="heading-one">Long form example</h2>
 
   <form accept-charset="UTF-8" action="#" class="simple_form" method="post" novalidate="novalidate">
