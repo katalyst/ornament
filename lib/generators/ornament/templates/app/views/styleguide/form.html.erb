@@ -172,10 +172,15 @@
 
   <h2 class="heading-two">Split buttons</h2>
 
-  <div class="button-group actions">
-    <a href="#" class="button button__back button__secondary">Back</a>
-    <button class="button button__forward">Proceed</button>
-  </div>
+  <%- content_for :split_buttons do -%>
+<div class="button-group actions">
+  <a href="#" class="button button__back button__secondary">Back</a>
+  <button class="button button__forward">Proceed</button>
+</div>
+  <%- end -%>
+  <%= yield :split_buttons -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :split_buttons) -%></pre>
 
   <h2 class="heading-one">Long form example</h2>
 
