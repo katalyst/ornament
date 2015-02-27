@@ -2,41 +2,28 @@
 
 <div class="spacing">
 
-<!--
-  <section>
-    <button class="button">button.button</button>
-    <a class="button">a.button</a>
-  </section>
+  <div>
+    <button class="button">.button</button>
+    <button class="button__primary">.button__primary</button>
+    <button class="button__warning">.button__warning</button>
+    <button class="button__error">.button__error</button>
+    <button class="button__success">.button__success</button>
+  </div>
 
-  <section>
-    <button class="button button__secondary">.button.button__secondary</button>
-  </section>
-
-  <section>
-    <button class="button button__full">.button.button__full</button>
-  </section>
-
-  <section>
-    <button class="button button__icon-right icon-chevron-right">.button.button__icon-right.icon-chevron-right</button>
-  </section>
-
-  <section>
-    <button class="button button__icon-left icon-chevron-left">.button.button__icon-left.icon-chevron-left</button>
-  </section>
--->
+  <p>Disabled buttons can be created by applying <code>.button__disabled</code> or by adding the <code>disabled</code> attribute to the button:</p>
 
   <div>
-    <button class="button__primary">Primary Button</button>
-    <button class="button">Default Button</button>
-    <button class="button__warning">Warning</button>
-    <button class="button__error">Error</button>
-    <button class="button__success">Success</button>
-    <button class="button__disabled">Disabled</button>
+    <button class="button__disabled">.button__disabled</button>
+    <button class="button" disabled>button[disabled]</button>
   </div>
+
+  <p>Full width buttons can be created by adding <code>.button__full</code>:</p>
 
   <div>
     <button class="button button__full">Full width button</button>
   </div>
+  
+  <p>Add an icon to the button using the icon classes:</p>
 
   <div>
     <button class="button button__icon-left icon-chevron-left">.button.button__icon-left.icon-chevron-left</button>
