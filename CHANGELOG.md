@@ -25,6 +25,7 @@ This update is focused on making a better default application state for your web
 - Added toggle.js to toggle things on/off
 - Added read-more.js for revealing more content
 - Added small-type mixin and moved `<small>` styles in to that mixin. 
+- Added some icon button classes
 
 ### Changes
 
