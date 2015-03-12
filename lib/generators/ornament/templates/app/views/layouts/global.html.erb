@@ -109,12 +109,14 @@
         </header>
 
         <%= yield :above_layout -%>
+        <%- if content_for?(:global) || !yield.blank? -%>
           <div class="layout--container">
             <section class="layout--main" role="main">
               <a id="main" name="main" tabindex="-1"></a>
                 <%= content_for?(:global) ? yield(:global) : yield %>
             </section>
           </div>
+        <%- end -%>
         <%= yield :below_layout -%>
 
         <footer class="layout--footer" role="contentinfo">

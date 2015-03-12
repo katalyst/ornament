@@ -50,6 +50,7 @@ body {
 .layout--main {
   padding-bottom: $layout-mobile-footer-gap;
   padding-top: $layout-mobile-header-gap;
+  overflow: hidden;
 
   @include media-query($layout-breakpoint,min) {
     background: $layout-background;
