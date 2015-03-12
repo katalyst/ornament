@@ -1,0 +1,27 @@
+[data-more] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-more-container] {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+[data-more-link] {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  padding-top: 100px;
+  @include font($bold-font);
+  @include background-image(linear-gradient(top, rgba($white, 0) 0%, #fff 80%));
+
+  .no-cssgradients & {
+    background: $white;
+    padding-top: $xxxx-small-unit;
+  }
+}

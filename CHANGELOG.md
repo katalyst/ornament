@@ -22,6 +22,8 @@ This update is focused on making a better default application state for your web
 - Added more customisation to the `icon-block` mixin to set custom widths and heights across the icon and the block. 
 - Added `icon-table` for creating a vertically aligned block that consists of an icon and a label of variable height.
 - Typography resets for del, sup, sub
+- Added toggle.js to toggle things on/off
+- Added read-more.js for revealing more content
 
 ### Changes
 
