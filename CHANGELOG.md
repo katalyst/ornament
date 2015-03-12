@@ -21,6 +21,7 @@ This update is focused on making a better default application state for your web
 - Added `$delegate` to both list mixins and made padding specifically set on the sides required (eg. left/right for `list-horizontal`) to prevent specificity issues when trying to set padding on other sides.
 - Added more customisation to the `icon-block` mixin to set custom widths and heights across the icon and the block. 
 - Added `icon-table` for creating a vertically aligned block that consists of an icon and a label of variable height.
+- Typography resets for del, sup, sub
 
 ### Changes
 
@@ -44,7 +45,7 @@ This update is focused on making a better default application state for your web
   - Tabs
 - Cleaned up the markup in the form samples page
 - Made checkboxes and radios vertical lists by default, horizontal by applying `.form--horizontal` to the wrapper.
-- The main content area now doesn't get rendered if there's no content_for :global or any other un-specified content. For example if you have a page that only consists of content_for(:above_layout), the :above_layout yield will now stretch to the header and the footer with no gap left behind for the regular content. 
+- The main content area now doesn't get rendered if there's no content_for :global or any other un-specified content. For example if you have a page that only consists of content_for(:above_layout), the :above_layout yield will now stretch to the header and the footer with no gap left behind for the regular content.
 
 ### Bugfixes
 
