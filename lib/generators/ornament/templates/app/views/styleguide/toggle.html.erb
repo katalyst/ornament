@@ -1,0 +1,19 @@
+<% content_for :title, "Toggle" %>
+
+<div class="spacing">
+
+  <%- content_for :example do -%>
+<div data-toggle-anchor="example-1">
+  <a href="#">Show/hide example 1</a>
+</div>
+<div data-toggle="example-1">
+  This is the content for example 1
+</div>
+  <%- end -%>
+  
+  <div>
+    <%= yield :example -%>
+  </div>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example) -%></pre>
+
+</div>

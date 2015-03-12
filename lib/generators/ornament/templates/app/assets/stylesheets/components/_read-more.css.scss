@@ -1,15 +1,15 @@
-[data-more] {
+[data-read-more] {
   position: relative;
   overflow: hidden;
 }
 
-[data-more-container] {
+[data-read-more-container] {
   overflow: hidden;
   position: relative;
   z-index: 1;
 }
 
-[data-more-link] {
+[data-read-more-link] {
   z-index: 2;
   position: absolute;
   bottom: 0;
