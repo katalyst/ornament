@@ -74,6 +74,10 @@ $breakpoint-medium: 935px;
 $breakpoint-small: 780px;
 $breakpoint-tiny: 620px;
 
+// Header breakpoint
+// If changing, remember to update the JS variable in defaults.js
+$breakpoint-header: 990px;
+
 $site-breakpoints:
   (tiny, $breakpoint-tiny),
   (small, $breakpoint-small),
