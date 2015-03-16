@@ -13,8 +13,9 @@
   </div>
 </div>
   <%- end -%>
+
   <%= yield :panel -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :panel) -%></pre>
+  <%= show_code(yield :panel) -%>
 
   <%- content_for :panel__primary do -%>
 <div class="panel panel__primary panel--padding content__compressed" data-conform="panels">
@@ -26,7 +27,7 @@
 </div>
   <%- end -%>
   <%= yield :panel__primary -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :panel__primary) -%></pre>
+  <%= show_code(yield :panel__primary) -%>
 
   <%- content_for :panel__warning do -%>
 <div class="panel panel__warning panel--padding content__compressed" data-conform="panels">
@@ -38,7 +39,7 @@
 </div>
   <%- end -%>
   <%= yield :panel__warning -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :panel__warning) -%></pre>
+  <%= show_code(yield :panel__warning) -%>
 
   <%- content_for :panel__error do -%>
 <div class="panel panel__error panel--padding content__compressed" data-conform="panels">
@@ -50,7 +51,7 @@
 </div>
   <%- end -%>
   <%= yield :panel__error -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :panel__error) -%></pre>
+  <%= show_code(yield :panel__error) -%>
 
   <%- content_for :panel__success do -%>
 <div class="panel panel__success panel--padding content__compressed" data-conform="panels">
@@ -62,7 +63,7 @@
 </div>
   <%- end -%>
   <%= yield :panel__success -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :panel__success) -%></pre>
+  <%= show_code(yield :panel__success) -%>
 
   <h2 class="heading-two clear">Grouped panels</h2>
 
@@ -77,7 +78,7 @@
 </div>
   <%- end -%>
   <%= yield :joined_panels -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :joined_panels) -%></pre>
+  <%= show_code(yield :joined_panels) -%>
 
   <h2 class="heading-two">Panel grid</h2>
 
@@ -99,6 +100,6 @@
 </div>
   <%- end -%>
   <%= yield :grid -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :grid) -%></pre>
+  <%= show_code(yield :grid) -%>
 
 </div>
