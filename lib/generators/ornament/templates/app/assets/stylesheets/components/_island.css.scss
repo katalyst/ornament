@@ -8,20 +8,8 @@ $island-error-background:   mix($error-color, $white, 10);
   clear: both;
   background: $island-default-background;
   padding: $xxx-small-unit;
-  padding-left: $xxxxx-large-unit;
   @include border-radius($border-radius);
   @include pie-clearfix;
-
-  &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: $xxx-small-unit;
-    left: $xxx-small-unit;
-    width: 24px;
-    height: 24px;
-    background: red;
-  }
 }
 
 // Colour variations
@@ -40,49 +28,3 @@ $island-error-background:   mix($error-color, $white, 10);
   background: $island-success-background;
 }
 
-/*
-$island-background:         #333333;
-$island-color:              #ffffff;
-$island-error-background:   #ffcccc;
-$island-error-color:        $error-color;
-$island-loose-padding:      $default-unit;
-$island-notice-background:  #ffffcc;
-$island-notice-color:       $notice-color;
-$island-padding:            $xxx-small-unit;
-$island-success-background: #ccffcc;
-$island-success-color:      $success-color;
-$island-tight-padding:      $xxxx-small-unit;
-
-.island {
-  background: $island-background;
-  color: $island-color;
-  padding: $island-padding;
-}
-
-.island-tight {
-  padding: $island-tight-padding;
-}
-
-.island-loose {
-  padding: $island-loose-padding;
-}
-
-.island-alert,
-.island-error {
-  background: $island-error-background;
-  border: 1px solid;
-  color: $island-error-color;
-}
-
-.island-notice {
-  background: $island-notice-background;
-  border: 1px solid;
-  color: $island-notice-color;
-}
-
-.island-success {
-  background: $island-success-background;
-  border: 1px solid;
-  color: $island-success-color;
-}
-*/
