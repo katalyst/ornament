@@ -65,6 +65,10 @@
   @extend .button;
   @include button-background($primary-color);
 }
+.button__secondary {
+  @extend .button;
+  @include button-background($secondary-color);
+}
 .button__warning {
   @extend .button;
   @include button-background($warning-color);
@@ -138,7 +142,7 @@
 }
 
 .button__icon {
-  @include icon-block(48px, 16px);
+  @include icon-block(45px, 16px);
   display: inline-block;
 
   &:before {
