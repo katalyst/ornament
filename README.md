@@ -12,7 +12,7 @@ Installation
 
     ```ruby
     group :development do
-      gem "ornament", :git => "git@github.com:katalyst/ornament.git"
+      gem 'ornament', github: 'katalyst/ornament'
     end
     ```
 
@@ -27,6 +27,15 @@ Installation
     ```bash
     rails generate ornament
     ```
+
+Prototype Version
+-----------------
+
+You can use the prototype version of Ornament by changing the gemfile branch:  
+
+```   
+gem 'ornament', github: 'katalyst/ornament', branch: 'prototype'
+```  
 
 License
 -------
