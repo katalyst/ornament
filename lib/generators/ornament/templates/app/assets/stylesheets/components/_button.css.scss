@@ -61,47 +61,86 @@
 }
 
 // button colours
-.button__primary {
+@mixin button__primary {
   @extend .button;
   @include button-background($primary-color);
 }
-.button__secondary {
+@mixin button__secondary {
   @extend .button;
   @include button-background($secondary-color);
 }
-.button__warning {
+@mixin button__warning {
   @extend .button;
   @include button-background($warning-color);
 }
-.button__error {
+@mixin button__error {
   @extend .button;
   @include button-background($error-color);
 }
-.button__success {
+@mixin button__success {
   @extend .button;
   @include button-background($success-color);
 }
 
+.button__primary {
+  @include button__primary;
+}
+.button__secondary {
+  @include button__secondary;
+}
+.button__warning {
+  @include button__warning;
+}
+.button__error {
+  @include button__error;
+}
+.button__success {
+  @include button__success;
+}
+
 // line styles
-.button__line {
+@mixin button__line {
   @extend .button;
   @include button-line($default-color, false, $default-color);
 }
-.button__primary__line {
+@mixin button__primary__line {
   @extend .button;
   @include button-line($primary-color, false, $primary-color);
 }
-.button__warning__line {
+@mixin button__warning__line {
   @extend .button;
   @include button-line($warning-color, false, $warning-color);
 }
-.button__error__line {
+@mixin button__error__line {
   @extend .button;
   @include button-line($error-color, false, $error-color);
 }
-.button__success__line {
+@mixin button__success__line {
   @extend .button;
   @include button-line($success-color, false, $success-color);
+}
+@mixin button__white__line {
+  @extend .button;
+  @include button-line($white, false, $white);
+}
+
+.button__line {
+  @include button__line;
+}
+.button__primary__line {
+  @include button__primary__line;
+}
+.button__warning__line {
+  @include button__warning__line;
+}
+.button__error__line {
+  @include button__error__line;
+}
+.button__success__line {
+  @include button__success__line;
+}
+.button__white__line {
+  @include button__white__line;
 }
 
 // disabled buttons

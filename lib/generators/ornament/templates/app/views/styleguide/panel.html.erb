@@ -8,6 +8,9 @@
 <div class="panel__default content__compressed" data-conform="panels">
   <h2 class="heading-six">Default panel with built in padding</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+  <div class="button-group">
+    <a href="#" class="button">Button</a>
+  </div>
 </div>
   <%- end -%>
   <%= yield :panel -%>
@@ -17,6 +20,9 @@
 <div class="panel panel__primary panel--padding content__compressed" data-conform="panels">
   <h2 class="heading-six">Primary panel</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+  <div class="button-group">
+    <a href="#" class="button">Button</a>
+  </div>
 </div>
   <%- end -%>
   <%= yield :panel__primary -%>
@@ -26,6 +32,9 @@
 <div class="panel panel__warning panel--padding content__compressed" data-conform="panels">
   <h2 class="heading-six">Warning panel</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+  <div class="button-group">
+    <a href="#" class="button">Button</a>
+  </div>
 </div>
   <%- end -%>
   <%= yield :panel__warning -%>
@@ -35,6 +44,9 @@
 <div class="panel panel__error panel--padding content__compressed" data-conform="panels">
   <h2 class="heading-six">Error panel</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+  <div class="button-group">
+    <a href="#" class="button">Button</a>
+  </div>
 </div>
   <%- end -%>
   <%= yield :panel__error -%>
@@ -44,6 +56,9 @@
 <div class="panel panel__success panel--padding content__compressed" data-conform="panels">
   <h2 class="heading-six">Success panel</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+  <div class="button-group">
+    <a href="#" class="button">Button</a>
+  </div>
 </div>
   <%- end -%>
   <%= yield :panel__success -%>
@@ -68,18 +83,22 @@
 
   <p>Here is an example of panels combined with grids:</p>
 
-  <div>
-    <div class="grid__three" data-conform-columns="panels">
-      <%- (1..10).each do |i| -%>
-        <div class="column">
-          <div class="panel__default content__compressed" data-conform="panels">
-            <h2 class="heading-six">Panel</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
-            <a href="#" class="button button__full">Action Button!</a>
-          </div>
+  <%- content_for :grid do -%>
+<div>
+  <div class="grid__three" data-conform-columns="panels">
+    <%- (1..10).each do |i| -%>
+      <div class="column">
+        <div class="panel__default content__compressed" data-conform="panels">
+          <h2 class="heading-six">Panel</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+          <a href="#" class="button button__full">Action Button!</a>
         </div>
-      <%- end -%>
-    </div>
+      </div>
+    <%- end -%>
   </div>
+</div>
+  <%- end -%>
+  <%= yield :grid -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :grid) -%></pre>
 
 </div>

@@ -29,6 +29,9 @@ a.panel {
   a {
     @include color-link($white,$white);
   }
+  .button {
+    @include button__secondary;
+  }
 }
 
 .panel__error {
@@ -36,6 +39,9 @@ a.panel {
   color: $white;
   a {
     @include color-link($white,$white);
+  }
+  .button {
+    @include button__white__line;
   }
 }
 
@@ -45,6 +51,9 @@ a.panel {
   a {
     @include color-link($white,$white);
   }
+  .button {
+    @include button__white__line;
+  }
 }
 
 .panel__success {
@@ -52,6 +61,9 @@ a.panel {
   color: $white;
   a {
     @include color-link($white,$white);
+  }
+  .button {
+    @include button__white__line;
   }
 }
 
