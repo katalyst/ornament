@@ -3,25 +3,35 @@
 
 ## v1.1.0
 
-This update is focused on making a better default application state for your website and less on new and modified components. 
+This update is focused on making a better default application state for your website and less on new and modified components.
 
 ### Features
 
-- Added SVG fix for IE9-11  
-- Added OpenGraph yields to global template  
-- Created aspects folder in stylesheets  
-- Conform.js rebuild - [Documentation](https://bitbucket.org/dbaines/conform/overview)  
-- Added CommonControllerActions (commented out) in styleguide controller for Koi support  
-- Added above_layout and below_layout yields + docs  
-- Added a flexible page layout with sidebar and sidebar_right yields   
+- Added SVG fix for IE9-11
+- Added OpenGraph yields to global template
+- Created aspects folder in stylesheets
+- Conform.js rebuild - [Documentation](https://bitbucket.org/dbaines/conform/overview)
+- Added CommonControllerActions (commented out) in styleguide controller for Koi support
+- Added above_layout and below_layout yields + docs
+- Added a flexible page layout with sidebar and sidebar_right yields
 - Removed VERSION file in favour of `/ornament/version.rb`, showing version on styleguide.
-- `Ornament.measure($element, metric)` is a new Ornament JS function to measure a hidden element. 
+- `Ornament.measure($element, metric)` is a new Ornament JS function to measure a hidden element.
 - Added `.panel-spacing` class to space out panels.
+- input-placeholder mixin for targeting placeholders across browsers
+- Rebuilt button mixins and classes
+- Added `$delegate` to both list mixins and made padding specifically set on the sides required (eg. left/right for `list-horizontal`) to prevent specificity issues when trying to set padding on other sides.
+- Added more customisation to the `icon-block` mixin to set custom widths and heights across the icon and the block.
+- Added `icon-table` for creating a vertically aligned block that consists of an icon and a label of variable height.
+- Typography resets for del, sup, sub
+- Added toggle.js to toggle things on/off
+- Added read-more.js for revealing more content
+- Added small-type mixin and moved `<small>` styles in to that mixin.
+- Added some icon button classes
 
 ### Changes
 
 - Breaking change: Changed `.checkbox_single` to `.checkbox__single` to match BEM formatting.
-- Moved content.css in to the new aspects folder and separated in to different aspects. 
+- Moved content.css in to the new aspects folder and separated in to different aspects.
 - Moved input spacing out of forms.css and in to the aspects folder as inputs.css
 - Changed content--title to page--title and moved in to new page.css file
 - Moved grunticon loader JS file in to /grunt as it's not used for anything
@@ -40,10 +50,13 @@ This update is focused on making a better default application state for your web
   - Tabs
 - Cleaned up the markup in the form samples page
 - Made checkboxes and radios vertical lists by default, horizontal by applying `.form--horizontal` to the wrapper.
+- The main content area now doesn't get rendered if there's no content_for :global or any other un-specified content. For example if you have a page that only consists of content_for(:above_layout), the :above_layout yield will now stretch to the header and the footer with no gap left behind for the regular content.
 
 ### Bugfixes
 
 - Mobile Navigation - First pane is now sized based on the entire height of the `firstPaneClass` element rather than just the navigation elements. This way navigation won't cut off if the first pane contains something other than navigation such as a logo.
+- Fixed psuedo-elements being misaligned in <button> elements in IE.
+- Added `overflow: hidden` to `.layout--main` to stop things from breaking out in to the mobile menu.
 
 ## v1.0.0
 

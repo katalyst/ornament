@@ -48,6 +48,8 @@ button {
   padding: 0;
   text-align: inherit;
   text-transform: inherit;
+  // fix for psuedo elements being misaligned in IE
+  overflow: visible; 
 }
 
 

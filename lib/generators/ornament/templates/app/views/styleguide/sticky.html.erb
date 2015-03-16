@@ -1,0 +1,35 @@
+<% content_for :title, "Sticky" %>
+
+<div style="height: 3000px;" class="content-spacing">
+
+  <h2 class="heading-two">A sticky bar</h2>
+
+  <p>Simple add <code>data-sticky</code> to thing to you want to stick.</p>
+
+  <%- content_for :sticky do -%>
+<div data-sticky>
+  <div class="panel panel--padding">
+    This panel will stick to the top of the screen as you scroll to it.
+  </div>
+</div>
+  <%- end -%>
+
+  <%= yield :sticky -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :sticky) -%></pre>
+
+  <h2 class="heading-two">Another sticky bar!</h2>
+
+  <p>Sticky bars will stack under each other without you having to worry about it.</p>
+
+  <%- content_for :sticky2 do -%>
+<div data-sticky>
+  <div class="panel__blue panel--padding">
+    Another panel!
+  </div>
+</div>
+  <%- end -%>
+
+  <%= yield :sticky2 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :sticky2) -%></pre>
+
+</div>

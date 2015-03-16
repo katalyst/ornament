@@ -1,0 +1,21 @@
+[data-sticky-placeholder] {
+  display: none;
+}
+
+[data-sticky] {
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+  }
+}
+
+[data-sticky-inner] {
+
+  .sticky & {
+    @extend .layout--container;
+  }
+}

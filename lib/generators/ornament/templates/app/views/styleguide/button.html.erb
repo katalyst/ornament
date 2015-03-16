@@ -63,6 +63,31 @@
     <a href="#" class="button button__full">.button.button__full</a>
   </p>
 
+  <h2 class="heading-two">Icons</h2>
+
+  <%- content_for :icon_buttons do -%>
+<p>
+  <a href="#" class="button button__icon-left icon-search">Search</a>
+  <a href="#" class="button__confirm button__icon-left icon-search">Search</a>
+  <a href="#" class="button__secondary button__icon-right icon-search">Search</a>
+  <a href="#" class="button__secondary button__icon icon-search"></a>
+</p>
+  <%- end -%>
+
+  <%= yield :icon_buttons -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :icon_buttons) -%></pre>
+
+  <%- content_for :icon_full do -%>
+<p>
+  <a href="#" class="button button__full">
+    <span class="button__icon-left icon-search">Search</span>
+  </a>
+</p>
+  <%- end -%>
+
+  <%= yield :icon_full -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :icon_full) -%></pre>
+
   <h2 class="heading-two">Button group</h2>
 
   <%- content_for :groups do -%>

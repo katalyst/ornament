@@ -118,6 +118,34 @@
   width: 100%;
 }
 
+// buttons with icons
+.button__icon-right,
+.button__icon-left {
+  display: inline-block;
+
+  &:before {
+    position: relative;
+    top: 3px;
+  }
+}
+.button__icon-right:before {
+  float: right;
+  margin-left: $xxxxx-small-unit;
+}
+.button__icon-left:before {
+  float: left;
+  margin-right: $xxxxx-small-unit;
+}
+
+.button__icon {
+  @include icon-block(48px, 16px);
+  display: inline-block;
+
+  &:before {
+    float: left;
+  }
+}
+
 // button groups
 .button-group {
   @include pie-clearfix;

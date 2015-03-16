@@ -107,7 +107,7 @@
 
         <header class="header header__primary layout--header" role="banner">
           <div class="layout--container">
-              
+
             <a href="<%= root_path -%>" class="header--logo">Site Name</a>
             <div class="header--aside">
               <ul class="list-horizontal">
@@ -118,7 +118,7 @@
             </div>
 
             <button class="layout--switch header--menu">open navigation</button>
-  
+
           </div>
         </header>
 
@@ -152,12 +152,14 @@
         <%- end -%>
 
         <%= yield :above_layout -%>
+        <%- if content_for?(:global) || !yield.blank? -%>
         <div class="layout--container">
           <section class="layout--main" role="main">
             <a id="main" name="main" tabindex="-1"></a>
             <%= content_for?(:global) ? yield(:global) : yield %>
           </section>
         </div>
+        <%- end -%>
         <%= yield :below_layout -%>
 
         <!--
