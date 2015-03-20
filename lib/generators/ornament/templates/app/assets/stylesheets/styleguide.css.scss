@@ -94,6 +94,21 @@ code {
   }
 }
 
+.spang-tight {
+  @include row($custom-gutter: 5px);
+  @include rowV($custom-gutter: 5px);
+
+  > div {
+    @include spang(1,4,$custom-gutter: 5px);
+    @include spang(1,2,small,$custom-gutter: 5px);
+    @include guttersV($custom-gutter: 5px);
+
+    > div {
+      border: 1px solid red;
+    }
+  }
+}
+
 // LISTS
 
 .lists--example {

@@ -4,6 +4,7 @@
 
 ## Components
 
+- Fix IE8/9 placeholders from the polyfill being the wrong size
 - Twitter Fetcher
 - Anchor over-ride for sticky header
 - Shadows:
