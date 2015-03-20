@@ -119,12 +119,14 @@ Mixins
     @include media-query($mediaQuery) {
       width: span($columnCount, $totalCol);
       float: left;
+      min-height: 1px;
       //@include gutters();
       // No gutters added. Assumes mixin has already been called without a media query.
     }
   } @else {
     width: span($columnCount, $totalCol);
     float: left;
+    min-height: 1px;
     @include gutters($custom-gutter);
   }
 }
