@@ -52,6 +52,7 @@ This update is focused on making a better default application state for your web
 - Cleaned up the markup in the form samples page
 - Made checkboxes and radios vertical lists by default, horizontal by applying `.form--horizontal` to the wrapper.
 - The main content area now doesn't get rendered if there's no content_for :global or any other un-specified content. For example if you have a page that only consists of content_for(:above_layout), the :above_layout yield will now stretch to the header and the footer with no gap left behind for the regular content.
+- Added `min-height: 1px` to columns created by `spang`, this prevents columns with no content in them from collapsing.
 
 ### Bugfixes
 
