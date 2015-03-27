@@ -61,5 +61,8 @@ module Dummy
     config.paths["app/views"] << Rails.root.join("../../lib/generators/ornament/templates/app/views")
     config.paths["vendor/assets"] << Rails.root.join("../../lib/generators/ornament/templates/vendor/assets")
 
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
+
   end
 end
