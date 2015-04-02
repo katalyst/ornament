@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 55 + Fill 57</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Fill-55-+-Fill-57" sketch:type="MSLayerGroup" transform="translate(0.000000, 1.000000)" fill="#0B0B0A">
+            <path d="M23.4687,23.9256 C23.3407,23.9256 23.2127,23.8766 23.1147,23.7796 L11.6147,12.2796 C11.4197,12.0836 11.4197,11.7676 11.6147,11.5716 L23.1147,0.0716 C23.3107,-0.1234 23.6267,-0.1234 23.8227,0.0716 C24.0177,0.2676 24.0177,0.5836 23.8227,0.7796 L12.6757,11.9256 L23.8227,23.0716 C24.0177,23.2676 24.0177,23.5836 23.8227,23.7796 C23.7247,23.8766 23.5967,23.9256 23.4687,23.9256" id="Fill-55" sketch:type="MSShapeGroup"></path>
+            <path d="M11.9687,23.9256 C11.8407,23.9256 11.7127,23.8766 11.6147,23.7796 L0.1147,12.2796 C-0.0803,12.0836 -0.0803,11.7676 0.1147,11.5716 L11.6147,0.0716 C11.8107,-0.1234 12.1267,-0.1234 12.3227,0.0716 C12.5177,0.2676 12.5177,0.5836 12.3227,0.7796 L1.1757,11.9256 L12.3227,23.0716 C12.5177,23.2676 12.5177,23.5836 12.3227,23.7796 C12.2247,23.8766 12.0967,23.9256 11.9687,23.9256" id="Fill-57" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
