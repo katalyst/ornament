@@ -28,6 +28,7 @@ This update is focused on making a better default application state for your web
 - Added some icon button classes
 - Added support for custom gutters in spang: `@include spang(1,2,$custom-gutter:2px);`
 - Added onlyOneTooltipAtATime setting to the tooltip component. Defaulted to false. Setting to true will hide other tooltips when showing a new tooltip.
+- Added a feature for the mobile navigation to detect IE fixed-positioning/transform bug and add a class to the page to combat it. [Bug info](http://stackoverflow.com/a/27953413).
 
 ### Changes
 

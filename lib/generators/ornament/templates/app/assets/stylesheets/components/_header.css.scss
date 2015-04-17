@@ -2,6 +2,11 @@
   background: #ccc;
   padding: $xx-small-unit;
   @include pie-clearfix;
+  
+  // Fix for choppy fixed positioning after a CSS transition has
+  // happened in Chrome :/
+  // http://stackoverflow.com/questions/20268962/fixed-attachment-background-image-flicker-disappear-in-chrome-when-coupled-with
+  -webkit-transform: translate3d(0,0,0);
 }
 
 .header--menu {
