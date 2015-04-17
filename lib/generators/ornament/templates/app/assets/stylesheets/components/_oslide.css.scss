@@ -59,7 +59,7 @@ $oslide-background: #f4f4f4;
 
 .oslide--next,
 .oslide--previous {
-  @include icon-block($button-height, 16px);
+  @include icon-block($button-height, 24px);
   @include border-radius(50%);
   background: $primary-color;
   top: 50%;
@@ -69,13 +69,13 @@ $oslide-background: #f4f4f4;
 }
 
 .oslide--previous {
-  @include grunticon("chevron-left-16-white", 16px);
+  @include grunticon("chevron-left-24-white", 24px);
   position: absolute;
   left: -($button-height / 2);
 }
 
 .oslide--next {
-  @include grunticon("chevron-right-16-white", 16px);
+  @include grunticon("chevron-right-24-white", 24px);
   position: absolute;
   right: -($button-height / 2);
 }

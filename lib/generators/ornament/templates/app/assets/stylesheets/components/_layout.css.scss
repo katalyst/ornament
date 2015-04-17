@@ -29,6 +29,7 @@ body {
   @include single-transition(transform, $layout-animation-duration);
   background: $layout-background;
   min-height: 100%;
+  overflow: hidden;
 }
 
 .layout--switch {
@@ -52,7 +53,6 @@ body {
 .layout--main {
   padding-bottom: $layout-mobile-footer-gap;
   padding-top: $layout-mobile-header-gap;
-  overflow: hidden;
 
   @include media-query($layout-breakpoint,min) {
     background: $layout-background;
