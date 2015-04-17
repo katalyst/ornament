@@ -43,6 +43,10 @@ body {
   max-width: $layout-container-width;
   width: $container-percentage;
   margin: 0 auto;
+
+  .ie8 & {
+    width: $layout-container-width;
+  }
 }
 
 .layout--main {

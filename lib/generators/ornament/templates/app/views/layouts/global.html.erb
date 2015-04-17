@@ -66,7 +66,8 @@
 
   </head>
 
-  <body>
+  <!--[if lte IE 8 ]><body class="ie8 <%= yield :body_class -%>"> <![endif]-->
+  <!--[if (gt IE 8)|!(IE)]><!--> <body class="<%= yield :body_class -%>"> <!--<![endif]-->
 
     <a class="skip-link" href="#main">skip to content</a>
 
