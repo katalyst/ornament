@@ -13,7 +13,7 @@
 
   <p>There is a partial available for making scaffolding inline content for a lightbox really easy. Simply render <code>/shared/inline-lightbox</code>. Anything passed inside the render block will be the content that appears in your lightbox. Make sure you pass in a <code>inline_id</code> so that you can link to it from your anchor. You can optionally pass in a <code>title</code> to give the lightbox a separated heading.</p>
 
-  <pre class="sg-pre prettyprint">&lt;%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-sample-1", title: "Example Title" } do -%>
+  <pre class="sg-pre prettyprint">&lt;%= render layout: "/shared/inline_lightbox", locals: { inline_id: "lightbox-sample-1", title: "Example Title" } do -%>
   Lightbox content
 &lt;%- end -%></pre>
 
@@ -23,17 +23,17 @@
 
   <pre class="sg-pre prettyprint">&lt;a href="#lightbox-sample-1" data-lightbox>Example lightbox&lt;/a></pre>
 
-  <%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-sample-1", title: "Example Title" } do -%>
+  <%= render layout: "/shared/inline_lightbox", locals: { inline_id: "lightbox-sample-1", title: "Example Title" } do -%>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aliquid sed obcaecati officia quasi magni quam asperiores eum delectus, eius.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid qui, praesentium temporibus accusantium at cupiditate fugiat dolores explicabo odit hic assumenda molestias, facere reprehenderit, earum ipsa vitae sunt iste! Laboriosam est, illo, voluptatem quasi enim qui, eos ullam laudantium eum deleniti ipsa nam. Quos ipsam, expedita commodi, iure neque blanditiis.</p>
   <%- end -%>
 
-  <%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-sample-2" } do -%>
+  <%= render layout: "/shared/inline_lightbox", locals: { inline_id: "lightbox-sample-2" } do -%>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aliquid sed obcaecati officia quasi magni quam asperiores eum delectus, eius.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid qui, praesentium temporibus accusantium at cupiditate fugiat dolores explicabo odit hic assumenda molestias, facere reprehenderit, earum ipsa vitae sunt iste! Laboriosam est, illo, voluptatem quasi enim qui, eos ullam laudantium eum deleniti ipsa nam. Quos ipsam, expedita commodi, iure neque blanditiis.</p>
   <%- end -%>
 
-  <%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-sample-map" } do -%>
+  <%= render layout: "/shared/inline_lightbox", locals: { inline_id: "lightbox-sample-map" } do -%>
     <div data-map data-map-colour>
       <div data-map-pin="-34.921619,138.599257">
         <h2 class="heading-two">Infowindow</h2>
