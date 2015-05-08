@@ -5,6 +5,11 @@ $header-line-height: $button-height;
   @include pie-clearfix;
   padding: $default-unit 0;
 
+  // Fix for choppy fixed positioning after a CSS transition has
+  // happened in Chrome :/
+  // http://stackoverflow.com/questions/20268962/fixed-attachment-background-image-flicker-disappear-in-chrome-when-coupled-with
+  -webkit-transform: translate3d(0,0,0);
+
   @include media-query($header-breakpoint) {
     padding: $xxx-small-unit 0;
   }
@@ -32,6 +37,7 @@ $header-line-height: $button-height;
 .header--menu {
   @include grunticon("menu-white", 24px);
   @include icon-block(44px, 24px);
+  overflow: visible;
   float: right;
   background: $default-color;
   background: rgba($default-color, .2);

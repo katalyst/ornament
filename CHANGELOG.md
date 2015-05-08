@@ -29,6 +29,7 @@ This update is focused on making a better default application state for your web
 - Added some icon button classes
 - Added support for custom gutters in spang: `@include spang(1,2,$custom-gutter:2px);`
 - Added onlyOneTooltipAtATime setting to the tooltip component. Defaulted to false. Setting to true will hide other tooltips when showing a new tooltip.
+- Added a feature for the mobile navigation to detect IE fixed-positioning/transform bug and add a class to the page to combat it. [Bug info](http://stackoverflow.com/a/27953413).
 
 ### Changes
 
@@ -54,6 +55,8 @@ This update is focused on making a better default application state for your web
 - Made checkboxes and radios vertical lists by default, horizontal by applying `.form--horizontal` to the wrapper.
 - The main content area now doesn't get rendered if there's no content_for :global or any other un-specified content. For example if you have a page that only consists of content_for(:above_layout), the :above_layout yield will now stretch to the header and the footer with no gap left behind for the regular content.
 - Added `min-height: 1px` to columns created by `spang`, this prevents columns with no content in them from collapsing.
+- Stopped page from getting smaller in IE8 - Responsiveness is effectively stopped. 
+- Swapped css3-mediaqueries for respond.js for better performance and less errors in IE8. Still required for minimum media-query support. 
 
 ### Bugfixes
 
