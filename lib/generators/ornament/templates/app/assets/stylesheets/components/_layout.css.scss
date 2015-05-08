@@ -30,7 +30,6 @@ body {
   background: $layout-background;
   min-height: 100%;
   overflow: hidden;
-}
 
   // Offset for fixed header on mobile
   @include media-query($header-breakpoint) {
