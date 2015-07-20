@@ -52,6 +52,7 @@ class OrnamentGenerator < Rails::Generators::Base
           copy_file "app/assets/javascripts/application_bottom.js"
           copy_file "app/assets/javascripts/settings.js"
           directory "app/assets/javascripts/ornament"
+          directory "app/assets/javascripts/utilities"
 
           copy_file "app/assets/stylesheets/_fonts.css.scss"
           directory "app/assets/stylesheets/ornament"
@@ -68,6 +69,7 @@ class OrnamentGenerator < Rails::Generators::Base
 
         if options.components?
           directory "app/assets/javascripts/components"
+          directory "app/assets/stylesheets/aspects"
           directory "app/assets/stylesheets/components"
           directory "app/assets/stylesheets/grunticon"
           directory "vendor/assets"

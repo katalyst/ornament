@@ -235,6 +235,39 @@
   //content: ""+$sizing-unit;
 }
 
+.settings-preview--xxxxx-small-unit--value:before {
+  content: ""+$xxxxx-small-unit;
+}
+
+.settings-preview--xxxxx-small-unit--sample {
+  background: #333;
+  height: $xxxxx-small-unit;
+  min-width: 2em;
+  width: 100%;
+}
+
+.settings-preview--xxxx-small-unit--value:before {
+  content: ""+$xxxx-small-unit;
+}
+
+.settings-preview--xxxx-small-unit--sample {
+  background: #333;
+  height: $xxxx-small-unit;
+  min-width: 2em;
+  width: 100%;
+}
+
+.settings-preview--xxx-small-unit--value:before {
+  content: ""+$xxx-small-unit;
+}
+
+.settings-preview--xxx-small-unit--sample {
+  background: #333;
+  height: $xxx-small-unit;
+  min-width: 2em;
+  width: 100%;
+}
+
 .settings-preview--xx-small-unit--value:before {
   content: ""+$xx-small-unit;
 }
@@ -319,6 +352,39 @@
 .settings-preview--xxx-large-unit--sample {
   background: #333;
   height: $xxx-large-unit;
+  min-width: 2em;
+  width: 100%;
+}
+
+.settings-preview--xxxx-large-unit--value:before {
+  content: ""+$xxxx-large-unit;
+}
+
+.settings-preview--xxxx-large-unit--sample {
+  background: #333;
+  height: $xxxx-large-unit;
+  min-width: 2em;
+  width: 100%;
+}
+
+.settings-preview--xxxxx-large-unit--value:before {
+  content: ""+$xxxxx-large-unit;
+}
+
+.settings-preview--xxxxx-large-unit--sample {
+  background: #333;
+  height: $xxxxx-large-unit;
+  min-width: 2em;
+  width: 100%;
+}
+
+.settings-preview--xxxxxx-large-unit--value:before {
+  content: ""+$xxxxxx-large-unit;
+}
+
+.settings-preview--xxxxxx-large-unit--sample {
+  background: #333;
+  height: $xxxxxx-large-unit;
   min-width: 2em;
   width: 100%;
 }

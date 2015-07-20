@@ -2,82 +2,76 @@
 
 <div class="content-spacing content-lists">
 
+  <p>
+    <em>Note: Ornament assumes you are using simple_form to generate form fields.</em>
+  </p>
+
   <h2 class="heading-two">Inline Forms Groups</h2>
 
   <p>A self-contained inline form consists of an input field with a joined button:</p>
   <p><strong>Note:</strong> icons cannot be applied to <code>input</code> tags, all icon buttons must be <code>button</code> elements.</p>
 
-  <form class="form-inline">
-    <div class="form-inline--input-container">
-      <input type="text" class="form-inline--input" />
-    </div>
-    <button class="button form-inline--button icon-chevron-right"></button>
-  </form>
+  <%- content_for :form_inline do -%>
+<form class="form-inline">
+  <div class="form-inline--input-container">
+    <input type="text" class="form-inline--input" />
+  </div>
+  <button class="button form-inline--button icon-chevron-right"></button>
+</form>
+  <%- end -%>
+  <%= yield :form_inline -%>
 
-  <pre class="sg-pre prettyprint">&lt;form class="form-inline">
-  &lt;div class="form-inline--input-container">
-    &lt;input type="text" class="form-inline--input" />
-  &lt;/div>
-  &lt;button class="button form-inline--button icon-chevron-right">&lt;/button>
-&lt;/form></pre>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :form_inline) -%></pre>
 
   <h3 class="heading-three">Full-length inline form</h3>
 
   <p>A full-length variant of the form above:</p>
 
-  <form class="form-inline__full">
-    <div class="form-inline--input-container">
-      <input type="text" class="form-inline--input" />
-    </div>
-    <button type="submit" class="button form-inline--button icon-chevron-right"></button>
-  </form>
+  <%- content_for :form_inline_full do -%>
+<form class="form-inline__full">
+  <div class="form-inline--input-container">
+    <input type="text" class="form-inline--input" />
+  </div>
+  <button type="submit" class="button form-inline--button icon-chevron-right"></button>
+</form>
+  <%- end -%>
+  <%= yield :form_inline_full -%>
 
-  <pre class="sg-pre prettyprint">&lt;form <strong>class="form-inline__full"</strong>>
-  &lt;div class="form-inline--input-container">
-    &lt;input type="text" class="form-inline--input" />
-  &lt;/div>
-  &lt;button class="button form-inline--button">&lt;/button>
-&lt;/form></pre>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :form_inline_full) -%></pre>
 
   <h2 class="heading-two">Full-width search field</h2>
 
   <p>A common pattern for search pages:</p>
 
-  <form class="form-search">
-    <label for="search_things" class="form-search--label">Search Things:</label>
-    <div class="form-inline">
-      <div class="form-inline--input-container">
-        <input type="text" class="form-inline--input" id="search_things" name="search_things" />
-      </div>
-      <button type="submit" class="button form-inline--button icon-search"></button>
+  <%- content_for :search_field do -%>
+<form class="form-search">
+  <label for="search_things" class="form-search--label">Search Things:</label>
+  <div class="form-inline">
+    <div class="form-inline--input-container">
+      <input type="text" class="form-inline--input" id="search_things" name="search_things" />
     </div>
-  </form>
+    <button type="submit" class="button form-inline--button icon-search"></button>
+  </div>
+</form>
+  <%- end -%>
+  <%= yield :search_field -%>
 
-  <pre class="sg-pre prettyprint">&lt;form class="form-search">
-  &lt;label for="search_things" class="form-search--label">Search Things:&lt;/label>
-  &lt;div class="form-inline">
-    &lt;div class="form-inline--input-container">
-      &lt;input type="text" class="form-inline--input" id="search_things" name="search_things" />
-    &lt;/div>
-    &lt;button type="submit" class="button form-inline--button icon-search">&lt;/button>
-  &lt;/div>
-&lt;/form></pre>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :search_field) -%></pre>
 
   <h2 class="heading-two">Limited text fields</h2>
 
   <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
 
-  <pre class="sg-pre prettyprint">&lt;div class="inputs">
-  &lt;div class="form--medium">
-    &lt;textarea type="text" data-limiter="200">&lt;/textarea>
-  &lt;/div>
-&lt;/div></pre>
-
-  <div class="inputs">
-    <div class="form--medium">
-      <textarea type="text" data-limiter="200"></textarea>
-    </div>
+  <%- content_for :limiter do -%>
+<div class="inputs">
+  <div class="form--medium">
+    <textarea type="text" data-limiter="200"></textarea>
   </div>
+</div>
+  <%- end -%>
+  <%= yield :limiter -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :limiter) -%></pre>
 
   <h2 class="heading-two">Form field lengths</h2>
 
@@ -117,9 +111,85 @@
     </div>
   </div>
 
-  <h2 class="heading-one">Long form</h2>
+  <h2 class="heading-two">Radios and checkboxes</h2>
 
-  <form accept-charset="UTF-8" action="#" class="simple_form" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="9Wj+qpC6PVLLhfW6D2Gzd9tBmG4cGhQJtm/Uv28XNJs="></div>
+  <%- content_for :checkboxes do -%>
+<div class="control-group check_boxes required">
+  <label class="check_boxes required control-label">
+    Basic checkboxes
+  </label>
+  <div class="controls">
+    <label class="checkbox">
+      <input class="check_boxes required" id="checkboxes_true" name="form[checkboxes]" type="checkbox" value="true">Yes
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="checkboxes_false" name="form[checkboxes]" type="checkbox" value="false">No
+    </label>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :checkboxes -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :checkboxes) -%></pre>
+
+  <%- content_for :radios do -%>
+<div class="control-group radio_buttons required">
+  <label class="radio_buttons required control-label">
+    Basic radios
+  </label>
+  <div class="controls">
+    <label class="radio">
+      <input class="radio_buttons required" id="radios_true" name="form[radios]" type="radio" value="true">Yes
+    </label>
+    <label class="radio">
+      <input class="radio_buttons required" id="radios_false" name="form[radios]" type="radio" value="false">No
+    </label>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :radios -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :radios) -%></pre>
+
+  <%- content_for :horizontal_radios do -%>
+<div class="control-group radio_buttons required form--horizontal">
+  <label class="radio_buttons required control-label">
+    Horizontal radios/checkboxes with <code>.form--horizontal</code> on the wrapper.
+  </label>
+  <div class="controls">
+    <label class="radio">
+      <input class="radio_buttons required" id="horizontal_radios_true" name="form[horizontal_radios]" type="radio" value="true">Yes
+    </label>
+    <label class="radio">
+      <input class="radio_buttons required" id="horizontal_radios_false" name="form[horizontal_radios]" type="radio" value="false">No
+    </label>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :horizontal_radios -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :horizontal_radios) -%></pre>
+
+  <%- content_for :single_checkbox do -%>
+<div class="control-group boolean optional checkbox__single">
+  <label class="boolean optional control-label" for="terms">
+    A single checkbox / boolean with the wrapper class <code>checkbox__single</code>
+  </label>
+  <div class="controls">
+    <input name="enrollment[terms]" type="hidden" value="0">
+    <label class="checkbox">
+      <input class="boolean optional" id="terms" name="form[terms]" type="checkbox" value="1">
+    </label>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :single_checkbox -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :single_checkbox) -%></pre>
+
+  <h2 class="heading-one">Long form example</h2>
+
+  <form accept-charset="UTF-8" action="#" class="simple_form" method="post" novalidate="novalidate">
     <div class="inputs">
 
       <div class="island island__error">
@@ -128,302 +198,348 @@
 
       <h2 class="heading-two">Your Information</h2>
 
-      <div class="control-group string required example_enrollers_name form--medium error">
-        <label class="string required control-label" for="example_enrollers_name">
-          <abbr title="required">*</abbr> Your name
-          <span class='error-block'>can't be blank</span>
+      <div class="control-group string required name form--medium error">
+        <label class="string required control-label" for="name">
+          <abbr title="required">*</abbr> Your name<span class='error-block'>can't be blank</span>
           <p class='hint-block'>This is a hint message.</p>
         </label>
         <div class="controls">
-          <input class="string required" id="example_enrollers_name" name="example[enrollers_name]" size="50" type="text">
+          <input class="string required" id="name" name="form[enrollers_name]" size="50" type="text">
         </div>
       </div>
 
-      <div class="control-group string required example_date_of_birth form--small"><label class="string required control-label" for="example_date_of_birth"><abbr title="required">*</abbr> Date of birth</label><div class="controls"><input class="string required datemask" id="example_date_of_birth" name="example[date_of_birth]" size="50" type="text"></div></div>
-
-      <div class="control-group string required example_description form--medium"><label class="string required control-label" for="example_date_of_birth"><abbr title="required">*</abbr> Description</label><div class="controls"><textarea class="text required" id="example_date_of_birth" name="example[date_of_birth]"></textarea></div></div>
-
-      <div class="control-group">
-        <label><abbr title="required">*</abbr> You must enter either a mobile or phone number</label>
+      <div class="control-group string required birth_date form--small">
+        <label class="string required control-label" for="birth_date">
+          <abbr title="required">*</abbr> Date of birth
+        </label>
+        <div class="controls">
+          <input class="string required datemask" id="birth_date" name="form[birth_date]" size="50" type="text">
+        </div>
       </div>
 
-      <div class="control-group tel optional example_phone_number form--medium"><label class="tel optional control-label" for="example_phone_number">Phone number</label><div class="controls"><input class="string tel optional" id="example_phone_number" name="example[phone_number]" size="50" type="tel"></div></div>
-      <div class="control-group string optional example_mobile_number form--medium"><label class="string optional control-label" for="example_mobile_number">Mobile number</label><div class="controls"><input class="string optional" id="example_mobile_number" name="example[mobile_number]" size="50" type="text" disabled></div></div>
-      <div class="control-group email optional example_email form--medium"><label class="email optional control-label" for="example_email">Email</label><div class="controls"><input class="string email optional" id="example_email" name="example[email]" size="50" type="email"></div></div>
+      <div class="control-group tel optional phone_number form--medium">
+        <label class="tel optional control-label" for="phone_number">
+          Phone number</label>
+        <div class="controls">
+          <input class="string tel optional" id="phone_number" name="form[phone_number]" size="50" type="tel">
+        </div>
+      </div>
 
-      <div class="control-group radio_buttons required example_do_you_have_skills_for_all_number"><label class="radio_buttons required control-label"><abbr title="required">*</abbr> Show hidden field?</label><div class="controls"><label class="radio"><input class="radio_buttons required" id="example_do_you_have_skills_for_all_number_true" name="example[do_you_have_skills_for_all_number]" type="radio" value="true">Yes</label><label class="radio"><input class="radio_buttons required" id="example_do_you_have_skills_for_all_number_false" name="example[do_you_have_skills_for_all_number]" type="radio" value="false">No</label></div></div>
-      <div class="control-group string required example_skills_for_all_number form--medium" data-show="example_do_you_have_skills_for_all_number_true" style="display: none;"><label class="string required control-label" for="example_skills_for_all_number"><abbr title="required">*</abbr> Hidden field</label><div class="controls"><input class="string required" id="example_skills_for_all_number" name="example[skills_for_all_number]" size="50" type="text"></div></div>
+      <div class="control-group string optional mobile_number form--medium">
+        <label class="string optional control-label" for="mobile_number">
+          Mobile number
+        </label>
+        <div class="controls">
+          <input class="string optional" id="mobile_number" name="form[mobile_number]" size="50" type="text" disabled>
+        </div>
+      </div>
 
-      <h2 class="heading-two">Residential address</h2>
+      <div class="control-group email optional email form--medium">
+        <label class="email optional control-label" for="email">
+          Email
+        </label>
+        <div class="controls">
+          <input class="string email optional" id="email" name="form[email]" size="50" type="email">
+        </div>
+      </div>
 
-      <div class="control-group string required example_residential_address_1 form--medium"><label class="string required control-label" for="example_residential_address_1"><abbr title="required">*</abbr> Address 1</label><div class="controls"><input class="string required" id="example_residential_address_1" name="example[residential_address_1]" size="50" type="text"></div></div>
-      <div class="control-group string optional example_residential_address_2 form--medium"><label class="string optional control-label" for="example_residential_address_2">Address 2</label><div class="controls"><input class="string optional" id="example_residential_address_2" name="example[residential_address_2]" size="50" type="text"></div></div>
-      <div class="control-group string required example_residential_suburb form--medium"><label class="string required control-label" for="example_residential_suburb"><abbr title="required">*</abbr> Suburb</label><div class="controls"><input class="string required" id="example_residential_suburb" name="example[residential_suburb]" size="50" type="text"></div></div>
-      <div class="control-group string required example_residential_city form--medium"><label class="string required control-label" for="example_residential_city"><abbr title="required">*</abbr> City</label><div class="controls"><input class="string required" id="example_residential_city" name="example[residential_city]" size="50" type="text"></div></div>
-      <div class="control-group string required example_residential_postcode form--medium"><label class="string required control-label" for="example_residential_postcode"><abbr title="required">*</abbr> Postcode</label><div class="controls"><input class="string required" id="example_residential_postcode" name="example[residential_postcode]" size="50" type="text"></div></div>
+      <div class="control-group radio_buttons required form--horizontal">
+        <label class="radio_buttons required control-label">
+          <abbr title="required">*</abbr> Show hidden field?
+        </label>
+        <div class="controls">
+          <label class="radio">
+            <input class="radio_buttons required" id="show_hidden_true" name="form[show_hidden]" type="radio" value="true">Yes
+          </label>
+          <label class="radio">
+            <input class="radio_buttons required" id="show_hidden_false" name="form[show_hidden]" type="radio" value="false">No
+          </label>
+        </div>
+      </div>
 
-      <div class="control-group country required example_residential_country form--medium"><label class="country required control-label" for="example_residential_country"><abbr title="required">*</abbr> Country</label><div class="controls">
-        <select class="country required" id="example_residential_country" name="example[residential_country]">
-          <option value="">Please select</option>
-          <option value="AU">Australia</option>&lt;option value="" disabled="disabled"&gt;-------------&lt;/option&gt;
-          <option value="AF">Afghanistan</option>
-          <option value="AL">Albania</option>
-          <option value="DZ">Algeria</option>
-          <option value="AS">American Samoa</option>
-          <option value="AD">Andorra</option>
-          <option value="AO">Angola</option>
-          <option value="AI">Anguilla</option>
-          <option value="AQ">Antarctica</option>
-          <option value="AG">Antigua and Barbuda</option>
-          <option value="AR">Argentina</option>
-          <option value="AM">Armenia</option>
-          <option value="AW">Aruba</option>
-          <option value="AU">Australia</option>
-          <option value="AT">Austria</option>
-          <option value="AZ">Azerbaijan</option>
-          <option value="BS">Bahamas</option>
-          <option value="BH">Bahrain</option>
-          <option value="BD">Bangladesh</option>
-          <option value="BB">Barbados</option>
-          <option value="BY">Belarus</option>
-          <option value="BE">Belgium</option>
-          <option value="BZ">Belize</option>
-          <option value="BJ">Benin</option>
-          <option value="BM">Bermuda</option>
-          <option value="BT">Bhutan</option>
-          <option value="BO">Bolivia</option>
-          <option value="BA">Bosnia and Herzegovina</option>
-          <option value="BW">Botswana</option>
-          <option value="BV">Bouvet Island</option>
-          <option value="BR">Brazil</option>
-          <option value="IO">British Indian Ocean Territory</option>
-          <option value="BN">Brunei Darussalam</option>
-          <option value="BG">Bulgaria</option>
-          <option value="BF">Burkina Faso</option>
-          <option value="BI">Burundi</option>
-          <option value="KH">Cambodia</option>
-          <option value="CM">Cameroon</option>
-          <option value="CA">Canada</option>
-          <option value="CV">Cape Verde</option>
-          <option value="KY">Cayman Islands</option>
-          <option value="CF">Central African Republic</option>
-          <option value="TD">Chad</option>
-          <option value="CL">Chile</option>
-          <option value="CN">China</option>
-          <option value="CX">Christmas Island</option>
-          <option value="CC">Cocos (Keeling) Islands</option>
-          <option value="CO">Colombia</option>
-          <option value="KM">Comoros</option>
-          <option value="CG">Congo</option>
-          <option value="CD">Congo, The Democratic Republic Of The</option>
-          <option value="CK">Cook Islands</option>
-          <option value="CR">Costa Rica</option>
-          <option value="HR">Croatia</option>
-          <option value="CU">Cuba</option>
-          <option value="CY">Cyprus</option>
-          <option value="CZ">Czech Republic</option>
-          <option value="CI">Côte D'Ivoire</option>
-          <option value="DK">Denmark</option>
-          <option value="DJ">Djibouti</option>
-          <option value="DM">Dominica</option>
-          <option value="DO">Dominican Republic</option>
-          <option value="EC">Ecuador</option>
-          <option value="EG">Egypt</option>
-          <option value="SV">El Salvador</option>
-          <option value="GQ">Equatorial Guinea</option>
-          <option value="ER">Eritrea</option>
-          <option value="EE">Estonia</option>
-          <option value="ET">Ethiopia</option>
-          <option value="FK">Falkland Islands (Malvinas)</option>
-          <option value="FO">Faroe Islands</option>
-          <option value="FJ">Fiji</option>
-          <option value="FI">Finland</option>
-          <option value="FR">France</option>
-          <option value="GF">French Guiana</option>
-          <option value="PF">French Polynesia</option>
-          <option value="TF">French Southern Territories</option>
-          <option value="GA">Gabon</option>
-          <option value="GM">Gambia</option>
-          <option value="GE">Georgia</option>
-          <option value="DE">Germany</option>
-          <option value="GH">Ghana</option>
-          <option value="GI">Gibraltar</option>
-          <option value="GR">Greece</option>
-          <option value="GL">Greenland</option>
-          <option value="GD">Grenada</option>
-          <option value="GP">Guadeloupe</option>
-          <option value="GU">Guam</option>
-          <option value="GT">Guatemala</option>
-          <option value="GG">Guernsey</option>
-          <option value="GN">Guinea</option>
-          <option value="GW">Guinea-Bissau</option>
-          <option value="GY">Guyana</option>
-          <option value="HT">Haiti</option>
-          <option value="HM">Heard and McDonald Islands</option>
-          <option value="VA">Holy See (Vatican City State)</option>
-          <option value="HN">Honduras</option>
-          <option value="HK">Hong Kong</option>
-          <option value="HU">Hungary</option>
-          <option value="IS">Iceland</option>
-          <option value="IN">India</option>
-          <option value="ID">Indonesia</option>
-          <option value="IR">Iran, Islamic Republic Of</option>
-          <option value="IQ">Iraq</option>
-          <option value="IE">Ireland</option>
-          <option value="IM">Isle of Man</option>
-          <option value="IL">Israel</option>
-          <option value="IT">Italy</option>
-          <option value="JM">Jamaica</option>
-          <option value="JP">Japan</option>
-          <option value="JE">Jersey</option>
-          <option value="JO">Jordan</option>
-          <option value="KZ">Kazakhstan</option>
-          <option value="KE">Kenya</option>
-          <option value="KI">Kiribati</option>
-          <option value="KP">Korea, Democratic People's Republic Of</option>
-          <option value="KR">Korea, Republic of</option>
-          <option value="KW">Kuwait</option>
-          <option value="KG">Kyrgyzstan</option>
-          <option value="LA">Lao People's Democratic Republic</option>
-          <option value="LV">Latvia</option>
-          <option value="LB">Lebanon</option>
-          <option value="LS">Lesotho</option>
-          <option value="LR">Liberia</option>
-          <option value="LY">Libyan Arab Jamahiriya</option>
-          <option value="LI">Liechtenstein</option>
-          <option value="LT">Lithuania</option>
-          <option value="LU">Luxembourg</option>
-          <option value="MO">Macao</option>
-          <option value="MK">Macedonia, the Former Yugoslav Republic Of</option>
-          <option value="MG">Madagascar</option>
-          <option value="MW">Malawi</option>
-          <option value="MY">Malaysia</option>
-          <option value="MV">Maldives</option>
-          <option value="ML">Mali</option>
-          <option value="MT">Malta</option>
-          <option value="MH">Marshall Islands</option>
-          <option value="MQ">Martinique</option>
-          <option value="MR">Mauritania</option>
-          <option value="MU">Mauritius</option>
-          <option value="YT">Mayotte</option>
-          <option value="MX">Mexico</option>
-          <option value="FM">Micronesia, Federated States Of</option>
-          <option value="MD">Moldova, Republic of</option>
-          <option value="MC">Monaco</option>
-          <option value="MN">Mongolia</option>
-          <option value="ME">Montenegro</option>
-          <option value="MS">Montserrat</option>
-          <option value="MA">Morocco</option>
-          <option value="MZ">Mozambique</option>
-          <option value="MM">Myanmar</option>
-          <option value="NA">Namibia</option>
-          <option value="NR">Nauru</option>
-          <option value="NP">Nepal</option>
-          <option value="NL">Netherlands</option>
-          <option value="AN">Netherlands Antilles</option>
-          <option value="NC">New Caledonia</option>
-          <option value="NZ">New Zealand</option>
-          <option value="NI">Nicaragua</option>
-          <option value="NE">Niger</option>
-          <option value="NG">Nigeria</option>
-          <option value="NU">Niue</option>
-          <option value="NF">Norfolk Island</option>
-          <option value="MP">Northern Mariana Islands</option>
-          <option value="NO">Norway</option>
-          <option value="OM">Oman</option>
-          <option value="PK">Pakistan</option>
-          <option value="PW">Palau</option>
-          <option value="PS">Palestinian Territory, Occupied</option>
-          <option value="PA">Panama</option>
-          <option value="PG">Papua New Guinea</option>
-          <option value="PY">Paraguay</option>
-          <option value="PE">Peru</option>
-          <option value="PH">Philippines</option>
-          <option value="PN">Pitcairn</option>
-          <option value="PL">Poland</option>
-          <option value="PT">Portugal</option>
-          <option value="PR">Puerto Rico</option>
-          <option value="QA">Qatar</option>
-          <option value="RO">Romania</option>
-          <option value="RU">Russian Federation</option>
-          <option value="RW">Rwanda</option>
-          <option value="RE">Réunion</option>
-          <option value="BL">Saint Barthélemy</option>
-          <option value="SH">Saint Helena</option>
-          <option value="KN">Saint Kitts And Nevis</option>
-          <option value="LC">Saint Lucia</option>
-          <option value="MF">Saint Martin</option>
-          <option value="PM">Saint Pierre And Miquelon</option>
-          <option value="VC">Saint Vincent And The Grenedines</option>
-          <option value="WS">Samoa</option>
-          <option value="SM">San Marino</option>
-          <option value="ST">Sao Tome and Principe</option>
-          <option value="SA">Saudi Arabia</option>
-          <option value="SN">Senegal</option>
-          <option value="RS">Serbia</option>
-          <option value="SC">Seychelles</option>
-          <option value="SL">Sierra Leone</option>
-          <option value="SG">Singapore</option>
-          <option value="SK">Slovakia</option>
-          <option value="SI">Slovenia</option>
-          <option value="SB">Solomon Islands</option>
-          <option value="SO">Somalia</option>
-          <option value="ZA">South Africa</option>
-          <option value="GS">South Georgia and the South Sandwich Islands</option>
-          <option value="ES">Spain</option>
-          <option value="LK">Sri Lanka</option>
-          <option value="SD">Sudan</option>
-          <option value="SR">Suriname</option>
-          <option value="SJ">Svalbard And Jan Mayen</option>
-          <option value="SZ">Swaziland</option>
-          <option value="SE">Sweden</option>
-          <option value="CH">Switzerland</option>
-          <option value="SY">Syrian Arab Republic</option>
-          <option value="TW">Taiwan, Republic Of China</option>
-          <option value="TJ">Tajikistan</option>
-          <option value="TZ">Tanzania, United Republic of</option>
-          <option value="TH">Thailand</option>
-          <option value="TL">Timor-Leste</option>
-          <option value="TG">Togo</option>
-          <option value="TK">Tokelau</option>
-          <option value="TO">Tonga</option>
-          <option value="TT">Trinidad and Tobago</option>
-          <option value="TN">Tunisia</option>
-          <option value="TR">Turkey</option>
-          <option value="TM">Turkmenistan</option>
-          <option value="TC">Turks and Caicos Islands</option>
-          <option value="TV">Tuvalu</option>
-          <option value="UG">Uganda</option>
-          <option value="UA">Ukraine</option>
-          <option value="AE">United Arab Emirates</option>
-          <option value="GB">United Kingdom</option>
-          <option value="US">United States</option>
-          <option value="UM">United States Minor Outlying Islands</option>
-          <option value="UY">Uruguay</option>
-          <option value="UZ">Uzbekistan</option>
-          <option value="VU">Vanuatu</option>
-          <option value="VE">Venezuela, Bolivarian Republic of</option>
-          <option value="VN">Viet Nam</option>
-          <option value="VG">Virgin Islands, British</option>
-          <option value="VI">Virgin Islands, U.S.</option>
-          <option value="WF">Wallis and Futuna</option>
-          <option value="EH">Western Sahara</option>
-          <option value="YE">Yemen</option>
-          <option value="ZM">Zambia</option>
-          <option value="ZW">Zimbabwe</option>
-          <option value="AX">Åland Islands</option>
-        </select>
-      </div></div>
+      <div class="control-group string required hidden_field form--medium" data-show="show_hidden_true" style="display: none;">
+        <label class="string required control-label" for="hidden_field">
+          <abbr title="required">*</abbr> Hidden field
+        </label>
+        <div class="controls">
+          <input class="string required" id="hidden_field" name="form[hidden_field]" size="50" type="text">
+        </div>
+      </div>
 
-      <div class="control-group boolean optional example_terms checkbox_single"><label class="boolean optional control-label" for="example_terms">I have read and agreed to these terms &amp; conditions.</label><div class="controls"><input name="example[terms]" type="hidden" value="0"><label class="checkbox"><input class="boolean optional" id="example_terms" name="example[terms]" type="checkbox" value="1"></label></div></div>
+      <div class="control-group country required form--medium">
+        <label class="country required control-label" for="country">
+          <abbr title="required">*</abbr> Country
+        </label>
+        <div class="controls">
+          <select class="country required" id="country" name="form[country]">
+            <option value="">Please select</option>
+            <option value="AU">Australia</option>&lt;option value="" disabled="disabled"&gt;-------------&lt;/option&gt;
+            <option value="AF">Afghanistan</option>
+            <option value="AL">Albania</option>
+            <option value="DZ">Algeria</option>
+            <option value="AS">American Samoa</option>
+            <option value="AD">Andorra</option>
+            <option value="AO">Angola</option>
+            <option value="AI">Anguilla</option>
+            <option value="AQ">Antarctica</option>
+            <option value="AG">Antigua and Barbuda</option>
+            <option value="AR">Argentina</option>
+            <option value="AM">Armenia</option>
+            <option value="AW">Aruba</option>
+            <option value="AU">Australia</option>
+            <option value="AT">Austria</option>
+            <option value="AZ">Azerbaijan</option>
+            <option value="BS">Bahamas</option>
+            <option value="BH">Bahrain</option>
+            <option value="BD">Bangladesh</option>
+            <option value="BB">Barbados</option>
+            <option value="BY">Belarus</option>
+            <option value="BE">Belgium</option>
+            <option value="BZ">Belize</option>
+            <option value="BJ">Benin</option>
+            <option value="BM">Bermuda</option>
+            <option value="BT">Bhutan</option>
+            <option value="BO">Bolivia</option>
+            <option value="BA">Bosnia and Herzegovina</option>
+            <option value="BW">Botswana</option>
+            <option value="BV">Bouvet Island</option>
+            <option value="BR">Brazil</option>
+            <option value="IO">British Indian Ocean Territory</option>
+            <option value="BN">Brunei Darussalam</option>
+            <option value="BG">Bulgaria</option>
+            <option value="BF">Burkina Faso</option>
+            <option value="BI">Burundi</option>
+            <option value="KH">Cambodia</option>
+            <option value="CM">Cameroon</option>
+            <option value="CA">Canada</option>
+            <option value="CV">Cape Verde</option>
+            <option value="KY">Cayman Islands</option>
+            <option value="CF">Central African Republic</option>
+            <option value="TD">Chad</option>
+            <option value="CL">Chile</option>
+            <option value="CN">China</option>
+            <option value="CX">Christmas Island</option>
+            <option value="CC">Cocos (Keeling) Islands</option>
+            <option value="CO">Colombia</option>
+            <option value="KM">Comoros</option>
+            <option value="CG">Congo</option>
+            <option value="CD">Congo, The Democratic Republic Of The</option>
+            <option value="CK">Cook Islands</option>
+            <option value="CR">Costa Rica</option>
+            <option value="HR">Croatia</option>
+            <option value="CU">Cuba</option>
+            <option value="CY">Cyprus</option>
+            <option value="CZ">Czech Republic</option>
+            <option value="CI">Côte D'Ivoire</option>
+            <option value="DK">Denmark</option>
+            <option value="DJ">Djibouti</option>
+            <option value="DM">Dominica</option>
+            <option value="DO">Dominican Republic</option>
+            <option value="EC">Ecuador</option>
+            <option value="EG">Egypt</option>
+            <option value="SV">El Salvador</option>
+            <option value="GQ">Equatorial Guinea</option>
+            <option value="ER">Eritrea</option>
+            <option value="EE">Estonia</option>
+            <option value="ET">Ethiopia</option>
+            <option value="FK">Falkland Islands (Malvinas)</option>
+            <option value="FO">Faroe Islands</option>
+            <option value="FJ">Fiji</option>
+            <option value="FI">Finland</option>
+            <option value="FR">France</option>
+            <option value="GF">French Guiana</option>
+            <option value="PF">French Polynesia</option>
+            <option value="TF">French Southern Territories</option>
+            <option value="GA">Gabon</option>
+            <option value="GM">Gambia</option>
+            <option value="GE">Georgia</option>
+            <option value="DE">Germany</option>
+            <option value="GH">Ghana</option>
+            <option value="GI">Gibraltar</option>
+            <option value="GR">Greece</option>
+            <option value="GL">Greenland</option>
+            <option value="GD">Grenada</option>
+            <option value="GP">Guadeloupe</option>
+            <option value="GU">Guam</option>
+            <option value="GT">Guatemala</option>
+            <option value="GG">Guernsey</option>
+            <option value="GN">Guinea</option>
+            <option value="GW">Guinea-Bissau</option>
+            <option value="GY">Guyana</option>
+            <option value="HT">Haiti</option>
+            <option value="HM">Heard and McDonald Islands</option>
+            <option value="VA">Holy See (Vatican City State)</option>
+            <option value="HN">Honduras</option>
+            <option value="HK">Hong Kong</option>
+            <option value="HU">Hungary</option>
+            <option value="IS">Iceland</option>
+            <option value="IN">India</option>
+            <option value="ID">Indonesia</option>
+            <option value="IR">Iran, Islamic Republic Of</option>
+            <option value="IQ">Iraq</option>
+            <option value="IE">Ireland</option>
+            <option value="IM">Isle of Man</option>
+            <option value="IL">Israel</option>
+            <option value="IT">Italy</option>
+            <option value="JM">Jamaica</option>
+            <option value="JP">Japan</option>
+            <option value="JE">Jersey</option>
+            <option value="JO">Jordan</option>
+            <option value="KZ">Kazakhstan</option>
+            <option value="KE">Kenya</option>
+            <option value="KI">Kiribati</option>
+            <option value="KP">Korea, Democratic People's Republic Of</option>
+            <option value="KR">Korea, Republic of</option>
+            <option value="KW">Kuwait</option>
+            <option value="KG">Kyrgyzstan</option>
+            <option value="LA">Lao People's Democratic Republic</option>
+            <option value="LV">Latvia</option>
+            <option value="LB">Lebanon</option>
+            <option value="LS">Lesotho</option>
+            <option value="LR">Liberia</option>
+            <option value="LY">Libyan Arab Jamahiriya</option>
+            <option value="LI">Liechtenstein</option>
+            <option value="LT">Lithuania</option>
+            <option value="LU">Luxembourg</option>
+            <option value="MO">Macao</option>
+            <option value="MK">Macedonia, the Former Yugoslav Republic Of</option>
+            <option value="MG">Madagascar</option>
+            <option value="MW">Malawi</option>
+            <option value="MY">Malaysia</option>
+            <option value="MV">Maldives</option>
+            <option value="ML">Mali</option>
+            <option value="MT">Malta</option>
+            <option value="MH">Marshall Islands</option>
+            <option value="MQ">Martinique</option>
+            <option value="MR">Mauritania</option>
+            <option value="MU">Mauritius</option>
+            <option value="YT">Mayotte</option>
+            <option value="MX">Mexico</option>
+            <option value="FM">Micronesia, Federated States Of</option>
+            <option value="MD">Moldova, Republic of</option>
+            <option value="MC">Monaco</option>
+            <option value="MN">Mongolia</option>
+            <option value="ME">Montenegro</option>
+            <option value="MS">Montserrat</option>
+            <option value="MA">Morocco</option>
+            <option value="MZ">Mozambique</option>
+            <option value="MM">Myanmar</option>
+            <option value="NA">Namibia</option>
+            <option value="NR">Nauru</option>
+            <option value="NP">Nepal</option>
+            <option value="NL">Netherlands</option>
+            <option value="AN">Netherlands Antilles</option>
+            <option value="NC">New Caledonia</option>
+            <option value="NZ">New Zealand</option>
+            <option value="NI">Nicaragua</option>
+            <option value="NE">Niger</option>
+            <option value="NG">Nigeria</option>
+            <option value="NU">Niue</option>
+            <option value="NF">Norfolk Island</option>
+            <option value="MP">Northern Mariana Islands</option>
+            <option value="NO">Norway</option>
+            <option value="OM">Oman</option>
+            <option value="PK">Pakistan</option>
+            <option value="PW">Palau</option>
+            <option value="PS">Palestinian Territory, Occupied</option>
+            <option value="PA">Panama</option>
+            <option value="PG">Papua New Guinea</option>
+            <option value="PY">Paraguay</option>
+            <option value="PE">Peru</option>
+            <option value="PH">Philippines</option>
+            <option value="PN">Pitcairn</option>
+            <option value="PL">Poland</option>
+            <option value="PT">Portugal</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="QA">Qatar</option>
+            <option value="RO">Romania</option>
+            <option value="RU">Russian Federation</option>
+            <option value="RW">Rwanda</option>
+            <option value="RE">Réunion</option>
+            <option value="BL">Saint Barthélemy</option>
+            <option value="SH">Saint Helena</option>
+            <option value="KN">Saint Kitts And Nevis</option>
+            <option value="LC">Saint Lucia</option>
+            <option value="MF">Saint Martin</option>
+            <option value="PM">Saint Pierre And Miquelon</option>
+            <option value="VC">Saint Vincent And The Grenedines</option>
+            <option value="WS">Samoa</option>
+            <option value="SM">San Marino</option>
+            <option value="ST">Sao Tome and Principe</option>
+            <option value="SA">Saudi Arabia</option>
+            <option value="SN">Senegal</option>
+            <option value="RS">Serbia</option>
+            <option value="SC">Seychelles</option>
+            <option value="SL">Sierra Leone</option>
+            <option value="SG">Singapore</option>
+            <option value="SK">Slovakia</option>
+            <option value="SI">Slovenia</option>
+            <option value="SB">Solomon Islands</option>
+            <option value="SO">Somalia</option>
+            <option value="ZA">South Africa</option>
+            <option value="GS">South Georgia and the South Sandwich Islands</option>
+            <option value="ES">Spain</option>
+            <option value="LK">Sri Lanka</option>
+            <option value="SD">Sudan</option>
+            <option value="SR">Suriname</option>
+            <option value="SJ">Svalbard And Jan Mayen</option>
+            <option value="SZ">Swaziland</option>
+            <option value="SE">Sweden</option>
+            <option value="CH">Switzerland</option>
+            <option value="SY">Syrian Arab Republic</option>
+            <option value="TW">Taiwan, Republic Of China</option>
+            <option value="TJ">Tajikistan</option>
+            <option value="TZ">Tanzania, United Republic of</option>
+            <option value="TH">Thailand</option>
+            <option value="TL">Timor-Leste</option>
+            <option value="TG">Togo</option>
+            <option value="TK">Tokelau</option>
+            <option value="TO">Tonga</option>
+            <option value="TT">Trinidad and Tobago</option>
+            <option value="TN">Tunisia</option>
+            <option value="TR">Turkey</option>
+            <option value="TM">Turkmenistan</option>
+            <option value="TC">Turks and Caicos Islands</option>
+            <option value="TV">Tuvalu</option>
+            <option value="UG">Uganda</option>
+            <option value="UA">Ukraine</option>
+            <option value="AE">United Arab Emirates</option>
+            <option value="GB">United Kingdom</option>
+            <option value="US">United States</option>
+            <option value="UM">United States Minor Outlying Islands</option>
+            <option value="UY">Uruguay</option>
+            <option value="UZ">Uzbekistan</option>
+            <option value="VU">Vanuatu</option>
+            <option value="VE">Venezuela, Bolivarian Republic of</option>
+            <option value="VN">Viet Nam</option>
+            <option value="VG">Virgin Islands, British</option>
+            <option value="VI">Virgin Islands, U.S.</option>
+            <option value="WF">Wallis and Futuna</option>
+            <option value="EH">Western Sahara</option>
+            <option value="YE">Yemen</option>
+            <option value="ZM">Zambia</option>
+            <option value="ZW">Zimbabwe</option>
+            <option value="AX">Åland Islands</option>
+          </select>
+        </div>
+      </div>
 
-      <div class="control-group hidden example_amount"><div class="controls"><input class="hidden" id="example_amount" name="example[amount]" type="hidden" value="0"></div></div>
+      <div class="control-group boolean optional checkbox__single">
+        <label class="boolean optional control-label" for="terms">
+          I have read and agreed to these terms &amp; conditions.
+        </label>
+        <div class="controls">
+          <input name="enrollment[terms]" type="hidden" value="0">
+          <label class="checkbox">
+            <input class="boolean optional" id="terms" name="form[terms]" type="checkbox" value="1">
+          </label>
+        </div>
+      </div>
 
     </div>
 
-    <div class="button-group actions">
-      <a href="#" class="button button__back button__secondary">Back</a>
-      <button class="button button__forward">Proceed</button>
+    <div class="actions">
+      <button class="button">Submit</button>
     </div>
   </form>
 </div>

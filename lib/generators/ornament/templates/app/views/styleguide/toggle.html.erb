@@ -1,0 +1,115 @@
+<% content_for :title, "Toggle" %>
+
+<div class="spacing">
+
+  <h2 class="heading-two">Show/hide something</h2>
+
+  <%- content_for :example do -%>
+<a href="#" data-toggle-anchor="example-1">Show/hide example 1</a>
+<div data-toggle="example-1">
+  This is the content for example 1
+</div>
+  <%- end -%>
+
+  <div>
+    <%= yield :example -%>
+  </div>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example) -%></pre>
+
+  <h2 class="heading-two">Group toggles and allow only one to be toggled at any time</h2>
+
+  <%- content_for :example_2 do -%>
+<div>
+  <a href="#" data-toggle-anchor="example-2-1" data-toggle-group="example-2">Heading 1</a>
+</div>
+<div data-toggle="example-2-1">
+  This is the content for 1
+</div>
+<div>
+  <a href="#" data-toggle-anchor="example-2-2" data-toggle-group="example-2">Heading 2</a>
+</div>
+<div data-toggle="example-2-2">
+  This is the content for 2
+</div>
+<div>
+  <a href="#" data-toggle-anchor="example-2-3" data-toggle-group="example-2">Heading 3</a>
+</div>
+<div data-toggle="example-2-3">
+  This is the content for 3
+</div>
+  <%- end -%>
+
+  <div>
+    <%= yield :example_2 -%>
+  </div>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_2) -%></pre>
+
+  <h2 class="heading-two">Change labels between show/hide</h2>
+
+  <%- content_for :example_3 do -%>
+<a href="#" data-toggle-anchor="example-3-1" data-toggle-visible-label="Hide">Show</a>
+<div data-toggle="example-3-1">
+  This is the hidden content
+</div>
+  <%- end -%>
+
+  <div>
+    <%= yield :example_3 -%>
+  </div>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_3) -%></pre>
+
+  <h2 class="heading-two">Add a bottom toggle which scroll back to the top when hiding</h2>
+
+  <%- content_for :example_4 do -%>
+<a href="#" data-toggle-anchor="example-4" data-toggle-scroll data-toggle-scroll-master>This is the master toggle anchor</a>
+<div data-toggle="example-4">
+  This<br />
+  is<br />
+  some<br />
+  really<br />
+  really<br />
+  really<br />
+  really<br />
+  really<br />
+  really<br />
+  really<br />
+  really<br />
+  really<br />
+  really<br />
+  really<br />
+  really<br />
+  really<br />
+  long<br />
+  content<br />
+  <a href="#" data-toggle-anchor="example-4" data-toggle-scroll>This is a slave anchor that will scroll to the top</a>
+</div>
+  <%- end -%>
+
+  <div>
+    <%= yield :example_4 -%>
+  </div>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_4) -%></pre>
+
+  <h2 class="heading-two">JS events and triggers</h2>
+
+  <div>
+    Activate toggle anchor<br />
+    <code>$(".my-toggle-anchor").trigger("ornament:toggle-on");</code>
+  </div>
+
+  <div>
+    Deactivate toggle anchor<br />
+    <code>$(".my-toggle-anchor").trigger("ornament:toggle-off");</code>
+  </div>
+
+  <div>
+    Toggle toggle anchor<br />
+    <code>$(".my-toggle-anchor").trigger("ornament:toggle");</code>
+  </div>
+
+  <div>
+    Hide all toggle content blocks<br />
+    <code>$(document).trigger("ornament:toggle-all-off");</code>
+  </div>
+
+</div>

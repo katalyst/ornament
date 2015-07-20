@@ -86,11 +86,6 @@ input[type="number"] {
 }
 
 // FORM STYLING
-
-.inputs {
-  @extend .spacing-xx-tight;
-}
-
 // Push embedded forms away from content
 .form-embedded {
   margin-top: $default-unit;
@@ -167,18 +162,8 @@ textarea,
 
 // PLACEHOLDERS
 
-$placeholder-color: #ccc;
-::-webkit-input-placeholder {
-   color: $placeholder-color;
-}
-:-moz-placeholder { /* Firefox 18- */
-   color: $placeholder-color;
-}
-::-moz-placeholder {  /* Firefox 19+ */
-   color: $placeholder-color;
-}
-:-ms-input-placeholder {
-   color: $placeholder-color;
+@include input-placeholder {
+  color: $input-border-color;
 }
 
 select {
@@ -241,12 +226,15 @@ $radio-offset: 24px;
 
 .radio_buttons,
 .check_boxes {
+  @include pie-clearfix;
+
   .radio,
   .checkbox {
     position: relative;
     padding-left: $radio-offset;
     margin-right: $xxx-small-unit;
-    display: inline-block;
+    float: left;
+    clear: both;
 
     input {
       position: absolute;
@@ -262,12 +250,13 @@ $radio-offset: 24px;
   .radio,
   .checkbox {
     float: left;
+    clear: none;
     margin-right: $xx-small-unit;
   }
 }
 
 // SINGLE CHECKBOXES
-.checkbox_single {
+.checkbox__single {
   position: relative;
 
   .control-label {

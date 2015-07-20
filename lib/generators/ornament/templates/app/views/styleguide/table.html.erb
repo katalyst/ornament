@@ -4,7 +4,87 @@
 
   <h2 class="heading-two">Table with flush sides</h2>
 
-  <table cellspacing="0" class="table__flush">
+  <%- content_for :flush do -%>
+<table cellspacing="0" class="table__flush">
+  <thead>
+    <tr>
+      <th>Commodo Tellus</th>
+      <th>Dolor Quam</th>
+      <th>32,000</th>
+      <th>32,000</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Commodo Tellus</td>
+      <td>32,000</td>
+      <td>32,000</td>
+      <td>32,000</td>
+    </tr>
+    <tr>
+      <td>Nullam Malesuada Pheretra</td>
+      <td>2,000</td>
+      <td>2,000</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>Commodo PortaFermentum</td>
+      <td>4,000</td>
+      <td>4,000</td>
+      <td>4,000</td>
+    </tr>
+    <tr>
+      <td>Ridiculus Adipiscing Vehicula</td>
+      <td>100,500</td>
+      <td>100,500</td>
+      <td>100,000</td>
+    </tr>
+  </tbody>
+</table>
+  <%- end -%>
+  <%= yield :flush -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :flush) -%></pre>
+
+  <h2 class="heading-two">Vertical headings</h2>
+
+  <%- content_for :vertical_headings do -%>
+<table cellspacing="0" class="table__vertical">
+  <tbody>
+    <tr>
+      <th>Commodo Tellus</th>
+      <td>32,000</td>
+      <td>32,000</td>
+      <td>32,000</td>
+    </tr>
+    <tr>
+      <th>Nullam Malesuada Pheretra</th>
+      <td>2,000</td>
+      <td>2,000</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <th>Commodo PortaFermentum</th>
+      <td>4,000</td>
+      <td>4,000</td>
+      <td>4,000</td>
+    </tr>
+    <tr>
+      <th>Ridiculus Adipiscing Vehicula</th>
+      <td>100,500</td>
+      <td>100,500</td>
+      <td>100,000</td>
+    </tr>
+  </tbody>
+</table>
+  <%- end -%>
+  <%= yield :vertical_headings -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :vertical_headings) -%></pre>
+
+  <h2 class="heading-two">Scrollable Table</h2>
+
+  <%- content_for :scrolling do -%>
+<div class="table-scroll">
+  <table cellspacing="0" class="table__flush" style="width: 2000px">
     <thead>
       <tr>
         <th>Commodo Tellus</th>
@@ -40,157 +120,10 @@
       </tr>
     </tbody>
   </table>
-
-  <h2 class="heading-two">Vertical headings</h2>
-
-  <table cellspacing="0" class="table__vertical">
-    <tbody>
-      <tr>
-        <th>Commodo Tellus</th>
-        <td>32,000</td>
-        <td>32,000</td>
-        <td>32,000</td>
-      </tr>
-      <tr>
-        <th>Nullam Malesuada Pheretra</th>
-        <td>2,000</td>
-        <td>2,000</td>
-        <td>2,000</td>
-      </tr>
-      <tr>
-        <th>Commodo PortaFermentum</th>
-        <td>4,000</td>
-        <td>4,000</td>
-        <td>4,000</td>
-      </tr>
-      <tr>
-        <th>Ridiculus Adipiscing Vehicula</th>
-        <td>100,500</td>
-        <td>100,500</td>
-        <td>100,000</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2 class="heading-two">Scrollable Table</h2>
-
-  <div class="table-scroll">
-    <table cellspacing="0" class="table__flush" style="width: 2000px">
-      <thead>
-        <tr>
-          <th>Commodo Tellus</th>
-          <th>Dolor Quam</th>
-          <th>32,000</th>
-          <th>32,000</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Commodo Tellus</td>
-          <td>32,000</td>
-          <td>32,000</td>
-          <td>32,000</td>
-        </tr>
-        <tr>
-          <td>Nullam Malesuada Pheretra</td>
-          <td>2,000</td>
-          <td>2,000</td>
-          <td>2,000</td>
-        </tr>
-        <tr>
-          <td>Commodo PortaFermentum</td>
-          <td>4,000</td>
-          <td>4,000</td>
-          <td>4,000</td>
-        </tr>
-        <tr>
-          <td>Ridiculus Adipiscing Vehicula</td>
-          <td>100,500</td>
-          <td>100,500</td>
-          <td>100,000</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+</div>
+  <%- end -%>
+  <%= yield :scrolling -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :scrolling) -%></pre>
 
 </div>
 
-<!--
-<div class="spacing">
-
-  <h2 class="heading-two">Basic, unstyled table</h2>
-
-  <table class="table">
-    <tr>
-      <th>First Name</th>
-      <td>Jane</td>
-    </tr>
-    <tr>
-      <th>Last Name</th>
-      <td>Doe</td>
-    </tr>
-    <tr>
-      <th>DOB</th>
-      <td>25/06/1982</td>
-    </tr>
-  </table>
-
-  <h2 class="heading-two">Flush table</h2>
-
-  <p>Add <code>table-flush</code> class to table to make it flush on all sides.</p>
-
-  <table class="table table-flush">
-    <tr>
-      <th>First Name</th>
-      <td>Jane</td>
-    </tr>
-    <tr>
-      <th>Last Name</th>
-      <td>Doe</td>
-    </tr>
-    <tr>
-      <th>DOB</th>
-      <td>25/06/1982</td>
-    </tr>
-  </table>
-
-  <h2 class="heading-two">Ruled table</h2>
-
-  <p>Add <code>table-ruled</code> class to table, can be combined with <code>table-flush</code> to create a flush, ruled table.</p>
-
-  <table class="table table-flush table-ruled">
-    <tr>
-      <th>First Name</th>
-      <td>Jane</td>
-    </tr>
-    <tr>
-      <th>Last Name</th>
-      <td>Doe</td>
-    </tr>
-    <tr>
-      <th>DOB</th>
-      <td>25/06/1982</td>
-    </tr>
-  </table>
-
-  <h2 class="heading-two">Scrollable Table</h2>
-
-  <div class="table-container">
-    <table class="table table-flush table-ruled" style="width: 5000px">
-      <tr>
-        <th>First Name</th>
-        <td>Jane</td>
-      </tr>
-      <tr>
-        <th>Last Name</th>
-        <td>Doe</td>
-      </tr>
-      <tr>
-        <th>DOB</th>
-        <td>25/06/1982</td>
-      </tr>
-    </table>
-  </div>
-
-</div>
--->

@@ -2,58 +2,104 @@
 
 <div class="spacing">
 
-  <h2 class="heading-two">Panel grid</h2>
+  <h2 class="heading-two">Example panels</h2>
 
-  <div>
-    <div class="grid__three" data-conform-columns="panels">
-      <%- (1..10).each do |i| -%>
-        <div class="column">
-          <div class="panel__default content-spacing__compressed" data-conform="panels">
-            <h2 class="heading-six">Panel</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
-            <p>
-              <a href="#" class="button button__full">Action Button!</a>
-            </p>
-          </div>
-        </div>
-      <%- end -%>
-    </div>
+  <%- content_for :panel do -%>
+<div class="panel__default content__compressed" data-conform="panels">
+  <h2 class="heading-six">Default panel with built in padding</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+  <div class="button-group">
+    <a href="#" class="button">Button</a>
   </div>
+</div>
+  <%- end -%>
+
+  <%= yield :panel -%>
+  <%= show_code(yield :panel) -%>
+
+  <%- content_for :panel__primary do -%>
+<div class="panel panel__primary panel--padding content__compressed" data-conform="panels">
+  <h2 class="heading-six">Primary panel</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+  <div class="button-group">
+    <a href="#" class="button">Button</a>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :panel__primary -%>
+  <%= show_code(yield :panel__primary) -%>
+
+  <%- content_for :panel__warning do -%>
+<div class="panel panel__warning panel--padding content__compressed" data-conform="panels">
+  <h2 class="heading-six">Warning panel</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+  <div class="button-group">
+    <a href="#" class="button">Button</a>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :panel__warning -%>
+  <%= show_code(yield :panel__warning) -%>
+
+  <%- content_for :panel__error do -%>
+<div class="panel panel__error panel--padding content__compressed" data-conform="panels">
+  <h2 class="heading-six">Error panel</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+  <div class="button-group">
+    <a href="#" class="button">Button</a>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :panel__error -%>
+  <%= show_code(yield :panel__error) -%>
+
+  <%- content_for :panel__success do -%>
+<div class="panel panel__success panel--padding content__compressed" data-conform="panels">
+  <h2 class="heading-six">Success panel</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+  <div class="button-group">
+    <a href="#" class="button">Button</a>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :panel__success -%>
+  <%= show_code(yield :panel__success) -%>
 
   <h2 class="heading-two clear">Grouped panels</h2>
 
-  <div>
-    <div class="grid__three">
-      <div class="column">
-        <div class="panel">
-          <div class="panel--padding">
-            This is the top panel.
-          </div>
-          <div class="panel--padding panel--padding-border">
-            This is a second, joined panel.
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="panel">
-          <div class="panel--padding panel__primary">
-            This is a primary panel.
-          </div>
-          <div class="panel--padding panel--padding-border panel__error">
-            This is an error panel.
-          </div>
-          <div class="panel--padding panel--padding-border panel__warning">
-            This is a warning panel.
-          </div>
-          <div class="panel--padding panel--padding-border panel__success">
-            This is a success panel.
-          </div>
-          <div class="panel--padding panel--padding-border">
-            This is a regular panel.
-          </div>
-        </div>
-      </div>
-    </div>
+  <%- content_for :joined_panels do -%>
+<div class="panel">
+  <div class="panel--padding">
+    This is the top panel.
   </div>
+  <div class="panel--padding panel--padding__border">
+    This is a second, joined panel with a border.
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :joined_panels -%>
+  <%= show_code(yield :joined_panels) -%>
+
+  <h2 class="heading-two">Panel grid</h2>
+
+  <p>Here is an example of panels combined with grids:</p>
+
+  <%- content_for :grid do -%>
+<div>
+  <div class="grid__three" data-conform-columns="panels">
+    <%- (1..10).each do |i| -%>
+      <div class="column">
+        <div class="panel__default content__compressed" data-conform="panels">
+          <h2 class="heading-six">Panel</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+          <a href="#" class="button button__full">Action Button!</a>
+        </div>
+      </div>
+    <%- end -%>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :grid -%>
+  <%= show_code(yield :grid) -%>
 
 </div>

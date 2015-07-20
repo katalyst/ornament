@@ -48,7 +48,7 @@
 .mfp-figure .mfp-close,
 .mfp-image-holder .mfp-arrow {
   background: $primary-color;
-  @include icon-block(44px, 16px);
+  @include icon-block(44px, 24px);
   @include border-radius(50%);
   text-align: left;
   padding: 0;
@@ -64,7 +64,7 @@
 .mfp-inline-holder .mfp-close, 
 .mfp-ajax-holder .mfp-close,
 .mfp-figure .mfp-close {
-  @include grunticon("close-16-white", 16px);
+  @include grunticon("close-24-white", 24px);
   position: absolute;
   top: -$xxxxx-small-unit;
   right: -$xxxxx-small-unit;
@@ -87,13 +87,13 @@
 
 // Lightbox Arrows
 .mfp-image-holder .mfp-arrow-left {
-  @include grunticon("chevron-left-16-white", 16px);
+  @include grunticon("chevron-left-24-white", 24px);
   left: $xxxxx-small-unit;
   position: absolute;
 }
 
 .mfp-image-holder .mfp-arrow-right {
-  @include grunticon("chevron-right-16-white", 16px);
+  @include grunticon("chevron-right-24-white", 24px);
   right: $xxxxx-small-unit;
   position: absolute;
 }
@@ -137,7 +137,7 @@
 
 // Animated Overlay Open
 .lightbox--main.mfp-ready.mfp-bg {
-  @include opacity(0.8);
+  @include opacity(0.3);
 }
 
 // Animated Overlay Close

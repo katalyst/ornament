@@ -1,128 +1,176 @@
-$button-background:                 $default-color;
-$button-primary:                    $primary-color;
-$button-warning:                    $warning-color;
-$button-error:                      $error-color;
-$button-success:                    $success-color;
-$button-disabled:                   $passive-color;
+// MIXINS
 
-@mixin button {
-  color: $white;
+// Custom button background colours and hovers
+@mixin button-background($color, $hover-color:false) {
+  background: $color;
+
+  @if($hover-color) {
+    &:hover {
+      background: $hover-color;
+    }
+  } @else {
+    &:hover {
+      background: darken($color, 10);
+    }
+  }
+}
+
+// Line button style mixin
+@mixin button-line($color, $hover-color:false, $text-color:false) {
+  background: transparent;
+  border: 1px solid $color;
+
+  @if($text-color) {
+    @include color-link($text-color, $text-color);
+  }
+
+  @if($hover-color) {
+    &:hover {
+      background: transparent;
+      border-color: $hover-color;
+    }
+  } @else {
+    &:hover {
+      background: transparent;
+      border-color: darken($color, 10);
+    }
+  }
+}
+
+// BUTTON CLASSES
+
+.button__inactive {
+  @extend .button;
+  @include button-background($grey);
+}
+
+
+// basic button
+.button {
+  padding: $xxxx-small-unit;
+  @include border-radius($border-radius);
   @include color-link($white, $white);
   @include decorate-link(none, none);
   @include border-radius($border-radius);
   @include inline-block;
-  @include transition(background .2s);
-  background: $button-background;
-  border: 0;
-  cursor: pointer;
-  font-size: $large-font-size;
-  padding-left: $xxx-small-unit;
-  padding-right: $xxx-small-unit;
-  @include line-height-padding(44px, 24px);
-}
+  @include button-background($default-color);
 
-@mixin button__default {
-  @include button;
-  background: $button-background;
-
-  &:hover, 
-  a.panel:hover & {
-    background: darken($button-background,10);
+  &.button__small {
+    padding: $x-small-unit;
   }
 }
 
-.button {
-  @include button__default;
-}
-
-// COLOUR VARIATIONS
-
+// button colours
 @mixin button__primary {
-  @include button;
-  background: $button-primary;
-
-  &:hover,
-  a.panel:hover & {
-    background: darken($button-primary,10);
-  }
-}
-
-@mixin button__warning {
-  @include button;
-  background: $button-warning;
-
-  &:hover,
-  a.panel:hover & {
-    background: darken($button-warning,10);
-  }
-}
-
-@mixin button__error {
-  @include button;
-  background: $button-error;
-
-  &:hover,
-  a.panel:hover & {
-    background: darken($button-error,10);
-  }
-}
-
-@mixin button__success {
-  @include button;
-  background: $button-success;
-
-  &:hover,
-  a.panel:hover & {
-    background: darken($button-success,10);
-  }
-}
-
-@mixin button__disabled {
   @extend .button;
-  background: $button-disabled;
-
-  &:hover,
-  a.panel:hover & {
-    background: $button-disabled;
-  }
+  @include button-background($primary-color);
+}
+@mixin button__secondary {
+  @extend .button;
+  @include button-background($secondary-color);
+}
+@mixin button__warning {
+  @extend .button;
+  @include button-background($warning-color);
+}
+@mixin button__error {
+  @extend .button;
+  @include button-background($error-color);
+}
+@mixin button__success {
+  @extend .button;
+  @include button-background($success-color);
 }
 
 .button__primary {
   @include button__primary;
 }
-
+.button__secondary {
+  @include button__secondary;
+}
 .button__warning {
   @include button__warning;
 }
-
 .button__error {
   @include button__error;
 }
-
 .button__success {
   @include button__success;
 }
 
-button[disabled],
+// line styles
+@mixin button__line {
+  @extend .button;
+  @include button-line($default-color, false, $default-color);
+}
+@mixin button__primary__line {
+  @extend .button;
+  @include button-line($primary-color, false, $primary-color);
+}
+@mixin button__warning__line {
+  @extend .button;
+  @include button-line($warning-color, false, $warning-color);
+}
+@mixin button__error__line {
+  @extend .button;
+  @include button-line($error-color, false, $error-color);
+}
+@mixin button__success__line {
+  @extend .button;
+  @include button-line($success-color, false, $success-color);
+}
+@mixin button__white__line {
+  @extend .button;
+  @include button-line($white, false, $white);
+}
+
+.button__line {
+  @include button__line;
+}
+.button__primary__line {
+  @include button__primary__line;
+}
+.button__warning__line {
+  @include button__warning__line;
+}
+.button__error__line {
+  @include button__error__line;
+}
+.button__success__line {
+  @include button__success__line;
+}
+.button__white__line {
+  @include button__white__line;
+}
+
+// disabled buttons
+.button[disabled] {
+  @include button-background($passive-color,$passive-color);
+  color: $white;
+  cursor: not-allowed;
+}
+
 .button__disabled {
-  @include button__disabled;
+  @extend .button;
+  @extend .button[disabled];
 }
 
-// BUTTON MODIFIERS
+// full width buttons
 .button__full {
-  width: 100%;
   text-align: center;
+  width: 100%;
 }
 
-// BUTTONS WITH ICONS
+// buttons with icons
 .button__icon-right,
 .button__icon-left {
+  display: inline-block;
+
   &:before {
     position: relative;
     top: 3px;
   }
 }
-
 .button__icon-right:before {
   float: right;
   margin-left: $xxxxx-small-unit;
@@ -132,14 +180,46 @@ button[disabled],
   margin-right: $xxxxx-small-unit;
 }
 
-// BUTTON GROUPS
+.button__icon {
+  @include icon-block(45px, 16px);
+  display: inline-block;
+
+  &:before {
+    float: left;
+  }
+}
+
+// button groups
 .button-group {
+  @include pie-clearfix;
+
+  .button {
+    @include border-radius(0);
+    float: left;
+  }
+
+  .button + .button {
+    margin-left: 1px;
+  }
+
+  .button:first-child {
+    @include border-top-left-radius($border-radius);
+    @include border-bottom-left-radius($border-radius);
+  }
+
+  .button:last-child {
+    @include border-top-right-radius($border-radius);
+    @include border-bottom-right-radius($border-radius);
+  }
+}
+
+// button sides
+.button-sides {
   @include pie-clearfix;
 
   .button__back {
     float: left;
   }
-
   .button__forward {
     float: right;
   }

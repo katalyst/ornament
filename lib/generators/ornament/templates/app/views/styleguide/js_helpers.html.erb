@@ -1,0 +1,25 @@
+<% content_for :title, "JS Helpers" %>
+
+<div class="content">
+
+  <h2>Window Dimensions</h2>
+
+  <p>You can return a browser-agnostic window dimensions using the following functions:</p>
+
+  <ul>
+    <li><code>Ornament.windowWidth();</code></li>
+    <li><code>Ornament.windowHeight();</code></li>
+  </ul>
+
+
+  <h2>Measuring an element while it's hidden</h2>
+
+  <p>Measuring an element can be tricky while it's hidden. This function will clone the element off the browser canvas, measure a dimension and then remove the clone:</p>
+
+  <p><code>Ornament.measure($element, metric)</code></p>
+
+  <p>For example, if I had a <code>&lt;div id="test" /></code> and wanted to measure it's height, I would use:</p>
+
+  <p><code>Ornament.measure($("#test"), height);</code></p>
+
+</div>

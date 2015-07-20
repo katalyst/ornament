@@ -11,6 +11,17 @@
 
 @import "ornament/core";
 
+// ASPECTS
+//
+//
+// Spacing around elements in different areas of the website
+//
+
+@import "aspects/normal";
+@import "aspects/compressed";
+@import "aspects/expanded";
+@import "aspects/inputs";
+
 // COMPONENTS
 //
 //
@@ -22,7 +33,6 @@
 @import "components/breakpoint-helper";
 @import "components/button";
 @import "components/clearfix";
-@import "components/content";
 @import "components/embed";
 // @import "components/environment";
 @import "components/error-page";
@@ -41,19 +51,25 @@
 @import "components/navigation-mobile";
 @import "components/navigation-primary";
 @import "components/oslide";
+@import "components/page";
 @import "components/pagination";
 @import "components/panel";
+@import "components/read-more";
 @import "components/selector";
 @import "components/skip-link";
 @import "components/spacing";
+@import "components/sticky";
 @import "components/table";
 @import "components/tabs";
 @import "components/text-limiter";
+@import "components/toggle";
 @import "components/tooltip";
 @import "components/fotorama-custom";
 @import "components/print";
 @import "components/vertre";
 
+
+@import "styleguide";
 
 // OVERRIDES
 //

@@ -1,9 +1,12 @@
 # Ornament To-Do List
 
+## Changes
+
 ## Components
 
+- Fix IE8/9 placeholders from the polyfill being the wrong size
+- Twitter Fetcher
 - Anchor over-ride for sticky header
-- Responsive gutter mixin
 - Shadows:
   - Pull shadows out of tabs/selector/oslide and turn in to a re-usable component
 - Momentum scrolling:
@@ -38,6 +41,7 @@
 
 ## Known bugs
 
+- Selector filtering isn't working anymore
 - Mobile Menu:
   - Open/close animation doesn't work in Firefox
 - Oslide:

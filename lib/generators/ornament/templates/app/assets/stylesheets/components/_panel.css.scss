@@ -17,12 +17,8 @@ a.panel {
 }
 
 .panel__default {
-  @extend .panel;
-  @extend .panel--padding;
-}
-
-.panel--padding-border {
-  border-top: 1px solid $panel-border;
+  // @extend .panel;
+  // @extend .panel--padding;
 }
 
 // COLOUR VARIANTS
@@ -33,6 +29,9 @@ a.panel {
   a {
     @include color-link($white,$white);
   }
+  .button {
+    @include button__secondary;
+  }
 }
 
 .panel__error {
@@ -40,6 +39,9 @@ a.panel {
   color: $white;
   a {
     @include color-link($white,$white);
+  }
+  .button {
+    @include button__white__line;
   }
 }
 
@@ -49,6 +51,9 @@ a.panel {
   a {
     @include color-link($white,$white);
   }
+  .button {
+    @include button__white__line;
+  }
 }
 
 .panel__success {
@@ -57,29 +62,35 @@ a.panel {
   a {
     @include color-link($white,$white);
   }
+  .button {
+    @include button__white__line;
+  }
 }
 
+// SPACING PANELS
+
+.panel-spacing {
+  .panel + .panel,
+  .panel + .tabs,
+  .panel + .panel-spacer,
+  .tabs + .panel,
+  .tabs + .pane-spacer,
+  .tabs + .tabs,
+  .panel-spacer + .tabs,
+  .panel-spacer + .panel,
+  .panel-spacer + .panel-spacer {
+    margin: $default-unit 0;
+  }
+}
 
 // PADDING VARIANTS
 
 @mixin panel-padding {
   padding: $panel-padding;
-
-  @include media-query($breakpoint-tiny) {
-    padding: $panel-padding-small;
-  }
 }
 
 @mixin panel-padding-large {
   padding: $panel-padding-large;
-
-  @include media-query($breakpoint-medium) {
-    padding: $panel-padding;
-  }
-
-  @include media-query($breakpoint-tiny) {
-    padding: $panel-padding-small;
-  }
 }
 
 .panel--padding__x-tight {
@@ -98,6 +109,11 @@ a.panel {
   @include panel-padding-large;
 }
 
+.panel--padding__border {
+  @include panel-padding;
+  border-top: 1px solid $panel-border;
+}
+
 // BORDER RADIUS VARIANTS
 
 .panel__no-top-radius {
@@ -108,6 +124,9 @@ a.panel {
 .panel__no-bottom-radius {
   @include border-bottom-left-radius(0);
   @include border-bottom-right-radius(0);
+}
+.panel__joint {
+  @include border-radius(0);
 }
 
 // THINGS IN PANELS

@@ -73,143 +73,175 @@
 
   <div class="spacing">
 
-    <div class="control-group radio_buttons">
-      <label class="radio_buttons required control-label">
-        <span data-show="showjs_example_1_true" class="showjs_tick">✔</span> Select Yes
-      </label>
-      <div class="controls">
-        <label class="radio">
-          <input class="radio_buttons required" id="showjs_example_1_true" name="showjs_example_1" type="radio" value="true">
-          Yes
-        </label>
-        <label class="radio">
-          <input class="radio_buttons required" id="showjs_example_1_false" name="showjs_example_1" type="radio" value="false">
-          No
-        </label>
-      </div>
-    </div>
+  <%- content_for :example_1 do -%>
+<div class="control-group radio_buttons form--horizontal">
+  <label class="radio_buttons required control-label">
+    <span data-show="showjs_example_1_true" class="showjs_tick">✔</span> Select Yes
+  </label>
+  <div class="controls">
+    <label class="radio">
+      <input class="radio_buttons required" id="showjs_example_1_true" name="showjs_example_1" type="radio" value="true">
+      Yes
+    </label>
+    <label class="radio">
+      <input class="radio_buttons required" id="showjs_example_1_false" name="showjs_example_1" type="radio" value="false">
+      No
+    </label>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :example_1 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
 
-    <div class="control-group check_boxes">
-      <label class="check_boxes required control-label">
-        Tick Yes <span data-show="showjs_example_2_true" class="showjs_tick">✔</span>
-      </label>
-      <div class="controls">
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_2_true" name="showjs_example_2_true" type="checkbox" value="true">
-          Yes
-        </label>
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_2_false" name="showjs_example_2_false" type="checkbox" value="false">
-          No
-        </label>
-      </div>
-    </div>
+  <%- content_for :example_2 do -%>
+<div class="control-group check_boxes form--horizontal">
+  <label class="check_boxes required control-label">
+    Tick Yes <span data-show="showjs_example_2_true" class="showjs_tick">✔</span>
+  </label>
+  <div class="controls">
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_2_true" name="showjs_example_2_true" type="checkbox" value="true">
+      Yes
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_2_false" name="showjs_example_2_false" type="checkbox" value="false">
+      No
+    </label>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :example_2 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_2) -%></pre>
 
-    <div class="control-group check_boxes">
-      <label class="check_boxes required control-label">
-        Select 3 <span data-show="showjs_example_3" data-show-option="3" class="showjs_tick">✔</span>
-      </label>
-      <div class="controls">
-        <select class="select" id="showjs_example_3" name="showjs_example_3">
-          <option value="">Please select</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
-    </div>
+  <%- content_for :example_3 do -%>
+<div class="control-group check_boxes form--horizontal">
+  <label class="check_boxes required control-label">
+    Select 3 <span data-show="showjs_example_3" data-show-option="3" class="showjs_tick">✔</span>
+  </label>
+  <div class="controls">
+    <select class="select" id="showjs_example_3" name="showjs_example_3">
+      <option value="">Please select</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :example_3 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_3) -%></pre>
 
-    <div class="control-group check_boxes">
-      <label class="check_boxes required control-label">
-        <span data-show="showjs_example_4" data-show-input="hello world" class="showjs_tick">✔</span> Type "Hello World" (without quotes, case insensitive)
-      </label>
-      <div class="controls">
-        <input type="text" id="showjs_example_4" name="showjs_example_4" />
-      </div>
-    </div>
+  <%- content_for :example_4 do -%>
+<div class="control-group">
+  <label class="required control-label">
+    <span data-show="showjs_example_4" data-show-input="hello world" class="showjs_tick">✔</span> Type "Hello World" (without quotes, case insensitive)
+  </label>
+  <div class="controls">
+    <input type="text" id="showjs_example_4" name="showjs_example_4" />
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :example_4 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_4) -%></pre>
 
-    <div class="control-group check_boxes">
-      <label class="check_boxes required control-label">
-        <span data-show="showjs_example_7" data-show-input="hello" data-show-type="any" class="showjs_tick">✔</span> Type anything that includes the word "hello" (without quotes, case insensitive)
-      </label>
-      <div class="controls">
-        <input type="text" id="showjs_example_7" name="showjs_example_7" />
-      </div>
-    </div>
+  <%- content_for :example_5 do -%>
+<div class="control-group">
+  <label class="required control-label">
+    <span data-show="showjs_example_7" data-show-input="hello" data-show-type="any" class="showjs_tick">✔</span> Type anything that includes the word "hello" (without quotes, case insensitive)
+  </label>
+  <div class="controls">
+    <input type="text" id="showjs_example_7" name="showjs_example_7" />
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :example_5 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_5) -%></pre>
 
-    <div class="control-group check_boxes">
-      <label class="check_boxes required control-label">
-        Tick Raphael AND Donatello <span data-show="showjs_example_5_raphael_&_showjs_example_5_donatello" class="showjs_tick">✔</span>
-      </label>
-      <div class="controls">
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_5_leonardo" name="showjs_example_5_leonardo" type="checkbox" value="true">
-          Leonardo
-        </label>
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_5_donatello" name="showjs_example_5_donatello" type="checkbox" value="true">
-          Donatello
-        </label>
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_5_raphael" name="showjs_example_5_raphael" type="checkbox" value="true">
-          Raphael
-        </label>
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_5_michaelangelo" name="showjs_example_5_michaelangelo" type="checkbox" value="true">
-          Michaelangelo
-        </label>
-      </div>
-    </div>
+  <%- content_for :example_6 do -%>
+<div class="control-group check_boxes form--horizontal">
+  <label class="check_boxes required control-label">
+    Tick Raphael AND Donatello <span data-show="showjs_example_5_raphael_&_showjs_example_5_donatello" class="showjs_tick">✔</span>
+  </label>
+  <div class="controls">
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_5_leonardo" name="showjs_example_5_leonardo" type="checkbox" value="true">
+      Leonardo
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_5_donatello" name="showjs_example_5_donatello" type="checkbox" value="true">
+      Donatello
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_5_raphael" name="showjs_example_5_raphael" type="checkbox" value="true">
+      Raphael
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_5_michaelangelo" name="showjs_example_5_michaelangelo" type="checkbox" value="true">
+      Michaelangelo
+    </label>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :example_6 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_6) -%></pre>
 
-    <div class="control-group check_boxes">
-      <label class="check_boxes required control-label">
-        Tick Leonardo OR Michaelangelo <span data-show="showjs_example_6_leonardo_&_showjs_example_6_michaelangelo" data-show-type="any" class="showjs_tick">✔</span>
-      </label>
-      <div class="controls">
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_6_leonardo" name="showjs_example_6_leonardo" type="checkbox" value="true">
-          Leonardo
-        </label>
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_6_donatello" name="showjs_example_5_donatello" type="checkbox" value="true">
-          Donatello
-        </label>
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_6_raphael" name="showjs_example_6_raphael" type="checkbox" value="true">
-          Raphael
-        </label>
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_6_michaelangelo" name="showjs_example_6_michaelangelo" type="checkbox" value="true">
-          Michaelangelo
-        </label>
-      </div>
-    </div>
+  <%- content_for :example_7 do -%>
+<div class="control-group check_boxes form--horizontal">
+  <label class="check_boxes required control-label">
+    Tick Leonardo OR Michaelangelo <span data-show="showjs_example_6_leonardo_&_showjs_example_6_michaelangelo" data-show-type="any" class="showjs_tick">✔</span>
+  </label>
+  <div class="controls">
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_6_leonardo" name="showjs_example_6_leonardo" type="checkbox" value="true">
+      Leonardo
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_6_donatello" name="showjs_example_5_donatello" type="checkbox" value="true">
+      Donatello
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_6_raphael" name="showjs_example_6_raphael" type="checkbox" value="true">
+      Raphael
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_6_michaelangelo" name="showjs_example_6_michaelangelo" type="checkbox" value="true">
+      Michaelangelo
+    </label>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :example_7 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_7) -%></pre>
 
-    <div class="control-group check_boxes">
-      <label class="check_boxes required control-label">
-        Tick Leonardo OR Michaelangelo Inverse<span data-show="showjs_example_7_leonardo_&_showjs_example_7_michaelangelo" data-show-type="any" data-show-inverse='1' class="showjs_tick">✔</span>
-      </label>
-      <div class="controls">
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_7_leonardo" name="showjs_example_7_leonardo" type="checkbox" value="true">
-          Leonardo
-        </label>
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_7_donatello" name="showjs_example_7_donatello" type="checkbox" value="true">
-          Donatello
-        </label>
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_7_raphael" name="showjs_example_7_raphael" type="checkbox" value="true">
-          Raphael
-        </label>
-        <label class="checkbox">
-          <input class="check_boxes required" id="showjs_example_7_michaelangelo" name="showjs_example_7_michaelangelo" type="checkbox" value="true">
-          Michaelangelo
-        </label>
-      </div>
-    </div>
+  <%- content_for :example_8 do -%>
+<div class="control-group check_boxes form--horizontal">
+  <label class="check_boxes required control-label">
+    Tick Leonardo OR Michaelangelo Inverse<span data-show="showjs_example_7_leonardo_&_showjs_example_7_michaelangelo" data-show-type="any" data-show-inverse='1' class="showjs_tick">✔</span>
+  </label>
+  <div class="controls">
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_7_leonardo" name="showjs_example_7_leonardo" type="checkbox" value="true">
+      Leonardo
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_7_donatello" name="showjs_example_7_donatello" type="checkbox" value="true">
+      Donatello
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_7_raphael" name="showjs_example_7_raphael" type="checkbox" value="true">
+      Raphael
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="showjs_example_7_michaelangelo" name="showjs_example_7_michaelangelo" type="checkbox" value="true">
+      Michaelangelo
+    </label>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :example_8 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_8) -%></pre>
 
   </div>
 </div>

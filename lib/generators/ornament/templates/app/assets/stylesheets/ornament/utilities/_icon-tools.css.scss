@@ -12,22 +12,21 @@
 
 // Block Icons
 // icon-block(40px, 16px) = a 40x40 box with a 16x16 icon inside it.
-@mixin icon-block($block-size, $icon-size:$block-size) {
-  position: relative;
+@mixin icon-block($block-width, $icon-width:$block-width, $block-height:$block-width, $icon-height:$icon-width) {
   display: block;
   text-indent: -99999px;
-  width: $block-size;
-  height: $block-size;
+  width: $block-width;
+  height: $block-height;
   overflow: hidden;
 
   &:before {
     top: 50%;
     left: 50%;
     position: absolute;
-    width: $icon-size;
-    height: $icon-size;
-    margin-top: -($icon-size)/2;
-    margin-left: -($icon-size)/2;
+    width: $icon-width;
+    height: $icon-height;
+    margin-left: -($icon-width)/2;
+    margin-top: -($icon-height)/2;
   }
 }
 
@@ -46,5 +45,28 @@
     } @else {
       margin-right: $xx-small-unit;
     }
+  }
+}
+
+// Table Icons
+// [td with icon] [td with text]
+// used to vertically center a label against an icon
+// but with allowance for the label to extend past the icon
+@mixin icon-table($width:30px) {
+  display: table;
+  
+  .icon-table--icon,
+  .icon-table--label {
+    display: table-cell;
+  }
+
+  .icon-table--icon {
+    vertical-align: top;
+    width: $width;
+  }
+
+  .icon-table--label {
+    vertical-align: middle;
+    padding-left: $xxx-small-unit;
   }
 }

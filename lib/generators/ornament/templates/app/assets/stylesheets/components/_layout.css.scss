@@ -1,4 +1,3 @@
-$layout-animation-duration:     0.5s;
 $layout-background:             $background-color;
 $layout-breakpoint:             $header-breakpoint;
 $layout-container-width:        $container-width;
@@ -6,7 +5,6 @@ $layout-desktop-edge-gap:       0;
 $layout-desktop-footer-gap:     $default-unit;
 $layout-desktop-header-gap:     $default-unit;
 $layout-footer-height:          100px;
-$layout-mobile-tray-width:      250px;
 $layout-mobile-edge-gap:        $small-unit;
 $layout-mobile-footer-gap:      $small-unit;
 $layout-mobile-header-gap:      $small-unit;
@@ -31,6 +29,7 @@ body {
   @include single-transition(transform, $layout-animation-duration);
   background: $layout-background;
   min-height: 100%;
+  overflow: hidden;
 
   // Offset for fixed header on mobile
   @include media-query($header-breakpoint) {
@@ -42,6 +41,10 @@ body {
   max-width: $layout-container-width;
   width: $container-percentage;
   margin: 0 auto;
+
+  .ie8 & {
+    width: $layout-container-width;
+  }
 }
 
 .layout--main {

@@ -1,57 +1,67 @@
-@mixin list-vertical($space: $x-small-unit, $border: false, $all: false) {
-  @include pie-clearfix;
-
-  // first level list items
-  > li {
-    padding: $space 0;
-  }
-
-  @if($border != false) {
-    @if($all == true) {
-      > li {
-        border-top: $border;
-      }
-      > li:last-child {
-        border-bottom: $border;
-      }
-    } @else {
-      > li + li {
-        border-top: $border;
-      }
-    }
-  }
-
-}
-
-@mixin list-horizontal($space: $x-small-unit, $border: false, $all: false, $delegate: false) {
+@mixin list-vertical($space: $x-small-unit, $border: false, $all: false, $element: "li", $delegate: false) {
   @include pie-clearfix;
 
   // first level list items
   @if($delegate) {
-    > li {
+    > #{$element} #{$delegate} {
+      padding-top: $space;
+      padding-bottom: $space;
+    }
+  } @else {
+    > #{$element} {
+      padding-top: $space;
+      padding-bottom: $space;
+    }
+  }
+
+  @if($border != false) {
+    @if($all == true) {
+      > #{$element} {
+        border-top: $border;
+      }
+      > #{$element}:last-child {
+        border-bottom: $border;
+      }
+    } @else {
+      > #{$element} + #{$element} {
+        border-top: $border;
+      }
+    }
+  }
+
+}
+
+@mixin list-horizontal($space: $x-small-unit, $border: false, $all: false, $element: "li", $delegate: false) {
+  @include pie-clearfix;
+
+  // first level list items
+  @if($delegate) {
+    > #{$element} {
       float: left;
     }
-    > li #{$delegate} {
-      padding: 0 $space;
+    > #{$element} #{$delegate} {
+      padding-left: $space;
+      padding-right: $space;
       display: block;
     }
   } @else {
-    > li {
-      padding: 0 $space;
+    > #{$element} {
+      padding-left: $space;
+      padding-right: $space;
       float: left;
     }
   }
 
   @if($border != false) {
     @if($all == true) {
-      > li {
+      > #{$element} {
         border-left: $border;
       }
-      > li:last-child {
+      > #{$element}:last-child {
         border-right: $border;
       }
     } @else {
-      > li + li {
+      > #{$element} + #{$element} {
         border-left: $border;
       }
     }
@@ -59,44 +69,44 @@
 
 }
 
-@mixin list-flush($side) {
+@mixin list-flush($side, $element: "li") {
 
   // vertical flush
   @if $side == "top" {
-    > li:first-child {
+    > #{$element}:first-child {
       padding-top: 0;
     }
   }
   @if $side == "bottom" {
-    > li:last-child {
+    > #{$element}:last-child {
       padding-bottom: 0;
     }
   }
   @if $side == "top and bottom" {
-    > li:first-child {
+    > #{$element}:first-child {
       padding-top: 0;
     }
-    > li:last-child {
+    > #{$element}:last-child {
       padding-bottom: 0;
     }
   }
 
   // horizontal flush
   @if $side == "left" {
-    > li:first-child {
+    > #{$element}:first-child {
       padding-left: 0;
     }
   }
   @if $side == "right" {
-    > li:last-child {
+    > #{$element}:last-child {
       padding-right: 0;
     }
   }
   @if $side == "left and right" {
-    > li:first-child {
+    > #{$element}:first-child {
       padding-left: 0;
     }
-    > li:last-child {
+    > #{$element}:last-child {
       padding-right: 0;
     }
   }

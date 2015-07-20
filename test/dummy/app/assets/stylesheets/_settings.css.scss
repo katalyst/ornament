@@ -76,6 +76,10 @@ $breakpoint-small: 780px;
 $breakpoint-tiny: 620px;
 $header-breakpoint: $breakpoint-medium;
 
+// Header breakpoint
+// If changing, remember to update the JS variable in defaults.js
+$breakpoint-header: 990px;
+
 $site-breakpoints:
   (tiny, $breakpoint-tiny),
   (small, $breakpoint-small),
@@ -151,3 +155,25 @@ $input-color:             $foreground-color;
 $input-padding:           0.3em 0.2em 0.1em;
 $input-width:             100%;
 $textarea-height:         $base-line-size*5;
+
+// LAYOUT VARIABLES
+
+$layout-mobile-tray-width:  250px;
+$layout-animation-duration: 0.5s;
+
+// Fixed positioning offset for IE browsers
+// Apply this mixin to elements that are fixed (such as mobile fixed header)
+// to make it position correctly in IE
+// Make sure you enable the feature detection in navigation-mobile.js
+// and use the correct element to test. 
+// More information about the bug:
+// http://stackoverflow.com/questions/27952725/why-doesnt-translatex-work-as-expected-for-fixed-elements-on-ie9-ie10-and-ie1
+@mixin ie-fixed-offset {
+  .layout--ie-fixed-position-bug & {
+    @include transition(all $layout-animation-duration);
+  }
+  .layout-open.layout--ie-fixed-position-bug & {
+    left: $layout-mobile-tray-width * -1;
+    right: $layout-mobile-tray-width;
+  }
+}

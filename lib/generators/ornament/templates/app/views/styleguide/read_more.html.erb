@@ -1,0 +1,51 @@
+<% content_for :title, "Read more" %>
+
+<div class="spacing">
+
+  <%- content_for :example do -%>
+<div class="content" data-read-more>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nobis, numquam voluptates, quas ipsam id nam sed sequi ex facilis debitis pariatur consequatur quaerat consectetur repellendus velit saepe amet cum blanditiis. Illo fuga quia tempora laborum iste nostrum debitis blanditiis excepturi ipsam, aliquid repellat labore totam praesentium dolorum, odit.</p>
+  <p>Dicta ea repellat enim corporis a quae aspernatur adipisci quis laudantium incidunt quasi, aliquam reprehenderit voluptatum officia quibusdam esse possimus nihil eos nisi accusantium quam. Ipsum id nostrum itaque similique quia nobis harum ea commodi maxime cum voluptatem odit cumque officia tempore architecto optio ab tempora culpa, accusamus earum atque sit ipsam temporibus voluptate. Deleniti perspiciatis sint quam quo placeat asperiores tempora explicabo qui. Nemo itaque, dignissimos distinctio impedit quas facere provident, repudiandae accusantium iste. </p>
+  <p>Aspernatur accusantium accusamus incidunt voluptatum aperiam? Debitis, at pariatur fugiat aspernatur nesciunt quisquam beatae et velit deserunt autem laboriosam, ducimus, omnis harum ullam consequatur repellendus cumque dicta ut vel maxime cum! Repellat voluptas reiciendis, ipsam ratione repellendus non saepe natus labore magni voluptatem veritatis molestiae itaque facere omnis consectetur delectus earum, fuga a assumenda culpa! Temporibus, tempora delectus enim eveniet ad quis officiis ipsam cumque saepe nemo unde, perferendis porro sed. Quo mollitia tenetur adipisci cumque.</p>
+</div>
+  <%- end -%>
+  <%= yield :example -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example) -%></pre>
+
+  <h2 class="heading-two">Custom height</h2>
+
+  <%- content_for :example2 do -%>
+<div class="content" data-read-more data-read-more-height="100">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nobis, numquam voluptates, quas ipsam id nam sed sequi ex facilis debitis pariatur consequatur quaerat consectetur repellendus velit saepe amet cum blanditiis. Illo fuga quia tempora laborum iste nostrum debitis blanditiis excepturi ipsam, aliquid repellat labore totam praesentium dolorum, odit.</p>
+  <p>Dicta ea repellat enim corporis a quae aspernatur adipisci quis laudantium incidunt quasi, aliquam reprehenderit voluptatum officia quibusdam esse possimus nihil eos nisi accusantium quam. Ipsum id nostrum itaque similique quia nobis harum ea commodi maxime cum voluptatem odit cumque officia tempore architecto optio ab tempora culpa, accusamus earum atque sit ipsam temporibus voluptate. Deleniti perspiciatis sint quam quo placeat asperiores tempora explicabo qui. Nemo itaque, dignissimos distinctio impedit quas facere provident, repudiandae accusantium iste. </p>
+  <p>Aspernatur accusantium accusamus incidunt voluptatum aperiam? Debitis, at pariatur fugiat aspernatur nesciunt quisquam beatae et velit deserunt autem laboriosam, ducimus, omnis harum ullam consequatur repellendus cumque dicta ut vel maxime cum! Repellat voluptas reiciendis, ipsam ratione repellendus non saepe natus labore magni voluptatem veritatis molestiae itaque facere omnis consectetur delectus earum, fuga a assumenda culpa! Temporibus, tempora delectus enim eveniet ad quis officiis ipsam cumque saepe nemo unde, perferendis porro sed. Quo mollitia tenetur adipisci cumque.</p>
+</div>
+  <%- end -%>
+  <%= yield :example2 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example2) -%></pre>
+
+  <h2 class="heading-two">Custom label</h2>
+
+  <%- content_for :example3 do -%>
+<div class="content" data-read-more data-read-more-label="Keep reading...">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nobis, numquam voluptates, quas ipsam id nam sed sequi ex facilis debitis pariatur consequatur quaerat consectetur repellendus velit saepe amet cum blanditiis. Illo fuga quia tempora laborum iste nostrum debitis blanditiis excepturi ipsam, aliquid repellat labore totam praesentium dolorum, odit.</p>
+  <p>Dicta ea repellat enim corporis a quae aspernatur adipisci quis laudantium incidunt quasi, aliquam reprehenderit voluptatum officia quibusdam esse possimus nihil eos nisi accusantium quam. Ipsum id nostrum itaque similique quia nobis harum ea commodi maxime cum voluptatem odit cumque officia tempore architecto optio ab tempora culpa, accusamus earum atque sit ipsam temporibus voluptate. Deleniti perspiciatis sint quam quo placeat asperiores tempora explicabo qui. Nemo itaque, dignissimos distinctio impedit quas facere provident, repudiandae accusantium iste. </p>
+  <p>Aspernatur accusantium accusamus incidunt voluptatum aperiam? Debitis, at pariatur fugiat aspernatur nesciunt quisquam beatae et velit deserunt autem laboriosam, ducimus, omnis harum ullam consequatur repellendus cumque dicta ut vel maxime cum! Repellat voluptas reiciendis, ipsam ratione repellendus non saepe natus labore magni voluptatem veritatis molestiae itaque facere omnis consectetur delectus earum, fuga a assumenda culpa! Temporibus, tempora delectus enim eveniet ad quis officiis ipsam cumque saepe nemo unde, perferendis porro sed. Quo mollitia tenetur adipisci cumque.</p>
+</div>
+  <%- end -%>
+  <%= yield :example3 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example3) -%></pre>
+
+  <h2 class="heading-two">Show return link</h2>
+
+  <%- content_for :example4 do -%>
+<div class="content" data-read-more data-read-more-label="Show more" data-read-more-return="Show less">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nobis, numquam voluptates, quas ipsam id nam sed sequi ex facilis debitis pariatur consequatur quaerat consectetur repellendus velit saepe amet cum blanditiis. Illo fuga quia tempora laborum iste nostrum debitis blanditiis excepturi ipsam, aliquid repellat labore totam praesentium dolorum, odit.</p>
+  <p>Dicta ea repellat enim corporis a quae aspernatur adipisci quis laudantium incidunt quasi, aliquam reprehenderit voluptatum officia quibusdam esse possimus nihil eos nisi accusantium quam. Ipsum id nostrum itaque similique quia nobis harum ea commodi maxime cum voluptatem odit cumque officia tempore architecto optio ab tempora culpa, accusamus earum atque sit ipsam temporibus voluptate. Deleniti perspiciatis sint quam quo placeat asperiores tempora explicabo qui. Nemo itaque, dignissimos distinctio impedit quas facere provident, repudiandae accusantium iste. </p>
+  <p>Aspernatur accusantium accusamus incidunt voluptatum aperiam? Debitis, at pariatur fugiat aspernatur nesciunt quisquam beatae et velit deserunt autem laboriosam, ducimus, omnis harum ullam consequatur repellendus cumque dicta ut vel maxime cum! Repellat voluptas reiciendis, ipsam ratione repellendus non saepe natus labore magni voluptatem veritatis molestiae itaque facere omnis consectetur delectus earum, fuga a assumenda culpa! Temporibus, tempora delectus enim eveniet ad quis officiis ipsam cumque saepe nemo unde, perferendis porro sed. Quo mollitia tenetur adipisci cumque.</p>
+</div>
+  <%- end -%>
+  <%= yield :example4 -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example4) -%></pre>
+
+</div>

@@ -1,0 +1,25 @@
+[data-sticky-placeholder] {
+  display: none;
+}
+
+[data-sticky] {
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+
+    // Fix for choppy fixed positioning after a CSS transition has
+    // happened in Chrome :/
+    // http://stackoverflow.com/questions/20268962/fixed-attachment-background-image-flicker-disappear-in-chrome-when-coupled-with
+    -webkit-transform: translate3d(0,0,0);
+  }
+}
+
+[data-sticky-inner] {
+  .sticky & {
+    @extend .layout--container;
+  }
+}
