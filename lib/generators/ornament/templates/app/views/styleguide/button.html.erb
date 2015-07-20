@@ -1,26 +1,106 @@
 <% content_for :title, "Button" %>
 
-<div class="spacing">
+<div class="content-spacing">
 
-  <section>
+  <h2 class="heading-two">Button colours</h2>
+
+  <p>
+    <a href="#" class="button">a.button</a>
     <button class="button">button.button</button>
-    <a class="button">a.button</a>
-  </section>
+  </p>
 
-  <section>
-    <button class="button button__secondary">.button.button__secondary</button>
-  </section>
+  <p>
+    <a href="#" class="button__secondary">.button__secondary</a>
+  </p>
 
-  <section>
-    <button class="button button__full">.button.button__full</button>
-  </section>
+  <p>
+    <a href="#" class="button__confirm">.button__confirm</a>
+  </p>
 
-  <section>
-    <button class="button button__icon-right icon-chevron-right">.button.button__icon-right.icon-chevron-right</button>
-  </section>
+  <p>
+    <a href="#" class="button__cancel">.button__cancel</a>
+  </p>
 
-  <section>
-    <button class="button button__icon-left icon-chevron-left">.button.button__icon-left.icon-chevron-left</button>
-  </section>
+  <h2 class="heading-two">Disabled buttons</h2>
+
+  <p>
+    <a href="#" class="button__disabled">.button__disabled</a>
+  </p>
+
+  <p>
+    <a href="#" class="button" disabled>.button[disabled]</a>
+  </p>
+
+  <h2 class="heading-two">Line buttons</h2>
+
+  <p>
+    <a href="#" class="button__line">.button__line</a>
+  </p>
+
+  <p>
+    <a href="#" class="button__secondary__line">.button__secondary__line</a>
+  </p>
+
+  <p>
+    <a href="#" class="button__confirm__line">.button__confirm__line</a>
+  </p>
+
+  <p>
+    <a href="#" class="button__cancel__line">.button__cancel__line</a>
+  </p>
+
+  <h2 class="heading-two">Button modifiers</h2>
+
+  <p>
+    <a href="#" class="button button__full">.button.button__full</a>
+  </p>
+
+  <h2 class="heading-two">Icons</h2>
+
+  <%- content_for :icon_buttons do -%>
+<p>
+  <a href="#" class="button button__icon-left icon-search">Search</a>
+  <a href="#" class="button__confirm button__icon-left icon-search">Search</a>
+  <a href="#" class="button__secondary button__icon-right icon-search">Search</a>
+  <a href="#" class="button__secondary button__icon icon-search"></a>
+</p>
+  <%- end -%>
+
+  <%= yield :icon_buttons -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :icon_buttons) -%></pre>
+
+  <%- content_for :icon_full do -%>
+<p>
+  <a href="#" class="button button__full">
+    <span class="button__icon-left icon-search">Search</span>
+  </a>
+</p>
+  <%- end -%>
+
+  <%= yield :icon_full -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :icon_full) -%></pre>
+
+  <h2 class="heading-two">Button group</h2>
+
+  <%- content_for :groups do -%>
+<div class="button-group">
+  <a href="#" class="button">Left</a>
+  <a href="#" class="button">Center</a>
+  <a href="#" class="button__secondary">Right</a>
+</div>
+  <%- end -%>
+  <%= yield :groups -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :groups) -%></pre>
+
+  <h2 class="heading-two">Forward and Back buttons</h2>
+
+  <%- content_for :sides do -%>
+<div class="button-sides">
+  <a href="#" class="button button__back">Back</a>
+  <a href="#" class="button button__forward">Forward</a>
+</div>
+  <%- end -%>
+  <%= yield :sides -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :sides) -%></pre>
 
 </div>

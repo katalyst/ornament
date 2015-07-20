@@ -76,7 +76,7 @@ $file-upload-breakpoint: 545px;
     cursor: pointer;
     @include border-radius(50%);
     @include icon-block(32px, 16px);
-    @include grunticon("close-16-white", 16px);
+    @include grunticon("close-24-white", 24px);
     position: absolute;
     margin-top: -6px;
     margin-right: -6px;

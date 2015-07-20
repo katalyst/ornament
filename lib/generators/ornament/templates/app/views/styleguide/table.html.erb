@@ -23,26 +23,57 @@
 
   <p>Add <code>table-flush</code> class to table to make it flush on all sides.</p>
 
-  <table class="table table-flush">
-    <tr>
-      <th>First Name</th>
-      <td>Jane</td>
-    </tr>
-    <tr>
-      <th>Last Name</th>
-      <td>Doe</td>
-    </tr>
-    <tr>
-      <th>DOB</th>
-      <td>25/06/1982</td>
-    </tr>
-  </table>
+  <%- content_for :example_1 do -%>
+<table class="table table-flush">
+  <tr>
+    <th>First Name</th>
+    <td>Jane</td>
+  </tr>
+  <tr>
+    <th>Last Name</th>
+    <td>Doe</td>
+  </tr>
+  <tr>
+    <th>DOB</th>
+    <td>25/06/1982</td>
+  </tr>
+</table>
+  <%- end -%>
+  <%= yield :example_1 -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
 
   <h2 class="heading-two">Ruled table</h2>
 
   <p>Add <code>table-ruled</code> class to table, can be combined with <code>table-flush</code> to create a flush, ruled table.</p>
 
-  <table class="table table-flush table-ruled">
+  <%- content_for :example_2 do -%>
+<table class="table table-flush table-ruled">
+  <tr>
+    <th>First Name</th>
+    <td>Jane</td>
+  </tr>
+  <tr>
+    <th>Last Name</th>
+    <td>Doe</td>
+  </tr>
+  <tr>
+    <th>DOB</th>
+    <td>25/06/1982</td>
+  </tr>
+</table>
+  <%- end -%>
+  <%= yield :example_2 -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_2) -%></pre>
+
+  <h2 class="heading-two">Scrollable Table</h2>
+
+  <p>Wrap your table in a <code>.table--container</code> element.</p>
+
+  <%- content_for :example_3 do -%>
+<div class="table-container">
+  <table class="table table-flush table-ruled" style="width: 5000px">
     <tr>
       <th>First Name</th>
       <td>Jane</td>
@@ -56,24 +87,10 @@
       <td>25/06/1982</td>
     </tr>
   </table>
+</div>
+  <%- end -%>
+  <%= yield :example_3 -%>
 
-  <h2 class="heading-two">Scrollable Table</h2>
-
-  <div class="table-container">
-    <table class="table table-flush table-ruled" style="width: 5000px">
-      <tr>
-        <th>First Name</th>
-        <td>Jane</td>
-      </tr>
-      <tr>
-        <th>Last Name</th>
-        <td>Doe</td>
-      </tr>
-      <tr>
-        <th>DOB</th>
-        <td>25/06/1982</td>
-      </tr>
-    </table>
-  </div>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_3) -%></pre>
 
 </div>

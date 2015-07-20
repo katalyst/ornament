@@ -118,4 +118,28 @@
     <%- end -%>
   </div>
 
+  <h3 class="heading-two">Custom gutters</h3>
+
+  <p>You can pass in custom gutters in to both the <code>row</code> and the <code>spang</code>:
+
+  <div class="spang-tight">
+    <%- (1..4).each do |i| -%>
+      <div>
+        <div>
+          Spang!
+        </div>
+      </div>
+    <%- end -%>
+  </div>
+
+<pre class="sg-pre prettyprint">.spang-tight {
+  @include row($custom-gutter: 5px);
+  @include rowV($custom-gutter: 5px);
+  > div {
+    @include spang(1,4,$custom-gutter: 5px);
+    @include spang(1,2,$custom-gutter: 5px);
+    @include guttersV($custom-gutter: 5px);
+  }  
+}</pre>
+
 </div>

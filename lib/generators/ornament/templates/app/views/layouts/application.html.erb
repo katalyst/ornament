@@ -1,10 +1,36 @@
 <% content_for :global do %>
-  <% if content_for? :title %>
-    <h1 class="heading-one">
-      <%= yield :title %>
-    </h1>
-  <% end %>
-  <%= content_for?(:application) ? yield(:application) : yield %>
+
+  <%- content_for :page_main do -%>
+    <% if content_for? :title %>
+      <h1 class="heading-one page--title">
+        <%= yield :title %>
+      </h1>
+    <% end %>
+    <%= content_for?(:application) ? yield(:application) : yield %>
+  <%- end -%>
+
+  <%- if content_for? :sidebar -%>
+    <div class="page__with-sidebar">
+      <div class="page--main">
+        <%= yield :page_main -%>
+      </div>
+      <div class="page--sidebar">
+        <%= yield :sidebar -%>
+      </div>
+    </div>
+  <%- elsif content_for? :sidebar_right -%>
+    <div class="page__with-sidebar-right">
+      <div class="page--main">
+        <%= yield :page_main -%>
+      </div>
+      <div class="page--sidebar">
+        <%= yield :sidebar_right -%>
+      </div>
+    </div>
+  <%- else -%>
+    <%= yield :page_main -%>
+  <%- end -%>  
+  
 <% end %>
 
 <%= render :file => "layouts/global" %>

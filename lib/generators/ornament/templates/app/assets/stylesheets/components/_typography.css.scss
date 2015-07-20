@@ -29,7 +29,7 @@ $input-typeface: $body-font;
 
 // BODY
 
-@mixin body-type() {
+@mixin body-type {
  @include font($body-font);
  font-size: $base-font-size;
  line-height: $base-line-height;
@@ -37,13 +37,22 @@ $input-typeface: $body-font;
 }
 
 body, .body-type {
-  @include body-type();
+  @include body-type;
 }
 
+@mixin small-type {
+  @include font($body-font);
+  font-size: $small-font-size;
+  line-height: 1;
+}
+
+small {
+  @include small-type;
+}
 
 // HEADINGS
 
-@mixin heading-one() {
+@mixin heading-one {
   @include font($heading-alpha-font);
   font-size: 54px;
   line-height: 64px;
@@ -63,10 +72,10 @@ body, .body-type {
   }
 }
 .heading-one {
-  @include heading-one();
+  @include heading-one;
 }
 
-@mixin heading-two() {
+@mixin heading-two {
   @include font($heading-alpha-font);
   font-size: 28px;
   line-height: 40px;
@@ -86,10 +95,10 @@ body, .body-type {
   }
 }
 .heading-two {
-  @include heading-two();
+  @include heading-two;
 }
 
-@mixin heading-three() {
+@mixin heading-three {
   @include font($heading-alpha-font);
   font-size: 24px;
   line-height: 34px;
@@ -108,10 +117,10 @@ body, .body-type {
   }
 }
 .heading-three {
-  @include heading-three();
+  @include heading-three;
 }
 
-@mixin heading-four() {
+@mixin heading-four {
   @include font($heading-alpha-font);
   font-size: 18px;
   line-height: $base-line-height;
@@ -126,9 +135,8 @@ body, .body-type {
   }
 }
 
-@mixin heading-five() {}
-@mixin heading-six() {}
-
+@mixin heading-five {}
+@mixin heading-six {}
 
 // INLINE STYLES
 
@@ -147,12 +155,24 @@ strong i, strong em {
   @include font($bold-italic-font);
 }
 
-small {
-  @include font($body-font);
-  font-size: $small-font-size;
-  line-height: 1;
+del {
+  text-decoration: line-through;
 }
 
+// sub/sup styling
+// https://gist.github.com/unruthless/413930
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
 
 // LINKS
 

@@ -1,0 +1,55 @@
+<%- content_for :title, "Conform.js" -%>
+<%- content_for :styles do -%>
+  <style>
+    .item-container {
+      overflow: hidden;
+    }
+    .item { 
+      min-height: 20px;
+      background: red; 
+      float: left; 
+      width: 50%; 
+    }
+    .item__alt {
+      background: #bada55;
+      min-height: 200px;
+    }
+  </style>
+<%- end -%>
+
+<div class="content-spacing">
+
+  <p>So you have two (or more) boxes that you want to make equal heights, eh?</p>
+  <p>No worries, that's what conform.js is for!</p>
+  <p>Let's take these two innocent looking boxes here:</p>
+
+  <%- content_for :example_1 do -%>
+<div class="item-container">
+  <div class="item"></div>
+  <div class="item item__alt"></div>
+</div>
+  <%- end -%>
+  <%= yield :example_1 -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
+
+  <p>Look at that guy on the left. Let's call him Steve. It sure would be nice if Steve was the same size as his friend on the right. </p>  
+
+  <p>We can do that using <strong>conform.js!</strong> Simply add <code>data-conform-set</code> to the parent element, and add <code>data-conform</code> to the things we want to be the same height.</p>
+
+  <%- content_for :example_2 do -%>
+<div class="item-container" data-conform-set>
+  <div class="item" data-conform></div>
+  <div class="item item__alt" data-conform></div>
+</div>
+  <%- end -%>
+  <%= yield :example_2 -%> 
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
+
+  <p>Look at Steve go. What a champion.</p>
+
+  <p>There's all sorts of use-cases in the conform <a href="https://bitbucket.org/dbaines/conform">documentation over at bitbucket</a>.</p>
+
+</div>
+

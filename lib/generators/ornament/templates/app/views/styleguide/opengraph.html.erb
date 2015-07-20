@@ -1,0 +1,23 @@
+<%= content_for :title, "Opengraph" -%>
+
+<div class="content-spacing content-lists">
+
+  <p>Ornament has a few OpenGraph yields that you can send data to on a per-page basis:</p>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_title, @module.title -%></pre>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_image, @module.image.thumb("200x200#").url -%></pre>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_description, @module.description -%></pre>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_url, module_path(@module) -%></pre>
+
+  <p>Don't forget to set the default values in the <code>global.html.erb</code> layout.</p>
+
+  <p>You can disable the fallback opengraph image and restore the default bahaviour of grabbing images from the page by passing in any content to the <code>disable_og_image</code> yield:</p>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :disable_og_image, "disabled" -%></pre>
+
+  <%= content_for :disable_og_image, "disabled" -%>
+
+</div>

@@ -1,56 +1,125 @@
-$button-background-color:           #00aad5;
-$button-border-radius:              $border-radius;
-$button-dangerous-background-color: #990000;
-$button-dangerous-foreground-color: #ffffff;
-$button-typeface:                   $bold-font, $base-font-size;
-$button-foreground-color:           #ffffff;
-$button-padding:                    $xxxxx-small-unit $xxxx-small-unit;
-$button-secondary-background-color: #333333;
-$button-secondary-foreground-color: #ffffff;
-$button-small-padding:              $xx-small-unit $x-small-unit;
-$button-small-typeface:             $bold-font, $base-font-size * 0.8;
 
-.button {
-  @include border-radius($button-border-radius);
-  @include color-link($button-foreground-color, $button-foreground-color);
-  @include decorate-link(none, none);
-  @include inline-block;
-  @include transition(background .2s);
-  background: $button-background-color;
-  border: 0;
-  color: $button-foreground-color;
-  cursor: pointer;
-  padding: $button-padding;
+// MIXINS
 
-  &:hover {
-    background: darken($button-background-color,10);
+// Custom button background colours and hovers
+@mixin button-background($color, $hover-color:false) {
+  background: $color;
+
+  @if($hover-color) {
+    &:hover {
+      background: $hover-color;
+    }
+  } @else {
+    &:hover {
+      background: darken($color, 10);
+    }
   }
 }
 
+// Line button style mixin
+@mixin button-line($color, $hover-color:false, $text-color:false) {
+  background: transparent;
+  border: 1px solid $color;
+
+  @if($text-color) {
+    @include color-link($text-color, $text-color);
+  }
+
+  @if($hover-color) {
+    &:hover {
+      background: transparent;
+      border-color: $hover-color;
+    }
+  } @else {
+    &:hover {
+      background: transparent;
+      border-color: darken($color, 10);
+    }
+  }
+}
+
+// BUTTON CLASSES
+
+.button__inactive {
+  @extend .button;
+  @include button-background($grey);
+}
+
+
+// basic button
+.button {
+  padding: $xxxx-small-unit;
+  @include border-radius($border-radius);
+  @include color-link($white, $white);
+  @include decorate-link(none, none);
+  @include inline-block;
+  @include button-background($primary-color);
+
+  &.button__small {
+    padding: $x-small-unit;
+  }
+}
+
+// button colours
+.button__secondary {
+  @extend .button;
+  @include button-background(#333);
+}
+.button__confirm {
+  @extend .button;
+  @include button-background($success-color);
+}
+.button__cancel {
+  @extend .button;
+  @include button-background($error-color);
+}
+
+// line styles
+.button__line {
+  @extend .button;
+  @include button-line($primary-color, false, $primary-color);
+}
+.button__secondary__line {
+  @extend .button;
+  @include button-line(#333, false, #333);
+}
+.button__confirm__line {
+  @extend .button;
+  @include button-line($success-color, false, $success-color);
+}
+.button__cancel__line {
+  @extend .button;
+  @include button-line($error-color, false, $error-color);
+}
+
+// disabled buttons
+.button[disabled] {
+  @include button-background($grey,$grey);
+  color: $white;
+  cursor: not-allowed;
+}
+
+.button__disabled {
+  @extend .button;
+  @extend .button[disabled];
+}
+
+// full width buttons
 .button__full {
+  text-align: center;
   width: 100%;
 }
 
-.button__secondary {
-  @include color-link($button-secondary-foreground-color, $button-secondary-foreground-color);
-  background: $button-secondary-background-color;
-  color: $button-secondary-foreground-color;
-
-  &:hover {
-    background: darken($button-secondary-background-color,10);
-  }
-}
-
-
-// BUTTONS WITH ICONS
+// buttons with icons
 .button__icon-right,
 .button__icon-left {
+  display: inline-block;
+
   &:before {
     position: relative;
     top: 3px;
   }
 }
-
 .button__icon-right:before {
   float: right;
   margin-left: $xxxxx-small-unit;
@@ -60,14 +129,46 @@ $button-small-typeface:             $bold-font, $base-font-size * 0.8;
   margin-right: $xxxxx-small-unit;
 }
 
-// BUTTON GROUPS
+.button__icon {
+  @include icon-block(48px, 16px);
+  display: inline-block;
+
+  &:before {
+    float: left;
+  }
+}
+
+// button groups
 .button-group {
+  @include pie-clearfix;
+
+  .button {
+    @include border-radius(0);
+    float: left;
+  }
+
+  .button + .button {
+    margin-left: 1px;
+  }
+
+  .button:first-child {
+    @include border-top-left-radius($border-radius);
+    @include border-bottom-left-radius($border-radius);
+  }
+
+  .button:last-child {
+    @include border-top-right-radius($border-radius);
+    @include border-bottom-right-radius($border-radius);
+  }
+}
+
+// button sides
+.button-sides {
   @include pie-clearfix;
 
   .button__back {
     float: left;
   }
-
   .button__forward {
     float: right;
   }

@@ -4,10 +4,18 @@
 
   <p>Event tracking hooks in to the external links script. You can open <code>external_links.js</code> and adjust the settings to match your requirements. You can switch between ga.js and analytics.js tracking types and enable debugging.</p>
 
-  <p>By default, the category is the text in the link. The value is the URL that the link goes to.</p>
+  <p>By default, the category is the text in the link. The label is the URL that the link goes to.</p>
 
   <p>eg. If you had a link named "Test Link" and it goes to "http://google.com", the category will be saved as "Test Link" and the value will be saved as "http://google.com".</p>
 
   <p>You can over-ride both of these settings by passing in data attributes on a link on a case-by-case basis with <code>data-track-category</code> and <code>data-track-label</code>.</p> 
+
+  <p>In other words:</p>
+
+  <pre class="sg-pre prettyprint">&lt;a href="[label]">[category]&lt;/a></pre>
+
+  <pre class="sg-pre prettyprint">&lt;a href="http://www.google.com" data-track-category="[category]" data-track-label="[label]">Go to Google&lt;/a></pre>
+
+  <a href="#" data-track data-track-category="Category" data-track-label="Label">Test</a>
 
 </div>

@@ -20,161 +20,165 @@
 
   <p>Maps are made up of a container element that has a <code>data-map</code> attribute. Inside the container goes your pin elements. The pin element has the data attribute of <code>data-map-pin</code> which takes the latitude and longitude of your pin. You can also optionally pass in <code>data-map-pin-title</code> to specify a hover title for the pin. </p>
 
-  <pre class="sg-pre prettyprint">&lt;div data-map>
-  &lt;div data-map-pin="-34.921619,138.599257" data-map-pin-title="This is a pin!>&lt;/div>
-&lt;/div></pre>
-
-  <div data-map>
-    <div data-map-pin="-34.921619,138.599257" data-map-pin-title="This is a pin!"></div>
-  </div>
+  <%- content_for :basic_map do -%>
+<div data-map>
+  <div data-map-pin="-34.921619,138.599257" data-map-pin-title="This is a pin!"></div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :basic_map) -%></pre>
+  <%= yield :basic_map -%>
 
   <h2 class="heading-two">Custom centering</h2>
 
   <p>By default the map will centre on your pin. If you don't want it to, you can pass in <code>data-map-position</code> in to your container element:</p>
 
-  <pre class="sg-pre prettyprint">&lt;div data-map data-map-position="-34.924548,138.594808">
-  &lt;div data-map-pin="-34.921619,138.599257">&lt;/div>
-&lt;/div></pre>
-
-  <div data-map data-map-position="-34.924548,138.594808">
-    <div data-map-pin="-34.921619,138.599257"></div>
-  </div>
+  <%- content_for :custom_centering do -%>
+<div data-map data-map-position="-34.924548,138.594808">
+  <div data-map-pin="-34.921619,138.599257"></div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :custom_centering) -%></pre>
+  <%= yield :custom_centering -%>
 
   <h2 class="heading-two">Adjusting Zoom Level</h2>
 
   <p>Zoom level can be customised with <code>data-map-zoom</code>.</p>
 
-  <pre class="sg-pre prettyprint">&lt;div data-map data-map-zoom="8">
-  &lt;div data-map-pin="-34.921619,138.599257">&lt;/div>
-&lt;/div></pre>
-
-  <div data-map data-map-zoom="8">
-    <div data-map-pin="-34.921619,138.599257"></div>
-  </div>
+  <%- content_for :zoom_level do -%>
+<div data-map data-map-zoom="8">
+  <div data-map-pin="-34.921619,138.599257"></div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :zoom_level) -%></pre>
+  <%= yield :zoom_level -%>
 
   <h2 class="heading-two">Colouring Map</h2>
 
   <p>Add <code>data-map-colour</code> to your map element.</p>
   <p>Customising the colours themselves can be done in <code>map.js</code>. You should notice a really long array of colour definitions. You can either update each colour manually or plug one in from <a href="http://www.snazzymaps.com" target="_blank">SnazzyMaps</a>.</p>
 
-  <pre class="sg-pre prettyprint">&lt;div data-map data-map-colour>
-  &lt;div data-map-pin="-34.921619,138.599257">&lt;/div>
-&lt;/div></pre>
-
-  <div data-map data-map-colour>
-    <div data-map-pin="-34.921619,138.599257"></div>
-  </div>
+  <%- content_for :coloured_map do -%>
+<div data-map data-map-colour>
+  <div data-map-pin="-34.921619,138.599257"></div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :coloured_map) -%></pre>
+  <%= yield :coloured_map -%>
 
   <h2 class="heading-two">No Controls</h2>
 
   <p>Simply add <code>data-map-controls="false"</code> to your map element.</p>
 
-  <pre class="sg-pre prettyprint">&lt;div data-map data-map-controls="false">
-  &lt;div data-map-pin="-34.921619,138.599257">&lt;/div>
-&lt;/div></pre>
-
-  <div data-map data-map-controls="false">
-    <div data-map-pin="-34.921619,138.599257"></div>
-  </div>
+  <%- content_for :no_controls do -%>
+<div data-map data-map-controls="false">
+  <div data-map-pin="-34.921619,138.599257"></div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :no_controls) -%></pre>
+  <%= yield :no_controls -%>
 
   <h2 class="heading-two">Static</h2>
 
   <p>A static map will be un-interact-able. Add <code>data-map-static</code> to your map element. Works well in combination with <code>data-map-controls="false"</code>.</p>
 
-  <pre class="sg-pre prettyprint">&lt;div data-map data-map-controls="false" data-map-static>
-  &lt;div data-map-pin="-34.921619,138.599257">&lt;/div>
-&lt;/div></pre>
-
-  <div data-map data-map-controls="false" data-map-static>
-    <div data-map-pin="-34.921619,138.599257"></div>
-  </div>
+  <%- content_for :static do -%>
+<div data-map data-map-controls="false" data-map-static>
+  <div data-map-pin="-34.921619,138.599257"></div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :static) -%></pre>
+  <%= yield :static -%>
 
   <h2 class="heading-two">Static with a Link</h2>
 
   <p>You can pass in a value to the <code>data-map-static</code> attribute which will turn the static map in to a link, using the value as the page it links to:</p>
 
-  <pre class="sg-pre prettyprint">&lt;div data-map data-map-controls="false" data-map-static="https://www.google.com.au/maps/place/North+Terrace,+Adelaide+SA">
-  &lt;div data-map-pin="-34.921619,138.599257">&lt;/div>
-&lt;/div></pre>
-
-  <div data-map data-map-controls="false" data-map-static="https://www.google.com.au/maps/place/North+Terrace,+Adelaide+SA">
-    <div data-map-pin="-34.921619,138.599257"></div>
-  </div>
+  <%- content_for :static_with_link do -%>
+<div data-map data-map-controls="false" data-map-static="https://www.google.com.au/maps/place/North+Terrace,+Adelaide+SA">
+  <div data-map-pin="-34.921619,138.599257"></div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :static_with_link) -%></pre>
+  <%= yield :static_with_link -%>
 
   <h2 class="heading-two">Static with Lightbox</h2>
 
   <p>You can combine the static map with the <a href="/styleguide/lightbox">Lightbox component</a> to create a static map that opens an interactive lightbox map:</p>
 
-  <%= render layout: "/shared/inline-lightbox", locals: { inline_id: "lightbox-map" } do -%>
-    <div data-map>
+  <%- content_for :static_with_lightbox do -%>
+<%= render layout: "/shared/inline_lightbox", locals: { inline_id: "lightbox-map" } do -%>
+<div data-map>
       <div data-map-pin="-34.921619,138.599257"></div>
     </div>
-  <%- end -%>
+<%- end -%>
 
-  <a href="#lightbox-map" data-lightbox data-lightbox-flush>
-    <div data-map data-map-controls="false" data-map-static>
-      <div data-map-pin="-34.921619,138.599257"></div>
-    </div>
-  </a>
+<a href="#lightbox-map" data-lightbox data-lightbox-flush>
+  <div data-map data-map-controls="false" data-map-static>
+    <div data-map-pin="-34.921619,138.599257"></div>
+  </div>
+</a>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :static_with_lightbox) -%></pre>
+  <%= yield :static_with_lightbox -%>
 
   <h2 class="heading-two">Multiple Pins on a Map</h2>
 
   <p>Adding multiple pins is as simple as adding multiple pin elements.</p>
   <p>If you want the map to automatically position and zoom to all pins on the map, you can pass <code>data-map-bounds</code> in to your container element. <code>data-map-bounds</code> will ignore <code>data-map-position</code> and <code>data-map-zoom</code> for obvious reasons.</p>
 
-  <pre class="sg-pre prettyprint">&lt;div data-map data-map-bounds>
-  &lt;div data-map-pin="-34.921619,138.599257">&lt;/div>
-  &lt;div data-map-pin="-34.924548,138.594808">&lt;/div>
-&lt;/div></pre>
-
-  <div data-map data-map-bounds>
-    <div data-map-pin="-34.921619,138.599257"></div>
-    <div data-map-pin="-34.924548,138.594808"></div>
-  </div>
+  <%- content_for :multiple_pins do -%>
+<div data-map data-map-bounds>
+  <div data-map-pin="-34.921619,138.599257"></div>
+  <div data-map-pin="-34.924548,138.594808"></div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :multiple_pins) -%></pre>
+  <%= yield :multiple_pins -%>
 
   <h2 class="heading-two">Adding infowindow popups</h2>
 
   <p>Want to add infowindows? You can do by adding any content inside the pin element.</p>
   <p>Styling of infowindow typography can be done in <code>map.css.scss</code>.</p>
 
-  <pre class="sg-pre prettyprint">&lt;div data-map>
-  &lt;div data-map-pin="-34.921619,138.599257">
-    &lt;h2 class="heading-two">Infowindow&lt;/h2>
-    &lt;p>This is my infowindow, isn't it awesome?&lt;/p>
-    &lt;p>&lt;a href="#">Here's a link.&lt;/a>&lt;/p>
-  &lt;/div>
-  &lt;div data-map-pin="-34.924548,138.594808">
-    &lt;p>This is another infowindow&lt;/p>
-  &lt;/div>
-&lt;/div></pre>
-
-  <div data-map>
-    <div data-map-pin="-34.921619,138.599257">
-      <h2 class="heading-two">Infowindow</h2>
-      <p>This is my infowindow, isn't it awesome?</p>
-      <p><a href="#">Here's a link.</a></p>
-    </div>
-    <div data-map-pin="-34.924548,138.594808">
-      <p>This is another infowindow</p>
-    </div>
+  <%- content_for :infowindows do -%>
+<div data-map>
+  <div data-map-pin="-34.921619,138.599257">
+    <h2 class="heading-two">Infowindow</h2>
+    <p>This is my infowindow, isn't it awesome?</p>
+    <p><a href="#">Here's a link.</a></p>
   </div>
+  <div data-map-pin="-34.924548,138.594808">
+    <p>This is another infowindow</p>
+  </div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :infowindows) -%></pre>
+  <%= yield :infowindows -%>
 
   <h2 class="heading-two">Custom Pins</h2>
 
   <p>You can assign pin images to each pin using <code>data-map-pin-image</code>. Alternatively, if you want to over-ride pins globally, you can open up map.js and update the pinImage variable at the top.</p>
 
-  <div data-map>
-    <div data-map-pin="-34.921619,138.599257" data-map-pin-image="http://placehold.it/32x32"></div>
-  </div>
+  <%- content_for :custom_pins do -%>
+<div data-map>
+  <div data-map-pin="-34.921619,138.599257" data-map-pin-image="http://placehold.it/32x32"></div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :custom_pins) -%></pre>
+  <%= yield :custom_pins -%>
 
   <h2 class="heading-two">Locking a map for responsive <span class="poc" title="Warning: untested and unfinalised. Should not be used in production.">Proof of Concept</span></h2>
 
   <p>Users on touch devices can often get stuck on large maps. To fix this we have implemented a locking feature.</p>
   <p>Scale the window down and you will see the map lock.</p>
 
-  <div data-map data-map-locked>
-    <div data-map-pin="-34.921619,138.599257"></div>
-  </div>
+  <%- content_for :locking do -%>
+<div data-map data-map-locked>
+  <div data-map-pin="-34.921619,138.599257"></div>
+</div>
+  <%- end -%>
+  <pre class="sg-pre prettyprint"><%= render_source(yield :locking) -%></pre>
+  <%= yield :locking -%>
 
   <h2 class="heading-two">Global Settings</h2>
 
