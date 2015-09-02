@@ -1,0 +1,35 @@
+<% content_for :title, "Menu with more" %>
+
+<div class="spacing">
+  
+  <div class="content">
+    <p>A menu that fits responsively and moves any over-flowing links in to a "more" menu.</p>
+
+    <p>The library used is called <a href="https://github.com/gijsroge/priority-navigation" target="_blank">Priority Navigation</a> and has it's own documentation and settings.</p>
+  </div>
+
+  <div class="menu-more">
+    <ul>
+      <li><a href="#">Link one</a></li>
+      <li><a href="#">Link two</a></li>
+      <li><a href="#">Link three</a></li>
+      <li><a href="#">Link four</a></li>
+      <li><a href="#">Link five</a></li>
+      <li><a href="#">Link six</a></li>
+      <li><a href="#">Link seven</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <h2>Browser Support</h2>
+
+    <p>For IE8/9 Support, add the following to the global template, along with the other IE8/9 polyfills:</p>
+
+    <pre class="sg-pre prettyprint">&lt;!--[if lt IE 9]>
+  &lt;%= javascript_include_tag "es5-shim" %>
+  &lt;%= javascript_include_tag "classList" %>
+&lt;![endif]--></pre>
+
+  </div>
+
+</div>
