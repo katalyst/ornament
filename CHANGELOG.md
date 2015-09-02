@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.2.0
+
+### Features
+
+- Added menu-with-more component
 
 ## v1.1.0
 
