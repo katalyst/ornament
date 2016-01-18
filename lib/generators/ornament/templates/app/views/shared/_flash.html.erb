@@ -1,5 +1,5 @@
 <%- unless content_for?(:flash_messages) %>
-  <% flash.to_hash.slice(:alert, :success, :notice, :error).each do |key, value| %>
+  <% flash.to_hash.slice("alert", "success", "notice", "error").each do |key, value| %>
     <div class="layout--container">
       <div id="flash" class="island island-<%= key.to_s %>">
         <p><%= raw value %></p>
