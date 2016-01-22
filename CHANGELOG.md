@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.1
+
+### Features
+
+- Moved mapColours in to the Ornament defaults file to make the map.js file easier to read.  
+- Added togglable "clusters" to the map component by adding in `data-map-cluster` to your map element.  
+- Added minimal ui option for maps to only show zoom controls by using `data-map-controls="minimal"`. 
+- Added geolocation to maps by using `data-maps-geolocate` 
+- Added geocoding to map pins by using `data-map-pin-geocode` 
 
 ## v1.1.0
 
