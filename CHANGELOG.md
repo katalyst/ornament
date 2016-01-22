@@ -10,6 +10,9 @@
 - Added geolocation to maps by using `data-maps-geolocate` 
 - Added geocoding to map pins by using `data-map-pin-geocode` 
 - Extended the text limiter form component to allow for word-count rather than character count by also passing in `data-limiter-word`  
+- Updated show.js to not require a value for `data-show-inverse`. This will still work if there is a value so this is a non-breaking change. 
+- Added `data-show-destroy` to show.js for when you want the data removed from hidden fields. 
+- Restructured the show.js documentation to be more in line with the rest of the Ornament documentation. 
 
 ## v1.1.0
 
