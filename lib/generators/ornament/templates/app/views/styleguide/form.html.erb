@@ -1,3 +1,4 @@
+
 <% content_for :title, "Form styles" %>
 
 <div class="content-spacing content-lists">
@@ -72,6 +73,19 @@
   <%= yield :limiter -%>
 
   <pre class="sg-pre prettyprint"><%= render_source(yield :limiter) -%></pre>
+
+  <p>You can limit by words instead of letters by adding in the <code>data-limiter-word</code> attribute.</p>
+
+  <%- content_for :word_limiter do -%>
+<div class="inputs">
+  <div class="form--medium">
+    <textarea type="text" data-limiter="5" data-limiter-word></textarea>
+  </div>
+</div>
+  <%- end -%>
+  <%= yield :word_limiter -%>
+
+  <pre class="sg-pre prettyprint"><%= render_source(yield :word_limiter) -%></pre>
 
   <h2 class="heading-two">Form field lengths</h2>
 

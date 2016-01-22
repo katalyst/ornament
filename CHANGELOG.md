@@ -9,6 +9,7 @@
 - Added minimal ui option for maps to only show zoom controls by using `data-map-controls="minimal"`. 
 - Added geolocation to maps by using `data-maps-geolocate` 
 - Added geocoding to map pins by using `data-map-pin-geocode` 
+- Extended the text limiter form component to allow for word-count rather than character count by also passing in `data-limiter-word`  
 
 ## v1.1.0
 

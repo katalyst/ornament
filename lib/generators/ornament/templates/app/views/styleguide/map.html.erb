@@ -55,7 +55,7 @@
   <h2 class="heading-two">Colouring Map</h2>
 
   <p>Add <code>data-map-colour</code> to your map element.</p>
-  <p>Customising the colours themselves can be done in <code>map.js</code>. You should notice a really long array of colour definitions. You can either update each colour manually or plug one in from <a href="http://www.snazzymaps.com" target="_blank">SnazzyMaps</a>.</p>
+  <p>Customising the colours themselves can be done in <code>ornament/defaults.js</code>. You should notice a really long array of colour definitions. You can either update each colour manually or plug one in from <a href="http://www.snazzymaps.com" target="_blank">SnazzyMaps</a>.</p>
 
   <%- content_for :coloured_map do -%>
 <div data-map data-map-colour>
@@ -185,14 +185,8 @@
 
   <%- content_for :cluster do -%>
 <div data-map data-map-cluster data-map-zoom="10">
-  <div data-map-pin="-34.921619,138.599257">
-    <h2 class="heading-two">Infowindow</h2>
-    <p>This is my infowindow, isn't it awesome?</p>
-    <p><a href="#">Here's a link.</a></p>
-  </div>
-  <div data-map-pin="-34.924548,138.594808">
-    <p>This is another infowindow</p>
-  </div>
+  <div data-map-pin="-34.921619,138.599257"></div>
+  <div data-map-pin="-34.924548,138.594808"></div>
 </div>
   <%- end -%>
   <pre class="sg-pre prettyprint"><%= render_source(yield :cluster) -%></pre>
