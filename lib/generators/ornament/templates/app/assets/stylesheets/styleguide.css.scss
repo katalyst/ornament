@@ -172,6 +172,9 @@ hr {
 
 // STYLEGUIDE MENU
 .styleguide {
+  .layout--mobile-tray hr {
+    display: none;
+  }
   .layout--mobile-tray {
     background: $secondary-color;
   }
@@ -197,13 +200,13 @@ hr {
 }
 .sg-nav--heading {
   border-bottom: 1px solid $x-dark-grey;
-  padding: $xxx-small-unit;
+  padding: $x-small-unit $xxx-small-unit;
   color: $light-grey;
   @include font($bold-font);
 
-  ul + & {
-    padding-top: $x-large-unit;
-  }
+  // ul + & {
+  //   padding-top: $x-large-unit;
+  // }
 }
 
 // FEATURE TABS 

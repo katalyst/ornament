@@ -2,19 +2,23 @@
 
 ## v1.2.1
 
-Documentation update!
-All new look for the ornament dummy app and styleguide that gets generated.   
-Featuring tabbed code samples and previews.   
-Form pages have simple_form examples now as well. 
+Documentation update!  
+All new look for the ornament dummy app and styleguide that gets generated, featuring tabbed code samples and previews.   
+There are now simple_form examples available where relevant.  
 
-## Features
+### Features
 
 - Added "micro" text limiter variation by using `data-limiter-micro` 
 
-## Bugfixes
+### Bugfixes
 
 - Tabs can now be nested
 - Togglable tooltips now show/hide when inside tabs 
+- Fixed ul/ol being unstyled by default when applying the `.content` class  
+
+### Changes
+
+- Removed `.content` class font-size increaser by default. It's still there just commented out if it's ever needed again. 
 
 ## v1.2.0
 
