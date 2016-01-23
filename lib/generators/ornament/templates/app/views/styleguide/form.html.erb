@@ -90,7 +90,7 @@
   <%- } } do -%>
 <div class="control-group radio_buttons required form--horizontal">
   <label class="radio_buttons required control-label">
-    Horizontal radios/checkboxes with <code>.form--horizontal</code> on the wrapper.
+    Horizontal radios/checkboxes with wrapper class of <code>form--horizontal</code>
   </label>
   <div class="controls">
     <label class="radio">
@@ -114,6 +114,46 @@
     <input name="enrollment[terms]" type="hidden" value="0">
     <label class="checkbox">
       <input class="boolean optional" id="terms" name="form[terms]" type="checkbox" value="1">
+    </label>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Enhanced Radios and checkboxes</h2>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes-enhanced", simple_form: capture { -%>
+&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--enhanced" } -%&gt;
+  <%- } } do -%>
+<div class="control-group check_boxes required form--enhanced">
+  <label class="check_boxes required control-label">
+    Enhanced checkboxes with wrapper class of <code>form--enhanced</code>
+  </label>
+  <div class="controls">
+    <label class="checkbox">
+      <input class="check_boxes required" id="checkboxes_true" name="form[checkboxes_enhanced]" type="checkbox" value="true">Yes
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="checkboxes_false" name="form[checkboxes_enhanced]" type="checkbox" value="false">No
+    </label>
+  </div>
+</div>
+  <%- end -%>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios-enhanced", simple_form: capture { -%>
+&lt;%= f.input :example, as: :radios, wrapper_html: { class: "form--enhanced" } -%&gt;
+  <%- } } do -%>
+<div class="control-group radio_buttons required form--enhanced">
+  <label class="radio_buttons required control-label">
+    Enhanced radios with wrapper class of <code>form--enhanced</code>
+  </label>
+  <div class="controls">
+    <label class="radio">
+      <input class="radio_buttons required" id="radios_true" name="form[radios_enhanced]" type="radio" value="true">Yes
+    </label>
+    <label class="radio">
+      <input class="radio_buttons required" id="radios_false" name="form[radios_enhanced]" type="radio" value="false">No
     </label>
   </div>
 </div>
