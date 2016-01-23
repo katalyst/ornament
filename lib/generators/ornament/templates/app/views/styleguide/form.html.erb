@@ -49,7 +49,7 @@
 
   <h2 class="heading-two">Radios and checkboxes</h2>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes", simple_form: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes", ruby: capture { -%>
 &lt;%= f.input :example, as: :check_boxes -%&gt;
   <%- } } do -%>
 <div class="control-group check_boxes required">
@@ -67,7 +67,7 @@
 </div>
   <%- end -%>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios", simple_form: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios", ruby: capture { -%>
 &lt;%= f.input :example, as: :radios -%&gt;
   <%- } } do -%>
 <div class="control-group radio_buttons required">
@@ -85,7 +85,7 @@
 </div>
   <%- end -%>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios", simple_form: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios", ruby: capture { -%>
 &lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--horizontal" } -%&gt;
   <%- } } do -%>
 <div class="control-group radio_buttons required form--horizontal">
@@ -103,7 +103,7 @@
 </div>
   <%- end -%>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox", simple_form: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox", ruby: capture { -%>
 &lt;%= f.input :example, as: :boolean, wrapper_html: { class: "checkbox__single" } -%&gt;
   <%- } } do -%>
 <div class="control-group boolean optional checkbox__single">
@@ -123,7 +123,7 @@
 
   <h2 class="heading-two">Enhanced Radios and checkboxes</h2>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes-enhanced", simple_form: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes-enhanced", ruby: capture { -%>
 &lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--enhanced" } -%&gt;
   <%- } } do -%>
 <div class="control-group check_boxes required form--enhanced">
@@ -141,7 +141,7 @@
 </div>
   <%- end -%>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios-enhanced", simple_form: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios-enhanced", ruby: capture { -%>
 &lt;%= f.input :example, as: :radios, wrapper_html: { class: "form--enhanced" } -%&gt;
   <%- } } do -%>
 <div class="control-group radio_buttons required form--enhanced">
@@ -159,7 +159,7 @@
 </div>
   <%- end -%>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios-enhanced", simple_form: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios-enhanced", ruby: capture { -%>
 &lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--horizontal form--enhanced" } -%&gt;
   <%- } } do -%>
 <div class="control-group radio_buttons required form--horizontal form--enhanced">
@@ -177,7 +177,7 @@
 </div>
   <%- end -%>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox-enhanced", simple_form: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox-enhanced", ruby: capture { -%>
 &lt;%= f.input :example, as: :boolean, wrapper_html: { class: "checkbox__single form--enhanced" } -%&gt;
   <%- } } do -%>
 <div class="control-group boolean optional checkbox__single form--enhanced">
@@ -199,7 +199,7 @@
 
   <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter", simple_form: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter", ruby: capture { -%>
 &lt;%= f.input :example, input_html: { data: { limiter: 30 } } -%&gt;
   <%- } } do -%>
 <div class="inputs">
@@ -210,7 +210,7 @@
 
   <p>You can limit by words instead of letters by adding in the <code>data-limiter-word</code> attribute.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-word-limiter", simple_form: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-word-limiter", ruby: capture { -%>
 &lt;%= f.input :example, input_html: { data: { limiter: 30, limiter_word: "" } } -%&gt;
   <%- } } do -%>
 <div class="inputs">

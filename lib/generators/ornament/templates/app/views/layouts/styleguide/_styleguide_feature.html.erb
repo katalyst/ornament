@@ -1,6 +1,6 @@
 <%- 
   id ||= "example"
-  simple_form ||= false
+  ruby ||= false
 -%>
 
 <div class="tabs sg-feature">
@@ -8,8 +8,8 @@
     <ul>
       <li><a href="#<%= id -%>__preview" class="tabs--link" data-tab="<%= id -%>__preview">Preview</a></li>
       <li><a href="#<%= id -%>__source" class="tabs--link" data-tab="<%= id -%>__source">HTML</a></li>
-      <%- if simple_form -%>
-        <li><a href="#<%= id -%>__simpleform" class="tabs--link" data-tab="<%= id -%>__simpleform">Ruby</a></li>
+      <%- if ruby -%>
+        <li><a href="#<%= id -%>__ruby" class="tabs--link" data-tab="<%= id -%>__ruby">Ruby</a></li>
       <%- end -%>
     </ul>
   </nav>
@@ -20,9 +20,9 @@
     <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__source">
       <pre class="sg-pre prettyprint"><%= render_source(yield) -%></pre>
     </div>
-    <%- if simple_form -%>
-      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__simpleform">
-        <pre class="sg-pre prettyprint"><%= raw(simple_form) -%></pre>
+    <%- if ruby -%>
+      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__ruby">
+        <pre class="sg-pre prettyprint"><%= raw(ruby) -%></pre>
       </div>
     <%- end -%>
   </div>
