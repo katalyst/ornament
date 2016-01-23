@@ -49,7 +49,9 @@
 
   <h2 class="heading-two">Radios and checkboxes</h2>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes", simple_form: capture { -%>
+&lt;%= f.input :example, as: :check_boxes -%&gt;
+  <%- } } do -%>
 <div class="control-group check_boxes required">
   <label class="check_boxes required control-label">
     Basic checkboxes
@@ -65,7 +67,9 @@
 </div>
   <%- end -%>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios", simple_form: capture { -%>
+&lt;%= f.input :example, as: :radios -%&gt;
+  <%- } } do -%>
 <div class="control-group radio_buttons required">
   <label class="radio_buttons required control-label">
     Basic radios
@@ -81,7 +85,9 @@
 </div>
   <%- end -%>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios", simple_form: capture { -%>
+&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--horizontal" } -%&gt;
+  <%- } } do -%>
 <div class="control-group radio_buttons required form--horizontal">
   <label class="radio_buttons required control-label">
     Horizontal radios/checkboxes with <code>.form--horizontal</code> on the wrapper.
@@ -97,7 +103,9 @@
 </div>
   <%- end -%>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox", simple_form: capture { -%>
+&lt;%= f.input :example, as: :boolean, wrapper_html: { class: "checkbox__single" } -%&gt;
+  <%- } } do -%>
 <div class="control-group boolean optional checkbox__single">
   <label class="boolean optional control-label" for="terms">
     A single checkbox / boolean with the wrapper class <code>checkbox__single</code>
@@ -117,7 +125,9 @@
 
   <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter", simple_form: capture { -%>
+&lt;%= f.input :example, input_html: { data: { limiter: 30 } } -%&gt;
+  <%- } } do -%>
 <div class="inputs">
   <input type="text" class="form--medium" data-limiter="30" />
   <textarea class="form--medium" data-limiter="200"></textarea>
@@ -126,7 +136,9 @@
 
   <p>You can limit by words instead of letters by adding in the <code>data-limiter-word</code> attribute.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-word-limiter" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-word-limiter", simple_form: capture { -%>
+&lt;%= f.input :example, input_html: { data: { limiter: 30, limiter_word: "" } } -%&gt;
+  <%- } } do -%>
 <div class="inputs">
   <input type="text" class="form--medium" data-limiter="3" data-limiter-word />
   <textarea class="form--medium" data-limiter="10" data-limiter-word></textarea>
