@@ -5,6 +5,11 @@
 Documentation update!
 All new look for the ornament dummy app and styleguide that gets generated. 
 
+## Bugfixes
+
+- Tabs can now be nested
+- Togglable tooltips now show/hide when inside tabs 
+
 ## v1.2.0
 
 ### Features
