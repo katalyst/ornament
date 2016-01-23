@@ -4,60 +4,75 @@
 
   <h2 class="heading-two">Button colours</h2>
 
-  <p>
-    <a href="#" class="button">a.button</a>
-    <button class="button">button.button</button>
-  </p>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons" } do -%>
+<p>
+  <a href="#" class="button">a.button</a>
+  <button class="button">button.button</button>
+</p>
+<p>
+  <a href="#" class="button__secondary">.button__secondary</a>
+</p>
 
-  <p>
-    <a href="#" class="button__secondary">.button__secondary</a>
-  </p>
+<p>
+  <a href="#" class="button__confirm">.button__confirm</a>
+</p>
 
-  <p>
-    <a href="#" class="button__confirm">.button__confirm</a>
-  </p>
+<p>
+  <a href="#" class="button__cancel">.button__cancel</a>
+</p>
+  <%- end -%>
 
-  <p>
-    <a href="#" class="button__cancel">.button__cancel</a>
-  </p>
+  <hr />
 
   <h2 class="heading-two">Disabled buttons</h2>
 
-  <p>
-    <a href="#" class="button__disabled">.button__disabled</a>
-  </p>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-disabled" } do -%>
+<p>
+  <a href="#" class="button__disabled">.button__disabled</a>
+</p>
 
-  <p>
-    <a href="#" class="button" disabled>.button[disabled]</a>
-  </p>
+<p>
+  <button href="#" class="button" disabled>.button[disabled]</button>
+</p>
+  <%- end -%>
+
+  <hr />
 
   <h2 class="heading-two">Line buttons</h2>
 
-  <p>
-    <a href="#" class="button__line">.button__line</a>
-  </p>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-line" } do -%>
+<p>
+  <a href="#" class="button__line">.button__line</a>
+</p>
 
-  <p>
-    <a href="#" class="button__secondary__line">.button__secondary__line</a>
-  </p>
+<p>
+  <a href="#" class="button__secondary__line">.button__secondary__line</a>
+</p>
 
-  <p>
-    <a href="#" class="button__confirm__line">.button__confirm__line</a>
-  </p>
+<p>
+  <a href="#" class="button__confirm__line">.button__confirm__line</a>
+</p>
 
-  <p>
-    <a href="#" class="button__cancel__line">.button__cancel__line</a>
-  </p>
+<p>
+  <a href="#" class="button__cancel__line">.button__cancel__line</a>
+</p>
+  <%- end -%>
+
+  <hr />
 
   <h2 class="heading-two">Button modifiers</h2>
 
-  <p>
-    <a href="#" class="button button__full">.button.button__full</a>
-  </p>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-modifiers" } do -%>
+<p>
+  <a href="#" class="button button__full">.button.button__full</a>
+</p>
+  <%- end -%>
+
+  <hr />
 
   <h2 class="heading-two">Icons</h2>
 
-  <%- content_for :icon_buttons do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-icons" } do -%>
 <p>
   <a href="#" class="button button__icon-left icon-search">Search</a>
   <a href="#" class="button__confirm button__icon-left icon-search">Search</a>
@@ -66,10 +81,7 @@
 </p>
   <%- end -%>
 
-  <%= yield :icon_buttons -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :icon_buttons) -%></pre>
-
-  <%- content_for :icon_full do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-icons-full" } do -%>
 <p>
   <a href="#" class="button button__full">
     <span class="button__icon-left icon-search">Search</span>
@@ -77,30 +89,27 @@
 </p>
   <%- end -%>
 
-  <%= yield :icon_full -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :icon_full) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Button group</h2>
 
-  <%- content_for :groups do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttongroups" } do -%>
 <div class="button-group">
   <a href="#" class="button">Left</a>
   <a href="#" class="button">Center</a>
   <a href="#" class="button__secondary">Right</a>
 </div>
   <%- end -%>
-  <%= yield :groups -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :groups) -%></pre>
+
+  <hr />
 
   <h2 class="heading-two">Forward and Back buttons</h2>
 
-  <%- content_for :sides do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-sides" } do -%>
 <div class="button-sides">
   <a href="#" class="button button__back">Back</a>
   <a href="#" class="button button__forward">Forward</a>
 </div>
   <%- end -%>
-  <%= yield :sides -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :sides) -%></pre>
 
 </div>
