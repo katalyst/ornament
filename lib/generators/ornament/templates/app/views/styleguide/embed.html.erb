@@ -1,34 +1,38 @@
-<% content_for :title, "Embed" %>
+<% content_for :title, "Responsive Embeds" %>
 
 <div class="spacing">
 
   <h2 class="heading-two">Youtube Video</h2>
 
-  <%- content_for :youtube do -%>
+  <p>All you need to do is wrap a div around the youtube embed to make it responsive:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "youtube" } do -%>
 <div class="embed__youtube">
   <iframe src="//www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
 </div>
   <%- end -%>
-  <%= yield :youtube -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :youtube) -%></pre>
+
+  <hr />
 
   <h2 class="heading-two">Vimeo Video</h2>
 
-  <%- content_for :vimeo do -%>
+  <p>Vimeo videos have a slightly different aspect ratio so you can use a custom vimeo class for those:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "vimeo" } do -%>
 <div class="embed__vimeo">
   <iframe src="//player.vimeo.com/video/1084537" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
   <%- end -%>
-  <%= yield :vimeo -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :vimeo) -%></pre>
+
+  <hr />
 
   <h2 class="heading-two">Issuu</h2>
 
-  <%- content_for :issuu do -%>
+  <p>Issuu embeds are responsive too, no extra divs needed:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "issuu" } do -%>
 <div data-configid="0/10351939" style="width: 525px; height: 340px;" class="issuuembed"></div>
 <script type="text/javascript" src="//e.issuu.com/embed.js" async="true"></script>
   <%- end -%>
-  <%= yield :issuu -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :issuu) -%></pre>
 
 </div>
