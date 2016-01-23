@@ -4,26 +4,30 @@
 
   <h2 class="heading-two">Basic, unstyled table</h2>
 
-  <table class="table">
-    <tr>
-      <th>First Name</th>
-      <td>Jane</td>
-    </tr>
-    <tr>
-      <th>Last Name</th>
-      <td>Doe</td>
-    </tr>
-    <tr>
-      <th>DOB</th>
-      <td>25/06/1982</td>
-    </tr>
-  </table>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-basic" } do -%>
+<table class="table">
+  <tr>
+    <th>First Name</th>
+    <td>Jane</td>
+  </tr>
+  <tr>
+    <th>Last Name</th>
+    <td>Doe</td>
+  </tr>
+  <tr>
+    <th>DOB</th>
+    <td>25/06/1982</td>
+  </tr>
+</table>
+  <%- end -%>
+
+  <hr />
 
   <h2 class="heading-two">Flush table</h2>
 
   <p>Add <code>table-flush</code> class to table to make it flush on all sides.</p>
 
-  <%- content_for :example_1 do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-1" } do -%>
 <table class="table table-flush">
   <tr>
     <th>First Name</th>
@@ -39,15 +43,14 @@
   </tr>
 </table>
   <%- end -%>
-  <%= yield :example_1 -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Ruled table</h2>
 
   <p>Add <code>table-ruled</code> class to table, can be combined with <code>table-flush</code> to create a flush, ruled table.</p>
 
-  <%- content_for :example_2 do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-2" } do -%>
 <table class="table table-flush table-ruled">
   <tr>
     <th>First Name</th>
@@ -63,15 +66,14 @@
   </tr>
 </table>
   <%- end -%>
-  <%= yield :example_2 -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_2) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Scrollable Table</h2>
 
   <p>Wrap your table in a <code>.table--container</code> element.</p>
 
-  <%- content_for :example_3 do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-3" } do -%>
 <div class="table-container">
   <table class="table table-flush table-ruled" style="width: 5000px">
     <tr>
@@ -89,8 +91,5 @@
   </table>
 </div>
   <%- end -%>
-  <%= yield :example_3 -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_3) -%></pre>
 
 </div>
