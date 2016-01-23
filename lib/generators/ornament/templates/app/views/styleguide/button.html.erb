@@ -4,7 +4,9 @@
 
   <h2 class="heading-two">Button colours</h2>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons", ruby: capture { -%>
+&lt;%= link_to "a.button", "#", class: "button" -%&gt;
+  <%- } } do -%>
 <p>
   <a href="#" class="button">a.button</a>
   <button class="button">button.button</button>
@@ -26,7 +28,10 @@
 
   <h2 class="heading-two">Disabled buttons</h2>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-disabled" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-disabled", ruby: capture { -%>
+&lt;%= link_to ".button__disabled", "#", class: "button__disabled" -%&gt;
+&lt;%= f.button "Disabled Button", class: "button", disabled: true -%&gt;
+  <%- } } do -%>
 <p>
   <a href="#" class="button__disabled">.button__disabled</a>
 </p>
@@ -40,7 +45,9 @@
 
   <h2 class="heading-two">Line buttons</h2>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-line" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-line", ruby: capture { -%>
+&lt;%= link_to ".button__line", "#", class: "button__line" -%&gt;
+  <%- } } do -%>
 <p>
   <a href="#" class="button__line">.button__line</a>
 </p>
@@ -62,7 +69,9 @@
 
   <h2 class="heading-two">Button modifiers</h2>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-modifiers" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-modifiers", ruby: capture { -%>
+&lt;%= link_to ".button.button__full", "#", class: "button button__full" -%&gt;
+  <%- } } do -%>
 <p>
   <a href="#" class="button button__full">.button.button__full</a>
 </p>
@@ -72,7 +81,11 @@
 
   <h2 class="heading-two">Icons</h2>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-icons" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-icons", ruby: capture { -%>
+&lt;%= link_to "Search", "#", class: "button button__icon-left icon-search" -%&gt;
+&lt;%= link_to "Search", "#", class: "button button__icon-right icon-search" -%&gt;
+&lt;%= link_to "", "#", class: "button button__icon icon-search" -%&gt;
+  <%- } } do -%>
 <p>
   <a href="#" class="button button__icon-left icon-search">Search</a>
   <a href="#" class="button__confirm button__icon-left icon-search">Search</a>
@@ -81,7 +94,11 @@
 </p>
   <%- end -%>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-icons-full" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-icons-full", ruby: capture { -%>
+&lt;%= link_to "#", class: "button button__full" do -%&gt;
+  &lt;span class="button__icon-left icon-search">Search&lt;/span>
+&lt;%- end -%&gt;
+  <%- } } do -%>
 <p>
   <a href="#" class="button button__full">
     <span class="button__icon-left icon-search">Search</span>
