@@ -160,7 +160,7 @@
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios-enhanced", simple_form: capture { -%>
-&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--horizontal" } -%&gt;
+&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--horizontal form--enhanced" } -%&gt;
   <%- } } do -%>
 <div class="control-group radio_buttons required form--horizontal form--enhanced">
   <label class="radio_buttons required control-label">
@@ -178,7 +178,7 @@
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox-enhanced", simple_form: capture { -%>
-&lt;%= f.input :example, as: :boolean, wrapper_html: { class: "checkbox__single" } -%&gt;
+&lt;%= f.input :example, as: :boolean, wrapper_html: { class: "checkbox__single form--enhanced" } -%&gt;
   <%- } } do -%>
 <div class="control-group boolean optional checkbox__single form--enhanced">
   <label class="boolean optional control-label" for="terms_enhanced">

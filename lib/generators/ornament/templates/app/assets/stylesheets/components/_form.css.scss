@@ -295,6 +295,7 @@ $radio-offset: 24px;
 
   .control-label {
     padding-left: $radio-offset;
+    display: inline-block;
   }
   .controls {
     margin-top: 0;
