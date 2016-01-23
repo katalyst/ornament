@@ -1,11 +1,5 @@
 <% content_for :title, "Show.js" %>
 
-<%- content_for :styles do -%>
-  <style>
-    .showjs_tick { color: #bada55; float: left; margin-right: .5em; }
-  </style>
-<%- end -%>
-
 <div class="content-spacing">
 
   <h2 class="heading-two">Basic example</h2>
@@ -14,7 +8,7 @@
 
   <p>In this first example, we have two radio buttons. One with the ID of <code>showjs_example_1_true</code> and the second with the ID of <code>showjs_example_1_false</code>. If we want to show the hidden field when selecting the true radio, we add <code>data-show="showjs_example_1_true"</code> to the hidden field.</p>
 
-  <%- content_for :example_1 do -%>  
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-example-1" } do -%>
 <div class="inputs">
   <div class="control-group radios form--horizontal">
     <label class="radios required control-label">
@@ -40,15 +34,13 @@
 </div>
   <%- end -%>
 
-  <%= yield :example_1 -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Toggling multiple fields</h2>
 
   <p>Sometimes you might want to toggle a group of fields together. Rather than adding the <code>data-show</code> attribute to each of the element wrappers, you can wrap them all in a <code>div</code> with the fields in it. You will need to make sure you add the <code>inputs</code> class on it to retain the spacing.</p>
 
-  <%- content_for :data_show_multi do -%>  
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi" } do -%>
 <div class="inputs">
   <div class="control-group radios form--horizontal">
     <label class="radios required control-label">
@@ -82,15 +74,13 @@
 </div>
   <%- end -%>
 
-  <%= yield :data_show_multi -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :data_show_multi) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Requiring multiple matches (AND)</h2>
 
   <p>You can string multiple IDs together by seperating them with <code>_&_</code>. For example if I wanted to match against <code>turtles_raphael</code> and <code>turtles_donatello</code> I would use <code>showjs_raphael_&_showjs_donatello</code>.</p>
 
-  <%- content_for :data_show_multi_options do -%>  
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi-option-1" } do -%>
 <div class="inputs">
   <div class="control-group radios form--horizontal">
     <label class="radios required control-label">
@@ -126,15 +116,13 @@
 </div>
   <%- end -%>  
 
-  <%= yield :data_show_multi_options -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :data_show_multi_options) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Requiring multiple matches (OR)</h2>
 
   <p>Follow the instructions for AND matching above, but also add in <code>data-show-type="any"</code>.</p>
 
-  <%- content_for :data_show_multi_options_and do -%>  
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi-option-2" } do -%>
 <div class="inputs">
   <div class="control-group radios form--horizontal">
     <label class="radios required control-label">
@@ -170,9 +158,7 @@
 </div>
   <%- end -%>  
 
-  <%= yield :data_show_multi_options_and -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :data_show_multi_options_and) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Select menu</h2>
 
@@ -180,7 +166,7 @@
 
   <p>To show elements based on a select menu selection, you can use <code>data-show-option</code> and use the value of the option as the value for the attribute. Eg <code>&lt;option value="test"></code> will be <code>data-show-option="test"</code>.</p>
 
-  <%- content_for :show_select do -%>  
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select" } do -%>
 <div class="inputs">
   <div class="control-group check_boxes form--horizontal ">
     <label class="check_boxes required control-label">
@@ -206,15 +192,13 @@
 </div>
   <%- end -%>
 
-  <%= yield :show_select -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :show_select) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Text matches</h2>
 
   <p>You can match against text input by using <code>data-show-input</code>. This match will be exact, but case insensitive. What that means is that if you're looking for "Hello World" it will match for "hello world" but won't match for "hello" or "hello world!"</p>
 
-  <%- content_for :show_text do -%>  
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-text" } do -%>
 <div class="inputs">
   <div class="control-group check_boxes form--medium">
     <label class="optional control-label">Type "Hello World" (without quotes, case insensitive)</label>
@@ -231,13 +215,9 @@
 </div>
   <%- end -%>
 
-  <%= yield :show_text -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :show_text) -%></pre>
-
   <p>You can fuzzy match text by adding the <code>data-show-type="any"</code> attribute.</p>
 
-  <%- content_for :show_text_fuzzy do -%>  
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-text-fuzzy" } do -%>
 <div class="inputs">
   <div class="control-group check_boxes form--medium">
     <label class="optional control-label">Type anything that includes the word "hello" (without quotes, case insensitive)</label>
@@ -254,15 +234,15 @@
 </div>
   <%- end -%>
 
-  <%= yield :show_text_fuzzy -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :show_text_fuzzy) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Inverting matches</h2>
 
   <p>Sometimes you want to show a field by default, and hide it if something is selected. This can be done by adding <code>data-show-inverse</code> to your hidden element. </p>
 
-  <%- content_for :show_inverse_1 do -%>  
+  <p><em>Note:</em> Prior to Ornament v1.2.0 the attribute would need to be <code>data-show-inverse="1"</code></p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-1" } do -%>
 <div class="inputs">
   <div class="control-group radios form--horizontal">
     <label class="radios required control-label">
@@ -298,11 +278,7 @@
 </div>
   <%- end -%>
 
-  <%= yield :show_inverse_1 -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :show_inverse_1) -%></pre>
-
-  <%- content_for :show_inverse_2 do -%>  
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-2" } do -%>
 <div class="inputs">
   <div class="control-group radios form--horizontal">
     <label class="radios required control-label">
@@ -338,11 +314,7 @@
 </div>
   <%- end -%>
 
-  <%= yield :show_inverse_2 -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :show_inverse_2) -%></pre>
-
-  <%- content_for :show_inverse_3 do -%>  
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-3" } do -%>
 <div class="inputs">
   <div class="control-group check_boxes form--horizontal ">
     <label class="check_boxes required control-label">
@@ -370,9 +342,7 @@
 </div>
   <%- end -%>
 
-  <%= yield :show_inverse_3 -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :show_inverse_3) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Emptying data when hiding</h2>
 
@@ -380,7 +350,7 @@
 
   <p>Try showing this field, entering in some data and then toggle the field off and back on again, you'll notice the fields are now empty.</p>
 
-  <%- content_for :data_show_destroy do -%>  
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-destroy" } do -%>
 <div class="inputs">
   <div class="control-group radios form--horizontal">
     <label class="radios required control-label">
@@ -448,9 +418,5 @@
   </div>
 </div>
   <%- end -%>
-
-  <%= yield :data_show_destroy -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :data_show_destroy) -%></pre>
 
 </div>

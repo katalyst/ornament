@@ -195,6 +195,21 @@ hr {
   }
 }
 
+// FEATURE TABS 
+
+.sg-feature {
+  margin-top: $default-unit;
+  margin-bottom: $default-unit;
+  @include flush-children;
+}
+
+.sg-feature .tabs--pane {
+  padding: $panel-padding;
+  // background: $white;
+  border: 1px solid $primary-color;
+  border-top: 0;
+}
+
 // CODE SAMPLES
 
 pre,
