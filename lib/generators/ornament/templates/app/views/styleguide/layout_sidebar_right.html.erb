@@ -16,10 +16,34 @@
   </div>
 <%- end -%>
 
-<div class="content-spacing content-lists">
-  <p>You can throw things in to a right-hand sidebar layout by using the :sidebar_right yield:</p>
+<%- content_for :page_main do -%>
+  <div class="content-spacing content-lists">
+    <p>You can throw things in to a right-hand sidebar layout by using the :sidebar_right yield:</p>
 
-  <pre class="sg-pre prettyprint">&lt;%= content_for :sidebar_right do -%>
+    <pre class="sg-pre prettyprint">&lt;%= content_for :sidebar_right do -%>
   This is the sidebar
 &lt;%- end -%></pre>
-</div>
+  </div>
+<%- end -%>
+
+<%- if content_for? :sidebar -%>
+  <div class="page__with-sidebar">
+    <div class="page--main">
+      <%= yield :page_main -%>
+    </div>
+    <div class="page--sidebar">
+      <%= yield :sidebar -%>
+    </div>
+  </div>
+<%- elsif content_for? :sidebar_right -%>
+  <div class="page__with-sidebar-right">
+    <div class="page--main">
+      <%= yield :page_main -%>
+    </div>
+    <div class="page--sidebar">
+      <%= yield :sidebar_right -%>
+    </div>
+  </div>
+<%- else -%>
+  <%= yield :page_main -%>
+<%- end -%>  
