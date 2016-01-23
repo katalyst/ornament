@@ -12,7 +12,7 @@ $panel-border:          $background-color;
 
 // COLOUR VARIANTS
 
-.panel__blue {
+.panel__primary {
   @extend .panel;
   background: $primary-color;
   color: $white;

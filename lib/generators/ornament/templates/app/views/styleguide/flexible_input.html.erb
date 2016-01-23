@@ -2,58 +2,56 @@
 
 <div class="content-spacing">
 
-  <p>A flexible input is an input field that starts off small but grows when focused:</p>
+  <p>A flexible input is an input field that starts off small but grows when focused.</p>
 
-  <%- content_for :example_1 do -%>
+  <p>The outer wrapper needs <code>data-flexible-input-container</code> and the inner wrapper needs <code>data-flexible-input</code>. The inner wrapper takes one value in the form of <code>initial-size/focus-size</code>.
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-1" } do -%>
 <div data-flexible-input-container>
   <div data-flexible-input="140/300">
     <input type="text" />
   </div>
 </div>
   <%- end -%>
-  <%= yield :example_1 -%>
-
-  <p>The flexible input needs two elements to wrap around the input field:</p>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
-
-  <p>The outer wrapper needs <code>data-flexible-input-container</code> and the inner wrapper needs <code>data-flexible-input</code>. The inner wrapper takes one value in the form of <code>initial-size/focus-size</code>.
 
   <p>To anchor the flexible input to the right and extend to the left, simply add <code>data-flexible-input-right</code> to your <code>data-flexible-input</code> element:</p>
 
-  <%- content_for :example_right do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-2" } do -%>
 <div data-flexible-input-container>
   <div data-flexible-input="140/300" data-flexible-input-right>
     <input type="text" />
   </div>
 </div>
   <%- end -%>
-  <%= yield :example_right -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_right) -%></pre>
 
   <p>An example with <code>data-flexible-input</code> value of 200/800:</p>
 
-  <div data-flexible-input-container>
-    <div data-flexible-input="200/800">
-      <input type="text" placeholder="200/800" />
-    </div>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
+<div data-flexible-input-container>
+  <div data-flexible-input="200/800">
+    <input type="text" placeholder="200/800" />
   </div>
+</div>
+  <%- end -%>
 
   <p>An example with 20/400:</p>
 
-  <div data-flexible-input-container>
-    <div data-flexible-input="20/400">
-      <input type="text" placeholder="20/400" />
-    </div>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-4" } do -%>
+<div data-flexible-input-container>
+  <div data-flexible-input="20/400">
+    <input type="text" placeholder="20/400" />
   </div>
+</div>
+  <%- end -%>
 
   <p>An example with 300/100, getting smaller on focus:</p>
 
-  <div data-flexible-input-container>
-    <div data-flexible-input="300/100">
-      <input type="text" placeholder="300/100" />
-    </div>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-5" } do -%>
+<div data-flexible-input-container>
+  <div data-flexible-input="300/100">
+    <input type="text" placeholder="300/100" />
   </div>
+</div>
+  <%- end -%>
 
 </div>
