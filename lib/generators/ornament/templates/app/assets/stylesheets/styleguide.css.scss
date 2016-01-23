@@ -22,10 +22,10 @@ $secondary-color: #252525;
 
 $link-color: #4b9dd0;
 
-$grey:           #ccc;
-$light-grey:     lighten($grey, 15);
-$dark-grey:      darken($grey, 20);
-$x-dark-grey:    darken($grey, 50);
+$light-grey:     #ccc;
+$x-light-grey:   lighten($light-grey, 15);
+$dark-grey:      darken($light-grey, 20);
+$x-dark-grey:    darken($light-grey, 50);
 
 $sg-font:           arial, sans-serif;
 $sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
@@ -159,7 +159,7 @@ hr {
   }
 
   h2 {
-    color: $grey;
+    color: $light-grey;
     padding-top: $xxxx-small-unit;
   }
 }
@@ -198,7 +198,7 @@ hr {
 .sg-nav--heading {
   border-bottom: 1px solid $x-dark-grey;
   padding: $xxx-small-unit;
-  color: $grey;
+  color: $light-grey;
   @include font($bold-font);
 
   ul + & {
@@ -273,7 +273,7 @@ hr {
 
 pre,
 pre.prettyprint {
-  border: 1px solid $grey;
+  border: 1px solid $light-grey;
   background: $white;
   padding: 0.5em 1em;
   margin: 1.5em 0;
@@ -312,8 +312,8 @@ pre.prettyprint {
 }
 
 code {
-  border: 1px solid $grey;
-  background: $light-grey;
+  border: 1px solid $light-grey;
+  background: $x-light-grey;
   font-family: $sg-code-font;
   padding: .3em .3em .2em;
   @include border-radius($border-radius);
