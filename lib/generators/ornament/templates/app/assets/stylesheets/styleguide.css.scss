@@ -101,7 +101,12 @@ body {
 }
 
 .sg-title {
-  margin-bottom: 2em;
+  padding: $xx-small-unit 0;
+  border-bottom: 1px solid $divider;
+
+  h2 {
+    margin-bottom: $xxxxx-small-unit;
+  }
 }
 
 hr {

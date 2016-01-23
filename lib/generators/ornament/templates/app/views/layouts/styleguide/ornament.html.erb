@@ -99,11 +99,19 @@
         </header>
 
         <%= yield :above_layout -%>
+        <%- if content_for?(:title) -%>
+          <div class="sg-title">
+            <div class="layout--container">
+              <h2 class="heading-three"><%= yield(:title) -%></h2>
+              <%= link_to raw("&lsaquo; Back"), styleguide_path -%>
+            </div>
+          </div>
+        <%- end -%>
         <%- if content_for?(:global) || !yield.blank? -%>
           <div class="layout--container">
             <section class="layout--main" role="main">
               <a id="main" name="main" tabindex="-1"></a>
-                <%= content_for?(:global) ? yield(:global) : yield %>
+              <%= content_for?(:global) ? yield(:global) : yield %>
             </section>
           </div>
         <%- end -%>
