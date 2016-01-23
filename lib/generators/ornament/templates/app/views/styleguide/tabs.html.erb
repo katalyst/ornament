@@ -6,7 +6,7 @@
 
     <p>Example tabset:</p>
 
-    <%- content_for :example_1 do -%>
+    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab" } do -%>
 <div class="tabs">
   <nav class="tabs--links">
     <ul>
@@ -29,9 +29,7 @@
 </div>
     <%- end -%>
 
-    <%= yield :example_1 -%>
-
-    <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
+    <hr />
 
     <h2 class="heading-two">Passive Deeplinking</h2>
 
@@ -48,13 +46,15 @@
 ...
 &lt;a <strong>href="#tab1_3" data-tab-link="tab1_3"</strong>>This link lives outside of a tabset, but will open a tab.&lt;/a></pre>
 
+    <hr />
+
     <h2 class="heading-two">Active Deeplinking</h2>
 
     <p>You can turn on active deeplinking by adding <code>data-tabs-deeplink</code> to the main tabs container. Active deeplinking will update the URL as the user clicks on the tabs. </p>
 
     <p>Notice that clicking on these tabs will update your URL. </p>
 
-    <%- content_for :example_deeplink do -%>
+    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab-deeplink" } do -%>
 <div class="tabs" data-tabs-deeplink>
   <nav class="tabs--links">
     <ul>
@@ -77,9 +77,7 @@
 </div>
     <%- end -%>
 
-    <%= yield :example_deeplink -%>
-
-    <pre class="sg-pre prettyprint"><%= render_source(yield :example_deeplink) -%></pre>
+    <hr />
 
     <h2 class="heading-two">Select menu fallback on smaller screens</h2>
 
@@ -87,7 +85,7 @@
 
     <p>The select menu will appear when the tabs are too long to fit on the screen.</p>
 
-    <%- content_for :example_select do -%>
+    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab-select" } do -%>
 <div class="tabs" data-tabs-fallback-select>
   <nav class="tabs--links">
     <ul>
@@ -106,9 +104,7 @@
 </div>
     <%- end -%>
 
-    <%= yield :example_select -%>
-
-    <pre class="sg-pre prettyprint"><%= render_source(yield :example_select) -%></pre>
+    <hr />
 
     <h2 class="heading-two">Swipable Tabs <span class="poc" title="Warning: untested and unfinalised. Should not be used in production.">Proof of Concept</span></h2>
 
@@ -118,7 +114,7 @@
 
     <p>As always, adding a data attribute will enable this, <code>data-tabs-swipable</code>.</p>
 
-    <%- content_for :example_swipe do -%>
+    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab-swipe" } do -%>
 <div class="tabs" data-tabs-swipable style="max-width: 300px;">
   <nav class="tabs--links">
     <ul>
@@ -137,14 +133,14 @@
 </div>
     <%- end -%>
 
-    <%= yield :example_swipe -%>
-
-    <pre class="sg-pre prettyprint"><%= render_source(yield :example_swipe) -%></pre>
+    <hr />
 
     <h2 class="heading-two">Global settings</h2>
 
     <p>Active deeplinking can be enabled at the top of the javascript file by changing <code>activeDeeplinking</code> to true.</p>
     <p>Swipable tab overscroll value can be adjusted by changing the <code>tabOverScroll</code> value.</p>
+
+    <hr />
 
     <h2 class="heading-two">Events</h2>
 

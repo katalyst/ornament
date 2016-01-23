@@ -17,7 +17,10 @@ $divider: #ccc;
 
 $background-color: #eee;
 $primary-color: #db892a;
+$primary-color-dark: darken($primary-color, 20);
 $secondary-color: #252525;
+
+$link-color: $primary-color-dark;
 
 $grey:           #ccc;
 $light-grey:     lighten($grey, 15);
@@ -92,6 +95,10 @@ body {
   em {
     font-style: italic;
   }
+}
+
+a {
+  @include color-link($link-color, $link-color);
 }
 
 .heading-one, .heading-two, .heading-three, .heading-four {
@@ -207,10 +214,19 @@ hr {
   @include flush-children;
 }
 
-.sg-feature .tabs--pane {
+.sg-feature > .tabs--links > ul > li > .tabs--link__active {
+  border-color: $primary-color-dark;
+
+  &:before,
+  &:after {
+    background: $primary-color-dark;
+  }
+}
+
+.sg-feature > .tabs--panes > .tabs--pane {
   padding: $panel-padding;
   // background: $white;
-  border: 1px solid $primary-color;
+  border: 1px solid $primary-color-dark;
   border-top: 0;
 }
 
