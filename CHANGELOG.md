@@ -3,7 +3,13 @@
 ## v1.2.1
 
 Documentation update!
-All new look for the ornament dummy app and styleguide that gets generated. 
+All new look for the ornament dummy app and styleguide that gets generated.   
+Featuring tabbed code samples and previews.   
+Form pages have simple_form examples now as well. 
+
+## Features
+
+- Added "micro" text limiter variation by using `data-limiter-micro` 
 
 ## Bugfixes
 

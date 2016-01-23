@@ -8,7 +8,10 @@
 
   <p>In this first example, we have two radio buttons. One with the ID of <code>showjs_example_1_true</code> and the second with the ID of <code>showjs_example_1_false</code>. If we want to show the hidden field when selecting the true radio, we add <code>data-show="showjs_example_1_true"</code> to the hidden field.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-example-1" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-example-1", simple_form: capture { -%>
+&lt;%= f.input :example, as: :radios -%&gt;
+&lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes" } } -%&gt;
+  <%- } } do -%>
 <div class="inputs">
   <div class="control-group radios form--horizontal">
     <label class="radios required control-label">
@@ -40,7 +43,13 @@
 
   <p>Sometimes you might want to toggle a group of fields together. Rather than adding the <code>data-show</code> attribute to each of the element wrappers, you can wrap them all in a <code>div</code> with the fields in it. You will need to make sure you add the <code>inputs</code> class on it to retain the spacing.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi", simple_form: capture { -%>
+&lt;%= f.input :example, as: :radios -%&gt;
+&lt;div class="inputs" data-show="example_yes">
+  &lt;%= f.input :hidden_field_1 -%&gt;
+  &lt;%= f.input :hidden_field_2 -%&gt;
+&lt;/div>
+  <%- } } do -%>
 <div class="inputs">
   <div class="control-group radios form--horizontal">
     <label class="radios required control-label">
@@ -350,7 +359,10 @@
 
   <p>Try showing this field, entering in some data and then toggle the field off and back on again, you'll notice the fields are now empty.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-destroy" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-destroy", simple_form: capture { -%>
+&lt;%= f.input :example, as: :radios -%&gt;
+&lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes", show_destroy: "" } } -%&gt;
+  <%- } } do -%>
 <div class="inputs">
   <div class="control-group radios form--horizontal">
     <label class="radios required control-label">
