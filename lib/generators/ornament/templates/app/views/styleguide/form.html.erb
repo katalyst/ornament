@@ -159,6 +159,40 @@
 </div>
   <%- end -%>
 
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios-enhanced", simple_form: capture { -%>
+&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--horizontal" } -%&gt;
+  <%- } } do -%>
+<div class="control-group radio_buttons required form--horizontal form--enhanced">
+  <label class="radio_buttons required control-label">
+    Horizontal radios/checkboxes with wrapper class of <code>form--horizontal</code> and <code>form--enhanced</code>
+  </label>
+  <div class="controls">
+    <label class="radio">
+      <input class="radio_buttons required" id="horizontal_radios_true" name="form[horizontal_radios_enhanced]" type="radio" value="true">Yes
+    </label>
+    <label class="radio">
+      <input class="radio_buttons required" id="horizontal_radios_false" name="form[horizontal_radios_enhanced]" type="radio" value="false">No
+    </label>
+  </div>
+</div>
+  <%- end -%>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox-enhanced", simple_form: capture { -%>
+&lt;%= f.input :example, as: :boolean, wrapper_html: { class: "checkbox__single" } -%&gt;
+  <%- } } do -%>
+<div class="control-group boolean optional checkbox__single form--enhanced">
+  <label class="boolean optional control-label" for="terms_enhanced">
+    A single checkbox / boolean with the wrapper class <code>checkbox__single</code> and <code>form--enhanced</code>
+  </label>
+  <div class="controls">
+    <input name="enrollment[terms_enhanced]" type="hidden" value="0">
+    <label class="checkbox">
+      <input class="boolean optional" id="terms_enhanced" name="form[terms_enhanced]" type="checkbox" value="1">
+    </label>
+  </div>
+</div>
+  <%- end -%>
+
   <hr />
 
   <h2 class="heading-two">Limited text fields</h2>

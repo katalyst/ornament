@@ -30,6 +30,18 @@ $x-dark-grey:    darken($light-grey, 50);
 $sg-font:           arial, sans-serif;
 $sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
 
+$body-font: ('Open Sans', sans-serif) normal normal;
+$italic-font: ('Open Sans', sans-serif) italic normal;
+
+$bold-font: ('Open Sans', sans-serif) normal bold;
+$bold-italic-font: ('Open Sans', sans-serif) italic bold;
+
+$heading-alpha-font: ('Open Sans', sans-serif) normal bold;
+$heading-alpha-font-italic: ('Open Sans', sans-serif) italic bold;
+
+$heading-beta-font: ('Open Sans', sans-serif) normal bold;
+$heading-beta-font-italic: ('Open Sans', sans-serif) italic bold;
+
 // ASPECTS
 //
 //
@@ -88,12 +100,13 @@ $sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
 // STYLEGUIDE TYPOGRAPHY
 
 body {
-  font-family: $sg-font;
+  @include font($body-font);
+
   strong {
-    font-weight: bold;
+    @include font($bold-font);
   }
   em {
-    font-style: italic;
+    @include font($italic-font);
   }
 }
 
@@ -102,8 +115,7 @@ a {
 }
 
 .heading-one, .heading-two, .heading-three, .heading-four {
-  font-family: $sg-font;
-  font-weight: bold;
+  @include font($heading-alpha-font);
 }
 
 .sg-title {
