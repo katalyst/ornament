@@ -246,6 +246,9 @@ $radio-offset: 24px;
   .control-label {
     padding-left: $radio-offset;
   }
+  .controls {
+    margin-top: 0;
+  }
   .controls label {
     position: absolute;
     top: 0;

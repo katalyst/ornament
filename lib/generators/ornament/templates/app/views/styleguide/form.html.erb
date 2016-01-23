@@ -1,7 +1,7 @@
 
 <% content_for :title, "Form styles" %>
 
-<div class="content-spacing content-lists">
+<div class="content-spacing">
 
   <p>
     <em>Note: Ornament assumes you are using simple_form to generate form fields.</em>
@@ -12,7 +12,7 @@
   <p>A self-contained inline form consists of an input field with a joined button:</p>
   <p><strong>Note:</strong> icons cannot be applied to <code>input</code> tags, all icon buttons must be <code>button</code> elements.</p>
 
-  <%- content_for :form_inline do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline" } do -%>
 <form class="form-inline">
   <div class="form-inline--input-container">
     <input type="text" class="form-inline--input" />
@@ -20,15 +20,14 @@
   <button class="button form-inline--button icon-chevron-right"></button>
 </form>
   <%- end -%>
-  <%= yield :form_inline -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :form_inline) -%></pre>
+  <hr />
 
-  <h3 class="heading-three">Full-length inline form</h3>
+  <h2 class="heading-two">Full-length inline form</h2>
 
   <p>A full-length variant of the form above:</p>
 
-  <%- content_for :form_inline_full do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-full" } do -%>
 <form class="form-inline__full">
   <div class="form-inline--input-container">
     <input type="text" class="form-inline--input" />
@@ -36,15 +35,14 @@
   <button type="submit" class="button form-inline--button icon-chevron-right"></button>
 </form>
   <%- end -%>
-  <%= yield :form_inline_full -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :form_inline_full) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Full-width search field</h2>
 
   <p>A common pattern for search pages:</p>
 
-  <%- content_for :search_field do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-search" } do -%>
 <form class="form-search">
   <label for="search_things" class="form-search--label">Search Things:</label>
   <div class="form-inline">
@@ -55,37 +53,28 @@
   </div>
 </form>
   <%- end -%>
-  <%= yield :search_field -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :search_field) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Limited text fields</h2>
 
   <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
 
-  <%- content_for :limiter do -%>
-<div class="inputs">
-  <div class="form--medium">
-    <textarea type="text" data-limiter="200"></textarea>
-  </div>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter" } do -%>
+<div class="form--medium">
+  <textarea type="text" data-limiter="200"></textarea>
 </div>
   <%- end -%>
-  <%= yield :limiter -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :limiter) -%></pre>
 
   <p>You can limit by words instead of letters by adding in the <code>data-limiter-word</code> attribute.</p>
 
-  <%- content_for :word_limiter do -%>
-<div class="inputs">
-  <div class="form--medium">
-    <textarea type="text" data-limiter="5" data-limiter-word></textarea>
-  </div>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-word-limiter" } do -%>
+<div class="form--medium">
+  <textarea type="text" data-limiter="5" data-limiter-word></textarea>
 </div>
   <%- end -%>
-  <%= yield :word_limiter -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :word_limiter) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Form field lengths</h2>
 
@@ -125,9 +114,11 @@
     </div>
   </div>
 
+  <hr />
+
   <h2 class="heading-two">Radios and checkboxes</h2>
 
-  <%- content_for :checkboxes do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes" } do -%>
 <div class="control-group check_boxes required">
   <label class="check_boxes required control-label">
     Basic checkboxes
@@ -142,11 +133,8 @@
   </div>
 </div>
   <%- end -%>
-  <%= yield :checkboxes -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :checkboxes) -%></pre>
-
-  <%- content_for :radios do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios" } do -%>
 <div class="control-group radio_buttons required">
   <label class="radio_buttons required control-label">
     Basic radios
@@ -161,11 +149,8 @@
   </div>
 </div>
   <%- end -%>
-  <%= yield :radios -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :radios) -%></pre>
-
-  <%- content_for :horizontal_radios do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios" } do -%>
 <div class="control-group radio_buttons required form--horizontal">
   <label class="radio_buttons required control-label">
     Horizontal radios/checkboxes with <code>.form--horizontal</code> on the wrapper.
@@ -180,11 +165,8 @@
   </div>
 </div>
   <%- end -%>
-  <%= yield :horizontal_radios -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :horizontal_radios) -%></pre>
-
-  <%- content_for :single_checkbox do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox" } do -%>
 <div class="control-group boolean optional checkbox__single">
   <label class="boolean optional control-label" for="terms">
     A single checkbox / boolean with the wrapper class <code>checkbox__single</code>
@@ -197,9 +179,8 @@
   </div>
 </div>
   <%- end -%>
-  <%= yield :single_checkbox -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :single_checkbox) -%></pre>
+  <hr />
 
   <h2 class="heading-one">Long form example</h2>
 
