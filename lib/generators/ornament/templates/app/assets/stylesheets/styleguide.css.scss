@@ -20,7 +20,7 @@ $primary-color: #db892a;
 $primary-color-dark: darken($primary-color, 20);
 $secondary-color: #252525;
 
-$link-color: $primary-color-dark;
+$link-color: $primary-color;
 
 $grey:           #ccc;
 $light-grey:     lighten($grey, 15);
@@ -214,29 +214,59 @@ hr {
   @include flush-children;
 }
 
+.sg-feature > .tabs--links {
+  background: $secondary-color;
+}
+
+.sg-feature > .tabs--links > ul > li > .tabs--link {
+  border: 1px solid $secondary-color;
+  border-bottom: 0;
+  @include color-link($dark-grey, $dark-grey);
+  @include decorate-link(none, none);
+  font-size: $small-font-size;
+  text-transform: uppercase;
+
+  &:hover {
+    background: darken($secondary-color, 10);
+  }
+}
+
+.sg-feature > .tabs--links > ul > li + li > .tabs--link {
+  margin: 0;
+}
+
 .sg-feature > .tabs--links > ul > li > .tabs--link__active {
-  border-color: $primary-color-dark;
+  background: $background-color;
+  @include color-link($foreground-color, $foreground-color);
+
+  &:hover {
+    background: $background-color;
+  }
 
   &:before,
   &:after {
-    background: $primary-color-dark;
+    background: $secondary-color;
   }
 }
 
 .sg-feature > .tabs--panes > .tabs--pane {
   padding: $panel-padding;
   // background: $white;
-  border: 1px solid $primary-color-dark;
+  border: 1px solid $secondary-color;
   border-top: 0;
+}
+
+.sg-feature > .tabs--panes > .tabs--pane__flush {
+  padding: 0;
 }
 
 // CODE SAMPLES
 
 pre,
 pre.prettyprint {
-  border: 1px solid $grey !important;
+  border: 1px solid $grey;
   background: $white;
-  padding: 0.5em 1em !important;
+  padding: 0.5em 1em;
   margin: 1.5em 0;
   font-family: $sg-code-font;
   overflow: auto;
@@ -263,6 +293,12 @@ pre.prettyprint {
   }
   li:last-child &:last-child {
     margin-bottom: 0;
+  }
+
+  .sg-feature > .tabs--panes > .tabs--pane__flush & {
+    background: transparent;
+    border: 0;
+    @include box-shadow(none);
   }
 }
 

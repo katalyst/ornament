@@ -9,7 +9,7 @@
     <div class="tabs--pane" data-tab-for="<%= id -%>__preview">
       <%= yield -%>
     </div>
-    <div class="tabs--pane" data-tab-for="<%= id -%>__source">
+    <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__source">
       <pre class="sg-pre prettyprint"><%= render_source(yield) -%></pre>
     </div>
   </div>
