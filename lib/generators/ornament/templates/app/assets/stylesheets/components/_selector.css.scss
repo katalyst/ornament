@@ -5,7 +5,7 @@ $selector-border-color: $input-border-color;
   @include border-radius($border-radius);
   margin: $default-unit 0;
   overflow: hidden;
-  // @include flush-children;
+  @include flush-children;
 }
 
 .selector--search {
@@ -32,6 +32,7 @@ $selector-border-color: $input-border-color;
   max-height: 220px;
   overflow: auto;
   position: relative;
+  background: $white;
 }
 
 .selector .shadow-top,
@@ -58,6 +59,10 @@ $selector-border-color: $input-border-color;
 .selector .shadow-bottom:after {
   bottom: 0;
   @include background-image(linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%));
+}
+
+.selector--no-results {
+  padding: $panel-padding;
 }
 
 .selector--list {
