@@ -10,9 +10,9 @@
 <div class="tabs">
   <nav class="tabs--links">
     <ul>
-      <li><a href="#tab1_1" class="tabs--link" data-tab="tab1_1">Tab #1</a></li>
-      <li><a href="#tab1_2" class="tabs--link" data-tab="tab1_2">Tab #2</a></li>
-      <li><a href="#tab1_3" class="tabs--link" data-tab="tab1_3">Tab #3</a></li>
+      <li><a href="#" class="tabs--link" data-tab="tab1_1">Tab #1</a></li>
+      <li><a href="#" class="tabs--link" data-tab="tab1_2">Tab #2</a></li>
+      <li><a href="#" class="tabs--link" data-tab="tab1_3">Tab #3</a></li>
     </ul>
   </nav>
   <div class="tabs--panes">
@@ -40,9 +40,9 @@
     <p>You can also open a tab with a link outside of the tabset, as long as it has a matching tab id inside a <code>data-tab-link</code> attribute. eg. <a href="#tab1_3" data-tab-link="tab1_3">This link</a> will open up tab three. The link has a data attribute of <code>data-tab-link="tab1_3"</code>, which is the <code>data-tab</code> id of the third tab. It's worth also adding the tab id to the <code>href</code> so that if the user opens the link in a new window, it will still deeplink to the tab. Here is how to properly write a link that opens up a tab outside of the tab container:</p>
 
     <pre class="sg-pre prettyprint">...
-&lt;li>&lt;a href="#tab1_1" class="tabs--link" data-tab="tab1_1">Tab #1&lt;a>&lt;/li>
-&lt;li>&lt;a href="#tab1_2" class="tabs--link" data-tab="tab1_2">Tab #2&lt;a>&lt;/li>
-&lt;li>&lt;a href="#tab1_3" class="tabs--link" <strong>data-tab="tab1_3"</strong>>Tab #3&lt;a>&lt;/li>
+&lt;li>&lt;a href="#" class="tabs--link" data-tab="tab1_1">Tab #1&lt;a>&lt;/li>
+&lt;li>&lt;a href="#" class="tabs--link" data-tab="tab1_2">Tab #2&lt;a>&lt;/li>
+&lt;li>&lt;a href="#" class="tabs--link" <strong>data-tab="tab1_3"</strong>>Tab #3&lt;a>&lt;/li>
 ...
 &lt;a <strong>href="#tab1_3" data-tab-link="tab1_3"</strong>>This link lives outside of a tabset, but will open a tab.&lt;/a></pre>
 
@@ -58,9 +58,9 @@
 <div class="tabs" data-tabs-deeplink>
   <nav class="tabs--links">
     <ul>
-      <li><a href="#tab2_1" class="tabs--link" data-tab="tab2_1">Tab #1</a></li>
-      <li><a href="#tab2_2" class="tabs--link" data-tab="tab2_2">Tab #2</a></li>
-      <li><a href="#tab2_1" class="tabs--link" data-tab="tab2_3">Tab #3</a></li>
+      <li><a href="#" class="tabs--link" data-tab="tab2_1">Tab #1</a></li>
+      <li><a href="#" class="tabs--link" data-tab="tab2_2">Tab #2</a></li>
+      <li><a href="#" class="tabs--link" data-tab="tab2_3">Tab #3</a></li>
     </ul>
   </nav>
   <div class="tabs--panes">
@@ -90,7 +90,7 @@
   <nav class="tabs--links">
     <ul>
       <%- (1..7).each do |i| -%>
-        <li><a href="#tab_select_<%= i -%>" class="tabs--link" data-tab="tab_select_<%= i -%>">Tab #<%= i -%></a></li>
+        <li><a href="#" class="tabs--link" data-tab="tab_select_<%= i -%>">Tab #<%= i -%></a></li>
       <%- end -%>
     </ul>
   </nav>
