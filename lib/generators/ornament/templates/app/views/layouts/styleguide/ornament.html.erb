@@ -11,7 +11,7 @@
       <% elsif content_for(:page_title) -%>
         <%= yield :page_title %> &ndash;
       <% end %>
-      <%= Rails.application.class.name.split("::").first.humanize %>
+      Ornament Pattern Library and UI/UX Documentation
     </title>
 
     <!-- META -->
@@ -26,7 +26,7 @@
     <%= render "layouts/webfonts" -%>
 
     <!-- STYLES -->
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "styleguide", :media => "all" %>
     <%= yield :styles %>
 
     <!-- SCRIPTS -->
@@ -66,8 +66,8 @@
 
   </head>
 
-  <!--[if lte IE 8 ]><body class="ie8 <%= yield :body_class -%>"> <![endif]-->
-  <!--[if (gt IE 8)|!(IE)]><!--> <body class="<%= yield :body_class -%>"> <!--<![endif]-->
+  <!--[if lte IE 8 ]><body class="ie8 styleguide <%= yield :body_class -%>"> <![endif]-->
+  <!--[if (gt IE 8)|!(IE)]><!--> <body class="styleguide <%= yield :body_class -%>"> <!--<![endif]-->
 
     <a class="skip-link" href="#main">skip to content</a>
 
@@ -79,21 +79,7 @@
 
             <div class="pane">
               <div class="pane--navigation-container">
-
-                <ul class="non-pane">
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li data-description="Description of link with children.">
-                    <a href="#">Link with Children</a>
-                    <ul>
-                      <li><a href="#">Sublink</a></li>
-                      <li><a href="#">Sublink</a></li>
-                      <li><a href="#">Sublink</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-
+                <%= render "layouts/styleguide/styleguide_navigation", heading_class: "sg-nav--heading", list_class: "non-pane" -%>
               </div>
             </div>
           </div>
@@ -102,12 +88,13 @@
 
       <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
 
-        <header class="layout--header" role="banner">
+        <header class="sg-header layout--header" role="banner">
           <div class="layout--container">
-            <div class="header">
-              header
-              <button class="layout--switch header--menu" data-mobile-menu-switch>open navigation</button>
-            </div>
+            <hgroup class="sg-header--logo">
+              <h1><%= link_to "Ornament", styleguide_path -%></h1>
+              <h2>The front-end pattern library and styleguide for Katalyst web applications</h2>
+            </hgroup>
+            <button class="sg-header--menu" data-mobile-menu-switch>open navigation</button>
           </div>
         </header>
 
@@ -122,13 +109,7 @@
         <%- end -%>
         <%= yield :below_layout -%>
 
-        <footer class="layout--footer" role="contentinfo">
-          <div class="layout--container">
-            <div class="footer">
-              footer
-            </div>
-          </div>
-        </footer>
+        <footer class="sg-footer" role="contentinfo"></footer>
 
       </div>
 

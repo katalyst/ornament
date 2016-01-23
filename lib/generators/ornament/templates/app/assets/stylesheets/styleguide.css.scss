@@ -1,14 +1,86 @@
-@import "ornament/core";
-@import "components/settings-preview";
-@import "components/table";
+////////////////////////////////////////////////////////////////////////////////
+//
+// This is the base CSS file for your application. Import this into your layout.
+//
+////////////////////////////////////////////////////////////////////////////////
 
-// STYLEGUIDE VARIABLES
-// only used for styleguide layout
+// ORNAMENT
+//
+// Apply resets, apply default Ornament styles and import fonts & settings.
+//
+
+@import "ornament/core";
+
+// SETTINGS OVER-RIDE
+$breakpoint-header: 9999px;
+$divider: #ccc;
+
+$primary-color: #db892a;
+$secondary-color: #252525;
+
+$grey:           #ccc;
+$light-grey:     lighten($grey, 15);
+$dark-grey:      darken($grey, 20);
+$x-dark-grey:    darken($grey, 50);
+
 $sg-font:           arial, sans-serif;
-$sg-grey:           #ccc;
-$sg-light-grey:     lighten($sg-grey, 15);
-$sg-dark-grey:      darken($sg-grey, 10);
 $sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
+
+// ASPECTS
+//
+//
+// Spacing around elements in different areas of the website
+//
+
+@import "aspects/normal";
+@import "aspects/compressed";
+@import "aspects/expanded";
+@import "aspects/inputs";
+
+// COMPONENTS
+//
+//
+// Import the components this project uses. Instead of importing Compass or
+// Ornament utilities/mixins here, import them directly into your components
+//
+
+@import "components/align";
+@import "components/breakpoint-helper";
+@import "components/button";
+@import "components/clearfix";
+@import "components/embed";
+@import "components/environment";
+@import "components/error-page";
+@import "components/flexible-input";
+@import "components/footer";
+@import "components/form";
+@import "components/header";
+@import "components/icons";
+@import "components/island";
+@import "components/issuu";
+@import "components/kat-image-upload";
+@import "components/layout";
+@import "components/lightbox";
+@import "components/map";
+@import "components/menu-aim";
+@import "components/navigation-mobile";
+@import "components/oslide";
+@import "components/page";
+@import "components/pagination";
+@import "components/panel";
+@import "components/read-more";
+@import "components/selector";
+@import "components/skip-link";
+@import "components/spacing";
+@import "components/sticky";
+@import "components/table";
+@import "components/tabs";
+@import "components/text-limiter";
+@import "components/toggle";
+@import "components/tooltip";
+@import "components/fotorama-custom";
+@import "components/print";
+@import "components/vertre";
 
 // STYLEGUIDE TYPOGRAPHY
 
@@ -22,17 +94,6 @@ body {
   }
 }
 
-// CONCEPT MARKER
-.poc {
-  background: $primary-color;
-  color: #fff;
-  font-size: 12px;
-  text-transform: uppercase;
-  padding: 3px 5px;
-  @include border-radius($border-radius);
-  @include font($body-font);
-}
-
 .heading-one, .heading-two, .heading-three, .heading-four {
   font-family: $sg-font;
   font-weight: bold;
@@ -42,20 +103,91 @@ body {
   margin-bottom: 2em;
 }
 
-// STYLEGUIDE LAYOUT
-.sg-back {
-  font-size: 0.8em;
-  text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: 2em;
+// STYLEGUIDE HEADER
+
+.sg-header {
+  background: $secondary-color;
+  border-top: 4px solid $primary-color;
+}
+
+.sg-header .layout--container {
+  @include display-flex;
+  @include align-items(center);
+  padding: $default-unit 0;
+}
+
+.sg-header--logo {
+  @include flex-grow(1);
+  color: $white;
+
+  a {
+    @include color-link($white, $white);
+    @include decorate-link(none, none);
+  }
+
+  h1 {
+    @include heading-three;
+  }
+
+  h2 {
+    color: $grey;
+    padding-top: $xxxx-small-unit;
+  }
+}
+
+.sg-header--menu {
+  @include grunticon("menu-white", 24px);
+  @include icon-block(44px, 24px);
+  overflow: visible;
+}
+
+// STYLEGUIDE MENU
+.styleguide {
+  .layout--mobile-tray {
+    background: $secondary-color;
+  }
+  .navigation-mobile.complex .pane--navigation-container ul {
+    border-bottom-color: $x-dark-grey;
+  }
+  .navigation-mobile.complex .pane--navigation-container ul li + li > a, 
+  .navigation-mobile.complex .pane--navigation-container ul li + li > .faux-link {
+    border-top-color: $x-dark-grey;
+  }
+  .navigation-mobile.complex .pane-wrapper .pane a, .navigation-mobile.complex .pane-wrapper .pane .faux-link {
+    @include font($body-font);
+  }
+  .navigation-mobile.complex .navigation-item > a:before, 
+  .navigation-mobile.complex .navigation-item > span.faux-link:before, 
+  .navigation-mobile.complex .navigation-item > button:before {
+    background: transparent;
+  }
+  .navigation-mobile.complex .pane-wrapper .pane a, 
+  .navigation-mobile.complex .pane-wrapper .pane .faux-link {
+    @include color-link($primary-color, $primary-color);
+  }
+}
+.sg-nav--heading {
+  border-bottom: 1px solid $x-dark-grey;
+  padding: $xxx-small-unit;
+  color: $grey;
+  @include font($bold-font);
+
+  ul + & {
+    padding-top: $x-large-unit;
+  }
+}
+
+// STYLEGUIDE FOOTER
+.sg-footer {
+  border-top: 4px solid $primary-color;
 }
 
 // CODE SAMPLES
 
 pre,
 pre.prettyprint {
-  border: 1px solid $sg-grey !important;
-  background: $sg-light-grey;
+  border: 1px solid $grey !important;
+  background: $light-grey;
   padding: 0.5em 1em !important;
   margin: 1.5em 0;
   font-family: $sg-code-font;
@@ -87,8 +219,8 @@ pre.prettyprint {
 }
 
 code {
-  border: 1px solid $sg-grey;
-  background: $sg-light-grey;
+  border: 1px solid $grey;
+  background: $light-grey;
   font-family: $sg-code-font;
   padding: .3em .3em .2em;
   @include border-radius($border-radius);
@@ -219,6 +351,7 @@ code {
 }
 
 // CONTENT SAMPLE EXTENSIONS
+
 .example table caption {
   @extend .heading-three;
 }
@@ -226,4 +359,15 @@ code {
   @extend .table;
   @extend .table-ruled;
   @extend .table-flush;
+}
+
+// PROOF OF CONCEPT BUTTON
+.poc {
+  background: $primary-color;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 3px 5px;
+  @include border-radius($border-radius);
+  @include font($body-font);
 }

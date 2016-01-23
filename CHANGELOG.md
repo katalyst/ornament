@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.2.1
+
+Documentation update!
+All new look for the ornament dummy app and styleguide that gets generated. 
+
 ## v1.2.0
 
 ### Features

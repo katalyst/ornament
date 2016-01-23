@@ -1,5 +1,5 @@
 class StyleguideController < ActionController::Base
-  layout "styleguide"
+  layout "styleguide/ornament"
   
   # include CommonControllerActions
 
