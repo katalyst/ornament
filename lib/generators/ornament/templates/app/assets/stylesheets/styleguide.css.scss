@@ -15,6 +15,7 @@
 $breakpoint-header: 9999px;
 $divider: #ccc;
 
+$background-color: #eee;
 $primary-color: #db892a;
 $secondary-color: #252525;
 
@@ -103,6 +104,23 @@ body {
   margin-bottom: 2em;
 }
 
+hr {
+  margin: $large-unit 0;
+  border: 0;
+  height: 1px;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -50vw;
+    right: -50vw;
+    background: $divider;
+  }
+}
+
 // STYLEGUIDE HEADER
 
 .sg-header {
@@ -177,17 +195,12 @@ body {
   }
 }
 
-// STYLEGUIDE FOOTER
-.sg-footer {
-  border-top: 4px solid $primary-color;
-}
-
 // CODE SAMPLES
 
 pre,
 pre.prettyprint {
   border: 1px solid $grey !important;
-  background: $light-grey;
+  background: $white;
   padding: 0.5em 1em !important;
   margin: 1.5em 0;
   font-family: $sg-code-font;

@@ -1,0 +1,16 @@
+<div class="tabs">
+  <nav class="tabs--links">
+    <ul>
+      <li><a href="#<%= id -%>__preview" class="tabs--link" data-tab="<%= id -%>__preview">Preview</a></li>
+      <li><a href="#<%= id -%>__source" class="tabs--link" data-tab="<%= id -%>__source">Source</a></li>
+    </ul>
+  </nav>
+  <div class="tabs--panes">
+    <div class="tabs--pane" data-tab-for="<%= id -%>__preview">
+      <%= yield -%>
+    </div>
+    <div class="tabs--pane" data-tab-for="<%= id -%>__source">
+      <pre class="sg-pre prettyprint"><%= render_source(yield) -%></pre>
+    </div>
+  </div>
+</div>
