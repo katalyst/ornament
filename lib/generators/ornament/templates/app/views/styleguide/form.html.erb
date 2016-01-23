@@ -7,75 +7,6 @@
     <em>Note: Ornament assumes you are using simple_form to generate form fields.</em>
   </p>
 
-  <h2 class="heading-two">Inline Forms Groups</h2>
-
-  <p>A self-contained inline form consists of an input field with a joined button:</p>
-  <p><strong>Note:</strong> icons cannot be applied to <code>input</code> tags, all icon buttons must be <code>button</code> elements.</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline" } do -%>
-<form class="form-inline">
-  <div class="form-inline--input-container">
-    <input type="text" class="form-inline--input" />
-  </div>
-  <button class="button form-inline--button icon-chevron-right"></button>
-</form>
-  <%- end -%>
-
-  <hr />
-
-  <h2 class="heading-two">Full-length inline form</h2>
-
-  <p>A full-length variant of the form above:</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-full" } do -%>
-<form class="form-inline__full">
-  <div class="form-inline--input-container">
-    <input type="text" class="form-inline--input" />
-  </div>
-  <button type="submit" class="button form-inline--button icon-chevron-right"></button>
-</form>
-  <%- end -%>
-
-  <hr />
-
-  <h2 class="heading-two">Full-width search field</h2>
-
-  <p>A common pattern for search pages:</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-search" } do -%>
-<form class="form-search">
-  <label for="search_things" class="form-search--label">Search Things:</label>
-  <div class="form-inline">
-    <div class="form-inline--input-container">
-      <input type="text" class="form-inline--input" id="search_things" name="search_things" />
-    </div>
-    <button type="submit" class="button form-inline--button icon-search"></button>
-  </div>
-</form>
-  <%- end -%>
-
-  <hr />
-
-  <h2 class="heading-two">Limited text fields</h2>
-
-  <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter" } do -%>
-<div class="form--medium">
-  <textarea type="text" data-limiter="200"></textarea>
-</div>
-  <%- end -%>
-
-  <p>You can limit by words instead of letters by adding in the <code>data-limiter-word</code> attribute.</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-word-limiter" } do -%>
-<div class="form--medium">
-  <textarea type="text" data-limiter="5" data-limiter-word></textarea>
-</div>
-  <%- end -%>
-
-  <hr />
-
   <h2 class="heading-two">Form field lengths</h2>
 
   <p>Field lengths can be controlled with <code>form--*</code> classes.</p>
@@ -178,6 +109,86 @@
     </label>
   </div>
 </div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Limited text fields</h2>
+
+  <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter" } do -%>
+<div class="inputs">
+  <input type="text" class="form--medium" data-limiter="30" />
+  <textarea class="form--medium" data-limiter="200"></textarea>
+</div>
+  <%- end -%>
+
+  <p>You can limit by words instead of letters by adding in the <code>data-limiter-word</code> attribute.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-word-limiter" } do -%>
+<div class="inputs">
+  <input type="text" class="form--medium" data-limiter="3" data-limiter-word />
+  <textarea class="form--medium" data-limiter="10" data-limiter-word></textarea>
+</div>
+  <%- end -%>
+
+  <p>Both word and character limiter has a "micro" styling option by adding <code>data-limiter-micro</code> to your input.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter-micro" } do -%>
+<div class="inputs">
+  <input type="text" class="form--medium" data-limiter="30" data-limiter-micro />
+  <textarea class="form--medium" data-limiter="200" data-limiter-micro></textarea>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Inline Forms Groups</h2>
+
+  <p>A self-contained inline form consists of an input field with a joined button:</p>
+  <p><strong>Note:</strong> icons cannot be applied to <code>input</code> tags, all icon buttons must be <code>button</code> elements.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline" } do -%>
+<form class="form-inline">
+  <div class="form-inline--input-container">
+    <input type="text" class="form-inline--input" />
+  </div>
+  <button class="button form-inline--button icon-chevron-right"></button>
+</form>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Full-length inline form</h2>
+
+  <p>A full-length variant of the form above:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-full" } do -%>
+<form class="form-inline__full">
+  <div class="form-inline--input-container">
+    <input type="text" class="form-inline--input" />
+  </div>
+  <button type="submit" class="button form-inline--button icon-chevron-right"></button>
+</form>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Full-width search field</h2>
+
+  <p>A common pattern for search pages:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-search" } do -%>
+<form class="form-search">
+  <label for="search_things" class="form-search--label">Search Things:</label>
+  <div class="form-inline">
+    <div class="form-inline--input-container">
+      <input type="text" class="form-inline--input" id="search_things" name="search_things" />
+    </div>
+    <button type="submit" class="button form-inline--button icon-search"></button>
+  </div>
+</form>
   <%- end -%>
 
   <hr />
