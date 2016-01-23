@@ -218,6 +218,15 @@ hr {
   background: $secondary-color;
 }
 
+.sg-feature > .tabs--links ul {
+  @include display-flex;
+
+  li {
+    float: none;
+    @include display-flex;
+  }
+}
+
 .sg-feature > .tabs--links > ul > li > .tabs--link {
   border: 1px solid $secondary-color;
   border-bottom: 0;
