@@ -9,6 +9,42 @@
 
   <hr />
 
+  <h2 class="heading-two">Spacing out fields</h2>
+
+  <p>All fields are spaced using the <code>inputs</code> class.</p>
+  <p>The <code>inputs</code> class only affects direct children, so any nested inputs will need another <code>inputs</code> class.</p>
+  <p>You can space any buttons away from the inputs above by using the <code>actions</code> class.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-spacing", ruby: capture { -%>
+&lt;div class="inputs">
+  &lt;%= f.input :field_1 -%&gt;
+  &lt;%= f.input :field_2 -%&gt;
+&lt;/div>
+&lt;div class="actions">
+  &lt;%= f.button "Submit" -%&gt;
+&lt;/div>
+  <%- } } do -%>
+<div class="inputs">
+  <div class="control-group">
+    <label class="optional control-label">Field</label>
+    <div class="controls">
+      <input class="form--medium" type="text" />
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="optional control-label">Field</label>
+    <div class="controls">
+      <input class="form--medium" type="text" />
+    </div>
+  </div>
+</div>
+<div class="actions">
+  <button class="button">Submit</button>
+</div>
+  <%- end -%>
+
+  <hr />
+
   <h2 class="heading-two">Form field lengths</h2>
 
   <p>Field lengths can be controlled with <code>form--*</code> classes.</p>
@@ -18,32 +54,53 @@
   <p>The available lengths are:</p>
 
   <div class="inputs">
-    <div class="control-group form--large">
+    <div class="control-group">
       <label class="optional control-label"><code>.form--large</code></label>
       <div class="controls">
-        <input class="string tel optional" type="text" />
+        <input class="form--large" type="text" />
       </div>
     </div>
 
-    <div class="control-group form--medium">
+    <div class="control-group">
       <label class="optional control-label"><code>.form--medium</code></label>
       <div class="controls">
-        <input class="string tel optional" type="text" />
+        <input class="form--medium" type="text" />
       </div>
     </div>
 
-    <div class="control-group form--small">
+    <div class="control-group">
       <label class="optional control-label"><code>.form--small</code></label>
       <div class="controls">
-        <input class="string tel optional" type="text" />
+        <input class="form--small" type="text" />
       </div>
     </div>
 
-    <div class="control-group form--x-small">
+    <div class="control-group">
       <label class="optional control-label"><code>.form--x-small</code></label>
       <div class="controls">
-        <input class="string tel optional" type="text" />
+        <input class="form--x-small" type="text" />
       </div>
+    </div>
+
+    <div class="control-group">
+      <label class="optional control-label"><code>.form--auto</code></label>
+      <div class="controls">
+        <select class="form--auto">
+          <option>Please select</option>
+          <option>Lorem</option>
+          <option>Ipsum</option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+
+  <p>If you want a thinner input field, you can use <code>.input__tight</code>:</p>
+
+  <div class="control-group">
+    <label class="optional control-label"><code>.form--x-small.input__tight</code></label>
+    <div class="controls">
+      <input class="form--x-small input__tight" type="text" />
     </div>
   </div>
 
@@ -175,13 +232,13 @@
 &lt;%= f.input :example, as: :boolean, wrapper_html: { class: "checkbox__single" } -%&gt;
   <%- } } do -%>
 <div class="control-group boolean optional checkbox__single">
-  <label class="boolean optional control-label" for="terms">
+  <label class="boolean optional control-label" for="single-checkbox">
     A single checkbox / boolean with the wrapper class <code>checkbox__single</code>
   </label>
   <div class="controls">
-    <input name="enrollment[terms]" type="hidden" value="0">
+    <input name="form[single-checkbox]" type="hidden" value="0">
     <label class="checkbox">
-      <input class="boolean optional" id="terms" name="form[terms]" type="checkbox" value="1">
+      <input class="boolean optional" id="single-checkbox" name="form[single-checkbox]" type="checkbox" value="1">
     </label>
   </div>
 </div>
@@ -253,7 +310,7 @@
     A single checkbox / boolean with the wrapper class <code>checkbox__single</code> and <code>form--enhanced</code>
   </label>
   <div class="controls">
-    <input name="enrollment[terms_enhanced]" type="hidden" value="0">
+    <input name="form[terms_enhanced]" type="hidden" value="0">
     <label class="checkbox">
       <input class="boolean optional" id="terms_enhanced" name="form[terms_enhanced]" type="checkbox" value="1">
     </label>

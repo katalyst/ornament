@@ -10,7 +10,12 @@ There are now simple_form examples available where relevant.
 
 - Added "micro" text limiter variation by using `data-limiter-micro`  
 - Added basic enhanced radio and checkbox form elements.  
-- Added `@include text-wrap` mixin for force-wrapping text.  
+- Added `@include text-wrap` mixin for force-wrapping text along with the `type--wrap` class.  
+- Added `@include ellipsis` mixin for truncating text along with the `type--ellipsis` class. 
+- Added `.input__tight` for thinner input fields.  
+- Added `.form--auto` for auto-width select elements.  
+- Added docs for spacing out form fields. 
+- Added `$passive-color` and `.panel__passive`  
 
 ### Bugfixes
 
