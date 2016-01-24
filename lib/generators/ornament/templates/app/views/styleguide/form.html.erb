@@ -3,15 +3,17 @@
 
 <div class="content-spacing">
 
-  <p>
+  <div class="panel panel__passive panel--padding">
     <em>Note: Ornament assumes you are using simple_form to generate form fields.</em>
-  </p>
+  </div>
+
+  <hr />
 
   <h2 class="heading-two">Form field lengths</h2>
 
   <p>Field lengths can be controlled with <code>form--*</code> classes.</p>
 
-  <p>They can either be applied on the <code>&lt;form></code> element itself, which will then control the lengths of <strong>every</strong> field inside it, or they can be applied on a field-by-field basis.</p>
+  <p>You can add these classes to the input directly to only size the input, or you can add the class to the wrapper to size the input along with any hints, labels, error messages etc. that are associated.</p>
 
   <p>The available lengths are:</p>
 
@@ -44,6 +46,72 @@
       </div>
     </div>
   </div>
+
+  <hr />
+
+  <h2 class="heading-two">Field modifiers</h2>
+
+  <p>Placeholders are added with the <code>placeholder</code> input attribute.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-placeholder", ruby: capture { -%>
+&lt;%= f.input :example, placeholder: "Example Placeholder" -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium">
+  <label class="string required control-label" for="modifier-placeholder">
+    <abbr title="required">*</abbr> Your name
+  </label>
+  <div class="controls">
+    <input class="string required" id="modifier-placeholder" type="text" placeholder="Example Placeholder">
+  </div>
+</div>
+  <%- end -%>
+
+  <p>Hints appear inside the label element just after the text for the label and use the class <code>hint-block</code>.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-hint", ruby: capture { -%>
+&lt;%= f.input :example, hint: "Example Hint" -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium">
+  <label class="string required control-label" for="modifier-hint">
+    <abbr title="required">*</abbr> Your name
+    <p class='hint-block'>This is a hint message.</p>
+  </label>
+  <div class="controls">
+    <input class="string required" id="modifier-hint" type="text">
+  </div>
+</div>
+  <%- end -%>
+
+  <p>Errors appear inline next to labels and use the <code>error-block</code> class.</p>
+  <p>The wrapper should also get the class of <code>error</code> to colour the label.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-error", ruby: capture { -%>
+&lt;%= f.input :example, error: "Example Error" -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium error">
+  <label class="string required control-label" for="modifier-error">
+    <abbr title="required">*</abbr> Your name<span class='error-block'>can't be blank</span>
+  </label>
+  <div class="controls">
+    <input class="string required" id="modifier-error" type="text">
+  </div>
+</div>
+  <%- end -%>
+
+  <p>Disabled fields use the <code>disabled</code> input attribute.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
+&lt;%= f.input :example, disabled: true -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium">
+  <label class="string required control-label" for="modifier-disabled">
+    <abbr title="required">*</abbr> Your name
+  </label>
+  <div class="controls">
+    <input class="string required" id="modifier" type="text" disabled>
+  </div>
+</div>
+  <%- end -%>
 
   <hr />
 

@@ -14,6 +14,7 @@
 // SETTINGS OVER-RIDE
 $breakpoint-header: 9999px;
 $divider: #ccc;
+$passive-color: #e5e5e5;
 
 $background-color: #f6f6f6;
 $primary-color: #db892a;
@@ -128,7 +129,7 @@ a {
 }
 
 hr {
-  margin: $large-unit 0;
+  margin: $small-unit 0;
   border: 0;
   height: 1px;
   position: relative;

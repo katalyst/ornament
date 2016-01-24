@@ -1,4 +1,4 @@
-<%= content_for :title, "Grunt tasks" -%>
+<%= content_for :title, "Grunticons" -%>
 
 <div class="content-spacing">
 
@@ -8,6 +8,8 @@
 
   <p>Simply open up terminal and type <code>npm install</code> to install grunt and any other dependancies that ornament requires.</p>
 
+  <hr />
+
   <h2 class="heading-two">SVG Icons with <a href="https://github.com/filamentgroup/grunticon" target="_blank">Grunticon</a></h2>
 
   <p>Place your .SVG or .PNG files in <code>/app/assets/icons</code></p>
@@ -15,6 +17,8 @@
   <p>Running <code>grunt icons</code> will generate all icons in to CSS files and create PNG fallbacks for SVG files.</p>
 
   <p>The CSS for SVG and PNG files will be generated and placed in to <code>/app/assets/stylesheets/grunticon</code></p>
+
+  <hr />
 
   <h2 class="heading-two">Colouring Icons</h2>
 
@@ -33,6 +37,8 @@
 
   <p>Be careful using named colours (eg. blue, green, salmon, lightgoldenrodyellow) as Grunticon will disregard your colour definitions in favour of the CSS named colours instead. Green for example will use #00ff00 and blue will use #0000ff.</p>
 
+  <hr />
+
   <h2 class="heading-two">Applying Icons</h2>
 
   <p>There are a few mixins that will help you in adding our freshly minted icon on to our page:</p>
@@ -43,8 +49,10 @@
     Pass in a width so the mixin will know how big the psuedo element for the icon needs to be. You can optionally pass in a height, otherwise it will assume it's a square. 
   </p>
   <p>
-    <strong>@include icon-block($block-size, [$icon-size])</strong><br />
-    Results in an icon inside a square. Useful for making icon buttons that have no accompanying text. The first value is the size of the block, the second is the size of the icon. If you don't pass in an icon size it will assume the icon is the same size as the block itself. 
+    <strong>@include icon-block($block-width, [$icon-width], [$block-height], [$icon-height])</strong><br />
+    Results in an icon inside a square. Useful for making icon buttons that have no accompanying text. <br />
+    Only the first value is required. If only one value is passed to the mixin, it will assume the block and icon are sized the same and are square. <br />
+    Height values are optional if the icon is square. 
   </p>
   <p>
     <strong>@include icon-inline</strong><br />

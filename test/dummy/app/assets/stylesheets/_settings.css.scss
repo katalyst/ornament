@@ -109,19 +109,23 @@ $site-gutters:
 // Default colors.
 //
 
-$primary-color: #4b9dd0;
-
 $white: #fff;
 $grey: #bbb;
 
+$primary-color: #4b9dd0;
+$passive-color: #eee;
+
 $foreground-color: #222;
 $background-color: #fff;
+
 $link-color: blue;
 $link-hover-color: false;
+
 $error-color: #990000;
 $error-background: red;
 $notice-color: #ff6600;
 $success-color: green;
+
 $input-border-color: #c5cbd4;
 $input-border-focus-color: darken($input-border-color,20);
 
@@ -130,7 +134,6 @@ $twitter: #44ccf6;
 $linkedin: #1b86bd;
 
 $image-border: 0;
-
 
 // INPUTS
 //

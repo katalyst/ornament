@@ -9,6 +9,10 @@
   margin-left: 2em;
   margin-bottom: $small-unit;
 
+  ul,ol {
+    margin-bottom: 0;
+  }
+
   @if ($list-type == ul) {
     li {
       list-style: disc;

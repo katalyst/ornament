@@ -21,6 +21,11 @@ $panel-border:          $background-color;
   }
 }
 
+.panel__passive {
+  @extend .panel;
+  background: $passive-color;
+}
+
 // PADDING VARIANTS
 
 .panel--padding {
