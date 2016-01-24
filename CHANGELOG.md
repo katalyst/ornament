@@ -10,6 +10,7 @@ There are now simple_form examples available where relevant.
 
 - Added "micro" text limiter variation by using `data-limiter-micro`  
 - Added basic enhanced radio and checkbox form elements.  
+- Added `@include text-wrap` mixin for force-wrapping text.  
 
 ### Bugfixes
 
