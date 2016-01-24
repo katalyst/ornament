@@ -1,0 +1,23 @@
+<%- content_for :title, "Other Yields" -%>
+
+<div class="content-spacing">
+  <p>The default Ornament global and application template come with a few more yields to customise your view with.</p>
+
+  <h2 class="heading-two">Titles</h2>
+  <p>Adding content to <code>:title</code> will put the content in both the page <code>&lt;title></code> element and also output the title on the page in the predefined yield in the application template.</p>
+  <p><code>&lt;%- content_for :title, "Other Yields" -%></code></p>
+
+  <p>Alternatively if you just want to yield to the <code>&lt;title></code> tag, you can use <code>:page_title</code>, which will not output anything on the page.</p>
+  <p><code>&lt;%- content_for :page_title, "Other Yields" -%></code></p>
+
+  <hr />
+
+  <h2 class="heading-two">Classes</h2>
+
+  <p>You can apply a custom class to your body element by using <code>:body_class</code>. This is helpful if you need to alter something in the global layout just for one page.</p>
+  <p><code>&lt;%- content_for :body_class, "other-yields" -%></code></p>
+
+  <p>You can also apply a different class to your <code>.layout--main</code> element which is what controls the top and bottom padding between your page and header/footer.</p>
+  <p><code>&lt;%- content_for :layout_class, "layout__flush" -%></code></p>
+
+</div>
