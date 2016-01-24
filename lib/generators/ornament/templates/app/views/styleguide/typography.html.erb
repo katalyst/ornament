@@ -183,17 +183,21 @@
   <h2 class="heading-two">Inline typography styles</h2>
 
   <p>Along with the content classes above, we have some element styling out of the box to make marking up your document easier. Unlike headings, these tags are usually used in specific-enough situations that styling should be assumed:</p>
-</div>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "content-spacing" } do -%>
-<p>
-  Regular text<br />
-  <small>Small text</small><br />
-  <del>Deleted text</del><br />
-  <sup>Superscript</sup><br />
-  <sub>Subscript</sub>
-</p>
+Regular text<br />
+<small>Small text</small><br />
+<del>Deleted text</del><br />
+<sup>Superscript</sup><br />
+<sub>Subscript</sub>
   <%- end -%>
+
+  <p>If you have a crazy long word that is just breaking <em>everything</em>, you can add <code>.type-wrap</code> on the text to force wrap it:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "content-spacing" } do -%>
+<span class="type-wrap">Loremipsumdolorsitamet,consecteturadipisicingelit.Nobisquamdoloremeaquisquamatfugiatnostrumquoquidemestexcepturi.Loremipsumdolorsitamet,consecteturadipisicingelit.Nobisquamdoloremeaquisquamatfugiatnostrumquoquidemestexcepturi.</span>
+  <%- end -%>
+</div>
 
   <hr />
 

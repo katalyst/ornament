@@ -50,6 +50,14 @@ small {
   @include small-type;
 }
 
+.type-small {
+  @include small-type;
+}
+
+.type-wrap {
+  @include text-wrap;
+}
+
 // HEADINGS
 
 @mixin heading-one {
