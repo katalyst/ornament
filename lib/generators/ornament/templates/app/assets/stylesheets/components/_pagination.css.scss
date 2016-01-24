@@ -6,6 +6,8 @@ $pagination-current-color:         #ccc;
 .pagination {
   text-align: center;
   margin-top: $default-unit;
+  margin-bottom: $default-unit;
+  @include flush-children;
   @include pie-clearfix;
   @include border-radius(75px);
 

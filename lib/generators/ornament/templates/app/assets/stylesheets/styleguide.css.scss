@@ -222,15 +222,20 @@ hr {
 }
 
 // FEATURE TABS 
+$sg-feature-border: $light-grey;
+$sg-feature-background: $background-color;
 
 .sg-feature {
   margin-top: $default-unit;
   margin-bottom: $default-unit;
   @include flush-children;
+  @include box-shadow(1px 1px 3px rgba(0,0,0,0.1));
 }
 
 .sg-feature > .tabs--links {
-  background: $secondary-color;
+  background: $x-light-grey;
+  border: 1px solid $sg-feature-border;
+  border-bottom: 0;
 }
 
 .sg-feature > .tabs--links ul {
@@ -243,7 +248,8 @@ hr {
 }
 
 .sg-feature > .tabs--links > ul > li > .tabs--link {
-  border: 1px solid $secondary-color;
+  border: 1px solid transparent;
+  border-width: 0 1px;
   border-bottom: 0;
   @include color-link($dark-grey, $dark-grey);
   @include decorate-link(none, none);
@@ -251,8 +257,12 @@ hr {
   text-transform: uppercase;
 
   &:hover {
-    background: darken($secondary-color, 10);
+    // background: darken($sg-feature-border, 10);
   }
+}
+
+.sg-feature > .tabs--links > ul > li:first-child > .tabs--link {
+  border-left: 0;
 }
 
 .sg-feature > .tabs--links > ul > li + li > .tabs--link {
@@ -260,24 +270,39 @@ hr {
 }
 
 .sg-feature > .tabs--links > ul > li > .tabs--link__active {
-  background: $background-color;
+  background: $sg-feature-background;
+  border-color: $sg-feature-border;
   @include color-link($foreground-color, $foreground-color);
 
   &:hover {
-    background: $background-color;
+    background: $sg-feature-background;
   }
 
   &:before,
   &:after {
-    background: $secondary-color;
+    background: $sg-feature-border;
   }
 }
 
 .sg-feature > .tabs--panes > .tabs--pane {
   padding: $panel-padding;
-  // background: $white;
-  border: 1px solid $secondary-color;
+  background: $sg-feature-background;
+  border: 1px solid $sg-feature-border;
   border-top: 0;
+  position: relative;
+
+  [data-copy-code] {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px 10px;
+    display: block;
+    background: $primary-color;
+    @include border-top-left-radius($border-radius);
+    @include color-link($white, $white);
+    text-transform: uppercase;
+    font-size: $x-small-font-size;
+  }
 }
 
 .sg-feature > .tabs--panes > .tabs--pane__flush {
