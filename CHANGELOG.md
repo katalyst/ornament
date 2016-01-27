@@ -16,6 +16,8 @@ There are now simple_form examples available where relevant.
 - Added `.form--auto` for auto-width select elements.  
 - Added docs for spacing out form fields. 
 - Added `$passive-color` and `.panel__passive`  
+- Added flex mixins and basic docs  
+- Added support for various `type` attributes on lists  
 
 ### Bugfixes
 
