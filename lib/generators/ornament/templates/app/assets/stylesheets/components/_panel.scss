@@ -26,6 +26,17 @@ $panel-border:          $background-color;
   background: $passive-color;
 }
 
+.panel__warning {
+  @extend .panel;
+  background: $notice-color;
+  color: $foreground-color;
+
+  a {
+    @include color-link($foreground-color, $foreground-color);
+    @include decorate-link(underline, underline);
+  }
+}
+
 // PADDING VARIANTS
 
 .panel--padding {
