@@ -11,4 +11,4 @@ gem 'uglifier', '>= 1.0.3'
 gem 'turbolinks', '~> 1.3.0'
 gem 'protected_attributes'
 gem 'htmlentities'
-gem 'tzinfo-data'
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
