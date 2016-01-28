@@ -43,3 +43,14 @@ $panel-border:          $background-color;
   @include border-bottom-left-radius(0);
   @include border-bottom-right-radius(0);
 }
+
+// PANEL SPACING
+
+.panel-spacing {
+  .panel + .panel,
+  .panel + .panel-spacer,
+  .panel-spacer + .panel-spacer,
+  .panel-spacer + .panel {
+    margin-top: $panel-spacing;
+  }
+}

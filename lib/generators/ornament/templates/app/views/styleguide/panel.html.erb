@@ -41,15 +41,49 @@
   <p>You can stack panels by adding in the <code>panel__no-bottom-radius</code> and <code>panel__no-top-radius</code> classes:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-stacked" } do -%>
-<div class="panel panel__primary panel--padding panel__no-bottom-radius">
-  Blue panel with no bottom radius
-</div>
-
-<div class="panel panel--padding panel__no-top-radius">
-  Panel with no top radius
+<div class="panel">
+  <div class="panel__primary panel--padding panel__no-bottom-radius">
+    Blue panel with no bottom radius
+  </div>
+  <div class="panel--padding panel__no-top-radius">
+    Panel with no top radius
+  </div>
 </div>
   <%- end -%>
 
   <p>This is the reason why panels don't have padding by default, so that panels can stack and have independant padding.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Spacing panels</h2>
+
+  <p>You can space out panels by using the <code>panel-spacing</code> wrapper class:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-stacked" } do -%>
+<div class="panel-spacing">
+  <div class="panel panel--padding">
+    Panel 1
+  </div>
+  <div class="panel panel--padding">
+    Panel 2
+  </div>
+</div>
+  <%- end -%>
+
+  <p>By default it will space out all <code>panel</code> elements, but you can also add a <code>panel-spacer</code> class:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-stacked" } do -%>
+<div class="panel-spacing">
+  <div class="panel panel--padding">
+    Panel 1
+  </div>
+  <div class="panel-spacer">
+    Panel 2
+  </div>
+  <div class="panel panel--padding">
+    Panel 3
+  </div>
+</div>
+  <%- end -%>
 
 </div>
