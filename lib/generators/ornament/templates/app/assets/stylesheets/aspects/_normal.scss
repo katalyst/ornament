@@ -9,10 +9,12 @@
   margin-left: 2em;
   margin-bottom: $small-unit;
 
+  // Remove nested margins
   ul,ol {
     margin-bottom: 0;
   }
 
+  // Set list type based on value passed in
   @if ($list-type == ul) {
     li {
       list-style: disc;
@@ -23,6 +25,29 @@
       list-style: decimal;
     }
   }
+
+  // Support for type attributes
+  // http://stackoverflow.com/questions/27104096/css-selector-type-var-not-selecting-lower-alpha-versus-upper-alpha
+  &[type="1"] > li {
+    list-style: decimal;
+  }
+
+  &[type="a"] > li {
+    list-style: lower-alpha;
+  }
+
+  &[type="aup"] > li {
+    list-style: upper-alpha;
+  }
+
+  &[type="i"] > li {
+    list-style: lower-roman;
+  }
+
+  &[type="iup"] > li {
+    list-style: upper-roman;
+  }
+
 }
 
 .content-lists ul,

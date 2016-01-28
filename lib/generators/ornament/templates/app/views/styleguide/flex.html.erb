@@ -1,0 +1,40 @@
+<%- content_for :title, "Flex" -%>
+
+<div class="panel__warning panel--padding">
+  <strong>Warning:</strong> Only use these features if you are 100% you won't need to support IE8 or IE9. Please beware of the <a href="http://caniuse.com/#feat=flexbox">browser support</a> before using anything on this page.<br />
+  Please also be aware of the well documented <a href="https://github.com/philipwalton/flexbugs">flexbugs</a> when implementing flexbox.
+</div>
+
+<hr />
+
+<div class="content-spacing">
+  <h2 class="heading-two">Flexbox Mixins</h2>
+  <p>There are several flexbox related SCSS mixins:</p>
+  <ul>
+    <li>@include display-flex;</li>
+    <li>@include display-inline-flex;</li>
+    <li>@include flex($value);</li>
+    <li>@include flex-wrap($value:wrap);</li>
+    <li>@include flex-direction($value);</li>
+    <li>@include flex-grow($value);</li>
+    <li>@include flex-shrink($value);</li>
+    <li>@include align-items($value);</li>
+    <li>@include justify-items($value);</li>
+    <li>@include justify-self($value);</li>
+  </ul>
+
+  <hr />
+
+  <h2 class="heading-two">Flex Grid</h2>
+
+  <p>There are a couple of premade mixins that use the mixins above to create an easy-to-use grid system:</p>
+
+  <ul>
+    <li>@include flex-row($gutter:false)</li>
+    <li>@include flex-col($width, $gutter:false, $grow:0, $shrink:0)</li>
+  </ul>
+
+  <p>
+    <em>Hint:</em> you can use the <code>span(x,y)</code> mixin to make setting widths easier. eg: <code>@include flex-col(span(1,2));</code> for a 50% width column.
+  </p>
+</div>

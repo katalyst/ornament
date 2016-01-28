@@ -1,94 +1,180 @@
 <% content_for :title, "Lists" %>
 
-
 <div class="content-spacing">
 
   <h2 class="heading-two">Horizontal Spacing</h2>
 
-  <p>Spacing list items horizontally.</p>
-  <pre class="sg-pre prettyprint">@include list-horizontal($small-unit);</pre>
-  <ul class="lists--example lists--example-1">
-    <li>Lorem</li>
-    <li>ipsum</li>
-    <li>dolor</li>
-    <li>sit</li>
-    <li>amet</li>
-  </ul>
+  <p>Horizontally spacing out list items can be done by the <code>list-horizontal</code> mixin.</p>
 
-  <p>Adding a border between list items.</p>
-  <pre class="sg-pre prettyprint">@include list-horizontal($small-unit, 1px solid #ccc);</pre>
-  <ul class="lists--example lists--example-2">
-    <li>Lorem</li>
-    <li>ipsum</li>
-    <li>dolor</li>
-    <li>sit</li>
-    <li>amet</li>
-  </ul>
+  <p>It takes the following default values:</p>
 
-  <p>Adding borders to first and last items as well.</p>
-  <pre class="sg-pre prettyprint">@include list-horizontal($small-unit, 1px solid #ccc, true);</pre>
-  <ul class="lists--example lists--example-3">
-    <li>Lorem</li>
-    <li>ipsum</li>
-    <li>dolor</li>
-    <li>sit</li>
-    <li>amet</li>
-  </ul>
+  <p>
+    $space: $x-small-unit<br />
+    $border: false<br />
+    $all: false<br />
+    $element: "li"<br />
+    $delegate: false
+  </p>
+
+  <p>For example, basic spacing of list items horizontally by specifying the space as the first value.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "e1", scss: capture { -%>
+.lists--example-1 {
+  @include list-horizontal($small-unit);
+}
+  <%- } } do -%>
+<ul class="lists--example lists--example-1">
+  <li>Lorem</li>
+  <li>ipsum</li>
+  <li>dolor</li>
+  <li>sit</li>
+  <li>amet</li>
+</ul>
+  <%- end -%>
+
+  <p>Adding a border between list items by adding a border definition to the second value.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "e2", scss: capture { -%>
+.lists--example-2 {
+  @include list-horizontal($small-unit, 1px solid #ccc);
+}
+  <%- } } do -%>
+<ul class="lists--example lists--example-2">
+  <li>Lorem</li>
+  <li>ipsum</li>
+  <li>dolor</li>
+  <li>sit</li>
+  <li>amet</li>
+</ul>
+  <%- end -%>
+
+  <p>Adding borders to first and last items as well by passing the third value as true.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "e3", scss: capture { -%>
+.lists--example-3 {
+  @include list-horizontal($small-unit, 1px solid #ccc, true);
+}
+  <%- } } do -%>
+<ul class="lists--example lists--example-3">
+  <li>Lorem</li>
+  <li>ipsum</li>
+  <li>dolor</li>
+  <li>sit</li>
+  <li>amet</li>
+</ul>
+  <%- end -%>
+
+  <p>This mixin doesn't necessarily need to be used on a <code>ul/ol</code> and can really be applied to anything. You can use the <code>$element</code> variable to specify the children that will replace the <code>li</code>s.</p>
+
+  <p>You can delegate the padding to a child element inside the <code>$element</code>. For example you might want the padding on block-level anchor.</p>
+
+  <hr />
 
   <h2 class="heading-two">Vertical Spacing</h2>
 
+  <p>The <code>list-vertical</code> takes the same options as <code>list-horizontal</code>:</p>
+
+  <p>
+    $space: $x-small-unit<br />
+    $border: false<br />
+    $all: false<br />
+    $element: "li"<br />
+    $delegate: false
+  </p>
+
   <p>Vertically spacing some list items.</p>
-  <pre class="sg-pre prettyprint">@include list-vertical($small-unit);</pre>
-  <ul class="lists--example lists--example-4">
-    <li>Lorem</li>
-    <li>ipsum</li>
-    <li>dolor</li>
-    <li>sit</li>
-    <li>amet</li>
-  </ul>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "e4", scss: capture { -%>
+.lists--example-4 {
+  @include list-vertical($small-unit);
+}
+  <%- } } do -%>
+<ul class="lists--example lists--example-4">
+  <li>Lorem</li>
+  <li>ipsum</li>
+  <li>dolor</li>
+  <li>sit</li>
+  <li>amet</li>
+</ul>
+  <%- end -%>
 
   <p>Adding a border between items.</p>
-  <pre class="sg-pre prettyprint">@include list-vertical($small-unit, 1px solid #ccc);</pre>
-  <ul class="lists--example lists--example-5">
-    <li>Lorem</li>
-    <li>ipsum</li>
-    <li>dolor</li>
-    <li>sit</li>
-    <li>amet</li>
-  </ul>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "e5", scss: capture { -%>
+.lists--example-5 {
+  @include list-vertical($small-unit, 1px solid #ccc);
+}
+  <%- } } do -%>
+<ul class="lists--example lists--example-5">
+  <li>Lorem</li>
+  <li>ipsum</li>
+  <li>dolor</li>
+  <li>sit</li>
+  <li>amet</li>
+</ul>
+  <%- end -%>
 
   <p>Adding a border to first and last items.</p>
-  <pre class="sg-pre prettyprint">@include list-vertical($small-unit, 1px solid #ccc, true);</pre>
-  <ul class="lists--example lists--example-6">
-    <li>Lorem</li>
-    <li>ipsum</li>
-    <li>dolor</li>
-    <li>sit</li>
-    <li>amet</li>
-  </ul>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "e6", scss: capture { -%>
+.lists--example-6 {
+  @include list-vertical($small-unit, 1px solid #ccc, true);
+}
+  <%- } } do -%>
+<ul class="lists--example lists--example-6">
+  <li>Lorem</li>
+  <li>ipsum</li>
+  <li>dolor</li>
+  <li>sit</li>
+  <li>amet</li>
+</ul>
+  <%- end -%>
+
+  <hr />
 
   <h2 class="heading-two">Flushing Lists</h2>
 
-  <p>Making our horizontal list flush on left and right</p>
-  <pre class="sg-pre prettyprint">@include list-horizontal($small-unit, 1px solid #ccc);
-@include list-flush("left and right")</pre>
-  <ul class="lists--example lists--example-3b">
-    <li>Lorem</li>
-    <li>ipsum</li>
-    <li>dolor</li>
-    <li>sit</li>
-    <li>amet</li>
+  <p>The <code>list-flush</code> mixin takes one value which is an English string representation of how you want it to flush. The available values are:</p>
+
+  <ul>
+    <li>left</li>
+    <li>right</li>
+    <li>left and right</li>
+    <li>top</li>
+    <li>bottom</li>
+    <li>top and bottom</li>
   </ul>
 
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "e3b", scss: capture { -%>
+.lists--example-3b {
+  @include list-horizontal($small-unit, 1px solid #ccc);
+  @include list-flush("left and right");
+}
+  <%- } } do -%>
+<ul class="lists--example lists--example-3b">
+  <li>Lorem</li>
+  <li>ipsum</li>
+  <li>dolor</li>
+  <li>sit</li>
+  <li>amet</li>
+</ul>
+  <%- end -%>
+
   <p>Making our vertical list flush on top and bottom</p>
-  <pre class="sg-pre prettyprint">@include list-vertical($small-unit, 1px solid #ccc);
-@include list-flush("top and bottom")</pre>
-  <ul class="lists--example lists--example-6b">
-    <li>Lorem</li>
-    <li>ipsum</li>
-    <li>dolor</li>
-    <li>sit</li>
-    <li>amet</li>
-  </ul>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "e6b", scss: capture { -%>
+.lists--example-3b {
+  @include list-vertical($small-unit, 1px solid #ccc);
+  @include list-flush("top and bottom");
+}
+  <%- } } do -%>
+<ul class="lists--example lists--example-6b">
+  <li>Lorem</li>
+  <li>ipsum</li>
+  <li>dolor</li>
+  <li>sit</li>
+  <li>amet</li>
+</ul>
+  <%- end -%>
   
 </div>

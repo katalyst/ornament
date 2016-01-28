@@ -1,6 +1,7 @@
 <%- 
   id ||= "example"
   ruby ||= false
+  scss ||= false
 -%>
 
 <div class="tabs sg-feature">
@@ -10,6 +11,9 @@
       <li><a href="#<%= id -%>__source" class="tabs--link" data-tab="<%= id -%>__source">HTML</a></li>
       <%- if ruby -%>
         <li><a href="#<%= id -%>__ruby" class="tabs--link" data-tab="<%= id -%>__ruby">Ruby</a></li>
+      <%- end -%>
+      <%- if scss -%>
+        <li><a href="#<%= id -%>__scss" class="tabs--link" data-tab="<%= id -%>__scss">SCSS</a></li>
       <%- end -%>
     </ul>
   </nav>
@@ -23,6 +27,11 @@
     <%- if ruby -%>
       <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__ruby">
         <pre class="sg-pre prettyprint"><%= raw(ruby) -%></pre>
+      </div>
+    <%- end -%>
+    <%- if scss -%>
+      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__scss">
+        <pre class="sg-pre prettyprint"><%= raw(scss) -%></pre>
       </div>
     <%- end -%>
   </div>
