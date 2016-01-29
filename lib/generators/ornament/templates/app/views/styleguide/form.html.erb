@@ -237,11 +237,11 @@
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox", ruby: capture { -%>
-&lt;%= f.input :example, as: :boolean, wrapper_html: { class: "checkbox__single" } -%&gt;
+&lt;%= f.input :example, as: :boolean -%&gt;
   <%- } } do -%>
-<div class="control-group boolean optional checkbox__single">
+<div class="control-group boolean optional">
   <label class="boolean optional control-label" for="single-checkbox">
-    A single checkbox / boolean with the wrapper class <code>checkbox__single</code>
+    A single checkbox / boolean
   </label>
   <div class="controls">
     <input name="form[single-checkbox]" type="hidden" value="0">
@@ -311,11 +311,11 @@
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox-enhanced", ruby: capture { -%>
-&lt;%= f.input :example, as: :boolean, wrapper_html: { class: "checkbox__single form--enhanced" } -%&gt;
+&lt;%= f.input :example, as: :boolean, wrapper_html: { class: "form--enhanced" } -%&gt;
   <%- } } do -%>
 <div class="control-group boolean optional checkbox__single form--enhanced">
   <label class="boolean optional control-label" for="terms_enhanced">
-    A single checkbox / boolean with the wrapper class <code>checkbox__single</code> and <code>form--enhanced</code>
+    A single checkbox / boolean with the wrapper class <code>form--enhanced</code>
   </label>
   <div class="controls">
     <input name="form[terms_enhanced]" type="hidden" value="0">

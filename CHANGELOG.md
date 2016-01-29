@@ -28,6 +28,7 @@ There are now simple_form examples available where relevant.
 ### Changes
 
 - Removed `.content` class font-size increaser by default. It's still there just commented out if it's ever needed again. 
+- Removed `island` classes and associated docs 
 
 ## v1.2.0
 
