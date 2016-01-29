@@ -20,6 +20,8 @@ There are now simple_form examples available where relevant.
 - Added support for various `type` attributes on lists  
 - Added support for `.boolean` form class that behaves the same way as `.checkbox__single`.  
 - `:og_title` yield will use `:title` or `:page_title` (whichever is available, in that order) as a fallback.  
+- Added `URI.join(root_path, x)` to the `:og_image` content.  
+- Updated opengraph docs.  
 
 ### Bugfixes
 
