@@ -6,18 +6,20 @@
 
   <pre class="sg-pre prettyprint">&lt;%= content_for :og_title, @module.title -%></pre>
 
+  <p><code>og_title</code> will use content for <code>title</code> or <code>page_title</code> as a fallback if there are no specific <code>og_title</code> content.</p>
+
   <pre class="sg-pre prettyprint">&lt;%= content_for :og_image, @module.image.thumb("200x200#").url -%></pre>
 
   <pre class="sg-pre prettyprint">&lt;%= content_for :og_description, @module.description -%></pre>
 
+  <p>Don't forget to set the default values in the <code>global.html.erb</code> layout.</p>
+
   <pre class="sg-pre prettyprint">&lt;%= content_for :og_url, module_path(@module) -%></pre>
 
-  <p>Don't forget to set the default values in the <code>global.html.erb</code> layout.</p>
+  <p>If no <code>og_url</code> is specified it will fall back to the <code>request.original_url</code>.</p>
 
   <p>You can disable the fallback opengraph image and restore the default bahaviour of grabbing images from the page by passing in any content to the <code>disable_og_image</code> yield:</p>
 
   <pre class="sg-pre prettyprint">&lt;%= content_for :disable_og_image, "disabled" -%></pre>
-
-  <%= content_for :disable_og_image, "disabled" -%>
 
 </div>
