@@ -12,11 +12,25 @@
 </div>
   <%- end -%>
 
-  <p>To create a blue panel, you can use the <code>panel__blue</code> class instead:</p>
+  <p>There are a few different out-of-the-box colour variations for panels:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-colouring" } do -%>
-<div class="panel__primary">
-  Primary colour panel
+<div class="panel-spacing">
+  <div class="panel__primary">
+    Primary colour panel
+  </div>
+  <div class="panel__warning">
+    Warning panel
+  </div>
+  <div class="panel__error">
+    Error panel
+  </div>
+  <div class="panel__notice">
+    Notice panel
+  </div>
+  <div class="panel__success">
+    Success panel
+  </div>
 </div>
   <%- end -%>
 

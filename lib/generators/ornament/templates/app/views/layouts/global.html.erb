@@ -112,6 +112,7 @@
         </header>
 
         <%= yield :above_layout -%>
+        <%= render "/shared/flash" -%>
         <%- if content_for?(:global) || !yield.blank? -%>
           <div class="layout--container">
             <section class="layout--main <%= yield(:layout_class) -%>" role="main">
