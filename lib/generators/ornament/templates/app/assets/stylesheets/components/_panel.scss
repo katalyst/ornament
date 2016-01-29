@@ -37,6 +37,13 @@ $panel-border:          $background-color;
   }
 }
 
+.panel__error {
+  @extend .panel;
+  background: $error-background;
+  color: $error-color;
+  padding: $panel-padding;
+}
+
 // PADDING VARIANTS
 
 .panel--padding {

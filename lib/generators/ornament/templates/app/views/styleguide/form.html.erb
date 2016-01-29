@@ -15,8 +15,13 @@
   <p>The <code>inputs</code> class only affects direct children, so any nested inputs will need another <code>inputs</code> class.</p>
   <p>You can space any buttons away from the inputs above by using the <code>actions</code> class.</p>
 
+  <p>Error blocks should live inside the <code>inputs</code> class as it will space it out from the fields as well.</p>
+
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-spacing", ruby: capture { -%>
 &lt;div class="inputs">
+  &lt;%- unless f.error_notification.blank? -%>
+    &lt;%= f.error_notification %>
+  &lt;%- end -%>
   &lt;%= f.input :field_1 -%&gt;
   &lt;%= f.input :field_2 -%&gt;
 &lt;/div>
@@ -25,6 +30,9 @@
 &lt;/div>
   <%- } } do -%>
 <div class="inputs">
+  <div class="panel__error">
+    Errors were found!
+  </div>
   <div class="control-group">
     <label class="optional control-label">Field</label>
     <div class="controls">
@@ -411,7 +419,7 @@
   <form accept-charset="UTF-8" action="#" class="simple_form" method="post" novalidate="novalidate">
     <div class="inputs">
 
-      <div class="island island-error">
+      <div class="panel__error">
         Some errors were found, please take a look:
       </div>
 
