@@ -3,7 +3,6 @@ $panel-border:          $background-color;
 .panel {
   @include border-radius($border-radius);
   @include pie-clearfix;
-  background: $grey;
 }
 
 .panel--padding-border {

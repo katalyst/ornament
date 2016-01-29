@@ -7,7 +7,7 @@
   <p>To create a panel, all you need is a <code>panel</code> class:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-1" } do -%>
-<div class="panel">
+<div class="panel panel__passive">
   This is a panel
 </div>
   <%- end -%>
@@ -31,6 +31,9 @@
   <div class="panel__success">
     Success panel
   </div>
+  <div class="panel__passive">
+    Passive Panel
+  </div>
 </div>
   <%- end -%>
 
@@ -43,7 +46,7 @@
   <p>You can add <code>.panel--padding</code> to add padding to the panel.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-padding" } do -%>
-<div class="panel panel--padding">
+<div class="panel__passive panel--padding">
   Panel with padding
 </div>
   <%- end -%>
@@ -59,7 +62,7 @@
   <div class="panel__primary panel--padding panel__no-bottom-radius">
     Blue panel with no bottom radius
   </div>
-  <div class="panel--padding panel__no-top-radius">
+  <div class="panel__passive panel--padding panel__no-top-radius">
     Panel with no top radius
   </div>
 </div>
@@ -75,10 +78,10 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-stacked" } do -%>
 <div class="panel-spacing">
-  <div class="panel panel--padding">
+  <div class="panel__passive panel--padding">
     Panel 1
   </div>
-  <div class="panel panel--padding">
+  <div class="panel__passive panel--padding">
     Panel 2
   </div>
 </div>
@@ -88,13 +91,13 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-stacked" } do -%>
 <div class="panel-spacing">
-  <div class="panel panel--padding">
+  <div class="panel__passive panel--padding">
     Panel 1
   </div>
   <div class="panel-spacer">
     Panel 2
   </div>
-  <div class="panel panel--padding">
+  <div class="panel__passive panel--padding">
     Panel 3
   </div>
 </div>
