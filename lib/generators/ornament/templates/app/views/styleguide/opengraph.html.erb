@@ -16,9 +16,9 @@
 
   <h2 class="heading-two">og_image</h2>
 
-  <pre class="sg-pre prettyprint">&lt;%= content_for :og_image, @module.image.thumb("200x200#").url -%></pre>
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_image, @module.image.url -%></pre>
 
-  <p>As of Ornament 1.2.1, <code>og_image</code> will automatically turn the image path in to an absolute URL. Prior to this version you will need to use something like <code>URI.join(root_url, @module.image.thumb("200x200#").url)</code></p>
+  <p>As of Ornament 1.2.1, <code>og_image</code> will automatically turn the image path in to an absolute URL. Prior to this version you will need to use something like <code>URI.join(root_url, @module.image.url)</code></p>
 
   <p>You can disable the fallback opengraph image and restore the default bahaviour of grabbing images from the page by passing in any content to the <code>disable_og_image</code> yield:</p>
 
