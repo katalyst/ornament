@@ -46,10 +46,6 @@
 
 /* VIMEO/YOUTUBE */
 
-@function embed-ratio($width, $height) {
-  @return ($height / $width) * 100%;
-}
-
 .embed__vimeo,
 .embed__youtube {
   position: relative;
@@ -69,9 +65,9 @@
 }
 
 .embed__vimeo {
-  padding-bottom: embed-ratio(960, 540);
+  padding-bottom: ratio(960, 540);
 }
 
 .embed__youtube {
-  padding-bottom: embed-ratio(560, 315);
+  padding-bottom: ratio(560, 315);
 }

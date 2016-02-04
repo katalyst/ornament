@@ -24,6 +24,9 @@ There are now simple_form examples available where relevant.
 - Updated opengraph docs.  
 - Added `nested-link` component.  
 - Added `blankstate` component.  
+- Added `card` component. 
+- Added `ratio` utility for calculating ratios in sass. 
+- Added `background-cover` utility for easily giving things background-cover bahaviour.  
 
 ### Bugfixes
 

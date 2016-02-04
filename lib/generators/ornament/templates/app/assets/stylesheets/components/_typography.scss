@@ -171,6 +171,14 @@ del {
   text-decoration: line-through;
 }
 
+.type--passive {
+  color: $passive-color;
+}
+
+.type--grey {
+  color: $grey;
+}
+
 // sub/sup styling
 // https://gist.github.com/unruthless/413930
 sub, sup {

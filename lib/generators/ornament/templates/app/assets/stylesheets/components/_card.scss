@@ -1,0 +1,24 @@
+.card {
+  background: $white;
+  @include border-radius($border-radius);
+  overflow: hidden;
+}
+
+a.card {
+  display: block;
+  @include nested-link;
+}
+
+.card--image img {
+  display: block;
+  width: 100%;
+}
+
+.card--image__cover {
+  @include background-cover;
+  padding-bottom: ratio(100, 100);
+}
+
+.card--content {
+  padding: $panel-padding;
+}

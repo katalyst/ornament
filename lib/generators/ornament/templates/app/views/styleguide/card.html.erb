@@ -1,0 +1,61 @@
+<%- content_for :title, "Card" -%>
+
+<%- content_for :styles do -%>
+  <style>
+    .card {
+      max-width: 300px;
+    }
+    .cards .card {
+      max-width: none;
+    }
+  </style>
+<%- end -%>
+
+<div class="content-spacing">
+  <p>A basic <code>card</code> component:</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "card" } do -%>
+<div class="card">
+  <div class="card--image">
+    <img src="http://placehold.it/300x200" />
+  </div>
+  <div class="card--content compressed">
+    <p><strong>Awesome card</strong></p>
+    <p>The awesome card is pretty awesome.</p>
+    <p><small class="type--grey">Posted Yesterday</small></p>
+  </div>
+</div>
+<%- end -%>
+
+<div class="content-spacing">
+  <p>Cards automatically inherit the <code>nested-link</code> component when they are links, so you can use <code>.nested-link--target</code> to highlight a fake link:</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "card-2" } do -%>
+<a href="#" class="card">
+  <div class="card--image">
+    <img src="http://placehold.it/300x200" />
+  </div>
+  <div class="card--content compressed">
+    <p><strong class="nested-link--target">Awesome card</strong></p>
+    <p>The awesome card is pretty awesome.</p>
+    <p><small class="type--grey">Posted Yesterday</small></p>
+  </div>
+</a>
+<%- end -%>
+
+<div class="content-spacing">
+  <p>Normally card images are inline images, however you may want a responsive cover image that fills an aspect ratio block, you can move the image in to a background image and change the image class to <code>card--image__cover</code>.</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "card-2" } do -%>
+<a href="#" class="card">
+  <div class="card--image__cover" style="background-image: url(http://placehold.it/500x300);"></div>
+  <div class="card--content compressed">
+    <p><strong class="nested-link--target">Awesome card</strong></p>
+    <p>The awesome card is pretty awesome.</p>
+    <p><small class="type--grey">Posted Yesterday</small></p>
+  </div>
+</a>
+<%- end -%>
