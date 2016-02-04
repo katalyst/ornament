@@ -9,6 +9,10 @@ a.card {
   @include nested-link;
 }
 
+.card--image {
+  position: relative;
+}
+
 .card--image img {
   display: block;
   width: 100%;
@@ -16,9 +20,26 @@ a.card {
 
 .card--image__cover {
   @include background-cover;
+  position: relative;
   padding-bottom: ratio(100, 100);
+}
+
+.card--badge {
+  position: absolute;
+  top: $xxxxx-small-unit;
+  left: 0;
+  padding: 4px $panel-padding;
+  background: $primary-color;
+  color: $white;
+  font-size: $small-font-size;
+  max-width: 100%;
 }
 
 .card--content {
   padding: $panel-padding;
+}
+
+.card--footer {
+  padding: $panel-padding-small $panel-padding;
+  border-top: $divider;
 }
