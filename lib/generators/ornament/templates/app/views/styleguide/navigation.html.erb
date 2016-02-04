@@ -1,39 +1,51 @@
 <% content_for :title, "Navigation" %>
 
-<nav class="navigation">
-  <ul>
-    <li>
-      <a href="#">Home</a>
-    </li>
-    <li>
-      <a href="#">About</a>
+<%- content_for :styles do -%>
+  <style>
+    .layout--header + .navigation {
+      border-top: 1px solid #ccc;
+    }
+  </style>
+<%- end -%>
+
+<%- content_for :above_layout do -%>
+<div class="navigation">
+  <div class="layout--container">
+    <nav>
       <ul>
         <li>
-          <a href="#">History</a>
+          <a href="#">Home</a>
         </li>
         <li>
-          <a href="#">Board Members</a>
-        </li>
-      </ul>
-    </li>
-    <li class="navigation--active-item">
-      <a href="#">Products</a>
-      <ul>
-        <li class="navigation--active-item">
-          <a href="#">On Sale</a>
+          <a href="#">About</a>
           <ul>
             <li>
-              <a href="#">Example 1</a>
+              <a href="#">History</a>
             </li>
-            <li class="navigation--active-item">
-              <a href="#">Example 2</a>
+            <li>
+              <a href="#">Board Members</a>
             </li>
           </ul>
         </li>
-        <li>
-          <a href="#">Other</a>
+        <li class="navigation--active-item">
+          <a href="#">Products</a>
+          <ul>
+            <li class="navigation--active-item">
+              <a href="#">On Sale</a>
+            </li>
+            <li>
+              <a href="#">Other</a>
+            </li>
+          </ul>
         </li>
       </ul>
-    </li>
-  </ul>
-</nav>
+    </nav>
+  </div>
+</div>
+<%- end -%>
+
+<p>Just a simple little starter navigation component to quickly drop-in some global navigation when necessary.</p>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "blankstate" } do -%>
+<%= yield :above_layout -%>
+<%- end -%>

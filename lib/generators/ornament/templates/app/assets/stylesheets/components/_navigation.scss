@@ -1,0 +1,42 @@
+$navigation-menu-width: 200px;
+
+.navigation {
+  background: $secondary-color;
+}
+
+.navigation nav > ul {
+  @include list-horizontal($xxxx-small-unit, $delegate: "a");
+  @include list-flush("left and right", $delegate: "a");
+}
+
+.navigation nav > ul > li {
+  position: relative;
+}
+
+.navigation nav > ul > li > a {
+  @include color-link($white, $white);
+  @include decorate-link(none, none);
+  padding-top: $xxxx-small-unit;
+  padding-bottom: $xxxx-small-unit;
+}
+
+.navigation nav > ul ul {
+  display: none;
+  position: absolute;
+  background: $secondary-color;
+  top: 100%;
+  left: 0;
+  width: $navigation-menu-width;
+  z-index: 200;
+  // padding-top: $xxxx-small-unit;
+  padding-bottom: $xxxx-small-unit;
+}
+
+.navigation nav > ul > li:hover ul {
+  display: block;
+}
+
+.navigation nav > ul ul a {
+  @include color-link($white, $white);
+  @include decorate-link(none, underline);
+}

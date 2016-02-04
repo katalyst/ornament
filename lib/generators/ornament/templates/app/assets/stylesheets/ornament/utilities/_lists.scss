@@ -69,44 +69,44 @@
 
 }
 
-@mixin list-flush($side, $element: "li") {
+@mixin list-flush($side, $element: "li", $delegate: "") {
 
   // vertical flush
   @if $side == "top" {
-    > #{$element}:first-child {
+    > #{$element}:first-child #{$delegate} {
       padding-top: 0;
     }
   }
   @if $side == "bottom" {
-    > #{$element}:last-child {
+    > #{$element}:last-child #{$delegate} {
       padding-bottom: 0;
     }
   }
   @if $side == "top and bottom" {
-    > #{$element}:first-child {
+    > #{$element}:first-child #{$delegate} {
       padding-top: 0;
     }
-    > #{$element}:last-child {
+    > #{$element}:last-child #{$delegate} {
       padding-bottom: 0;
     }
   }
 
   // horizontal flush
   @if $side == "left" {
-    > #{$element}:first-child {
+    > #{$element}:first-child #{$delegate} {
       padding-left: 0;
     }
   }
   @if $side == "right" {
-    > #{$element}:last-child {
+    > #{$element}:last-child #{$delegate} {
       padding-right: 0;
     }
   }
   @if $side == "left and right" {
-    > #{$element}:first-child {
+    > #{$element}:first-child #{$delegate} {
       padding-left: 0;
     }
-    > #{$element}:last-child {
+    > #{$element}:last-child #{$delegate} {
       padding-right: 0;
     }
   }
