@@ -1,0 +1,18 @@
+<%- content_for :title, "Blankstate" -%>
+
+<div class="content-spacing">
+  <p>A <code>blankstate</code> can be used to show something a little nicer when there are no items for a listing page.</p>
+</div>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "blankstate" } do -%>
+<div class="blankstate">
+  <div class="blankstate--content compressed">
+    <p>
+      <strong>You have no favourites</strong>
+    </p>
+    <p>
+      Browse <a href="#">our products</a> and start favouriting!
+    </p>
+  </div>
+</div>
+  <%- end -%>

@@ -23,6 +23,7 @@ There are now simple_form examples available where relevant.
 - Added `URI.join(root_path, x)` to the `:og_image` content.  
 - Updated opengraph docs.  
 - Added `nested-link` component.  
+- Added `blankstate` component.  
 
 ### Bugfixes
 
