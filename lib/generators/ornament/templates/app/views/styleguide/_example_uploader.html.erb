@@ -1,0 +1,26 @@
+<%- 
+  model ||= "example"
+  attr ||= "field"
+  label ||= "Example"
+-%>
+
+<div class="control-group file-uploader--control-group <%= attr -%> " data-uploader-control-group>
+  <label class="integer optional control-label" for="<%= model -%>_<%= attr -%>_id"><%= label -%></label>
+  <p class="hint-block">This is a hint message for the image uploader</p>
+  <div class="file-uploader--external-hint" data-uploader-hint-position=""></div>
+  <div class="file-uploader ">
+    <div>
+      <input readonly="readonly" class="hidden readonly" type="hidden" value="" name="<%= model -%>[<%= attr -%>_crop]" id="<%= model -%>_<%= attr -%>_crop">
+      <input class="hidden" type="hidden" value="" name="<%= model -%>[<%= attr -%>_id]" id="<%= model -%>_<%= attr -%>_id">
+      <input type="file" data-file-uploader="" data-file-max-count="1" data-file-max-size="5" data-file-types="jpg, jpeg, gif, png" data-file-existing-image="" data-file-existing-name="" data-file-for="<%= model -%>_<%= attr -%>_id" data-file-crop-ratio="1/1" data-file-crop-string="" data-file-modal="crop_<%= attr -%>_modal" data-file-crop-field="<%= model -%>_<%= attr -%>_crop" data-file-demo>
+    </div>
+    <div class="form--file-crop mfp-hide" id="crop_<%= attr -%>_modal">
+      <div class="form--file-crop--container">
+        <div data-crop-image></div>
+      </div>
+      <div class="form--file-crop--footer">
+        <a href="#" class="button button__full" data-crop-save="">Done</a>
+      </div>
+    </div>
+  </div>
+</div> 

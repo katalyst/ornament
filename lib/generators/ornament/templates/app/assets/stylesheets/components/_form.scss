@@ -145,7 +145,8 @@ textarea,
     border-color: $error-color;
   }
 
-  &[disabled] {
+  &[disabled],
+  &[readonly] {
     background: lighten($grey,20);
     cursor: not-allowed;
   }
