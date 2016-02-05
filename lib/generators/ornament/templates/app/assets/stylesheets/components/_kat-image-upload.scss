@@ -11,6 +11,7 @@ $file-upload-breakpoint: 545px;
   @include display-flex;
   @include flex-direction(row);
   @include align-items(center);
+  overflow: hidden;
 
   progress {
     display: none;
@@ -49,12 +50,35 @@ $file-upload-breakpoint: 545px;
     border-color: $success-color;
   }
 
+  &.saving progress,
   &.uploading progress {
     display: block;
   }
 
+  &.saving .thumb,
   &.uploading .thumb {
     opacity: 0.2;
+  }
+
+  &.saving:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    background: rgba($success-color, 0.1);
+    z-index: 1;
+    @include animation(indefinite 1.5s linear infinite);
+  }
+}
+
+@include keyframes(indefinite) {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
   }
 }
 
