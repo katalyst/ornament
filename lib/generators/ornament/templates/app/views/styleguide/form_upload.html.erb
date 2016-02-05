@@ -1,6 +1,32 @@
 <%- content_for :title, "Image Uploader" -%>
 
-<div class="content-spacing content-lists">
+<div class="content-spacing content-lists"></div>
+
+<div class="control-group file-uploader--control-group thumbnail " data-uploader-control-group>
+
+  <label class="integer optional control-label" for="work_thumbnail_id">Thumbnail</label>
+  <p class="hint-block">Your thumbnail will be cropped to 200px by 200px</p>
+  <div class="file-uploader--external-hint" data-uploader-hint-position=""></div>
+
+  <div class="file-uploader ">
+    <div>
+      <input readonly="readonly" class="hidden readonly" type="hidden" value="" name="work[thumbnail_crop]" id="work_thumbnail_crop">
+      <input class="hidden" type="hidden" value="548" name="work[thumbnail_id]" id="work_thumbnail_id">
+      <input type="file" data-file-uploader="" data-file-max-count="1" data-file-max-size="5" data-file-types="jpg, jpeg, gif, png" data-file-existing-image="" data-file-existing-name="" data-file-for="work_thumbnail_id" data-file-crop-ratio="1/1" data-file-crop-string="" data-file-modal="crop_thumbnail_modal" data-file-crop-field="work_thumbnail_crop" data-file-demo>
+    </div>
+
+    <div class="form--file-crop mfp-hide" id="crop_thumbnail_modal">
+      <div class="form--file-crop--container">
+        <div data-crop-image></div>
+      </div>
+      <div class="form--file-crop--footer">
+        <a href="#" class="button button__full" data-crop-save="">Done</a>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<!--
 
   <h2 class="heading-two">Prerequisites</h2>
 
@@ -80,14 +106,4 @@
 
   <p><code>afterImageUpload</code> and <code>afterFileUpload</code> allow you to run some code after an image has uploaded. You have access to the file (f), thumbnail, thumbnailTarget and $fileElement. You might use this to generate extra data around the thumbnail, for example additional fields such as an alt tag field or caption or something.</p>
 
-</div>
-
-<%- content_for :scripts_bottom do -%>
-  <script>
-    $(function(){
-      $(".file-upload-demo").katFileUpload({
-        demo: true
-      });
-    });
-  </script>
-<%- end -%>
+-->
