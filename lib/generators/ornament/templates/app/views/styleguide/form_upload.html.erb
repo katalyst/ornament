@@ -59,6 +59,20 @@
   <%= render "example_uploader", attr: "existing_images", croppable: "true", existing_image: "http://placehold.it/500x300.jpg" -%>
 <%- end -%>
 
+<div class="content-spacing">
+  <hr />
+  <h2 class="heading-two">Document Uploads</h2>
+  <p>The uploader will switch to "file" mode (rather than image mode) if the file types include "pdf", "xls", "xlsx", "doc", "docx".</p>
+  <p>These requirements can be updated in the <code>form_field_image</code> partial.</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "fields_demo", no_html: "true", ruby: capture { -%>
+&lt;%= render "form_field_image", { f: f, attr: :banner_image } -%>
+<%- } } do -%>
+  <%= render "example_uploader", attr: "fields_demo", types: "pdf, xls, xlsx, doc, docx" -%>
+<%- end -%>
+
+
 <div class="content-spacing content-lists">
   <hr />
   <h2 class="heading-two">Behind the scenes</h2>

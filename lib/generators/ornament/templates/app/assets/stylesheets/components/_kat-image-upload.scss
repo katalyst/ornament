@@ -1,5 +1,5 @@
 $file-upload-thumbnail-width: 80px;
-$file-upload-thumbnail-background: #F3F3FA;
+$file-upload-thumbnail-background: transparent;
 $file-upload-breakpoint: 545px;
 
 .file-uploader--drop-zone {
@@ -118,12 +118,12 @@ $file-upload-breakpoint: 545px;
   position: relative;
   z-index: 2;
 
-  &.file {
-    background: #ccc;
-  }
-
   .thumb {
     position: relative;
+  }
+
+  svg {
+    display: block;
   }
 
   .thumb__file {
@@ -175,6 +175,14 @@ $file-upload-breakpoint: 545px;
   @include align-items(center);
   position: relative;
   z-index: 2;
+}
+.file-uploader--error {
+  color: $error-color;
+  display: block;
+
+  &:before {
+    content: "Error: ";
+  }
 }
 .file-uploader--notes {
   @include pie-clearfix();
