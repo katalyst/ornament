@@ -66,10 +66,10 @@
   <p>These requirements can be updated in the <code>form_field_image</code> partial.</p>
 </div>
 
-<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "fields_demo", no_html: "true", ruby: capture { -%>
-&lt;%= render "form_field_image", { f: f, attr: :banner_image } -%>
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "documents", no_html: "true", ruby: capture { -%>
+&lt;%= render "form_field_image", { f: f, attr: :banner_image, types: "pdf, xls, xlsx, doc, docx"} -%>
 <%- } } do -%>
-  <%= render "example_uploader", attr: "fields_demo", types: "pdf, xls, xlsx, doc, docx" -%>
+  <%= render "example_uploader", attr: "documents", types: "pdf, xls, xlsx, doc, docx" -%>
 <%- end -%>
 
 
@@ -79,6 +79,7 @@
   <p>There are two hidden fields (exposed here) that track the asset ID when the image is uploaded and the crop string if croppable.</p>
   <p>The image id is emptied when the image is removed.</p>
   <p>The crop string only saves when a crop is made. The crop string is emptied when the image is removed.</p>
+  <p>You can see the fields updating here as you add, remove and crop images.</p>
 </div>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "fields_demo", no_html: "true", ruby: capture { -%>
