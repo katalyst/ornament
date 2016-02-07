@@ -88,9 +88,7 @@
   <p>You can see the fields updating here as you add, remove and crop images.</p>
 </div>
 
-<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "fields_demo", no_html: "true", ruby: capture { -%>
-&lt;%= render "form_field_image", { f: f, attr: :banner_image } -%>
-<%- } } do -%>
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "fields_demo", no_html: "true" } do -%>
   <%= render "example_uploader", attr: "fields_demo", croppable: "true", hidden_field_type: "text" -%>
 <%- end -%>
 
