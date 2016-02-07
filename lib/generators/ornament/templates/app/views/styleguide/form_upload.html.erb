@@ -47,6 +47,12 @@
   <%= render "example_uploader", attr: "crop_and_ratio", ratio: "2/1", croppable: "true" -%>
 <%- end -%>
 
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "crop_and_ratio_2", no_html: "true", ruby: capture { -%>
+&lt;%= render "form_field_image", { f: f, attr: :banner_image, ratio: "1/2", croppable: "true" } -%>
+<%- } } do -%>
+  <%= render "example_uploader", attr: "crop_and_ratio_2", ratio: "1/2", croppable: "true" -%>
+<%- end -%>
+
 <div class="content-spacing">
   <hr />
   <h2 class="heading-two">Existing images</h2>
