@@ -1,5 +1,7 @@
 class StyleguideController < ActionController::Base
-  layout "styleguide/appliction"
+  layout "styleguide/ornament"
+
+  include CommonControllerActions
 
   def lightbox_ajax_sample
     render layout: "lightbox_ajax"
