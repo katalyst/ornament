@@ -64,6 +64,8 @@ class OrnamentGenerator < Rails::Generators::Base
         copy_file "config/initializers/simple_form.rb"
         copy_file "config/locales/en.yml"
 
+        copy_file "app/helpers/application_helper.rb"
+
         copy_file "Gruntfile.js"
         copy_file "package.json"
       end
