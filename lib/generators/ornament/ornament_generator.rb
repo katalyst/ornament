@@ -15,7 +15,7 @@ class OrnamentGenerator < Rails::Generators::Base
   def generate
 
     if options.settings?
-      copy_file "../../../../test/dummy/app/assets/stylesheets/_settings.css.scss", "app/assets/stylesheets/_settings.css.scss"
+      copy_file "../../../../test/dummy/app/assets/stylesheets/_settings.scss", "app/assets/stylesheets/_settings.scss"
     end
 
     if options.uploader?
@@ -33,9 +33,9 @@ class OrnamentGenerator < Rails::Generators::Base
 
         if options.core?
 
-          copy_file "app/assets/stylesheets/application.css.scss"
+          copy_file "app/assets/stylesheets/application.scss"
           remove_file "app/assets/stylesheets/application.css"
-          copy_file "app/assets/stylesheets/styleguide.css.scss"
+          copy_file "app/assets/stylesheets/styleguide.scss"
 
         end
 
@@ -54,7 +54,7 @@ class OrnamentGenerator < Rails::Generators::Base
           directory "app/assets/javascripts/ornament"
           directory "app/assets/javascripts/utilities"
 
-          copy_file "app/assets/stylesheets/_fonts.css.scss"
+          copy_file "app/assets/stylesheets/_fonts.scss"
           directory "app/assets/stylesheets/ornament"
 
           directory "app/assets/images"
