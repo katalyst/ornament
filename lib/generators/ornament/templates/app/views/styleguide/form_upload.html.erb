@@ -1,4 +1,4 @@
-<%- content_for :title, "Image Uploader" -%>
+<%- content_for :title, "Uploader" -%>
 
 <div class="panel__warning panel--padding">
   <strong>Warning</strong>: IE8/9 not supported. 
@@ -12,7 +12,7 @@
 </div>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example_basic", no_html: "true", ruby: capture { -%>
-&lt;%= render "form_field_image", { f: f, attr: :banner_image } -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image } -%>
 <%- } } do -%>
   <%= render "example_uploader", attr: "example_basic" -%>
 <%- end -%>
@@ -20,7 +20,7 @@
 <p>By default the uploader assumes a 1:1 aspect ratio for your image, however you can change this by passing in <code>ratio:</code>.</p>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example_ratio", no_html: "true", ruby: capture { -%>
-&lt;%= render "form_field_image", { f: f, attr: :banner_image, ratio: "2/1" } -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, ratio: "2/1" } -%>
 <%- } } do -%>
   <%= render "example_uploader", attr: "example_ratio", ratio: "2/1" -%>
 <%- end -%>
@@ -32,7 +32,7 @@
 </div>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "cropping", no_html: "true", ruby: capture { -%>
-&lt;%= render "form_field_image", { f: f, attr: :banner_image, croppable: "true" } -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, croppable: "true" } -%>
 <%- } } do -%>
   <%= render "example_uploader", attr: "cropping", croppable: "true" -%>
 <%- end -%>
@@ -42,13 +42,13 @@
 </div>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "crop_and_ratio", no_html: "true", ruby: capture { -%>
-&lt;%= render "form_field_image", { f: f, attr: :banner_image, ratio: "2/1", croppable: "true" } -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, ratio: "2/1", croppable: "true" } -%>
 <%- } } do -%>
   <%= render "example_uploader", attr: "crop_and_ratio", ratio: "2/1", croppable: "true" -%>
 <%- end -%>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "crop_and_ratio_2", no_html: "true", ruby: capture { -%>
-&lt;%= render "form_field_image", { f: f, attr: :banner_image, ratio: "1/2", croppable: "true" } -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, ratio: "1/2", croppable: "true" } -%>
 <%- } } do -%>
   <%= render "example_uploader", attr: "crop_and_ratio_2", ratio: "1/2", croppable: "true" -%>
 <%- end -%>
@@ -60,7 +60,7 @@
 </div>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "existing_images", no_html: "true", ruby: capture { -%>
-&lt;%= render "form_field_image", { f: f, attr: :banner_image, croppable: true } -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, croppable: true } -%>
 <%- } } do -%>
   <%= render "example_uploader", attr: "existing_images", croppable: "true", existing_image: "http://placehold.it/500x300.jpg" -%>
 <%- end -%>
@@ -69,11 +69,11 @@
   <hr />
   <h2 class="heading-two">Document Uploads</h2>
   <p>The uploader will switch to "file" mode (rather than image mode) if the file types include "pdf", "xls", "xlsx", "doc", "docx".</p>
-  <p>These requirements can be updated in the <code>form_field_image</code> partial.</p>
+  <p>These requirements can be updated in the <code>form_field_uploader</code> partial.</p>
 </div>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "documents", no_html: "true", ruby: capture { -%>
-&lt;%= render "form_field_image", { f: f, attr: :banner_image, types: "pdf, xls, xlsx, doc, docx"} -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, types: "pdf, xls, xlsx, doc, docx"} -%>
 <%- } } do -%>
   <%= render "example_uploader", attr: "documents", types: "pdf, xls, xlsx, doc, docx" -%>
 <%- end -%>
@@ -162,7 +162,7 @@
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "callbacks_events", no_html: "true", ruby: capture { -%>
 &lt;div data-uploader-callbacks>
-  &lt;%= render "form_field_image", { f: f, attr: :banner_image } -%>
+  &lt;%= render "form_field_uploader", { f: f, attr: :banner_image } -%>
   &lt;pre data-uploader-tracker>&lt;/pre>
 &lt;/div>
 <%- }, js: capture { -%>
@@ -191,11 +191,11 @@
 
   <p>Then in your form you want to render the uploader partial:</p>
 
-  <pre>&lt;%= render "form_field_image", { f: f, attr: :cover_image } -%></pre>
+  <pre>&lt;%= render "form_field_uploader", { f: f, attr: :cover_image } -%></pre>
 
   <p>If you want to enable cropping for the field, simply add a ratio value to the crop_ratio attribute:</p>
 
-  <pre>&lt;%= render "form_field_image", { f: f, attr: :cover_image, crop_ratio: "1/1" } -%></pre>
+  <pre>&lt;%= render "form_field_uploader", { f: f, attr: :cover_image, crop_ratio: "1/1" } -%></pre>
 
   <p>Open up your model and add some basic helper functions for the view.</p>
 

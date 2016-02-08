@@ -18,6 +18,12 @@
   hide_label ||= false
   is_required ||= false
 
+  # croppable setting
+  croppable ||= false
+
+  # ratio with fallback to square
+  ratio ||= "1/1"
+
   # deterime if image or file type
   is_file = false
   is_file = true if types.include?("pdf")
@@ -38,11 +44,8 @@
     end
   end
 
-  crop_ratio ||= false
-  crop_string ||= ""
-
+  # create a cropped existing image if necessary
   existing_image_original = existing_image
-
   if !crop_string.blank? && !resource.send(attr).eql?(nil)
     existing_image = resource.send(crop_attr).url
   end
@@ -64,7 +67,7 @@
   <div class="file-uploader--external-hint" data-uploader-hint-position></div>
 
   <%# Existing file link %>
-  <%- if !existing_image.blank? && !existing_name.blank? && is_file -%>
+  <%- if !existing_image.blank? && !existing_name.blank? -%>
     <div class="file-uploader--current-file">
       <strong>Current file:</strong> <%= link_to existing_name, existing_image, target: "_blank" -%>
     </div>
@@ -89,9 +92,10 @@
         data-file-existing-image="<%= existing_image_original -%>" 
         data-file-existing-name="<%= existing_name -%>", 
         data-file-for="<%= "#{resource.class.name.underscore}_#{id_field}" -%>" 
+        data-file-image-ratio="<%= ratio -%>"
         <%= "data-file-document" if is_file -%> 
-        <%- if crop_ratio -%>
-          data-file-crop-ratio="<%= crop_ratio -%>" 
+        <%- if croppable -%>
+          data-file-croppable 
           data-file-crop-string="<%= crop_string -%>" 
           data-file-modal="crop_<%= attr -%>_modal" 
           data-file-crop-field="<%= "#{resource.class.name.underscore}_#{attr}" -%>_crop" 
@@ -102,7 +106,7 @@
   </div>
 
   <%# Crop modal - only necessary if crop_ratio is present %>
-  <%- if crop_ratio -%>
+  <%- if croppable -%>
     <div class="form--file-crop mfp-hide" id="crop_<%= attr -%>_modal">
       <div class="form--file-crop--container">
         <div data-crop-image>
