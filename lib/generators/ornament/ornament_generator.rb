@@ -28,13 +28,6 @@ class OrnamentGenerator < Rails::Generators::Base
 
       end
 
-      puts "Please ensure the following gems are in your local Gemfile:"
-      puts ""
-      puts "  gem 'sass-rails'"
-      puts "  gem 'uglifier'"
-      puts "  gem 'compass-rails'"
-      puts ""
-
       if options.uploader?
 
         # drag and drop image uploader dependancies
@@ -99,6 +92,14 @@ class OrnamentGenerator < Rails::Generators::Base
       end
 
     end
+
+    puts "Please ensure the following gems are in your local Gemfile:"
+    puts ""
+    puts "  gem 'sass-rails'"
+    puts "  gem 'uglifier'"
+    puts "  gem 'compass-rails'"
+    puts "  gem 'htmlentities'"
+    puts ""
 
   end
 
