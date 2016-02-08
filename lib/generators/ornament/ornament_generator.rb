@@ -18,81 +18,80 @@ class OrnamentGenerator < Rails::Generators::Base
       copy_file "../../../../test/dummy/app/assets/stylesheets/_settings.scss", "app/assets/stylesheets/_settings.scss"
     end
 
-    if options.uploader?
+    unless options.development?
 
-      # drag and drop image uploader dependancies
-      route "resources :uploads do"
-      route "  post :image, on: :collection"
-      route "end"
-      copy_file "app/controllers/uploads_controller.rb"
-      copy_file "app/views/koi/crud/_form_field_uploader.html.erb"
+      if options.core?
 
-    else
+        copy_file "app/assets/stylesheets/application.scss"
+        remove_file "app/assets/stylesheets/application.css"
+        copy_file "app/assets/stylesheets/styleguide.scss"
 
-      unless options.development?
+      end
 
-        if options.core?
+      puts "Please ensure the following gems are in your local Gemfile:"
+      puts ""
+      puts "  gem 'sass-rails'"
+      puts "  gem 'uglifier'"
+      puts "  gem 'compass-rails'"
+      puts ""
 
-          copy_file "app/assets/stylesheets/application.scss"
-          remove_file "app/assets/stylesheets/application.css"
-          copy_file "app/assets/stylesheets/styleguide.scss"
+      if options.uploader?
 
-        end
+        # drag and drop image uploader dependancies
+        route "end"
+        route "  post :image, on: :collection"
+        route "resources :uploads do"
+      
+        copy_file "app/controllers/uploads_controller.rb"
+        copy_file "app/views/koi/crud/_form_field_uploader.html.erb"
 
-        puts "Please ensure the following gems are in your local Gemfile:"
-        puts ""
-        puts "  gem 'sass-rails'"
-        puts "  gem 'uglifier'"
-        puts "  gem 'compass-rails'"
-        puts ""
+      end
 
-        if options.core?
+      if options.core?
 
-          copy_file "app/assets/javascripts/application.js"
-          copy_file "app/assets/javascripts/application_bottom.js"
-          copy_file "app/assets/javascripts/settings.js"
-          directory "app/assets/javascripts/ornament"
-          directory "app/assets/javascripts/utilities"
+        copy_file "app/assets/javascripts/application.js"
+        copy_file "app/assets/javascripts/application_bottom.js"
+        copy_file "app/assets/javascripts/settings.js"
+        directory "app/assets/javascripts/ornament"
+        directory "app/assets/javascripts/utilities"
 
-          copy_file "app/assets/stylesheets/_fonts.scss"
-          directory "app/assets/stylesheets/ornament"
+        copy_file "app/assets/stylesheets/_fonts.scss"
+        directory "app/assets/stylesheets/ornament"
 
-          directory "app/assets/images"
-          directory "app/assets/icons"
+        directory "app/assets/images"
+        directory "app/assets/icons"
 
-          copy_file "config/initializers/simple_form.rb"
-          copy_file "config/locales/en.yml"
+        copy_file "config/initializers/simple_form.rb"
+        copy_file "config/locales/en.yml"
 
-          copy_file "Gruntfile.js"
-          copy_file "package.json"
-        end
+        copy_file "Gruntfile.js"
+        copy_file "package.json"
+      end
 
-        if options.components?
-          directory "app/assets/javascripts/components"
-          directory "app/assets/stylesheets/aspects"
-          directory "app/assets/stylesheets/components"
-          directory "app/assets/stylesheets/grunticon"
-          directory "vendor/assets"
-        end
+      if options.components?
+        directory "app/assets/javascripts/components"
+        directory "app/assets/stylesheets/aspects"
+        directory "app/assets/stylesheets/components"
+        directory "app/assets/stylesheets/grunticon"
+        directory "vendor/assets"
+      end
 
-        if options.layouts? && !options.example?
-          directory "app/views/layouts"
-          directory "app/views/errors"
-          directory "app/views/kaminari"
-          directory "app/views/shared"
-        end
+      if options.layouts? && !options.example?
+        directory "app/views/layouts"
+        directory "app/views/errors"
+        directory "app/views/kaminari"
+        directory "app/views/shared"
+      end
 
-        if options.styleguide?
+      if options.styleguide?
 
-          directory "app/views/styleguide"
+        directory "app/views/styleguide"
 
-          unless options.example?
-            route "get '/styleguide' => 'styleguide#index'"
-            route "get '/styleguide/:action' => 'styleguide'"
+        unless options.example?
+          route "get '/styleguide' => 'styleguide#index'"
+          route "get '/styleguide/:action' => 'styleguide'"
 
-            copy_file "app/controllers/styleguide_controller.rb"
-          end
-
+          copy_file "app/controllers/styleguide_controller.rb"
         end
 
       end
