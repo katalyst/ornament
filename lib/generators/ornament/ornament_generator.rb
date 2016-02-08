@@ -10,7 +10,7 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :settings,     :type => :boolean, :default => true
   class_option :styleguide,   :type => :boolean, :default => true
   class_option :example,      :type => :boolean, :default => false
-  class_option :uploader,     :type => :boolean, :default => false
+  class_option :uploader,     :type => :boolean, :default => true
 
   def generate
 
@@ -25,7 +25,7 @@ class OrnamentGenerator < Rails::Generators::Base
       route "  post :image, on: :collection"
       route "end"
       copy_file "app/controllers/uploads_controller.rb"
-      copy_file "app/views/koi/crud/_form_field_image.html.erb"
+      copy_file "app/views/koi/crud/_form_field_uploader.html.erb"
 
     else
 

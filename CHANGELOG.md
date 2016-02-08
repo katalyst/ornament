@@ -29,6 +29,7 @@ There are now simple_form examples available where relevant.
 - Added `background-cover` utility for easily giving things background-cover bahaviour.  
 - Added simple `navigation` component. 
 - Added crop tool to image uploader, renamed partial and updated docs. 
+- Added flash message docs. 
 
 ### Bugfixes
 
