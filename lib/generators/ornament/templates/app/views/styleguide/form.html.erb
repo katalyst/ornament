@@ -1,119 +1,190 @@
+
 <% content_for :title, "Form styles" %>
 
-<div class="content-spacing content-lists">
+<div class="content-spacing">
 
-  <p>
+  <div class="panel panel__passive panel--padding">
     <em>Note: Ornament assumes you are using simple_form to generate form fields.</em>
-  </p>
-
-  <h2 class="heading-two">Inline Forms Groups</h2>
-
-  <p>A self-contained inline form consists of an input field with a joined button:</p>
-  <p><strong>Note:</strong> icons cannot be applied to <code>input</code> tags, all icon buttons must be <code>button</code> elements.</p>
-
-  <%- content_for :form_inline do -%>
-<form class="form-inline">
-  <div class="form-inline--input-container">
-    <input type="text" class="form-inline--input" />
   </div>
-  <button class="button form-inline--button icon-chevron-right"></button>
-</form>
-  <%- end -%>
-  <%= yield :form_inline -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :form_inline) -%></pre>
+  <hr />
 
-  <h3 class="heading-three">Full-length inline form</h3>
+  <h2 class="heading-two">Spacing out fields</h2>
 
-  <p>A full-length variant of the form above:</p>
+  <p>All fields are spaced using the <code>inputs</code> class.</p>
+  <p>The <code>inputs</code> class only affects direct children, so any nested inputs will need another <code>inputs</code> class.</p>
+  <p>You can space any buttons away from the inputs above by using the <code>actions</code> class.</p>
 
-  <%- content_for :form_inline_full do -%>
-<form class="form-inline__full">
-  <div class="form-inline--input-container">
-    <input type="text" class="form-inline--input" />
-  </div>
-  <button type="submit" class="button form-inline--button icon-chevron-right"></button>
-</form>
-  <%- end -%>
-  <%= yield :form_inline_full -%>
+  <p>Error blocks should live inside the <code>inputs</code> class as it will space it out from the fields as well.</p>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :form_inline_full) -%></pre>
-
-  <h2 class="heading-two">Full-width search field</h2>
-
-  <p>A common pattern for search pages:</p>
-
-  <%- content_for :search_field do -%>
-<form class="form-search">
-  <label for="search_things" class="form-search--label">Search Things:</label>
-  <div class="form-inline">
-    <div class="form-inline--input-container">
-      <input type="text" class="form-inline--input" id="search_things" name="search_things" />
-    </div>
-    <button type="submit" class="button form-inline--button icon-search"></button>
-  </div>
-</form>
-  <%- end -%>
-  <%= yield :search_field -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :search_field) -%></pre>
-
-  <h2 class="heading-two">Limited text fields</h2>
-
-  <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
-
-  <%- content_for :limiter do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-spacing", ruby: capture { -%>
+&lt;div class="inputs">
+  &lt;%- unless f.error_notification.blank? -%>
+    &lt;%= f.error_notification %>
+  &lt;%- end -%>
+  &lt;%= f.input :field_1 -%&gt;
+  &lt;%= f.input :field_2 -%&gt;
+&lt;/div>
+&lt;div class="actions">
+  &lt;%= f.button "Submit" -%&gt;
+&lt;/div>
+  <%- } } do -%>
 <div class="inputs">
-  <div class="form--medium">
-    <textarea type="text" data-limiter="200"></textarea>
+  <div class="panel__error panel--padding">
+    Errors were found!
+  </div>
+  <div class="control-group">
+    <label class="optional control-label">Field</label>
+    <div class="controls">
+      <input class="form--medium" type="text" />
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="optional control-label">Field</label>
+    <div class="controls">
+      <input class="form--medium" type="text" />
+    </div>
   </div>
 </div>
+<div class="actions">
+  <button class="button">Submit</button>
+</div>
   <%- end -%>
-  <%= yield :limiter -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :limiter) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Form field lengths</h2>
 
   <p>Field lengths can be controlled with <code>form--*</code> classes.</p>
 
-  <p>They can either be applied on the <code>&lt;form></code> element itself, which will then control the lengths of <strong>every</strong> field inside it, or they can be applied on a field-by-field basis.</p>
+  <p>You can add these classes to the input directly to only size the input, or you can add the class to the wrapper to size the input along with any hints, labels, error messages etc. that are associated.</p>
 
   <p>The available lengths are:</p>
 
   <div class="inputs">
-    <div class="control-group form--large">
+    <div class="control-group">
       <label class="optional control-label"><code>.form--large</code></label>
       <div class="controls">
-        <input class="string tel optional" type="text" />
+        <input class="form--large" type="text" />
       </div>
     </div>
 
-    <div class="control-group form--medium">
+    <div class="control-group">
       <label class="optional control-label"><code>.form--medium</code></label>
       <div class="controls">
-        <input class="string tel optional" type="text" />
+        <input class="form--medium" type="text" />
       </div>
     </div>
 
-    <div class="control-group form--small">
+    <div class="control-group">
       <label class="optional control-label"><code>.form--small</code></label>
       <div class="controls">
-        <input class="string tel optional" type="text" />
+        <input class="form--small" type="text" />
       </div>
     </div>
 
-    <div class="control-group form--x-small">
+    <div class="control-group">
       <label class="optional control-label"><code>.form--x-small</code></label>
       <div class="controls">
-        <input class="string tel optional" type="text" />
+        <input class="form--x-small" type="text" />
       </div>
+    </div>
+
+    <div class="control-group">
+      <label class="optional control-label"><code>.form--auto</code></label>
+      <div class="controls">
+        <select class="form--auto">
+          <option>Please select</option>
+          <option>Lorem</option>
+          <option>Ipsum</option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+
+  <p>If you want a thinner input field, you can use <code>.input__tight</code>:</p>
+
+  <div class="control-group">
+    <label class="optional control-label"><code>.form--x-small.input__tight</code></label>
+    <div class="controls">
+      <input class="form--x-small input__tight" type="text" />
     </div>
   </div>
 
+  <hr />
+
+  <h2 class="heading-two">Field modifiers</h2>
+
+  <p>Placeholders are added with the <code>placeholder</code> input attribute.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-placeholder", ruby: capture { -%>
+&lt;%= f.input :example, placeholder: "Example Placeholder" -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium">
+  <label class="string required control-label" for="modifier-placeholder">
+    <abbr title="required">*</abbr> Your name
+  </label>
+  <div class="controls">
+    <input class="string required" id="modifier-placeholder" type="text" placeholder="Example Placeholder">
+  </div>
+</div>
+  <%- end -%>
+
+  <p>Hints appear inside the label element just after the text for the label and use the class <code>hint-block</code>.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-hint", ruby: capture { -%>
+&lt;%= f.input :example, hint: "Example Hint" -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium">
+  <label class="string required control-label" for="modifier-hint">
+    <abbr title="required">*</abbr> Your name
+    <p class='hint-block'>This is a hint message.</p>
+  </label>
+  <div class="controls">
+    <input class="string required" id="modifier-hint" type="text">
+  </div>
+</div>
+  <%- end -%>
+
+  <p>Errors appear inline next to labels and use the <code>error-block</code> class.</p>
+  <p>The wrapper should also get the class of <code>error</code> to colour the label.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-error", ruby: capture { -%>
+&lt;%= f.input :example, error: "Example Error" -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium error">
+  <label class="string required control-label" for="modifier-error">
+    <abbr title="required">*</abbr> Your name<span class='error-block'>can't be blank</span>
+  </label>
+  <div class="controls">
+    <input class="string required" id="modifier-error" type="text">
+  </div>
+</div>
+  <%- end -%>
+
+  <p>Disabled fields use the <code>disabled</code> input attribute.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
+&lt;%= f.input :example, disabled: true -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium">
+  <label class="string required control-label" for="modifier-disabled">
+    <abbr title="required">*</abbr> Your name
+  </label>
+  <div class="controls">
+    <input class="string required" id="modifier" type="text" disabled>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
   <h2 class="heading-two">Radios and checkboxes</h2>
 
-  <%- content_for :checkboxes do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes", ruby: capture { -%>
+&lt;%= f.input :example, as: :check_boxes -%&gt;
+  <%- } } do -%>
 <div class="control-group check_boxes required">
   <label class="check_boxes required control-label">
     Basic checkboxes
@@ -128,11 +199,10 @@
   </div>
 </div>
   <%- end -%>
-  <%= yield :checkboxes -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :checkboxes) -%></pre>
-
-  <%- content_for :radios do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios", ruby: capture { -%>
+&lt;%= f.input :example, as: :radios -%&gt;
+  <%- } } do -%>
 <div class="control-group radio_buttons required">
   <label class="radio_buttons required control-label">
     Basic radios
@@ -147,14 +217,13 @@
   </div>
 </div>
   <%- end -%>
-  <%= yield :radios -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :radios) -%></pre>
-
-  <%- content_for :horizontal_radios do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios", ruby: capture { -%>
+&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--horizontal" } -%&gt;
+  <%- } } do -%>
 <div class="control-group radio_buttons required form--horizontal">
   <label class="radio_buttons required control-label">
-    Horizontal radios/checkboxes with <code>.form--horizontal</code> on the wrapper.
+    Horizontal radios/checkboxes with wrapper class of <code>form--horizontal</code>
   </label>
   <div class="controls">
     <label class="radio">
@@ -166,33 +235,191 @@
   </div>
 </div>
   <%- end -%>
-  <%= yield :horizontal_radios -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :horizontal_radios) -%></pre>
-
-  <%- content_for :single_checkbox do -%>
-<div class="control-group boolean optional checkbox__single">
-  <label class="boolean optional control-label" for="terms">
-    A single checkbox / boolean with the wrapper class <code>checkbox__single</code>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox", ruby: capture { -%>
+&lt;%= f.input :example, as: :boolean -%&gt;
+  <%- } } do -%>
+<div class="control-group boolean optional">
+  <label class="boolean optional control-label" for="single-checkbox">
+    A single checkbox / boolean
   </label>
   <div class="controls">
-    <input name="enrollment[terms]" type="hidden" value="0">
+    <input name="form[single-checkbox]" type="hidden" value="0">
     <label class="checkbox">
-      <input class="boolean optional" id="terms" name="form[terms]" type="checkbox" value="1">
+      <input class="boolean optional" id="single-checkbox" name="form[single-checkbox]" type="checkbox" value="1">
     </label>
   </div>
 </div>
   <%- end -%>
-  <%= yield :single_checkbox -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :single_checkbox) -%></pre>
+  <hr />
+
+  <h2 class="heading-two">Enhanced Radios and checkboxes</h2>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes-enhanced", ruby: capture { -%>
+&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--enhanced" } -%&gt;
+  <%- } } do -%>
+<div class="control-group check_boxes required form--enhanced">
+  <label class="check_boxes required control-label">
+    Enhanced checkboxes with wrapper class of <code>form--enhanced</code>
+  </label>
+  <div class="controls">
+    <label class="checkbox">
+      <input class="check_boxes required" id="checkboxes_true" name="form[checkboxes_enhanced]" type="checkbox" value="true">Yes
+    </label>
+    <label class="checkbox">
+      <input class="check_boxes required" id="checkboxes_false" name="form[checkboxes_enhanced]" type="checkbox" value="false">No
+    </label>
+  </div>
+</div>
+  <%- end -%>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios-enhanced", ruby: capture { -%>
+&lt;%= f.input :example, as: :radios, wrapper_html: { class: "form--enhanced" } -%&gt;
+  <%- } } do -%>
+<div class="control-group radio_buttons required form--enhanced">
+  <label class="radio_buttons required control-label">
+    Enhanced radios with wrapper class of <code>form--enhanced</code>
+  </label>
+  <div class="controls">
+    <label class="radio">
+      <input class="radio_buttons required" id="radios_true" name="form[radios_enhanced]" type="radio" value="true">Yes
+    </label>
+    <label class="radio">
+      <input class="radio_buttons required" id="radios_false" name="form[radios_enhanced]" type="radio" value="false">No
+    </label>
+  </div>
+</div>
+  <%- end -%>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios-enhanced", ruby: capture { -%>
+&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--horizontal form--enhanced" } -%&gt;
+  <%- } } do -%>
+<div class="control-group radio_buttons required form--horizontal form--enhanced">
+  <label class="radio_buttons required control-label">
+    Horizontal radios/checkboxes with wrapper class of <code>form--horizontal</code> and <code>form--enhanced</code>
+  </label>
+  <div class="controls">
+    <label class="radio">
+      <input class="radio_buttons required" id="horizontal_radios_true" name="form[horizontal_radios_enhanced]" type="radio" value="true">Yes
+    </label>
+    <label class="radio">
+      <input class="radio_buttons required" id="horizontal_radios_false" name="form[horizontal_radios_enhanced]" type="radio" value="false">No
+    </label>
+  </div>
+</div>
+  <%- end -%>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox-enhanced", ruby: capture { -%>
+&lt;%= f.input :example, as: :boolean, wrapper_html: { class: "form--enhanced" } -%&gt;
+  <%- } } do -%>
+<div class="control-group boolean optional checkbox__single form--enhanced">
+  <label class="boolean optional control-label" for="terms_enhanced">
+    A single checkbox / boolean with the wrapper class <code>form--enhanced</code>
+  </label>
+  <div class="controls">
+    <input name="form[terms_enhanced]" type="hidden" value="0">
+    <label class="checkbox">
+      <input class="boolean optional" id="terms_enhanced" name="form[terms_enhanced]" type="checkbox" value="1">
+    </label>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Limited text fields</h2>
+
+  <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter", ruby: capture { -%>
+&lt;%= f.input :example, input_html: { data: { limiter: 30 } } -%&gt;
+  <%- } } do -%>
+<div class="inputs">
+  <input type="text" class="form--medium" data-limiter="30" />
+  <textarea class="form--medium" data-limiter="200"></textarea>
+</div>
+  <%- end -%>
+
+  <p>You can limit by words instead of letters by adding in the <code>data-limiter-word</code> attribute.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-word-limiter", ruby: capture { -%>
+&lt;%= f.input :example, input_html: { data: { limiter: 30, limiter_word: "" } } -%&gt;
+  <%- } } do -%>
+<div class="inputs">
+  <input type="text" class="form--medium" data-limiter="3" data-limiter-word />
+  <textarea class="form--medium" data-limiter="10" data-limiter-word></textarea>
+</div>
+  <%- end -%>
+
+  <p>Both word and character limiter has a "micro" styling option by adding <code>data-limiter-micro</code> to your input.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter-micro", ruby: capture { -%>
+&lt;%= f.input :example, input_html: { data: { limiter: 30, limiter_micro: "" } } -%&gt;
+  <%- } } do -%>
+<div class="inputs">
+  <input type="text" class="form--medium" data-limiter="30" data-limiter-micro />
+  <textarea class="form--medium" data-limiter="200" data-limiter-micro></textarea>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Inline Forms Groups</h2>
+
+  <p>A self-contained inline form consists of an input field with a joined button:</p>
+  <p><strong>Note:</strong> icons cannot be applied to <code>input</code> tags, all icon buttons must be <code>button</code> elements.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline" } do -%>
+<form class="form-inline">
+  <div class="form-inline--input-container">
+    <input type="text" class="form-inline--input" />
+  </div>
+  <button class="button form-inline--button icon-chevron-right"></button>
+</form>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Full-length inline form</h2>
+
+  <p>A full-length variant of the form above:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-full" } do -%>
+<form class="form-inline__full">
+  <div class="form-inline--input-container">
+    <input type="text" class="form-inline--input" />
+  </div>
+  <button type="submit" class="button form-inline--button icon-chevron-right"></button>
+</form>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Full-width search field</h2>
+
+  <p>A common pattern for search pages:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-search" } do -%>
+<form class="form-search">
+  <label for="search_things" class="form-search--label">Search Things:</label>
+  <div class="form-inline">
+    <div class="form-inline--input-container">
+      <input type="text" class="form-inline--input" id="search_things" name="search_things" />
+    </div>
+    <button type="submit" class="button form-inline--button icon-search"></button>
+  </div>
+</form>
+  <%- end -%>
+
+  <hr />
 
   <h2 class="heading-one">Long form example</h2>
 
   <form accept-charset="UTF-8" action="#" class="simple_form" method="post" novalidate="novalidate">
     <div class="inputs">
 
-      <div class="island island-error">
+      <div class="panel__error panel--padding">
         Some errors were found, please take a look:
       </div>
 

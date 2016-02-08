@@ -1,10 +1,64 @@
 # Changelog
 
+## v1.2.2
+
+- Added menu-with-more component
+
+## v1.2.1
+
+Documentation update!  
+All new look for the ornament dummy app and styleguide that gets generated, featuring tabbed code samples and previews.   
+There are now simple_form examples available where relevant.  
+
+### Features
+
+- Added "micro" text limiter variation by using `data-limiter-micro`  
+- Added basic enhanced radio and checkbox form elements.  
+- Added `@include text-wrap` mixin for force-wrapping text along with the `type--wrap` class.  
+- Added `@include ellipsis` mixin for truncating text along with the `type--ellipsis` class. 
+- Added `.input__tight` for thinner input fields.  
+- Added `.form--auto` for auto-width select elements.  
+- Added docs for spacing out form fields. 
+- Added `$passive-color` and `.panel__passive`  
+- Added flex mixins and basic docs  
+- Added support for various `type` attributes on lists  
+- Added support for `.boolean` form class that behaves the same way as `.checkbox__single`.  
+- `:og_title` yield will use `:title` or `:page_title` (whichever is available, in that order) as a fallback.  
+- Added `URI.join(root_path, x)` to the `:og_image` content.  
+- Updated opengraph docs.  
+- Added `nested-link` component.  
+- Added `blankstate` component.  
+- Added `card` component. 
+- Added `ratio` utility for calculating ratios in sass. 
+- Added `background-cover` utility for easily giving things background-cover bahaviour.  
+- Added simple `navigation` component. 
+- Added crop tool to image uploader, renamed partial and updated docs. 
+- Added flash message docs. 
+
+### Bugfixes
+
+- Tabs can now be nested
+- Togglable tooltips now show/hide when inside tabs 
+- Fixed ul/ol being unstyled by default when applying the `.content` class  
+
+### Changes
+
+- Removed `.content` class font-size increaser by default. It's still there just commented out if it's ever needed again. 
+- Removed `island` classes and associated docs 
+
 ## v1.2.0
 
 ### Features
 
-- Added menu-with-more component
+- Moved mapColours in to the Ornament defaults file to make the map.js file easier to read.  
+- Added togglable "clusters" to the map component by adding in `data-map-cluster` to your map element.  
+- Added minimal ui option for maps to only show zoom controls by using `data-map-controls="minimal"`. 
+- Added geolocation to maps by using `data-maps-geolocate` 
+- Added geocoding to map pins by using `data-map-pin-geocode` 
+- Extended the text limiter form component to allow for word-count rather than character count by also passing in `data-limiter-word`  
+- Updated show.js to not require a value for `data-show-inverse`. This will still work if there is a value so this is a non-breaking change. 
+- Added `data-show-destroy` to show.js for when you want the data removed from hidden fields. 
+- Restructured the show.js documentation to be more in line with the rest of the Ornament documentation. 
 
 ## v1.1.0
 

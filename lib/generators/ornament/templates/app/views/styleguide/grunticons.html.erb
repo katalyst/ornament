@@ -1,0 +1,73 @@
+<%= content_for :title, "Grunticons" -%>
+
+<div class="content-spacing">
+
+  <h2 class="heading-two">Installing grunt and required node modules</h2>
+
+  <p>Each ornament project comes with <code>package.json</code> and a <code>gruntfile.js</code>.</p>
+
+  <p>Simply open up terminal and type <code>npm install</code> to install grunt and any other dependancies that ornament requires.</p>
+
+  <hr />
+
+  <h2 class="heading-two">SVG Icons with <a href="https://github.com/filamentgroup/grunticon" target="_blank">Grunticon</a></h2>
+
+  <p>Place your .SVG or .PNG files in <code>/app/assets/icons</code></p>
+
+  <p>Running <code>grunt icons</code> will generate all icons in to CSS files and create PNG fallbacks for SVG files.</p>
+
+  <p>The CSS for SVG and PNG files will be generated and placed in to <code>/app/assets/stylesheets/grunticon</code></p>
+
+  <hr />
+
+  <h2 class="heading-two">Colouring Icons</h2>
+
+  <p>Grunticon has the capacity to colourise your icons for you, so you don't need several source files for each different colour icon.</p>
+
+  <p>Simply make sure your name follows this pattern: <code>[icon].color-[colour1].svg</code>.</p>
+
+  <p>For example, if my icon was a phone, and I wanted it in blue and green variations I would name the file: <code>phone.color-primary-secondary.svg</code></p>
+
+  <p>To define <em>what</em> exactly primary and secondary represent, you will need to open up the gruntfile and add them to your colours:</p>
+
+  <pre class="sg-pre prettyprint">colors: {
+    primary: "#016fb9",
+    secondary: "#7ac045"
+  },</pre>
+
+  <p>Be careful using named colours (eg. blue, green, salmon, lightgoldenrodyellow) as Grunticon will disregard your colour definitions in favour of the CSS named colours instead. Green for example will use #00ff00 and blue will use #0000ff.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Applying Icons</h2>
+
+  <p>There are a few mixins that will help you in adding our freshly minted icon on to our page:</p>
+
+  <p>
+    <strong>@include grunticon($grunticon-name, $width, [$height])</strong><br />
+    Grunticon-name is the name of your SVG file, disregarding colours. For example, if you had an <code>umbrella.svg</code>, it would be loaded in to grunticon as <code>umbrella</code>. Any colour variations will be hyphenated. <code>umbrella.colors-primary</code> will be loaded as <code>umbrella-primary</code>.<br />
+    Pass in a width so the mixin will know how big the psuedo element for the icon needs to be. You can optionally pass in a height, otherwise it will assume it's a square. 
+  </p>
+  <p>
+    <strong>@include icon-block($block-width, [$icon-width], [$block-height], [$icon-height])</strong><br />
+    Results in an icon inside a square. Useful for making icon buttons that have no accompanying text. <br />
+    Only the first value is required. If only one value is passed to the mixin, it will assume the block and icon are sized the same and are square. <br />
+    Height values are optional if the icon is square. 
+  </p>
+  <p>
+    <strong>@include icon-inline</strong><br />
+    Makes your icon sit inline with text. 
+  </p>
+
+  <p>To bring it all together, we can apply the mixins like so:</p>
+
+  <pre class="sg-pre prettyprint">.my-awesome-inline-icon {
+  @include grunticon("phone",44px);
+  @incldue icon-inline
+}
+.my-awesome-block-icon {
+  @include grunticon("umbrella-tertiary",22px);
+  @incldue icon-block(44px,22px);
+}</pre>
+
+</div> 

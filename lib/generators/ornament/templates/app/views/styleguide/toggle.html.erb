@@ -1,24 +1,24 @@
 <% content_for :title, "Toggle" %>
 
-<div class="spacing">
+<div class="content-spacing">
 
   <h2 class="heading-two">Show/hide something</h2>
 
-  <%- content_for :example do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-1" } do -%>
 <a href="#" data-toggle-anchor="example-1">Show/hide example 1</a>
 <div data-toggle="example-1">
   This is the content for example 1
 </div>
   <%- end -%>
 
-  <div>
-    <%= yield :example -%>
-  </div>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Group toggles and allow only one to be toggled at any time</h2>
 
-  <%- content_for :example_2 do -%>
+  <p>Toggles can be grouped by adding <code>data-toggle-group="group-name"</code> to each of the anchors. Make sure that the value is shared between the anchors.</p>
+  <p>You can have multiple groups by giving each group a unique toggle-group value.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-2" } do -%>
 <div>
   <a href="#" data-toggle-anchor="example-2-1" data-toggle-group="example-2">Heading 1</a>
 </div>
@@ -39,28 +39,24 @@
 </div>
   <%- end -%>
 
-  <div>
-    <%= yield :example_2 -%>
-  </div>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_2) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Change labels between show/hide</h2>
 
-  <%- content_for :example_3 do -%>
+  <p>Add <code>data-toggle-visible-label</code> to your anchor to swap the label.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
 <a href="#" data-toggle-anchor="example-3-1" data-toggle-visible-label="Hide">Show</a>
 <div data-toggle="example-3-1">
   This is the hidden content
 </div>
   <%- end -%>
 
-  <div>
-    <%= yield :example_3 -%>
-  </div>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_3) -%></pre>
+  <hr />
 
   <h2 class="heading-two">Add a bottom toggle which scroll back to the top when hiding</h2>
 
-  <%- content_for :example_4 do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-4" } do -%>
 <a href="#" data-toggle-anchor="example-4" data-toggle-scroll data-toggle-scroll-master>This is the master toggle anchor</a>
 <div data-toggle="example-4">
   This<br />
@@ -85,31 +81,28 @@
 </div>
   <%- end -%>
 
-  <div>
-    <%= yield :example_4 -%>
-  </div>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_4) -%></pre>
+  <hr />
 
   <h2 class="heading-two">JS events and triggers</h2>
 
-  <div>
+  <p>
     Activate toggle anchor<br />
     <code>$(".my-toggle-anchor").trigger("ornament:toggle-on");</code>
-  </div>
+  </p>
 
-  <div>
+  <p>
     Deactivate toggle anchor<br />
     <code>$(".my-toggle-anchor").trigger("ornament:toggle-off");</code>
-  </div>
+  </p>
 
-  <div>
+  <p>
     Toggle toggle anchor<br />
     <code>$(".my-toggle-anchor").trigger("ornament:toggle");</code>
-  </div>
+  </p>
 
-  <div>
+  <p>
     Hide all toggle content blocks<br />
     <code>$(document).trigger("ornament:toggle-all-off");</code>
-  </div>
+  </p>
 
 </div>

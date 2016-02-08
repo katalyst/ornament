@@ -120,7 +120,7 @@ SimpleForm.setup do |config|
   config.error_notification_tag = :div
 
   # CSS class to add for error notification helper.
-  config.error_notification_class = 'island island-error'
+  config.error_notification_class = 'panel__error panel--padding'
 
   # ID to add for error notification helper.
   # config.error_notification_id = nil

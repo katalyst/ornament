@@ -6,54 +6,101 @@
 
   <p>To create a panel, all you need is a <code>panel</code> class:</p>
 
-  <%- content_for :panel do -%>
-<div class="panel">
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-1" } do -%>
+<div class="panel panel__passive">
   This is a panel
 </div>
   <%- end -%>
-  <%= yield :panel -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :panel) -%></pre>
 
-  <p>To create a blue panel, you can use the <code>panel__blue</code> class instead:</p>
+  <p>There are a few different out-of-the-box colour variations for panels:</p>
 
-  <%- content_for :panel_blue do -%>
-<div class="panel__blue">
-  Blue panel
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-colouring" } do -%>
+<div class="panel-spacing">
+  <div class="panel__primary">
+    Primary colour panel
+  </div>
+  <div class="panel__warning">
+    Warning panel
+  </div>
+  <div class="panel__error">
+    Error panel
+  </div>
+  <div class="panel__notice">
+    Notice panel
+  </div>
+  <div class="panel__success">
+    Success panel
+  </div>
+  <div class="panel__passive">
+    Passive Panel
+  </div>
 </div>
   <%- end -%>
-  <%= yield :panel_blue -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :panel_blue) -%></pre>
 
   <p>You can create custom panel classes by adding colour variations to the <code>panel.css.scss</code> file.</p>
+
+  <hr />
 
   <h2 class="heading-two">Panel padding</h2>
 
   <p>You can add <code>.panel--padding</code> to add padding to the panel.</p>
 
-  <%- content_for :panel_padding do -%>
-<div class="panel panel--padding">
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-padding" } do -%>
+<div class="panel__passive panel--padding">
   Panel with padding
 </div>
   <%- end -%>
-  <%= yield :panel_padding -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :panel_padding) -%></pre>
+
+  <hr />
 
   <h2 class="heading-two">Stacking panels</h2>
 
   <p>You can stack panels by adding in the <code>panel__no-bottom-radius</code> and <code>panel__no-top-radius</code> classes:</p>
 
-  <%- content_for :panel_stacked do -%>
-<div class="panel panel__blue panel--padding panel__no-bottom-radius">
-  Blue panel with no bottom radius
-</div>
-
-<div class="panel panel--padding panel__no-top-radius">
-  Panel with no top radius
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-stacked" } do -%>
+<div class="panel">
+  <div class="panel__primary panel--padding panel__no-bottom-radius">
+    Blue panel with no bottom radius
+  </div>
+  <div class="panel__passive panel--padding panel__no-top-radius">
+    Panel with no top radius
+  </div>
 </div>
   <%- end -%>
-  <%= yield :panel_stacked -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :panel_stacked) -%></pre>
 
   <p>This is the reason why panels don't have padding by default, so that panels can stack and have independant padding.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Spacing panels</h2>
+
+  <p>You can space out panels by using the <code>panel-spacing</code> wrapper class:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-stacked" } do -%>
+<div class="panel-spacing">
+  <div class="panel__passive panel--padding">
+    Panel 1
+  </div>
+  <div class="panel__passive panel--padding">
+    Panel 2
+  </div>
+</div>
+  <%- end -%>
+
+  <p>By default it will space out all <code>panel</code> elements, but you can also add a <code>panel-spacer</code> class to space out non-panels as if they were a panel. In the example below, "Panel 2" isn't actually a panel, but it acts like one when sitting next to other panels.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-stacked" } do -%>
+<div class="panel-spacing">
+  <div class="panel__passive panel--padding">
+    Panel 1
+  </div>
+  <div class="panel-spacer">
+    Panel 2
+  </div>
+  <div class="panel__passive panel--padding">
+    Panel 3
+  </div>
+</div>
+  <%- end -%>
 
 </div>

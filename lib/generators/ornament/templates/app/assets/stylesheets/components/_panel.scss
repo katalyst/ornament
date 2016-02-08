@@ -1,0 +1,89 @@
+$panel-border:          $background-color;
+
+.panel {
+  @include border-radius($border-radius);
+  @include pie-clearfix;
+}
+
+.panel--padding-border {
+  border-top: 1px solid $panel-border;
+}
+
+// COLOUR VARIANTS
+
+.panel__primary {
+  @extend .panel;
+  background: $primary-color;
+  color: $white;
+  a {
+    @include color-link($white,$white);
+  }
+}
+
+.panel__passive {
+  @extend .panel;
+  background: $passive-color;
+}
+
+.panel__warning {
+  @extend .panel;
+  background: $notice-color;
+  color: $foreground-color;
+
+  a {
+    @include color-link($foreground-color, $foreground-color);
+    @include decorate-link(underline, underline);
+  }
+}
+
+.panel__alert,
+.panel__error {
+  @extend .panel;
+  background: $error-background;
+  color: $error-color;
+}
+
+.panel__notice {
+  @extend .panel;
+  background: $notice-background;
+  color: $notice-color;
+}
+
+.panel__success {
+  @extend .panel;
+  background: $success-background;
+  color: $success-color;
+}
+
+.panel__flash {
+  @include border-radius(0);
+}
+
+// PADDING VARIANTS
+
+.panel--padding {
+  padding: $panel-padding;
+}
+
+// BORDER RADIUS VARIANTS
+
+.panel__no-top-radius {
+  @include border-top-left-radius(0);
+  @include border-top-right-radius(0);
+}
+
+.panel__no-bottom-radius {
+  @include border-bottom-left-radius(0);
+  @include border-bottom-right-radius(0);
+}
+
+// PANEL SPACING
+
+.panel-spacing {
+  .panel + .panel,
+  .panel + .panel-spacer,
+  .panel-spacer + .panel-spacer,
+  .panel-spacer + .panel {
+    margin-top: $panel-spacing;
+  }
+}

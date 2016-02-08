@@ -1,0 +1,53 @@
+<%- 
+  model ||= "example"
+  attr ||= "field"
+  label ||= "Example"
+  ratio ||= "1/1" 
+  types ||= "jpg, jpeg, gif, png"
+  existing_image ||= false 
+  hidden_field_type ||= "hidden" 
+  croppable ||= false
+-%>
+
+<div class="control-group file-uploader--control-group <%= attr -%> " data-uploader-control-group>
+  <label class="integer optional control-label" for="<%= model -%>_<%= attr -%>_id"><%= label -%></label>
+  <p class="hint-block">This is a hint message for the image uploader</p>
+  <div class="file-uploader--external-hint" data-uploader-hint-position=""></div>
+  <div class="file-uploader ">
+    <div>
+      <%- if croppable -%>
+        <input readonly="readonly" class="hidden readonly" type="<%= hidden_field_type -%>" value="" name="<%= model -%>[<%= attr -%>_crop]" id="<%= model -%>_<%= attr -%>_crop">
+      <%- end -%>
+      <input class="hidden" type="<%= hidden_field_type -%>" value="" name="<%= model -%>[<%= attr -%>_id]" id="<%= model -%>_<%= attr -%>_id">
+      <input type="file" 
+        data-file-uploader="" 
+        data-file-max-count="1" 
+        data-file-max-size="5" 
+        data-file-types="<%= types -%>" 
+        data-file-existing-image="<%= existing_image if existing_image -%>" 
+        data-file-existing-name="<%= existing_image if existing_image -%>" 
+        data-file-for="<%= model -%>_<%= attr -%>_id" 
+        data-file-image-ratio="<%= ratio -%>" 
+        <%- if croppable -%> 
+          data-file-croppable 
+          data-file-crop-string="" 
+          data-file-modal="crop_<%= attr -%>_modal" 
+          data-file-crop-field="<%= model -%>_<%= attr -%>_crop" 
+        <%- end -%>
+        data-file-demo 
+      />
+    </div>
+    <%- if croppable -%>
+      <div class="form--file-crop mfp-hide" id="crop_<%= attr -%>_modal">
+        <div class="form--file-crop--container">
+          <div data-crop-image>
+            <%= image_tag existing_image if existing_image -%>
+          </div>
+        </div>
+        <div class="form--file-crop--footer">
+          <a href="#" class="button button__full" data-crop-save="">Done</a>
+        </div>
+      </div>
+    <%- end -%>
+  </div>
+</div> 

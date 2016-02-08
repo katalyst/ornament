@@ -1,0 +1,218 @@
+// FONTS
+
+$body-font: (sans-serif) normal normal;
+$italic-font: (sans-serif) italic normal;
+
+$bold-font: (sans-serif) normal bold;
+$bold-italic-font: (sans-serif) italic bold;
+
+$heading-alpha-font: (sans-serif) normal bold;
+$heading-alpha-font-italic: (sans-serif) italic bold;
+
+$heading-beta-font: (sans-serif) normal bold;
+$heading-beta-font-italic: (sans-serif) italic bold;
+
+// $body-font: ('Myriad W01 Regular', sans-serif) normal normal;
+// $italic-font: ('Myriad W01 It', sans-serif) normal normal;
+
+// $bold-font: ('Myriad W01 Bd', sans-serif) normal normal;
+// $bold-italic-font: ('Myriad W01 Bd It', sans-serif) normal normal;
+
+// $heading-alpha-font: ('Myriad W01 Bd', sans-serif) normal normal;
+// $heading-alpha-font-italic: ('Myriad W01 Bd It', sans-serif) normal normal;
+
+// $heading-beta-font: ('Myriad W01 SmBd', sans-serif) normal normal;
+// $heading-beta-font-italic: ('Myriad W01 SmBd It', sans-serif) normal normal;
+
+$input-typeface: $body-font;
+
+
+// BODY
+
+@mixin body-type {
+ @include font($body-font);
+ font-size: $base-font-size;
+ line-height: $base-line-height;
+ color: $foreground-color;
+}
+
+body, .body-type {
+  @include body-type;
+}
+
+@mixin small-type {
+  @include font($body-font);
+  font-size: $small-font-size;
+  line-height: 1;
+}
+
+small {
+  @include small-type;
+}
+
+.type--small {
+  @include small-type;
+}
+
+.type--wrap {
+  @include text-wrap;
+}
+
+.type--ellipsis {
+  @include ellipsis;
+}
+
+// HEADINGS
+
+@mixin heading-one {
+  @include font($heading-alpha-font);
+  font-size: 54px;
+  line-height: 64px;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media-query($breakpoint-typography) {
+    font-size: 40px;
+    line-height: 50px;
+  }
+}
+.heading-one {
+  @include heading-one;
+}
+
+@mixin heading-two {
+  @include font($heading-alpha-font);
+  font-size: 28px;
+  line-height: 40px;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media-query($breakpoint-typography) {
+    line-height: 36px;
+    font-size: 26px;
+  }
+}
+.heading-two {
+  @include heading-two;
+}
+
+@mixin heading-three {
+  @include font($heading-alpha-font);
+  font-size: 24px;
+  line-height: 34px;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media-query($breakpoint-typography) {
+    font-size: 20px;
+  }
+}
+.heading-three {
+  @include heading-three;
+}
+
+@mixin heading-four {
+  @include font($heading-alpha-font);
+  font-size: 18px;
+  line-height: $base-line-height;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin heading-five {}
+@mixin heading-six {}
+
+// INLINE STYLES
+
+strong, b {
+  @include font($bold-font);
+}
+
+em, i {
+  @include font($italic-font);
+}
+
+em b, em strong,
+i b, i strong,
+b i, b em,
+strong i, strong em {
+  @include font($bold-italic-font);
+}
+
+del {
+  text-decoration: line-through;
+}
+
+.type--passive {
+  color: $passive-color;
+}
+
+.type--grey {
+  color: $grey;
+}
+
+// sub/sup styling
+// https://gist.github.com/unruthless/413930
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+// LINKS
+
+a, button {
+  @include decorate-link(none, underline);
+  @include color-link($link-color, $link-hover-color);
+}
+
+// TABLES
+
+th {
+  @include font($bold-font);
+}
+
+// FORMS
+
+[type="text"], [type="password"], [type="date"], [type="datetime"],
+[type="email"], [type="number"], [type="search"], [type="tel"], [type="time"],
+[type="url"], textarea {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  @include font($input-typeface);
+}

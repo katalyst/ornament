@@ -18,6 +18,8 @@
 
   <pre class="sg-pre prettyprint">$(".oslide").oslide();</pre>
 
+  <hr />
+
   <h2 class="heading-two">Basic - Image Gallery</h2>
 
   <div class="oslide oslide-1" data-oslide>
@@ -40,6 +42,8 @@
   <%= yield :basic -%>
   <pre class="sg-pre prettyprint"><%= render_source(yield :basic) -%></pre>
 
+  <hr />
+
   <h2 class="heading-two">HTML Example</h2>
 
   <p>No markup or script changes to the basic example above, just use HTML to markup each slide in whatever way you need.</p>
@@ -57,6 +61,8 @@
       </div>
     <%- end -%>
   </div>
+
+  <hr />
 
   <h2 class="heading-two">Disabled Looping</h2>
 
@@ -84,6 +90,8 @@
   <%= yield :no_loop -%>
   <pre class="sg-pre prettyprint"><%= render_source(yield :no_loop) -%></pre>
 
+  <hr />
+
   <h2 class="heading-two">SlideBy 1 at a time</h2>
 
   <div class="oslide oslide-3" data-oslide>
@@ -110,6 +118,8 @@
   <%= yield :one_by_one -%>
   <pre class="sg-pre prettyprint"><%= render_source(yield :one_by_one) -%></pre>
 
+  <hr />
+
   <h2 class="heading-two">Minimap</h2>
 
   <div class="oslide oslide-4" data-oslide>
@@ -133,6 +143,8 @@
   <%- end -%>
   <%= yield :minimap -%>
   <pre class="sg-pre prettyprint"><%= render_source(yield :minimap) -%></pre>
+
+  <hr />
 
   <h2 class="heading-two">Custom Navigation Buttons</h2>
 
@@ -172,6 +184,8 @@
   <%= yield :custom_nav -%>
   <pre class="sg-pre prettyprint"><%= render_source(yield :custom_nav) -%></pre>
 
+  <hr />
+
   <h2 class="heading-two" id="triggers">Triggers</h2>
 
   <p>Various triggers are available to control the slider outside of the plugin.</p>
@@ -189,6 +203,8 @@
   <p>
     <code>$(".my-oslide").trigger("oslide:refresh")</code> - Refreshes various features of the slider such as shadows, minimap, whether next/previous button should be visible if loop is turned off etc.
   </p>
+
+  <hr />
 
   <h2 class="heading-two">All Options and Callbacks</h2>
 

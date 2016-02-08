@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+
+    <meta charset="utf-8"/>
+
+    <title>
+      <% if content_for?(:title) %>
+        <%= yield :title %> &ndash;
+      <% elsif content_for(:page_title) -%>
+        <%= yield :page_title %> &ndash;
+      <% end %>
+      Ornament Pattern Library and UI/UX Documentation
+    </title>
+
+    <!-- META -->
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=0.6667"/>
+    <% unless Rails.env == "production" %>
+      <meta name="robots" content="noindex,nofollow"/>
+    <% end  %>
+    <%= yield :meta %>
+
+    <!-- WEBFONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- STYLES -->
+    <%= stylesheet_link_tag "styleguide", :media => "all" %>
+    <%= yield :styles %>
+
+    <!-- SCRIPTS -->
+    <%= javascript_include_tag "modernizr" %>
+    <%= javascript_include_tag "application" %>
+    <!--[if lt IE 9]>
+      <%#= javascript_include_tag "selectivizr" %>
+      <%= javascript_include_tag "respond" %>
+    <![endif]-->
+    <%= yield :scripts %>
+
+    <!-- SOCIAL SHARING -->
+    <%- unless content_for? :disable_og_image -%>
+      <%- if content_for? :og_image -%>
+        <meta property="og:image" content="<%= URI.join(root_url, yield(:og_image)) %>" />
+        <link rel="image_src" href="<%= URI.join(root_url, yield(:og_image)) %>" />
+      <%- else -%>
+        <meta property="og:image" content="" />
+        <link rel="image_src" href="" />
+      <%- end -%>
+    <%- end -%>
+    <%- if content_for? :og_description -%>
+      <meta property="og:description" content="<%= yield :og_description -%>">
+    <%- else -%>
+      <meta property="og:description" content="">
+    <%- end -%>
+    <%- if content_for? :og_url -%>
+      <meta property="og:url" content="<%= yield :og_url %>" />
+    <%- else -%>
+      <meta property="og:url" content="<%= request.original_url %>" />
+    <%- end -%>
+    <%- if content_for? :og_title -%>
+      <meta property="og:title" content="<%= yield :og_title -%>" />
+    <%- elsif content_for? :title -%>
+      <meta property="og:title" content="<%= yield :title -%>" />
+    <%- elsif content_for? :page_title -%>
+      <meta property="og:title" content="<%= yield :page_title -%>" />
+    <%- else -%>
+      <meta property="og:title" content="Ornament Pattern Library and UI/UX Documentation" />
+    <%- end -%>
+
+  </head>
+
+  <!--[if lte IE 8 ]><body class="ie8 styleguide <%= yield :body_class -%>"> <![endif]-->
+  <!--[if (gt IE 8)|!(IE)]><!--> <body class="styleguide <%= yield :body_class -%>"> <!--<![endif]-->
+
+    <a class="skip-link" href="#main">skip to content</a>
+
+    <div class="layout">
+
+      <div class="layout--mobile-tray">
+        <nav class="navigation-mobile">
+          <div class="pane-wrapper">
+
+            <div class="pane">
+              <div class="pane--navigation-container">
+                <%= render "layouts/styleguide/styleguide_navigation", heading_class: "sg-nav--heading", list_class: "non-pane" -%>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
+
+        <header class="sg-header layout--header" role="banner">
+          <div class="layout--container">
+            <hgroup class="sg-header--logo">
+              <h1><%= link_to "Ornament", styleguide_path -%></h1>
+              <h2>The front-end pattern library and styleguide for Katalyst web applications</h2>
+            </hgroup>
+            <button class="sg-header--menu" data-mobile-menu-switch>open navigation</button>
+          </div>
+        </header>
+
+        <%= yield :above_layout -%>
+        <%- if content_for?(:title) -%>
+          <div class="sg-title">
+            <div class="layout--container">
+              <h2 class="heading-three"><%= yield(:title) -%></h2>
+              <%= link_to raw("&lsaquo; Back"), styleguide_path -%>
+            </div>
+          </div>
+        <%- end -%>
+        <%- if content_for?(:global) || !yield.blank? -%>
+          <div class="layout--container">
+            <section class="layout--main" role="main">
+              <a id="main" name="main" tabindex="-1"></a>
+              <%= content_for?(:global) ? yield(:global) : yield %>
+            </section>
+          </div>
+        <%- end -%>
+        <%= yield :below_layout -%>
+
+        <footer class="sg-footer" role="contentinfo"></footer>
+
+      </div>
+
+    <% end %>
+
+    <%= javascript_include_tag "application_bottom" %>
+    <%= yield :scripts_bottom %>
+
+  </body>
+
+</html>

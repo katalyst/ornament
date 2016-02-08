@@ -1,0 +1,70 @@
+$text-limiter-background: #f3f6f7;
+$text-limiter-dark-grey:  #a7adb3;
+
+.form--field-with-count {
+  
+}
+
+.form--field-with-count textarea,
+.form--field-with-count input {
+  @include border-top-left-radius(0);
+  @include border-top-right-radius(0);
+}
+
+.form--field-with-count--heading {
+  background: $text-limiter-background;
+  color: $text-limiter-dark-grey;
+  @include line-height-padding($form-line-height);
+  padding-left: $xxxx-small-unit;
+  padding-right: $xxxx-small-unit;
+  border: 1px solid $input-border-color;
+  border-bottom: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.form--field-with-count--counter {
+  padding-left: 10px;
+  margin-left: 10px;
+  border-left: 1px solid $text-limiter-dark-grey;
+}
+
+.form--field-with-count__micro {
+  position: relative;
+
+  .form--field-with-count--heading {
+    position: absolute;
+    bottom: 4px;
+    right: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    font-size: $x-small-font-size;
+    pointer-events: none;
+  }
+
+  // extra room on textarea to allow for scrollbars
+  &.form--field-with-count__textarea .form--field-with-count--heading {
+    right: 12px;
+  }
+
+  .form--field-with-count--counter {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  textarea,
+  input {
+    @include border-top-left-radius($border-radius);
+    @include border-top-right-radius($border-radius);
+  }
+
+  textarea {
+    padding-bottom: $default-unit;
+  }
+
+  input {
+    padding-right: 60px;
+  }
+}

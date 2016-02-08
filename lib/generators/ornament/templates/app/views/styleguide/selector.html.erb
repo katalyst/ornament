@@ -18,7 +18,7 @@
 
   <p>Selector provides an easy way to manage a long list of items that user can select from.</p>
 
-  <%- content_for :example_1 do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "selector-1" } do -%>
 <p>Example "hidden" field that the data is sent to:</p>
 
 <input type="text" id="selector_1_field" />
@@ -37,12 +37,12 @@
   });
 </script>
   <%- end -%>
-  <%= yield :example_1 -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
+
+  <hr />
 
   <h2 class="heading-two">Custom list template</h2>
 
-  <%- content_for :custom_list_template do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "selector-2" } do -%>
 <div class="control-group">
   <input type="text" placeholder="Filter for your favourite number" class="" id="selector_2" />
 </div>
@@ -60,14 +60,14 @@
   });
 </script>
   <%- end -%>
-  <%= yield :custom_list_template -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :custom_list_template) -%></pre>
+
+  <hr />
 
   <h2 class="heading-two">Change callback</h2>
 
   <p>Text will update below the selector when you make a selection.</p>
 
-  <%- content_for :callback do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "selector-3" } do -%>
 <div class="control-group">
   <input type="text" placeholder="Filter for your favourite number" class="" id="selector_3" />
   <p id="selector_3_callback_box"></p>
@@ -89,18 +89,18 @@
   });
 </script>
   <%- end -%>
-  <%= yield :callback -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :callback) -%></pre>
+
+  <hr />
 
   <h2 class="heading-two">Checkbox with a holding area for selections</h2>
 
   <p>Text will update below the selector when you make a selection.</p>
 
-  <%- content_for :holding do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "selector-4" } do -%>
 <div class="control-group">
   <input type="text" placeholder="Filter for your favourite number" class="" id="selector_4" />
+  <input type="text" id="selector_4_field" />
 </div>
-<input type="text" id="selector_4_field" />
 <script>
   $(function(){
     var selector4Holding = [];
@@ -129,12 +129,8 @@
   });
 </script>
   <%- end -%>
-  <%= yield :holding -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :holding) -%></pre>
-  
-  <div class="selector--pane--wrapper">
-    <div class="selector--pane"></div>
-  </div>
+
+  <hr />
 
   <h2 class="heading-two">Usage</h2>
 
@@ -164,6 +160,8 @@
 &lt;/script></pre>
 
   <p>When using with SimpleForm and Ornament's SimpleForm initialiser, it helps to add <code>&lt;div class="control-group">&lt;/div></code> around the input field.</p>
+
+  <hr />
 
   <h2 class="heading-two">Options, events and callbacks</h2>
 

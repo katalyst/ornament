@@ -1,0 +1,116 @@
+<%- content_for :title, "Card" -%>
+
+<%- content_for :styles do -%>
+  <style>
+    .card {
+      max-width: 300px;
+    }
+    .cards .card {
+      max-width: none;
+    }
+  </style>
+<%- end -%>
+
+<div class="content-spacing">
+  <p>A basic <code>card</code> component:</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "card" } do -%>
+<div class="card">
+  <div class="card--image">
+    <img src="http://placehold.it/300x200" />
+  </div>
+  <div class="card--content compressed">
+    <p><strong>Awesome card</strong></p>
+    <p>The awesome card is pretty awesome.</p>
+    <p><small class="type--grey">Posted Yesterday</small></p>
+  </div>
+</div>
+<%- end -%>
+
+<div class="content-spacing">
+  <hr />
+  <h2 class="heading-two">Cards as links</h2>
+  <p>Cards automatically inherit the <code>nested-link</code> component when they are links, so you can use <code>.nested-link--target</code> to highlight a fake link:</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "card-2" } do -%>
+<a href="#" class="card">
+  <div class="card--image">
+    <img src="http://placehold.it/300x200" />
+  </div>
+  <div class="card--content compressed">
+    <p><strong class="nested-link--target">Awesome card</strong></p>
+    <p>The awesome card is pretty awesome.</p>
+    <p><small class="type--grey">Posted Yesterday</small></p>
+  </div>
+</a>
+<%- end -%>
+
+<div class="content-spacing">
+  <hr />
+  <h2 class="heading-two">Cover images</h2>
+  <p>Normally card images are inline images, however you may want a responsive cover image that fills an aspect ratio block, you can move the image in to a background image and change the image class to <code>card--image__cover</code>.</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "card-2" } do -%>
+<a href="#" class="card">
+  <div class="card--image__cover" style="background-image: url(http://placehold.it/500x300);"></div>
+  <div class="card--content compressed">
+    <p><strong class="nested-link--target">Awesome card</strong></p>
+    <p>The awesome card is pretty awesome.</p>
+    <p><small class="type--grey">Posted Yesterday</small></p>
+  </div>
+</a>
+<%- end -%>
+
+<div class="content-spacing">
+  <hr />
+  <h2 class="heading-two">Footer</h2>
+  <p>You can add a footer to your card by using <code>.card--footer</code>:</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "card-2" } do -%>
+<a href="#" class="card">
+  <div class="card--image__cover" style="background-image: url(http://placehold.it/500x300);"></div>
+  <div class="card--content compressed">
+    <p><strong class="nested-link--target">Awesome card</strong></p>
+    <p>The awesome card is pretty awesome.</p>
+  </div>
+  <div class="card--footer compressed">
+    <p><small class="type--grey">Posted Yesterday</small></p>
+  </div>
+</a>
+<%- end -%>
+
+<div class="content-spacing">
+  <hr />
+  <h2 class="heading-two">Badges</h2>
+  <p>Add card badges inside your image div:</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "card-2" } do -%>
+<div class="spacing">
+  <a href="#" class="card">
+    <div class="card--image">
+      <div class="card--badge">Drama</div>
+      <img src="http://placehold.it/300x200" />
+    </div>
+    <div class="card--content compressed">
+      <p><strong class="nested-link--target">With Inline Image</strong></p>
+      <p>The awesome card is pretty awesome.</p>
+      <p><small class="type--grey">Posted Yesterday</small></p>
+    </div>
+  </a>
+  <a href="#" class="card">
+    <div class="card--image__cover" style="background-image: url(http://placehold.it/500x300);">
+      <div class="card--badge">Comedy</div>
+    </div>
+    <div class="card--content compressed">
+      <p><strong class="nested-link--target">With Cover Image</strong></p>
+      <p>The awesome card is pretty awesome.</p>
+      <p><small class="type--grey">Posted Yesterday</small></p>
+    </div>
+  </a>
+</div>
+<%- end -%>

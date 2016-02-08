@@ -1,0 +1,118 @@
+$selector-border-color: $input-border-color;
+
+.selector {
+  border: 1px solid $selector-border-color;
+  @include border-radius($border-radius);
+  margin: $default-unit 0;
+  overflow: hidden;
+  @include flush-children;
+}
+
+.selector--search {
+  padding: $xxxx-small-unit;
+  position: relative;
+  border-bottom: 1px solid $selector-border-color;
+  @include grunticon("search-16", 16px);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+    right: 22px;
+  }
+
+  input {
+    width: 100%;
+    padding-right: 48px;
+  }
+}
+
+.selector--pane {
+  max-height: 220px;
+  overflow: auto;
+  position: relative;
+  background: $white;
+}
+
+.selector .shadow-top,
+.selector .shadow-bottom {
+  position: relative;
+}
+
+.selector .shadow-top:before,
+.selector .shadow-bottom:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.selector .shadow-top:before {
+  top: 0;
+  @include background-image(linear-gradient(rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%));
+}
+
+.selector .shadow-bottom:after {
+  bottom: 0;
+  @include background-image(linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%));
+}
+
+.selector--no-results {
+  padding: $panel-padding;
+}
+
+.selector--list {
+  position: relative;
+  z-index: 1;
+
+  .layout--main & {
+    margin: 0;
+    padding: 0;
+  }
+
+  .grey {
+    font-size: $small-font-size;
+  }
+
+  .table {
+    width: 100%;
+  }
+
+  .table-cell {
+    vertical-align: middle;
+  }
+
+  .table-cell:first-child {
+    width: 24px;
+  }
+}
+
+.selector--list li + li {
+  border-top: 1px solid $selector-border-color;
+}
+
+.selector--list label {
+  display: block;
+  @include pie-clearfix;
+
+  &.selector--list--active {
+    background: #eee;
+  }
+
+  .table-cell {
+    padding: $xxxx-small-unit;
+  }
+
+  input {
+    margin-right: 0;
+  }
+
+  .table-cell:first-child {
+    border-right: 1px solid $selector-border-color;
+  }
+
+}

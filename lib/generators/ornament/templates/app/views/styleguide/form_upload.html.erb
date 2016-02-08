@@ -1,93 +1,223 @@
-<%- content_for :title, "Image Uploader" -%>
+<%- content_for :title, "Uploader" -%>
+
+<div class="panel__warning panel--padding">
+  <strong>Warning</strong>: IE8/9 not supported. 
+</div>
+
+<hr />
+
+<div class="content-spacing">
+  <h2 class="heading-two">Example uploader</h2>
+  <p>Here is an example uploader in demo mode. It will simulate an upload but won't actually save anywhere.</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example_basic", no_html: "true", ruby: capture { -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image } -%>
+<%- } } do -%>
+  <%= render "example_uploader", attr: "example_basic" -%>
+<%- end -%>
+
+<p>By default the uploader assumes a 1:1 aspect ratio for your image, however you can change this by passing in <code>ratio:</code>.</p>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example_ratio", no_html: "true", ruby: capture { -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, ratio: "2/1" } -%>
+<%- } } do -%>
+  <%= render "example_uploader", attr: "example_ratio", ratio: "2/1" -%>
+<%- end -%>
+
+<div class="content-spacing">
+  <hr />
+  <h2 class="heading-two">Cropping</h2>
+  <p>You can add the crop tool by simply adding <code>croppable: "true"</code> to your partial include:</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "cropping", no_html: "true", ruby: capture { -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, croppable: "true" } -%>
+<%- } } do -%>
+  <%= render "example_uploader", attr: "cropping", croppable: "true" -%>
+<%- end -%>
+
+<div class="content-spacing">
+  <p>Aspect ratio changes can be set alongside croppability:</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "crop_and_ratio", no_html: "true", ruby: capture { -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, ratio: "2/1", croppable: "true" } -%>
+<%- } } do -%>
+  <%= render "example_uploader", attr: "crop_and_ratio", ratio: "2/1", croppable: "true" -%>
+<%- end -%>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "crop_and_ratio_2", no_html: "true", ruby: capture { -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, ratio: "1/2", croppable: "true" } -%>
+<%- } } do -%>
+  <%= render "example_uploader", attr: "crop_and_ratio_2", ratio: "1/2", croppable: "true" -%>
+<%- end -%>
+
+<div class="content-spacing">
+  <hr />
+  <h2 class="heading-two">Existing images</h2>
+  <p>The uploader supports existing images by showing the thumbnail (and crop if available) with no extra logic needed in your markup. Simply include the partial as normal and if an image already exists it will show it.</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "existing_images", no_html: "true", ruby: capture { -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, croppable: true } -%>
+<%- } } do -%>
+  <%= render "example_uploader", attr: "existing_images", croppable: "true", existing_image: "http://placehold.it/500x300.jpg" -%>
+<%- end -%>
+
+<div class="content-spacing">
+  <hr />
+  <h2 class="heading-two">Document Uploads</h2>
+  <p>The uploader will switch to "file" mode (rather than image mode) if the file types include "pdf", "xls", "xlsx", "doc", "docx".</p>
+  <p>These requirements can be updated in the <code>form_field_uploader</code> partial.</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "documents", no_html: "true", ruby: capture { -%>
+&lt;%= render "form_field_uploader", { f: f, attr: :banner_image, types: "pdf, xls, xlsx, doc, docx"} -%>
+<%- } } do -%>
+  <%= render "example_uploader", attr: "documents", types: "pdf, xls, xlsx, doc, docx" -%>
+<%- end -%>
+
+
+<div class="content-spacing content-lists">
+  <hr />
+  <h2 class="heading-two">Behind the scenes</h2>
+  <p>There are two hidden fields (exposed here) that track the asset ID when the image is uploaded and the crop string if croppable.</p>
+  <p>The image id is emptied when the image is removed.</p>
+  <p>The crop string only saves when a crop is made. The crop string is emptied when the image is removed.</p>
+  <p>You can see the fields updating here as you add, remove and crop images.</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "fields_demo", no_html: "true" } do -%>
+  <%= render "example_uploader", attr: "fields_demo", croppable: "true", hidden_field_type: "text" -%>
+<%- end -%>
 
 <div class="content-spacing content-lists">
 
-  <h2 class="heading-two">Prerequisites</h2>
+  <hr />
+  <h2 class="heading-two">Events and callbacks</h2>
 
-  <p>To enable the drag and drop image uploader, you will need to generate the ornament uploader dependancies. To do so, simply run:</p>
+  <p>Change the state of the uploader by triggering <code>uploader:set-state:[state]</code></p>
+  <p>eg. <code>$(".my-uploader").trigger("uploader:set-state:saving");</code></p>
+  <p>The available states are:</p>
+  <ul>
+    <li>Idle (no image)</li>
+    <li>Uploading</li>
+    <li>Saving</li>
+    <li>Uploaded</li>
+    <li>Error</li>
+  </ul>
 
-  <p>
-    <code>rails generate oranament --uploader</code>
-  </p>
+  <p><em>Note:</em> setting states does not destroy data. If you change the state from uploaded to idle, the image and fields will still be filled in. This is purely presentational.</p>
 
-  <p>This will install some required files for the image uploader to work.</p>
+  <p>There are several events that fire at certain times during the upload process that you can hook in to by adding <code>on()</code> event handlers to your field. For example:</p>
+  <pre class="sg-pre">$(".my-field").on("uploader:after-upload", function(e,$uploader,$dropZone,$cropStringField,$hiddenField){ 
+  alert("uploaded!") 
+}</pre>
 
-  <p>You will get a new controller for handling uploads, a new route and a crud view for image uploads</p>
-
-  <p>To use the image uploader in your project, simply replace your form field with:</p>
-
-  <p><code>&lt;%= render "form_field_image", { :f => f, :attr => :image } %></code></p>
-
-  <p>The partial takes a few values:</p>
+  <p>The list of events are:</p>
 
   <ul>
-    <li>attr: The field name, ie. image, banner_image, logo etc. Required.</li>
-    <li>max_size: The maximum file size of the file in megabytes. Defaults to 5.</li>
-    <li>types: Allowed extensions to upload. Defaults to jpg,jpeg,gif</li>
+    <li>on("uploader:init", function() {})</li>
+    <li>on("uploader:after-upload", function(e,$uploader,$dropZone,$cropStringField,$hiddenField) {})</li>
+    <li>on("uploader:image-removed", function() {})</li>
+    <li>on("uploader:progress-bar-updated", function() {})</li>
+    <li>on("uploader:state-changed", function(event,state) {})</li>
+    <li>on("uploader:crop-set", function(event,cropValue,$cropField) {})</li>
   </ul>
-  
-  <h2 class="heading-two">Demo</h2>
 
-  <div class="input upload optional">
-    <label>Example Image</label><span class='error-block'>that might have an error message</span>
-    <div class="form--file-upload--hint-position"></div>
+  <p>There are also some action events you can trigger on the field:</p>
 
-    <div class="form--file-upload">
-      <div>
-        <input type="file" class="file-upload-demo" data-file-max-count="1" data-file-max-size="10" data-file-types="jpg,jpeg,gif,png" />
-      </div>
-    </div>
-  </div>
-
-  <h2 class="heading-two">Fallback</h2>
-
-  <p>This component uses Modernizr to test for FileAPI and DragAndDrop capabilities. If it finds that the browser doesn't support one of these, it will immediately fall back to a regular file upload field. Example:</p>
-
-  <div class="input upload optional">
-    <label>Fallback Image Uploader</label><span class='error-block'>that might have an error message</span>
-    <div class="form--file-upload--hint-position"></div>
-
-    <div class="form--file-upload">
-      <div>
-        <input type="file" class="file-upload-negative" data-file-max-count="1" data-file-max-size="10" data-file-types="jpg,jpeg,gif" />
-      </div>
-    </div>
-  </div>
-
-  <h2 class="heading-two">Options</h2>
-
-  <p>By default, the partial adds the class <code>file-upload</code> to the input field and assumes that the files being uploaded are images. To change the behaviour of the uploader, pass in the <code>html_class</code> attribute to your partial, then target the class using the <code>katFileUpload()</code> jQuery plugin:</p>
-
-  <pre class="sg-prettyprint sg-pre">$(function(){
-  $(".file-upload-demo").katFileUpload({
-    debug: boolean,
-    demo: boolean,
-    uploadPath: string,
-    beforeUpload: function(),
-    afterImageUpload: function(f,thumbnail,thumbnailTarget,$fileElement),
-    afterFileUpload: function(f,thumbnail,thumbnailTarget,$fileElement),
-    afterDrop: function()
-  });
-});</pre>
-
-  <p><code>demo: true</code> will prevent files from uploading. You can drag and drop and add them via the browse button, but nothing will happen server side.</p>
-
-  <p><code>debug: true</code> will pollute your console with all sorts of debug information.</p>
-
-  <p><code>uploadPath</code> will change where the images are AJAXed to. By default it's /uploads/image</p>
-
-  <p><code>beforeUpload</code> allows you to do stuff before files are uploaded.</p>
-
-  <p><code>afterImageUpload</code> and <code>afterFileUpload</code> allow you to run some code after an image has uploaded. You have access to the file (f), thumbnail, thumbnailTarget and $fileElement. You might use this to generate extra data around the thumbnail, for example additional fields such as an alt tag field or caption or something.</p>
-
+  <ul>
+    <li>uploader:update-thumbnail</li>
+    <li>uploader:close-crop-modal</li>
+  </ul>
 </div>
 
-<%- content_for :scripts_bottom do -%>
-  <script>
-    $(function(){
-      $(".file-upload-demo").katFileUpload({
-        demo: true
-      });
+<%- content_for :events_script do -%>
+<script>
+  $(document).on("ornament:refresh", function(){
+    var $callbacksContainer = $("[data-uploader-callbacks]");
+    var $callbackUploader = $callbacksContainer.find("[data-file-uploader]");
+    var $callbackTracker = $callbacksContainer.find("[data-uploader-tracker]");
+
+    $callbackUploader.on("uploader:init", function(){
+      $callbackTracker.append("Uploader initialised<br />");
+    }).on("uploader:after-upload", function(e, $uploader, $dropZone, $cropStringField, $hiddenField) {
+      $callbackTracker.append("Upload successful" + "<br />");
+    }).on("uploader:image-removed", function(e) {
+      $callbackTracker.append("Image was removed" + "<br />");
+    }).on("uploader:progress-bar-updated", function(e, value) {
+      $callbackTracker.append("Progress was changed to " + value + "<br />");
+    }).on("uploader:state-changed", function(e, state) {
+      $callbackTracker.append("State was changed to: " + state + "<br />");
+    }).on("uploader:crop-set", function(e, cropValue, $cropField) {
+      $callbackTracker.append("Crop set to: " + cropValue + "<br />");
+    }).on("uploader:modal-opened", function(e){
+      $callbackTracker.append("Crop modal opened<br />");
     });
-  </script>
+  });
+</script>
 <%- end -%>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "callbacks_events", no_html: "true", ruby: capture { -%>
+&lt;div data-uploader-callbacks>
+  &lt;%= render "form_field_uploader", { f: f, attr: :banner_image } -%>
+  &lt;pre data-uploader-tracker>&lt;/pre>
+&lt;/div>
+<%- }, js: capture { -%>
+<%= yield :events_script -%>
+<%- } } do -%>
+  <div data-uploader-callbacks>
+    <%= render "example_uploader", attr: "callbacks_events", croppable: "true" -%>
+    <pre data-uploader-tracker></pre>
+  </div>
+  <%= yield :events_script -%>
+<%- end -%>
+
+<div class="content-spacing content-lists">
+  <hr />
+  <h2 class="heading-two">Setting up your model</h2>
+
+  <p>All uploads are passed through to the <code>Asset</code> model so instead of storing the image as a dragonfly object aginst the model, all you store is an integer field for the asset id.</p>
+
+  <p>Assuming you want to create an uploader for "banner image", you'll need a migration to add <code>banner_image_id:integer</code> to your model:</p>
+
+  <pre class="sg-pre">rails generate migration AddBannerImageIdToModel banner_image_id:integer</pre>
+
+  <p>If you want to be able to crop your banner image, you'll also need a crop_string, in which case you would change your migration to add a second field as well:</p>
+
+  <pre class="sg-pre">rails generate migration AddBannerImageToModel banner_image_id:integer banner_image_crop:string</pre>
+
+  <p>Then in your form you want to render the uploader partial:</p>
+
+  <pre>&lt;%= render "form_field_uploader", { f: f, attr: :cover_image } -%></pre>
+
+  <p>If you want to enable cropping for the field, simply add a ratio value to the crop_ratio attribute:</p>
+
+  <pre>&lt;%= render "form_field_uploader", { f: f, attr: :cover_image, crop_ratio: "1/1" } -%></pre>
+
+  <p>Open up your model and add some basic helper functions for the view.</p>
+
+  <pre class="sg-pre">def banner_image_asset
+  Asset.find(banner_image_id).data
+end
+
+def banner_image
+  if banner_image_crop.blank?
+    banner_image_asset
+  else
+    banner_image_asset.thumb(banner_image_crop)
+  end
+end</pre>
+
+  <p>This will set up a <code>banner_image</code> method that will look to see if there's a crop available, if not it just uses the original image that was uploaded.</p>
+
+  <p>Now in your view you can simply call <code>&lt;%= @my_model.banner_image.url -%></code> to get the cropped version of the image.</p>
+
+  <hr />
+  <h2 class="heading-two">Upgrading from Dragonfly accessors</h2>
+
+  <p>TODO: Remove accessor, change column names to *_legacy, add id and crop migrations and add legacy fallbacks to model image methods.</p>
+
+</div>

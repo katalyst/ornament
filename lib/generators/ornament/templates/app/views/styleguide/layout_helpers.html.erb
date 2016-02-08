@@ -1,0 +1,33 @@
+<%- content_for :title, "Rails Helpers" -%>
+
+<div class="content-spacing">
+  <h2 class="heading-two">link_helper()</h2>
+
+  <p><code>link_helper(url)</code> will output a <code>link_to</code> and format the URL and the text that gets output.</p>
+
+  <p>If there is no "http://" or "https://" in the URL it will add "http://"</p>
+
+  <p>The link text that gets output will strip out "http(s)://" as well as "www."</p>
+
+  <p>Example:</p>
+
+  <p><code>link_helper("http://www.google.com")</code>: <%= link_helper("http://www.google.com") -%></p>
+  <p><code>link_helper("google.com")</code>: <%= link_helper("google.com") -%></p>
+
+  <hr />
+
+  <h2 class="heading-two">yes_or_no()</h2>
+
+  <p><code>yes_or_no(boolean)</code> is a simple little helper to convert true/false values in to yes or no.</p>
+
+  <hr />
+
+  <h2 class="heading-two">country_name()</h2>
+
+  <p>A small helper to convert country codes in to correct country names.</p>
+
+  <p><strong>Note:</strong> requires the country_select gem</p>
+
+  <p><code>country_name("au")</code>: Australia</p>
+
+</div>

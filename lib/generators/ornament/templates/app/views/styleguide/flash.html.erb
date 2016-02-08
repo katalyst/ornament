@@ -1,0 +1,11 @@
+<%- content_for :title, "Flash Messages" -%>
+
+<%- content_for :above_layout do -%>
+  <%= render "shared/flash", flash: { "alert" => "Example error message" } -%>
+<%- end -%>
+
+<div class="content-spacing">
+  <p>Here you can see an example flash message.</p>
+  <p>Flash messages use the panel styling and go full-width by default.</p>
+  <p>The flash message by default sits just below the <code>above_layout</code> yield.</p>
+</div>

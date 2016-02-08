@@ -4,20 +4,40 @@
 
   <p>Ornament has a few OpenGraph yields that you can send data to on a per-page basis:</p>
 
+  <hr />
+
+  <h2 class="heading-two">og_title</h2>
+
   <pre class="sg-pre prettyprint">&lt;%= content_for :og_title, @module.title -%></pre>
 
-  <pre class="sg-pre prettyprint">&lt;%= content_for :og_image, @module.image.thumb("200x200#").url -%></pre>
+  <p><code>og_title</code> will use content for <code>title</code> or <code>page_title</code> as a fallback if there are no specific <code>og_title</code> content.</p>
 
-  <pre class="sg-pre prettyprint">&lt;%= content_for :og_description, @module.description -%></pre>
+  <hr />
 
-  <pre class="sg-pre prettyprint">&lt;%= content_for :og_url, module_path(@module) -%></pre>
+  <h2 class="heading-two">og_image</h2>
 
-  <p>Don't forget to set the default values in the <code>global.html.erb</code> layout.</p>
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_image, @module.image.url -%></pre>
+
+  <p>As of Ornament 1.2.1, <code>og_image</code> will automatically turn the image path in to an absolute URL. Prior to this version you will need to use something like <code>URI.join(root_url, @module.image.url)</code></p>
 
   <p>You can disable the fallback opengraph image and restore the default bahaviour of grabbing images from the page by passing in any content to the <code>disable_og_image</code> yield:</p>
 
   <pre class="sg-pre prettyprint">&lt;%= content_for :disable_og_image, "disabled" -%></pre>
 
-  <%= content_for :disable_og_image, "disabled" -%>
+  <hr />
+
+  <h2 class="heading-two">og_description</h2>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_description, @module.description -%></pre>
+
+  <p>Don't forget to set the default values in the <code>global.html.erb</code> layout.</p>
+
+  <hr />
+
+  <h2 class="heading-two">og_url</h2>
+
+  <pre class="sg-pre prettyprint">&lt;%= content_for :og_url, module_path(@module) -%></pre>
+
+  <p>If no <code>og_url</code> is specified it will fall back to the <code>request.original_url</code>.</p>
 
 </div>

@@ -19,17 +19,18 @@
       <li><a href="#">Link seven</a></li>
     </ul>
   </div>
+</div>
 
-  <div class="content">
-    <h2>Browser Support</h2>
+<hr />
 
-    <p>For IE8/9 Support, add the following to the global template, along with the other IE8/9 polyfills:</p>
+<div class="content">
+  <h2>Browser Support</h2>
 
-    <pre class="sg-pre prettyprint">&lt;!--[if lt IE 9]>
-  &lt;%= javascript_include_tag "es5-shim" %>
-  &lt;%= javascript_include_tag "classList" %>
+  <p>For IE8/9 Support, add the following to the global template, along with the other IE8/9 polyfills:</p>
+
+  <pre class="sg-pre prettyprint">&lt;!--[if lt IE 9]>
+&lt;%= javascript_include_tag "es5-shim" %>
+&lt;%= javascript_include_tag "classList" %>
 &lt;![endif]--></pre>
-
-  </div>
 
 </div>

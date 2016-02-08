@@ -2,44 +2,52 @@
 
 <div class="spacing">
 
-  <div class="align-content-right">
-    <p class="align-left" style="width:50%;">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </p>
-  </div>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "align-1" } do -%>
+<div class="align-content-right">
+  <p class="align-left" style="width:50%;">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat.
+  </p>
+</div>
+  <%- end -%>
 
-  <div class="align-content-center">
-    <p class="align-center" style="width:50%;">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </p>
-  </div>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "align-2" } do -%>
+<div class="align-content-center">
+  <p class="align-center" style="width:50%;">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat.
+  </p>
+</div>
+  <%- end -%>
 
-  <div class="align-content-left">
-    <p class="align-right" style="width:50%;">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </p>
-  </div>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "align-3" } do -%>
+<div class="align-content-left">
+  <p class="align-right" style="width:50%;">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat.
+  </p>
+</div>
+  <%- end -%>
 
-  <table>
-    <tr>
-      <td class="align-top">Lorem ipsum dolor sit amet.</td>
-      <td class="align-middle">Lorem ipsum dolor sit amet.</td>
-      <td class="align-bottom">Lorem ipsum dolor sit amet.</td>
-      <td>
-        Lorem ipsum dolor sit amet.<br/>
-        Lorem ipsum dolor sit amet.<br/>
-        Lorem ipsum dolor sit amet.<br/>
-      </td>
-    </tr>
-  </table>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "align-4" } do -%>
+<table>
+  <tr>
+    <td class="align-top">Lorem ipsum dolor sit amet.</td>
+    <td class="align-middle">Lorem ipsum dolor sit amet.</td>
+    <td class="align-bottom">Lorem ipsum dolor sit amet.</td>
+    <td>
+      Lorem ipsum dolor sit amet.<br/>
+      Lorem ipsum dolor sit amet.<br/>
+      Lorem ipsum dolor sit amet.<br/>
+    </td>
+  </tr>
+</table>
+  <%- end -%>
 
 </div>

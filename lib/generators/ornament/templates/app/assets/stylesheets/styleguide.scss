@@ -1,0 +1,508 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// This is the base CSS file for your application. Import this into your layout.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+// ORNAMENT
+//
+// Apply resets, apply default Ornament styles and import fonts & settings.
+//
+
+@import "ornament/core";
+
+// SETTINGS OVER-RIDE
+$breakpoint-header: 9999px;
+$divider-color: #ccc;
+$passive-color: #e5e5e5;
+
+$background-color: #f6f6f6;
+$primary-color: #db892a;
+$primary-color-dark: darken($primary-color, 20);
+$secondary-color: #252525;
+
+$link-color: #4b9dd0;
+
+$light-grey:     #ccc;
+$x-light-grey:   lighten($light-grey, 15);
+$dark-grey:      darken($light-grey, 20);
+$x-dark-grey:    darken($light-grey, 50);
+
+$sg-font:           arial, sans-serif;
+$sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
+
+$body-font: ('Open Sans', sans-serif) normal normal;
+$italic-font: ('Open Sans', sans-serif) italic normal;
+
+$bold-font: ('Open Sans', sans-serif) normal bold;
+$bold-italic-font: ('Open Sans', sans-serif) italic bold;
+
+$heading-alpha-font: ('Open Sans', sans-serif) normal bold;
+$heading-alpha-font-italic: ('Open Sans', sans-serif) italic bold;
+
+$heading-beta-font: ('Open Sans', sans-serif) normal bold;
+$heading-beta-font-italic: ('Open Sans', sans-serif) italic bold;
+
+// ASPECTS
+//
+//
+// Spacing around elements in different areas of the website
+//
+
+@import "aspects/normal";
+@import "aspects/compressed";
+@import "aspects/expanded";
+@import "aspects/inputs";
+
+// COMPONENTS
+//
+//
+// Import the components this project uses. Instead of importing Compass or
+// Ornament utilities/mixins here, import them directly into your components
+//
+
+@import "components/align";
+@import "components/blankstate";
+@import "components/breakpoint-helper";
+@import "components/button";
+@import "components/card";
+@import "components/clearfix";
+@import "components/embed";
+@import "components/environment";
+@import "components/error-page";
+@import "components/flexible-input";
+@import "components/footer";
+@import "components/form";
+@import "components/header";
+@import "components/icons";
+@import "components/kat-image-upload";
+@import "components/layout";
+@import "components/lightbox";
+@import "components/map";
+@import "components/menu-aim";
+@import "components/navigation";
+@import "components/navigation-mobile";
+@import "components/oslide";
+@import "components/page";
+@import "components/pagination";
+@import "components/panel";
+@import "components/read-more";
+@import "components/selector";
+@import "components/skip-link";
+@import "components/spacing";
+@import "components/sticky";
+@import "components/table";
+@import "components/tabs";
+@import "components/text-limiter";
+@import "components/toggle";
+@import "components/tooltip";
+@import "components/fotorama-custom";
+@import "components/print";
+@import "components/vertre";
+
+// STYLEGUIDE TYPOGRAPHY
+
+body {
+  @include font($body-font);
+
+  strong {
+    @include font($bold-font);
+  }
+  em {
+    @include font($italic-font);
+  }
+}
+
+a {
+  @include color-link($link-color, $link-color);
+}
+
+.heading-one, .heading-two, .heading-three, .heading-four {
+  @include font($heading-alpha-font);
+}
+
+.sg-title {
+  padding: $xx-small-unit 0;
+  border-bottom: 1px solid $divider-color;
+
+  h2 {
+    margin-bottom: $xxxxx-small-unit;
+  }
+}
+
+hr {
+  margin: $small-unit 0;
+  border: 0;
+  height: 1px;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -50vw;
+    right: -50vw;
+    background: $divider-color;
+  }
+}
+
+// STYLEGUIDE HEADER
+
+.sg-header {
+  background: $secondary-color;
+  border-top: 4px solid $primary-color;
+}
+
+.sg-header .layout--container {
+  @include display-flex;
+  @include align-items(center);
+  padding: $default-unit 0;
+}
+
+.sg-header--logo {
+  @include flex-grow(1);
+  color: $white;
+
+  a {
+    @include color-link($white, $white);
+    @include decorate-link(none, none);
+  }
+
+  h1 {
+    @include heading-three;
+  }
+
+  h2 {
+    color: $light-grey;
+    padding-top: $xxxx-small-unit;
+  }
+}
+
+.sg-header--menu {
+  @include grunticon("menu-white", 24px);
+  @include icon-block(44px, 24px);
+  overflow: visible;
+}
+
+// STYLEGUIDE MENU
+.styleguide {
+  .layout--mobile-tray hr {
+    display: none;
+  }
+  .layout--mobile-tray {
+    background: $secondary-color;
+  }
+  .navigation-mobile.complex .pane--navigation-container ul {
+    border-bottom-color: $x-dark-grey;
+  }
+  .navigation-mobile.complex .pane--navigation-container ul li + li > a, 
+  .navigation-mobile.complex .pane--navigation-container ul li + li > .faux-link {
+    border-top-color: $x-dark-grey;
+  }
+  .navigation-mobile.complex .pane-wrapper .pane a, .navigation-mobile.complex .pane-wrapper .pane .faux-link {
+    @include font($body-font);
+  }
+  .navigation-mobile.complex .navigation-item > a:before, 
+  .navigation-mobile.complex .navigation-item > span.faux-link:before, 
+  .navigation-mobile.complex .navigation-item > button:before {
+    background: transparent;
+  }
+  .navigation-mobile.complex .pane-wrapper .pane a, 
+  .navigation-mobile.complex .pane-wrapper .pane .faux-link {
+    @include color-link($primary-color, $primary-color);
+  }
+}
+.sg-nav--heading {
+  border-bottom: 1px solid $x-dark-grey;
+  padding: $x-small-unit $xxx-small-unit;
+  color: $light-grey;
+  @include font($bold-font);
+
+  // ul + & {
+  //   padding-top: $x-large-unit;
+  // }
+}
+
+// FEATURE TABS 
+$sg-feature-border: $light-grey;
+$sg-feature-background: $background-color;
+
+.sg-feature {
+  margin-top: $default-unit;
+  margin-bottom: $default-unit;
+  @include flush-children;
+  @include box-shadow(1px 1px 3px rgba(0,0,0,0.1));
+}
+
+.sg-feature > .tabs--links {
+  background: $x-light-grey;
+  border: 1px solid $sg-feature-border;
+  border-bottom: 0;
+}
+
+.sg-feature > .tabs--links ul {
+  @include display-flex;
+
+  li {
+    float: none;
+    @include display-flex;
+  }
+}
+
+.sg-feature > .tabs--links > ul > li > .tabs--link {
+  border: 1px solid transparent;
+  border-width: 0 1px;
+  border-bottom: 0;
+  @include color-link($dark-grey, $dark-grey);
+  @include decorate-link(none, none);
+  font-size: $small-font-size;
+  text-transform: uppercase;
+
+  &:hover {
+    // background: darken($sg-feature-border, 10);
+  }
+}
+
+.sg-feature > .tabs--links > ul > li:first-child > .tabs--link {
+  border-left: 0;
+}
+
+.sg-feature > .tabs--links > ul > li + li > .tabs--link {
+  margin: 0;
+}
+
+.sg-feature > .tabs--links > ul > li > .tabs--link__active {
+  background: $sg-feature-background;
+  border-color: $sg-feature-border;
+  @include color-link($foreground-color, $foreground-color);
+
+  &:hover {
+    background: $sg-feature-background;
+  }
+
+  &:before,
+  &:after {
+    background: $sg-feature-border;
+  }
+}
+
+.sg-feature > .tabs--panes > .tabs--pane {
+  padding: $panel-padding;
+  background: $sg-feature-background;
+  border: 1px solid $sg-feature-border;
+  border-top: 0;
+  position: relative;
+
+  [data-copy-code] {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px 10px;
+    display: block;
+    background: $primary-color;
+    @include border-top-left-radius($border-radius);
+    @include color-link($white, $white);
+    text-transform: uppercase;
+    font-size: $x-small-font-size;
+  }
+}
+
+.sg-feature > .tabs--panes > .tabs--pane__flush {
+  padding: 0;
+}
+
+// CODE SAMPLES
+
+pre,
+pre.prettyprint {
+  border: 1px solid $light-grey;
+  background: $white;
+  padding: 0.5em 1em;
+  margin: 1.5em 0;
+  font-family: $sg-code-font;
+  overflow: auto;
+  word-wrap: normal;
+  @include border-radius($border-radius);
+  @include box-shadow(inset 1px 1px 2px rgba(0,0,0,0.1));
+  text-shadow: 1px 1px #fff;
+
+  strong {
+    font-weight: bold;
+    font-family: $sg-code-font;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  li &:last-child {
+    margin-bottom: 1.5em;
+  }
+  li:last-child &:last-child {
+    margin-bottom: 0;
+  }
+
+  .sg-feature > .tabs--panes > .tabs--pane__flush & {
+    background: transparent;
+    border: 0;
+    @include box-shadow(none);
+  }
+}
+
+code {
+  border: 1px solid $light-grey;
+  background: $x-light-grey;
+  font-family: $sg-code-font;
+  padding: .3em .3em .2em;
+  @include border-radius($border-radius);
+  text-shadow: 1px 1px #fff;
+  white-space: nowrap;
+
+  // remove some styling for codes inside pre tags
+  pre & {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    @include border-radius(none);
+    text-shadow: none;
+  }
+}
+
+// SPANG
+
+.spang-50 {
+  @include spang(1,2);
+  @include spanc(small);
+  @include guttersV();
+
+  > div {
+    border: 1px solid red;
+  }
+}
+
+.spang-6 {
+  @include spang(1,6);
+  @include spang(1,3,medium);
+  @include spanc(small);
+  @include guttersV();
+
+  > div {
+    border: 1px solid red;
+  }
+}
+
+.spang-tight {
+  @include row($custom-gutter: 5px);
+  @include rowV($custom-gutter: 5px);
+
+  > div {
+    @include spang(1,4,$custom-gutter: 5px);
+    @include spang(1,2,small,$custom-gutter: 5px);
+    @include guttersV($custom-gutter: 5px);
+
+    > div {
+      border: 1px solid red;
+    }
+  }
+}
+
+// LISTS
+
+.lists--example {
+  background: #eee;
+}
+
+.lists--example-1 {
+  @include list-horizontal;
+}
+
+.lists--example-2 {
+  @include list-horizontal($small-unit, 1px solid #ccc);
+}
+
+.lists--example-3 {
+  @include list-horizontal($small-unit, 1px solid #ccc, true);
+}
+
+.lists--example-3b {
+  @include list-horizontal($small-unit, 1px solid #ccc);
+  @include list-flush("left and right");
+}
+
+.lists--example-4 {
+  @include list-vertical($small-unit);
+}
+
+.lists--example-5 {
+  @include list-vertical($small-unit, 1px solid #ccc);
+}
+
+.lists--example-6 {
+  @include list-vertical($small-unit, 1px solid #ccc, true);
+}
+
+.lists--example-6b {
+  @include list-vertical($small-unit, 1px solid #ccc);
+  @include list-flush("top and bottom");
+}
+
+// TYPOGRAPHY SAMPLES
+
+.sg--body-font {
+  @include font($body-font);
+}
+
+.sg--italic-font {
+  @include font($italic-font);
+}
+
+.sg--bold-font {
+  @include font($bold-font);
+}
+
+.sg--bold-italic-font {
+  @include font($bold-italic-font);
+}
+
+.sg--heading-alpha-font {
+  @include font($heading-alpha-font);
+}
+
+.sg--heading-alpha-font-italic {
+  @include font($heading-alpha-font-italic);
+}
+
+.sg--heading-beta-font {
+  @include font($heading-beta-font);
+}
+
+.sg--heading-beta-font-italic {
+  @include font($heading-beta-font-italic);
+}
+
+// CONTENT SAMPLE EXTENSIONS
+
+.example table caption {
+  @extend .heading-three;
+}
+.example table {
+  @extend .table;
+  @extend .table-ruled;
+  @extend .table-flush;
+}
+
+// PROOF OF CONCEPT BUTTON
+.poc {
+  background: $primary-color;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 3px 5px;
+  @include border-radius($border-radius);
+  @include font($body-font);
+}

@@ -1,247 +1,434 @@
 <% content_for :title, "Show.js" %>
 
-<%- content_for :styles do -%>
-  <style>
-    .showjs_tick { color: #bada55; float: left; margin-right: .5em; }
-  </style>
-<%- end -%>
+<div class="content-spacing">
 
-<div class="content-spacing content-lists">
+  <h2 class="heading-two">Basic example</h2>
 
-  <p>Show.js allows the developer to show/hide elements based on a form selection.</p>
+  <p>You can show hidden elements based on form field selections. All you need to do is add a <code>data-show</code> attribute to the element you want to show/hide and set the value to the be ID of the form field that you want to control it with.</p>
 
-  <p>To use show.js, simply add the <code class="sg-code">data-show</code> attribute to an element, with the <code class="sg-code">id</code> of the field it needs to listen to.</p>
+  <p>In this first example, we have two radio buttons. One with the ID of <code>showjs_example_1_true</code> and the second with the ID of <code>showjs_example_1_false</code>. If we want to show the hidden field when selecting the true radio, we add <code>data-show="showjs_example_1_true"</code> to the hidden field.</p>
 
-  <h2 class="heading-one">Basic example code</h2>
-
-  <ol>
-
-    <li>
-      To listen for a checkbox or radio, you only need the <code class="sg-code">data-show</code> attribute:
-      <pre class="sg-pre prettyprint">
-&lt;input type="checkbox" <strong>id="click_me"</strong> name="click_me" />
-&lt;div <strong>data-show="click_me"</strong>>Hidden element&lt;/div></pre>
-    </li>
-
-    <li>
-      For a select menu, you also need a <code class="sg-code">data-show-option</code> attribute with the option you want to listen for.
-      <pre class="sg-pre prettyprint">
-&lt;select <strong>id="select_me"</strong> name="select_me">
-  &lt;option val="">Please select..&lt;/option>
-  &lt;option <strong>val="show"</strong>>Show the field&lt;/option>
-  &lt;option val="hide">Hide the field&lt;/option>
-&lt;/select>
-&lt;div <strong>data-show="select_me" data-show-option="show"</strong>>Hidden element&lt;/div></pre>
-    </li>
-
-    <li>
-      Input fields can be matched to exact words using <code class="sg-code">data-show-input</code> which contains the text to match against. Matches are exact but not case sensative. ie. matching for "Hello" will accept "hello" but not "helloooo".
-      <pre class="sg-pre prettyprint">
-&lt;input type="text" <strong>id="input_me"</strong> name="input_me" />
-&lt;div <strong>data-show="input_me" data-show-input="hello"</strong>>Hidden element&lt;/div></pre>
-    </li>
-  </ol>
-
-  <h2 class="heading-one">Advanced examples</h2>
-
-  <ol start="4">
-    <li>
-      You can pass in multiple checkbox/radio target ids by seperating the ids with <code class="sg-code">_&_</code>. Now both checkboxes will need to be selected in order to show the hidden element.
-      <pre class="sg-pre prettyprint">
-&lt;input type="checkbox" <strong>id="click_me_1"</strong> name="click_me_1" />
-&lt;input type="checkbox" <strong>id="click_me_2"</strong> name="click_me_2" />
-&lt;div <strong>data-show="click_me_1_&_click_me_2"</strong>>Hidden element&lt;/div></pre>
-    </li>
-
-    <li>
-      What if, instead of requiring both, you wanted either option to show the hidden element? You can add <code class="sg-code">data-show-type="any"</code> to the element. Now ticking either box will show the element:
-      <pre class="sg-pre prettyprint">
-&lt;input type="checkbox" <strong>id="click_me_1"</strong> name="click_me_1" />
-&lt;input type="checkbox" <strong>id="click_me_2"</strong> name="click_me_2" />
-&lt;div <strong>data-show="click_me_1_&_click_me_2" data-show-type="any"</strong>>Hidden element&lt;/div></pre>
-    </li>
-
-    <li>
-      Input fields can also be matched loosely by also adding <code class="sg-code">data-show-type="any"</code> to the element. Matches are still not case sensative.
-      <pre class="sg-pre prettyprint">
-&lt;input type="text" <strong>id="input_me"</strong> name="input_me" />
-&lt;div <strong>data-show="input_me" data-show-input="hello" data-show-type="any"</strong>>Hidden element&lt;/div></pre>
-    </li>
-  </ol>
-
-  <h2 class="heading-one">Live samples</h2>
-
-  <div class="spacing">
-
-  <%- content_for :example_1 do -%>
-<div class="control-group radio_buttons form--horizontal">
-  <label class="radio_buttons required control-label">
-    <span data-show="showjs_example_1_true" class="showjs_tick">✔</span> Select Yes
-  </label>
-  <div class="controls">
-    <label class="radio">
-      <input class="radio_buttons required" id="showjs_example_1_true" name="showjs_example_1" type="radio" value="true">
-      Yes
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-example-1", ruby: capture { -%>
+&lt;%= f.input :example, as: :radios -%&gt;
+&lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes" } } -%&gt;
+  <%- } } do -%>
+<div class="inputs">
+  <div class="control-group radios form--horizontal">
+    <label class="radios required control-label">
+      Show hidden field?
     </label>
-    <label class="radio">
-      <input class="radio_buttons required" id="showjs_example_1_false" name="showjs_example_1" type="radio" value="false">
-      No
+    <div class="controls">
+      <label class="radio">
+        <input class="radios required" id="showjs_example_1_true" name="showjs_example_1" type="radio" value="true">
+        Yes
+      </label>
+      <label class="radio">
+        <input class="radios required" id="showjs_example_1_false" name="showjs_example_1" type="radio" value="false">
+        No
+      </label>
+    </div>
+  </div>  
+  <div class="control-group form--small" data-show="showjs_example_1_true">
+    <label class="optional control-label">Hidden Field</label>
+    <div class="controls">
+      <input class="string tel optional" type="text" />
+    </div>
+  </div> 
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Toggling multiple fields</h2>
+
+  <p>Sometimes you might want to toggle a group of fields together. Rather than adding the <code>data-show</code> attribute to each of the element wrappers, you can wrap them all in a <code>div</code> with the fields in it. You will need to make sure you add the <code>inputs</code> class on it to retain the spacing.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi", ruby: capture { -%>
+&lt;%= f.input :example, as: :radios -%&gt;
+&lt;div class="inputs" data-show="example_yes">
+  &lt;%= f.input :hidden_field_1 -%&gt;
+  &lt;%= f.input :hidden_field_2 -%&gt;
+&lt;/div>
+  <%- } } do -%>
+<div class="inputs">
+  <div class="control-group radios form--horizontal">
+    <label class="radios required control-label">
+      Show hidden field?
     </label>
+    <div class="controls">
+      <label class="radio">
+        <input class="radios required" id="showjs_example_multi_true" name="showjs_example_multi" type="radio" value="true">
+        Yes
+      </label>
+      <label class="radio">
+        <input class="radios required" id="showjs_example_multi_false" name="showjs_example_multi" type="radio" value="false">
+        No
+      </label>
+    </div>
+  </div>  
+  <div class="inputs" data-show="showjs_example_multi_true">
+    <div class="control-group form--small">
+      <label class="optional control-label">Hidden Field 1</label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div> 
+    <div class="control-group form--small">
+      <label class="optional control-label">Hidden Field 2</label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div> 
   </div>
 </div>
   <%- end -%>
-  <%= yield :example_1 -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
 
-  <%- content_for :example_2 do -%>
-<div class="control-group check_boxes form--horizontal">
-  <label class="check_boxes required control-label">
-    Tick Yes <span data-show="showjs_example_2_true" class="showjs_tick">✔</span>
-  </label>
-  <div class="controls">
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_2_true" name="showjs_example_2_true" type="checkbox" value="true">
-      Yes
+  <hr />
+
+  <h2 class="heading-two">Requiring multiple matches (AND)</h2>
+
+  <p>You can string multiple IDs together by seperating them with <code>_&_</code>. For example if I wanted to match against <code>turtles_raphael</code> and <code>turtles_donatello</code> I would use <code>turtles_raphael_&_turtles_donatello</code>.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi-option-1" } do -%>
+<div class="inputs">
+  <div class="control-group radios form--horizontal">
+    <label class="radios required control-label">
+      Select Donatello AND Raphael
     </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_2_false" name="showjs_example_2_false" type="checkbox" value="false">
-      No
+    <div class="controls">
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_leonardo" name="showjs_leonardo" type="checkbox" value="true">
+        Leonardo
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_donatello" name="showjs_donatello" type="checkbox" value="true">
+        Donatello
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_raphael" name="showjs_raphael" type="checkbox" value="true">
+        Raphael
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_michaelangelo" name="showjs_michaelangelo" type="checkbox" value="true">
+        Michaelangelo
+      </label>
+    </div>
+  </div>  
+  <div class="inputs" data-show="showjs_raphael_&_showjs_donatello">
+    <div class="control-group form--small">
+      <label class="optional control-label">Hidden Field</label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div> 
+  </div>
+</div>
+  <%- end -%>  
+
+  <hr />
+
+  <h2 class="heading-two">Requiring multiple matches (OR)</h2>
+
+  <p>Follow the instructions for AND matching above, but also add in <code>data-show-type="any"</code>.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi-option-2" } do -%>
+<div class="inputs">
+  <div class="control-group radios form--horizontal">
+    <label class="radios required control-label">
+      Select Donatello OR Raphael
     </label>
+    <div class="controls">
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_leonardo2" name="showjs_leonardo2" type="checkbox" value="true">
+        Leonardo
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_donatello2" name="showjs_donatello2" type="checkbox" value="true">
+        Donatello
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_raphael2" name="showjs_raphael2" type="checkbox" value="true">
+        Raphael
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_michaelangelo2" name="showjs_michaelangelo2" type="checkbox" value="true">
+        Michaelangelo
+      </label>
+    </div>
+  </div>  
+  <div class="inputs" data-show="showjs_raphael2_&_showjs_donatello2" data-show-type="any">
+    <div class="control-group form--small">
+      <label class="optional control-label">Hidden Field</label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div> 
+  </div>
+</div>
+  <%- end -%>  
+
+  <hr />
+
+  <h2 class="heading-two">Select menu</h2>
+
+  <p>While most of the use-cases for show.js will be checkboxes or radios there is support for other field types.</p>
+
+  <p>To show elements based on a select menu selection, you can use <code>data-show-option</code> and use the value of the option as the value for the attribute. Eg <code>&lt;option value="test"></code> will be <code>data-show-option="test"</code>.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select" } do -%>
+<div class="inputs">
+  <div class="control-group check_boxes">
+    <label class="check_boxes required control-label">
+      Select "3" to show the hidden field
+    </label>
+    <div class="controls">
+      <select class="select form--auto" id="show-js-select">
+        <option value="">Please select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  </div>
+  <div class="control-group form--small" data-show="show-js-select" data-show-option="3">
+    <label class="optional control-label">Hidden Field</label>
+    <div class="controls">
+      <input class="string tel optional" type="text" />
+    </div>
+  </div> 
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Text matches</h2>
+
+  <p>You can match against text input by using <code>data-show-input</code>. This match will be exact, but case insensitive. What that means is that if you're looking for "Hello World" it will match for "hello world" but won't match for "hello" or "hello world!"</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-text" } do -%>
+<div class="inputs">
+  <div class="control-group check_boxes form--medium">
+    <label class="optional control-label">Type "Hello World" (without quotes, case insensitive)</label>
+    <div class="controls">
+      <input class="string tel optional" type="text" id="show-text-exact" />
+    </div>
+  </div>
+  <div class="control-group form--small" data-show="show-text-exact" data-show-input="hello world">
+    <label class="optional control-label">Hidden Field</label>
+    <div class="controls">
+      <input class="string tel optional" type="text" />
+    </div>
+  </div> 
+</div>
+  <%- end -%>
+
+  <p>You can fuzzy match text by adding the <code>data-show-type="any"</code> attribute.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-text-fuzzy" } do -%>
+<div class="inputs">
+  <div class="control-group check_boxes form--medium">
+    <label class="optional control-label">Type anything that includes the word "hello" (without quotes, case insensitive)</label>
+    <div class="controls">
+      <input class="string tel optional" type="text" id="show-text-fuzzy" />
+    </div>
+  </div>
+  <div class="control-group form--small" data-show="show-text-fuzzy" data-show-input="hello" data-show-type="any">
+    <label class="optional control-label">Hidden Field</label>
+    <div class="controls">
+      <input class="string tel optional" type="text" />
+    </div>
+  </div> 
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Inverting matches</h2>
+
+  <p>Sometimes you want to show a field by default, and hide it if something is selected. This can be done by adding <code>data-show-inverse</code> to your hidden element. </p>
+
+  <p><em>Note:</em> Prior to Ornament v1.2.0 the attribute would need to be <code>data-show-inverse="1"</code></p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-1" } do -%>
+<div class="inputs">
+  <div class="control-group radios form--horizontal">
+    <label class="radios required control-label">
+      Select Donatello AND Raphael to hide the field
+    </label>
+    <div class="controls">
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_leonardo3" name="showjs_leonardo3" type="checkbox" value="true">
+        Leonardo
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_donatello3" name="showjs_donatello3" type="checkbox" value="true">
+        Donatello
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_raphael3" name="showjs_raphael3" type="checkbox" value="true">
+        Raphael
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_michaelangelo3" name="showjs_michaelangelo3" type="checkbox" value="true">
+        Michaelangelo
+      </label>
+    </div>
+  </div>  
+  <div class="inputs" data-show="showjs_raphael3_&_showjs_donatello3" data-show-inverse>
+    <div class="control-group form--small">
+      <label class="optional control-label">Hide This Field</label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div> 
   </div>
 </div>
   <%- end -%>
-  <%= yield :example_2 -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_2) -%></pre>
 
-  <%- content_for :example_3 do -%>
-<div class="control-group check_boxes form--horizontal">
-  <label class="check_boxes required control-label">
-    Select 3 <span data-show="showjs_example_3" data-show-option="3" class="showjs_tick">✔</span>
-  </label>
-  <div class="controls">
-    <select class="select" id="showjs_example_3" name="showjs_example_3">
-      <option value="">Please select</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-2" } do -%>
+<div class="inputs">
+  <div class="control-group radios form--horizontal">
+    <label class="radios required control-label">
+      Select Donatello OR Raphael to hide the field
+    </label>
+    <div class="controls">
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_leonardo4" name="showjs_leonardo4" type="checkbox" value="true">
+        Leonardo
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_donatello4" name="showjs_donatello4" type="checkbox" value="true">
+        Donatello
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_raphael4" name="showjs_raphael4" type="checkbox" value="true">
+        Raphael
+      </label>
+      <label class="checkbox">
+        <input class="check_boxes required" id="showjs_michaelangelo4" name="showjs_michaelangelo4" type="checkbox" value="true">
+        Michaelangelo
+      </label>
+    </div>
+  </div>  
+  <div class="inputs" data-show="showjs_raphael4_&_showjs_donatello4" data-show-type="any" data-show-inverse>
+    <div class="control-group form--small">
+      <label class="optional control-label">Hide This Field</label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div> 
   </div>
 </div>
   <%- end -%>
-  <%= yield :example_3 -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_3) -%></pre>
 
-  <%- content_for :example_4 do -%>
-<div class="control-group">
-  <label class="required control-label">
-    <span data-show="showjs_example_4" data-show-input="hello world" class="showjs_tick">✔</span> Type "Hello World" (without quotes, case insensitive)
-  </label>
-  <div class="controls">
-    <input type="text" id="showjs_example_4" name="showjs_example_4" />
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-3" } do -%>
+<div class="inputs">
+  <div class="control-group check_boxes form--horizontal ">
+    <label class="check_boxes required control-label">
+      Select "3" to hide the field
+    </label>
+    <div class="controls form--small">
+      <select class="select" id="show-js-select-inverted">
+        <option value="">Please select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  </div>
+  <div class="inputs" data-show="show-js-select-inverted" data-show-option="3" data-show-inverse>
+    <div class="control-group form--small">
+      <label class="optional control-label">Hide This Field</label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div> 
   </div>
 </div>
   <%- end -%>
-  <%= yield :example_4 -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_4) -%></pre>
 
-  <%- content_for :example_5 do -%>
-<div class="control-group">
-  <label class="required control-label">
-    <span data-show="showjs_example_7" data-show-input="hello" data-show-type="any" class="showjs_tick">✔</span> Type anything that includes the word "hello" (without quotes, case insensitive)
-  </label>
-  <div class="controls">
-    <input type="text" id="showjs_example_7" name="showjs_example_7" />
+  <hr />
+
+  <h2 class="heading-two">Emptying data when hiding</h2>
+
+  <p>Sometimes you might want to prevent the data from sending to the server when the field is hidden. You can add <code>data-show-destroy</code> to empty out any fields that are hidden.</p>
+
+  <p>Try showing this field, entering in some data and then toggle the field off and back on again, you'll notice the fields are now empty.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-destroy", ruby: capture { -%>
+&lt;%= f.input :example, as: :radios -%&gt;
+&lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes", show_destroy: "" } } -%&gt;
+  <%- } } do -%>
+<div class="inputs">
+  <div class="control-group radios form--horizontal">
+    <label class="radios required control-label">
+      Show hidden field?
+    </label>
+    <div class="controls">
+      <label class="radio">
+        <input class="radios required" id="showjs_example_destroy_true" name="showjs_example_destroy" type="radio" value="true">
+        Yes
+      </label>
+      <label class="radio">
+        <input class="radios required" id="showjs_example_destroy_false" name="showjs_example_destroy" type="radio" value="false">
+        No
+      </label>
+    </div>
+  </div>  
+  <div class="inputs" data-show="showjs_example_destroy_true" data-show-destroy>
+    <div class="control-group form--small">
+      <label class="optional control-label">Hidden Text Field</label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div> 
+    <div class="control-group form--small">
+      <label class="optional control-label">Hidden Select Field</label>
+      <div class="controls">
+        <select> 
+          <option></option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
+    </div> 
+    <div class="control-group radios form--horizontal">
+      <label class="radios required control-label">
+        Hidden Radio Field
+      </label>
+      <div class="controls">
+        <label class="radio">
+          <input class="radios required" id="showjs_example_destroy_hidden_true" name="showjs_example_destroy_hidden" type="radio" value="true">
+          Yes
+        </label>
+        <label class="radio">
+          <input class="radios required" id="showjs_example_destroy_hidden_false" name="showjs_example_destroy_hidden" type="radio" value="false">
+          No
+        </label>
+      </div>
+    </div>  
+    <div class="control-group radios form--horizontal">
+      <label class="radios required control-label">
+        Hidden Checkbox Field
+      </label>
+      <div class="controls">
+        <label class="checkbox">
+          <input class="checkboxes required" id="showjs_example_destroy_hidden_true" name="showjs_example_destroy_hidden_checkboxes" type="checkbox" value="true">
+          Yes
+        </label>
+        <label class="checkbox">
+          <input class="checkboxes required" id="showjs_example_destroy_hidden_false" name="showjs_example_destroy_hidden_checkboxes" type="checkbox" value="false">
+          No
+        </label>
+      </div>
+    </div>  
   </div>
 </div>
   <%- end -%>
-  <%= yield :example_5 -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_5) -%></pre>
 
-  <%- content_for :example_6 do -%>
-<div class="control-group check_boxes form--horizontal">
-  <label class="check_boxes required control-label">
-    Tick Raphael AND Donatello <span data-show="showjs_example_5_raphael_&_showjs_example_5_donatello" class="showjs_tick">✔</span>
-  </label>
-  <div class="controls">
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_5_leonardo" name="showjs_example_5_leonardo" type="checkbox" value="true">
-      Leonardo
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_5_donatello" name="showjs_example_5_donatello" type="checkbox" value="true">
-      Donatello
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_5_raphael" name="showjs_example_5_raphael" type="checkbox" value="true">
-      Raphael
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_5_michaelangelo" name="showjs_example_5_michaelangelo" type="checkbox" value="true">
-      Michaelangelo
-    </label>
-  </div>
-</div>
-  <%- end -%>
-  <%= yield :example_6 -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_6) -%></pre>
-
-  <%- content_for :example_7 do -%>
-<div class="control-group check_boxes form--horizontal">
-  <label class="check_boxes required control-label">
-    Tick Leonardo OR Michaelangelo <span data-show="showjs_example_6_leonardo_&_showjs_example_6_michaelangelo" data-show-type="any" class="showjs_tick">✔</span>
-  </label>
-  <div class="controls">
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_6_leonardo" name="showjs_example_6_leonardo" type="checkbox" value="true">
-      Leonardo
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_6_donatello" name="showjs_example_5_donatello" type="checkbox" value="true">
-      Donatello
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_6_raphael" name="showjs_example_6_raphael" type="checkbox" value="true">
-      Raphael
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_6_michaelangelo" name="showjs_example_6_michaelangelo" type="checkbox" value="true">
-      Michaelangelo
-    </label>
-  </div>
-</div>
-  <%- end -%>
-  <%= yield :example_7 -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_7) -%></pre>
-
-  <%- content_for :example_8 do -%>
-<div class="control-group check_boxes form--horizontal">
-  <label class="check_boxes required control-label">
-    Tick Leonardo OR Michaelangelo Inverse<span data-show="showjs_example_7_leonardo_&_showjs_example_7_michaelangelo" data-show-type="any" data-show-inverse='1' class="showjs_tick">✔</span>
-  </label>
-  <div class="controls">
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_7_leonardo" name="showjs_example_7_leonardo" type="checkbox" value="true">
-      Leonardo
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_7_donatello" name="showjs_example_7_donatello" type="checkbox" value="true">
-      Donatello
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_7_raphael" name="showjs_example_7_raphael" type="checkbox" value="true">
-      Raphael
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="showjs_example_7_michaelangelo" name="showjs_example_7_michaelangelo" type="checkbox" value="true">
-      Michaelangelo
-    </label>
-  </div>
-</div>
-  <%- end -%>
-  <%= yield :example_8 -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_8) -%></pre>
-
-  </div>
 </div>
