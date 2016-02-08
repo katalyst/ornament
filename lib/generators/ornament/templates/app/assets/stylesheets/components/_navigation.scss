@@ -1,25 +1,28 @@
 $navigation-menu-width: 200px;
+$navigation-padding: $xxxx-small-unit;
 
 .navigation {
   background: $secondary-color;
 }
 
 .navigation nav > ul {
-  @include list-horizontal($xxxx-small-unit, $delegate: "a");
-  @include list-flush("left and right", $delegate: "a");
+  @include list-horizontal($navigation-padding, $delegate: "> a");
+  @include list-flush("left and right", $delegate: "> a");
 }
 
 .navigation nav > ul > li {
   position: relative;
 }
 
-.navigation nav > ul > li > a {
+.navigation nav > ul > li > a,
+.navigation nav > .nav__dropdown-wrapper button {
   @include color-link($white, $white);
   @include decorate-link(none, none);
-  padding-top: $xxxx-small-unit;
-  padding-bottom: $xxxx-small-unit;
+  padding-top: $navigation-padding;
+  padding-bottom: $navigation-padding;
 }
 
+.navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown,
 .navigation nav > ul ul {
   display: none;
   position: absolute;
@@ -28,15 +31,23 @@ $navigation-menu-width: 200px;
   left: 0;
   width: $navigation-menu-width;
   z-index: 200;
-  // padding-top: $xxxx-small-unit;
-  padding-bottom: $xxxx-small-unit;
+  padding-bottom: $navigation-padding;
+  border: 0;
 }
 
 .navigation nav > ul > li:hover ul {
   display: block;
 }
 
+.navigation nav > .nav__dropdown-wrapper ul a,
 .navigation nav > ul ul a {
   @include color-link($white, $white);
   @include decorate-link(none, underline);
+  padding-left: $navigation-padding;
+  padding-right: $navigation-padding;
+}
+
+.navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown {
+  // left: auto;
+  // right: 0;
 }

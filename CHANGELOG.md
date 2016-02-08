@@ -2,7 +2,7 @@
 
 ## v1.2.2
 
-- Added menu-with-more component
+- Added `menu-with-more` component  
 
 ## v1.2.1
 

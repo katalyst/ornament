@@ -6,42 +6,60 @@
  * http://twitter.com/GijsRoge
  */
 
-.priority-nav{
+.menu-more {
 
+  font-size: 0;
   white-space: nowrap; // prevent flash of unstyled content
 
   /*
-    * Makes sure the menu's are inline-block so they don't take up
-    * the entire width of its parent. This will break the plugin.
-    */
-  ul{
+   * Makes sure the menu's are inline-block so they don't take up
+   * the entire width of its parent. This will break the plugin.
+   */
+  > ul{
     display: inline-block;
   }
-  li{
+  > ul > li{
     display: inline-block;
   }
-  &__wrapper{
+
+  &__wrapper {
     position: relative;
   }
-  &__dropdown{
+  &__dropdown {
     position: absolute;
+    visibility: hidden;
+
+    &.show {
+      visibility: visible;
+    }
+    &-toggle {
+      visibility: hidden;
+      position: absolute;
+    }
   }
-  &-is-visible{
+  &-is-visible {
     visibility: visible;
   }
-  &-is-hidden{
+  &-is-hidden {
     visibility: hidden;
   }
-}
 
-.menu-more > ul {
-  @include list-horizontal($xxx-small-unit, false, $delegate:"a");
+  > ul > li > a,
+  > ul > li > button,
+  > span {
+    font-size: $base-font-size;
+  }
 }
 
 .nav__dropdown-wrapper {
   @include inline-block;
   vertical-align: top;
   position: relative;
+  visibility: hidden;
+
+  .priority-nav-has-dropdown & {
+    visibility: visible;
+  }
 
   button {
     padding-left: $xxx-small-unit;
@@ -50,21 +68,10 @@
 }
 
 .priority-nav ul.nav__dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 180px;
-  display: none;
-  padding: $xxx-small-unit;
-  border: 1px solid $grey;
-  background: $white;
-  display: none;
-
   li, a {
     display: block;
   }
 }
-
 
 .priority-nav.priority-nav-has-dropdown .nav__dropdown-wrapper:hover ul.nav__dropdown {
   display: block;
