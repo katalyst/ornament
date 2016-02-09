@@ -2,7 +2,14 @@
 
 ## v1.2.2
 
+### Features  
+
 - Added `menu-with-more` component  
+- Added ruby sample for navigation  
+
+### Fixes  
+
+- Fixed `cropString` and `tempCropString` being retained on image uploader when removing the image.  
 
 ## v1.2.1
 
