@@ -44,8 +44,19 @@
 </div>
 <%- end -%>
 
-<p>Just a simple little starter navigation component to quickly drop-in some global navigation when necessary.</p>
+<div class="content-spacing">
+  <p>Just a simple little starter navigation component to quickly drop-in some global navigation when necessary.</p>
+  <p>You can see an example of the navigation yielded in <code>:above_layout</code> just under the header.</p>
+</div>
 
-<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "blankstate" } do -%>
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "blankstate", ruby: capture { -%>
+&lt;div class="navigation">
+  &lt;div class="layout--container">
+    &lt;nav>
+      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :sf_menu, level: 1..2, expand_all: true, dom_class: '' %>
+    &lt;/nav>
+  &lt;/div>
+&lt;/div>
+<%- } } do -%>
 <%= yield :above_layout -%>
 <%- end -%>

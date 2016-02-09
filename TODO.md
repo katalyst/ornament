@@ -2,6 +2,8 @@
 
 ## Changes
 
+- Change all ornament triggers to a uniform format: `ornament:<component>:<trigger>`
+
 ## Components
 
 - Twitter Fetcher
