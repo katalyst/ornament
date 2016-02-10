@@ -57,8 +57,6 @@ class OrnamentGenerator < Rails::Generators::Base
         copy_file "config/initializers/simple_form.rb"
         copy_file "config/locales/en.yml"
 
-        copy_file "../../../../test/dummy/app/helpers/application_helper.rb", "app/helpers/application_helper.rb"
-
         copy_file "Gruntfile.js"
         copy_file "package.json"
       end
@@ -85,8 +83,8 @@ class OrnamentGenerator < Rails::Generators::Base
         unless options.example?
           route "get '/styleguide' => 'styleguide#index'"
           route "get '/styleguide/:action' => 'styleguide'"
-
           copy_file "app/controllers/styleguide_controller.rb"
+          copy_file "../../../../test/dummy/app/helpers/application_helper.rb", "app/helpers/application_helper.rb"
         end
 
       end
