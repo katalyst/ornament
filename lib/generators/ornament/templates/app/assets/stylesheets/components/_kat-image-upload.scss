@@ -71,6 +71,10 @@ $file-upload-breakpoint: 545px;
     z-index: 1;
     @include animation(indefinite 1.5s linear infinite);
   }
+
+  &.error {
+    background: $error-background;
+  }
 }
 
 @include keyframes(indefinite) {

@@ -6,7 +6,8 @@
 
 - Added `menu-with-more` component  
 - Added ruby sample for navigation  
-- Added jquery-ui theme  
+- Added jquery-ui theme and samples for datepicker and datetimepicker field types    
+- Added cancel action to image uploader and a visible error state  
 
 ### Fixes  
 
