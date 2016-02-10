@@ -124,6 +124,7 @@
     <li>on("uploader:progress-bar-updated", function() {})</li>
     <li>on("uploader:state-changed", function(event,state) {})</li>
     <li>on("uploader:crop-set", function(event,cropValue,$cropField) {})</li>
+    <li>on("uploader:upload-cancelled", function() {})</li>
   </ul>
 
   <p>There are also some action events you can trigger on the field:</p>
@@ -155,6 +156,8 @@
       $callbackTracker.append("Crop set to: " + cropValue + "<br />");
     }).on("uploader:modal-opened", function(e){
       $callbackTracker.append("Crop modal opened<br />");
+    }).on("uploader:upload-cancelled", function(e){
+      $callbackTracker.append("Upload was cancelled<br />");
     });
   });
 </script>
