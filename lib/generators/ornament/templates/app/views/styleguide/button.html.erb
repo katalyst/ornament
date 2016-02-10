@@ -30,7 +30,7 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-disabled", ruby: capture { -%>
 &lt;%= link_to ".button__disabled", "#", class: "button__disabled" -%&gt;
-&lt;%= f.button "Disabled Button", class: "button", disabled: true -%&gt;
+&lt;%= f.button :button, "Disabled Button", class: "button", disabled: true -%&gt;
   <%- } } do -%>
 <p>
   <a href="#" class="button__disabled">.button__disabled</a>

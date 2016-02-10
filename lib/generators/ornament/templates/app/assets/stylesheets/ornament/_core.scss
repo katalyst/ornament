@@ -20,9 +20,6 @@
 @import "compass/utilities/general/clearfix";
 @import "compass/typography/links/hover-link";
 
-// VENDOR ASSETS
-@import "jquery.jcrop";
-
 // UTILITIES AND HELPERS
 @import "ornament/utilities/animation";
 @import "ornament/utilities/arrows";
@@ -48,6 +45,12 @@
 @import "fonts";
 @import "ornament/reset";
 @import "components/typography";
+
+// VENDOR ASSETS
+@import "jquery.jcrop";
+@import "jquery-ui/core";
+@import "jquery-ui/datepicker";
+@import "ornament/jquery-ui-theme";
 
 .svg {
   @import "grunticon/icon-svg";

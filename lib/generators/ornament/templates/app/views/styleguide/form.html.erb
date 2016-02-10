@@ -165,7 +165,7 @@
 
   <p>Disabled fields use the <code>disabled</code> input attribute.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "datepicker", ruby: capture { -%>
 &lt;%= f.input :example, disabled: true -%&gt;
   <%- } } do -%>
 <div class="control-group string required form--medium">
@@ -173,7 +173,37 @@
     <abbr title="required">*</abbr> Your name
   </label>
   <div class="controls">
-    <input class="string required" id="modifier" type="text" disabled>
+    <input class="string required" id="modifier-disabled" type="text" disabled>
+  </div>
+</div>
+  <%- end -%>
+
+  <p>jQuery Datepicker can be added by giving your input field the class <code>datepicker</code>.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
+&lt;%= f.input :example, input_class: { "datepicker" } -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium">
+  <label class="string required control-label" for="datepicker">
+    Date
+  </label>
+  <div class="controls">
+    <input class="string required datepicker" id="datepicker" type="text">
+  </div>
+</div>
+  <%- end -%>
+
+  <p>Alternatively there's also a datetimepicker using the <code>datetimepicker</code> class.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
+&lt;%= f.input :example, input_class: { "datetimepicker" } -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium">
+  <label class="string required control-label" for="datetimepicker">
+    Date
+  </label>
+  <div class="controls">
+    <input class="string required datetimepicker" id="datetimepicker" type="text">
   </div>
 </div>
   <%- end -%>
@@ -458,6 +488,15 @@
         </label>
         <div class="controls">
           <input class="string optional" id="mobile_number" name="form[mobile_number]" size="50" type="text" disabled>
+        </div>
+      </div>
+
+      <div class="control-group string optional date form--medium">
+        <label class="string optional control-label" for="date">
+          Date
+        </label>
+        <div class="controls">
+          <input class="string optional datepicker" id="date" name="form[date]" type="text">
         </div>
       </div>
 
