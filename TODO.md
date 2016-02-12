@@ -40,9 +40,6 @@
 
 ## Known bugs
 
-- Selector filtering isn't working anymore
-- Mobile Menu:
-  - Open/close animation doesn't work in Firefox
 - Oslide:
   - [general] Cutting in to slides can cause miscalculations for isLastSlideVisible
   - [slideBy visible] Reaching the end, then sliding back only goes by 1
