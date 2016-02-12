@@ -116,12 +116,11 @@
   <p>You can combine the static map with the <a href="/styleguide/lightbox">Lightbox component</a> to create a static map that opens an interactive lightbox map:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "map-lightbox" } do -%>
-<%= render layout: "/shared/inline_lightbox", locals: { inline_id: "lightbox-map" } do -%>
-<div data-map>
-      <div data-map-pin="-34.921619,138.599257"></div>
-    </div>
-<%- end -%>
-
+<div class="mfp-hide lightbox--body" id="lightbox-map">
+  <div data-map>
+    <div data-map-pin="-34.921619,138.599257"></div>
+  </div>
+</div>
 <a href="#lightbox-map" data-lightbox data-lightbox-flush>
   <div data-map data-map-controls="false" data-map-static>
     <div data-map-pin="-34.921619,138.599257"></div>

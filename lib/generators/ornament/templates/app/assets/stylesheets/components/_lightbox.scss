@@ -6,6 +6,8 @@
   background: #fff;
   width: 90%;
   max-width: 800px;
+  margin: 44px 0 20px;
+  @include border-radius($border-radius);
 
   .lightbox__small & {
     max-width: 500px;
