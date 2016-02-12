@@ -14,6 +14,7 @@
 - Added a warning to users trying to leave the page while uploads are still in progress  
 - Updated lightbox documentation and abstracted the default lightbox settings in to `Ornament.lightboxDefaults`  
 - Added descriptions to the styleguide categories on homepage  
+- Added a new warning to the file uploader noting the requirement of Koi's asset models  
 
 ### Bugfixes  
 
@@ -24,6 +25,7 @@
 - Fixed ruby button samples in form and button documentation. 
 - Fixed some logic in the uploader partial  
 - Fixed uploader progress bar background being grey in Firefox  
+- Fixed uploader progress bar being blue in Edge/IE11
 
 ## v1.2.1
 

@@ -46,6 +46,10 @@ $file-upload-breakpoint: 545px;
     background: $success-color;
     opacity: 0.1;
   }
+  progress::-ms-fill {
+    background: $success-color;
+    opacity: 0.1;
+  }
 
   &.file-upload--dropzone--over {
     border-color: $success-color;
