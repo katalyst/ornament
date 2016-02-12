@@ -1,6 +1,7 @@
 <%- 
   heading_class ||= "heading-two"
   list_class ||= ""
+  show_descriptions ||= false
 -%>
 
 <h2 class="<%= heading_class -%>">Introduction</h2>
@@ -14,6 +15,9 @@
 <hr />
 
 <h2 class="<%= heading_class -%>">Dynamic application layout</h2>
+<%- if show_descriptions -%>
+  <p>Learn how to take advantage of the out-of-the-box application template.</p>
+<%- end -%>
 <ul class="<%= list_class -%>">
   <li><a href="/styleguide/layout_sidebar_left">Sidebar left</a></li>
   <li><a href="/styleguide/layout_sidebar_right">Sidebar right</a></li>
@@ -28,6 +32,9 @@
 <hr />
 
 <h2 class="<%= heading_class -%>">CSS components</h2>
+<%- if show_descriptions -%>
+  <p>Quickly make things look nice using only the power of classes and some premade, copy-and-paste-friendly markup.</p>
+<%- end -%>
 <ul class="<%= list_class -%>">
   <li><a href="/styleguide/align">Align</a></li>
   <li><a href="/styleguide/blankstate">Blankstate</a></li>
@@ -47,6 +54,9 @@
 <hr />
 
 <h2 class="<%= heading_class -%>">SASS utilities</h2>
+<%- if show_descriptions -%>
+  <p>Take advantage of SASS mixins to speed up CSS development.</p>
+<%- end -%>
 <ul class="<%= list_class -%>">
   <li><a href="/styleguide/flex">Flexbox</a></li>
   <li><a href="/styleguide/grunticons">Grunticons</a></li>
@@ -59,6 +69,9 @@
 <hr />
 
 <h2 class="<%= heading_class -%>">JS utilities</h2>
+<%- if show_descriptions -%>
+  <p>Add data attributes to enhance your page with basic javascript behaviours.</p>
+<%- end -%>
 <ul class="<%= list_class -%>">
   <li><a href="/styleguide/event-tracking">Event Tracking</a></li>
   <li><a href="/styleguide/showjs">ShowJS</a></li>
@@ -70,6 +83,9 @@
 <hr />
 
 <h2 class="<%= heading_class -%>">Components</h2>
+<%- if show_descriptions -%>
+  <p>Complex components that come with their own CSS and JS.</p>
+<%- end -%>
 <ul class="<%= list_class -%>">
   <li><a href="/styleguide/flexible_input">Flexible Input</a></li>
   <li><a href="/styleguide/form">Form</a></li>

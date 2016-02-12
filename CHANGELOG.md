@@ -13,6 +13,7 @@
 - Added `pretty-select` mixin for styling webkit and moz select elements and applied to default select element. Also improved the styling of the custom select menu arrow  
 - Added a warning to users trying to leave the page while uploads are still in progress  
 - Updated lightbox documentation and abstracted the default lightbox settings in to `Ornament.lightboxDefaults`  
+- Added descriptions to the styleguide categories on homepage  
 
 ### Bugfixes  
 
