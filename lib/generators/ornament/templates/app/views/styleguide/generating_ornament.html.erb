@@ -1,0 +1,42 @@
+<% content_for :title, "Generating Ornament" %>
+
+<div class="content-spacing">
+
+  <h2 class="heading-two">Add required Gems</h2>
+
+  <p>Add these gems to your Gemfile:</p>
+
+  <pre class="sg-pre">gem 'sass-rails'
+gem 'uglifier'
+gem 'compass-rails'
+gem 'htmlentities'</pre>
+
+  <p>Then simply run the ornament generator:</p>
+
+  <pre class="sg-pre">rails generate ornament</pre>
+
+  <p>Once generated add the following assets to your <code>assets.rb</code> file:</p>
+
+  <pre class="sg-pre">Rails.application.config.assets.precompile += %w( styleguide.css modernizr.js selectivizr.js respond.js application_bottom.js )</pre>
+
+  <hr />
+  <h2 class="heading-two">Non-Koi projects</h2>
+
+  <p>Ornament was built for Koi, but if you are using it on a non-koi project you will need to take some additional steps:</p>
+
+  <p>Koi comes with simple_form which Ornament has a customised initialiser for. It can be found in <code>config/initializers/simple_form.rb</code>. If you aren't using simple_form you will need to delete or disable this file.</p>
+
+  <p>Koi controllers need to include CommonControllerActions, so if you aren't using Koi you will need to disable this line from the <code>styleguide_controller.rb</code>:</p>
+
+  <pre class="sg-pre">include CommonControllerActions</pre>
+
+  <hr />
+  <h2 class="heading-two">Optional steps</h2>
+
+  <p>Ornament comes with a lot of big components made up of large JS and CSS. Depending on the size of your project you probably won't need everything included.</p>
+
+  <p>At the beginning of a project I typically go in to the <code>applicaiton.scss</code>, <code>application.js</code> and <code>application_bottom.js</code> files and disable components I likely won't be using such as object slider, tabs, tooltips etc.</p>
+
+  <p>Then when I start to implement these features in the application I'm developing I will bring them back in.</p>
+
+</div>
