@@ -30,6 +30,8 @@
 
   <pre class="sg-pre prettyprint">&lt;%= content_for :og_description, @module.description -%></pre>
 
+  <p>There is a helper for prepping content for sharing, <code>share_description(value)</code> which will replace &lt;br />s with spaces and then strip out html tags.</p>
+
   <p>Don't forget to set the default values in the <code>global.html.erb</code> layout.</p>
 
   <hr />

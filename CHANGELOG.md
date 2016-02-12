@@ -4,12 +4,15 @@
 
 ### Features  
 
+- Added documentation for generating ornament 
 - Added `menu-with-more` component  
 - Added ruby sample for navigation  
 - Added jquery-ui theme and samples for datepicker and datetimepicker field types    
 - Added cancel action to image uploader and a visible error state  
+- Added a `share_description` for stripping out html tags  
+- Added `pretty-select` mixin for styling webkit and moz select elements and applied to default select element. Also improved the styling of the custom select menu arrow.  
 
-### Fixes  
+### Bugfixes  
 
 - Fixed `cropString` and `tempCropString` being retained on image uploader when removing the image.  
 - Fixed testElement for IE mobile navigation support not working with styleguide.  

@@ -18,6 +18,12 @@ module ApplicationHelper
     value ? "Yes" : "No"
   end
 
+  # Format share descriptions a bit nicer by converting <br> and
+  # <br /> to spaces.
+  def share_description(value) 
+    raw(value).gsub("<br>", " ").gsub("<br />", " ")
+  end
+
   # Link helper
   # takes a URL and outputs a link with a custom label with http
   # and www stripped out

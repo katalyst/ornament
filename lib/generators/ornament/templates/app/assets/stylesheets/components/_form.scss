@@ -171,18 +171,10 @@ select {
 // WEBKIT SELECT MENU OVER-RIDE
 // https://raw2.github.com/isellsoap/forms.css/gh-pages/assets/css/forms.css
 
-@media (-webkit-min-device-pixel-ratio: 0) {
-
-  select {
-    -webkit-appearance: none;
-  }
-
-  /*
-   * 1. https://github.com/nathansmith/formalize/issues/44
-   */
+@include pretty-select {
 
   select[multiple],
-  select[multiple][size], /* 1 */
+  select[multiple][size], 
   select[size] {
     background-image: none;
     padding-right: 3px;
@@ -191,10 +183,10 @@ select {
   select,
   select[size='0'],
   select[size='1'] {
-    background-image: url('/assets/select_arrow.gif');
+    background-image: url('/assets/select_arrow.png');
     background-repeat: no-repeat;
     background-position: right center;
-    padding-right: 1.5em;
+    padding-right: 36px;
   }
 
 }
