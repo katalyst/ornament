@@ -27,6 +27,7 @@ $file-upload-breakpoint: 545px;
     -webkit-appearance: none;
     border: none;
     background-size: auto;
+    background: transparent;
     z-index: 1;
   }
 
@@ -93,6 +94,8 @@ $file-upload-breakpoint: 545px;
   height: $file-upload-thumbnail-width;
   background: $file-upload-thumbnail-background;
   border: 2px solid $primary-color;
+  position: relative;
+  z-index: 2;
 
   .file-upload--image {
     margin-top: 0;

@@ -10,7 +10,8 @@
 - Added jquery-ui theme and samples for datepicker and datetimepicker field types    
 - Added cancel action to image uploader and a visible error state  
 - Added a `share_description` for stripping out html tags  
-- Added `pretty-select` mixin for styling webkit and moz select elements and applied to default select element. Also improved the styling of the custom select menu arrow.  
+- Added `pretty-select` mixin for styling webkit and moz select elements and applied to default select element. Also improved the styling of the custom select menu arrow  
+- Added a warning to users trying to leave the page while uploads are still in progress  
 
 ### Bugfixes  
 
@@ -19,7 +20,8 @@
 - Fixed mobile navigation's console pollution.  
 - Fixed `menu-with-more` trying to do it's thang on pages with no menu-with-mores.  
 - Fixed ruby button samples in form and button documentation. 
-- Fixed some logic in the uploader partial 
+- Fixed some logic in the uploader partial  
+- Fixed uploader progress bar background being grey in Firefox  
 
 ## v1.2.1
 
