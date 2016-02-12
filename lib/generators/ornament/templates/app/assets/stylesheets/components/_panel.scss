@@ -27,7 +27,7 @@ $panel-border:          $background-color;
 
 .panel__warning {
   @extend .panel;
-  background: $notice-color;
+  background: $notice-background;
   color: $foreground-color;
 
   a {
