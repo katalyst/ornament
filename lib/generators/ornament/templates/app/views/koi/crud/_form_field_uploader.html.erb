@@ -1,6 +1,7 @@
 <%
 
   id_field = "#{attr}_id".to_sym
+  crop_field = "#{attr}_crop".to_sym
 
   # maximum amount of files uploaded to this field
   max_count ||= "1"
@@ -16,7 +17,7 @@
 
   # hidable label
   hide_label ||= false
-  is_required ||= false
+  is_required = f.object.class.validates_presence_of? attr
 
   # croppable setting
   croppable ||= false
@@ -46,9 +47,9 @@
 
   # create a cropped existing image if necessary
   existing_image_original = existing_image
-  if !crop_string.blank? && !resource.send(attr).eql?(nil)
-    existing_image = resource.send(crop_attr).url
-  end
+  # if !crop_string.blank? && !resource.send(attr).eql?(nil)
+  #   existing_image = resource.send(crop_attr).url
+  # end
 
 %>
 
@@ -78,7 +79,7 @@
     <div>
       
       <%# Hidden input field for #{attr}_crop (crop_string) %>
-      <%= f.input_field "#{attr}_crop".to_sym, as: :hidden, readonly: true if crop_ratio -%>
+      <%= f.input_field "#{attr}_crop".to_sym, as: :hidden, readonly: true if croppable -%>
 
       <%# Hidden input field to #{attr}_id (asset id) %>
       <%= f.input_field id_field, as: :hidden -%>
@@ -96,7 +97,7 @@
         <%= "data-file-document" if is_file -%> 
         <%- if croppable -%>
           data-file-croppable 
-          data-file-crop-string="<%= crop_string -%>" 
+          data-file-crop-string="<%= resource.send(crop_field) -%>" 
           data-file-modal="crop_<%= attr -%>_modal" 
           data-file-crop-field="<%= "#{resource.class.name.underscore}_#{attr}" -%>_crop" 
         <%- end -%>

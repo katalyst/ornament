@@ -19,6 +19,7 @@
 - Fixed mobile navigation's console pollution.  
 - Fixed `menu-with-more` trying to do it's thang on pages with no menu-with-mores.  
 - Fixed ruby button samples in form and button documentation. 
+- Fixed some logic in the uploader partial 
 
 ## v1.2.1
 
