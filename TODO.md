@@ -6,6 +6,10 @@
 
 ## Components
 
+- Image Uploader
+  - Better IE8 fallback to send asset to back-end 
+- Maps
+  - Filterable pins without reloading map
 - Twitter Fetcher
 - Anchor over-ride for sticky header
 - Shadows:
@@ -13,10 +17,6 @@
 - Momentum scrolling with JS:
   - Can be applied to things like swipable tabs, oslide etc.
   - http://www.hnldesign.nl/work/code/momentum-scrolling-using-jquery/
-- Image Uploader
-  - Better IE8 fallback to send asset to back-end 
-- Maps
-  - Filterable pins without reloading map
 
 ## Enhancements
 
