@@ -119,10 +119,10 @@
         <%= render "/shared/flash" -%>
         <%- if content_for?(:global) || !yield.blank? -%>
           <div class="layout--container">
-            <section class="layout--main <%= yield(:layout_class) -%>" role="main">
-              <a id="main" name="main" tabindex="-1"></a>
+            <a id="main" name="main" tabindex="-1"></a>
+            <main class="layout--main <%= yield(:layout_class) -%>" role="main">
               <%= content_for?(:global) ? yield(:global) : yield %>
-            </section>
+            </main>
           </div>
         <%- end -%>
         <%= yield :below_layout -%>

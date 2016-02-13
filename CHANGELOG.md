@@ -17,6 +17,10 @@
 - Changed default lightbox settings to fixed background position and updated sizing logic for lightboxes  
 - Added descriptions to the styleguide categories on homepage  
 - Added subtle animation to the enhanced radio/checkbox elements  
+- Reworked the table component to bring classes more in line with thre rest of ornament, with more out of the box style options  
+- Reworked the `align` component to bring classes more in line with the rest of ornament  
+- Changed `.layout--main` from a `section` to a `main` element  
+- Updated styling of default `content figcaption` styling  
 
 ### Bugfixes  
 
@@ -24,11 +28,12 @@
 - Fixed testElement for IE mobile navigation support not working with styleguide.  
 - Fixed mobile navigation's console pollution.  
 - Fixed `menu-with-more` trying to do it's thang on pages with no menu-with-mores.  
-- Fixed ruby button samples in form and button documentation. 
+- Fixed ruby button samples in form and button documentation. [30](https://github.com/katalyst/ornament/pull/30)  
 - Fixed some logic in the uploader partial  
 - Fixed uploader progress bar background being grey in Firefox  
 - Fixed uploader progress bar being blue in Edge/IE11
 - Mobile tweaks to the uploader  
+- Fixed styleguide `hr` being cut off in Edge/IE11 
 
 ## v1.2.1
 

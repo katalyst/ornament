@@ -2,92 +2,205 @@
 
 <div class="spacing">
 
-  <h2 class="heading-two">Basic, unstyled table</h2>
+  <p>Basic, unstyled table:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-basic" } do -%>
-<table class="table">
-  <tr>
-    <th>First Name</th>
-    <td>Jane</td>
-  </tr>
-  <tr>
-    <th>Last Name</th>
-    <td>Doe</td>
-  </tr>
-  <tr>
-    <th>DOB</th>
-    <td>25/06/1982</td>
-  </tr>
-</table>
-  <%- end -%>
-
-  <hr />
-
-  <h2 class="heading-two">Flush table</h2>
-
-  <p>Add <code>table-flush</code> class to table to make it flush on all sides.</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-1" } do -%>
-<table class="table table-flush">
-  <tr>
-    <th>First Name</th>
-    <td>Jane</td>
-  </tr>
-  <tr>
-    <th>Last Name</th>
-    <td>Doe</td>
-  </tr>
-  <tr>
-    <th>DOB</th>
-    <td>25/06/1982</td>
-  </tr>
-</table>
-  <%- end -%>
-
-  <hr />
-
-  <h2 class="heading-two">Ruled table</h2>
-
-  <p>Add <code>table-ruled</code> class to table, can be combined with <code>table-flush</code> to create a flush, ruled table.</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-2" } do -%>
-<table class="table table-flush table-ruled">
-  <tr>
-    <th>First Name</th>
-    <td>Jane</td>
-  </tr>
-  <tr>
-    <th>Last Name</th>
-    <td>Doe</td>
-  </tr>
-  <tr>
-    <th>DOB</th>
-    <td>25/06/1982</td>
-  </tr>
-</table>
-  <%- end -%>
-
-  <hr />
-
-  <h2 class="heading-two">Scrollable Table</h2>
-
-  <p>Wrap your table in a <code>.table--container</code> element.</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-3" } do -%>
-<div class="table-container">
-  <table class="table table-flush table-ruled" style="width: 5000px">
+<table>
+  <thead>
     <tr>
       <th>First Name</th>
-      <td>Jane</td>
-    </tr>
-    <tr>
       <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jane</td>
+      <td>Doe</td>
+    </tr>
+  </tbody>
+</table>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Spacing</h2>
+
+  <p>Adding spacing can be done with the <code>table</code> class. This will add padding around each cell and expand the table out to 100% width.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-enhanced" } do -%>
+<table class="table">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jane</td>
+      <td>Doe</td>
+    </tr>
+  </tbody>
+</table>
+  <%- end -%>
+
+  <p>If you want to remove the left/right padding on the first and last columns you can do so by adding the <code>table__flush</code> class.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-flush" } do -%>
+<table class="table table__flush">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jane</td>
+      <td>Doe</td>
+    </tr>
+  </tbody>
+</table>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Row styling</h2>
+
+  <p>You can add borders between rows with <code>table__bordered</code>:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-bordered" } do -%>
+<table class="table table__flush table__bordered">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jane</td>
       <td>Doe</td>
     </tr>
     <tr>
-      <th>DOB</th>
-      <td>25/06/1982</td>
+      <td>Jane</td>
+      <td>Doe</td>
     </tr>
+    <tr>
+      <td>Jane</td>
+      <td>Doe</td>
+    </tr>
+  </tbody>
+</table>
+  <%- end -%>
+
+  <p>You can add borders between rows with <code>table__bordered</code>:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-striped" } do -%>
+<table class="table table__striped">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jane</td>
+      <td>Doe</td>
+    </tr>
+    <tr>
+      <td>Jane</td>
+      <td>Doe</td>
+    </tr>
+    <tr>
+      <td>Jane</td>
+      <td>Doe</td>
+    </tr>
+  </tbody>
+</table>
+  <%- end -%>
+
+  <p>Row highlighting can be added with <code>table__highlight</code></p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-highlight" } do -%>
+<table class="table table__striped table__highlight">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jane</td>
+      <td>Doe</td>
+    </tr>
+    <tr>
+      <td>Jane</td>
+      <td>Doe</td>
+    </tr>
+    <tr>
+      <td>Jane</td>
+      <td>Doe</td>
+    </tr>
+  </tbody>
+</table>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Responsive tables</h2>
+
+  <p>You can make your table stack with the class <code>table__stack</code>, you will also need to indicate which elements hide by giving them the <code>data-table-column-headings</code> attribute. Then duplicate the headings down to the cells with the <code>data-table-heading</code> attribute.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-responsive" } do -%>
+<table class="table table__striped table__stack">
+  <thead data-table-column-headings>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-table-heading="First Name">Jane</td>
+      <td data-table-heading="Last Name">Doe</td>
+    </tr>
+    <tr>
+      <td data-table-heading="First Name">Jane</td>
+      <td data-table-heading="Last Name">Doe</td>
+    </tr>
+    <tr>
+      <td data-table-heading="First Name">Jane</td>
+      <td data-table-heading="Last Name">Doe</td>
+    </tr>
+  </tbody>
+</table>
+  <%- end -%>
+
+  <p>If you have a wide table but can't really stack it you can add a <code>.table-container</code> element around your table to make it scrollable:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "table-scrollable" } do -%>
+<div class="table-container">
+  <table class="table table__striped" style="width: 180%">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jane</td>
+        <td>Doe</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>Doe</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>Doe</td>
+      </tr>
+    </tbody>
   </table>
 </div>
   <%- end -%>

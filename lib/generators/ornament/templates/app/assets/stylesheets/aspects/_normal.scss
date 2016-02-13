@@ -200,12 +200,8 @@ ol.content-lists {
     // inheriting some styles from fotorama_custom.css
     img + figcaption,
     picture + figcaption {
-      @extend .fotorama__caption;
-      z-index: 2;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      padding: $panel-padding;
+      border-bottom: 1px solid $divider-color;
     }
   }
 

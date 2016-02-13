@@ -136,6 +136,7 @@ hr {
   border: 0;
   height: 1px;
   position: relative;
+  overflow: visible;
 
   &:before {
     content: "";
@@ -492,9 +493,9 @@ code {
   @extend .heading-three;
 }
 .example table {
-  @extend .table;
-  @extend .table-ruled;
-  @extend .table-flush;
+  // @extend .table;
+  // @extend .table-ruled;
+  // @extend .table-flush;
 }
 
 // PROOF OF CONCEPT BUTTON

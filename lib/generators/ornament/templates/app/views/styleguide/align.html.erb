@@ -1,10 +1,24 @@
 <% content_for :title, "Align" %>
 
-<div class="spacing">
+<div class="content-spacing">
+
+  <p>You can align text by using the <code>align__*</code> classes:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "align-1" } do -%>
-<div class="align-content-right">
-  <p class="align-left" style="width:50%;">
+<div>
+  <p class="align__left">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat.
+  </p>
+  <p class="align__center">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat.
+  </p>
+  <p class="align__right">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -12,35 +26,28 @@
   </p>
 </div>
   <%- end -%>
+
+  <p>You can perform basic floats using <code>box-align__*</code> classes. Don't forget to clear your floats using <code>clearfix</code>.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "align-2" } do -%>
-<div class="align-content-center">
-  <p class="align-center" style="width:50%;">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-    commodo consequat.
-  </p>
+<div class="clearfix">
+  <div class="box-align__left">
+    This is floated left
+  </div>
+  <div class="box-align__right">
+    This is floated right
+  </div>
 </div>
   <%- end -%>
+
+  <p>You can apply align classes to tables too to vertically align them:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "align-3" } do -%>
-<div class="align-content-left">
-  <p class="align-right" style="width:50%;">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-    commodo consequat.
-  </p>
-</div>
-  <%- end -%>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "align-4" } do -%>
-<table>
+<table class="table table__flush">
   <tr>
-    <td class="align-top">Lorem ipsum dolor sit amet.</td>
-    <td class="align-middle">Lorem ipsum dolor sit amet.</td>
-    <td class="align-bottom">Lorem ipsum dolor sit amet.</td>
+    <td class="align__top">Lorem ipsum dolor sit amet.</td>
+    <td class="align__middle">Lorem ipsum dolor sit amet.</td>
+    <td class="align__bottom">Lorem ipsum dolor sit amet.</td>
     <td>
       Lorem ipsum dolor sit amet.<br/>
       Lorem ipsum dolor sit amet.<br/>
