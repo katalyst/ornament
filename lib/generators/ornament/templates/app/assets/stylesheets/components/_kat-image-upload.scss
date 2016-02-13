@@ -184,6 +184,7 @@ $file-upload-breakpoint: 545px;
   @include display-flex;
   @include flex-direction(row);
   @include align-items(center);
+  @include flex-wrap;
   position: relative;
   z-index: 2;
 }
@@ -207,6 +208,10 @@ $file-upload-breakpoint: 545px;
 }
 .file-uploader--file-type {
   float: right;
+  @include media-query(500px) {
+    float: left;
+    clear: both;
+  }
 }
 
 // Thumbnail container and undo styles

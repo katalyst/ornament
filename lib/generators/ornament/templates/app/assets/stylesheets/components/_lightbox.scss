@@ -1,5 +1,12 @@
 @import "magnific-popup";
 
+// Background
+.mfp-bg {
+  height: auto;
+  top: -20%;
+  bottom: -20%;
+}
+
 // Content Container 
 .mfp-inline-holder .mfp-content, 
 .mfp-ajax-holder .mfp-content {
@@ -12,6 +19,11 @@
   .lightbox__small & {
     max-width: 500px;
   }
+}
+
+.mfp-image-holder .mfp-content {
+  max-width: 90%;
+  margin-top: 44px;
 }
 
 // Lightbox Headings
@@ -27,7 +39,7 @@
 
 // Lightbox Content
 .lightbox--content {
-  padding: $small-unit;
+  padding: $panel-padding;
 
   .lightbox__flush & {
     padding: 0;
@@ -79,6 +91,15 @@
   .lightbox__flush &:active {
     top: -$xxx-small-unit;
     right: -$xxx-small-unit;
+  }
+}
+
+// Image arrows
+.mfp-image-holder .mfp-arrow {
+  margin-top: -22px; 
+
+  &:after {
+    display: none;
   }
 }
 
@@ -139,7 +160,7 @@
 
 // Animated Overlay Open
 .lightbox--main.mfp-ready.mfp-bg {
-  @include opacity(0.3);
+  @include opacity(0.6);
 }
 
 // Animated Overlay Close

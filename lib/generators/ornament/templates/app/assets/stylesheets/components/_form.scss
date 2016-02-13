@@ -254,7 +254,9 @@ $radio-offset: 24px;
       position: absolute;
       top: 0.2em;
       left: 0;
-      background: $white;
+      background: $primary-color;
+      @include box-shadow(inset 0 0 0 1em $white);
+      @include transition(box-shadow .2s);
     }
 
     .form--enhanced--control:hover {
@@ -267,7 +269,6 @@ $radio-offset: 24px;
     }
 
     input:checked + .form--enhanced--control {
-      background: $primary-color;
       border-color: $input-border-focus-color;
       @include box-shadow(inset 0 0 0 3px $white);
     }

@@ -8,13 +8,15 @@
 - Added `menu-with-more` component  
 - Added ruby sample for navigation  
 - Added jquery-ui theme and samples for datepicker and datetimepicker field types    
-- Added cancel action to image uploader and a visible error state  
 - Added a `share_description` for stripping out html tags  
 - Added `pretty-select` mixin for styling webkit and moz select elements and applied to default select element. Also improved the styling of the custom select menu arrow  
+- Added cancel action to image uploader and a visible error state  
 - Added a warning to users trying to leave the page while uploads are still in progress  
-- Updated lightbox documentation and abstracted the default lightbox settings in to `Ornament.lightboxDefaults`  
-- Added descriptions to the styleguide categories on homepage  
 - Added a new warning to the file uploader noting the requirement of Koi's asset models  
+- Updated lightbox documentation and abstracted the default lightbox settings in to `Ornament.lightboxDefaults`  
+- Changed default lightbox settings to fixed background position and updated sizing logic for lightboxes  
+- Added descriptions to the styleguide categories on homepage  
+- Added subtle animation to the enhanced radio/checkbox elements  
 
 ### Bugfixes  
 
@@ -26,6 +28,7 @@
 - Fixed some logic in the uploader partial  
 - Fixed uploader progress bar background being grey in Firefox  
 - Fixed uploader progress bar being blue in Edge/IE11
+- Mobile tweaks to the uploader  
 
 ## v1.2.1
 
