@@ -1,33 +1,45 @@
 <% content_for :title, "Pagination" %>
 
-<p>Pagination styles via Kaminari</p>
+<div class="content-spacing">
+  <p>Ornament comes with a custom Kaminari pagination template that looks like this by default:</p>
+</div>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "pagination-1" } do -%>
-<nav class="pagination" role="navigation">
-
-  <span class="first disabled">
+<%- content_for :pagination_template do -%>
+  <span class="pagination--first disabled">
     First
   </span>
-
-  <span class="prev disabled">
+  <span class="pagination--prev disabled">
     Previous
   </span>
-
-  <span class="page current">
+  <span class="pagination--page current">
     1
   </span>
-
-  <span class="page">
+  <span class="pagination--page">
     <a href="#" rel="next" title="Go to page 2">2</a>
   </span>
-
-  <span class="last">
+  <div class="pagination--count">
+    Page 1 of 6
+  </div>
+  <span class="pagination--last">
     <a href="#" title="Go to last page">Last</a>
   </span>
-
-  <span class="next">
+  <span class="pagination--next">
     <a href="#" rel="next" title="Go to next page">Next</a>
   </span>
+<%- end -%>
 
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "pagination-1" } do -%>
+<nav class="pagination" role="navigation">
+  <%= yield :pagination_template -%>
 </nav>
-  <%- end -%>
+<%- end -%>
+
+<div class="content-spacing">
+  <p></p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "pagination-1" } do -%>
+<nav class="pagination pagination__count" role="navigation">
+  <%= yield :pagination_template -%>
+</nav>
+<%- end -%>

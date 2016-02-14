@@ -13,6 +13,7 @@
 - Added cancel action to image uploader and a visible error state  
 - Added a warning to users trying to leave the page while uploads are still in progress  
 - Added a new warning to the file uploader noting the requirement of Koi's asset models  
+- Added confirm boxes when removing files and cancelling uploads when using the uploader  
 - Updated lightbox documentation and abstracted the default lightbox settings in to `Ornament.lightboxDefaults`  
 - Changed default lightbox settings to fixed background position and updated sizing logic for lightboxes  
 - Added descriptions to the styleguide categories on homepage  
@@ -21,6 +22,7 @@
 - Reworked the `align` component to bring classes more in line with the rest of ornament  
 - Changed `.layout--main` from a `section` to a `main` element  
 - Updated styling of default `content figcaption` styling  
+- Added `pagination__counter` variant  
 
 ### Bugfixes  
 
@@ -34,6 +36,7 @@
 - Fixed uploader progress bar being blue in Edge/IE11
 - Mobile tweaks to the uploader  
 - Fixed styleguide `hr` being cut off in Edge/IE11 
+- Fixed bonus left/right padding on flash partial 
 
 ## v1.2.1
 

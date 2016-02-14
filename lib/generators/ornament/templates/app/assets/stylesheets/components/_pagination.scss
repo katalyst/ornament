@@ -26,8 +26,8 @@ $pagination-current-color:         #ccc;
   }
 
   // icon extends
-  .first a,
-  .first.disabled {
+  .pagination--first a,
+  .pagination--first.disabled {
     @include grunticon("chevron-double-left-24-white", 24px);
     padding-left: $xxx-large-unit;
 
@@ -35,8 +35,8 @@ $pagination-current-color:         #ccc;
       left: $xxx-small-unit;
     }
   }
-  .prev a,
-  .prev.disabled {
+  .pagination--prev a,
+  .pagination--prev.disabled {
     @include grunticon("chevron-left-24-white", 24px);
     padding-left: $xx-large-unit;
     margin-left: $xxx-small-unit;
@@ -46,8 +46,8 @@ $pagination-current-color:         #ccc;
     }
 
   }
-  .next a,
-  .next.disabled {
+  .pagination--next a,
+  .pagination--next.disabled {
     @include grunticon("chevron-right-24-white", 24px);
     padding-right: $xx-large-unit;
     margin-right: $xxx-small-unit;
@@ -57,8 +57,8 @@ $pagination-current-color:         #ccc;
     }
 
   }
-  .last a,
-  .last.disabled {
+  .pagination--last a,
+  .pagination--last.disabled {
     @include grunticon("chevron-double-right-24-white", 24px);
     padding-right: $xxx-large-unit;
 
@@ -69,16 +69,16 @@ $pagination-current-color:         #ccc;
   }
 
   // general button styles
-  .first a,
-  .first.disabled,
-  .prev a,
-  .prev.disabled,
-  .next a,
-  .next.disabled,
-  .last a,
-  .last.disabled,
-  .page a,
-  .page.current {
+  .pagination--first a,
+  .pagination--first.disabled,
+  .pagination--prev a,
+  .pagination--prev.disabled,
+  .pagination--next a,
+  .pagination--next.disabled,
+  .pagination--last a,
+  .pagination--last.disabled,
+  .pagination--page a,
+  .pagination--page.current {
     position: relative;
     background: $primary-color;
     color: #fff;
@@ -95,26 +95,26 @@ $pagination-current-color:         #ccc;
   }
 
   // left buttons
-  .first a,
-  .first.disabled,
-  .prev a,
-  .prev.disabled {
+  .pagination--first a,
+  .pagination--first.disabled,
+  .pagination--prev a,
+  .pagination--prev.disabled {
     float: left;
     padding-right: $xx-small-unit;
   }
 
   // right buttons
-  .next a,
-  .next.disabled,
-  .last a,
-  .last.disabled {
+  .pagination--next a,
+  .pagination--next.disabled,
+  .pagination--last a,
+  .pagination--last.disabled {
     float: right;
     padding-left: $xx-small-unit;
   }
 
   // page buttons
-  .page a,
-  .page.current {
+  .pagination--page a,
+  .pagination--page.current {
     display: inline-block;
     font-weight: bold;
     margin: 0 2px;
@@ -122,12 +122,12 @@ $pagination-current-color:         #ccc;
     text-align: center;
   }
 
-  .page.current {
+  .pagination--page.current {
     background: $pagination-current-color;
     color: #fff;
   }
 
-  .page.gap {
+  .pagination--page.gap {
     @include media-query(small) {
       display: none;
     }
@@ -135,17 +135,17 @@ $pagination-current-color:         #ccc;
 
   // Breakpoint changes
 
-  .next,
-  .prev {
+  .pagination--next,
+  .pagination--prev {
     @include media-query($pagination-breakpoint-nextprev) {
       display: none;
     }
   }
 
-  .first.disabled,
-  .first a,
-  .last.disabled,
-  .last a {
+  .pagination--first.disabled,
+  .pagination--first a,
+  .pagination--last.disabled,
+  .pagination--last a {
     @include media-query($pagination-breakpoint-firstlast) {
       text-indent: -9999px;
       width: $button-height;
@@ -160,9 +160,23 @@ $pagination-current-color:         #ccc;
   }
 
   // Page counter
-  .pagination--pages {
-    display: inline;
+  .pagination--count {
+    display: none;
     line-height: $button-height;
   }
 
+}
+
+.pagination__count {
+  .pagination--count {
+    display: inline;
+  }
+  .pagination--page,
+  .pagination--page.current {
+    display: none;
+  }
+  .pagination--first,
+  .pagination--last {
+    display: none;
+  }
 }
