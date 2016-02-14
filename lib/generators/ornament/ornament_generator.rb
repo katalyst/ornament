@@ -69,7 +69,7 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "vendor/assets"
       end
 
-      if options.layouts? && !options.example?
+      if options.layouts? 
         directory "app/views/layouts"
         directory "app/views/errors"
         directory "app/views/kaminari"
