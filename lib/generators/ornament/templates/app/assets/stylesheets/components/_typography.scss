@@ -94,13 +94,6 @@ small {
   em {
     @include font($heading-alpha-font-italic);
   }
-  &:first-child {
-    margin-top: 0;
-  }
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   @include media-query($breakpoint-typography) {
     line-height: 36px;
     font-size: 26px;
@@ -117,13 +110,6 @@ small {
   em {
     @include font($heading-alpha-font-italic);
   }
-  &:first-child {
-    margin-top: 0;
-  }
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   @include media-query($breakpoint-typography) {
     font-size: 20px;
   }
@@ -138,12 +124,6 @@ small {
   line-height: $base-line-height;
   em {
     @include font($heading-alpha-font-italic);
-  }
-  &:first-child {
-    margin-top: 0;
-  }
-  &:last-child {
-    margin-bottom: 0;
   }
 }
 

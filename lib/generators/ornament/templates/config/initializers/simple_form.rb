@@ -111,7 +111,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'button'
+  config.button_class = ''
 
   # Method used to tidy up errors.
   # config.error_method = :first
