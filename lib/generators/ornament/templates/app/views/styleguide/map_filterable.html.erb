@@ -1,0 +1,76 @@
+<% content_for :title, "Map - Filterable" %>
+
+<%- content_for :scripts do -%>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjgOvjmIVHFO-1IVSYWeZN-1Yp_MkjeW0">
+  </script>
+<%- end -%>
+
+<div class="content-spacing">
+
+  <p>This page is one example of filtering pins on a map.</p>
+  <p>This example uses hard-coded pin markup inside an if statement and very simple filtering logic. This could potentially be implemented using an ajax call to retreive markup based on a more complex search with more params.</p>
+
+  <div data-map data-map-bounds data-map-filterable>
+    <div data-map-pin="-34.921619, 138.599257"></div>
+    <div data-map-pin="-34.922493, 138.609264"></div>
+    <div data-map-pin="-34.922325, 138.605026"></div>
+    <div data-map-pin="-34.930516, 138.596595"></div>
+    <div data-map-pin="-34.923160, 138.601457"></div>
+    <div data-map-pin="-34.925154, 138.599106"></div>
+    <div data-map-pin="-34.929536, 138.598649"></div>
+    <div data-map-pin="-34.922746, 138.606811"></div>
+    <div data-map-pin="-34.921064, 138.636580"></div>
+    <div data-map-pin="-34.925387, 138.603816"></div>
+    <div data-map-pin="-34.925343, 138.607678"></div>
+    <div data-map-pin="-34.922235, 138.607843"></div>
+  </div>
+  <select data-map-filter class="form--auto">
+    <option>Filter</option>
+    <option value="one">Category 1</option>
+    <option value="two">Category 2</option>
+  </select>
+
+</div>
+
+<%- content_for :scripts_bottom do -%>
+  <script>
+    $(function(){
+
+      var $filter = $("[data-map-filter]");
+      var $map = $("[data-map-filterable]");
+      var originalVenues = $map.html();
+
+      $filter.on("change", function(){
+        // get value of select menu to know what to filter
+        var categoryToLoad = $filter.val();
+        if(categoryToLoad) {
+          var venues;
+          if(categoryToLoad === "one") {
+            venues = 
+            '<div data-map-pin="-34.921619, 138.599257"></div>' +
+            '<div data-map-pin="-34.923160, 138.601457"></div>' +
+            '<div data-map-pin="-34.925154, 138.599106"></div>' +
+            '<div data-map-pin="-34.929536, 138.598649"></div>' +
+            '<div data-map-pin="-34.922746, 138.606811"></div>' +
+            '<div data-map-pin="-34.921064, 138.636580"></div>';
+          } else if(categoryToLoad === "two") {
+            venues = 
+            '<div data-map-pin="-34.921619, 138.599257"></div>' +
+            '<div data-map-pin="-34.922493, 138.609264"></div>' +
+            '<div data-map-pin="-34.922325, 138.605026"></div>' +
+            '<div data-map-pin="-34.930516, 138.596595"></div>' +
+            '<div data-map-pin="-34.923160, 138.601457"></div>' +
+            '<div data-map-pin="-34.925387, 138.603816"></div>' +
+            '<div data-map-pin="-34.925343, 138.607678"></div>' +
+            '<div data-map-pin="-34.922235, 138.607843"></div>';
+          } else {
+            venues = originalVenues;
+          }
+        }
+        $map.removeClass("map__init").html(venues);
+        $(document).trigger("ornament:load-maps");
+      });
+
+    });
+  </script>
+<%- end -%>
