@@ -1,0 +1,27 @@
+<% content_for :title, "jQuery UI Support" %>
+
+<div class="content-spacing">
+
+  <p>jQuery UI is not supported out of the box in Ornament, however it is easy to add. Follow these steps:</p>
+
+  <p>Add the jQuery UI gem (then bundle and restart your server):</p>
+
+  <pre class="sg-pre">gem 'jquery-ui-rails'</pre>
+
+  <p>Add the jQuery UI imports to <code>core.js</code>:</p>
+
+  <pre class="sg-pre">//= require jquery-ui/core
+//= require jquery-ui/datepicker
+//= require jquery-ui-timepicker-addon</pre>
+
+  <p>Add the jQuery UI imports to <code>core.scss</code>, along with the ornament jQuery UI theme:</p>
+
+  <pre class="sg-pre">@import "jquery-ui/core";
+@import "jquery-ui/datepicker";
+@import "ornament/jquery-ui-theme";</pre>
+
+  <p>Finally, enable jQuery UI support in <code>defaults.js</code>:</p>
+
+  <pre class="sg-pre">jQueryUISupport: true</pre>
+
+</div>

@@ -7,7 +7,7 @@
 - Added documentation for generating ornament 
 - Added `menu-with-more` component  
 - Added ruby sample for navigation  
-- Added jquery-ui theme and samples for datepicker and datetimepicker field types    
+- Added jquery-ui theme and documentation on how to enable `datepicker` and `datetimepicker`.
 - Added a `share_description` for stripping out html tags  
 - Added `pretty-select` mixin for styling webkit and moz select elements and applied to default select element. Also improved the styling of the custom select menu arrow  
 - Added cancel action to image uploader and a visible error state  
@@ -22,7 +22,8 @@
 - Reworked the `align` component to bring classes more in line with the rest of ornament  
 - Changed `.layout--main` from a `section` to a `main` element  
 - Updated styling of default `content figcaption` styling  
-- Added `pagination__counter` variant  
+- Removed margins from `typography.scss` as they should be defined by their aspect  
+- Removed default class of `button` from the `simple_form` initialiser  
 
 ### Bugfixes  
 
