@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.3
+
+Introducing Prefabs. Premade pages with more complex UI and behaviours. 
+
+### Features
+- Added `prefab` section 
+- Added `map-filterable` prefab
+- Added `filter-results` prefab
+
 ## v1.2.2
 
 ### Features  

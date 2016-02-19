@@ -1,0 +1,98 @@
+<% content_for :title, "Filter Results" %>
+
+<form class="filter-results" data-remote="true" data-filter-results>
+  <div class="filter-blocker" data-filter-blocker></div>
+  <div class="filter-results--layout">
+    <div class="filter-results--sidebar" data-filters>
+      <div class="filter-results--filter-set">
+        <div class="filter-results--filter-set--heading">
+          <strong>Range</strong>
+        </div>
+        <div class="filter-results--filters">
+          <%- (1..4).each do |i| -%>
+            <div class="control-group boolean">
+              <label class="control-label" for="ranges_<%= i -%>">Range <%= i -%></label>
+              <div class="controls">
+                <label class="controls">
+                  <input type="checkbox" name="ranges[]" id="ranges_<%= i -%>" value="<%= i -%>">
+                </label>
+              </div>
+            </div>
+          <%- end -%>
+        </div>
+      </div>
+      <div class="filter-results--filter-set">
+        <div class="filter-results--filter-set--heading">
+          <strong>Colour</strong>
+        </div>
+        <div class="filter-results--filters">
+          <%- (1..6).each do |i| -%>
+            <div class="control-group boolean">
+              <label class="control-label" for="colours_<%= i -%>">Colour <%= i -%></label>
+              <div class="controls">
+                <label class="controls">
+                  <input type="checkbox" name="colours[]" id="colours_<%= i -%>" value="<%= i -%>">
+                </label>
+              </div>
+            </div>
+          <%- end -%>
+        </div>
+      </div>
+      <div class="filter-results--filter-set">
+        <div class="filter-results--filter-set--heading">
+          <strong>Style</strong>
+        </div>
+        <div class="filter-results--filters">
+          <%- (1..3).each do |i| -%>
+            <div class="control-group boolean">
+              <label class="control-label" for="style_<%= i -%>">Style <%= i -%></label>
+              <div class="controls">
+                <label class="controls">
+                  <input type="radio" name="style[]" id="style_<%= i -%>" value="<%= i -%>">
+                </label>
+              </div>
+            </div>
+          <%- end -%>
+        </div>
+      </div>
+    </div>
+    <div class="filter-results--main">
+      <div class="filter-results--main--top">
+        <div class="filter-results--counter">
+          <span data-result-count>9</span> Results 
+        </div>
+        <div class="filter-results--order">
+          <select name="order" data-filter-select>
+            <option value="">Sort By</option>
+            <option value="a_z">A to Z</option>
+            <option value="z_a">Z to A</option>
+          </select>
+        </div>
+      </div>
+      <div class="filter-results--results" data-filter-results-main>
+        <%- (1..9).each do -%>
+          <div class="filter-results--result">
+            <a href="#" class="card">
+              <div class="card--image__cover" style="background-image: url(http://placehold.it/500x300);"></div>
+              <div class="card--content compressed">
+                <p><strong class="nested-link--target">Result</strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, doloremque.</p>
+                <p><small class="type--grey">Posted Yesterday</small></p>
+              </div>
+            </a>
+          </div>
+        <%- end -%>
+      </div>
+    </div>
+  </div>
+</form>
+
+<%- content_for :scripts_bottom do -%>
+  <script>
+    $(document).on("ornament:refresh", function(){
+
+      // 
+
+    });
+  </script>
+<%- end -%>
