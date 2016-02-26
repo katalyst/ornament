@@ -56,6 +56,10 @@
   @include button-background($primary-color);
 
   &.button__small {
+    padding: $xxxxx-small-unit;
+  }
+
+  &.button__large {
     padding: $x-small-unit;
   }
 }

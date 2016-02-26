@@ -26,6 +26,23 @@
 
   <hr />
 
+  <h2 class="heading-two">Button sizing</h2>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-sizing", ruby: capture { -%>
+&lt;%= link_to "Button", "#", class: "button button__small" -%&gt;
+&lt;%= link_to "Button", "#", class: "button button__large" -%&gt;
+  <%- } } do -%>
+<p>
+  <a href="#" class="button button__small">Small button</a>
+</p>
+
+<p>
+  <a href="#" class="button button__large">Large button</a>
+</p>
+  <%- end -%>
+
+  <hr />
+
   <h2 class="heading-two">Disabled buttons</h2>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-disabled", ruby: capture { -%>

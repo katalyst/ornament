@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.3
+## v1.3.0
 
 Introducing Prefabs. Premade pages with more complex UI and behaviours. 
 
