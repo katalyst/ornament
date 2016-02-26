@@ -5,9 +5,16 @@
 Introducing Prefabs. Premade pages with more complex UI and behaviours. 
 
 ### Features
+
 - Added `prefab` section 
 - Added `map-filterable` prefab
 - Added `filter-results` prefab
+- Added `data-show-disable` to disable fields as an alternative to `data-show-destroy` with the intention of preventing data from being sent to the server when hiding fields 
+- Added `.print__break-before` and `.print__before-after` helper classes for page breaks when printing 
+
+### Bugfixes
+
+- Added `trim()` to the `external_link` tracking script when comparing link text to fix up images having white-space text in Google Analytics  
 
 ## v1.2.2
 

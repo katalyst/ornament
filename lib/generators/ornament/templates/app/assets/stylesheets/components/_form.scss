@@ -147,7 +147,7 @@ textarea,
 
   &[disabled],
   &[readonly] {
-    background: lighten($grey,20);
+    background-color: lighten($grey,20);
     cursor: not-allowed;
   }
 
