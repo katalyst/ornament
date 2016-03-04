@@ -14,6 +14,7 @@ Introducing Prefabs. Premade pages with more complex UI and behaviours.
 - Added `.print__break-before` and `.print__before-after` helper classes for page breaks when printing 
 - Added `.button__small` and `.button__large` examples to the button page
 - Added `svg_image()` rails helper for inline SVG image handling 
+- Added `.buttons` for `normal` and `compressed` aspects to control spacing of buttons inside content areas
 
 ### Bugfixes
 
