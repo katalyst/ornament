@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ornament (1.2.1)
+    ornament (1.2.2)
       rails (>= 3.0.0)
 
 GEM
