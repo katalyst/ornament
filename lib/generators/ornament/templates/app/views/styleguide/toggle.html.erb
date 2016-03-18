@@ -78,6 +78,17 @@
 </div>
   <%- end -%>
 
+  <h2 class="heading-two">Default Open</h2>
+
+  <p>You can default a toggle open by adding <code>data-toggle-default</code></p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
+<a href="#" data-toggle-anchor="example-default" class="active">Show</a>
+<div data-toggle="example-default" data-toggle-default>
+  This is open by default! 
+</div>
+  <%- end -%>
+
   <hr />
 
   <h2 class="heading-two">Add a bottom toggle which scroll back to the top when hiding</h2>

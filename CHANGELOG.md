@@ -16,7 +16,7 @@ Introducing Prefabs. Premade pages with more complex UI and behaviours.
 - Added `svg_image()` rails helper for inline SVG image handling 
 - Added `.buttons` for `normal` and `compressed` aspects to control spacing of buttons inside content areas  
 - Added `.form-siblings` component  
-- Added `toggle-temporary` and `toggle-focus` features for the toggle component.  
+- Added `toggle-temporary`, `toggle-default` and `toggle-focus` features for the toggle component.  
 
 ### Bugfixes
 
