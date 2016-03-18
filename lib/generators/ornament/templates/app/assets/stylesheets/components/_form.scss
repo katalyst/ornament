@@ -465,3 +465,17 @@ $file-thumbnail-width: 100px;
     padding-bottom: 11px;
   }
 }
+
+// SIBLINT FIELDS
+.form-siblings {
+  @include row;
+
+  .form-siblings--sibling {
+    @include spang(1,2);
+
+    @include media-query(400px) {
+      @include spang(1,1);
+      margin-top: $xx-small-unit;
+    }
+  }
+}
