@@ -77,12 +77,32 @@
   <%- end -%>
 
   <hr />
+  <h2 class="heading-two">Linking Modals</h2>
+
+  <p>Linking to a modal from within a modal can look pretty lame because it's sudden and jarring. You can improve the experience by adding <code>data-lightbox-linked</code> attribute on your lightbox links that appear inside modals to fade them out before the modal fades in.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-linked" } do -%>
+<a href="#linked-1" data-lightbox data-lightbox-small>Open lightbox</a>
+<div class="mfp-hide" id="linked-1">
+  <div class="panel--padding content">
+    <p>Modal #1</p>
+    <p><a href="#linked-2" data-lightbox data-lightbox-small data-lightbox-linked>Link to modal #2</a></p>
+  </div>
+</div>
+<div class="mfp-hide" id="linked-2">
+  <div class="panel--padding content">
+    <p>Modal #2</p>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
   <h2 class="heading-two">Custom lightbox actions</h2>
 
   <p>Sometimes you need a lightbox to open programatically. Below is a code sample using Magnific Popups <code>open</code> function:</p>
 
   <pre class="sg-pre">
-var popupOptions = Ornament.lightboxDefaults;
+var popupOptions = $.extend(true, {}, Ornament.lightboxDefaults};
 popupOptions.type = "inline";
 popupOptions.items = {
   src: "#id-of-element"

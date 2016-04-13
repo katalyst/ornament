@@ -18,6 +18,7 @@ Introducing Prefabs. Premade pages with more complex UI and behaviours.
 - Added `.form-siblings` component  
 - Added `toggle-temporary`, `toggle-default` and `toggle-focus` features for the toggle component  
 - Added custom rails datetime formats  
+- Added `data-lightbox-linked` option for linking between lightboxes  
 
 ### Bugfixes
 
