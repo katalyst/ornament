@@ -102,3 +102,9 @@ img, embed, object, video, iframe {
 img[src*=".svg"] {
   width: 100%; 
 }
+
+// Reset phone link colours
+a[href^=tel] {
+  text-decoration:inherit;
+  color: inherit;
+}
