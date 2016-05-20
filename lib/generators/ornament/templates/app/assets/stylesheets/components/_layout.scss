@@ -32,14 +32,6 @@ body {
   overflow: hidden;
 }
 
-.layout--switch {
-  background: red;
-  float: right;
-  @include media-query($layout-breakpoint,min) {
-    display: none;
-  }
-}
-
 .layout--container {
   max-width: $layout-container-width;
   width: $container-percentage;
@@ -85,10 +77,6 @@ body {
       top: 0;
       width: 100%;
       @include box-shadow(0 0 10px rgba(0,0,0,0.2));
-    }
-
-    .layout--switch {
-      background: green;
     }
 
   }
