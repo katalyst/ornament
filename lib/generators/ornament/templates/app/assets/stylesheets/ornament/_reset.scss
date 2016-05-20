@@ -65,7 +65,11 @@ html, body {
   width: 100%;
 }
 
+// HTML5 MAIN SUPPORT
 
+main {
+  display: block;
+}
 
 // IMPROVED RENDERING
 //
@@ -107,4 +111,8 @@ img[src*=".svg"] {
 a[href^=tel] {
   text-decoration:inherit;
   color: inherit;
+
+  &:hover {
+    text-decoration:inherit;
+  }
 }
