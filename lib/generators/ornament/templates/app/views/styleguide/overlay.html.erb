@@ -1,0 +1,23 @@
+<% content_for :title, "Overlay" %>
+
+<div class="spacing">
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons" } do -%>
+  <div class="overlay">
+    <div class="overlay--content">
+      This content will appear a dark overlay background.
+    </div>
+  </div>
+  <%- end -%>
+
+  <p>Combine the overlay mixin with background-cover for a nice darkened image effect:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons" } do -%>
+  <div class="example-overlay">
+    <div class="overlay--content">
+      This content will appear over a darkened image
+    </div>
+  </div>
+  <%- end -%>
+
+</div>

@@ -511,3 +511,11 @@ code {
   @include border-radius($border-radius);
   @include font($body-font);
 }
+
+.example-overlay {
+  background-image: url("http://fillmurray.com/500/500");
+  @include overlay;
+  @include background-cover;
+  padding: 120px 70px;
+  text-align: center;
+}
