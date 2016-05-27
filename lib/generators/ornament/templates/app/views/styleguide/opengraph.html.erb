@@ -42,4 +42,17 @@
 
   <p>If no <code>og_url</code> is specified it will fall back to the <code>request.original_url</code>.</p>
 
+  <hr />
+
+  <h2 class="heading-two">og_author and og_published_time</h2>
+
+  <pre class="sg-pre prettyprint">
+&lt;%= content_for :og_author, "Happy McHappyFace" -%>
+&lt;%= content_for :og_published_time, @module.created_at.to_i -%></pre>
+
+  <p>
+    Handly for blogs or news articles. Completely optional. <br />
+    <code>og_pusblished_date</code> must be in unix format. This can easily be accomplished by using <code>to_i</code> on the date. 
+  </p>
+
 </div>
