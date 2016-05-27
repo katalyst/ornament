@@ -25,6 +25,10 @@ Introducing Prefabs. Premade pages with more complex UI and behaviours.
 
 - Added `trim()` to the `external_link` tracking script when comparing link text to fix up images having white-space text in Google Analytics  
 
+### Changes  
+
+- Restructured button mixins  
+
 ## v1.2.2
 
 ### Features  
