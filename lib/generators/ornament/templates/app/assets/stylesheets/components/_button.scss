@@ -108,7 +108,7 @@
 // button colours
 .button__secondary {
   @include button-base;
-  @include button-background(#333);
+  @include button-background($secondary-color);
 }
 .button__confirm {
   @include button-base;
@@ -119,6 +119,11 @@
   @include button-background($error-color);
 }
 
+// button states
+.button__depressed {
+  @include button-depressed;
+}
+
 // line styles
 .button__line {
   @include button-base;
@@ -126,7 +131,7 @@
 }
 .button__secondary__line {
   @include button-base;
-  @include button-line(#333, false, #333);
+  @include button-line($secondary-color, false, $secondary-color);
 }
 .button__confirm__line {
   @include button-base;
@@ -189,6 +194,8 @@
 .button-group {
   @include pie-clearfix;
 
+  // Take advantage of the fact that buttons all extend the 
+  // .button class here
   .button {
     @include border-radius(0);
     float: left;

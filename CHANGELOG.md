@@ -20,10 +20,12 @@ Introducing Prefabs. Premade pages with more complex UI and behaviours.
 - Added custom rails datetime formats  
 - Added `data-lightbox-linked` option for linking between lightboxes  
 - Added reset styles for telephone links 
+- Added depressed button styles 
 
 ### Bugfixes
 
 - Added `trim()` to the `external_link` tracking script when comparing link text to fix up images having white-space text in Google Analytics  
+- Updated maps component to work with other google apis  
 
 ### Changes  
 
