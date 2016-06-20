@@ -21,6 +21,7 @@ Introducing Prefabs. Premade pages with more complex UI and behaviours.
 - Added `data-lightbox-linked` option for linking between lightboxes  
 - Added reset styles for telephone links 
 - Added depressed button styles 
+- Added `text-size-adjust: 100%` to fix text reflow issues when switching orientation on iOS
 
 ### Bugfixes
 
