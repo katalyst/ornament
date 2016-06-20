@@ -39,6 +39,7 @@
     <%= yield :scripts %>
 
     <!-- SOCIAL SHARING -->
+    <meta property="og:type" content="website">
     <%- unless content_for? :disable_og_image -%>
       <%- if content_for? :og_image -%>
         <meta property="og:image" content="<%= URI.join(root_url, yield(:og_image)) %>" />

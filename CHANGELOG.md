@@ -23,6 +23,7 @@ Introducing Prefabs. Premade pages with more complex UI and behaviours.
 - Added reset styles for telephone links 
 - Added depressed button styles 
 - Added `text-size-adjust: 100%` to fix text reflow issues when switching orientation on iOS
+- Added `og:type` tag to global template and set website as default value  
 
 ### Bugfixes
 
