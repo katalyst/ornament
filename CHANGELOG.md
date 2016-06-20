@@ -17,6 +17,7 @@ Introducing Prefabs. Premade pages with more complex UI and behaviours.
 - Added `.buttons` for `normal` and `compressed` aspects to control spacing of buttons inside content areas  
 - Added `.form-siblings` component  
 - Added `toggle-temporary`, `toggle-default` and `toggle-focus` features for the toggle component  
+- Added `double-arrow` mixin  
 - Added custom rails datetime formats  
 - Added `data-lightbox-linked` option for linking between lightboxes  
 - Added reset styles for telephone links 
