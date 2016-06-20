@@ -119,12 +119,12 @@
           </div>
         <%- end -%>
         <%- if content_for?(:global) || !yield.blank? -%>
-          <div class="layout--container">
-            <main class="layout--main" role="main">
+          <main class="layout--main" role="main">
+            <div class="layout--container">
               <a id="main" name="main" tabindex="-1"></a>
               <%= content_for?(:global) ? yield(:global) : yield %>
-            </main>
-          </div>
+            </div>
+          </main>
         <%- end -%>
         <%= yield :below_layout -%>
 

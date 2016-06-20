@@ -30,6 +30,13 @@ body {
   background: $layout-background;
   min-height: 100%;
   overflow: hidden;
+
+  @if $fixed-footer == true {
+    .flexbox & {
+      @include display-flex;
+      @include flex-direction(column);
+    }
+  }
 }
 
 .layout--container {
@@ -52,6 +59,12 @@ body {
     padding-left: $layout-desktop-edge-gap;
     padding-right: $layout-desktop-edge-gap;
     padding-top: $layout-desktop-header-gap;
+  }
+
+  @if $fixed-footer == true {
+    .flexbox & {
+      @include flex-grow(1);
+    }
   }
 }
 
