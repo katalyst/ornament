@@ -92,16 +92,16 @@ $site-breakpoints:
 // Site gutters to be used at desktop and specific breakpoints. Used within grids util. (Breakpoint keyword, Gutter size)
 //
 
-$desktop-gutters: $xx-small-unit;
+$desktop-gutters: $x-small-unit;
 
-$large-gutter:    $large-unit;
-$medium-gutter:   $large-unit;
-$small-gutter:    $large-unit;
-$tiny-gutter:     $default-unit;
+// $large-gutter:    $large-unit;
+// $medium-gutter:   $large-unit;
+// $small-gutter:    $large-unit;
+// $tiny-gutter:     $default-unit;
 
 $site-gutters:
-  (large, $large-gutter),
-  (medium, $tiny-gutter),
+  // (large, $large-gutter),
+  // (medium, $tiny-gutter),
   false
 ;
 

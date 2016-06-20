@@ -32,6 +32,7 @@ Introducing Prefabs. Premade pages with more complex UI and behaviours.
 ### Changes  
 
 - Restructured button mixins  
+- Removed responsive gutters by default 
 
 ## v1.2.2
 
