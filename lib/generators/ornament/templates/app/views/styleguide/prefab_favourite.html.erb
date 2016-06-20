@@ -23,7 +23,7 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "favourite", ruby: capture { -%>
 &lt;div data-favourite data-favourite-class="button__confirm__line" data-favourite-active-class="button__cancel__line" data-favourite-text="&lt;3" data-favourite-active-text="&lt;/3"&gt;
-  &lt;%= link_to "Favourite", "#", class: "button", data: { remote: true } -%&gt;
+  &lt;%= link_to "Favourite", "#", class: "button__confirm__line", data: { remote: true } -%&gt;
 &lt;/div&gt;
   <%- } } do -%>
 <div data-favourite 
