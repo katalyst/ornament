@@ -121,16 +121,17 @@
             </div>
           </div>
         </header>
+        
+        <a id="main" name="main" tabindex="-1"></a>
 
         <%= yield :above_layout -%>
         <%= render "/shared/flash" -%>
         <%- if content_for?(:global) || !yield.blank? -%>
-          <div class="layout--container">
-            <a id="main" name="main" tabindex="-1"></a>
-            <main class="layout--main <%= yield(:layout_class) -%>" role="main">
+          <main class="layout--main <%= yield(:layout_class) -%>" role="main">
+            <div class="layout--container">
               <%= content_for?(:global) ? yield(:global) : yield %>
-            </main>
-          </div>
+            </div>
+          </main>
         <%- end -%>
         <%= yield :below_layout -%>
 
