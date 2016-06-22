@@ -1,6 +1,7 @@
 .card {
   background: $white;
   @include border-radius($border-radius);
+  border: $divider;
   overflow: hidden;
 }
 

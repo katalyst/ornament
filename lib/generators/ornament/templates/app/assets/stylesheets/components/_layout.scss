@@ -30,13 +30,12 @@ body {
   background: $layout-background;
   min-height: 100%;
   overflow: hidden;
-}
 
-.layout--switch {
-  background: red;
-  float: right;
-  @include media-query($layout-breakpoint,min) {
-    display: none;
+  @if $fixed-footer == true {
+    .flexbox & {
+      @include display-flex;
+      @include flex-direction(column);
+    }
   }
 }
 
@@ -60,6 +59,12 @@ body {
     padding-left: $layout-desktop-edge-gap;
     padding-right: $layout-desktop-edge-gap;
     padding-top: $layout-desktop-header-gap;
+  }
+
+  @if $fixed-footer == true {
+    .flexbox & {
+      @include flex-grow(1);
+    }
   }
 }
 
@@ -85,10 +90,6 @@ body {
       top: 0;
       width: 100%;
       @include box-shadow(0 0 10px rgba(0,0,0,0.2));
-    }
-
-    .layout--switch {
-      background: green;
     }
 
   }

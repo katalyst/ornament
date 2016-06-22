@@ -1,5 +1,35 @@
 # Changelog
 
+## v1.2.3
+
+### Features
+
+- Added `data-show-disable` to disable fields as an alternative to `data-show-destroy` with the intention of preventing data from being sent to the server when hiding fields 
+- Added `.print__break-before` and `.print__before-after` helper classes for page breaks when printing 
+- Added `.button__small` and `.button__large` examples to the button page
+- Added `svg_image()` rails helper for inline SVG image handling 
+- Added `.buttons` for `normal` and `compressed` aspects to control spacing of buttons inside content areas  
+- Added `.form-siblings` component  
+- Added `toggle-temporary`, `toggle-default` and `toggle-focus` features for the toggle component  
+- Added `double-arrow` mixin  
+- Added custom rails datetime formats  
+- Added `data-lightbox-linked` option for linking between lightboxes  
+- Added reset styles for telephone links 
+- Added depressed button styles 
+- Added `text-size-adjust: 100%` to fix text reflow issues when switching orientation on iOS
+- Added `og:type` tag to global template and set website as default value  
+- Restored `fixed-footer` using `flexbox` and a toggle in `settings.scss`    
+
+### Bugfixes
+
+- Added `trim()` to the `external_link` tracking script when comparing link text to fix up images having white-space text in Google Analytics  
+- Updated maps component to work with other google apis  
+
+### Changes  
+
+- Restructured button mixins  
+- Removed responsive gutters by default 
+
 ## v1.2.2
 
 ### Features  

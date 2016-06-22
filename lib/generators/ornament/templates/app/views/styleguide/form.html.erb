@@ -444,6 +444,104 @@
 
   <hr />
 
+  <h2 class="heading-two">Sibling fields</h2>
+
+  <p>Put two fields next to eachother by making them siblings:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-siblings" } do -%>
+<div class="form-siblings">
+  <div class="form-siblings--sibling">
+    <div class="control-group">
+      <label class="optional control-label">Month</label>
+      <div class="controls">
+        <select>
+          <%-
+            months = {
+              "1 - January" => 1,
+              "2 - February" => 2,
+              "3 - March" => 3,
+              "4 - April" => 4,
+              "5 - May" => 5,
+              "6 - June" => 6,
+              "7 - July" => 7,
+              "8 - August" => 8,
+              "9 - September" => 9,
+              "10 - October" => 10,
+              "11 - November" => 11,
+              "12 - December" => 12
+            }
+          -%>
+          <%- months.each do |month,value| -%>
+            <option value="<%= value -%>"><%= month -%></option>
+          <%- end %>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-siblings--sibling">
+    <div class="control-group">
+      <label class="optional control-label">Year</label>
+      <div class="controls">
+        <select>
+          <%- (Time.current.year..Time.current.year+10).each do |year| -%>
+            <option value="<%= year -%>"><%= year -%></option>
+          <%- end %>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+  <%- end -%>
+
+  <p>These can be controlled with the form sizing classes above.</p>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-siblings-small" } do -%>
+<div class="form-siblings form--medium">
+  <div class="form-siblings--sibling">
+    <div class="control-group">
+      <label class="optional control-label">Month</label>
+      <div class="controls">
+        <select>
+          <%-
+            months = {
+              "1 - January" => 1,
+              "2 - February" => 2,
+              "3 - March" => 3,
+              "4 - April" => 4,
+              "5 - May" => 5,
+              "6 - June" => 6,
+              "7 - July" => 7,
+              "8 - August" => 8,
+              "9 - September" => 9,
+              "10 - October" => 10,
+              "11 - November" => 11,
+              "12 - December" => 12
+            }
+          -%>
+          <%- months.each do |month,value| -%>
+            <option value="<%= value -%>"><%= month -%></option>
+          <%- end %>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-siblings--sibling">
+    <div class="control-group">
+      <label class="optional control-label">Year</label>
+      <div class="controls">
+        <select>
+          <%- (Time.current.year..Time.current.year+10).each do |year| -%>
+            <option value="<%= year -%>"><%= year -%></option>
+          <%- end %>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
   <h2 class="heading-one">Long form example</h2>
 
   <form accept-charset="UTF-8" action="#" class="simple_form" method="post" novalidate="novalidate">

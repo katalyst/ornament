@@ -1,0 +1,40 @@
+@mixin double-arrow($position:"bottom", $size:16px, $outline-color:$divider-color, $arrow-color:$panel-light-blue) {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    #{$position}: $size * -1;
+    left: 50%;
+  }
+
+  &:before {
+    border: ($size + 1px) solid transparent;
+    margin-left: $size * -1 - 1px;
+    #{$position}: $size * -1 - 1px;
+
+    @if $position == "bottom" {
+      border-bottom-width: 0; 
+      border-top-color: $outline-color;
+    }
+    @else {
+      border-top-width: 0; 
+      border-bottom-color: $outline-color;
+    }
+  }
+
+  &:after {
+    border: $size solid transparent;
+    margin-left: $size * -1;
+
+    @if $position == "bottom" {
+      border-bottom-width: 0; 
+      border-top-color: $arrow-color;
+    }
+    @else {
+      border-top-width: 0; 
+      border-bottom-color: $arrow-color;
+    }
+  }
+}

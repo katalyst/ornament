@@ -65,7 +65,11 @@ html, body {
   width: 100%;
 }
 
+// HTML5 MAIN SUPPORT
 
+main {
+  display: block;
+}
 
 // IMPROVED RENDERING
 //
@@ -75,6 +79,8 @@ html, body {
 
 html {
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -101,4 +107,14 @@ img, embed, object, video, iframe {
 // https://gist.github.com/larrybotha/7881691
 img[src*=".svg"] {
   width: 100%; 
+}
+
+// Reset phone link colours
+a[href^=tel] {
+  text-decoration:inherit;
+  color: inherit;
+
+  &:hover {
+    text-decoration:inherit;
+  }
 }

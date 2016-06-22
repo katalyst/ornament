@@ -39,6 +39,7 @@
     <%= yield :scripts %>
 
     <!-- SOCIAL SHARING -->
+    <meta property="og:type" content="website">
     <%- unless content_for? :disable_og_image -%>
       <%- if content_for? :og_image -%>
         <meta property="og:image" content="<%= URI.join(root_url, yield(:og_image)) %>" />
@@ -66,6 +67,12 @@
       <meta property="og:title" content="<%= yield :page_title -%>" />
     <%- else -%>
       <meta property="og:title" content="Ornament Pattern Library and UI/UX Documentation" />
+    <%- end -%>
+    <%- if content_for? :og_author -%>
+      <meta property="og:author" content="<%= content_for(:og_author) -%>" />
+    <%- end -%>
+    <%- if content_for? :og_published_time -%>
+      <meta property="og:published_time" content="<%= content_for(:og_published_time) -%>" />
     <%- end -%>
 
   </head>
@@ -112,12 +119,12 @@
           </div>
         <%- end -%>
         <%- if content_for?(:global) || !yield.blank? -%>
-          <div class="layout--container">
-            <main class="layout--main" role="main">
+          <main class="layout--main" role="main">
+            <div class="layout--container">
               <a id="main" name="main" tabindex="-1"></a>
               <%= content_for?(:global) ? yield(:global) : yield %>
-            </main>
-          </div>
+            </div>
+          </main>
         <%- end -%>
         <%= yield :below_layout -%>
 

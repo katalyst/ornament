@@ -30,4 +30,29 @@
 
   <p><code>country_name("au")</code>: Australia</p>
 
+  <hr />
+
+  <h2 class="heading-two">svg_image()</h2>
+
+  <p><code>svg_image(@model.image)</code></p>
+
+  <p>Will take a dragonfly-stored image and output it as inline SVG and will handle missing assets with a fallback message.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Custom DateTime Formats</h2>
+  <%- date = DateTime.new(2012, 8, 29,  0,  0,  0) -%>
+
+  <p>
+    <code>date.to_s(:ornament_full)</code>: <%= date.to_s(:ornament_full) -%>
+  </p>
+
+  <p>
+    <code>date.to_s(:ornament_no_year)</code>: <%= date.to_s(:ornament_no_year) -%>
+  </p>
+
+  <p>
+    <code>date.to_s(:ornament_short)</code>: <%= date.to_s(:ornament_short) -%>
+  </p>
+
 </div>

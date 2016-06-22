@@ -1,0 +1,48 @@
+<%- content_for :title, "Heading with Button" -%>
+
+<div class="spacing-content">
+
+  <p>Line buttons up next to a heading with the following markup:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "heading-with-button-1" } do -%>
+<div class="heading-with-button">
+  <div class="heading-with-button--heading">
+    <h2 class="heading-two">Projects</h2>
+  </div>
+  <div class="heading-with-button--button">
+    <a href="#" class="button button__small">View all</a>
+  </div>
+</div>
+  <%- end -%>
+
+  <p>You can add a description with this markup:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "heading-with-button-2" } do -%>
+<div class="heading-with-button">
+  <div class="heading-with-button--heading">
+    <h2 class="heading-two">Projects</h2>
+    <div class="heading-with-button--description">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, enim!</p>
+    </div>
+  </div>
+  <div class="heading-with-button--button">
+    <a href="#" class="button button__small">View all</a>
+  </div>
+</div>
+  <%- end -%>
+
+  <p>You can add multiple buttons next to each other:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "heading-with-button-3" } do -%>
+<div class="heading-with-button">
+  <div class="heading-with-button--heading">
+    <h2 class="heading-two">Projects</h2>
+  </div>
+  <div class="heading-with-button--button">
+    <a href="#" class="button button__small">New</a>
+    <a href="#" class="button button__small">Archive</a>
+  </div>
+</div>
+  <%- end -%>
+
+</div>

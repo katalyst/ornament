@@ -48,4 +48,10 @@
       margin-bottom: $xxx-small-unit;
     }
   }
+
+  .buttons {
+    margin-top: $xx-small-unit;
+    margin-bottom: $xx-small-unit;
+    @include flush-children;
+  }
 }

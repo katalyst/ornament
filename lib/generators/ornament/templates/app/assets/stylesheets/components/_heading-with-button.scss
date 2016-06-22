@@ -1,0 +1,36 @@
+$heading-with-button-breakpoint: 800px;
+
+.heading-with-button {
+  @include media-query($heading-with-button-breakpoint, min) {
+    display: table;
+    width: 100%;
+  }
+}
+
+.heading-with-button--heading,
+.heading-with-button--button {
+  @include media-query($heading-with-button-breakpoint, min) {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.heading-with-button--heading {
+  @include media-query($heading-with-button-breakpoint, min) {
+    padding-right: $desktop-gutters;
+  }
+}
+
+.heading-with-button--description {
+  margin-top: $xxxx-small-unit;
+}
+
+
+.heading-with-button--button {
+  text-align: right;
+
+  @include media-query($heading-with-button-breakpoint) {
+    text-align: left;
+    margin-top: $xxxx-small-unit;
+  }
+}

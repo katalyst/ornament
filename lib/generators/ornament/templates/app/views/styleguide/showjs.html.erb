@@ -431,4 +431,81 @@
 </div>
   <%- end -%>
 
+  <hr />
+  <h2 class="heading-two">Disabling fields when hiding</h2>
+
+  <p>Another option for not sending data to the server is to disable the fields when unchecked. This will keep the data present for the user if they change their minds, but won't submit. </p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-destroy", ruby: capture { -%>
+&lt;%= f.input :example, as: :radios -%&gt;
+&lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes", show_disable: "" } } -%&gt;
+  <%- } } do -%>
+<div class="inputs">
+  <div class="control-group radios form--horizontal">
+    <label class="radios required control-label">
+      Show hidden field?
+    </label>
+    <div class="controls">
+      <label class="radio">
+        <input class="radios required" id="showjs_example_disable_true" name="showjs_example_disable" type="radio" value="true">
+        Yes
+      </label>
+      <label class="radio">
+        <input class="radios required" id="showjs_example_disable_false" name="showjs_example_disable" type="radio" value="false">
+        No
+      </label>
+    </div>
+  </div>  
+  <div class="inputs" data-show="showjs_example_disable_true" data-show-disable>
+    <div class="control-group form--small">
+      <label class="optional control-label">Hidden Text Field</label>
+      <div class="controls">
+        <input class="string tel optional" type="text" />
+      </div>
+    </div> 
+    <div class="control-group form--small">
+      <label class="optional control-label">Hidden Select Field</label>
+      <div class="controls">
+        <select> 
+          <option></option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
+    </div> 
+    <div class="control-group radios form--horizontal">
+      <label class="radios required control-label">
+        Hidden Radio Field
+      </label>
+      <div class="controls">
+        <label class="radio">
+          <input class="radios required" id="showjs_example_destroy_hidden_true" name="showjs_example_destroy_hidden" type="radio" value="true">
+          Yes
+        </label>
+        <label class="radio">
+          <input class="radios required" id="showjs_example_destroy_hidden_false" name="showjs_example_destroy_hidden" type="radio" value="false">
+          No
+        </label>
+      </div>
+    </div>  
+    <div class="control-group radios form--horizontal">
+      <label class="radios required control-label">
+        Hidden Checkbox Field
+      </label>
+      <div class="controls">
+        <label class="checkbox">
+          <input class="checkboxes required" id="showjs_example_destroy_hidden_true" name="showjs_example_destroy_hidden_checkboxes" type="checkbox" value="true">
+          Yes
+        </label>
+        <label class="checkbox">
+          <input class="checkboxes required" id="showjs_example_destroy_hidden_false" name="showjs_example_destroy_hidden_checkboxes" type="checkbox" value="false">
+          No
+        </label>
+      </div>
+    </div>  
+  </div>
+</div>
+  <%- end -%>
+
 </div>

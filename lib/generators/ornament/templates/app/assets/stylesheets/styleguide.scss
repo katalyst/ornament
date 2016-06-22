@@ -14,6 +14,7 @@
 // SETTINGS OVER-RIDE
 $breakpoint-header: 9999px;
 $divider-color: #ccc;
+$divider: 1px solid $divider-color;
 $passive-color: #e5e5e5;
 
 $background-color: #f6f6f6;
@@ -74,6 +75,7 @@ $heading-beta-font-italic: ('Open Sans', sans-serif) italic bold;
 @import "components/footer";
 @import "components/form";
 @import "components/header";
+@import "components/heading-with-button";
 @import "components/icons";
 @import "components/kat-image-upload";
 @import "components/layout";
@@ -100,6 +102,8 @@ $heading-beta-font-italic: ('Open Sans', sans-serif) italic bold;
 @import "components/fotorama-custom";
 @import "components/print";
 @import "components/vertre";
+
+@import "components/filter-results";
 
 // STYLEGUIDE TYPOGRAPHY
 
@@ -507,4 +511,12 @@ code {
   padding: 3px 5px;
   @include border-radius($border-radius);
   @include font($body-font);
+}
+
+.example-overlay {
+  background-image: url("http://fillmurray.com/500/500");
+  @include overlay;
+  @include background-cover;
+  padding: 120px 70px;
+  text-align: center;
 }

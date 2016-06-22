@@ -1,4 +1,10 @@
 
+.button {
+  // empty class to extend all our buttons in to so we 
+  // can target them all with .button regardless of what
+  // actual class they have
+}
+
 // MIXINS
 
 // Custom button background colours and hovers
@@ -19,7 +25,7 @@
 // Line button style mixin
 @mixin button-line($color, $hover-color:false, $text-color:false) {
   background: transparent;
-  border: 1px solid $color;
+  border: 2px solid $color;
 
   @if($text-color) {
     @include color-link($text-color, $text-color);
@@ -38,6 +44,53 @@
   }
 }
 
+@mixin button-large {
+  padding: $xx-small-unit $x-small-unit;
+}
+
+@mixin button-small {
+  padding: 10px 19px;
+}
+
+@mixin button-base {
+  @extend .button;
+  padding: $xxx-small-unit $x-small-unit;
+  @include border-radius($border-radius);
+  @include decorate-link(none, none);
+  @include inline-block;
+  @include font($bold-font);
+  @include color-link($white, $white);
+
+  &.button__small {
+    @include button-small;
+  }
+
+  &.button__large {
+    @include button-large;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  @include button-background($primary-color);
+}
+
+@mixin button-grey {
+  @include button-base;
+  @include color-link($foreground-color, $foreground-color);
+  @include button-background($passive-color);
+}
+
+@mixin button-error {
+  @include button-base;
+  @include color-link($foreground-color, $foreground-color);
+  @include button-background($error-color);
+}
+
+@mixin button-depressed {
+  @include box-shadow(inset 2px 2px 4px 0px rgba(0,0,0,0.30));
+}
+
 // BUTTON CLASSES
 
 .button__inactive {
@@ -48,47 +101,44 @@
 
 // basic button
 .button {
-  padding: $xxxx-small-unit;
-  @include border-radius($border-radius);
-  @include color-link($white, $white);
-  @include decorate-link(none, none);
-  @include inline-block;
-  @include button-background($primary-color);
-
-  &.button__small {
-    padding: $x-small-unit;
-  }
+  @include button-base;
+  @include button-primary;
 }
 
 // button colours
 .button__secondary {
-  @extend .button;
-  @include button-background(#333);
+  @include button-base;
+  @include button-background($secondary-color);
 }
 .button__confirm {
-  @extend .button;
+  @include button-base;
   @include button-background($success-color);
 }
 .button__cancel {
-  @extend .button;
+  @include button-base;
   @include button-background($error-color);
+}
+
+// button states
+.button__depressed {
+  @include button-depressed;
 }
 
 // line styles
 .button__line {
-  @extend .button;
+  @include button-base;
   @include button-line($primary-color, false, $primary-color);
 }
 .button__secondary__line {
-  @extend .button;
-  @include button-line(#333, false, #333);
+  @include button-base;
+  @include button-line($secondary-color, false, $secondary-color);
 }
 .button__confirm__line {
-  @extend .button;
+  @include button-base;
   @include button-line($success-color, false, $success-color);
 }
 .button__cancel__line {
-  @extend .button;
+  @include button-base;
   @include button-line($error-color, false, $error-color);
 }
 
@@ -100,7 +150,7 @@
 }
 
 .button__disabled {
-  @extend .button;
+  @include button-base;
   @extend .button[disabled];
 }
 
@@ -120,10 +170,12 @@
     top: 3px;
   }
 }
+
 .button__icon-right:before {
   float: right;
   margin-left: $xxxxx-small-unit;
 }
+
 .button__icon-left:before {
   float: left;
   margin-right: $xxxxx-small-unit;
@@ -142,6 +194,8 @@
 .button-group {
   @include pie-clearfix;
 
+  // Take advantage of the fact that buttons all extend the 
+  // .button class here
   .button {
     @include border-radius(0);
     float: left;

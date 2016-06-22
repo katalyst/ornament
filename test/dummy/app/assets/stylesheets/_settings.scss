@@ -30,7 +30,7 @@ $base-line-size:      $base-font-size * $base-line-height;
 
 $container-width: 1072px;
 $container-percentage: 92%;
-
+$fixed-footer: true;
 
 // SIZES
 //
@@ -58,10 +58,8 @@ $xxxxxxx-large-unit:    80px;
 $border-radius:   4px;
 $button-height:   44px;
 
-$panel-padding-large:   $x-large-unit;
 $panel-padding:         $xx-small-unit;
 $panel-padding-small:   $xxx-small-unit;
-$panel-padding-tiny:    $xxxx-small-unit;
 $panel-spacing:         $xx-small-unit;
 
 
@@ -92,16 +90,16 @@ $site-breakpoints:
 // Site gutters to be used at desktop and specific breakpoints. Used within grids util. (Breakpoint keyword, Gutter size)
 //
 
-$desktop-gutters: $large-unit;
+$desktop-gutters: $x-small-unit;
 
-$large-gutter:    $large-unit;
-$medium-gutter:   $large-unit;
-$small-gutter:    $large-unit;
-$tiny-gutter:     $default-unit;
+// $large-gutter:    $large-unit;
+// $medium-gutter:   $large-unit;
+// $small-gutter:    $large-unit;
+// $tiny-gutter:     $default-unit;
 
 $site-gutters:
-  (large, $large-gutter),
-  (medium, $tiny-gutter),
+  // (large, $large-gutter),
+  // (medium, $tiny-gutter),
   false
 ;
 
@@ -110,6 +108,7 @@ $site-gutters:
 // Default colors.
 //
 
+$black: #000;
 $white: #fff;
 $grey: #bbb;
 
@@ -129,8 +128,8 @@ $error-background: #ffcccc;
 $notice-color: #F1c40f;
 $notice-background: #ffffcc;
 
-$success-background: #ccffcc;
 $success-color: #2ecc71;
+$success-background: #ccffcc;
 
 $input-border-color: #c5cbd4;
 $input-border-focus-color: darken($input-border-color,20);

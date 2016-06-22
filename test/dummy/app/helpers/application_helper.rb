@@ -67,4 +67,13 @@ module ApplicationHelper
     render("shared/icons/#{icon_path}", options: options)
   end
 
+  # SVG Image Helper
+  # Converts a dragonfly-stored SVG image to inline SVG with a missing
+  # asset fallback. 
+  def svg_image(image)
+    raw image.data
+  rescue Dragonfly::Job::Fetch::NotFound
+    "Image missing"
+  end
+
 end

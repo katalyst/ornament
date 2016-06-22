@@ -1,14 +1,20 @@
 <% content_for :title, "Fixed Footer" %>
 
-<div class="content-spacing">
+<% content_for :styles do -%>
+  <style>
+    .sg-footer {
+      background: #bada55;
+      padding: 20px 0;
+    }
+  </style>
+<% end %>
 
-  <p>By default the ornament footer is not fixed to the bottom of the screen.</p>
-  <p>To make it fixed, find the element with the class of <code>layout</code> and add <code>layout_fixed-footer</code>.</p>
-  <p>eg:</p>
+<div class="content">
+  
+  <p>Fixed footer uses <code>flexbox</code> to position the footer at the bottom of the screen.</p>
 
-  <pre class="prettyprint">
-    &lt;a class="skip-link" href="#main">skip to content&lt;/a>
-    &lt;div class="layout <strong>layout_fixed-footer</strong>">
-      &lt;div class="layout--mobile-tray"></pre>
+  <p>Browsers that don't support flexbox will see the footer sit at the bottom of the content as usual.</p>
+
+  <p>Fixed footer can be turned on or off by changing the <code>$fixed-footer</code> sass variable located in <code>settings.scss</code>.</p>
 
 </div>

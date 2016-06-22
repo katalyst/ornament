@@ -54,6 +54,45 @@
 
   <hr />
 
+  <h2 class="heading-two">Focus on field after toggling</h2>
+
+  <p>Add <code>data-toggle-focus</code> to focus on the first available input after toggling.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
+<a href="#" data-toggle-anchor="example-focus" data-toggle-focus>Show</a>
+<div data-toggle="example-focus">
+  <input type="text" />
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Temporary Toggles</h2>
+
+  <p>Clicking away will hide the toggle when adding <code>data-toggle-temporary</code> and <code>data-toggle-temporary-anchor</code> attributes:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
+<a href="#" data-toggle-anchor="example-temporary" data-toggle-temporary-anchor>Show</a>
+<div data-toggle="example-temporary" data-toggle-temporary>
+  This will hide when you click away!
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Default Open</h2>
+
+  <p>You can default a toggle open by adding <code>data-toggle-default</code></p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
+<a href="#" data-toggle-anchor="example-default" class="active">Show</a>
+<div data-toggle="example-default" data-toggle-default>
+  This is open by default! 
+</div>
+  <%- end -%>
+
+  <hr />
+
   <h2 class="heading-two">Add a bottom toggle which scroll back to the top when hiding</h2>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-4" } do -%>

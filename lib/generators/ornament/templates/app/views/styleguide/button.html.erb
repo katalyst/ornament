@@ -8,19 +8,36 @@
 &lt;%= link_to "a.button", "#", class: "button" -%&gt;
   <%- } } do -%>
 <p>
-  <a href="#" class="button">a.button</a>
-  <button class="button">button.button</button>
+  <a href="#" class="button">Primary Button on an anchor</a>
+  <button class="button">Primary Button on a button</button>
 </p>
 <p>
-  <a href="#" class="button__secondary">.button__secondary</a>
-</p>
-
-<p>
-  <a href="#" class="button__confirm">.button__confirm</a>
+  <a href="#" class="button__secondary">Secondary Button</a>
 </p>
 
 <p>
-  <a href="#" class="button__cancel">.button__cancel</a>
+  <a href="#" class="button__confirm">Confirmation Button</a>
+</p>
+
+<p>
+  <a href="#" class="button__cancel">Cancel Button</a>
+</p>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Button sizing</h2>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-sizing", ruby: capture { -%>
+&lt;%= link_to "Button", "#", class: "button button__small" -%&gt;
+&lt;%= link_to "Button", "#", class: "button button__large" -%&gt;
+  <%- } } do -%>
+<p>
+  <a href="#" class="button button__small">Small button</a>
+</p>
+
+<p>
+  <a href="#" class="button button__large">Large button</a>
 </p>
   <%- end -%>
 
@@ -33,11 +50,11 @@
 &lt;%= f.button :button, "Disabled Button", class: "button", disabled: true -%&gt;
   <%- } } do -%>
 <p>
-  <a href="#" class="button__disabled">.button__disabled</a>
+  <a href="#" class="button__disabled">Disabled button class</a>
 </p>
 
 <p>
-  <button href="#" class="button" disabled>.button[disabled]</button>
+  <button href="#" class="button" disabled>Button with disabled attribute</button>
 </p>
   <%- end -%>
 
@@ -49,19 +66,19 @@
 &lt;%= link_to ".button__line", "#", class: "button__line" -%&gt;
   <%- } } do -%>
 <p>
-  <a href="#" class="button__line">.button__line</a>
+  <a href="#" class="button__line">Outline Button</a>
 </p>
 
 <p>
-  <a href="#" class="button__secondary__line">.button__secondary__line</a>
+  <a href="#" class="button__secondary__line">Secondary Outline Button</a>
 </p>
 
 <p>
-  <a href="#" class="button__confirm__line">.button__confirm__line</a>
+  <a href="#" class="button__confirm__line">Confirmation Outline Button</a>
 </p>
 
 <p>
-  <a href="#" class="button__cancel__line">.button__cancel__line</a>
+  <a href="#" class="button__cancel__line">Cancel Outline Button</a>
 </p>
   <%- end -%>
 
@@ -73,7 +90,10 @@
 &lt;%= link_to ".button.button__full", "#", class: "button button__full" -%&gt;
   <%- } } do -%>
 <p>
-  <a href="#" class="button button__full">.button.button__full</a>
+  <a href="#" class="button button__full">Full-width Button</a>
+</p>
+<p>
+  <a href="#" class="button button__depressed">Depressed Button</a>
 </p>
   <%- end -%>
 
