@@ -22,33 +22,33 @@
     display: inline-block;
   }
 
-  &__wrapper {
-    position: relative;
-  }
-  &__dropdown {
-    position: absolute;
-    visibility: hidden;
-
-    &.show {
-      visibility: visible;
-    }
-    &-toggle {
-      visibility: hidden;
-      position: absolute;
-    }
-  }
-  &-is-visible {
-    visibility: visible;
-  }
-  &-is-hidden {
-    visibility: hidden;
-  }
-
   > ul > li > a,
   > ul > li > button,
   > span {
     font-size: $base-font-size;
   }
+}
+
+.menu-more__wrapper {
+  position: relative;
+}
+.menu-more__dropdown {
+  position: absolute;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+}
+.menu-more__dropdown-toggle {
+  visibility: hidden;
+  position: absolute;
+}
+.menu-more-is-visible {
+  visibility: visible;
+}
+.menu-more-is-hidden {
+  visibility: hidden;
 }
 
 .nav__dropdown-wrapper {
