@@ -55,7 +55,6 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/assets/icons"
 
         copy_file "config/initializers/simple_form.rb"
-        copy_file "config/initializers/datetime_formats_ornament.rb"
         copy_file "../../../../test/dummy/config/initializers/datetime_formats_ornament.rb", "config/initializers/datetime_formats_ornament.rb"
         copy_file "config/locales/en.yml"
 
