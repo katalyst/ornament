@@ -29,6 +29,7 @@
 
 - Restructured button mixins  
 - Removed responsive gutters by default 
+- Changed `$base-pixel` to `$base-font-size` since it was only used for font size  
 
 ## v1.2.2
 
