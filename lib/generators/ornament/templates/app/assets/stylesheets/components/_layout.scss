@@ -43,6 +43,10 @@ body.lightbox-open {
   }
 }
 
+.layout--positioner {
+  position: relative;
+}
+
 .layout--container {
   max-width: $layout-container-width;
   width: $container-percentage;
@@ -56,6 +60,33 @@ body.lightbox-open {
 .layout--main {
   padding-bottom: $layout-mobile-footer-gap;
   padding-top: $layout-mobile-header-gap;
+
+  // Overlay
+  &:before {
+    content: "";
+    background: $black;
+    @include opacity(0);
+    @include transition(opacity .2s);
+  }
+
+  // .search-transitioning &:before,
+  // .search-open &:before,
+  .layout-transitioning &:before,
+  .layout-open &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 100%;
+    z-index: 100;
+    @include transition(opacity .6s);
+  }
+
+  // .search-open &:before,
+  .layout-open &:before {
+    @include opacity(0.5);
+  }
 
   @include media-query($layout-breakpoint,min) {
     background: $layout-background;

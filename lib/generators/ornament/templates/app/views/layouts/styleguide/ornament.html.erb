@@ -87,7 +87,6 @@
       <div class="layout--mobile-tray">
         <nav class="navigation-mobile">
           <div class="pane-wrapper">
-
             <div class="pane">
               <div class="pane--navigation-container">
                 <%= render "layouts/styleguide/styleguide_navigation", heading_class: "sg-nav--heading", list_class: "non-pane" -%>
@@ -109,26 +108,28 @@
           </div>
         </header>
 
-        <%= yield :above_layout -%>
-        <%- if content_for?(:title) -%>
-          <div class="sg-title">
-            <div class="layout--container">
-              <h2 class="heading-three"><%= yield(:title) -%></h2>
-              <%= link_to raw("&lsaquo; Back"), styleguide_path -%>
+        <div data-layout-positioner class="layout--positioner">
+          <%= yield :above_layout -%>
+          <%- if content_for?(:title) -%>
+            <div class="sg-title">
+              <div class="layout--container">
+                <h2 class="heading-three"><%= yield(:title) -%></h2>
+                <%= link_to raw("&lsaquo; Back"), styleguide_path -%>
+              </div>
             </div>
-          </div>
-        <%- end -%>
-        <%- if content_for?(:global) || !yield.blank? -%>
-          <main class="layout--main" role="main">
-            <div class="layout--container">
-              <a id="main" name="main" tabindex="-1"></a>
-              <%= content_for?(:global) ? yield(:global) : yield %>
-            </div>
-          </main>
-        <%- end -%>
-        <%= yield :below_layout -%>
+          <%- end -%>
+          <%- if content_for?(:global) || !yield.blank? -%>
+            <main class="layout--main" role="main">
+              <div class="layout--container">
+                <a id="main" name="main" tabindex="-1"></a>
+                <%= content_for?(:global) ? yield(:global) : yield %>
+              </div>
+            </main>
+          <%- end -%>
+          <%= yield :below_layout -%>
 
-        <footer class="sg-footer" role="contentinfo"></footer>
+          <footer class="sg-footer" role="contentinfo"></footer>
+        </div>
 
       </div>
 
