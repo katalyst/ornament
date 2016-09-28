@@ -113,35 +113,33 @@
 
       <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
 
-        <header class="layout--header" role="banner">
+        <header class="header" role="banner">
           <div class="layout--container">
-            <div class="header">
-              header
-              <button class="layout--switch header--menu" data-mobile-menu-switch>open navigation</button>
-            </div>
+            header
+            <button class="layout--switch header--menu" data-mobile-menu-switch>open navigation</button>
           </div>
         </header>
         
         <a id="main" name="main" tabindex="-1"></a>
 
-        <%= yield :above_layout -%>
-        <%= render "/shared/flash" -%>
-        <%- if content_for?(:global) || !yield.blank? -%>
-          <main class="layout--main <%= yield(:layout_class) -%>" role="main">
-            <div class="layout--container">
-              <%= content_for?(:global) ? yield(:global) : yield %>
-            </div>
-          </main>
-        <%- end -%>
-        <%= yield :below_layout -%>
+        <div data-layout-positioner class="layout--positioner">
+          <%= yield :above_layout -%>
+          <%= render "/shared/flash" -%>
+          <%- if content_for?(:global) || !yield.blank? -%>
+            <main class="layout--main <%= yield(:layout_class) -%>" role="main">
+              <div class="layout--container">
+                <%= content_for?(:global) ? yield(:global) : yield %>
+              </div>
+            </main>
+          <%- end -%>
+          <%= yield :below_layout -%>
 
-        <footer class="layout--footer" role="contentinfo">
-          <div class="layout--container">
-            <div class="footer">
+          <footer class="footer" role="contentinfo">
+            <div class="layout--container">
               footer
             </div>
-          </div>
-        </footer>
+          </footer>
+        </div>
 
       </div>
 
