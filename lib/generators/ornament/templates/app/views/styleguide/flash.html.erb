@@ -1,7 +1,10 @@
 <%- content_for :title, "Flash Messages" -%>
 
 <%- content_for :above_layout do -%>
-  <%= render "shared/flash", flash: { "alert" => "Example error message" } -%>
+  <%= render "shared/flash", flash: { "alert" => "Example alert message" } -%>
+  <%= render "shared/flash", flash: { "error" => "Example error message" } -%>
+  <%= render "shared/flash", flash: { "notice" => "Example notice message" } -%>
+  <%= render "shared/flash", flash: { "success" => "Example success message" } -%>
 <%- end -%>
 
 <div class="content-spacing">
