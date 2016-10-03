@@ -58,6 +58,14 @@ small {
   @include text-wrap;
 }
 
+@mixin type--grey {
+  color: $grey;
+}
+
+.type--grey {
+  @include type--grey;
+}
+
 .type--ellipsis {
   @include ellipsis;
 }

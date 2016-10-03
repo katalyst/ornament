@@ -78,15 +78,15 @@ $selector-border-color: $input-border-color;
     font-size: $small-font-size;
   }
 
-  .table {
+  .display-table {
     width: 100%;
   }
 
-  .table-cell {
+  .display-table-cell {
     vertical-align: middle;
   }
 
-  .table-cell:first-child {
+  .display-table-cell:first-child {
     width: 24px;
   }
 }
@@ -103,7 +103,7 @@ $selector-border-color: $input-border-color;
     background: #eee;
   }
 
-  .table-cell {
+  .display-table-cell {
     padding: $xxxx-small-unit;
   }
 
@@ -111,7 +111,7 @@ $selector-border-color: $input-border-color;
     margin-right: 0;
   }
 
-  .table-cell:first-child {
+  .display-table-cell:first-child {
     border-right: 1px solid $selector-border-color;
   }
 

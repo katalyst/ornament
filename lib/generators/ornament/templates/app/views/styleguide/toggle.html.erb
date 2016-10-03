@@ -41,6 +41,27 @@
 
   <hr />
 
+  <h2 class="heading-two">Custom Timing</h2>
+
+  <p>Customise the timing of toggles by adding <code>data-toggle-timing</code> attribute to your anchor.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-2" } do -%>
+<div>
+  <a href="#" data-toggle-anchor="example-speed-1" data-toggle-timing="100">Heading 1 (100)</a>
+</div>
+<div data-toggle="example-speed-1">
+  This is the content for 1
+</div>
+<div>
+  <a href="#" data-toggle-anchor="example-speed-2" data-toggle-timing="2000">Heading 2 (2000)</a>
+</div>
+<div data-toggle="example-speed-2">
+  This is the content for 2
+</div>
+  <%- end -%>
+
+  <hr />
+
   <h2 class="heading-two">Change labels between show/hide</h2>
 
   <p>Add <code>data-toggle-visible-label</code> to your anchor to swap the label.</p>

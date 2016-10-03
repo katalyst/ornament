@@ -43,6 +43,12 @@ $panel-border:          $background-color;
   color: $error-color;
 }
 
+.panel__alert {
+  @extend .panel;
+  background: $alert-background;
+  color: $alert-color;
+}
+
 .panel__notice {
   @extend .panel;
   background: $notice-background;

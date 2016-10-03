@@ -125,11 +125,16 @@ $link-hover-color: false;
 $error-color: #990000;
 $error-background: #ffcccc;
 
-$notice-color: #F1c40f;
-$notice-background: #ffffcc;
+$alert-color: #F1c40f;
+$alert-background: #ffffcc;
+
+$notice-color: #236cd9;
+$notice-background: #cbdcf6;
 
 $success-color: #2ecc71;
 $success-background: #ccffcc;
+
+$overlay-color: #222;
 
 $input-border-color: #c5cbd4;
 $input-border-focus-color: darken($input-border-color,20);

@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.2.4
+
+Introducing the Ornament Component API!  
+Starting with this version, component javascript features will be moved in to an `Ornament.Components` namespace. There is also a shorthand `Ornament.C`  
+
 ## v1.2.3
 
 ### Features
