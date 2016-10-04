@@ -1,0 +1,87 @@
+<% content_for :title, "Transition Toggle" %>
+
+<% content_for :styles do %>
+  <style>
+    /* Example 1 - Show and Hide Labels */
+    .example1-open-show {display: none;}
+    .example1-open .example1-open-show {display: inline;}
+    .example1-transitioning-show {display: none;}
+    .example1-transitioning .example1-transitioning-show {display: inline;}
+    .example1-open .example1-closed-show {display: none;}
+    /* Example 2 - Basic Animation */
+    .example2-block {border: 1px solid #ccc; padding: 10px; width: 200px; transition: transform 1s;}
+    .example2-transitioning .example2-block {color: blue;}
+    .example2-open .example2-block {transform: translateX(300px);}
+  </style>
+<% end %>
+
+<div class="content-spacing">
+
+  <h2 class="heading-two">Transition Classes</h2>
+
+  <p>Simple little javascript library for toggling classes on the body, useful for CSS transitions.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-1" } do -%>
+<div>
+  <a href="#" data-transition="example1">Toggle classes to show/hide text</a><br />
+  <span class="toggle example1-open-show">Open</span> 
+  <span class="toggle example1-transitioning-show">Transitioning</span> 
+  <span class="toggle example1-closed-show">Closed</span> 
+</div>
+<div>
+  <a href="#" data-transition="example2">Toggle classes for an animation</a><br />
+  <div class="example2-block">Block</div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Customising settings with data attributes</h2>
+
+  <p>You can customise the transition classes and targets with the following data attributes:</p>
+
+  <div class="table-container">
+    <table class="table table__striped table__highlight" style="width: 1000px;">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Default</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data-transition-speed</td>
+          <td>
+            1000
+          </td>
+          <td>
+            Control the speed of the transition
+          </td>
+        </tr>
+        <tr>
+          <td>data-transition-transitioning-class</td>
+          <td>-transitioning</td>
+          <td>
+            Customise the transitioning class
+          </td>
+        </tr>
+        <tr>
+          <td>data-transition-open-class</td>
+          <td>-open</td>
+          <td>
+            Customise the open class
+          </td>
+        </tr>
+        <tr>
+          <td>data-transition-target-selector</td>
+          <td>body</td>
+          <td>
+            CSS Selector for the attribute that gets the transition and open classes. 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
