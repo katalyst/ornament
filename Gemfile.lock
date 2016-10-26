@@ -68,6 +68,8 @@ GEM
       compass (~> 1.0.0)
       sass-rails (<= 5.0.1)
       sprockets (< 2.13)
+    css_splitter (0.4.6)
+      sprockets (>= 2.0.0)
     erubis (2.7.0)
     execjs (2.4.0)
     ffi (1.9.8)
@@ -165,16 +167,14 @@ PLATFORMS
 DEPENDENCIES
   compass (~> 1.0.0)
   compass-rails (~> 2.0.2)
-  htmlentities
+  css_splitter (~> 0.4.4)
+  htmlentities (~> 4.3.3)
   jquery-rails
   ornament!
-  protected_attributes
+  protected_attributes (~> 1.0.9)
   sass (~> 3.4.12)
   sass-rails (~> 5.0.0)
   sqlite3
   turbolinks (~> 1.3.0)
-  tzinfo-data
+  tzinfo-data (~> 1.2015.7)
   uglifier (>= 1.0.3)
-
-BUNDLED WITH
-   1.10.6

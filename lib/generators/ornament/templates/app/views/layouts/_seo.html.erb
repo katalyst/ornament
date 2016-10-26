@@ -1,0 +1,145 @@
+<%-
+
+  cache_version = "1"
+
+  # Defaults 
+  seo_title = "Ornament Pattern Library and UI/UX Documentation"
+  seo_title_postfix = seo_title
+  seo_keywords = ""
+  seo_description = ""
+  seo_image = false # "#{root_url}assets/share.png?v=#{cache_version}"
+
+  # Twitter Settings
+  twitter_handle = ""
+  twitter_creator = ""
+
+  # Fix for non-seo-enabled sites
+  if !defined?(seo)
+    def seo(value)
+      false
+    end
+  end
+
+  # Function to convert an image to absolute URL
+  def absolute_url(url)
+    if url && !url.include?("http") 
+      URI.join(root_url, url)
+    else
+      url
+    end
+  end
+
+  # Page Title
+  if !seo("title").blank?
+    seo_title = seo("title")
+  elsif content_for?(:page_title)
+    seo_title = yield(:page_title)
+  elsif content_for?(:title)
+    seo_title = yield(:title)
+  elsif content_for?(:page_panel_title)
+    seo_title = yield(:page_panel_title)
+  elsif content_for?(:og_title)
+    seo_title = yield(:og_title)
+  end
+
+  # Append | <postfix> to the end of title if necessary
+  if !seo_title.include?(seo_title_postfix)
+    seo_title = raw "#{seo_title} - #{seo_title_postfix}"
+  end
+
+  # Meta Description
+  if !seo("meta_description").blank?
+    seo_description = raw(seo('meta_description').gsub(/"/, '\''))
+  elsif content_for?(:og_description) 
+    seo_description = yield(:og_description)
+  end
+
+  # Meta Keywords
+  if !seo("meta_keywords").blank?
+    seo_keywords = raw(seo('meta_keywords').gsub(/"/, '\''))
+  end
+
+  # Meta Image
+  if content_for?(:feature_image)
+    seo_image = yield(:feature_image)
+  end
+
+  # Facebook Title
+  if content_for?(:og_title) 
+    facebook_title = yield(:og_title)
+  else
+    facebook_title = seo_title
+  end
+
+  # Facebook description
+  if content_for?(:og_description)
+    facebook_description = yield(:og_description)
+  else
+    facebook_description = seo_description
+  end
+
+  # Facebook author
+  facebook_author = content_for?(:og_author) ? yield(:og_author) : false
+
+  # Facebook publish time
+  facebook_publish_time = content_for?(:og_publish_time) ? yield(:og_publish_time) : false
+
+  # Facebook image
+  if content_for?(:og_image)
+    facebook_image = yield(:og_image)
+  else
+    facebook_image = seo_image
+  end
+
+  # Twitter Image
+  if content_for?(:twitter_image)
+    twitter_image = yield(:twitter_image)
+  elsif content_for(:og_image)
+    twitter_image = yield(:og_image)
+  else
+    twitter_image = seo_image
+  end
+
+  # Add base URL to facebook image
+  facebook_image = absolute_url(facebook_image)
+
+  # Add base URL to twitter image
+  twitter_image = absolute_url(twitter_image)
+
+-%>
+
+<title><%= seo_title -%></title>
+<meta name="description" content="<%= seo_description %>">
+<meta name="keywords" content="<%= seo_keywords %>">
+<%- if facebook_image -%>
+  <link rel="image_src" href="<%= facebook_image -%>" />
+<%- end -%>
+
+<!-- FACEBOOK -->
+<%- if facebook_image && !content_for?(:disable_og_image) -%>
+  <meta property="og:image" content="<%= facebook_image -%>" />
+<%- end -%>
+<meta property="og:description" content="<%= facebook_description -%>">
+<meta property="og:url" content="<%= request.original_url %>" />
+<meta property="og:title" content="<%= facebook_title -%>" />
+<%- if facebook_author -%>
+  <meta property="og:author" content="<%= facebook_author -%>" />
+<%- end -%>
+<%- if facebook_publish_time -%>
+  <meta property="og:published_time" content="<%= facebook_publish_time -%>" />
+<%- end -%>
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary" />
+<%- if twitter_handle -%>
+  <meta name="twitter:site" content="<%= twitter_handle -%>" />
+<%- end -%>
+<%- if twitter_image -%>
+  <meta name="twitter:image" content="<%= twitter_image -%>" />
+<%- end -%>
+<%- if twitter_creator -%>
+  <meta name="twitter:creator" content="<%= twitter_creator -%>">
+<%- end -%>
+<meta name="twitter:title" content="<%= seo_title -%>">
+<meta name="twitter:url" content="<%= request.original_url %>">
+<meta name="twitter:description" content="<%= seo_description -%>">

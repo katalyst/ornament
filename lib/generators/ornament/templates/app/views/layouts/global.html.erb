@@ -26,7 +26,7 @@
     <%= render "layouts/webfonts" -%>
 
     <!-- STYLES -->
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= split_stylesheet_link_tag "application", :media => "all" %>
     <%= yield :styles %>
 
     <!-- SCRIPTS -->
