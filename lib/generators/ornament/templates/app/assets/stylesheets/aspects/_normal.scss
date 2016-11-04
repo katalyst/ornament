@@ -63,9 +63,9 @@ ol.content-lists {
   $h1: if($classes, ".heading-one", h1);
   $h2: if($classes, ".heading-two", h2);
   $h3: if($classes, ".heading-three", h3);
-  $h4: if($classes, ".heading-four", h2);
-  $h5: if($classes, ".heading-five", h2);
-  $h6: if($classes, ".heading-six", h2);
+  $h4: if($classes, ".heading-four", h4);
+  $h5: if($classes, ".heading-five", h5);
+  $h6: if($classes, ".heading-six", h6);
 
   p {
     margin-top: $xxx-small-unit;
