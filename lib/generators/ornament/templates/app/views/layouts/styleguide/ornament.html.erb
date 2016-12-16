@@ -9,21 +9,35 @@
 
     <!-- META -->
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=0.6667"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <% unless Rails.env == "production" %>
       <meta name="robots" content="noindex,nofollow"/>
     <% end  %>
     <%= yield :meta %>
 
+    <script>
+      window.Ornament = {};
+    </script>
+    
     <!-- WEBFONTS -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <script>
+      WebFontConfig = {
+        google: {
+          families: ['Open Sans:400,700,400italic,700italic'],
+        }
+      };
+      (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';
+        s.parentNode.insertBefore(wf, s);
+      })(document);
+    </script>
 
     <!-- STYLES -->
     <%= split_stylesheet_link_tag "styleguide", :media => "all" %>
     <%= yield :styles %>
 
     <!-- SCRIPTS -->
-    <%= javascript_include_tag "modernizr" %>
     <%= javascript_include_tag "application" %>
     <!--[if lt IE 9]>
       <%#= javascript_include_tag "selectivizr" %>
@@ -65,6 +79,7 @@
         </header>
 
         <div data-layout-positioner class="layout--positioner">
+          <%= render "/shared/oldie" -%>
           <%= yield :above_layout -%>
           <%- if content_for?(:title) -%>
             <div class="sg-title">

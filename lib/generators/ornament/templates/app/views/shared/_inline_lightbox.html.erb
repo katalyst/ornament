@@ -1,0 +1,44 @@
+<%- 
+  title ||= false
+  lightbox_class ||= "lightbox__default"
+  navigation ||= false
+  above_content ||= ""
+  no_hide ||= false
+  lightbox_content_class ||= "content"
+  lightbox_footer ||= false
+-%>
+
+<div id="<%= inline_id -%>" class="<%= "mfp-hide" unless no_hide -%> <%= lightbox_class -%>">
+
+  <div class="lightbox--header">
+    <div class="lightbox--title">
+      <%= title ? title : "" -%>
+    </div>
+    <button class="lightbox--close" data-lightbox-close>
+      X
+    </button>
+  </div>
+
+  <div class="lightbox--body">
+    <%= above_content -%>
+
+    <div class="<%= lightbox_content_class ? lightbox_content_class : "lightbox--content panel--padding"  -%>">
+      <%= yield -%>
+    </div>
+    <%- if navigation -%>
+      <div class="lightbox--navigation brand-links">
+        <ul>
+          <%= navigation -%>
+        </ul>
+      </div>
+    <%- end -%>
+
+  </div>
+
+  <%- if lightbox_footer -%>
+    <div class="lightbox--footer">
+      <%= lightbox_footer -%>
+    </div>
+  <%- end -%>
+
+</div>

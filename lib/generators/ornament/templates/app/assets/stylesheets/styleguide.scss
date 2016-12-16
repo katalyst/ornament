@@ -119,7 +119,7 @@ body {
   }
 }
 
-a {
+a,button {
   @include color-link($link-color, $link-color);
 }
 
@@ -197,12 +197,19 @@ hr {
   .layout--mobile-tray hr {
     display: none;
   }
-  .layout--mobile-tray {
+  .layout--mobile-tray,
+  .layout--mobile-tray .pane,
+  .layout--mobile-tray .pane .pane,
+  .layout--mobile-tray .back {
     background: $secondary-color;
+  }
+  .layout--mobile-tray .back a {
+    @include color-link($white, $white);
   }
   .navigation-mobile.complex .pane--navigation-container ul {
     border-bottom-color: $x-dark-grey;
   }
+  .navigation-mobile.complex .description,
   .navigation-mobile.complex .pane--navigation-container ul li + li > a, 
   .navigation-mobile.complex .pane--navigation-container ul li + li > .faux-link {
     border-top-color: $x-dark-grey;

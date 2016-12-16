@@ -42,6 +42,31 @@
   <%- end -%>
 
   <hr />
+  <h2 class="heading-two">Scrollable Lightbox</h2>
+
+  <p>You can use the <code>shared/inline_lightbox</code> partial to make the lightbox scrollable.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-scrollable", ruby: capture { -%>
+&lt;%= render layout: "shared/inline_lightbox", locals: { inline_id: "example-scrollable" } do -%>
+  &lt;div class="panel--padding content">
+    &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.&lt;/p>
+    &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.&lt;/p>
+    &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.&lt;/p>
+  &lt;/div>
+&lt;%- end -%>
+  <%- } } do -%>
+<a href="#example-scrollable" data-lightbox data-lightbox-small>Open lightbox</a>
+<%= render layout: "shared/inline_lightbox", locals: { inline_id: "example-scrollable" } do -%>
+  <div class="panel--padding content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+  </div>
+<%- end -%>
+  <%- end -%>
+
+
+  <hr />
   <h2 class="heading-two">Types</h2>
 
   <p>You can pass a value in to <code>data-lightbox</code> to override the type of the lightbox. This example sets the type to iframe.</p>
@@ -97,27 +122,50 @@
   <%- end -%>
 
   <hr />
+  <h2 class="heading-two">Custom close button</h2>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "custom-close" } do -%>
+<a href="#custom-close" data-lightbox data-lightbox-small>Open lightbox</a>
+<div class="mfp-hide" id="custom-close">
+  <div class="panel--padding content">
+    <p>This lightbox has a custom close button.</p>
+    <p><button data-lightbox-close>Click this to close this modal.</button></p>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
   <h2 class="heading-two">Custom lightbox actions</h2>
 
-  <p>Sometimes you need a lightbox to open programatically. Below is a code sample using Magnific Popups <code>open</code> function:</p>
+  <p>Sometimes you need a lightbox to open programatically. Below is a code sample using the <code>openLightbox</code> method which hooks directly in to Magnific Popups <code>$.magnificPopup.open()</code> function:</p>
 
   <pre class="sg-pre">
-var popupOptions = $.extend(true, {}, Ornament.lightboxDefaults};
-popupOptions.type = "inline";
-popupOptions.items = {
-  src: "#id-of-element"
-}
-$.magnificPopup.open(popupOptions);</pre>
-
-  <p>Make sure you start your popupOptions with <code>Ornament.lightboxDefaults</code>, this will ensure that all timings, classes, global callbacks and other settings are automatically pulled in for your new lightbox.</p>
+Ornament.C.Lightbox.openLightbox({
+  type: "inline",
+  items: {
+    src: "#id-of-element"
+  }
+});</pre>
 
   <p>The code above gets all the default lightbox settings then specifies the inline type and that the popup should open up the element of <code>#id-of-element</code>.</p>
 
-  <p>Similarly, Magnific Popup has a function to close all popups, which might come in handy:</p>
+  <p>This method ensures that all the Ornament settings for magnific popup are retained when you open your new lightbox.</p>  
+
+  <p>You can read more about programatic popup options at <a href="http://dimsemenov.com/plugins/magnific-popup/documentation.html#initializing-popup">the Magnific Popup documentation page</a>.</p>
+
+  <p>You can preview the default settings by using:</p>
+
+  <pre class="sg-pre">Ornament.C.Lightbox.defaults</pre>
+
+  <p>Magnific Popup has a function to close all popups, which might come in handy:</p>
 
   <pre class="sg-pre">$.magnificPopup.close();</pre>
 
-  <p>You can read more about programatic popup options at <a href="http://dimsemenov.com/plugins/magnific-popup/documentation.html#initializing-popup">the Magnific Popup documentation page</a>.</p>
+  <p>or alternatively, we have an alias for it in Ornament:</p>
+
+  <pre class="sg-pre">Ornament.C.Lightbox.closeLightbox();</pre>
+
+  <p>Both functions do exactly the same thing, there's no reason to use one over the other. Dealer's choice.</p>
 
   <hr />
   <h2 class="heading-two">Rails <code>data-confirm</code> replacement</h2>

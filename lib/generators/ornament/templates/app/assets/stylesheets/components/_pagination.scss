@@ -28,7 +28,7 @@ $pagination-current-color:         #ccc;
   // icon extends
   .pagination--first a,
   .pagination--first.disabled {
-    @include grunticon("chevron-double-left-24-white", 24px);
+    @include grunticon("chevron-double-left-16-white", 18px, 16px);
     padding-left: $xxx-large-unit;
 
     &:before {
@@ -37,7 +37,7 @@ $pagination-current-color:         #ccc;
   }
   .pagination--prev a,
   .pagination--prev.disabled {
-    @include grunticon("chevron-left-24-white", 24px);
+    @include grunticon("chevron-left-16-white", 12px, 16px);
     padding-left: $xx-large-unit;
     margin-left: $xxx-small-unit;
 
@@ -48,7 +48,7 @@ $pagination-current-color:         #ccc;
   }
   .pagination--next a,
   .pagination--next.disabled {
-    @include grunticon("chevron-right-24-white", 24px);
+    @include grunticon("chevron-right-16-white", 12px, 16px);
     padding-right: $xx-large-unit;
     margin-right: $xxx-small-unit;
 
@@ -59,7 +59,7 @@ $pagination-current-color:         #ccc;
   }
   .pagination--last a,
   .pagination--last.disabled {
-    @include grunticon("chevron-double-right-24-white", 24px);
+    @include grunticon("chevron-double-right-16-white", 18px, 16px);
     padding-right: $xxx-large-unit;
 
     &:before {
@@ -90,7 +90,7 @@ $pagination-current-color:         #ccc;
       content: "";
       position: absolute;
       top: 50%;
-      margin-top: -14px;
+      margin-top: -8px;
     }
   }
 

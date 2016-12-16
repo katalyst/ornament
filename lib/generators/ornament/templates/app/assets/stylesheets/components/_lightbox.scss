@@ -13,7 +13,6 @@
   background: #fff;
   width: 90%;
   max-width: 800px;
-  margin: 44px 0 20px;
   @include border-radius($border-radius);
 
   .lightbox__small & {
@@ -21,20 +20,47 @@
   }
 }
 
-.mfp-image-holder .mfp-content {
-  max-width: 90%;
-  margin-top: 44px;
+.mfp-content {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-// Lightbox Headings
-.lightbox--heading {
-  padding: $x-small-unit $small-unit;
-  border-bottom: 1px solid $grey;
+.mfp-image-holder .mfp-content {
+  margin-top: 20px;
+  max-width: 90%;
+}
 
-  .content &,
-  .content-spacing & {
-    margin-bottom: 0;
-  }
+// Lightbox Header
+.lightbox--header {
+  border-bottom: $divider;
+  display: table;
+  width: 100%;
+  background: $black;
+}
+.lightbox--title,
+.lightbox--close {
+  display: table-cell;
+  vertical-align: middle;
+}
+.lightbox--title {
+  color: $white;
+  padding: $xxxx-small-unit $panel-padding;
+  width: 100%;
+  @include font($bold-font);
+}
+.lightbox--close {
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  @include grunticon("close-16-white", 16px);
+  @include icon-block(44px, 16px);
+  overflow: visible;
+}
+
+// Lightbox Body
+.lightbox--body {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 // Lightbox Content
@@ -62,7 +88,6 @@
 .mfp-figure .mfp-close,
 .mfp-image-holder .mfp-arrow {
   background: $primary-color;
-  @include icon-block(44px, 24px);
   @include border-radius(50%);
   text-align: left;
   padding: 0;
@@ -74,11 +99,20 @@
   }
 }
 
+.mfp-inline-holder .mfp-close, 
+.mfp-ajax-holder .mfp-close,
+.mfp-figure .mfp-close {
+  @include icon-block(44px, 16px);
+}
+.mfp-image-holder .mfp-arrow {
+  @include icon-block(44px, 24px);
+}
+
 // Lightbox Close Button
 .mfp-inline-holder .mfp-close, 
 .mfp-ajax-holder .mfp-close,
 .mfp-figure .mfp-close {
-  @include grunticon("close-24-white", 24px);
+  @include grunticon("close-16-white", 16px);
   position: absolute;
   top: -$xxxxx-small-unit;
   right: -$xxxxx-small-unit;
@@ -110,20 +144,20 @@
 
 // Lightbox Arrows
 .mfp-image-holder .mfp-arrow-left {
-  @include grunticon("chevron-left-24-white", 24px);
+  @include grunticon("chevron-left-24-white", 18px, 24px);
   left: $xxxxx-small-unit;
-  position: absolute;
 }
 
 .mfp-image-holder .mfp-arrow-right {
-  @include grunticon("chevron-right-24-white", 24px);
+  @include grunticon("chevron-right-24-white", 18px, 24px);
   right: $xxxxx-small-unit;
-  position: absolute;
 }
 
 // Removing existing arrows
 .mfp-image-holder .mfp-arrow-left,
 .mfp-image-holder .mfp-arrow-right {
+  @include icon-block(44px, 18px, 44px, 24px);
+  position: absolute;
   &:before {
     border: 0;
     @include opacity(1);

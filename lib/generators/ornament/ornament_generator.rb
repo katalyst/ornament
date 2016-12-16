@@ -60,6 +60,9 @@ class OrnamentGenerator < Rails::Generators::Base
 
         copy_file "Gruntfile.js"
         copy_file "package.json"
+        copy_file ".editorconfig.ini"
+        copy_file ".eslintrc.json"
+        copy_file ".sass-lint.yml"
       end
 
       if options.components?

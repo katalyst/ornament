@@ -5,6 +5,53 @@
 Introducing the Ornament Component API!  
 Starting with this version, component javascript features will be moved in to an `Ornament.Components` namespace. There is also a shorthand `Ornament.C`  
 
+Implemented basic Components API for:
+- Analytics
+- FormHelpers
+- Lightbox
+- PaginationHelper
+- ReadMore
+- ScrollTo
+- TextLimit
+- Toggle
+- TransitionToggle
+- TrayNav
+
+### Features
+
+- Added `.eslintrc.json`, `.editorconfig.ini` and `.sass-lint.yml` files for linting and autoconfiguring goodness  
+- Added a big warning message to people using IE8/9 and people without scripts enabled  
+- Exposed an easier to remember ornament trigger wrapper, `Ornament.onLoad(...)` as an alternative to `$(document).on("ornament:refresh", ...)`  
+- Added `layouts/_seo.html` partial to keep all the SEO, open graph and twitter card tags  
+- Added `css_split` gem for in-built IE8/9 large-css support  
+- Added an `assetPreloader` helper function to `defaults.js` for preloading images on page load  
+- Added a `bodyScroll` helper function to `defaults.js` for animating a body scroll  
+- Added a `ScrollTo` component that allows `[data-scroll-to]` anchors to scroll to another element on click  
+- Added a `parameterize` helper function to `defaults.js` for mimicking the rails parameterize function in javascript  
+- Added a `$classes` param for `normal-spacing` mixin to space based on classes rather than tags. Added a new `content-spacing-classes` class to go with it  
+- Added Toggle speed customiser with `data-toggle-timing`  
+- Added a TransitionToggle component with `data-transition`  
+- Added analytics tracking for appinstallbanners when service workers are available  
+- Added dataLayer/Google Tag Manager support for tracking analytics events  
+- Added a helper vendor script that fixes youtube z-index issues in older browsers  
+
+### Performance Enhancements
+
+- Moved modernizr in to the application.js file rather than a separate js file  
+- Updated google webfont loader and switched to async version for performance improvements  
+
+### Changes
+
+- Moved lightbox defaults out of `defaults.js` in to `lightbox.js`  
+- Moved google analytics code out of `external_links.js` in to `analytics.js`  
+- Simplified geolocation support check in `defaults.js`  
+- Changed the default viewport `meta` tag to allow mobile users to zoom  
+- Initialised Ornament at the top of the page rather than in the application.js file  
+- Moved jQueryUI setting in to the new `form-helpers.js` and updated docs accordingly  
+- Labelled current tab system as legacy, added a new `tabs.js` component, but it is currently undocumented, look for the styleguide to be updated to use the new tab system and include documentation on it soon  
+- Refreshed default icons that ship with Ornament  
+- Uploader will be replaced with a big ugly warning message if used in an unsupported browser  
+
 ## v1.2.3
 
 ### Features
