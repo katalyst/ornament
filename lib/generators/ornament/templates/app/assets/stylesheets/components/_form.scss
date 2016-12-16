@@ -369,14 +369,15 @@ $file-thumbnail-width: 100px;
 // [input]button
 
 .form-inline {
+  display: table;
+  width: 100%;
   @include pie-clearfix;
-  position: relative;
-  width: 200px;
 }
 
 .form-inline--input-container {
+  display: table-cell;
   width: 100%;
-  padding-right: $form-inline-height;
+  vertical-align: top;
 }
 
 .form-inline--input-container .form-inline--input {
@@ -389,16 +390,10 @@ $file-thumbnail-width: 100px;
 }
 
 .form-inline--button {
+  display: table-cell;
+  vertical-align: top;
   @include input__flat-left;
   @include icon-block($form-inline-height, 16px);
-  position: absolute !important;
-  top: 0;
-  right: 0;
-}
-
-.form-inline__full {
-  @extend .form-inline;
-  width: 100%;
 }
 
 // FULL-WIDTH SEARCH FIELD WITH LABEL

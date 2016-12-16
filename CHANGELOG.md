@@ -42,6 +42,7 @@ Implemented basic Components API for:
 
 ### Changes
 
+- Upgraded to `grunticon 1.6.0` to fix phantomjs install issues  
 - Moved lightbox defaults out of `defaults.js` in to `lightbox.js`  
 - Moved google analytics code out of `external_links.js` in to `analytics.js`  
 - Simplified geolocation support check in `defaults.js`  
@@ -51,6 +52,7 @@ Implemented basic Components API for:
 - Labelled current tab system as legacy, added a new `tabs.js` component, but it is currently undocumented, look for the styleguide to be updated to use the new tab system and include documentation on it soon  
 - Refreshed default icons that ship with Ornament  
 - Uploader will be replaced with a big ugly warning message if used in an unsupported browser  
+- Removed `.form--inline__full` and made `.form--inline` full-width by default. Widths for inline forms can be controlled by `.form--*` classes  
 
 ## v1.2.3
 
