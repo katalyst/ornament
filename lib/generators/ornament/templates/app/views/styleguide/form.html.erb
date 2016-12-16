@@ -1,5 +1,12 @@
 
 <% content_for :title, "Form styles" %>
+<% content_for :scripts_bottom do %>
+  <script>
+    $(document).on("ornament:refresh", function(){ 
+      !Ornament.C.FormHelpers.jQueryUI && $("[data-jquery-modifiers]").hide();
+    });
+  </script>
+<% end %>
 
 <div class="content-spacing">
 
@@ -178,11 +185,12 @@
 </div>
   <%- end -%>
 
-  <p>jQuery Datepicker can be added by giving your input field the class <code>datepicker</code>.</p>
+  <div data-jquery-modifiers>
+    <p>jQuery Datepicker can be added by giving your input field the class <code>datepicker</code>.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
+    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
 &lt;%= f.input :example, input_class: { "datepicker" } -%&gt;
-  <%- } } do -%>
+    <%- } } do -%>
 <div class="control-group string required form--medium">
   <label class="string required control-label" for="datepicker">
     Date
@@ -191,13 +199,13 @@
     <input class="string required datepicker" id="datepicker" type="text">
   </div>
 </div>
-  <%- end -%>
+    <%- end -%>
 
-  <p>Alternatively there's also a datetimepicker using the <code>datetimepicker</code> class.</p>
+    <p>Alternatively there's also a datetimepicker using the <code>datetimepicker</code> class.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
+    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
 &lt;%= f.input :example, input_class: { "datetimepicker" } -%&gt;
-  <%- } } do -%>
+    <%- } } do -%>
 <div class="control-group string required form--medium">
   <label class="string required control-label" for="datetimepicker">
     Date
@@ -206,7 +214,8 @@
     <input class="string required datetimepicker" id="datetimepicker" type="text">
   </div>
 </div>
-  <%- end -%>
+    <%- end -%>
+  </div>
 
   <hr />
 

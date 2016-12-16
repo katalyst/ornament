@@ -34,6 +34,7 @@ Implemented basic Components API for:
 - Added analytics tracking for appinstallbanners when service workers are available  
 - Added dataLayer/Google Tag Manager support for tracking analytics events  
 - Added a helper vendor script that fixes youtube z-index issues in older browsers  
+- Hiding the form jQueryUI datepicker documentation when `Ornament.C.FormHelpers.jQueryUI` is false  
 
 ### Performance Enhancements
 
