@@ -9,7 +9,9 @@
 <div class="tabs sg-feature" data-styleguide-feature>
   <nav class="tabs--links">
     <ul>
-      <li><a href="#<%= id -%>__preview" class="tabs--link" data-tab="<%= id -%>__preview">Preview</a></li>
+      <%- unless no_preview -%>
+        <li><a href="#<%= id -%>__preview" class="tabs--link" data-tab="<%= id -%>__preview">Preview</a></li>
+      <%- end -%>
       <%- unless no_html -%>
         <li><a href="#<%= id -%>__source" class="tabs--link" data-tab="<%= id -%>__source">HTML</a></li>
       <%- end -%>
@@ -25,9 +27,11 @@
     </ul>
   </nav>
   <div class="tabs--panes">
-    <div class="tabs--pane" data-tab-for="<%= id -%>__preview">
-      <%= yield -%>
-    </div>
+    <%- unless no_preview -%>
+      <div class="tabs--pane" data-tab-for="<%= id -%>__preview">
+        <%= yield -%>
+      </div>
+    <%- end -%>
     <%- unless no_html -%>
       <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__source" data-styleguide-code-sample>
         <pre class="sg-pre prettyprint"><%= render_source(yield) -%></pre>
@@ -44,7 +48,7 @@
       </div>
     <%- end -%>
     <%- if js -%>
-      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__js" data-styleguide-feature>
+      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__js" data-styleguide-code-sample>
         <pre class="sg-pre prettyprint"><%= render_source(js) -%></pre>
       </div>
     <%- end -%>

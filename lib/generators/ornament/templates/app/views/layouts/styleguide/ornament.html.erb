@@ -136,7 +136,6 @@
 
           // Change the text of the copy button when it's clicked on
           clipboard.on('success', function(event) {
-            console.log("test");
             $button.text('Copied!');
             window.setTimeout(function() {
               $button.text('Copy');
