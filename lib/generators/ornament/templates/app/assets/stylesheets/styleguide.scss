@@ -310,15 +310,19 @@ $sg-feature-background: $background-color;
 
   [data-copy-code] {
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     padding: 5px 10px;
     display: block;
     background: $primary-color;
-    @include border-top-left-radius($border-radius);
+    @include border-bottom-left-radius($border-radius);
     @include color-link($white, $white);
     text-transform: uppercase;
     font-size: $x-small-font-size;
+  }
+
+  [data-copy-code] + pre {
+    margin-top: 0;
   }
 }
 

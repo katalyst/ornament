@@ -6,7 +6,7 @@
   no_html ||= false
 -%>
 
-<div class="tabs sg-feature">
+<div class="tabs sg-feature" data-styleguide-feature>
   <nav class="tabs--links">
     <ul>
       <li><a href="#<%= id -%>__preview" class="tabs--link" data-tab="<%= id -%>__preview">Preview</a></li>
@@ -29,22 +29,22 @@
       <%= yield -%>
     </div>
     <%- unless no_html -%>
-      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__source">
+      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__source" data-styleguide-code-sample>
         <pre class="sg-pre prettyprint"><%= render_source(yield) -%></pre>
       </div>
     <%- end -%>
     <%- if ruby -%>
-      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__ruby">
+      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__ruby" data-styleguide-code-sample>
         <pre class="sg-pre prettyprint"><%= raw(ruby) -%></pre>
       </div>
     <%- end -%>
     <%- if scss -%>
-      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__scss">
+      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__scss" data-styleguide-code-sample>
         <pre class="sg-pre prettyprint"><%= raw(scss) -%></pre>
       </div>
     <%- end -%>
     <%- if js -%>
-      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__js">
+      <div class="tabs--pane tabs--pane__flush" data-tab-for="<%= id -%>__js" data-styleguide-feature>
         <pre class="sg-pre prettyprint"><%= render_source(js) -%></pre>
       </div>
     <%- end -%>

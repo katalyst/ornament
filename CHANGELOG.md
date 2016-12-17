@@ -35,6 +35,8 @@ Implemented basic Components API for:
 - Added dataLayer/Google Tag Manager support for tracking analytics events  
 - Added a helper vendor script that fixes youtube z-index issues in older browsers  
 - Hiding the form jQueryUI datepicker documentation when `Ornament.C.FormHelpers.jQueryUI` is false  
+- Added a copy button for copying code samples from the styleguide  
+- Added some event listener helpers, `Ornament.onResize()` and `Ornament.onScroll()`  
 
 ### Performance Enhancements
 
