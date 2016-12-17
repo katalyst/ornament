@@ -45,6 +45,14 @@ body.lightbox-open {
 
 .layout--positioner {
   position: relative;
+
+  @if $fixed-footer == true {
+    .flexbox & {
+      @include display-flex;
+      @include flex-direction(column);
+      @include flex-grow(1);
+    }
+  }
 }
 
 .layout--container {

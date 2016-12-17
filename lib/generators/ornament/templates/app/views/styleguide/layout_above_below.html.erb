@@ -1,6 +1,6 @@
-<%= content_for :title, "Above and below page" -%>
+<%- content_for :title, "Above and below page" -%>
 
-<%= content_for :styles do -%>
+<%- content_for :styles do -%>
   <style>
     .red-box {
       background: red;
@@ -9,11 +9,11 @@
   </style>
 <%- end -%>
 
-<%= content_for :above_layout do -%>
+<%- content_for :above_layout do -%>
   <div class="red-box"></div>
 <%- end -%>
 
-<%= content_for :below_layout do -%>
+<%- content_for :below_layout do -%>
   <div class="red-box"></div>
 <%- end -%>
 
@@ -21,11 +21,11 @@
 <div class="content-spacing content-lists">
   <p>You can yield above and below the main page layout by using:</p>
 
-  <pre class="sg-pre prettyprint">&lt;%= content_for :above_layout do -%>
+  <pre class="sg-pre prettyprint">&lt;%- content_for :above_layout do -%>
   &lt;div class="red-box">&lt;/div>
 &lt;%- end -%></pre>
 
-  <pre class="sg-pre prettyprint">&lt;%= content_for :below_layout do -%>
+  <pre class="sg-pre prettyprint">&lt;%- content_for :below_layout do -%>
   &lt;div class="red-box">&lt;/div>
 &lt;%- end -%></pre>
 
