@@ -172,7 +172,7 @@
 
   <p>Disabled fields use the <code>disabled</code> input attribute.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "datepicker", ruby: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "disabled", ruby: capture { -%>
 &lt;%= f.input :example, disabled: true -%&gt;
   <%- } } do -%>
 <div class="control-group string required form--medium">
@@ -181,6 +181,22 @@
   </label>
   <div class="controls">
     <input class="string required" id="modifier-disabled" type="text" disabled>
+  </div>
+</div>
+  <%- end -%>
+
+  <p>Similarly, read-only fields use the <code>readonly</code> input attribute.</p>
+  <p>Be aware of the <a href="http://stackoverflow.com/questions/7730695/whats-the-difference-between-disabled-disabled-and-readonly-readonly-for-ht">difference between readonly and disabled</a> and use the correct one where appropriate.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "readonly", ruby: capture { -%>
+&lt;%= f.input :example, readonly: true -%&gt;
+  <%- } } do -%>
+<div class="control-group string required form--medium">
+  <label class="string required control-label" for="modifier-readonly">
+    <abbr title="required">*</abbr> Your name
+  </label>
+  <div class="controls">
+    <input class="string required" id="modifier-readonly" type="text" readonly>
   </div>
 </div>
   <%- end -%>
