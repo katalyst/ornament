@@ -22,7 +22,7 @@ Implemented basic Components API for:
 - Added `.eslintrc.json`, `.editorconfig.ini` and `.sass-lint.yml` files for linting and autoconfiguring goodness  
 - Added a big warning message to people using IE8/9 and people without scripts enabled  
 - Exposed an easier to remember ornament trigger wrapper, `Ornament.onLoad(...)` as an alternative to `$(document).on("ornament:refresh", ...)`  
-- Added `layouts/_seo.html` partial to keep all the SEO, open graph and twitter card tags  
+- Added `layouts/_seo.html` partial to keep all the SEO, open graph and twitter card tags, replaced opengraph documentation with seo documentation  
 - Added `css_split` gem for in-built IE8/9 large-css support  
 - Added an `assetPreloader` helper function to `defaults.js` for preloading images on page load  
 - Added a `bodyScroll` helper function to `defaults.js` for animating a body scroll  

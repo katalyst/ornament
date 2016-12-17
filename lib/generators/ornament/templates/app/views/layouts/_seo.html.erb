@@ -36,14 +36,12 @@
     seo_title = yield(:page_title)
   elsif content_for?(:title)
     seo_title = yield(:title)
-  elsif content_for?(:page_panel_title)
-    seo_title = yield(:page_panel_title)
   elsif content_for?(:og_title)
     seo_title = yield(:og_title)
   end
 
   # Append | <postfix> to the end of title if necessary
-  if !seo_title.include?(seo_title_postfix)
+  if !seo_title_postfix.blank? && !seo_title.include?(seo_title_postfix)
     seo_title = raw "#{seo_title} - #{seo_title_postfix}"
   end
 
@@ -60,8 +58,8 @@
   end
 
   # Meta Image
-  if content_for?(:feature_image)
-    seo_image = yield(:feature_image)
+  if content_for?(:meta_image)
+    seo_image = yield(:meta_image)
   end
 
   # Facebook Title
@@ -87,6 +85,8 @@
   # Facebook image
   if content_for?(:og_image)
     facebook_image = yield(:og_image)
+  elsif content_for?(:meta_image)
+    facebook_image = yield(:meta_image)
   else
     facebook_image = seo_image
   end
@@ -96,6 +96,8 @@
     twitter_image = yield(:twitter_image)
   elsif content_for(:og_image)
     twitter_image = yield(:og_image)
+  elsif content_for(:meta_image)
+    twitter_image = yield(:meta_image)
   else
     twitter_image = seo_image
   end
@@ -119,9 +121,9 @@
 <%- if facebook_image && !content_for?(:disable_og_image) -%>
   <meta property="og:image" content="<%= facebook_image -%>" />
 <%- end -%>
-<meta property="og:description" content="<%= facebook_description -%>">
-<meta property="og:url" content="<%= request.original_url %>" />
 <meta property="og:title" content="<%= facebook_title -%>" />
+<meta property="og:url" content="<%= request.original_url %>" />
+<meta property="og:description" content="<%= facebook_description -%>">
 <%- if facebook_author -%>
   <meta property="og:author" content="<%= facebook_author -%>" />
 <%- end -%>
@@ -131,13 +133,13 @@
 
 <!-- TWITTER -->
 <meta name="twitter:card" content="summary" />
-<%- if twitter_handle -%>
+<%- unless twitter_handle.blank? -%>
   <meta name="twitter:site" content="<%= twitter_handle -%>" />
 <%- end -%>
-<%- if twitter_image -%>
+<%- unless twitter_image.blank? -%>
   <meta name="twitter:image" content="<%= twitter_image -%>" />
 <%- end -%>
-<%- if twitter_creator -%>
+<%- unless twitter_creator.blank? -%>
   <meta name="twitter:creator" content="<%= twitter_creator -%>">
 <%- end -%>
 <meta name="twitter:title" content="<%= seo_title -%>">

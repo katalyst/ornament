@@ -1,0 +1,168 @@
+<%= content_for :title, "SEO" -%>
+
+<div class="content-spacing content-lists">
+
+  <%- 
+    defaults = [{
+      code: "cache_version",
+      description: "A simple cache-buster"
+    },{
+      code: "seo_title",
+      description: "The default <code>title</code> of all pages."
+    },{
+      code: "seo_title_postfix",
+      description: "An automatically appeneded post-fix for page titles. It is recommended to use the website name. Will result in something like <code>Page Title - Website Name</code>"
+    },{
+      code: "seo_keywords",
+      description: "Default meta keywords"
+    },{
+      code: "seo_description",
+      description: "Default meta description"
+    },{
+      code: "seo_image",
+      description: "Default seo image"
+    },{
+      code: "twitter_handle",
+      description: "Global <code>twitter:site</code> meta tag"
+    },{
+      code: "twitter_creator",
+      description: "Global <code>twitter:creator</code> meta tag"
+    }]
+    meta = [{
+      code: "title",
+      description: "<code>&lt;title&gt;</code> and a <code>&lt;h1&gt;</code> tag in <code>application.html.erb</code>"
+    },{
+      code: "page_title",
+      description: "<code>&lt;title&gt;</code>, superceding the above"
+    },{
+      code: "meta_description",
+      description: "<code>&lt;meta name='description'&gt;</code>"
+    },{
+      code: "meta_image",
+      description: "<code>&lt;link rel='image_src'&gt;</code>"
+    }]
+    opengraph = [{
+      code: "og_title",
+      description: "<code>&lt;meta name='og:title'&gt;</code>"
+    },{
+      code: "og_description",
+      description: "<code>&lt;meta name='og:description'&gt;</code>"
+    },{
+      code: "og_image",
+      description: "<code>&lt;meta name='og:image'&gt;</code>"
+    },{
+      code: "og_author",
+      description: "<code>&lt;meta name='og:author'&gt;</code>"
+    },{
+      code: "og_publish_time",
+      description: "<code>&lt;meta name='og:published_time'&gt;</code>"
+    }]
+    twitter_cards = [{
+      code: "twitter_handle",
+      description: "<code>&lt;meta name='twitter:site'&gt;</code>"
+    }]
+  -%>
+
+  <h2 class="heading-two">Defaults</h2>
+
+  <p>You can se the default global settings in the <code>/layouts/_seo.html.erb</code> partial.</p>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush">
+      <thead>
+        <tr>
+          <th width="200">variable</th>
+          <th>description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- defaults.each do |field| -%>
+          <tr>
+            <td><%= field[:code] -%></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2 class="heading-two">Meta tags</h2>
+
+  <p>Ornament has a series of yields that you can use on your page to push content to your meta tags</p>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush">
+      <thead>
+        <tr>
+          <th width="200">content_for</th>
+          <th>tag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- meta.each do |field| -%>
+          <tr>
+            <td><%= field[:code] -%></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2 class="heading-two">Opengraph</h2>
+
+  <p>By default if no <code>og_*</code> yeilds are used it will fallback to use the same values as the meta tags above where logical.</p>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush">
+      <thead>
+        <tr>
+          <th width="200">content_for</th>
+          <th>tag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- opengraph.each do |field| -%>
+          <tr>
+            <td><%= field[:code] -%></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2 class="heading-two">Twitter Cards</h2>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush">
+      <thead>
+        <tr>
+          <th width="200">content_for</th>
+          <th>tag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- meta.each do |field| -%>
+          <tr>
+            <td><%= field[:code] -%></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2 class="heading-two">Koi SEO</h2>
+
+  <p>When the <code>seo</code> module is enabled in Koi it will automatically feed in to the title, keyword and description.</p>
+
+</div>
