@@ -1,6 +1,6 @@
-<%= content_for :title, "Sidebar Left" -%>
+<%- content_for :title, "Sidebar Left" -%>
 
-<%= content_for :styles do -%>
+<%- content_for :styles do -%>
   <style>
     .example {
       background: #ccc;
@@ -10,7 +10,7 @@
   </style>
 <%- end -%>
 
-<%= content_for :sidebar do -%>
+<%- content_for :sidebar do -%>
   <div class="example">
     This is the sidebar
   </div>
@@ -20,7 +20,7 @@
   <div class="content-spacing content-lists">
     <p>You can throw things in to a sidebar layout by using the :sidebar yield:</p>
 
-<pre class="sg-pre prettyprint">&lt;%= content_for :sidebar do -%>
+<pre class="sg-pre prettyprint">&lt;%- content_for :sidebar do -%>
   This is the sidebar
 &lt;%- end -%></pre>
   </div>

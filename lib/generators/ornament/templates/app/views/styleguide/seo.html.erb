@@ -58,8 +58,8 @@
       description: "<code>&lt;meta name='og:published_time'&gt;</code>"
     }]
     twitter_cards = [{
-      code: "twitter_handle",
-      description: "<code>&lt;meta name='twitter:site'&gt;</code>"
+      code: "twitter_image",
+      description: "<code>&lt;meta name='twitter:image'&gt;</code>"
     }]
   -%>
 
@@ -140,6 +140,8 @@
 
   <h2 class="heading-two">Twitter Cards</h2>
 
+  <p>Twitter cards will inherit from the opengraph tags above. If there are no opengraph tags it will fallback to the standard meta ones.</p>
+
   <div class="table-container">
     <table class="table table__bordered table__flush">
       <thead>
@@ -149,7 +151,7 @@
         </tr>
       </thead>
       <tbody>
-        <%- meta.each do |field| -%>
+        <%- twitter_cards.each do |field| -%>
           <tr>
             <td><%= field[:code] -%></td>
             <td><%= raw field[:description] -%></td>

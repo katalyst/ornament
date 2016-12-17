@@ -1,6 +1,6 @@
-<%= content_for :title, "Sidebar Right" -%>
+<%- content_for :title, "Sidebar Right" -%>
 
-<%= content_for :styles do -%>
+<%- content_for :styles do -%>
   <style>
     .example {
       background: #ccc;
@@ -20,7 +20,7 @@
   <div class="content-spacing content-lists">
     <p>You can throw things in to a right-hand sidebar layout by using the :sidebar_right yield:</p>
 
-    <pre class="sg-pre prettyprint">&lt;%= content_for :sidebar_right do -%>
+    <pre class="sg-pre prettyprint">&lt;%- content_for :sidebar_right do -%>
   This is the sidebar
 &lt;%- end -%></pre>
   </div>
