@@ -6,7 +6,7 @@
 
   <p>Simply wrap your list in a div with the <code>data-menu-aim</code> attribute:</p>
 
-  <%- content_for :example_1 do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "menu-aim" } do -%>
 <div class="menu-aim" data-menu-aim>
   <ul>
     <%- (1..20).each do |i| -%>
@@ -22,8 +22,5 @@
   </ul>
 </div>
   <%- end -%>
-  <%= yield :example_1 -%>
-
-  <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
 
 </div>
