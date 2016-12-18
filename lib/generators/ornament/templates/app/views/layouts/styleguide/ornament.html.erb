@@ -71,7 +71,9 @@
         <header class="sg-header layout--header" role="banner">
           <div class="layout--container">
             <hgroup class="sg-header--logo">
-              <h1><%= link_to "Ornament", styleguide_path -%> <span data-ornament-version></span></h1>
+              <h1><%= link_to styleguide_path do -%> 
+                Ornament <span data-ornament-version></span>
+              <%- end -%></h1> <a href="https://github.com/katalyst/ornament" class="button__confirm button__small">Github</a>
               <h2>The front-end pattern library and styleguide for Katalyst web applications</h2>
             </hgroup>
             <button class="sg-header--menu" data-mobile-menu-switch>open navigation</button>

@@ -175,6 +175,8 @@ hr {
 
 .sg-header--logo {
   @include flex-grow(1);
+  @include display-flex;
+  @include flex-wrap;
   color: $white;
 
   a {
@@ -187,8 +189,19 @@ hr {
   }
 
   h2 {
+    width: 100%;
     color: $light-grey;
     padding-top: $xxxx-small-unit;
+  }
+
+  .button__confirm {
+    padding: 6px 14px;
+    margin-left: $xxx-small-unit;
+    @include media-query(450px) {
+      order: 1;
+      margin-top: $xxx-small-unit;
+      margin-left: 0;
+    }
   }
 }
 
