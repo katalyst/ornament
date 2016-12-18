@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.2.5
+
+### Features
+
+- Added styleguide code highlighting  
+- Fixed `.button__icon` sizing to be in-line with the default button heights  
+- Added `.button__small.button__icon` variation  
+- Added `.button-set` for a grouping of buttons that always have consistent space between themselves  
+
 ## v1.2.4
 
 Introducing the Ornament Component API!  

@@ -182,8 +182,13 @@
 }
 
 .button__icon {
-  @include icon-block(48px, 16px);
+  @include icon-block(56px, 16px);
   display: inline-block;
+
+  &.button__small {
+    @include icon-block(44px, 16px);
+    display: inline-block;
+  }
 
   &:before {
     float: left;
@@ -213,6 +218,17 @@
   .button:last-child {
     @include border-top-right-radius($border-radius);
     @include border-bottom-right-radius($border-radius);
+  }
+}
+
+// Button set
+.button-set {
+  margin: $xxxx-small-unit * -0.5;
+  @include pie-clearfix;
+
+  > div {
+    float: left;
+    padding: $xxxx-small-unit * 0.5;
   }
 }
 
