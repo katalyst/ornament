@@ -97,11 +97,15 @@ class OrnamentGenerator < Rails::Generators::Base
 
     puts "Please ensure the following gems are in your local Gemfile:"
     puts ""
-    puts "  gem 'sass-rails'"
-    puts "  gem 'uglifier'"
-    puts "  gem 'compass-rails'"
-    puts "  gem 'htmlentities'"
+    puts "  gem 'sass-rails', '~> 5.0.6"
+    puts "  gem 'uglifier', '~> 3.0.4"
+    puts "  gem 'compass-rails', '~> 4.3.4"
+    puts "  gem 'htmlentities', '~> 4.3.4"
+    puts "  gem 'css_splitter', '~> 0.4.6'"
     puts ""
+    puts "Please add this line to asset.rb:"
+    puts ""
+    puts "Rails.application.config.assets.precompile += %w( application_split2.css  selectivizr.js respond.js application_bottom.js styleguide.css styleguide_split2.css styleguide.js )"
 
   end
 
