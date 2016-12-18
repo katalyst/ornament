@@ -95,6 +95,9 @@ class OrnamentGenerator < Rails::Generators::Base
 
     end
 
+    puts ""
+    puts "Ornament is now installed! But wait, in case you haven't already, please follow these manual steps to complete installation:"
+    puts ""
     puts "Please ensure the following gems are in your local Gemfile:"
     puts ""
     puts "  gem 'sass-rails', '~> 5.0.6'"
@@ -105,7 +108,10 @@ class OrnamentGenerator < Rails::Generators::Base
     puts ""
     puts "Please add this line to asset.rb:"
     puts ""
-    puts "Rails.application.config.assets.precompile += %w( application_split2.css  selectivizr.js respond.js application_bottom.js styleguide.css styleguide_split2.css styleguide.js )"
+    puts "  Rails.application.config.assets.precompile += %w( application_split2.css  selectivizr.js respond.js application_bottom.js styleguide.css styleguide_split2.css styleguide.js )"
+    puts ""
+    puts "Then bundle and restart your server"
+    puts ""
 
   end
 
