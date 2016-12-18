@@ -60,6 +60,7 @@ Implemented basic Components API for:
 - Removed `.form--inline__full` and made `.form--inline` full-width by default. Widths for inline forms can be controlled by `.form--*` classes  
 - Simplified the `spacing-*` class partial making it easier to extend  
 - Changed `lightbox-small` attribute to `lightbox-size=` so developers can pass in custom sizes/classes  
+- Removed `vertre`  
 
 ## v1.2.3
 
