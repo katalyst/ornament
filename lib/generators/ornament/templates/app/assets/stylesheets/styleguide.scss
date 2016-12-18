@@ -203,24 +203,21 @@ hr {
   .layout--mobile-tray .back a {
     @include color-link($white, $white);
   }
-  .navigation-mobile.complex .pane--navigation-container ul {
+  .navigation-mobile.simple .pane--navigation-container ul,
+  .navigation-mobile.simple .pane--navigation-container ul li > a, 
+  .navigation-mobile.simple .pane--navigation-container ul li > .faux-link {
     border-bottom-color: $x-dark-grey;
   }
-  .navigation-mobile.complex .description,
-  .navigation-mobile.complex .pane--navigation-container ul li + li > a, 
-  .navigation-mobile.complex .pane--navigation-container ul li + li > .faux-link {
-    border-top-color: $x-dark-grey;
-  }
-  .navigation-mobile.complex .pane-wrapper .pane a, .navigation-mobile.complex .pane-wrapper .pane .faux-link {
+  .navigation-mobile.simple .pane-wrapper .pane a, .navigation-mobile.simple .pane-wrapper .pane .faux-link {
     @include font($body-font);
   }
-  .navigation-mobile.complex .navigation-item > a:before, 
-  .navigation-mobile.complex .navigation-item > span.faux-link:before, 
-  .navigation-mobile.complex .navigation-item > button:before {
+  .navigation-mobile.simple .navigation-item > a:before, 
+  .navigation-mobile.simple .navigation-item > span.faux-link:before, 
+  .navigation-mobile.simple .navigation-item > button:before {
     background: transparent;
   }
-  .navigation-mobile.complex .pane-wrapper .pane a, 
-  .navigation-mobile.complex .pane-wrapper .pane .faux-link {
+  .navigation-mobile.simple .pane-wrapper .pane a, 
+  .navigation-mobile.simple .pane-wrapper .pane .faux-link {
     @include color-link($primary-color, $primary-color);
   }
 }
