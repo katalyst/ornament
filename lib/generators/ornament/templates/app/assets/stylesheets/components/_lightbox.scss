@@ -18,6 +18,22 @@
   .lightbox__small & {
     max-width: 500px;
   }
+
+  .lightbox__fullscreen & {
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    min-height: 100%;
+    // overflow: auto;
+    margin: 0;
+    @include border-radius(0);
+  }
+}
+
+.mfp-container {
+  .lightbox__fullscreen & {
+    padding: 0;
+  }
 }
 
 .mfp-content {
@@ -64,12 +80,17 @@
 }
 
 // Lightbox Content
-.lightbox--content {
-  padding: $panel-padding;
+.lightbox--content {}
 
-  .lightbox__flush & {
-    padding: 0;
-  }
+// Lightbox sections
+.lightbox--section + .lightbox--section {
+  border-top: $divider;
+}
+
+// Lightbox footer
+.lightbox--footer {
+  border-top: $divider;
+  padding: $panel-padding;
 }
 
 // Lightbox Buttons
@@ -125,6 +146,13 @@
   .lightbox__flush &:active {
     top: -$xxx-small-unit;
     right: -$xxx-small-unit;
+  }
+
+  .lightbox__fullscreen &,
+  .lightbox__fullscreen &:active {
+    top: 0;
+    right: 0;
+    @include border-radius(0 0 0 50%);
   }
 }
 

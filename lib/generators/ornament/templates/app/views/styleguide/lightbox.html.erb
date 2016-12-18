@@ -12,10 +12,10 @@
   <hr />
   <h2 class="heading-two">Basic Lightbox of Hidden Content</h2>
 
-  <p>To implement a lightbox you need the <code>data-lightbox</code> attribute. The value of the attribute will override the <code>type</code> of the lightbox. By default it's inline.</p>
+  <p>To implement a lightbox you need the <code>data-lightbox-basic</code> attribute. The value of the attribute will override the <code>type</code> of the lightbox. By default it's inline.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-1" } do -%>
-<a href="#example-1" data-lightbox>Open lightbox</a>
+<a href="#example-1" data-lightbox-basic>Open lightbox</a>
 <div class="mfp-hide" id="example-1">
   <div class="panel--padding content">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
@@ -28,10 +28,10 @@
   <hr />
   <h2 class="heading-two">Sizing</h2>
 
-  <p>You can add the <code>data-lightbox-small</code> attribute to the lightbox to give it a smaller window:</p>
+  <p>You can add the <code>data-lightbox-size="small"</code> attribute to the lightbox to give it a smaller window:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-2" } do -%>
-<a href="#example-2" data-lightbox data-lightbox-small>Open lightbox</a>
+<a href="#example-2" data-lightbox-basic data-lightbox-size="small">Open lightbox</a>
 <div class="mfp-hide" id="example-2">
   <div class="panel--padding content">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
@@ -44,7 +44,7 @@
   <hr />
   <h2 class="heading-two">Scrollable Lightbox</h2>
 
-  <p>You can use the <code>shared/inline_lightbox</code> partial to make the lightbox scrollable.</p>
+  <p>You can use the <code>shared/inline_lightbox</code> partial to markup your scrollable lightbox, use the <code>data-lightbox</code> attribute instead of <code>data-lightbox-basic</code> to complete the scrollable lightbox.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-scrollable", ruby: capture { -%>
 &lt;%= render layout: "shared/inline_lightbox", locals: { inline_id: "example-scrollable" } do -%>
@@ -55,7 +55,7 @@
   &lt;/div>
 &lt;%- end -%>
   <%- } } do -%>
-<a href="#example-scrollable" data-lightbox data-lightbox-small>Open lightbox</a>
+<a href="#example-scrollable" data-lightbox data-lightbox-size="small">Open lightbox</a>
 <%= render layout: "shared/inline_lightbox", locals: { inline_id: "example-scrollable" } do -%>
   <div class="panel--padding content">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
@@ -107,11 +107,11 @@
   <p>Linking to a modal from within a modal can look pretty lame because it's sudden and jarring. You can improve the experience by adding <code>data-lightbox-linked</code> attribute on your lightbox links that appear inside modals to fade them out before the modal fades in.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-linked" } do -%>
-<a href="#linked-1" data-lightbox data-lightbox-small>Open lightbox</a>
+<a href="#linked-1" data-lightbox-basic data-lightbox-size="small">Open lightbox</a>
 <div class="mfp-hide" id="linked-1">
   <div class="panel--padding content">
     <p>Modal #1</p>
-    <p><a href="#linked-2" data-lightbox data-lightbox-small data-lightbox-linked>Link to modal #2</a></p>
+    <p><a href="#linked-2" data-lightbox-basic data-lightbox-size="small" data-lightbox-linked>Link to modal #2</a></p>
   </div>
 </div>
 <div class="mfp-hide" id="linked-2">
@@ -125,7 +125,7 @@
   <h2 class="heading-two">Custom close button</h2>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "custom-close" } do -%>
-<a href="#custom-close" data-lightbox data-lightbox-small>Open lightbox</a>
+<a href="#custom-close" data-lightbox-basic data-lightbox-size="small">Open lightbox</a>
 <div class="mfp-hide" id="custom-close">
   <div class="panel--padding content">
     <p>This lightbox has a custom close button.</p>

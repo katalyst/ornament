@@ -21,6 +21,7 @@ Implemented basic Components API for:
 
 - Added `.eslintrc.json`, `.editorconfig.ini` and `.sass-lint.yml` files for linting and autoconfiguring goodness  
 - Added a big warning message to people using IE8/9 and people without scripts enabled  
+- Updated `data-lightbox` to default to internal scrolling behaviour, `data-lightbox-basic` is used for the previous lightbox behaviour  
 - Exposed an easier to remember ornament trigger wrapper, `Ornament.onLoad(...)` as an alternative to `$(document).on("ornament:refresh", ...)`  
 - Added `layouts/_seo.html` partial to keep all the SEO, open graph and twitter card tags, replaced opengraph documentation with seo documentation  
 - Added `css_split` gem for in-built IE8/9 large-css support  
@@ -37,6 +38,7 @@ Implemented basic Components API for:
 - Hiding the form jQueryUI datepicker documentation when `Ornament.C.FormHelpers.jQueryUI` is false  
 - Added a copy button for copying code samples from the styleguide  
 - Added some event listener helpers, `Ornament.onResize()` and `Ornament.onScroll()`  
+- Exposed more JS helpers on the JS helpers page  
 
 ### Performance Enhancements
 
@@ -57,6 +59,7 @@ Implemented basic Components API for:
 - Uploader will be replaced with a big ugly warning message if used in an unsupported browser  
 - Removed `.form--inline__full` and made `.form--inline` full-width by default. Widths for inline forms can be controlled by `.form--*` classes  
 - Simplified the `spacing-*` class partial making it easier to extend  
+- Changed `lightbox-small` attribute to `lightbox-size=` so developers can pass in custom sizes/classes  
 
 ## v1.2.3
 
