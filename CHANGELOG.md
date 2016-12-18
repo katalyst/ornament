@@ -8,6 +8,8 @@
 - Fixed `.button__icon` sizing to be in-line with the default button heights  
 - Added `.button__small.button__icon` variation  
 - Added `.button-set` for a grouping of buttons that always have consistent space between themselves  
+- Added `Ornament.version` to return the current version of Ornament  
+- Added `ShiftyJS`, a new JS component for moving elements around the page between breakpoints  
 
 ## v1.2.4
 
