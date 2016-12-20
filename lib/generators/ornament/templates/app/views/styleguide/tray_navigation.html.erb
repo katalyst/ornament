@@ -70,42 +70,123 @@
 
   <p>The menu features several public functions that you can call anywhere.</p>
 
-  <%- traynav = "Ornament.C.TrayNav" -%>
+  <%- 
+    traynav = "Ornament.C.TrayNav" 
+    public_values = [{
+      call: "#{traynav}.currentLevel",
+      description: "Returns how many panes deep the menu is open to."
+    },{
+      call: "#{traynav}.simple",
+      description: "Returns true or false based on the related setting. See settings for more info on that."
+    }]
+    dom_elements = [{
+      call: "#{traynav}.anchor",
+      description: "The menu button that opens/closes the tray."
+    },{
+      call: "#{traynav}.tray",
+      description: "The tray"
+    }]
+    public_functions = [{
+      call: "#{traynav}.openMenu();",
+      description: "Slide the menu open."
+    },{
+      call: "#{traynav}.closeMenu();",
+      description: "Slide the menu closed."
+    },{
+      call: "#{traynav}.toggleMenu();",
+      description: "Either close or open the menu."
+    },{
+      call: "#{traynav}.isOpen();",
+      description: "Returns true or false depending on if the menu is open or not."
+    },{
+      call: "#{traynav}.getCurrentTab();",
+      description: "Returns a jQuery object of the parent of the currently open pane."
+    },{
+      call: "#{traynav}.goToId(id);",
+      description: "Go to the ID of a navigation item (either on the LI or A)"
+    },{
+      call: "#{traynav}.goBack();",
+      description: "Go back one level"
+    },{
+      call: "#{traynav}.goToRoot();",
+      description: "Goes back to first pane."
+    },{
+      call: "#{traynav}.updateMenuHeight();",
+      description: "Will recalculate everything on the currently visible pane and update the height of the mobile menu accordingly."
+    },{
+      call: "#{traynav}.updateMenuHeightWithDelay();",
+      description: "Runs the height update function after waiting the appropriate amount of time for a pane transition to finish."
+    },{
+      call: "#{traynav}.updateMenuBindings();",
+      description: "Updates bindings on the anchor, back and forward buttons in case they somehow get lost via AJAX or DOM manipulation."
+    }]
+
+  -%>
   <p>The menu is accessed via the public variable <code><%= traynav -%></code></p>
 
   <h3 class="heading-three">Public Values</h3>
 
-  <ul>
-    <li>
-      <code><%= traynav -%>.currentLevel</code> - Returns how many panes deep the menu is open to.
-    </li>
-    <li>
-      <code><%= traynav -%>.simple</code> - Returns true or false based on the related setting. See <a href="#settings">settings</a> for more info on that.
-    </li>
-  </ul>
+  <div class="table-container">
+    <table class="table table__bordered table__flush">
+      <thead>
+        <tr>
+          <th width="400">JS</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- public_values.each do |field| -%>
+          <tr>
+            <td><code><%= field[:call] -%></code></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
 
   <h3 class="heading-three">DOM Elements</h3>
 
-  <ul>
-    <li><code><%= traynav -%>.anchor</code> - The menu button that opens/closes the tray.</li>
-    <li><code><%= traynav -%>.tray</code> - The tray
-  </ul>
+  <div class="table-container">
+    <table class="table table__bordered table__flush">
+      <thead>
+        <tr>
+          <th width="400">JS</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- dom_elements.each do |field| -%>
+          <tr>
+            <td><code><%= field[:call] -%></code></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
 
   <h3 class="heading-three">Public Functions</h3>
 
-  <ul>
-    <li><code><%= traynav -%>.openMenu();</code> - Slide the menu open.</li>
-    <li><code><%= traynav -%>.closeMenu();</code> - Slide the menu closed.</li>
-    <li><code><%= traynav -%>.toggleMenu();</code> - Either close or open the menu.</li>
-    <li><code><%= traynav -%>.isOpen();</code> - Returns true or false depending on if the menu is open or not.</li>
-    <li><code><%= traynav -%>.getCurrentTab();</code> - Returns a jQuery object of the parent of the currently open pane.</li>
-    <li><code><%= traynav -%>.goToId(id);</code> - Go to the ID of a navigation item (either on the LI or A)</li>
-    <li><code><%= traynav -%>.goBack();</code> - Go back one level</li>
-    <li><code><%= traynav -%>.goToRoot();</code> - Goes back to first pane.</li>
-    <li><code><%= traynav -%>.updateMenuHeight();</code> - Will recalculate everything on the currently visible pane and update the height of the mobile menu accordingly.</li>
-    <li><code><%= traynav -%>.updateMenuHeightWithDelay();</code> - Runs the height update function after waiting the appropriate amount of time for a pane transition to finish.</li>
-    <li><code><%= traynav -%>.updateMenuBindings();</code> - Updates bindings on the anchor, back and forward buttons in case they somehow get lost via AJAX or DOM manipulation.</li>
-  </ul>
+  <div class="table-container">
+    <table class="table table__bordered table__flush">
+      <thead>
+        <tr>
+          <th width="400">JS</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- public_functions.each do |field| -%>
+          <tr>
+            <td><code><%= field[:call] -%></code></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
 
   <hr />
 
