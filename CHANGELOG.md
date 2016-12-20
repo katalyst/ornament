@@ -13,6 +13,7 @@
 
 ### Changes
 
+- Renamed `mobile_navigation` to `tray_navigation` to better represent the component  
 - Replaced TODO link in styleguide with a link to the project board on github  
 
 ## v1.2.4

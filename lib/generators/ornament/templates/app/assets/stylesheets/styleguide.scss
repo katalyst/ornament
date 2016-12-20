@@ -86,7 +86,6 @@ $heading-beta-font-italic: ('Open Sans', sans-serif) italic bold;
 @import "components/menu-aim";
 @import "components/menu-with-more";
 @import "components/navigation";
-@import "components/navigation-mobile";
 @import "components/oslide";
 @import "components/page";
 @import "components/pagination";
@@ -102,6 +101,7 @@ $heading-beta-font-italic: ('Open Sans', sans-serif) italic bold;
 @import "components/text-limiter";
 @import "components/toggle";
 @import "components/tooltip";
+@import "components/tray-navigation";
 @import "components/fotorama-custom";
 @import "components/print";
 
@@ -324,22 +324,26 @@ $sg-feature-background: $background-color;
   border-top: 0;
   position: relative;
 
-  [data-copy-code] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 5px 10px;
-    display: block;
-    background: $primary-color;
-    @include border-bottom-left-radius($border-radius);
-    @include color-link($white, $white);
-    text-transform: uppercase;
-    font-size: $x-small-font-size;
-  }
-
   [data-copy-code] + pre {
     margin-top: 0;
   }
+}
+
+[data-styleguide-code-sample] {
+  position: relative;
+}
+
+[data-copy-code] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  display: block;
+  background: $primary-color;
+  @include border-bottom-left-radius($border-radius);
+  @include color-link($white, $white);
+  text-transform: uppercase;
+  font-size: $x-small-font-size;
 }
 
 .sg-feature > .tabs--panes > .tabs--pane__flush {
