@@ -103,7 +103,7 @@ class OrnamentGenerator < Rails::Generators::Base
     puts ""
     puts "  gem 'sass-rails', '~> 5.0.6'"
     puts "  gem 'uglifier', '~> 3.0.4'"
-    puts "  gem 'compass-rails', '~> 4.3.4'"
+    puts "  gem 'compass-rails', '~> 3.0.2'"
     puts "  gem 'htmlentities', '~> 4.3.4'"
     puts "  gem 'css_splitter', '~> 0.4.6'"
     puts ""

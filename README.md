@@ -1,41 +1,44 @@
 Ornament
 ========
 
-A front-end framework for your Rails app.
+A production-ready, browser-friendly front-end framework for your Rails app.
 
 Visit the [Ornament website](http://ornament.katalyst.com.au/) for more information.
 
 Installation
 ------------
 
-1.  Add to your `Gemfile`:
+1.  Add to your `Gemfile`:  
 
     ```ruby
+    gem 'sass-rails', '~> 5.0.6'
+    gem 'uglifier', '~> 3.0.4'
+    gem 'compass-rails', '~> 3.0.2'
+    gem 'htmlentities', '~> 4.3.4'
+    gem 'css_splitter', '~> 0.4.6'
+
     group :development do
       gem 'ornament', github: 'katalyst/ornament'
     end
     ```
 
-1.  Run bundler:
+1.  Run bundler:  
 
     ```bash
     bundle install
     ```
 
-1.  Run the generator:
+1.  Run the generator:  
 
     ```bash
     rails generate ornament
     ```
 
-Prototype Version
------------------
+1. Update `config/initializers/assets.rb`:  
 
-You can use the prototype version of Ornament by changing the gemfile branch:  
-
-```   
-gem 'ornament', github: 'katalyst/ornament', branch: 'prototype'
-```  
+    ```ruby
+    Rails.application.config.assets.precompile += %w( application_split2.css  selectivizr.js respond.js application_bottom.js styleguide.css styleguide_split2.css styleguide.js )
+    ```
 
 License
 -------

@@ -178,6 +178,3 @@ DEPENDENCIES
   turbolinks (~> 1.3.0)
   tzinfo-data (~> 1.2015.7)
   uglifier (>= 1.0.3)
-
-BUNDLED WITH
-   1.13.6
