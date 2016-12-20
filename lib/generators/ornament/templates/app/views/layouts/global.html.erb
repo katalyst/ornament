@@ -38,6 +38,7 @@
     <%= yield :styles %>
 
     <!-- SCRIPTS -->
+    <%= javascript_include_tag "application" %>
     <!--[if lt IE 9]>
       <%#= javascript_include_tag "selectivizr" %>
       <%= javascript_include_tag "respond" %>
@@ -115,7 +116,6 @@
 
     <% end %>
 
-    <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "application_bottom" %>
     <%= yield :scripts_bottom %>
 

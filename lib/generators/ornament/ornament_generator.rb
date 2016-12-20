@@ -45,6 +45,7 @@ class OrnamentGenerator < Rails::Generators::Base
         copy_file "app/assets/javascripts/application.js"
         copy_file "app/assets/javascripts/application_bottom.js"
         copy_file "app/assets/javascripts/settings.js"
+        copy_file "app/assets/javascripts/styleguide.js"
         directory "app/assets/javascripts/ornament"
         directory "app/assets/javascripts/utilities"
 
