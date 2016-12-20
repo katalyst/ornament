@@ -11,6 +11,10 @@
 - Added `Ornament.version` to return the current version of Ornament  
 - Added `ShiftyJS`, a new JS component for moving elements around the page between breakpoints  
 
+### Changes
+
+- Replaced TODO link in styleguide with a link to the project board on github  
+
 ## v1.2.4
 
 Introducing the Ornament Component API!  

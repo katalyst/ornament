@@ -29,13 +29,16 @@
   <h2 class="heading-two">Button sizing</h2>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-sizing", ruby: capture { -%>
+&lt;%= link_to "Button", "#", class: "button button__pill" -%&gt;
 &lt;%= link_to "Button", "#", class: "button button__small" -%&gt;
 &lt;%= link_to "Button", "#", class: "button button__large" -%&gt;
   <%- } } do -%>
 <p>
+  <a href="#" class="button button__pill">Pill button</a>
+</p>
+<p>
   <a href="#" class="button button__small">Small button</a>
 </p>
-
 <p>
   <a href="#" class="button button__large">Large button</a>
 </p>
@@ -161,9 +164,10 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-sides" } do -%>
 <div class="button-set">
-  <%- (1..10).each do |i| -%>
+  <%- (1..16).each do |i| -%>
+  <%- button_classes = ["button", "button__confirm", "button__cancel", "button__secondary", "button__line", "button__confirm__line", "button__cancel__line"] -%>
   <div>
-    <a href="#" class="button">Button <%= i -%></a>
+    <a href="#" class="<%= button_classes.sample -%>">Button <%= i -%></a>
   </div>
   <%- end -%>
 </div>
@@ -173,11 +177,13 @@
 
   <h2 class="heading-two">Forward and Back buttons</h2>
 
+  <p>A simple little wrapper that pushes two buttons to either side of the screen.</p>
+
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-sides" } do -%>
 <div class="button-sides">
   <a href="#" class="button button__back">Back</a>
   <a href="#" class="button button__forward">Forward</a>
 </div>
   <%- end -%>
-
+  
 </div>

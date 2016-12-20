@@ -44,29 +44,56 @@
   }
 }
 
-@mixin button-large {
-  padding: $xx-small-unit $x-small-unit;
+@mixin button-large($line: false) {
+  @if $line {
+    padding: ($xx-small-unit - 4px) $x-small-unit;
+  } @else {
+    padding: $xx-small-unit $x-small-unit;
+  }
 }
 
-@mixin button-small {
-  padding: 10px 19px;
+@mixin button-small($line: false) {
+  @if $line {
+    padding: (10px - 4px) 19px;
+  } @else {
+    padding: 10px 19px;
+  }
 }
 
-@mixin button-base {
+@mixin button-pill($line: false) {
+  font-size: $x-small-font-size;
+
+  @if $line {
+    padding: (8px - 4px) 12px;
+  } @else {
+    padding: 8px 12px;
+  }
+}
+
+@mixin button-base($line: false) {
   @extend .button;
-  padding: $xxx-small-unit $x-small-unit;
   @include border-radius($border-radius);
   @include decorate-link(none, none);
   @include inline-block;
   @include font($bold-font);
   @include color-link($white, $white);
 
+  @if $line {
+    padding: ($xxx-small-unit - 2px) $x-small-unit;
+  } @else {
+    padding: $xxx-small-unit $x-small-unit;
+  }
+
+  &.button__pill {
+    @include button-pill($line);
+  }
+
   &.button__small {
-    @include button-small;
+    @include button-small($line);
   }
 
   &.button__large {
-    @include button-large;
+    @include button-large($line);
   }
 }
 
@@ -126,19 +153,19 @@
 
 // line styles
 .button__line {
-  @include button-base;
+  @include button-base(true);
   @include button-line($primary-color, false, $primary-color);
 }
 .button__secondary__line {
-  @include button-base;
+  @include button-base(true);
   @include button-line($secondary-color, false, $secondary-color);
 }
 .button__confirm__line {
-  @include button-base;
+  @include button-base(true);
   @include button-line($success-color, false, $success-color);
 }
 .button__cancel__line {
-  @include button-base;
+  @include button-base(true);
   @include button-line($error-color, false, $error-color);
 }
 
