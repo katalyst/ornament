@@ -420,6 +420,23 @@
 
   <hr />
 
+  <h2 class="heading-two">Password Revealer</h2>
+
+  <p>Use <code>data-password-reveal</code> on your input field to add a reveal button. This will toggle the input type between text and password.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "password-reveal", ruby: capture { -%>
+&lt;%= f.input :example, input_html: { data: { password_reveal: "" } } -%&gt;
+  <%- } } do -%>
+<div class="control-group form--medium">
+  <label class="control-label">Password:</label>
+  <div class="controls">
+    <input type="password" data-password-reveal />
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
   <h2 class="heading-two">Password Score</h2>
 
   <p>Requires the <a href="https://github.com/dropbox/zxcvbn">zxcvbn gem</a>, and this line to be added to your <code>core.js</code>:<br />
@@ -438,34 +455,21 @@
 </div>
   <%- end -%>
 
-  <p>You can customise the label under the field by using <code>data-password-score-label</code>. Here's an example with a custom label and using one of the form sizing classes.</p>
+  <p>You can customise the label under the field by using <code>data-password-score-label</code>. Here's an example with a custom label, using one of the form sizing classes and the password revealer for good measure.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-password-score-2", ruby: capture { -%>
-&lt;%= f.input :example, wrapper_html: { class: "form--medium", data: { password_sore: "", password_score_label: "<('.' <)" } } -%&gt;
+&lt;%= f.input :example, input_wrapper: { data: { password_reveal: "" } }, wrapper_html: { class: "form--medium", data: { password_sore: "", password_score_label: "<('.' <)" } } -%&gt;
   <%- } } do -%>
 <div data-password-score data-password-score-label="<('.' <)" class="control-group form--medium">
-  <label class="control-label">Password:</label>
-  <div class="controls">
-    <input type="password" />
-  </div>
-</div>
-  <%- end -%>
-
-  <p>Password score comes with a helper to test if zxcbvn is available: <code>Ornament.C.FormHelpers.hasZxcvbn</code></p>
-  <p>You can rebind password scores if you need to, for example if the form has been ajaxed in, with <code>Ornament.C.FormHelpers.bindPasswordScores()</code></p>
-
-  <hr />
-
-  <h2 class="heading-two">Password Revealer</h2>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "password-reveal" } do -%>
-<div class="control-group form--medium">
   <label class="control-label">Password:</label>
   <div class="controls">
     <input type="password" data-password-reveal />
   </div>
 </div>
   <%- end -%>
+
+  <p>Password score comes with a helper to test if zxcbvn is available: <code>Ornament.C.FormHelpers.hasZxcvbn</code></p>
+  <p>You can rebind password scores if you need to, for example if the form has been ajaxed in, with <code>Ornament.C.FormHelpers.bindPasswordScores()</code></p>
 
   <hr />
 

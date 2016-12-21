@@ -578,10 +578,17 @@ $password-dark-grey: #a7adb3;
   @include border-top-left-radius($border-radius);
   @include border-top-right-radius($border-radius);
 
-  & + input {
+  // Flush the input against the demo mode warning
+  & + input,
+  & + .form--password-revealer input {
     @include border-top-left-radius(0);
     @include border-top-right-radius(0);
     border-top: none;
+  }
+
+  // offset reveal button to fix extra space without the border
+  & + .form--password-revealer button {
+    margin-top: -1px;
   }
 }
 .password-score--label {
@@ -597,6 +604,7 @@ $password-dark-grey: #a7adb3;
     clear: both;
   }
 
+  .password-score__0 &,
   .password-score__1 & {
     color: $password-0;
   }
@@ -618,6 +626,7 @@ $password-dark-grey: #a7adb3;
 .password-score--progress {
   height: 6px;
 
+  .password-score__0 &,
   .password-score__1 & {
     background: $password-0;
     width: 25%;
