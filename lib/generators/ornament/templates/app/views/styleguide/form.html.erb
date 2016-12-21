@@ -433,7 +433,7 @@
 <div data-password-score class="control-group">
   <label class="control-label">Password:</label>
   <div class="controls">
-    <input type="text" />
+    <input type="password" />
   </div>
 </div>
   <%- end -%>
@@ -446,13 +446,26 @@
 <div data-password-score data-password-score-label="<('.' <)" class="control-group form--medium">
   <label class="control-label">Password:</label>
   <div class="controls">
-    <input type="text" />
+    <input type="password" />
   </div>
 </div>
   <%- end -%>
 
   <p>Password score comes with a helper to test if zxcbvn is available: <code>Ornament.C.FormHelpers.hasZxcvbn</code></p>
   <p>You can rebind password scores if you need to, for example if the form has been ajaxed in, with <code>Ornament.C.FormHelpers.bindPasswordScores()</code></p>
+
+  <hr />
+
+  <h2 class="heading-two">Password Revealer</h2>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "password-reveal" } do -%>
+<div class="control-group form--medium">
+  <label class="control-label">Password:</label>
+  <div class="controls">
+    <input type="password" data-password-reveal />
+  </div>
+</div>
+  <%- end -%>
 
   <hr />
 
