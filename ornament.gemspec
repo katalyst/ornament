@@ -7,9 +7,9 @@ require "ornament/version"
 Gem::Specification.new do |s|
   s.name        = "ornament"
   s.version     = Ornament::VERSION
-  s.authors     = ["Haydn Ewers"]
+  s.authors     = ["Haydn Ewers", "David Baines"]
   s.email       = ["haydn@particlesystem.com"]
-  s.homepage    = "http://ornament.herokuapp.com/"
+  s.homepage    = "http://ornament.katalyst.com.au"
   s.summary     = "UI framework for Ruby on Rails."
   s.description = s.summary
 
