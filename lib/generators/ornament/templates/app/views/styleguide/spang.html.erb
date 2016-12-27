@@ -1,145 +1,220 @@
 <% content_for :title, "Spang" %>
 
-<div class="content-spacing content-lists">
+<div class="content-spacing">
 
-  <h2 class="heading-two">How to use Spang</h2>
-  <p>First we need to create a <strong>row</strong> element to keep all our columns in:</p>
+  <p><code>spang</code> is a series of scss mixins for making grids.</p>
+  <p>At the very basic implementation it requires a single wrapper element that uses the <code>row</code> mixin, and any number of columns that use the <code>spang</code> mixin.</p>
+  <p>Here is a very basic example to create two equal-width 50/50 columns:</p>
 
-  <pre class="prettyprint">
-&lt;div class='row'>
-  columns go here..
-&lt;/div></pre>
-
-  <p>Once we have a row, we then need to create some columns:</p>
-
-  <pre class="prettyprint">
-&lt;div class='row'>
-  &lt;div class='column-one'>column-one&lt;/div>
-  &lt;div class='column-two'>column-two&lt;/div>
-&lt;/div></pre>
-
-  <p>There are no default spang column classes, all columns are made using a SASS Mixin. To create our columns we will use the following CSS code:</p>
-
-  <pre class="prettyprint">
-.column-one {
-  @include spang(4,12);
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "spang-1", scss: capture { -%>
+.row {
+  @include row;
 }
-.column-one {
-  @include spang(6,12);
-}</pre>
-
-  <p>The spang mixin takes three arguments:</p>
-
-  <ol>
-    <li>Column count</li>
-    <li>Grid count</li>
-    <li>Media query (optional)</li>
-  </ol>
-
-  <p>The column count is how wide the column should be and the grid count is the total number of columns in the grid.</p>
-
-  <p>For example, the basic usage of spang is <code>spang(1,3)</code>, which is like saying, "This element should take up one column of a three column grid."</p>
-
-  <p>If you had a grid made of 24 columns and you wanted something to go to 50%, you could use <code>spang(12,24)</code>. However, spang is only used to do the math of calculating percentage widths, so you could also do <code>spang(1,2)</code> as it results in the same percentage (50%). <code>spang(6,12)</code> and <code>spang(50,100)</code> will also have the same result.</p>
-
-  <h2 class="heading-two">Advanced usage</h2>
-
-  <p>You can pass in a media query to the spang mixin. This will over-ride the columns at a certain breakpoint defined in your settings.</p>
-
-  <pre class="prettyprint">
-.column-one {
-  @include spang(4,12);
-  @include spang(6,12,medium);
-}</pre>
-
-  <p>In this example, the column will span 4 columns of a 12 column grid but at the medium breakpoint, it will switch to a 6 of 12 column grid. </p>
-
-  <p>You can clear spangs using the <code>spanc</code> mixin. Clearing a spang will make the column span 100%.</p>
-
-  <pre class="prettyprint">
-.column-one {
-  @include spang(4,12);
-  @include spang(6,12,medium);
-  @include spanc(small);
-}</pre>
-
-  <p>In this example, the column will span 4 of 12, then at the medium breakpoint go to 6 of 12, then at small, will clear the spang making it go full-width.</p>
-
-  <p>Clearing a spang is essentially like saying <code>spang(1,1,small)</code>.
-
-  <h2 class="heading-one">Examples</h2>
-
-  <h3 class="heading-two">2 columns</h3>
-  <p>clear at [small-breakpoint], conformed heights</p>
-
-  <div class="row" data-conform-set="columns">
-    <div class="spang-50">
-      <div data-conform="columns">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit aspernatur itaque repellendus? Atque, ratione, suscipit, accusantium quod inventore impedit explicabo laborum ab earum non sunt   est doloribus mollitia sapiente vel!
-      </div>
-    </div>  
-    <div class="spang-50">
-      <div data-conform="columns">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit aspernatur itaque repellendus? Atque, ratione, suscipit, accusantium quod inventore impedit explicabo laborum ab earum non sunt   est doloribus mollitia sapiente vel!
-      </div>
-    </div>  
-    <div class="spang-50">
-      <div data-conform="columns">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit aspernatur itaque repellendus? Atque, ratione, suscipit, accusantium quod inventore impedit explicabo laborum ab earum non sunt   est doloribus mollitia sapiente vel!
-    </div>
-    </div>  
-    <div class="spang-50">
-      <div data-conform="columns">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-      </div>
-    </div>  
-    <div class="spang-50">
-      <div data-conform="columns">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-      </div>
-    </div>  
-    <div class="spang-50">
-      <div data-conform="columns">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit aspernatur itaque repellendus? Atque, ratione, suscipit, accusantium quod inventore impedit explicabo laborum ab earum non sunt   est doloribus mollitia sapiente vel!
-      </div>
-    </div>  
+.column {
+  @include spang(1,2);
+}
+  <%- } } do -%>
+<div class="row">
+  <div class="column">
+    <div class="panel__passive">Column 1</div>
   </div>
-
-  <h3 class="heading-two">6 columns</h3>
-  <p>breaks to 3 columns at [medium-breakpoint], clears at [small-breakpoint]</p>
-
-  <div class="row">
-    <%- (1..12).each do |i| -%>
-      <div class="spang-6">
-        <div data-conform>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit aspernatur itaque repellendus? Atque, ratione, suscipit, accusantium quod inventore impedit explicabo laborum ab earum non sunt   est doloribus mollitia sapiente vel!
-        </div>
-      </div>  
-    <%- end -%>
+  <div class="column">
+    <div class="panel__passive">Column 2</div>
   </div>
+</div>
+  <%- end -%>
 
-  <h3 class="heading-two">Custom gutters</h3>
+  <p>The <code>spang</code> mixin requires two arguments. The first is the number of columns that the element should take up, the second argument is the total number of columns that the grid contains.</p>
 
-  <p>You can pass in custom gutters in to both the <code>row</code> and the <code>spang</code>:
+  <p>Think of it like "1 of 4" is <code>spang(1,4)</code>, "3 of 12" is <code>spang(3,12)</code>.</p>
 
-  <div class="spang-tight">
-    <%- (1..4).each do |i| -%>
-      <div>
-        <div>
-          Spang!
-        </div>
-      </div>
-    <%- end -%>
+  <p>So the above example made 50/50 columns by saying it wanted "1 of 2", <code>spang(1,2)</code>.</p>
+
+  <p>You can also mix and match the widths, here you can see six columns at 1 of 4, and one column at 1 of 2:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "spang-2", scss: capture { -%>
+.row {
+  @include row;
+}
+.column {
+  @include spang(1,2); // one of two
+}
+.column-small {
+  @include spang(1,4); // one of four
+}
+  <%- } } do -%>
+<div class="row">
+  <div class="column-small">
+    <div class="panel__passive">Column 1</div>
   </div>
+  <div class="column-small">
+    <div class="panel__passive">Column 2</div>
+  </div>
+  <div class="column-small">
+    <div class="panel__passive">Column 3</div>
+  </div>
+  <div class="column-small">
+    <div class="panel__passive">Column 4</div>
+  </div>
+  <div class="column">
+    <div class="panel__passive">Column 5</div>
+  </div>
+  <div class="column-small">
+    <div class="panel__passive">Column 6</div>
+  </div>
+  <div class="column-small">
+    <div class="panel__passive">Column 7</div>
+  </div>
+</div>
+  <%- end -%>
 
-<pre class="sg-pre prettyprint">.spang-tight {
-  @include row($custom-gutter: 5px);
-  @include rowV($custom-gutter: 5px);
-  > div {
-    @include spang(1,4,$custom-gutter: 5px);
-    @include spang(1,2,$custom-gutter: 5px);
-    @include guttersV($custom-gutter: 5px);
-  }  
-}</pre>
+  <p>Here is another example using a three column grid:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "spang-4", scss: capture { -%>
+.row {
+  @include row;
+}
+.column-1-3 {
+  @include spang(1,3); // one of three
+}
+.column-2-3 {
+  @include spang(2,3); // two of three
+}
+  <%- } } do -%>
+<div class="row">
+  <div class="column-1-3">
+    <div class="panel__passive">Column 1</div>
+  </div>
+  <div class="column-2-3">
+    <div class="panel__passive">Column 2</div>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Responsive sizing of columns</h2>
+
+  <p>You can pass a third option in to <code>spang</code>, which is the media-query that spang should be set at.</p>
+  <p>To clear our spangs back to 100%, you can use <code>spanc</code>, with a media-query argument. It's essentialy the same as calling <code>spang(1,1)</code></p>
+  <p>This example defaults to 1 of 4, then at 800px wide it changes to 1 of 2, then clear to 100% at 600px.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "spang-5", scss: capture { -%>
+.row {
+  @include row;
+}
+.column-responsive {
+  @include spang(1,4); // one of four by default
+  @include spang(1,2,800px); // one of two, when the browser reaches 800px wide
+  @include spanc(600px); // one of one (cleared) when the browser reaches 600px wide
+}
+  <%- } } do -%>
+<div class="row">
+  <div class="column-responsive">
+    <div class="panel__passive">Column 1</div>
+  </div>
+  <div class="column-responsive">
+    <div class="panel__passive">Column 2</div>
+  </div>
+  <div class="column-responsive">
+    <div class="panel__passive">Column 3</div>
+  </div>
+  <div class="column-responsive">
+    <div class="panel__passive">Column 4</div>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Spacers</h2>
+
+  <p>You can use <code>spacer-right</code> and <code>spacer-left</code> to set spacer columns, and you can use <code>spacer-right-clear</code> and <code>spacer-left-clear</code> to clear them.</p>
+
+  <p>Here we've got a twelve column grid. The sidebar is set to 3 of 12, and the main area is set to 8 of 12. But that doesn't add up to 12. So we've set a spacer column on the sidebar to push it a single column away from the main area, to fill out our twelve column grid.</p>
+
+  <p>We don't always want that spacer to be there though, so we're removing it at 900px wide and increasing the sidebar width to 4 of 12.</p>
+
+  <p>Then we're clearing the whole thing at 750px.</p>
+
+  <p>Resize your browser window to see how it behaves.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "spang-6", scss: capture { -%>
+.spang-main {
+  @include spang(8,12);
+  @include spanc(750px);
+  float: right;
+}
+.spang-aside {
+  @include spang(3,12);
+  @include spacer-right(1,12);
+  @include spacer-right-clear(900px);
+  @include spang(4,12,900px);
+  @include spanc(750px);
+}
+  <%- } } do -%>
+<div class="row">
+  <div class="spang-main">
+    <div class="panel__passive">Main</div>
+  </div>
+  <div class="spang-aside">
+    <div class="panel__passive">Sidebar</div>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Custom gutters</h2>
+
+  <p>Finally, here is an example of passing in custom gutters.</p>
+  <p>First pass in the gutter size to the <code>row</code> as the only argument.</p>
+  <p>Then pass in the same gutter size to the <code>spang</code> mixins as the fourth argument.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "spang-custom-gutter", scss: capture { -%>
+.spang-gutters-row {
+  @include row(2px);
+}
+.spang-gutters-column {
+  @include spang(1,2,false,2px);
+}
+  <%- } } do -%>
+<div class="spang-gutters-row">
+  <div class="spang-gutters-column">
+    <div class="panel__passive">Column with custom gutters</div>
+  </div>
+  <div class="spang-gutters-column">
+    <div class="panel__passive">Column with custom gutters</div>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Responsive gutters</h2>
+
+  <p>This option is disabled by default, but can be enabled by making some configuration changes in your <code>settings.scss</code> file.</p>
+  <p>First you need some breakpoint variables and some gutter variables. Of course you don't <em>need</em> these as variables, but it certainly helps in building a system in case these same breakpoints need to affect things like panel padding and such.</p>
+  <p>Once you have those two groups of variables set up, take a look at the <code>$site-gutters</code> variable and update that with your breakpoints and gutter variables, like below:</p>
+
+  <pre class="sg-pre prettyprint lang-css">$breakpoint-large: 1200px;
+$breakpoint-medium: 800px;
+$breakpoint-small: 600px;
+$breakpoint-tiny: 400px;
+
+$large-gutter:    $large-unit;
+$medium-gutter:   $large-unit;
+$small-gutter:    $large-unit;
+$tiny-gutter:     $default-unit;
+
+$site-gutters:
+  ($breakpoint-large,  $large-gutter),
+  ($breakpoint-medium, $medium-gutter),
+  ($breakpoint-small,  $small-gutter),
+  ($breakpoint-tiny,   $tiny-gutter),
+  false
+;</pre>
+
+  <p>Once it's all configured you should start seeing your spang gutters respond as you scale down your browser.</p>
 
 </div>

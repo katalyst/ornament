@@ -419,40 +419,52 @@ code {
 
 // SPANG
 
-.spang-50 {
+.row {
+  @include row;
+}
+
+.column {
   @include spang(1,2);
-  @include spanc(small);
-  @include guttersV();
-
-  > div {
-    border: 1px solid red;
-  }
 }
 
-.spang-6 {
-  @include spang(1,6);
-  @include spang(1,3,medium);
-  @include spanc(small);
-  @include guttersV();
-
-  > div {
-    border: 1px solid red;
-  }
+.column-small {
+  @include spang(1,4);
 }
 
-.spang-tight {
-  @include row($custom-gutter: 5px);
-  @include rowV($custom-gutter: 5px);
+.column-1-3 {
+  @include spang(1,3);
+}
 
-  > div {
-    @include spang(1,4,$custom-gutter: 5px);
-    @include spang(1,2,small,$custom-gutter: 5px);
-    @include guttersV($custom-gutter: 5px);
+.column-2-3 {
+  @include spang(2,3);
+}
 
-    > div {
-      border: 1px solid red;
-    }
-  }
+.column-responsive {
+  @include spang(1,4);
+  @include spang(1,2,800px);
+  @include spanc(600px);
+}
+
+.spang-main {
+  @include spang(8,12);
+  @include spanc(750px);
+  float: right;
+}
+
+.spang-aside {
+  @include spang(3,12);
+  @include spacer-right(1,12);
+  @include spacer-right-clear(900px);
+  @include spang(4,12,900px);
+  @include spanc(750px);
+}
+
+.spang-gutters-row {
+  @include row(2px);
+}
+
+.spang-gutters-column {
+  @include spang(1,2,false,2px);
 }
 
 // LISTS
@@ -558,3 +570,9 @@ code {
   padding: 120px 70px;
   text-align: center;
 }
+
+// =========================================================================
+// Prettyprint over-rides
+// =========================================================================
+
+.prettyprinted .com {color: #aaa;}

@@ -11,6 +11,7 @@
 - Added `Ornament.version` to return the current version of Ornament  
 - Added `ShiftyJS`, a new JS component for moving elements around the page between breakpoints  
 - Added [what-input](https://github.com/ten1seven/what-input) and added a sass mixin `disable-mouse-outline` that disabled outlines on elements when mouse is detected as main input device  
+- Updated spang documentation  
 
 ### Changes
 

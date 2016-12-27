@@ -1,39 +1,34 @@
-/* 
--------------
-Functions
--------------
-*/
+// =========================================================================
+// Functions
+// =========================================================================
 
-/* Create Column Widths */
-
+// Create Column Widths
 @function span($columnCount, $totalCol) {
   @return $columnCount / $totalCol * 100%;
 }
 
-/* Create Fixed Width Columns Based of Max Site Width */
-
+// Create Fixed Width Columns Based of Max Site Width
 @function spanf($columnCount, $totalCol, $max-width:$container-width) {
   @return $columnCount / $totalCol * $max-width;
 }
 
-/* 
--------------
-Mixins
--------------
-*/
+// =========================================================================
+// Row Mixins
+// Setting negative outer gutters on the row
+// =========================================================================
 
-/* Remove Outer Gutters */
-
-@mixin rowGenerate($gutterSize) {
-  margin-left: ($gutterSize * .5) * -1;
-  margin-right: ($gutterSize * .5) * -1;
+@mixin rowGenerate($gutter-x-size, $gutter-y-size:$gutter-x-size) {
+  margin-top: $gutter-y-size * -.5;
+  margin-left: $gutter-x-size * -.5;
+  margin-right: $gutter-x-size * -.5;
+  margin-bottom: $gutter-y-size * -.5;
 }
 
-@mixin row($custom-gutter: false) {
+@mixin row($gutter: false) {
   @include pie-clearfix;
 
-  @if($custom-gutter) {
-    @include rowGenerate($custom-gutter);
+  @if($gutter) {
+    @include rowGenerate($gutter);
   }
   @else {
     @include rowGenerate($desktop-gutters);
@@ -47,37 +42,21 @@ Mixins
   }
 }
 
-@mixin rowVGenerate($gutterSize) {
-  margin-top: ($gutterSize * .5) * -1;
-  margin-bottom: ($gutterSize * .5) * -1;
+// =========================================================================
+// Gutter mixins
+// Generate responsive gutters with padding
+// =========================================================================
+
+@mixin guttersGenerate($gutter-x-size, $gutter-y-size:$gutter-x-size) {
+  padding-top: $gutter-y-size * .5;
+  padding-left: $gutter-x-size * .5;
+  padding-right: $gutter-x-size * .5;
+  padding-bottom: $gutter-y-size * .5;
 }
 
-@mixin rowV($custom-gutter: false){
-  @if($custom-gutter) {
-    @include rowVGenerate($custom-gutter);
-  }
-  @else {
-    @include rowVGenerate($desktop-gutters);
-    @each $gutter in $site-gutters {
-      @if $gutter != false {
-        @include media-query(nth($gutter, 1)) {
-          @include rowVGenerate(nth($gutter, 2));
-        }
-      }
-    }
-  }
-}
-
-/* Generate Responsive Gutters */
-
-@mixin guttersGenerate($gutterSize) {
-  padding-left: $gutterSize * .5;
-  padding-right: $gutterSize * .5;
-}
-
-@mixin gutters($custom-gutter: false) {
-  @if($custom-gutter) {
-    @include guttersGenerate($custom-gutter);
+@mixin gutters($gutter: false) {
+  @if($gutter) {
+    @include guttersGenerate($gutter);
   }
   @else {
     @include guttersGenerate($desktop-gutters);
@@ -91,30 +70,10 @@ Mixins
   }
 }
 
-@mixin guttersVGenerate($gutterSize) {
-  padding-top: $gutterSize * .5;
-  padding-bottom: $gutterSize * .5;
-}
-
-@mixin guttersV($custom-gutter:false) {
-  @if($custom-gutter) {
-    @include guttersVGenerate($custom-gutter);
-  }
-  @else {
-    @include guttersVGenerate($desktop-gutters);
-    @each $gutter in $site-gutters {
-      @if $gutter != false {
-        @include media-query(nth($gutter, 1)) {
-          @include guttersVGenerate(nth($gutter, 2));
-        }
-      }
-    }
-  }
-}
-
-/* Create Column Widths & Apply Responsive Gutters */
-
-@mixin spang($columnCount, $totalCol, $mediaQuery:false, $custom-gutter: false) {
+// =========================================================================
+// Spang mixins to create columns with percentage widths
+// =========================================================================
+@mixin spang($columnCount, $totalCol, $mediaQuery:false, $gutter: false) {
   @if $mediaQuery != false {
     @include media-query($mediaQuery) {
       width: span($columnCount, $totalCol);
@@ -127,11 +86,13 @@ Mixins
     width: span($columnCount, $totalCol);
     float: left;
     min-height: 1px;
-    @include gutters($custom-gutter);
+    @include gutters($gutter);
   }
 }
 
-/* Add Space Before or After Columns */
+// =========================================================================
+// Spacer mixins 
+// =========================================================================
 
 @mixin spacer-left($columnCount, $totalCol, $mediaQuery:false) {
   @if $mediaQuery != false {
@@ -158,7 +119,9 @@ Mixins
   @include spacer-right($columnCountRight, $totalCol, $mediaQuery);
 }
 
-/* Reset Span, Spang or Spacer */
+// =========================================================================
+// Clear mixinx to return columns to 100% width
+// =========================================================================
 
 @mixin spanc($mediaQuery:false) {
   @if $mediaQuery != false {
@@ -195,15 +158,4 @@ Mixins
 @mixin spacer-clear($mediaQuery:false) {
   @include spacer-left-clear($mediaQuery);
   @include spacer-right-clear($mediaQuery);
-}
-
-/* 
--------------
-Classes
--------------
-*/
-
-ul.row, ol.row, .row {
-  @include row();
-  @include rowV();
 }
