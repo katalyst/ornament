@@ -10,11 +10,12 @@
 - Added `.button-set` for a grouping of buttons that always have consistent space between themselves  
 - Added `Ornament.version` to return the current version of Ornament  
 - Added `ShiftyJS`, a new JS component for moving elements around the page between breakpoints  
-- Added [what-input](https://github.com/ten1seven/what-input) and added a sass mixin `disable-mouse-outline` that disabled outlines on elements when mouse is detected as main input device  
+- Added [what-input](https://github.com/ten1seven/what-input) and added a sass mixin `disable-mouse-outline` that disabled outlines on elements when mouse is detected as main input device, applied to buttons by default  
 - Updated spang documentation  
 
 ### Changes
 
+- Moved the button mixins in to `_button-mixins.scss` to better seperate concerns and allow buttons to be made outside of `_button.scss`  
 - Renamed `mobile_navigation` to `tray_navigation` to better represent the component  
 - Replaced TODO link in styleguide with a link to the project board on github  
 
