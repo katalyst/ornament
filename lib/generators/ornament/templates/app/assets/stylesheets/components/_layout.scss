@@ -1,6 +1,5 @@
 $layout-background:             $background-color;
 $layout-breakpoint:             $breakpoint-header;
-$layout-container-width:        $container-width;
 $layout-desktop-edge-gap:       0;
 $layout-desktop-footer-gap:     $default-unit;
 $layout-desktop-header-gap:     $default-unit;
@@ -56,13 +55,7 @@ body.lightbox-open {
 }
 
 .layout--container {
-  max-width: $layout-container-width;
-  width: $container-percentage;
-  margin: 0 auto;
-
-  .ie8 & {
-    width: $layout-container-width;
-  }
+  @include container-percentage;
 }
 
 .layout--main {

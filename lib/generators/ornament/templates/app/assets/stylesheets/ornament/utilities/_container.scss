@@ -1,0 +1,31 @@
+@mixin container-shared($max-width) {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+
+  // ie8 doesn't need to be responsive
+  // sometimes it tries, and it's a valiant effort
+  // it's nice that it does
+  // but lets stop if from trying anyway
+  .ie8 & {
+    width: $max-width;
+  }
+}
+
+@mixin container($max-width:$container-width, $padding:$container-padding, $mobile-padding:$container-padding-mobile) {
+  @include container-shared($max-width - ($padding * 2));
+  padding-left: $padding;
+  padding-right: $padding;
+
+  @if $container-padding-mobile {
+    @include media-query($breakpoint-header) {
+      padding-left: $container-padding-mobile;
+      padding-right: $container-padding-mobile;
+    }
+  }
+}
+
+@mixin container-percentage($width:$container-percentage, $max-width:$container-width) {
+  @include container-shared($max-width);
+  width: $width;
+}

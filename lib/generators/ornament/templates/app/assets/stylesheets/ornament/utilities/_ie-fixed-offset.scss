@@ -1,0 +1,19 @@
+// =========================================================================
+// Fixed positioning offset for IE browsers
+// Apply this mixin to elements that are fixed (such as mobile fixed header)
+// to make it position correctly in IE
+// Make sure you enable the feature detection in navigation-mobile.js
+// and use the correct element to test. 
+// More information about the bug:
+// http://stackoverflow.com/questions/27952725/why-doesnt-translatex-work-as-expected-for-fixed-elements-on-ie9-ie10-and-ie1
+// =========================================================================
+
+@mixin ie-fixed-offset {
+  .layout--ie-fixed-position-bug & {
+    @include transition(all $layout-animation-duration);
+  }
+  .layout-open.layout--ie-fixed-position-bug & {
+    left: $layout-mobile-tray-width * -1;
+    right: $layout-mobile-tray-width;
+  }
+}

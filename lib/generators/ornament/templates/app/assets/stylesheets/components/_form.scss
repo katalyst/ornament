@@ -141,7 +141,7 @@ textarea,
   padding-left: $xxxx-small-unit;
   padding-right: $xxxx-small-unit;
   margin: 0;
-  @include border-radius($border-radius);
+  @include border-radius($input-border-radius);
   @include transition(border-color .2s);
 
   .layout--body & {
@@ -576,8 +576,8 @@ $password-dark-grey: #a7adb3;
   padding: $xxxxx-small-unit;
   font-size: $small-font-size;
   color: $white;
-  @include border-top-left-radius($border-radius);
-  @include border-top-right-radius($border-radius);
+  @include border-top-left-radius($input-border-radius);
+  @include border-top-right-radius($input-border-radius);
 
   // Flush the input against the demo mode warning
   & + input,

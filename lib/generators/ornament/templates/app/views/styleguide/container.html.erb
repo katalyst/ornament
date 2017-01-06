@@ -1,0 +1,69 @@
+<%- content_for :title, "Container" -%>
+
+<div class="content-spacing">
+
+  <p>Containers are internal content wrappers that manage widths of things.</p>
+  <p>By default, Ornament wraps your content in a container already, so these should be used full-width by using either <code>:above_layout</code> or <code>:below_layout</code> yields.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Percentage Containers</h2>
+
+  <p>Percentage containers take a percentage width and a pixel max-width.</p>
+  <p>The idea here is that the container will be a percentage of the screen size as it scales down, but at the largest size it won't exceed the max-width.</p>
+  <p>This is the type of container that Ornament uses by default for all content in the form of the <code>.layout--container</code> element.</p>
+  <p>The appeal of percentage containers is that the gap between the content and the side of the viewport never really feels too big or too small.</p>
+  <p>The syntax to use this mixin is <code>container-percentage($percentage-width, $max-width)</code>.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "container-pixel", scss: capture { -%>
+.container-percentage {
+  @include container-percentage(96%, 900px);
+}
+  <%- } } do -%>
+<div class="container-percentage">
+  <div class="panel__passive">This is a 96% wide container that maxes at 900px</div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Padded Containers</h2>
+
+  <p>The other container type is the padded container.</p>
+  <p>This again uses a max-width but also uses padding on either side of the container rather than a percentage width to push it away from the viewport. This is usefull if you need things to pull out of the container, you know exactly how many pixels things need to move.</p>
+  <p>There are two padding values you can pass in to the mixin, the first is desktop and the second is mobile padding.</p>
+  <p>You can optionally pass <code>false</code> in as the mobile padding to only use one value all the way down.</p>
+  <p>The syntax for this mixin is <code>container($max-width, $desktop-padding, $mobile-padding)</code>.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "container-pixel", scss: capture { -%>
+.container-pixel {
+  @include container(800px, $default-unit, $small-unit);
+}
+  <%- } } do -%>
+<div class="container-pixel">
+  <div class="panel__passive">This is a 800px wide container with 32px padding on the left and right.</div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Full-width examples</h2>
+
+  <p>It's a little hard to see the intention inside the code previews above, so below are some full-width examples:</p>
+
+</div>
+
+<%- content_for :below_layout do -%>
+  <div style="background-color: #bada55; padding-top: 64px; padding-bottom: 64px;">
+    <div class="container-percentage content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat perferendis tenetur labore neque voluptatum explicabo reiciendis temporibus autem fugiat quod.</p>
+      <p>My content will have varying gutters between it and the viewport.</p>
+    </div>
+  </div>
+  <div style="background-color: #42d1f4; padding-top: 64px; padding-bottom: 64px;">
+    <div class="container-pixel content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat perferendis tenetur labore neque voluptatum explicabo reiciendis temporibus autem fugiat quod.</p>
+      <p>My content will always have the same gutters between it and the viewport.</p>
+    </div>
+  </div>
+<%- end -%>

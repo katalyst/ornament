@@ -66,7 +66,6 @@ $heading-beta-font-italic: ('Open Sans', sans-serif) italic bold;
 
 @import "components/align";
 @import "components/blankstate";
-@import "components/breakpoint-helper";
 @import "components/button";
 @import "components/card";
 @import "components/clearfix";
@@ -569,6 +568,18 @@ code {
   @include background-cover;
   padding: 120px 70px;
   text-align: center;
+}
+
+// =========================================================================
+// Layout containers
+// =========================================================================
+
+.container-percentage {
+  @include container-percentage(96%, 900px);
+}
+
+.container-pixel {
+  @include container(800px, $default-unit, $small-unit);
 }
 
 // =========================================================================
