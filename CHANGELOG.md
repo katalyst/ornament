@@ -20,6 +20,7 @@
 - Renamed `mobile_navigation` to `tray_navigation` to better represent the component  
 - Replaced TODO link in styleguide with a link to the project board on github  
 - Reorganised and reformatted the `_settings.scss` file to bring more in line with the future of ornament  
+- Updated the specificity of the `.controls` margin-top to only add it when preceeded by a `.control-label`  
 
 ## v1.2.4
 

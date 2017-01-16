@@ -111,10 +111,8 @@ input[type="number"] {
 // Spacing controls away from their labels when inside control-groups
 // =========================================================================
 
-.control-group {
-  .controls {
-    margin-top: $xxx-small-unit;
-  }
+.control-label + .controls {
+  margin-top: $xxx-small-unit;
 }
 
 // =========================================================================
