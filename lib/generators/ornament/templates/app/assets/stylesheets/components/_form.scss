@@ -544,8 +544,9 @@ $file-thumbnail-width: 100px;
 
   button {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 4px;
+    bottom: 4px;
+    right: 4px;
     text-transform: uppercase;
     @include disable-mouse-outline;
   }
