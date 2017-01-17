@@ -540,6 +540,11 @@ $file-thumbnail-width: 100px;
 
   input {
     padding-right: 80px;
+
+    ::ms-clear,
+    ::ms-reveal {
+      display: none;
+    }
   }
 
   button {
@@ -643,5 +648,31 @@ $password-dark-grey: #a7adb3;
   .password-score__5 & {
     background: $password-3;
     width: 100%;
+  }
+}
+
+// =========================================================================
+// Nested/Cocoon fields
+// =========================================================================
+
+.cocoon-field {
+  @include media-query(500px, min) {
+    display: table;
+    width: 100%;
+  }
+}
+.cocoon-field--field,
+.cocoon-field--remove {
+  @include media-query(500px, min) {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+.cocoon-field--remove {
+  @include media-query(500px, min) {
+    padding-left: $xxx-small-unit;
+  }
+  @include media-query(500px) {
+    padding-top: $xxxx-small-unit;
   }
 }

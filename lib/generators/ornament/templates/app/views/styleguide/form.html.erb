@@ -233,6 +233,8 @@
     <%- end -%>
   </div>
 
+  <p>You can customise the settings of your datepicker by passing in data attributes in the format of <code>data-datepicker-&lt;setting>=""</code>. eg. <code>data-datepicker-changemonth="false"</code>.</p>
+
   <hr />
 
   <h2 class="heading-two">Radios and checkboxes</h2>
@@ -377,6 +379,70 @@
     <label class="checkbox">
       <input class="boolean optional" id="terms_enhanced" name="form[terms_enhanced]" type="checkbox" value="1">
     </label>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Styling Cocoon</h2>
+
+  <p>Here is a quick way to markup your cocoon fields in rails to make them look a bit nicer by default.</p>
+
+<%- cocoon_field = capture { -%>
+<div class='nested-fields control-group select'>
+  <label class="control-label">My Nested Field</label>
+  <div class="controls cocoon-field form--medium">
+    <div class="cocoon-field--field">
+      <select>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </select>
+    </div>
+    <div class="cocoon-field--remove">
+      <button>Remove field</button>
+    </div>
+  </div>
+</div>
+<%- } -%>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cocoon", ruby: capture { -%>
+&lt;div class='nested-fields control-group select'>
+  &lt;%= f.label :my_nested_field %>
+  &lt;%= f.hint :my_nested_field -%>
+  &lt;%= f.error :my_nested_field -%>
+  &lt;div class="controls cocoon-field form--medium">
+    &lt;div class="cocoon-field--field">
+      &lt;%= f.input_field :my_nested_field, collection: data_source, label_method: :title, value_method: :id, include_blank: true %>
+    &lt;/div>
+    &lt;div class="cocoon-field--remove">
+      &lt;%= link_to_remove_association "Remove", f %>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
+<%= cocoon_field -%>
+  <%- end -%>
+
+  <p>And to space out your cocoon fields, simply update your wrapper to add the inputs field, and add a button class to your add button:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cocoon", ruby: capture { -%>
+&lt;div class='registered_product_models inputs'>
+  &lt;%= f.simple_fields_for :my_nested_fields do |nested_field| -%>
+    &lt;%= render 'my_nested_fields', f: nested_field| -%>
+  &lt;%- end -%>
+  &lt;div>
+    &lt;%= link_to_add_association 'Add', f, :my_nested_fields, class: "button" -%>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
+<div class='registered_product_models inputs'>
+  <%= cocoon_field -%>
+  <%= cocoon_field -%>
+  <%= cocoon_field -%>
+  <div>
+    <button class="button">Add</button>
   </div>
 </div>
   <%- end -%>
