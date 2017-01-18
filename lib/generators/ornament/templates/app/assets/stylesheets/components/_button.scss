@@ -89,11 +89,11 @@
 }
 
 .button__icon {
-  @include icon-block(56px, 16px);
+  @include icon-block(44px, 16px);
   display: inline-block;
 
   &.button__small {
-    @include icon-block(44px, 16px);
+    @include icon-block(40px, 16px);
     display: inline-block;
   }
 

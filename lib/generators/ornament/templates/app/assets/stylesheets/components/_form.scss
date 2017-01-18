@@ -566,8 +566,7 @@ $password-1: #e1ad16;
 $password-2: #0088d5;
 $password-3: #9cd034;
 $password-spacer: $xxx-small-unit;
-$password-grey: #e5e9ec;
-$password-dark-grey: #a7adb3;
+$password-grey: $passive-color;
 
 .password-score {
   overflow: hidden;

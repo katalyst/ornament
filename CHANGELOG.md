@@ -16,6 +16,7 @@
 
 ### Changes
 
+- Reduced default button sizes  
 - Moved the button mixins in to `_button-mixins.scss` to better seperate concerns and allow buttons to be made outside of `_button.scss`  
 - Moved the `layout--container` code out in to it's own series of `container` mixins and added some documentation for them  
 - Renamed `mobile_navigation` to `tray_navigation` to better represent the component  

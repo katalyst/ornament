@@ -31,6 +31,7 @@
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-sizing", ruby: capture { -%>
 &lt;%= link_to "Button", "#", class: "button button__pill" -%&gt;
 &lt;%= link_to "Button", "#", class: "button button__small" -%&gt;
+&lt;%= link_to "Button", "#", class: "button" -%&gt;
 &lt;%= link_to "Button", "#", class: "button button__large" -%&gt;
   <%- } } do -%>
 <p>
@@ -38,6 +39,9 @@
 </p>
 <p>
   <a href="#" class="button button__small">Small button</a>
+</p>
+<p>
+  <a href="#" class="button">Regular button</a>
 </p>
 <p>
   <a href="#" class="button button__large">Large button</a>

@@ -7,6 +7,8 @@
 
 // MIXINS
 
+$button-line-border: 2px;
+
 // Custom button background colours and hovers
 @mixin button-background($color, $hover-color:false) {
   background: $color;
@@ -25,7 +27,7 @@
 // Line button style mixin
 @mixin button-line($color, $hover-color:false, $text-color:false) {
   background: transparent;
-  border: 2px solid $color;
+  border: $button-line-border solid $color;
 
   @if($text-color) {
     @include color-link($text-color, $text-color);
@@ -46,17 +48,17 @@
 
 @mixin button-large($line: false) {
   @if $line {
-    padding: ($xx-small-unit - 4px) $x-small-unit;
+    padding: ($xxx-small-unit - $button-line-border) $x-small-unit;
   } @else {
-    padding: $xx-small-unit $x-small-unit;
+    padding: $xxx-small-unit $x-small-unit;
   }
 }
 
 @mixin button-small($line: false) {
   @if $line {
-    padding: (10px - 4px) 19px;
+    padding: (8px - $button-line-border) 12px;
   } @else {
-    padding: 10px 19px;
+    padding: 8px 12px;
   }
 }
 
@@ -64,9 +66,9 @@
   font-size: $x-small-font-size;
 
   @if $line {
-    padding: (8px - 4px) 12px;
+    padding: (4px - $button-line-border) 8px;
   } @else {
-    padding: 8px 12px;
+    padding: 4px 8px;
   }
 }
 
@@ -80,9 +82,9 @@
   @include disable-mouse-outline;
 
   @if $line {
-    padding: ($xxx-small-unit - 2px) $x-small-unit;
+    padding: (10px - $button-line-border) 19px;
   } @else {
-    padding: $xxx-small-unit $x-small-unit;
+    padding: 10px 19px;
   }
 
   &.button__pill {
