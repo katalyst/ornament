@@ -1,45 +1,65 @@
 <% content_for :title, "Pagination" %>
 
 <div class="content-spacing">
-  <p>Ornament comes with a custom Kaminari pagination template that looks like this by default:</p>
-</div>
+  <p>Ornament comes with a custom Kaminari pagination template by default and comes with a few different out-of-the-box styles.</p>
 
 <%- content_for :pagination_template do -%>
-  <span class="pagination--first disabled">
-    First
-  </span>
-  <span class="pagination--prev disabled">
-    Previous
-  </span>
-  <span class="pagination--page current">
-    1
-  </span>
-  <span class="pagination--page">
-    <a href="#" rel="next" title="Go to page 2">2</a>
-  </span>
-  <div class="pagination--count">
-    Page 1 of 6
+  <div class="pagination--table">
+    <span class="pagination--first disabled">
+      First
+    </span>
+    <span class="pagination--prev disabled">
+      Previous
+    </span>
+    <span class="pagination--page current">
+      1
+    </span>
+    <span class="pagination--page">
+      <a href="#" rel="next" title="Go to page 2">2</a>
+    </span>
+    <span class="pagination--page">
+      <a href="#" rel="next" title="Go to page 3">3</a>
+    </span>
+    <span class="pagination--gap">
+      ...
+    </span>
+    <span class="pagination--page">
+      <a href="#" rel="next" title="Go to page 6">6</a>
+    </span>
+    <div class="pagination--count">
+      Page 1 of 6
+    </div>
+    <span class="pagination--next">
+      <a href="#" rel="next" title="Go to next page">Next</a>
+    </span>
+    <span class="pagination--last">
+      <a href="#" title="Go to last page">Last</a>
+    </span>
   </div>
-  <span class="pagination--last">
-    <a href="#" title="Go to last page">Last</a>
-  </span>
-  <span class="pagination--next">
-    <a href="#" rel="next" title="Go to next page">Next</a>
-  </span>
 <%- end -%>
 
+  <p>"pages" style can be used by changing the pagination modifier to <code>pagination__pages</code>:</p>
+
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "pagination-1" } do -%>
-<nav class="pagination" role="navigation">
+<nav class="pagination pagination__pages" role="navigation">
   <%= yield :pagination_template -%>
 </nav>
 <%- end -%>
 
-<div class="content-spacing">
-  <p></p>
-</div>
+  <p>"count" style can be used by changing the pagination modifier to <code>pagination__count</code>:</p>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "pagination-1" } do -%>
 <nav class="pagination pagination__count" role="navigation">
   <%= yield :pagination_template -%>
 </nav>
 <%- end -%>
+
+  <p>You can use a hybrid of both pages and count that starts as pages on desktop and then goes to count on mobile by using the <code>pagination__hybrid</code> class.</p>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "pagination-1" } do -%>
+<nav class="pagination pagination__hybrid" role="navigation">
+  <%= yield :pagination_template -%>
+</nav>
+<%- end -%>
+
+</div>
