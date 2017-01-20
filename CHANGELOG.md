@@ -5,6 +5,7 @@
 ### Features
 
 - Added styleguide code highlighting  
+- Added a couple Koi helper methods in application_helper for `traverse_for_key(nav_item, key)` and `traverse_for_nearest_navigation_key(nav_item)`  
 - Fixed `.button__icon` sizing to be in-line with the default button heights  
 - Added `.button__small.button__icon` variation  
 - Added `.button-set` for a grouping of buttons that always have consistent space between themselves  
@@ -24,6 +25,7 @@
 - Replaced TODO link in styleguide with a link to the project board on github  
 - Reorganised and reformatted the `_settings.scss` file to bring more in line with the future of ornament  
 - Updated the specificity of the `.controls` margin-top to only add it when preceeded by a `.control-label`  
+- Moved feature detection booleans to the new `Ornament.features` object  
 
 ## v1.2.4
 
