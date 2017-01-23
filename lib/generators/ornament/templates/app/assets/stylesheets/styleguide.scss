@@ -155,6 +155,7 @@ hr {
 // STYLEGUIDE HEADER
 
 .sg-header {
+  background-color: $secondary-color;
   background: $secondary-color url($katalyst-pattern) 0 0;
   border-top: 4px solid $primary-color;
   background-attachment: fixed;
