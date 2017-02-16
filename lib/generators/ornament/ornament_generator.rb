@@ -71,6 +71,7 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/assets/icons"
 
         copy_file "config/initializers/simple_form.rb"
+        copy_file "config/initializers/ornament.rb"
         copy_file "../../../../test/dummy/config/initializers/datetime_formats_ornament.rb", "config/initializers/datetime_formats_ornament.rb"
         copy_file "config/locales/en.yml"
 
@@ -119,10 +120,6 @@ class OrnamentGenerator < Rails::Generators::Base
     GEMS.each do |name, version|
      puts "   gem #{name}, #{version}"
     end
-    puts ""
-    puts "Please add this line to asset.rb:"
-    puts ""
-    puts "  Rails.application.config.assets.precompile += %w( application_split2.css  selectivizr.js respond.js application_bottom.js styleguide.css styleguide_split2.css styleguide.js )"
     puts ""
     puts "Then bundle and restart your server"
     puts ""
