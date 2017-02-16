@@ -12,7 +12,22 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :example,      :type => :boolean, :default => false
   class_option :uploader,     :type => :boolean, :default => true
 
+  GEMS = {
+    'sass-rails'    => '~> 5.0.6',
+    'uglifier'      => '~> 3.0.4',
+    'compass-rails' => '~> 4.3.4',
+    'htmlentities'  => '~> 4.3.4',
+    'css_splitter'  => '~> 0.4.6',
+  }
+
   def generate
+
+    if options.gems?
+      gemfile = File.read('Gemfile')
+      GEMS.each do |name, version|
+        gem name.dup, version unless gemfile.include?(name)
+      end
+    end
 
     if options.settings?
       copy_file "../../../../test/dummy/app/assets/stylesheets/_settings.scss", "app/assets/stylesheets/_settings.scss"
@@ -34,7 +49,7 @@ class OrnamentGenerator < Rails::Generators::Base
         route "end"
         route "  post :image, on: :collection"
         route "resources :uploads do"
-      
+
         copy_file "app/controllers/uploads_controller.rb"
         copy_file "app/views/koi/crud/_form_field_uploader.html.erb"
 
@@ -74,7 +89,7 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "vendor/assets"
       end
 
-      if options.layouts? 
+      if options.layouts?
         directory "app/views/layouts"
         directory "app/views/errors"
         directory "app/views/kaminari"
@@ -101,11 +116,9 @@ class OrnamentGenerator < Rails::Generators::Base
     puts ""
     puts "Please ensure the following gems are in your local Gemfile:"
     puts ""
-    puts "  gem 'sass-rails', '~> 5.0.6'"
-    puts "  gem 'uglifier', '~> 3.0.4'"
-    puts "  gem 'compass-rails', '~> 4.3.4'"
-    puts "  gem 'htmlentities', '~> 4.3.4'"
-    puts "  gem 'css_splitter', '~> 0.4.6'"
+    GEMS.each do |name, version|
+     puts "   gem #{name}, #{version}"
+    end
     puts ""
     puts "Please add this line to asset.rb:"
     puts ""
