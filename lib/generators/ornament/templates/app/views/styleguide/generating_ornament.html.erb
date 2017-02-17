@@ -2,21 +2,27 @@
 
 <div class="content-spacing">
 
-  <h2 class="heading-two">Add required Gems</h2>
-
-  <p>Add these gems to your Gemfile:</p>
-
-  <pre class="sg-pre">gem 'sass-rails', '~> 5.0.6'
-gem 'uglifier', '~> 3.0.4'
-gem 'compass-rails', '~> 4.3.4'
-gem 'htmlentities', '~> 4.3.4'
-gem 'css_splitter', '~> 0.4.6'</pre>
-
-  <p>Then simply run the ornament generator:</p>
+  <p>Simply run the ornament generator:</p>
 
   <pre class="sg-pre">rails generate ornament</pre>
 
-  <p>Once generated add the following assets to your <code>assets.rb</code> file:</p>
+  <hr />
+
+  <h2 class="heading-two">Required Gems</h2>
+
+  <p>Make sure these gems to your Gemfile:</p>
+
+  <pre class="sg-pre">gem 'sass-rails', '~> 5.0.6'
+gem 'uglifier', '~> 3.0.4'
+gem 'compass-rails', '~> 3.0.2'
+gem 'htmlentities', '~> 4.3.4'
+gem 'css_splitter', '~> 0.4.6'</pre>
+
+  <hr />
+
+  <h2 class="heading-two">Asset Precompilation</h2>
+
+  <p>The <code>ornament</code> initialiser will add this line to make sure the required assets get precompiled:</p>
 
   <pre class="sg-pre">Rails.application.config.assets.precompile += %w( application_split2.css  selectivizr.js respond.js application_bottom.js styleguide.css styleguide_split2.css styleguide.js )</pre>
 
