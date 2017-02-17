@@ -12,7 +12,22 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :example,      :type => :boolean, :default => false
   class_option :uploader,     :type => :boolean, :default => true
 
+  GEMS = {
+    'sass-rails'    => '~> 5.0.6',
+    'uglifier'      => '~> 3.0.4',
+    'compass-rails' => '~> 3.0.2',
+    'htmlentities'  => '~> 4.3.4',
+    'css_splitter'  => '~> 0.4.6',
+  }
+
   def generate
+
+    if options.gems?
+      gemfile = File.read('Gemfile')
+      GEMS.each do |name, version|
+        gem name.dup, version unless gemfile.include?(name)
+      end
+    end
 
     if options.settings?
       copy_file "../../../../test/dummy/app/assets/stylesheets/_settings.scss", "app/assets/stylesheets/_settings.scss"
@@ -34,7 +49,7 @@ class OrnamentGenerator < Rails::Generators::Base
         route "end"
         route "  post :image, on: :collection"
         route "resources :uploads do"
-      
+
         copy_file "app/controllers/uploads_controller.rb"
         copy_file "app/views/koi/crud/_form_field_uploader.html.erb"
 
@@ -56,6 +71,7 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/assets/icons"
 
         copy_file "config/initializers/simple_form.rb"
+        copy_file "config/initializers/ornament.rb"
         copy_file "../../../../test/dummy/config/initializers/datetime_formats_ornament.rb", "config/initializers/datetime_formats_ornament.rb"
         copy_file "config/locales/en.yml"
 
@@ -74,7 +90,7 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "vendor/assets"
       end
 
-      if options.layouts? 
+      if options.layouts?
         directory "app/views/layouts"
         directory "app/views/errors"
         directory "app/views/kaminari"
@@ -101,15 +117,9 @@ class OrnamentGenerator < Rails::Generators::Base
     puts ""
     puts "Please ensure the following gems are in your local Gemfile:"
     puts ""
-    puts "  gem 'sass-rails', '~> 5.0.6'"
-    puts "  gem 'uglifier', '~> 3.0.4'"
-    puts "  gem 'compass-rails', '~> 3.0.2'"
-    puts "  gem 'htmlentities', '~> 4.3.4'"
-    puts "  gem 'css_splitter', '~> 0.4.6'"
-    puts ""
-    puts "Please add this line to asset.rb:"
-    puts ""
-    puts "  Rails.application.config.assets.precompile += %w( application_split2.css  selectivizr.js respond.js application_bottom.js styleguide.css styleguide_split2.css styleguide.js )"
+    GEMS.each do |name, version|
+     puts "   gem #{name}, #{version}"
+    end
     puts ""
     puts "Then bundle and restart your server"
     puts ""
