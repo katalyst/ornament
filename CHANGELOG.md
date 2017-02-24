@@ -16,6 +16,8 @@
 - Added `.cocoon-fields` form component and added some styling guidelines for cocoon fields  
 - Added a `billingToShipping` form helper  
 - Improved pagination defaults  
+- Added `rel=noopener noreferrer` to external links 
+- Fixed issues with external links not tracking 
 
 ### Changes
 
