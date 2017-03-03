@@ -18,6 +18,8 @@
 - Improved pagination defaults  
 - Added `rel=noopener noreferrer` to external links 
 - Fixed issues with external links not tracking 
+- Made the `skip-link` visible when focused for improved accesibility  
+- Added `flying-focus` library for improved accessibility  
 
 ### Changes
 
