@@ -1,0 +1,29 @@
+<% content_for :title, "ScrollTo" %>
+
+<div class="content-spacing">
+
+  <p>
+    Use <code>data-scroll-to</code> to scroll to an element on the page. <br />
+    The value of the attribute can in the form of any basic CSS selector, like <code>.my-element</code>, <code>#my-element</code> or <code>[data-my-element]</code>.
+  </p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "scroll-to" } do -%>
+<button class="button" data-scroll-to="#scroll-to-element-1">Scroll down to the top of my element</button>
+<div id="scroll-to-element-1">
+  This is the element that you will scroll to.
+</div>
+  <%- end -%>
+
+  <p>
+    And now here is a large box to fill this page out a little bit. I wonder what's at the bottom? 
+  </p>
+
+  <div class="panel panel__success" style="height: 1500px;"></div>
+
+  <p>Nothing, there's nothing here.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "scroll-to" } do -%>
+<button class="button" data-scroll-to=".sg-header">Scroll back up?</button>
+  <%- end -%>
+
+</div>

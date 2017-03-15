@@ -29,13 +29,20 @@
   <h2 class="heading-two">Button sizing</h2>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-sizing", ruby: capture { -%>
+&lt;%= link_to "Button", "#", class: "button button__pill" -%&gt;
 &lt;%= link_to "Button", "#", class: "button button__small" -%&gt;
+&lt;%= link_to "Button", "#", class: "button" -%&gt;
 &lt;%= link_to "Button", "#", class: "button button__large" -%&gt;
   <%- } } do -%>
 <p>
+  <a href="#" class="button button__pill">Pill button</a>
+</p>
+<p>
   <a href="#" class="button button__small">Small button</a>
 </p>
-
+<p>
+  <a href="#" class="button">Regular button</a>
+</p>
 <p>
   <a href="#" class="button button__large">Large button</a>
 </p>
@@ -44,6 +51,9 @@
   <hr />
 
   <h2 class="heading-two">Disabled buttons</h2>
+
+  <p><code>button</code> elements will get disabled styles with the <code>disabled</code> attribute.</p>
+  <p>Since links can't have that attribute, you can make a link button look disabled with the <code>button__disabled</code> class. The class method is purely decorative so make sure your link does nothing when implementing.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons-disabled", ruby: capture { -%>
 &lt;%= link_to ".button__disabled", "#", class: "button__disabled" -%&gt;
@@ -103,14 +113,26 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-icons", ruby: capture { -%>
 &lt;%= link_to "Search", "#", class: "button button__icon-left icon-search" -%&gt;
-&lt;%= link_to "Search", "#", class: "button button__icon-right icon-search" -%&gt;
+&lt;%= link_to "Search", "#", class: "button__confirm button__icon-right icon-search" -%&gt;
+&lt;%= link_to "Search", "#", class: "button__secondary button__icon-right icon-search" -%&gt;
 &lt;%= link_to "", "#", class: "button button__icon icon-search" -%&gt;
+
+&lt;%= link_to "Search", "#", class: "button button__small button__icon-left icon-search" -%&gt;
+&lt;%= link_to "Search", "#", class: "button__confirm button__small button__icon-right icon-search" -%&gt;
+&lt;%= link_to "Search", "#", class: "button__secondary button__small button__icon-right icon-search" -%&gt;
+&lt;%= link_to "", "#", class: "button button__small button__icon icon-search" -%&gt;
   <%- } } do -%>
 <p>
   <a href="#" class="button button__icon-left icon-search">Search</a>
   <a href="#" class="button__confirm button__icon-left icon-search">Search</a>
   <a href="#" class="button__secondary button__icon-right icon-search">Search</a>
   <a href="#" class="button__secondary button__icon icon-search"></a>
+</p>
+<p>
+  <a href="#" class="button button__small button__icon-left icon-search">Search</a>
+  <a href="#" class="button__confirm button__small button__icon-left icon-search">Search</a>
+  <a href="#" class="button__secondary button__small button__icon-right icon-search">Search</a>
+  <a href="#" class="button__secondary button__small button__icon icon-search"></a>
 </p>
   <%- end -%>
 
@@ -140,7 +162,26 @@
 
   <hr />
 
+  <h2 class="heading-two">Button set</h2>
+
+  <p>These buttons will always have the same gap between eachother, even when they wrap and stack.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-sides" } do -%>
+<div class="button-set">
+  <%- (1..16).each do |i| -%>
+  <%- button_classes = ["button", "button__confirm", "button__cancel", "button__secondary", "button__line", "button__confirm__line", "button__cancel__line"] -%>
+  <div>
+    <a href="#" class="<%= button_classes.sample -%>">Button <%= i -%></a>
+  </div>
+  <%- end -%>
+</div>
+  <%- end -%>
+
+  <hr />
+
   <h2 class="heading-two">Forward and Back buttons</h2>
+
+  <p>A simple little wrapper that pushes two buttons to either side of the screen.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-sides" } do -%>
 <div class="button-sides">
@@ -148,5 +189,5 @@
   <a href="#" class="button button__forward">Forward</a>
 </div>
   <%- end -%>
-
+  
 </div>

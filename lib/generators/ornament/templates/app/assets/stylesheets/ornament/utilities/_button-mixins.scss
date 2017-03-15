@@ -1,0 +1,122 @@
+.button-object {
+  // empty class to extend all our buttons in to so we 
+  // can target them all with .button regardless of what
+  // actual class they have
+  overflow: visible;
+}
+
+// MIXINS
+
+$button-line-border: 2px;
+
+// Custom button background colours and hovers
+@mixin button-background($color, $hover-color:false) {
+  background: $color;
+
+  @if($hover-color) {
+    &:hover {
+      background: $hover-color;
+    }
+  } @else {
+    &:hover {
+      background: darken($color, 10);
+    }
+  }
+}
+
+// Line button style mixin
+@mixin button-line($color, $hover-color:false, $text-color:false) {
+  background: transparent;
+  border: $button-line-border solid $color;
+
+  @if($text-color) {
+    @include color-link($text-color, $text-color);
+  }
+
+  @if($hover-color) {
+    &:hover {
+      background: transparent;
+      border-color: $hover-color;
+    }
+  } @else {
+    &:hover {
+      background: transparent;
+      border-color: darken($color, 10);
+    }
+  }
+}
+
+@mixin button-large($line: false) {
+  @if $line {
+    padding: ($xxx-small-unit - $button-line-border) $x-small-unit;
+  } @else {
+    padding: $xxx-small-unit $x-small-unit;
+  }
+}
+
+@mixin button-small($line: false) {
+  @if $line {
+    padding: (8px - $button-line-border) 12px;
+  } @else {
+    padding: 8px 12px;
+  }
+}
+
+@mixin button-pill($line: false) {
+  font-size: $x-small-font-size;
+
+  @if $line {
+    padding: (4px - $button-line-border) 8px;
+  } @else {
+    padding: 4px 8px;
+  }
+}
+
+@mixin button-base($line: false) {
+  @extend .button-object;
+  @include border-radius($border-radius);
+  @include decorate-link(none, none);
+  @include inline-block;
+  @include font($bold-font);
+  @include color-link($white, $white);
+  @include disable-mouse-outline;
+
+  @if $line {
+    padding: (10px - $button-line-border) 19px;
+  } @else {
+    padding: 10px 19px;
+  }
+
+  &.button__pill {
+    @include button-pill($line);
+  }
+
+  &.button__small {
+    @include button-small($line);
+  }
+
+  &.button__large {
+    @include button-large($line);
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  @include button-background($primary-color);
+}
+
+@mixin button-grey {
+  @include button-base;
+  @include color-link($foreground-color, $foreground-color);
+  @include button-background($passive-color);
+}
+
+@mixin button-error {
+  @include button-base;
+  @include color-link($foreground-color, $foreground-color);
+  @include button-background($error-color);
+}
+
+@mixin button-depressed {
+  @include box-shadow(inset 2px 2px 4px 0px rgba(0,0,0,0.30));
+}

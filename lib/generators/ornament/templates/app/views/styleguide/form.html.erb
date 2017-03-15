@@ -1,10 +1,23 @@
 
 <% content_for :title, "Form styles" %>
+
+<% content_for :js_billing_to_shipping do %>
+  Ornament.onLoad(function(){
+    Ornament.C.FormHelpers.billingToShipping("#checkout_use_billing_address", {
+      "#billing_address_1": "#shipping_address_1",
+      "#billing_address_2": "#shipping_address_2",
+      "#billing_state": "#shipping_state",
+      "#billing_country": "#shipping_country"
+    });
+  });
+<% end %>
+
 <% content_for :scripts_bottom do %>
   <script>
     $(document).on("ornament:refresh", function(){ 
       !Ornament.C.FormHelpers.jQueryUI && $("[data-jquery-modifiers]").hide();
     });
+    <%= yield :js_billing_to_shipping -%>
   </script>
 <% end %>
 
@@ -233,6 +246,8 @@
     <%- end -%>
   </div>
 
+  <p>You can customise the settings of your datepicker by passing in data attributes in the format of <code>data-datepicker-&lt;setting>=""</code>. eg. <code>data-datepicker-changemonth="false"</code>.</p>
+
   <hr />
 
   <h2 class="heading-two">Radios and checkboxes</h2>
@@ -311,6 +326,8 @@
 
   <h2 class="heading-two">Enhanced Radios and checkboxes</h2>
 
+  <p>Note: falls back to regular radios/checkboxes in IE8</p>
+
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes-enhanced", ruby: capture { -%>
 &lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--enhanced" } -%&gt;
   <%- } } do -%>
@@ -383,6 +400,70 @@
 
   <hr />
 
+  <h2 class="heading-two">Styling Cocoon</h2>
+
+  <p>Here is a quick way to markup your cocoon fields in rails to make them look a bit nicer by default.</p>
+
+<%- cocoon_field = capture { -%>
+<div class='nested-fields control-group select'>
+  <label class="control-label">My Nested Field</label>
+  <div class="controls cocoon-field form--medium">
+    <div class="cocoon-field--field">
+      <select>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </select>
+    </div>
+    <div class="cocoon-field--remove">
+      <button>Remove field</button>
+    </div>
+  </div>
+</div>
+<%- } -%>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cocoon", ruby: capture { -%>
+&lt;div class='nested-fields control-group select'>
+  &lt;%= f.label :my_nested_field %>
+  &lt;%= f.hint :my_nested_field -%>
+  &lt;%= f.error :my_nested_field -%>
+  &lt;div class="controls cocoon-field form--medium">
+    &lt;div class="cocoon-field--field">
+      &lt;%= f.input_field :my_nested_field, collection: data_source, label_method: :title, value_method: :id, include_blank: true %>
+    &lt;/div>
+    &lt;div class="cocoon-field--remove">
+      &lt;%= link_to_remove_association "Remove", f %>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
+<%= cocoon_field -%>
+  <%- end -%>
+
+  <p>And to space out your cocoon fields, simply update your wrapper to add the inputs field, and add a button class to your add button:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cocoon", ruby: capture { -%>
+&lt;div class='my_nested_fields inputs'>
+  &lt;%= f.simple_fields_for :my_nested_fields do |nested_field| -%>
+    &lt;%= render 'my_nested_fields', f: nested_field| -%>
+  &lt;%- end -%>
+  &lt;div>
+    &lt;%= link_to_add_association 'Add', f, :my_nested_fields, class: "button" -%>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
+<div class='my_nested_fields inputs'>
+  <%= cocoon_field -%>
+  <%= cocoon_field -%>
+  <%= cocoon_field -%>
+  <div>
+    <button class="button">Add</button>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
   <h2 class="heading-two">Limited text fields</h2>
 
   <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
@@ -420,6 +501,59 @@
 
   <hr />
 
+  <h2 class="heading-two">Password Revealer</h2>
+
+  <p>Use <code>data-password-reveal</code> on your input field to add a reveal button. This will toggle the input type between text and password.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "password-reveal", ruby: capture { -%>
+&lt;%= f.input :example, input_html: { data: { password_reveal: "" } } -%&gt;
+  <%- } } do -%>
+<div class="control-group form--medium">
+  <label class="control-label">Password:</label>
+  <div class="controls">
+    <input type="password" data-password-reveal />
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Password Score</h2>
+
+  <p>Requires the <a href="https://github.com/dropbox/zxcvbn">zxcvbn gem</a>, and this line to be added to your <code>core.js</code>:<br />
+  <code>//= require zxcvbn-async</code></p>
+
+  <p>Without zxcvbn, it will operate in demo mode as you can see here, which will return a random score on field change.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-password-score", ruby: capture { -%>
+&lt;%= f.input :example, wrapper_html: { data: { password_sore: "" } } -%&gt;
+  <%- } } do -%>
+<div data-password-score class="control-group">
+  <label class="control-label">Password:</label>
+  <div class="controls">
+    <input type="password" />
+  </div>
+</div>
+  <%- end -%>
+
+  <p>You can customise the label under the field by using <code>data-password-score-label</code>. Here's an example with a custom label, using one of the form sizing classes and the password revealer for good measure.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-password-score-2", ruby: capture { -%>
+&lt;%= f.input :example, input_wrapper: { data: { password_reveal: "" } }, wrapper_html: { class: "form--medium", data: { password_sore: "", password_score_label: "<('.' <)" } } -%&gt;
+  <%- } } do -%>
+<div data-password-score data-password-score-label="<('.' <)" class="control-group form--medium">
+  <label class="control-label">Password:</label>
+  <div class="controls">
+    <input type="password" data-password-reveal />
+  </div>
+</div>
+  <%- end -%>
+
+  <p>Password score comes with a helper to test if zxcbvn is available: <code>Ornament.C.FormHelpers.hasZxcvbn</code></p>
+  <p>You can rebind password scores if you need to, for example if the form has been ajaxed in, with <code>Ornament.C.FormHelpers.bindPasswordScores()</code></p>
+
+  <hr />
+
   <h2 class="heading-two">Inline Forms Groups</h2>
 
   <p>A self-contained inline form consists of an input field with a joined button:</p>
@@ -443,6 +577,97 @@
   </div>
   <button class="button form-inline--button icon-chevron-right"></button>
 </form>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Billing to Shipping</h2>
+
+  <p><code>Ornament.C.FormHelpers.billingToShipping</code> is a really easy-to-use helper method to copy data from one group of fields to another group of fields when a checkbox is selected.</p>
+
+  <p>All you need to do is first pass in the checkbox selector, then an object of key/value pair selectors matching the fields up.</p>
+
+  <p>Combine with <code>show.js</code> to hide the second group of fields when the checkbox is selected for a nicer user experience.</p>
+
+  <p>Take a look at the JS tab below to see how it works.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox-enhanced", js: capture { -%>
+<%= yield :js_billing_to_shipping -%>
+  <%- } } do -%>
+<div class="inputs">
+  
+  <div class="control-group">
+    <label for="billing_address_1" class="control-label">Billing address 1</label>
+    <div class="controls">
+      <input type="text" name="billing[address_1]" id="billing_address_1" value="Address 1" />
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label for="billing_address_2" class="control-label">Billing address 2</label>
+    <div class="controls">
+      <input type="text" name="billing[address_2]" id="billing_address_2" value="Address 2" />
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label for="billing_state" class="control-label">Billing address state</label>
+    <div class="controls">
+      <input type="text" name="billing[state]" id="billing_state" value="My state" />
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label for="billing_country" class="control-label">Billing country</label>
+    <div class="controls">
+      <input type="text" name="billing[country]" id="billing_country" value="Australia" />
+    </div>
+  </div>
+
+  <div class="control-group boolean">
+    <label class="boolean control-label" for="checkout_use_billing_address">
+      Ship to billing address
+    </label>
+    <div class="controls">
+      <input name="checkout[use_billing_address]" type="hidden" value="0">
+      <label class="checkbox">
+        <input class="boolean" id="checkout_use_billing_address" name="checkout[use_billing_address]" type="checkbox" value="1">
+      </label>
+    </div>
+  </div>
+
+  <div class="inputs" data-show="checkout_use_billing_address" data-show-inverse>
+
+    <div class="control-group">
+      <label for="shipping_address_1" class="control-label">Shipping address 1</label>
+      <div class="controls">
+        <input type="text" name="shipping[address_1]" id="shipping_address_1" />
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="shipping_address_2" class="control-label">Shipping address 2</label>
+      <div class="controls">
+        <input type="text" name="shipping[address_2]" id="shipping_address_2" />
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="shipping_state" class="control-label">Shipping address state</label>
+      <div class="controls">
+        <input type="text" name="shipping[state]" id="shipping_state" />
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="shipping_country" class="control-label">Shipping country</label>
+      <div class="controls">
+        <input type="text" name="shipping[country]" id="shipping_country" />
+      </div>
+    </div>
+
+  </div>
+</div>
   <%- end -%>
 
   <hr />

@@ -1,0 +1,217 @@
+<% content_for :title, "Tray Navigation" %>
+
+<div class="content-spacing content-lists">
+
+  <h2 class="heading-two">Modes</h2>
+
+  <p>The tray navigation has two modes that determine how nested navigation works.</p>
+
+  <p>Complex mode allows the user to drill down through the menu levels.</p>
+
+  <p>Simple mode allows the user to show/hide children menus similar to accordions.</p>
+
+  <p>This is changed in the <code>tray-navigation.js</code> file by setting <code>simple</code> to either true or false.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Scaffolding the menu</h2>
+
+  <p>The menu requires the following markup to get started. Luckily Ornament comes with this markup out of the box, ready to go!</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">&lt;div class="layout">
+
+  &lt;div class="layout--mobile-tray">
+    &lt;nav class="navigation-mobile">
+      &lt;div class="pane-wrapper">
+        &lt;div class="pane">
+          &lt;div class="pane--navigation-container">
+
+            Navigation list goes here
+
+          &lt;/div>&lt;!-- .pane--navigation-container -->
+        &lt;/div>
+      &lt;/div>
+    &lt;/nav>
+  &lt;/div>&lt;!-- .layout--mobile-tray -->
+  &lt;div class="layout--content">
+
+    Website goes here
+
+  &lt;/div>&lt;!-- .layout--content -->
+&lt;/div>&lt;!-- .layout --></pre>
+  </div>
+
+  <p>The navigation links need to be an unordered list (<code>ul</code>) and will need a class of <code>non-pane</code> to indicate that it isn't a pane.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Multiple Menu Lists</h2>
+
+  <p>Adding multiple menus is as easy as adding another <code>ul</code> with a class of <code>non-pane</code>.</p>
+
+  <p>To add multiple Koi navigations, you would do this:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">&lt;div class="pane--navigation-container">
+  &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :sf_menu, level: 1..3, expand_all: true, dom_class: 'non-pane' %>
+  &lt;%= koi_render_navigation "footer_nav", "footer_navigation", renderer: :sf_menu, level: 1..3, expand_all: true, dom_class: 'non-pane' %>
+&lt;/div></pre>
+  </div>
+
+  <hr />
+
+  <h2 class="heading-two">Adding additional content to the first pane</h2>
+
+  <p>Adding content to the first pane is as simple as just adding extra elements after your lists:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">      ...
+      &lt;/ul>
+    &lt;/li>
+    &lt;li>&lt;a href="#">Link&lt;/a>&lt;/li>
+  &lt;/ul>
+
+  &lt;p>Hello, I am in the mobile tray!&lt;/p>
+&lt;/div>&lt;!-- .pane--navigation-container --></pre>
+  </div>
+
+  <hr />
+
+  <h2 class="heading-two">Accessing the menu externally</h2>
+
+  <p>The menu features several public functions that you can call anywhere.</p>
+
+  <%- 
+    traynav = "Ornament.C.TrayNav" 
+    public_values = [{
+      call: "#{traynav}.currentLevel",
+      description: "Returns how many panes deep the menu is open to."
+    },{
+      call: "#{traynav}.simple",
+      description: "Returns true or false based on the related setting. See settings for more info on that."
+    }]
+    dom_elements = [{
+      call: "#{traynav}.anchor",
+      description: "The menu button that opens/closes the tray."
+    },{
+      call: "#{traynav}.tray",
+      description: "The tray"
+    }]
+    public_functions = [{
+      call: "#{traynav}.openMenu();",
+      description: "Slide the menu open."
+    },{
+      call: "#{traynav}.closeMenu();",
+      description: "Slide the menu closed."
+    },{
+      call: "#{traynav}.toggleMenu();",
+      description: "Either close or open the menu."
+    },{
+      call: "#{traynav}.isOpen();",
+      description: "Returns true or false depending on if the menu is open or not."
+    },{
+      call: "#{traynav}.getCurrentTab();",
+      description: "Returns a jQuery object of the parent of the currently open pane."
+    },{
+      call: "#{traynav}.goToId(id);",
+      description: "Go to the ID of a navigation item (either on the LI or A)"
+    },{
+      call: "#{traynav}.goBack();",
+      description: "Go back one level"
+    },{
+      call: "#{traynav}.goToRoot();",
+      description: "Goes back to first pane."
+    },{
+      call: "#{traynav}.updateMenuHeight();",
+      description: "Will recalculate everything on the currently visible pane and update the height of the mobile menu accordingly."
+    },{
+      call: "#{traynav}.updateMenuHeightWithDelay();",
+      description: "Runs the height update function after waiting the appropriate amount of time for a pane transition to finish."
+    },{
+      call: "#{traynav}.updateMenuBindings();",
+      description: "Updates bindings on the anchor, back and forward buttons in case they somehow get lost via AJAX or DOM manipulation."
+    }]
+
+  -%>
+  <p>The menu is accessed via the public variable <code><%= traynav -%></code></p>
+
+  <h3 class="heading-three">Public Values</h3>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush" style="min-width: 800px;">
+      <thead>
+        <tr>
+          <th width="400">JS</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- public_values.each do |field| -%>
+          <tr>
+            <td><code><%= field[:call] -%></code></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="heading-three">DOM Elements</h3>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush" style="min-width: 800px;">
+      <thead>
+        <tr>
+          <th width="400">JS</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- dom_elements.each do |field| -%>
+          <tr>
+            <td><code><%= field[:call] -%></code></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h3 class="heading-three">Public Functions</h3>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush" style="min-width: 800px;">
+      <thead>
+        <tr>
+          <th width="400">JS</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- public_functions.each do |field| -%>
+          <tr>
+            <td><code><%= field[:call] -%></code></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2 class="heading-two" id="settings">Settings</h2>
+
+  <p>At the top of <code>tray-navigation.js</code> you can find a bunch of variables ready for changing. These include classes, text strings, animation timings and so on.</p>
+
+  <p>Some of the less obvious settings:</p>
+
+  <p><code>jumpToCurrent</code> will decide wether the menu will load in to the current page already visible or if it will start from the top.</p>
+
+  <p><code>simple</code> will fallback to a simple accordion-style menu if set to true.</p>
+
+  <p><code>showOverviewLinks</code> will show overview links on secondary panes. Turn off if parent pages aren't real pages.</p>
+
+</div>

@@ -1,5 +1,40 @@
 # Changelog
 
+## v1.2.5
+
+### Features
+
+- Added styleguide code highlighting  
+- Added a couple Koi helper methods in application_helper for `traverse_for_key(nav_item, key)` and `traverse_for_nearest_navigation_key(nav_item)`  
+- Fixed `.button__icon` sizing to be in-line with the default button heights  
+- Added `.button__small.button__icon` variation  
+- Added `.button-set` for a grouping of buttons that always have consistent space between themselves  
+- Added `Ornament.version` to return the current version of Ornament  
+- Added `ShiftyJS`, a new JS component for moving elements around the page between breakpoints  
+- Added [what-input](https://github.com/ten1seven/what-input) and added a sass mixin `disable-mouse-outline` that disabled outlines on elements when mouse is detected as main input device, applied to buttons by default  
+- Updated spang documentation  
+- Added `.cocoon-fields` form component and added some styling guidelines for cocoon fields  
+- Added a `billingToShipping` form helper  
+- Improved pagination defaults  
+- Added `rel=noopener noreferrer` to external links 
+- Fixed issues with external links not tracking 
+- Made the `skip-link` visible when focused for improved accesibility  
+- Added `flying-focus` library for improved accessibility  
+- Moved a lot of the table styles in to `table-mixins` and created classes using those mixins, allowing tables to be extended easily  
+- Created a `content-table` mixin that applies to any table inside `.content` as a way of basic styling for wysiwyg tables  
+- Created `Ornament.C.ContentHelpers` and the first content helper is to auto-wrap a `.table-container` around `.content table`, this will make wysiwyg tables a bit nicer on mobile  
+
+### Changes
+
+- Reduced default button sizes  
+- Moved the button mixins in to `_button-mixins.scss` to better seperate concerns and allow buttons to be made outside of `_button.scss`  
+- Moved the `layout--container` code out in to it's own series of `container` mixins and added some documentation for them  
+- Renamed `mobile_navigation` to `tray_navigation` to better represent the component  
+- Replaced TODO link in styleguide with a link to the project board on github  
+- Reorganised and reformatted the `_settings.scss` file to bring more in line with the future of ornament  
+- Updated the specificity of the `.controls` margin-top to only add it when preceeded by a `.control-label`  
+- Moved feature detection booleans to the new `Ornament.features` object  
+
 ## v1.2.4
 
 Introducing the Ornament Component API!  

@@ -1,42 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
-//
-// This file contains common variables used by Ornament.
-//
-////////////////////////////////////////////////////////////////////////////////
-
-
-// BASE UNITS
-//
-//
-// The base font size should be set in pixels.
-//
-// The base line height should be unitless (ratio of line height to font size).
-//
-
-$base-font-size:      16px;
-
-$x-small-font-size:   12px;
-$small-font-size:     14px;
-$base-font-size:      $base-font-size;
-$large-font-size:     1.1em;
-$base-line-height:    1.5;
-$base-line-size:      $base-font-size * $base-line-height;
-
-
-// CONTAINER WIDTH
-//
-// Width of the container (desktop only).
-//
-
-$container-width: 1072px;
-$container-percentage: 92%;
-$fixed-footer: true;
-
-// SIZES
-//
-//
-// Setup a sizing units.
-//
+// =========================================================================
+// Sizing Units
+// =========================================================================
 
 $xxxxx-small-unit:      8px;
 $xxxx-small-unit:       12px;
@@ -54,6 +18,34 @@ $xxxxx-large-unit:      64px;
 $xxxxxx-large-unit:     72px;
 $xxxxxxx-large-unit:    80px;
 
+// =========================================================================
+// Typogrpahy units
+// =========================================================================
+
+$x-small-font-size:   12px;
+$small-font-size:     14px;
+$base-font-size:      16px;
+$large-font-size:     18px;
+$base-line-height:    1.5;
+$base-line-size:      $base-font-size * $base-line-height;
+
+// =========================================================================
+// Layout and container settings
+// =========================================================================
+
+$layout-mobile-tray-width:  250px;
+$layout-animation-duration: 0.5s;
+
+$fixed-footer: true;
+
+$container-width: 1072px;
+$container-percentage: 92%;
+$container-padding: $default-unit;
+$container-padding-mobile: $xxx-small-unit;
+
+// =========================================================================
+// Misc units
+// =========================================================================
 
 $border-radius:   4px;
 $button-height:   44px;
@@ -62,11 +54,9 @@ $panel-padding:         $xx-small-unit;
 $panel-padding-small:   $xxx-small-unit;
 $panel-spacing:         $xx-small-unit;
 
-
-// BREAKPOINTS
-//
-// Desktop first breakpoints. Used in conjunction with media-query util. (Breakpoint keyword, Desktop first breakpoint)
-//
+// =========================================================================
+// Breakpoints
+// =========================================================================
 
 $breakpoint-typography: 480px;
 $breakpoint-large: 1080px;
@@ -85,10 +75,9 @@ $site-breakpoints:
   (large, $breakpoint-large)
 ;
 
-// GUTTERS
-//
-// Site gutters to be used at desktop and specific breakpoints. Used within grids util. (Breakpoint keyword, Gutter size)
-//
+// =========================================================================
+// Gutters
+// =========================================================================
 
 $desktop-gutters: $x-small-unit;
 
@@ -103,10 +92,9 @@ $site-gutters:
   false
 ;
 
-// COLORS
-//
-// Default colors.
-//
+// =========================================================================
+// Colours 
+// =========================================================================
 
 $black: #000;
 $white: #fff;
@@ -136,9 +124,6 @@ $success-background: #ccffcc;
 
 $overlay-color: #222;
 
-$input-border-color: #c5cbd4;
-$input-border-focus-color: darken($input-border-color,20);
-
 $facebook: #3b5998;
 $twitter: #44ccf6;
 $linkedin: #1b86bd;
@@ -147,38 +132,16 @@ $divider-color: $passive-color;
 $divider: 1px solid $divider-color;
 $image-border: 0;
 
-// INPUTS
-//
-// Input styling.
-//
+// =========================================================================
+// Input settings
+// =========================================================================
 
-$checkbox-radio-padding:  -0.2em 0 0 0.2em;
-$input-background:        #ffffff;
-$input-border:            1px solid $input-border-color;
-$input-border-radius:     0;
-$input-color:             $foreground-color;
-$input-padding:           0.3em 0.2em 0.1em;
-$input-width:             100%;
-$textarea-height:         $base-line-size*5;
-
-// LAYOUT VARIABLES
-
-$layout-mobile-tray-width:  250px;
-$layout-animation-duration: 0.5s;
-
-// Fixed positioning offset for IE browsers
-// Apply this mixin to elements that are fixed (such as mobile fixed header)
-// to make it position correctly in IE
-// Make sure you enable the feature detection in navigation-mobile.js
-// and use the correct element to test. 
-// More information about the bug:
-// http://stackoverflow.com/questions/27952725/why-doesnt-translatex-work-as-expected-for-fixed-elements-on-ie9-ie10-and-ie1
-@mixin ie-fixed-offset {
-  .layout--ie-fixed-position-bug & {
-    @include transition(all $layout-animation-duration);
-  }
-  .layout-open.layout--ie-fixed-position-bug & {
-    left: $layout-mobile-tray-width * -1;
-    right: $layout-mobile-tray-width;
-  }
-}
+$input-border-color:         #c5cbd4;
+$input-border-focus-color:   darken($input-border-color,20);
+$input-background:           $white;
+$input-border:               1px solid $input-border-color;
+$input-border-radius:        $border-radius;
+$input-color:                $foreground-color;
+$input-width:                100%;
+$textarea-height:            $base-line-size*5;
+$checkbox-radio-padding:     -0.2em 0 0 0.2em;

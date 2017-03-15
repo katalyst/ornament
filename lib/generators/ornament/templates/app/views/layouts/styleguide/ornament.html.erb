@@ -21,7 +21,7 @@
     
     <!-- WEBFONTS -->
     <script>
-      WebFontConfig = {
+      var WebFontConfig = {
         google: {
           families: ['Open Sans:400,700,400italic,700italic'],
         }
@@ -71,7 +71,9 @@
         <header class="sg-header layout--header" role="banner">
           <div class="layout--container">
             <hgroup class="sg-header--logo">
-              <h1><%= link_to "Ornament", styleguide_path -%></h1>
+              <h1><%= link_to styleguide_path do -%> 
+                Ornament <span data-ornament-version></span>
+              <%- end -%></h1> <a href="https://github.com/katalyst/ornament" class="button__confirm button__small">Github</a>
               <h2>The front-end pattern library and styleguide for Katalyst web applications</h2>
             </hgroup>
             <button class="sg-header--menu" data-mobile-menu-switch>open navigation</button>
@@ -106,6 +108,7 @@
 
     <% end %>
 
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <%= javascript_include_tag "styleguide" %>
     <%= javascript_include_tag "application_bottom" %>
     <%= yield :scripts_bottom %>

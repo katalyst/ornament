@@ -1,0 +1,37 @@
+<% content_for :title, "Shifty" %>
+
+<%- content_for :scripts_bottom do -%>
+  <script>
+    Ornament.C.Shifty.uiElements = [{
+      desktop: $("[data-panel-desktop]"),
+      mobile: $("[data-panel-mobile]")
+    }];
+    Ornament.C.Shifty.init();
+  </script>
+<%- end -%>
+
+<div class="content-spacing">
+
+  <p>Shifty is a way to move entire pieces of dom to new areas when a breakpoint is met.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons", js: capture { -%>
+Ornament.C.Shifty.uiElements = [{
+  desktop: $("[data-panel-desktop]"),
+  mobile: $("[data-panel-mobile]")
+}];
+Ornament.C.Shifty.init();
+  <%- } } do -%>
+<p>For example, on desktop there is a big success panel right here:</p>
+
+<div data-panel-desktop>
+  <div class="panel__success panel--padding" data-shifty-target>Success!</div>
+</div>
+
+<p>However on mobile, it will be down here:</p>
+
+<div data-panel-mobile></div>
+  <%- end -%>
+
+  <p>By default it will use the default <code>Ornament.headerBreakpoint</code> as the breakpoint it watches for, however you can over-ride this on the page by setting <code>Ornament.C.Shifty.layoutBreakpoint</code>.</p>
+  
+</div>

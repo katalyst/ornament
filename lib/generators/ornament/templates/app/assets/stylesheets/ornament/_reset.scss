@@ -50,6 +50,7 @@ button {
   text-transform: inherit;
   // fix for psuedo elements being misaligned in IE
   overflow: visible; 
+  @include disable-mouse-outline;
 }
 
 

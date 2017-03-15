@@ -10,18 +10,38 @@
 <div class="content-spacing">
   <h2 class="heading-two">Flexbox Mixins</h2>
   <p>There are several flexbox related SCSS mixins:</p>
-  <ul>
-    <li>@include display-flex;</li>
-    <li>@include display-inline-flex;</li>
-    <li>@include flex($value);</li>
-    <li>@include flex-wrap($value:wrap);</li>
-    <li>@include flex-direction($value);</li>
-    <li>@include flex-grow($value);</li>
-    <li>@include flex-shrink($value);</li>
-    <li>@include align-items($value);</li>
-    <li>@include justify-items($value);</li>
-    <li>@include justify-self($value);</li>
-  </ul>
+
+  <%-
+    flex = [
+      "@include display-flex;",
+      "@include display-inline-flex;",
+      "@include flex($value);",
+      "@include flex-wrap($value:wrap);",
+      "@include flex-direction($value);",
+      "@include flex-grow($value);",
+      "@include flex-shrink($value);",
+      "@include align-items($value);",
+      "@include justify-items($value);",
+      "@include justify-self($value);"
+    ]
+  -%>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush" style="min-width: 800px;">
+      <thead>
+        <tr>
+          <th>Mixin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- flex.each do |mixin| -%>
+          <tr>
+            <td><code><%= mixin -%></code></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
 
   <hr />
 
@@ -29,10 +49,29 @@
 
   <p>There are a couple of premade mixins that use the mixins above to create an easy-to-use grid system:</p>
 
-  <ul>
-    <li>@include flex-row($gutter:false)</li>
-    <li>@include flex-col($width, $gutter:false, $grow:0, $shrink:0)</li>
-  </ul>
+  <%-
+    flex_grid = [
+      "@include flex-row($gutter:false)",
+      "@include flex-col($width, $gutter:false, $grow:0, $shrink:0)"
+    ]
+  -%>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush" style="min-width: 800px;">
+      <thead>
+        <tr>
+          <th>Mixin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- flex_grid.each do |mixin| -%>
+          <tr>
+            <td><code><%= mixin -%></code></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
 
   <p>
     <em>Hint:</em> you can use the <code>span(x,y)</code> mixin to make setting widths easier. eg: <code>@include flex-col(span(1,2));</code> for a 50% width column.

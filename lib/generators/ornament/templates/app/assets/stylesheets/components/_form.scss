@@ -3,6 +3,10 @@ $form-inline-height:  $button-height;
 $form-width:          748px; // used for calculating % widths of inputs
 $hint-color:          $grey;
 
+// =========================================================================
+// Helper mixins to flatten input edges 
+// =========================================================================
+
 @mixin input__flat-right {
   @include border-top-right-radius(0);
   @include border-bottom-right-radius(0);
@@ -13,7 +17,10 @@ $hint-color:          $grey;
   @include border-bottom-left-radius(0);
 }
 
-// FORMS NORMALISATION
+// =========================================================================
+// Form normalisation
+// =========================================================================
+
 fieldset {
   @include inline-block;
   width: 100%;
@@ -68,13 +75,19 @@ button, input[type=submit] {
   -webkit-appearance: none;
 }
 
+// =========================================================================
 // Firefox 2px button issue fix
+// =========================================================================
+
 button::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
 
+// =========================================================================
 // Removing spinners from input fields
+// =========================================================================
+
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -86,20 +99,26 @@ input[type="number"] {
   -moz-appearance:textfield;
 }
 
-// FORM STYLING
-// Push embedded forms away from content
+// =========================================================================
+// Embedded forms that appear after content
+// =========================================================================
+
 .form-embedded {
   margin-top: $default-unit;
 }
 
-// Spacing between inputs and labels
-.control-group {
-  .controls {
-    margin-top: $xxx-small-unit;
-  }
+// =========================================================================
+// Spacing controls away from their labels when inside control-groups
+// =========================================================================
+
+.control-label + .controls {
+  margin-top: $xxx-small-unit;
 }
 
-// Styling input fields
+// =========================================================================
+// Global input styling
+// =========================================================================
+
 input[type=text],
 input[type=password],
 input[type=number],
@@ -120,7 +139,7 @@ textarea,
   padding-left: $xxxx-small-unit;
   padding-right: $xxxx-small-unit;
   margin: 0;
-  @include border-radius($border-radius);
+  @include border-radius($input-border-radius);
   @include transition(border-color .2s);
 
   .layout--body & {
@@ -156,20 +175,23 @@ textarea,
   }
 }
 
-// PLACEHOLDERS
+// =========================================================================
+// Placeholders 
+// =========================================================================
 
 @include input-placeholder {
   color: $input-border-color;
 }
+
+// =========================================================================
+// Select menus
+// =========================================================================
 
 select {
   width: 100%;
   font: inherit;
   color: $input-color;
 }
-
-// WEBKIT SELECT MENU OVER-RIDE
-// https://raw2.github.com/isellsoap/forms.css/gh-pages/assets/css/forms.css
 
 @include pretty-select {
 
@@ -191,7 +213,9 @@ select {
 
 }
 
-// FIELD LENGTH MODIFIERS
+// =========================================================================
+// Field length modifiers
+// =========================================================================
 
 .form--large {
   max-width: spanf(3,4,$form-width);
@@ -212,7 +236,9 @@ select {
   max-width: 100%;
 }
 
-// RADIOS AND CHECKBOXES
+// =========================================================================
+// Radios and checkboxes
+// =========================================================================
 
 $radio-offset: 24px;
 
@@ -236,7 +262,10 @@ $radio-offset: 24px;
   }
 }
 
-// Enhanced input fields
+// =========================================================================
+// Enhanced radio / checkboxes
+// =========================================================================
+
 .form--enhanced {
 
   .radio .form--enhanced--control {
@@ -287,6 +316,10 @@ $radio-offset: 24px;
 
 }
 
+// =========================================================================
+// Horizontal radios/checkboxes 
+// =========================================================================
+
 .form--horizontal {
   @include pie-clearfix;
 
@@ -298,7 +331,10 @@ $radio-offset: 24px;
   }
 }
 
-// SINGLE CHECKBOXES
+// =========================================================================
+// Boolean checkboxes / single checkboxes
+// =========================================================================
+
 .control-group.boolean,
 .checkbox__single {
   position: relative;
@@ -317,38 +353,48 @@ $radio-offset: 24px;
   }
 }
 
-// ERRORS & HINTS
+// =========================================================================
+// Errors & Hints
+// =========================================================================
+
 .help-block {
   display: block;
   clear: both;
 }
 
-p.hint-block { // hint
+p.hint-block { 
   color: $hint-color;
   font-style: italic;
   margin: 0;
 }
 
-span.error-block { // error
+// Errors
+span.error-block { 
   color: $error-color;
   &:before {
     content: " ";
   }
 }
 
-// LABELS WITH ERRORS
+// Labels with errors
 .error .control-label {
   color: $error-color;
 }
 
-// REQUIRED FIELDS
+// =========================================================================
+// Required fields
+// =========================================================================
+
 .control-label abbr,
 abbr[title=required] {
   color: $primary-color;
   margin-right: -3px;
 }
 
-// FILE UPLOAD
+// =========================================================================
+// Inline file upload field
+// =========================================================================
+
 $file-thumbnail-width: 100px;
 .form--file-upload {
   position: relative;
@@ -365,8 +411,10 @@ $file-thumbnail-width: 100px;
   }
 }
 
+// =========================================================================
 // INLINE FORMS
 // [input]button
+// =========================================================================
 
 .form-inline {
   display: table;
@@ -396,7 +444,9 @@ $file-thumbnail-width: 100px;
   @include icon-block($form-inline-height, 16px);
 }
 
-// FULL-WIDTH SEARCH FIELD WITH LABEL
+// =========================================================================
+// Full-width search
+// =========================================================================
 
 .form-search {
   @include pie-clearfix;
@@ -427,7 +477,10 @@ $file-thumbnail-width: 100px;
   }
 }
 
-// COMBINED FIELDS WITH LABEL INPUTS
+// =========================================================================
+// Field combinations 
+// =========================================================================
+
 .form-label-combo {
   padding: 0 !important;
   position: relative;
@@ -461,7 +514,10 @@ $file-thumbnail-width: 100px;
   }
 }
 
-// SIBLINT FIELDS
+// =========================================================================
+// Sibling fields
+// =========================================================================
+
 .form-siblings {
   @include row;
 
@@ -472,5 +528,150 @@ $file-thumbnail-width: 100px;
       @include spang(1,1);
       margin-top: $xx-small-unit;
     }
+  }
+}
+
+// =========================================================================
+// Password revealer
+// =========================================================================
+
+.form--password-revealer {
+  position: relative;
+
+  input {
+    padding-right: 80px;
+
+    ::ms-clear,
+    ::ms-reveal {
+      display: none;
+    }
+  }
+
+  button {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    right: 4px;
+    text-transform: uppercase;
+    @include disable-mouse-outline;
+  }
+}
+
+// =========================================================================
+// Password score
+// =========================================================================
+
+$password-0: #e14816;
+$password-1: #e1ad16;
+$password-2: #0088d5;
+$password-3: #9cd034;
+$password-spacer: $xxx-small-unit;
+$password-grey: $passive-color;
+
+.password-score {
+  overflow: hidden;
+  padding-top: $password-spacer;
+  font-size: 12px;
+  width: 100%;
+}
+.password-score--demo-mode {
+  background: $error-color;
+  padding: $xxxxx-small-unit;
+  font-size: $small-font-size;
+  color: $white;
+  @include border-top-left-radius($input-border-radius);
+  @include border-top-right-radius($input-border-radius);
+
+  // Flush the input against the demo mode warning
+  & + input,
+  & + .form--password-revealer input {
+    @include border-top-left-radius(0);
+    @include border-top-right-radius(0);
+    border-top: none;
+  }
+
+  // offset reveal button to fix extra space without the border
+  & + .form--password-revealer button {
+    margin-top: -1px;
+  }
+}
+.password-score--label {
+  float: left;
+  margin-bottom: $password-spacer;
+}
+.password-score--rating {
+  float: right;
+  margin-bottom: $password-spacer;
+
+  @include media-query(500px) {
+    float: left;
+    clear: both;
+  }
+
+  .password-score__0 &,
+  .password-score__1 & {
+    color: $password-0;
+  }
+  .password-score__2 & {
+    color: $password-1;
+  }
+  .password-score__3 & {
+    color: $password-2;
+  }
+  .password-score__4 &,
+  .password-score__5 & {
+    color: $password-3;
+  }
+}
+.password-score--bar {
+  background: $password-grey;
+  clear: both;
+}
+.password-score--progress {
+  height: 6px;
+
+  .password-score__0 &,
+  .password-score__1 & {
+    background: $password-0;
+    width: 25%;
+  }
+  .password-score__2 & {
+    background: $password-1;
+    width: 50%;
+  }
+  .password-score__3 & {
+    background: $password-2;
+    width: 75%;
+  }
+  .password-score__4 &,
+  .password-score__5 & {
+    background: $password-3;
+    width: 100%;
+  }
+}
+
+// =========================================================================
+// Nested/Cocoon fields
+// =========================================================================
+
+.cocoon-field {
+  @include media-query(500px, min) {
+    display: table;
+    width: 100%;
+  }
+}
+.cocoon-field--field,
+.cocoon-field--remove {
+  @include media-query(500px, min) {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+.cocoon-field--remove {
+  @include media-query(500px, min) {
+    padding-left: $xxx-small-unit;
+  }
+  @include media-query(500px) {
+    padding-top: $xxxx-small-unit;
   }
 }
