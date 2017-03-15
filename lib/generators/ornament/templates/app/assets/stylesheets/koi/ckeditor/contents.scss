@@ -1,0 +1,6 @@
+@import "ornament/core";
+@import "aspects/normal";
+body {
+  padding: $x-small-unit;
+  @include aspect-normal;
+}
