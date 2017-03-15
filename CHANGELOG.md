@@ -23,6 +23,7 @@
 - Moved a lot of the table styles in to `table-mixins` and created classes using those mixins, allowing tables to be extended easily  
 - Created a `content-table` mixin that applies to any table inside `.content` as a way of basic styling for wysiwyg tables  
 - Created `Ornament.C.ContentHelpers` and the first content helper is to auto-wrap a `.table-container` around `.content table`, this will make wysiwyg tables a bit nicer on mobile  
+- Added a `koi/ckeditor/contents.css` file that generates basic typography and wysiwyg aspect styles for use with Koi's CKEditor  
 
 ### Changes
 
