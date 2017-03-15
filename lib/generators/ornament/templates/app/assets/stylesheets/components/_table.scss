@@ -1,9 +1,3 @@
-$table-border: 1px solid $divider-color;
-$table-striped-odd: $passive-color;
-$table-striped-even: transparent;
-$table-stacked-breakpoint: 500px;
-$table-padding: $xxxxx-small-unit;
-
 // Display types
 .display-table {
   display: table;
@@ -13,97 +7,29 @@ $table-padding: $xxxxx-small-unit;
   display: table-cell;
 }
 
-// Padded tables
 .table {
-  width: 100%;
-}
-.table td,
-.table th {
-  padding: $table-padding;
+  @include table-padding;
 }
 
-// Flush tables
-.table__flush th:first-child,
-.table__flush td:first-child {
-  padding-left: 0;
-}
-.table__flush th:last-child,
-.table__flush td:last-child {
-  padding-right: 0;
+.table__flush {
+  @include table-flush;
 }
 
-// Bordered tables
 .table__bordered {
-  thead + tbody tr:first-child th,
-  thead + tbody tr:first-child td,
-  tbody + tfoot tr:first-child th,
-  tbody + tfoot tr:first-child td,
-  tr + tr td,
-  tr + tr th {
-    border-top: $table-border;
-  }
+  @include table-bordered;
 }
 
-// Zebra striping
 .table__striped {
-  tbody {
-    tr:nth-child(odd) {
-      background-color: $table-striped-odd;
-    }
-    tr:nth-child(even) {
-      background-color: $table-striped-even;
-    }
-  }
+  @include table-striped;
 }
 
-// Highlighting rows
 .table__highlight {
-  tbody tr:hover th,
-  tbody tr:hover td {
-    background: $notice-background;
-  }
+  @include table-highlight;
 }
 
 // Stackable table
 .table__stack {
-  @include media-query($table-stacked-breakpoint) {
-
-    // Set table to display block
-    display: block;
-
-    // Set table elements to display block
-    thead, tbody, tr, th, td {
-      display: block;
-    }
-
-    // Hide the headings
-    [data-table-column-headings] {
-      display: none;
-    }
-
-    // Add in the inline headings
-    [data-table-heading]:before {
-      content: attr(data-table-heading);
-      padding-right: $xxxxx-small-unit;
-      @include font($bold-font);
-    }
-
-    // Move padding from cells to row when tables are padded
-    &.table tr {
-      padding: $table-padding;
-    }
-    &.table tr td,
-    &.table tr th {
-      padding: 0;
-    }
-
-    // Remove padding on flush tables
-    &.table__flush tr {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-  }
+  @include table-stack;
 }
 
 // Scrollable table
@@ -111,4 +37,8 @@ $table-padding: $xxxxx-small-unit;
   max-width: 100%;
   overflow: auto;
   -webkit-overflow-scroll: touch;
+
+  table {
+    min-width: 400px;
+  }
 }

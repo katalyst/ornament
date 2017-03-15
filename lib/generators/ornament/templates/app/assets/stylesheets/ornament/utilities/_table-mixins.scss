@@ -1,0 +1,107 @@
+$table-border: 1px solid $divider-color;
+$table-striped-odd: $passive-color;
+$table-striped-even: transparent;
+$table-stacked-breakpoint: 500px;
+$table-padding: $xxxxx-small-unit;
+
+// Padded tables
+@mixin table-padding {
+  width: 100%;
+  td,
+  th {
+    padding: $table-padding;
+  }
+}
+
+// Flush tables
+@mixin table-flush {
+  th:first-child,
+  td:first-child {
+    padding-left: 0;
+  }
+  th:last-child,
+  td:last-child {
+    padding-right: 0;
+  }
+}
+
+// Bordered tables
+@mixin table-bordered {
+  thead + tbody tr:first-child th,
+  thead + tbody tr:first-child td,
+  tbody + tfoot tr:first-child th,
+  tbody + tfoot tr:first-child td,
+  tr + tr td,
+  tr + tr th {
+    border-top: $table-border;
+  }
+}
+
+// Zebra striping
+@mixin table-striped {
+  tbody {
+    tr:nth-child(odd) {
+      background-color: $table-striped-odd;
+    }
+    tr:nth-child(even) {
+      background-color: $table-striped-even;
+    }
+  }
+}
+
+// Highlighting rows
+@mixin table-highlight {
+  tbody tr:hover th,
+  tbody tr:hover td {
+    background: $notice-background;
+  }
+}
+
+// Stackable table
+@mixin table-stack {
+  @include media-query($table-stacked-breakpoint) {
+
+    // Set table to display block
+    display: block;
+
+    // Set table elements to display block
+    thead, tbody, tr, th, td {
+      display: block;
+    }
+
+    // Hide the headings
+    [data-table-column-headings] {
+      display: none;
+    }
+
+    // Add in the inline headings
+    [data-table-heading]:before {
+      content: attr(data-table-heading);
+      padding-right: $xxxxx-small-unit;
+      @include font($bold-font);
+    }
+
+    // Move padding from cells to row when tables are padded
+    &.table tr {
+      padding: $table-padding;
+    }
+    &.table tr td,
+    &.table tr th {
+      padding: 0;
+    }
+
+    // Remove padding on flush tables
+    &.table__flush tr {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+  }
+}
+
+// Default content table
+@mixin content-table {
+  @include table-padding;
+  @include table-bordered;
+  @include table-striped;
+}

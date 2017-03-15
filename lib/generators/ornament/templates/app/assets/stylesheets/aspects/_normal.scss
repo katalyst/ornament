@@ -255,4 +255,8 @@ ol.content-lists {
     @include flush-children;
     font-size: $base-font-size;
   }
+
+  table {
+    @include content-table;
+  }
 }
