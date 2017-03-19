@@ -5,6 +5,7 @@
 ### Features
 
 - Added styleguide code highlighting  
+- Added auto-anchoring to the styleguide, so you can now anchor to any heading. If the heading is "Text matches", the anchor will be `#text-matches`  
 - Added a couple Koi helper methods in application_helper for `traverse_for_key(nav_item, key)` and `traverse_for_nearest_navigation_key(nav_item)`  
 - Fixed `.button__icon` sizing to be in-line with the default button heights  
 - Added `.button__small.button__icon` variation  
@@ -24,6 +25,8 @@
 - Created a `content-table` mixin that applies to any table inside `.content` as a way of basic styling for wysiwyg tables  
 - Created `Ornament.C.ContentHelpers` and the first content helper is to auto-wrap a `.table-container` around `.content table`, this will make wysiwyg tables a bit nicer on mobile  
 - Added a `koi/ckeditor/contents.css` file that generates basic typography and wysiwyg aspect styles for use with Koi's CKEditor  
+- Moved ShowJS in to the Ornament.C API, `Ornament.C.Show` and allowed it to be included as a stand-alone library from Ornament  
+- Added the `data-show-type="*"` method to Show.JS to match anything in a string input type  
 
 ### Changes
 
