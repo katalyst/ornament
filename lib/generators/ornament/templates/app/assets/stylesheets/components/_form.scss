@@ -541,10 +541,8 @@ $file-thumbnail-width: 100px;
   input {
     padding-right: 80px;
 
-    ::ms-clear,
-    ::ms-reveal {
-      display: none;
-    }
+    &::-ms-clear,
+    &::-ms-reveal { display: none; }
   }
 
   button {
