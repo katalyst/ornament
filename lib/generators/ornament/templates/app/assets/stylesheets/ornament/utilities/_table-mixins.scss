@@ -103,5 +103,4 @@ $table-padding: $xxxxx-small-unit;
 @mixin content-table {
   @include table-padding;
   @include table-bordered;
-  @include table-striped;
 }

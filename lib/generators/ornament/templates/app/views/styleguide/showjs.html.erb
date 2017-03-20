@@ -243,6 +243,25 @@
 </div>
   <%- end -%>
 
+  <p>You can match any input by using the <code>data-show-type="*"</code> attribute.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-text-any" } do -%>
+<div class="inputs">
+  <div class="control-group check_boxes form--medium">
+    <label class="optional control-label">Type anything</label>
+    <div class="controls">
+      <input class="string tel optional" type="text" id="show-text-any" />
+    </div>
+  </div>
+  <div class="control-group form--small" data-show="show-text-any" data-show-input data-show-type="*">
+    <label class="optional control-label">Hidden Field</label>
+    <div class="controls">
+      <input class="string tel optional" type="text" />
+    </div>
+  </div> 
+</div>
+  <%- end -%>
+
   <hr />
 
   <h2 class="heading-two">Inverting matches</h2>
