@@ -45,12 +45,12 @@ class OrnamentGenerator < Rails::Generators::Base
 
       if options.uploader?
 
-        # drag and drop image uploader dependancies
-        route "end"
-        route "  post :image, on: :collection"
-        route "resources :uploads do"
-
         unless options.example?
+          # drag and drop image uploader dependancies
+          route "end"
+          route "  post :image, on: :collection"
+          route "resources :uploads do"
+
           copy_file "app/controllers/uploads_controller.rb"
         end
         
