@@ -50,7 +50,10 @@ class OrnamentGenerator < Rails::Generators::Base
         route "  post :image, on: :collection"
         route "resources :uploads do"
 
-        copy_file "app/controllers/uploads_controller.rb"
+        unless options.example?
+          copy_file "app/controllers/uploads_controller.rb"
+        end
+        
         copy_file "app/views/koi/crud/_form_field_uploader.html.erb"
 
       end
