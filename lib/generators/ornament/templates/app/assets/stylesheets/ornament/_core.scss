@@ -1,14 +1,13 @@
-////////////////////////////////////////////////////////////////////////////////
-//
-// This file carefully imports Ornament files in a very specific order.
-//
-////////////////////////////////////////////////////////////////////////////////
+// =========================================================================
+// Settings
+// =========================================================================
 
-
-// ORNAMENT SETTINGS
 @import "settings";
 
-// COMPASS UTILITIES
+// =========================================================================
+// Compass
+// =========================================================================
+
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
 @import "compass/css3/images";
@@ -20,7 +19,10 @@
 @import "compass/utilities/general/clearfix";
 @import "compass/typography/links/hover-link";
 
-// UTILITIES AND HELPERS
+// =========================================================================
+// Utilities
+// =========================================================================
+
 @import "ornament/utilities/animation";
 @import "ornament/utilities/arrows";
 @import "ornament/utilities/button-mixins";
@@ -37,6 +39,7 @@
 @import "ornament/utilities/media-query";
 @import "ornament/utilities/reverse-list";
 @import "ornament/utilities/spang";
+@import "ornament/utilities/spacing";
 @import "ornament/utilities/flush-children";
 @import "ornament/utilities/input-placeholder";
 @import "ornament/utilities/table-mixins";
@@ -49,14 +52,24 @@
 @import "ornament/utilities/overlay";
 @import "ornament/utilities/pretty-select";
 
-// ORNAMENT
+// =========================================================================
+// Ornament core
+// =========================================================================
+
 @import "fonts";
 @import "ornament/reset";
 @import "ornament/turbolinks";
 @import "components/typography";
 
-// VENDOR ASSETS
+// =========================================================================
+// Vendor 
+// =========================================================================
+
 @import "jquery.jcrop";
+
+// =========================================================================
+// Grunticon
+// =========================================================================
 
 .svg {
   @import "grunticon/icon-svg";

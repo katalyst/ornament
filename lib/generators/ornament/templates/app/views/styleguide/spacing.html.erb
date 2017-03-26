@@ -1,0 +1,55 @@
+<%= content_for :title, "Spacing Classes" -%>
+
+<%- content_for :scripts do -%>
+  <script>
+    $(function(){
+      var $spacer = $("#spacing-radios");
+      var $spacingTarget = $("#spacing-target");
+      $spacer.on("change", function(){
+        var newValue = $(this).val();
+        $spacingTarget.attr("class", "").addClass(newValue);
+      });
+    });
+  </script>
+  <style>
+    .spacing-block {
+      height: 64px;
+      background: #ccc;
+    }
+  </style>
+<%- end -%>
+
+<div class="content-spacing content-lists spacing">
+
+  <div class="content">
+    <p>Space out block-level elements evenly by using a <code>spacing</code> class.</p>
+    <p>Use the select menu below to preview the spacing classes on these red blocks.</p>
+  </div>
+
+  <select id="spacing-radios" class="form--auto">
+    <option value="spacing-xxxxx-tight">spacing-xxxxx-tight</option>
+    <option value="spacing-xxxx-tight">spacing-xxxx-tight</option>
+    <option value="spacing-xxx-tight">spacing-xxx-tight</option>
+    <option value="spacing-xx-tight">spacing-xx-tight</option>
+    <option value="spacing-x-tight">spacing-x-tight</option>
+    <option value="spacing-tight">spacing-tight</option>
+    <option value="spacing" selected>spacing</option>
+    <option value="spacing-loose">spacing-loose</option>
+    <option value="spacing-x-loose">spacing-x-loose</option>
+    <option value="spacing-xx-loose">spacing-xx-loose</option>
+    <option value="spacing-xxx-loose">spacing-xxx-loose</option>
+    <option value="spacing-xxxx-loose">spacing-xxxx-loose</option>
+    <option value="spacing-xxxxx-loose">spacing-xxxxx-loose</option>
+    <option value="spacing-xxxxxx-loose">spacing-xxxxxx-loose</option>
+    <option value="spacing-xxxxxxx-loose">spacing-xxxxxxx-loose</option>
+  </select>
+
+  <div class="spacing" id="spacing-target">
+    <div class="spacing-block"></div>
+    <div class="spacing-block"></div>
+    <div class="spacing-block"></div>
+    <div class="spacing-block"></div>
+    <div class="spacing-block"></div>
+  </div>
+
+</div>

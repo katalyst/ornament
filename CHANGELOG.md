@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.2.6
+
+### Features
+
+- Added `spacing` class documentation in the CSS section  
+
+### Changes
+
+- Moved `spacing` out of components in to utilities  
+
 ## v1.2.5
 
 ### Features

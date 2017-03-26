@@ -1,33 +1,21 @@
-////////////////////////////////////////////////////////////////////////////////
-//
-// This is the base CSS file for your application. Import this into your layout.
-//
-////////////////////////////////////////////////////////////////////////////////
-
-// ORNAMENT
-//
-// Apply resets, apply default Ornament styles and import fonts & settings.
-//
+// =========================================================================
+// Ornament main application stylesheet
+// =========================================================================
 
 @import "ornament/core";
 
-// ASPECTS
-//
-//
-// Spacing around elements in different areas of the website
-//
+// =========================================================================
+// Aspects
+// =========================================================================
 
 @import "aspects/normal";
 @import "aspects/compressed";
 @import "aspects/expanded";
 @import "aspects/inputs";
 
-// COMPONENTS
-//
-//
-// Import the components this project uses. Instead of importing Compass or
-// Ornament utilities/mixins here, import them directly into your components
-//
+// =========================================================================
+// Components
+// =========================================================================
 
 @import "components/align";
 @import "components/blankstate";
@@ -58,7 +46,6 @@
 @import "components/selector";
 @import "components/shadows";
 @import "components/skip-link";
-@import "components/spacing";
 @import "components/sticky";
 @import "components/table";
 @import "components/tabs";
@@ -69,23 +56,8 @@
 @import "components/fotorama-custom";
 @import "components/print";
 
-// PREFABS
-//
-//
-// Premade complex full-page ui and behaviours
-//
+// =========================================================================
+// Hacks
+// =========================================================================
 
-// @import "components/filter-results";
-
-// OVERRIDES
-//
-//
-// Add any hacky or temporary styles here.
-//
-
-//  /* Client wanted the logo bigger ASAP... */
-//  .header--logo {
-//    height:200%;
-//    width:200%;
-//  }
-//
+// 
