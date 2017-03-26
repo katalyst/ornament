@@ -8,6 +8,7 @@
 
 ### Changes
 
+- Moved font definitions back in to `webfonts.html.erb` to support webfonts being loading in to Koi 
 - Moved `spacing` out of components in to utilities  
 
 ## v1.2.5
