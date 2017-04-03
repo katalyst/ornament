@@ -98,4 +98,10 @@ module ApplicationHelper
     end
   end
 
+  def get_koi_site_setting(setting)
+    if defined?(Translation)
+      value = Translation.find_by_key(setting).try(:value)
+    end
+  end
+
 end

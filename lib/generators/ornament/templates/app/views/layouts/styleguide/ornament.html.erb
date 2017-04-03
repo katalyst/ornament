@@ -93,10 +93,8 @@
             </main>
           <%- end -%>
           <%= yield :below_layout -%>
-
           <footer class="sg-footer" role="contentinfo"></footer>
         </div>
-
       </div>
 
     <% end %>
@@ -105,6 +103,8 @@
     <%= javascript_include_tag "styleguide" %>
     <%= javascript_include_tag "application_bottom" %>
     <%= yield :scripts_bottom %>
+
+    <%= render "layouts/analytics" -%>
 
   </body>
 
