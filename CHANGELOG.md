@@ -8,6 +8,7 @@
 - Added support for Koi's Site Settings in the SEO partial  
 - Added automatically generated Google Analytics code when a Koi Site Setting for `site.google_analytics.profile_id`  
 - Added a helper method for looking up general site settings from Koi 
+- Updated automatic "lightbox" param that gets added to ajax lightboxes to now account for existing params 
 
 ### Changes
 
