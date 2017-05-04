@@ -13,11 +13,11 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :uploader,     :type => :boolean, :default => true
 
   GEMS = {
-    'sass-rails'    => '',
-    'uglifier'      => '',
-    'compass-rails' => '',
-    'htmlentities'  => '',
-    'css_splitter'  => '',
+    'sass-rails'    => '~> 5.0.0',
+    'uglifier'      => '>= 1.0.3',
+    'compass-rails' => '~> 3.0.2',
+    'htmlentities'  => '~> 4.3.4',
+    'css_splitter'  => '~> 0.4.6',
   }
 
   def generate
