@@ -158,7 +158,7 @@ PLATFORMS
 DEPENDENCIES
   compass (~> 1.0.3)
   compass-rails (~> 3.0.2)
-  css_splitter
+  css_splitter (~> 0.4.6)
   htmlentities (~> 4.3.4)
   jquery-rails
   ornament!
