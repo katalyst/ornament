@@ -12,5 +12,4 @@ gem 'turbolinks', '~> 5.0.1'
 gem 'protected_attributes', '~> 1.1.3'
 gem 'htmlentities', '~> 4.3.4'
 gem 'tzinfo-data', '~> 1.2015.7', platforms: [:mingw, :mswin]
-# TODO: re-eneable this
-# gem 'css_splitter'#, '~> 0.4.4'
+gem 'css_splitter', '~> 0.4.6'
