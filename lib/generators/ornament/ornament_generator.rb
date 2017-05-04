@@ -13,11 +13,11 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :uploader,     :type => :boolean, :default => true
 
   GEMS = {
-    'sass-rails'    => '~> 5.0.6',
-    'uglifier'      => '~> 3.0.4',
-    'compass-rails' => '~> 3.0.2',
-    'htmlentities'  => '~> 4.3.4',
-    'css_splitter'  => '~> 0.4.6',
+    'sass-rails'    => '',
+    'uglifier'      => '',
+    'compass-rails' => '',
+    'htmlentities'  => '',
+    # 'css_splitter'  => '',
   }
 
   def generate
@@ -25,7 +25,13 @@ class OrnamentGenerator < Rails::Generators::Base
     if options.gems?
       gemfile = File.read('Gemfile')
       GEMS.each do |name, version|
-        gem name.dup, version unless gemfile.include?(name)
+        unless gemfile.include?(name)
+          if version.present?
+            gem name.dup, version
+          else
+            gem name.dup
+          end
+        end
       end
     end
 
@@ -53,7 +59,7 @@ class OrnamentGenerator < Rails::Generators::Base
         unless options.example?
           copy_file "app/controllers/uploads_controller.rb"
         end
-        
+
         copy_file "app/views/koi/crud/_form_field_uploader.html.erb"
 
       end

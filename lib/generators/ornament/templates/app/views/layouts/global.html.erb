@@ -34,7 +34,7 @@
     </script>
 
     <!-- STYLES -->
-    <%= split_stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "application", :media => "all", split_count: 2 %>
     <%= yield :styles %>
 
     <!-- SCRIPTS -->
@@ -89,7 +89,7 @@
             <button class="layout--switch header--menu" data-mobile-menu-switch>open navigation</button>
           </div>
         </header>
-        
+
         <a id="main" name="main" tabindex="-1"></a>
 
         <div data-layout-positioner class="layout--positioner">
