@@ -2,9 +2,17 @@
 
 ## v1.2.6
 
+### Rails 5 support 
+
+- Updated gems to work with Rails 5 projects [#33](https://github.com/katalyst/ornament/pull/33)
+
+### Generator updates
+
+- Made the ornament generator automatically add required gems to gemfile  
+- Added an initialiser to house the asset precompile settings [#32](https://github.com/katalyst/ornament/pull/32)
+
 ### Features
 
-- Updated gems to work with Rails 5 projects  
 - Added `spacing` class documentation in the CSS section  
 - Added support for Koi's Site Settings in the SEO partial  
 - Added automatically generated Google Analytics code when a Koi Site Setting for `site.google_analytics.profile_id`  
@@ -17,6 +25,7 @@
 
 - Moved font definitions back in to `webfonts.html.erb` to support webfonts being loading in to Koi 
 - Moved `spacing` out of components in to utilities  
+- Improved spacing of lightbox buttons in rails confirm replacement 
 
 ## v1.2.5
 
