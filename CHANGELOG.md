@@ -26,6 +26,7 @@
 - Moved font definitions back in to `webfonts.html.erb` to support webfonts being loading in to Koi 
 - Moved `spacing` out of components in to utilities  
 - Improved spacing of lightbox buttons in rails confirm replacement 
+- Moved the `Shadowable` component in to the `Ornament.C.Shadowable` namespace  
 
 ## v1.2.5
 
