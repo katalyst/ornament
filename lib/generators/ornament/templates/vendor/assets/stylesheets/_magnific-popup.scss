@@ -110,14 +110,16 @@ button.mfp-close, button.mfp-arrow {
   border: 0;
   -webkit-appearance: none;
   display: block;
-  outline: none;
   padding: 0;
   z-index: 1046;
   -webkit-box-shadow: none;
   box-shadow: none; }
 button::-moz-focus-inner {
   padding: 0;
-  border: 0; }
+  border: 0; 
+
+  @include disable-mouse-outline;
+}
 
 .mfp-close {
   width: 44px;
