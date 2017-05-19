@@ -4,6 +4,7 @@
 
 ### Features
 
+- Updated gems to work with Rails 5 projects  
 - Added `spacing` class documentation in the CSS section  
 - Added support for Koi's Site Settings in the SEO partial  
 - Added automatically generated Google Analytics code when a Koi Site Setting for `site.google_analytics.profile_id`  
