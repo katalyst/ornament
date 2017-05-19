@@ -46,6 +46,16 @@
   flex-grow: $value;
 }
 
+@mixin flex-static {
+  @include flex-grow(0);
+  @include flex-shrink(0);
+}
+
+@mixin flex-fluid {
+  @include flex-shrink(1);
+  @include flex-grow(1);
+}
+
 @mixin flex-shrink($value) {
   -webkit-flex-shrink: $value;
   flex-shrink: $value;
