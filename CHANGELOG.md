@@ -20,6 +20,7 @@
 - Updated automatic "lightbox" param that gets added to ajax lightboxes to now account for existing params  
 - Added `flex-static` and `flex-fluid` mixins as short hand for `flex-grow(0), flex-shrink(0)` and `flex-grow(1), flex-shrink(1)`  
 - Prevented flyingfocus from causing unnecessary whitespace when opening a lightbox  
+- Added `Ornament.findData()` function to find data-attribute nodes 
 
 ### Changes
 
