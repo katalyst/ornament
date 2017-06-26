@@ -49,10 +49,9 @@
     Pass in a width so the mixin will know how big the psuedo element for the icon needs to be. You can optionally pass in a height, otherwise it will assume it's a square. 
   </p>
   <p>
-    <strong>@include icon-block($block-width, [$icon-width], [$block-height], [$icon-height])</strong><br />
-    Results in an icon inside a square. Useful for making icon buttons that have no accompanying text. <br />
-    Only the first value is required. If only one value is passed to the mixin, it will assume the block and icon are sized the same and are square. <br />
-    Height values are optional if the icon is square. 
+    <strong>@include icon-block([$grunticon-name], $block-width, [$icon-width], [$block-height], [$icon-height])</strong><br />
+    Results in a block with an icon centred inside it. <br />
+    You can apply this mixin to an existing icon by only passing in pixel values as params, but if the first param is a string it will treat that as a grunticon-name and apply the icon as well. 
   </p>
   <p>
     <strong>@include icon-inline</strong><br />
@@ -61,13 +60,23 @@
 
   <p>To bring it all together, we can apply the mixins like so:</p>
 
-  <pre class="sg-pre prettyprint">.my-awesome-inline-icon {
-  @include grunticon("phone",44px);
-  @incldue icon-inline
+  <pre class="sg-pre prettyprint">// Inline icon
+.my-awesome-inline-icon {
+  @include grunticon("phone", 44px);
+  @incldue icon-inline;
 }
+// Grunticon and icon-block
 .my-awesome-block-icon {
-  @include grunticon("umbrella-tertiary",22px);
-  @incldue icon-block(44px,22px);
+  @include grunticon("umbrella-tertiary", 22px);
+  @incldue icon-block(44px, 22px);
+}
+// Merged grunticon and icon-block
+.my-awesome-block-icon-2 {
+  @incldue icon-block("umbrella-tertiary", 44px, 22px);
+}
+// Icon-block with custom heights 
+.my-awesome-block-icon-3 {
+  @incldue icon-block("umbrella-tertiary", 44px, 22px, 32px, 13px);
 }</pre>
 
 </div> 

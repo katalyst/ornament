@@ -10,9 +10,80 @@
   }
 }
 
-// Block Icons
-// icon-block(40px, 16px) = a 40x40 box with a 16x16 icon inside it.
-@mixin icon-block($block-width, $icon-width:$block-width, $block-height:$block-width, $icon-height:$icon-width) {
+/* 
+
+  Icon blocks are a block element with a centred icon inside it. 
+  @include icon-block(["icon-name"], $block-width, $icon-width, $block-height, $icon-height);
+
+  The mixin can be applied to an existing icon:
+
+  @include grunticon("facebook", 24px);
+  @include icon-block(44px, 24px);
+
+  This will result in a 24x24 icon centred inside a 44x44 block.
+
+  Alternatively you can provide a custom width and height to your
+  grunticon but will need to provide it to the icon-block mixin
+  as well:
+
+  @include grunticon("facebook", 12px, 24px);
+  @include icon-block(44px, 12px, 32px, 24px);
+
+  This will result in a 12x24 icon centred inside a 44x32 block.
+
+  This can be a bit verbose though so you can also optionally 
+  pass an icon name in to the first argument of icon-block to
+  not only define the icon block but the icon itself too.
+
+  This results in the two mixins above being simplified as:
+
+  @include icon-block("facebook", 44px, 12px, 44px, 24px);
+*/
+@mixin icon-block($params...) {
+
+  // Initially assume that the first argument
+  // isn't an icon name 
+  $start: 1;
+  $icon: false;
+
+  // Check if first value is a string, if it is
+  // assume it's the icon to pass in to grunticon 
+  // If it's not, assume the first value is the width 
+  // and continue as normal
+  @if type-of(nth($params,1)) == string {
+    $icon: nth($params, 1);
+    $start: 2;
+  }
+
+  // Set up defaults
+  $block-width: 44px;
+  $icon-width: $block-width;
+  $block-height: $block-width;
+  $icon-height: $block-width;
+
+  // Inspect the list of params and build out our 
+  // variables from the list 
+  @if length($params) >= $start {
+    $block-width: nth($params, $start);
+    $icon-width: $block-width;
+    $block-height: $block-width;
+    $icon-height: $block-width;
+  }
+  @if length($params) >= $start + 1 {
+    $icon-width: nth($params, $start + 1);
+    $icon-height: $icon-width;
+  }
+  @if length($params) >= $start + 2 {
+    $block-height: nth($params, $start + 2);
+    $icon-height: $block-height;
+  }
+  @if length($params) >= $start + 3 {
+    $icon-height: nth($params, $start + 3);
+  }
+
+  @if($icon) {
+    position: relative;
+  }
   display: block;
   text-indent: -99999px;
   width: $block-width;
@@ -20,6 +91,10 @@
   overflow: hidden;
 
   &:before {
+    @if($icon) {
+      content: "";
+      @extend .grunticon-#{$icon};
+    }
     top: 50%;
     left: 50%;
     position: absolute;

@@ -21,6 +21,7 @@
 - Added `flex-static` and `flex-fluid` mixins as short hand for `flex-grow(0), flex-shrink(0)` and `flex-grow(1), flex-shrink(1)`  
 - Prevented flyingfocus from causing unnecessary whitespace when opening a lightbox  
 - Added `Ornament.findData()` function to find data-attribute nodes 
+- The `icon-block` mixin can now optionally take a string as the first argument and treat that as the name of a grunticon and apply it as part of the `icon-block` mixin. This reduces the need for times when all you want to do is apply a `grunticon` and `icon-block` mixin, which can result in unnecessary styling rules and simplifies the creation of icon blocks. 
 
 ### Changes
 
