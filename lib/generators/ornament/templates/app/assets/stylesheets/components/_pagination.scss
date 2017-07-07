@@ -38,7 +38,7 @@ $pagination-button-size: 44px;
 // first arrow
 .pagination--first {
   &.disabled,
-  & {
+  a {
     @include grunticon("chevron-double-left-16", 18px, 16px);
   }
 }
