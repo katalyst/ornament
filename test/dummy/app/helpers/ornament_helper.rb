@@ -55,12 +55,14 @@ module OrnamentHelper
   # Icon Helper
   # <%= icon("close", width: 24, height: 24, stroke: "#BADA55", fill: "purple") -%>
   def icon(icon_path, options={})
-    options[:width] = 24 unless options[:width].present?
-    options[:height] = 24 unless options[:height].present?
     options[:stroke] = "#000000" unless options[:stroke].present?
     options[:fill] = "#000000" unless options[:fill].present?
     options[:class] = "" unless options[:class].present?
-    render("shared/icons/#{icon_path}", options: options)
+    path = "shared/icons"
+    if options[:koi] && defined?(Koi) 
+      path = "koi/shared/icons"
+    end
+    render("#{path}/#{icon_path}", options: options)
   end
 
   # SVG Image Helper

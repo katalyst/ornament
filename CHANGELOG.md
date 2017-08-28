@@ -23,6 +23,8 @@
 - Added `Ornament.findData()` function to find data-attribute nodes 
 - The `icon-block` mixin can now optionally take a string as the first argument and treat that as the name of a grunticon and apply it as part of the `icon-block` mixin. This reduces the need for times when all you want to do is apply a `grunticon` and `icon-block` mixin, which can result in unnecessary styling rules and simplifies the creation of icon blocks. 
 - Updated kaminari views to reflect updated pagination styles from 1.2.5. 
+- Added documentation for the `icon()` svg helper, added some default icons and a preview of icons in project  
+- Added a helper for signing static google maps images  
 
 ### Changes
 
@@ -30,6 +32,8 @@
 - Moved `spacing` out of components in to utilities  
 - Improved spacing of lightbox buttons in rails confirm replacement 
 - Moved the `Shadowable` component in to the `Ornament.C.Shadowable` namespace  
+- Removed grunticon documentation from ornament docs, still accessible for now directly at `/styleguide/grunticons`  
+- Split `application_helper.rb` in to three different helpers to avoid collisions with project files  
 
 ## v1.2.5
 
