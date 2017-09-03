@@ -3,7 +3,7 @@
 
 <% content_for :js_billing_to_shipping do %>
   Ornament.onLoad(function(){
-    Ornament.C.FormHelpers.billingToShipping("#checkout_use_billing_address", {
+    Ornament.C.FormBillingToShipping.create("#checkout_use_billing_address", {
       "#billing_address_1": "#shipping_address_1",
       "#billing_address_2": "#shipping_address_2",
       "#billing_state": "#shipping_state",
@@ -15,7 +15,7 @@
 <% content_for :scripts_bottom do %>
   <script>
     $(document).on("ornament:refresh", function(){ 
-      !Ornament.C.FormHelpers.jQueryUI && $("[data-jquery-modifiers]").hide();
+      !Ornament.C.FormDatepicker.enabled && $("[data-jquery-modifiers]").hide();
     });
     <%= yield :js_billing_to_shipping -%>
   </script>

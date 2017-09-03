@@ -1,0 +1,285 @@
+<% content_for :title, "Drilldown" %>
+
+<div class="spacing">
+  <div class="content-spacing">
+    <h2 class="heading-two">Basic usage</h2>
+
+    <p>Drilldown can either be attached to a <code>div</code> element, as long as it has a child <code>ul</code>, or directly on to a <code>ul</code>.</p>
+
+    <p>Here is an example of using it as a wrapper on a list:</p>
+  </div>
+
+  <div data-drilldown>
+    <ul>
+      <li>
+        <a href="#">Item 1</a>
+        <ul>
+          <li>
+            <a href="#">Item 1A</a>
+            <ul>
+              <li><a href="#item-1Aa">Item 1Aa</a></li>
+              <li><a href="#item-1Ba">Item 1Ba</a></li>
+              <li><a href="#item-1Ca">Item 1Ca</a></li>
+              <li><a href="#item-1Da">Item 1Da</a></li>
+              <li><a href="#item-1Ea">Item 1Ea</a></li>
+            </ul>
+          </li>
+          <li><a href="#item-1B">Item 1B</a></li>
+          <li><a href="#item-1C">Item 1C</a></li>
+          <li><a href="#item-1D">Item 1D</a></li>
+          <li><a href="#item-1E">Item 1E</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Item 2</a>
+        <ul>
+          <li><a href="#item-2A">Item 2A</a></li>
+          <li><a href="#item-2B">Item 2B</a></li>
+          <li><a href="#item-2C">Item 2C</a></li>
+          <li><a href="#item-2D">Item 2D</a></li>
+          <li><a href="#item-2E">Item 2E</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Item 3</a>
+        <ul>
+          <li><a href="#item-3A">Item 3A</a></li>
+          <li><a href="#item-3B">Item 3B</a></li>
+          <li><a href="#item-3C">Item 3C</a></li>
+          <li><a href="#item-3D">Item 3D</a></li>
+          <li><a href="#item-3E">Item 3E</a></li>
+        </ul>
+      </li>
+      <li><a href="#item-4"> Item 4</a></li>
+    </ul>
+  </div>
+
+  <p>Here is an example of using it directly on a <code>ul</code>:</p>
+
+  <ul data-drilldown>
+    <li><a href="#">Item 1</a></li>
+    <li><a href="#">Item 2</a>
+      <ul>
+        <li><a href="#">Item 2.1</a></li>
+        <li><a href="#">Item 2.2</a></li>
+        <li><a href="#">Item 2.3</a></li>
+        <li><a href="#">Item 2.4</a></li>
+        <li><a href="#">Item 2.5</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="content-spacing">
+    <h2 class="heading-two">Descriptions and titles</h2>
+    <p>You can inject descriptions using <code>data-description</code> attribute on the parent links. Here item 2 has a description but item 1 does not:</p>
+  </div>
+
+  <ul data-drilldown>
+    <li><a href="#">Item 1</a>
+      <ul>
+        <li><a href="#">Item 1.1</a></li>
+        <li><a href="#">Item 1.2</a></li>
+        <li><a href="#">Item 1.3</a></li>
+      </ul>
+    </li>
+    <li><a href="#" data-description="This is Item 2's description">Item 2</a>
+      <ul>
+        <li><a href="#">Item 2.1</a></li>
+        <li><a href="#">Item 2.2</a></li>
+        <li><a href="#">Item 2.3</a></li>
+        <li><a href="#">Item 2.4</a></li>
+        <li><a href="#">Item 2.5</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>You can add the title of the parent link on the nested panes by adding <code>data-drilldown-titles</code> to your container:</p>
+
+  <ul data-drilldown data-drilldown-titles>
+    <li><a href="#">Item 1</a>
+      <ul>
+        <li><a href="#">Item 1.1</a></li>
+        <li><a href="#">Item 1.2</a></li>
+        <li><a href="#">Item 1.3</a></li>
+      </ul>
+    </li>
+    <li><a href="#" data-description="This is Item 2's description">Item 2</a>
+      <ul>
+        <li><a href="#">Item 2.1</a></li>
+        <li><a href="#">Item 2.2</a></li>
+        <li><a href="#">Item 2.3</a></li>
+        <li><a href="#">Item 2.4</a></li>
+        <li><a href="#">Item 2.5</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="content-spacing">
+    <h2 class="heading-two">Overview links</h2>
+    <p>You can add overview links that link to the parent pane link by adding <code>data-drilldown-overviews</code>:</p>
+  </div>
+
+  <ul data-drilldown data-drilldown-titles data-drilldown-overviews>
+    <li><a href="#">Item 1</a>
+      <ul>
+        <li><a href="#">Item 1.1</a></li>
+        <li><a href="#">Item 1.2</a></li>
+        <li><a href="#">Item 1.3</a></li>
+      </ul>
+    </li>
+    <li><a href="#" data-description="This is Item 2's description">Item 2</a>
+      <ul>
+        <li><a href="#">Item 2.1</a></li>
+        <li><a href="#">Item 2.2</a></li>
+        <li><a href="#">Item 2.3</a></li>
+        <li><a href="#">Item 2.4</a></li>
+        <li><a href="#">Item 2.5</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>If you use <code>data-drilldown-overviews</code> and there is no title or description you get a navigation item for an overview instead:</p>
+
+  <ul data-drilldown data-drilldown-overviews>
+    <li><a href="#">Item 1</a>
+      <ul>
+        <li><a href="#">Item 1.1</a></li>
+        <li><a href="#">Item 1.2</a></li>
+        <li><a href="#">Item 1.3</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Item 2</a>
+      <ul>
+        <li><a href="#">Item 2.1</a></li>
+        <li><a href="#">Item 2.2</a></li>
+        <li><a href="#">Item 2.3</a></li>
+        <li><a href="#">Item 2.4</a></li>
+        <li><a href="#">Item 2.5</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="content-spacing">
+    <h2 class="heading-two">Split</h2>
+    <p>Split the drilldown anchor and main link as seperate elements with <code>data-drilldown-split</code>.</p>
+  </div>
+
+  <ul data-drilldown data-drilldown-split>
+    <li><a href="#">Item 1</a></li>
+    <li><a href="#">Item 2</a>
+      <ul>
+        <li><a href="#">Item 2.1</a></li>
+        <li><a href="#">Item 2.2</a></li>
+        <li><a href="#">Item 2.3</a></li>
+        <li><a href="#">Item 2.4</a></li>
+        <li><a href="#">Item 2.5</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="content-spacing">
+    <h2 class="heading-two">Deeplinking</h2>
+    <p>Deeplinking is supported with simple-navigation by default. You can change the <code>Drilldown.selectors.selectedListItem</code> variable to your selected class of choice to implement outside of simple-navigation.</p>
+  </div>
+
+  <ul data-drilldown data-drilldown-overviews>
+    <li><a href="#">Item 1</a></li>
+    <li><a href="#">Item 2</a>
+      <ul>
+        <li><a href="#">Item 2.1</a></li>
+        <li><a href="#">Item 2.2</a></li>
+        <li class="simple-navigation-active-leaf"><a href="#" class="selected">Item 2.3</a></li>
+        <li><a href="#">Item 2.4</a></li>
+        <li><a href="#">Item 2.5</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="content-spacing">
+    <h2 class="heading-two">Merged Drilldowns</h2>
+    <p>Drilldowns are typically made up of a single <code>ul</code> element, but if you have multiple lists you want to merge in to a single dropdown (eg. multiple simple-navigation lists), you can use <code>drilldown-merge</code> attribute to merge all lists in a div and turn it in to a single drilldown:</p>
+  </div>
+
+  <div data-drilldown data-drilldown-merge>
+    <ul>
+      <li><a href="#">Item 1</a></li>
+      <li><a href="#">Item 2</a>
+        <ul>
+          <li><a href="#">Item 2.1</a></li>
+          <li><a href="#">Item 2.2</a></li>
+          <li><a href="#">Item 2.3</a></li>
+          <li><a href="#">Item 2.4</a></li>
+          <li><a href="#">Item 2.5</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="#">Another 1</a></li>
+      <li><a href="#">Another 2</a>
+        <ul>
+          <li><a href="#">Another 2.1</a></li>
+          <li><a href="#">Another 2.2</a></li>
+          <li><a href="#">Another 2.3</a></li>
+          <li><a href="#">Another 2.4</a></li>
+          <li><a href="#">Another 2.5</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content-spacing">
+    <h2 class="heading-two">Custom drilldowns</h2>
+    <p>You can have a completely custom drilldown by adding <code>data-drilldown-custom</code> attribute to your container. This will however require you to create your own forward/back buttons using <code>data-drilldown-forward</code> and <code>data-drilldown-back</code>:</p>
+  </div>
+
+  <ul data-drilldown data-drilldown-custom>
+    <li>
+      <button data-drilldown-forward class="drilldown__custom--forward">
+        View Brand 1
+      </button>
+      <ul>
+        <li>
+          <div class="drilldown__custom--nested">
+            <div><h2>Brand 1</h2></div>
+            <div>
+              This is some content around brand 1, maybe a list of products or something.
+            </div>
+            <button data-drilldown-back>Go back</button>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <button data-drilldown-forward class="drilldown__custom--forward">
+        View contact information
+      </button>
+      <ul>
+        <li>
+          <div class="drilldown__custom--nested drilldown__custom--nested__contact">
+            <div><h2>Contact</h2></div>
+            <div>
+              Email, phone etc.
+            </div>
+            <button data-drilldown-back>Go back</button>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="content-spacing">
+    <h2 class="heading-two">API Notes</h2>
+    <h3 class="heading-three">Relationships</h3>
+
+    <p>You can find the first list of a drilldown by accessing <code>data("firstList")</code> like so:</p>
+    <pre><code>$drilldown.data("firstList")</code></pre>
+    
+    <p>Similarly, all child lists have a "parentList" data object you can access:</p>
+    <pre><code>$myList.data("parentList")</code></pre>
+
+    <h3 class="heading-three">Resizing</h3>
+    <p>You can resize a drilldown programatically (say it gets revealed by an accordion or an ajax call or something) by triggering an event on the drilldown element.</p>
+
+    <pre><code>$drilldown.trigger("ornament:drilldown:resize");</code></pre>
+  </div>
+</div>

@@ -98,7 +98,14 @@
   @include display-flex;
   @include flex-wrap;
   @if $gutter {
-    margin: $gutter * -0.5;
+    @if type-of($gutter) == "list" {
+      margin-top: nth($gutter, 1) * -.5;
+      margin-bottom: nth($gutter, 1) * -.5;
+      margin-left: nth($gutter, 2) * -.5;
+      margin-right: nth($gutter, 2) * -.5;
+    } @else {
+      margin: $gutter * -.5;
+    }
   }
 }
 
@@ -120,7 +127,14 @@
 */
 @mixin flex-col($width, $gutter: false, $grow: 0, $shrink: 0) {
   @if $gutter {
-    padding: $gutter * .5;
+    @if type-of($gutter) == "list" {
+      padding-top: nth($gutter, 1) * .5;
+      padding-bottom: nth($gutter, 1) * .5;
+      padding-left: nth($gutter, 2) * .5;
+      padding-right: nth($gutter, 2) * .5;
+    } @else {
+      padding: $gutter * .5;
+    }
   }
   @include flex-grow($grow);
   @include flex-shrink($shrink);

@@ -12,6 +12,7 @@ $button-line-border: 2px;
 // Custom button background colours and hovers
 @mixin button-background($color, $hover-color:false) {
   background: $color;
+  transition: background-color $ease-timing $ease-out;
 
   @if($hover-color) {
     &:hover {

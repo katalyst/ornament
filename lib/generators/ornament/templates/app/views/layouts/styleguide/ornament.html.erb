@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
 
+    <%# Meta tags %>
     <meta charset="utf-8"/>
-
     <%= render "layouts/seo" -%>
-
-    <!-- META -->
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <% unless Rails.env == "production" %>
@@ -17,34 +14,33 @@
 
     <script>
       window.Ornament = {};
+      // window.dataLayer = {};
     </script>
 
-    <!-- WEBFONTS -->
-    <%= render "layouts/webfonts", config: {
+    <%# Styles %>
+    <%= stylesheet_link_tag "styleguide/styleguide", :media => "all" %>
+    <%= yield :styles %>
+
+    <%# Scripts %>
+    <%= javascript_include_tag "ornament/vendor" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "styleguide/styleguide" %>
+    <%= yield :scripts %>
+
+    <%# Webfonts %>
+    <%#= render "layouts/webfonts", config: {
       google: {
         families: ['Open Sans:400,700,400italic,700italic'],
       }
     } -%>
 
-    <!-- STYLES -->
-    <%= split_stylesheet_link_tag "styleguide", :media => "all" %>
-    <%= yield :styles %>
-
-    <!-- SCRIPTS -->
-    <%= javascript_include_tag "application" %>
-    <!--[if lt IE 9]>
-      <%#= javascript_include_tag "selectivizr" %>
-      <%= javascript_include_tag "respond" %>
-    <![endif]-->
-    <%= yield :scripts %>
+    <%# Koi Scripts %>
+    <%- koi_scripts = get_koi_site_setting("site.head_scripts") -%>
+    <%= koi_scripts if koi_scripts -%>
 
   </head>
-
-  <!--[if lte IE 8 ]><body class="ie8 styleguide <%= yield :body_class -%>"> <![endif]-->
-  <!--[if (gt IE 8)|!(IE)]><!--> <body class="styleguide <%= yield :body_class -%>"> <!--<![endif]-->
-
+  <body class="styleguide <%= yield :body_class -%>"> 
     <a class="skip-link" href="#main">skip to content</a>
-
     <div class="layout">
 
       <div class="layout--mobile-tray">
@@ -79,7 +75,7 @@
           <%- if content_for?(:title) -%>
             <div class="sg-title">
               <div class="layout--container">
-                <h2 class="heading-three"><%= yield(:title) -%></h2>
+                <h2 class="heading-five"><%= yield(:title) -%></h2>
                 <%= link_to raw("&lsaquo; Back"), styleguide_path -%>
               </div>
             </div>
@@ -100,11 +96,13 @@
     <% end %>
 
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <%= javascript_include_tag "styleguide" %>
-    <%= javascript_include_tag "application_bottom" %>
     <%= yield :scripts_bottom %>
 
     <%= render "layouts/analytics" -%>
+
+    <div data-ornament-icons>
+      <div data-ornament-icon="arrow">Arrow</div>
+    </div>
 
   </body>
 

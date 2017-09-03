@@ -145,3 +145,16 @@ $input-color:                $foreground-color;
 $input-width:                100%;
 $textarea-height:            $base-line-size*5;
 $checkbox-radio-padding:     -0.2em 0 0 0.2em;
+
+// =========================================================================
+// Easing timings
+// =========================================================================
+
+$ease-timing: .2s;
+
+// Default easing timings, swap keywords as variables 
+// Overwrite with cubic-beziers if desired 
+// https://css-tricks.com/ease-out-in-ease-in-out/
+// https://matthewlein.com/tools/ceaser
+$ease-in: ease-out;
+$ease-out: ease-in;

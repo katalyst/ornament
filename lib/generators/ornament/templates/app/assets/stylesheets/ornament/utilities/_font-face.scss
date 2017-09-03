@@ -1,0 +1,16 @@
+$font-path: "/assets/";
+
+@mixin font-face($name, $filename) {
+  $file: $font-path + $filename;
+  @font-face {
+    font-family: $name;
+      src: url("#{$file}.eot");
+      src: url("#{$file}.eot?#iefix") format("embedded-opentype"),
+           url("#{$file}.woff") format("woff"),
+           url("#{$file}.ttf") format("truetype"),
+           url("#{$file}.svg#my-font") format("svg");
+  }
+}
+
+// Declare your fonts here
+// @include font-face("myFont", "my-font");

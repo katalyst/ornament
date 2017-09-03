@@ -1,8 +1,18 @@
 <%- unless content_for?(:flash_messages) %>
   <% flash.to_hash.slice("alert", "success", "notice", "error").each do |key, value| %>
-    <div id="flash" class="panel__flash panel__<%= key.to_s %>">
+    <div id="flash" class="flash panel__<%= key.to_s %>" data-toggle="flash-message" data-toggle-default data-disappear>
       <div class="layout--container">
-        <p><%= raw value %></p>
+        <div class="flash--inner">
+          <div class="flash--content">
+            <p><%= raw value %></p>
+          </div>
+          <div class="flash--close">
+            <button data-toggle-anchor="flash-message" class="active">
+              <%#= icon("close", width: "22px", height: "22px") -%>
+              close
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>

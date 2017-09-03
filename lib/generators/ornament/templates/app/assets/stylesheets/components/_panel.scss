@@ -61,12 +61,6 @@ $panel-border:          $background-color;
   color: $success-color;
 }
 
-.panel__flash {
-  padding-top: $panel-padding;
-  padding-bottom: $panel-padding;
-  @include border-radius(0);
-}
-
 // PADDING VARIANTS
 
 .panel--padding {

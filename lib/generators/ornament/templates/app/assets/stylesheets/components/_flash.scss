@@ -1,0 +1,38 @@
+// =========================================================================
+// Flash Panel
+// =========================================================================
+
+.flash,
+.panel__flash {
+  padding-top: $panel-padding;
+  padding-bottom: $panel-padding;
+  @include border-radius(0);
+}
+
+// =========================================================================
+// Inner flash panel layout
+// =========================================================================
+
+.flash--inner {
+  @include display-flex;
+}
+
+.flash--content {
+  @include flex(1 1 auto);
+}
+
+.flash--close {
+  margin-left: auto;
+}
+
+// =========================================================================
+// Fixed variation 
+// =========================================================================
+
+.flash__fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: transform .2s;
+}

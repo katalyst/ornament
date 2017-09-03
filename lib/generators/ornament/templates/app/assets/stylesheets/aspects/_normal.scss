@@ -166,27 +166,27 @@ ol.content-lists {
 
 @mixin normal-headings {
   h1 {
-    @include heading-one;
+    @include heading(1);
   }
 
   h2 {
-    @include heading-two;
+    @include heading(2);
   }
 
   h3 {
-    @include heading-three;
+    @include heading(3);
   }
 
   h4 {
-    @include heading-four;
+    @include heading(4);
   }
 
   h5 {
-    @include heading-five;
+    @include heading(5);
   }
 
   h6 {
-    @include heading-six;
+    @include heading(6);
   }
 }
 

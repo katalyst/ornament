@@ -1,33 +1,125 @@
-// FONTS
+// =========================================================================
+// Typography Settings
+// =========================================================================
+
+// Set to true if using merged font-family webfonts
+// Set to false if using seperate webfonts for each weight/style. 
+$font-families: true;
+$system-fonts:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+// =========================================================================
+// Font declarations
+// to be used with @include font
+// eg. @include font($heading-alpha-font);
+// =========================================================================
 
 $body-font: (sans-serif) normal normal;
 $italic-font: (sans-serif) italic normal;
-
 $bold-font: (sans-serif) normal bold;
 $bold-italic-font: (sans-serif) italic bold;
-
 $heading-alpha-font: (sans-serif) normal bold;
 $heading-alpha-font-italic: (sans-serif) italic bold;
+$heading-beta-font: (georgia, serif) normal bold;
 
-$heading-beta-font: (sans-serif) normal bold;
-$heading-beta-font-italic: (sans-serif) italic bold;
-
-// $body-font: ('Myriad W01 Regular', sans-serif) normal normal;
-// $italic-font: ('Myriad W01 It', sans-serif) normal normal;
-
-// $bold-font: ('Myriad W01 Bd', sans-serif) normal normal;
-// $bold-italic-font: ('Myriad W01 Bd It', sans-serif) normal normal;
-
-// $heading-alpha-font: ('Myriad W01 Bd', sans-serif) normal normal;
-// $heading-alpha-font-italic: ('Myriad W01 Bd It', sans-serif) normal normal;
-
-// $heading-beta-font: ('Myriad W01 SmBd', sans-serif) normal normal;
-// $heading-beta-font-italic: ('Myriad W01 SmBd It', sans-serif) normal normal;
+@if not $font-families {
+  $body-font: ('Myriad W01 Regular', sans-serif) normal normal;
+  $italic-font: ('Myriad W01 It', sans-serif) normal normal;
+  $bold-font: ('Myriad W01 Bd', sans-serif) normal normal;
+  $bold-italic-font: ('Myriad W01 Bd It', sans-serif) normal normal;
+  $heading-alpha-font: ('Myriad W01 Bd', sans-serif) normal normal;
+  $heading-alpha-font-italic: ('Myriad W01 Bd It', sans-serif) normal normal;
+}
 
 $input-typeface: $body-font;
 
+// =========================================================================
+// Font size transition to animate font-size changes 
+// =========================================================================
 
-// BODY
+@mixin font-size-transition {
+  transition: font-size .2s;
+}
+
+// =========================================================================
+// Headings mixins and definitions 
+// =========================================================================
+
+// Lists of configurations for each heading type
+// 1. Heading name, class will be ".heading-{name}", eg. "one" = ".heading-one"
+// 2. Font-size
+// 3. Line-height (optional)
+// 4. Font-face (optional)
+
+// Basic sample: ("one", 54px);
+// Advanced sample: ("two", 42px, 1.2, $heading-beta-font-face);
+
+// Regular headings
+$headings-regular: (
+  ("one",   48px),
+  ("two",   36px),
+  ("three", 32px),
+  ("four",  28px),
+  ("five",  24px),
+  ("six",   20px)
+);
+
+// Smaller headings, automatically rendered via a media query on top
+// of the headings above
+$headings-small: (
+  ("one",   28px),
+  ("two",   24px),
+  ("three", 22px),
+  ("four",  20px),
+  ("five",  18px),
+  ("six",   16px)
+);
+
+// Builds out a responsive heading 
+@mixin heading($heading-config-index) {
+  @if length($headings-regular) >= $heading-config-index {
+    $regular-heading: nth($headings-regular, $heading-config-index);
+    $regular-heading-length: length($regular-heading);
+    @include font-size-transition;
+
+    font-size: nth($regular-heading, 2);
+    @if $regular-heading-length > 2 {
+      line-height: nth($regular-heading, 3);
+    }
+    @if $regular-heading-length > 3 {
+      @include font(nth($regular-heading, 4));
+    } @else {
+      @include font($heading-alpha-font);
+    }
+    
+    // Create small heading at breakpoint
+    @if length($headings-small) >= $heading-config-index {
+      $small-heading: nth($headings-small, $heading-config-index);
+      $small-heading-length: length($small-heading);
+      
+      @media only screen and (max-width: $breakpoint-typography) {
+        font-size: nth($small-heading, 2);
+        @if $small-heading-length > 2 {
+          line-height: nth($small-heading, 3);
+        }
+        @if $small-heading-length > 3 {
+          font-family: nth($small-heading, 4);
+        }
+      }
+    }
+  }
+}
+
+// Loop over each configuration above and generate our classes
+@for $i from 1 through length($headings-regular) {
+  $config: nth($headings-regular, $i);
+  .heading-#{nth($config, 1)} {
+    @include heading($i);
+  }
+}
+
+// =========================================================================
+// Mixins for premade typography configurations 
+// =========================================================================
 
 @mixin body-type {
  @include font($body-font);
@@ -36,30 +128,32 @@ $input-typeface: $body-font;
  color: $foreground-color;
 }
 
-body, .body-type {
-  @include body-type;
-}
-
 @mixin small-type {
   @include font($body-font);
   font-size: $small-font-size;
   line-height: 1;
 }
 
-small {
-  @include small-type;
+@mixin type--grey {
+  color: $grey;
 }
 
+// =========================================================================
+// Premade classes for typography 
+// =========================================================================
+
+body, 
+.body-type {
+  @include body-type;
+}
+
+small,
 .type--small {
   @include small-type;
 }
 
 .type--wrap {
   @include text-wrap;
-}
-
-@mixin type--grey {
-  color: $grey;
 }
 
 .type--grey {
@@ -70,94 +164,53 @@ small {
   @include ellipsis;
 }
 
-// HEADINGS
-
-@mixin heading-one {
-  @include font($heading-alpha-font);
-  font-size: 54px;
-  line-height: 64px;
-  em {
-    @include font($heading-alpha-font-italic);
-  }
-  @include media-query($breakpoint-typography) {
-    font-size: 40px;
-    line-height: 50px;
-  }
-}
-.heading-one {
-  @include heading-one;
-}
-
-@mixin heading-two {
-  @include font($heading-alpha-font);
-  font-size: 28px;
-  line-height: 40px;
-  em {
-    @include font($heading-alpha-font-italic);
-  }
-  @include media-query($breakpoint-typography) {
-    line-height: 36px;
-    font-size: 26px;
-  }
-}
-.heading-two {
-  @include heading-two;
-}
-
-@mixin heading-three {
-  @include font($heading-alpha-font);
-  font-size: 24px;
-  line-height: 34px;
-  em {
-    @include font($heading-alpha-font-italic);
-  }
-  @include media-query($breakpoint-typography) {
-    font-size: 20px;
-  }
-}
-.heading-three {
-  @include heading-three;
-}
-
-@mixin heading-four {
-  @include font($heading-alpha-font);
-  font-size: 18px;
-  line-height: $base-line-height;
-  em {
-    @include font($heading-alpha-font-italic);
-  }
-}
-
-@mixin heading-five {}
-@mixin heading-six {}
-
-// INLINE STYLES
-
-strong, b {
-  @include font($bold-font);
-}
-
-em, i {
-  @include font($italic-font);
-}
-
-em b, em strong,
-i b, i strong,
-b i, b em,
-strong i, strong em {
-  @include font($bold-italic-font);
-}
-
-del {
-  text-decoration: line-through;
-}
-
 .type--passive {
   color: $passive-color;
 }
 
-.type--grey {
-  color: $grey;
+.type--success {
+  color: $success-color;
+}
+
+.type--error {
+  color: $error-color;
+}
+
+.type--primary {
+  color: $primary-color;
+}
+
+// =========================================================================
+// Inline styles
+// =========================================================================
+
+strong, b {
+  @if $font-families {
+    font-weight: bold;
+  } @else {
+    @include font($bold-font);
+  }
+}
+
+em, i {
+  @if $font-families {
+    font-style: italic;
+  } @else {
+    @include font($italic-font);
+  }
+}
+
+@if $font-families {
+  em b, em strong,
+  i b, i strong,
+  b i, b em,
+  strong i, strong em {
+    @include font($bold-italic-font);
+  }
+}
+
+del {
+  text-decoration: line-through;
 }
 
 // sub/sup styling
@@ -185,7 +238,11 @@ a, button {
 // TABLES
 
 th {
-  @include font($bold-font);
+  @if $font-families {
+    font-weight: bold;
+  } @else {
+    @include font($bold-font);
+  }
 }
 
 // FORMS

@@ -1,5 +1,85 @@
 # Changelog
 
+## v2.0.0
+
+### TODO BEFORE RELEASE
+
+- Implement new tray component
+- Various form helpers need clean up method before turbolinks cache 
+- Wording changes on Form page to reference new function locations 
+- Weird source ording on password revealer and password scorer
+- Readmore clean up before turbolinks cache 
+- Add dismiss component and implement on flash partial 
+- Merge in v1.2.6 and get icons
+
+### POSSIBLES BEFORE RELEASE
+
+- Rebuild billing-to-shipping to dangerously find elements ("[name^='billing_']") etc.
+- Fotorama bullet styling scaffold 
+- GTM Koi settings 
+
+### Reduced IE8/9 Support 
+
+- Removed the .ie8 class on the body  
+- Removed loading of selectivizr and css3-mediaqueries polyfills 
+
+### Ornament JS Framework 2.0 
+
+
+### Reorganised JS folders
+
+- Moved a lot of stuff out of `defaults.js` and either in to their own utility or helper file, or in to `core.js`
+- Now `core.js` is where the Ornament lifecycle and initialisation functions live  
+- Moved all vendor includes in to a new `vendor.js` file to keep all of our dependancies in one place  
+- Cleaned up the vendor javascripts folder by seperating polyfills and libraries in to seperate folders  
+- Moved `styleguide.js` in to a styleguide folder to keep it away from everything else  
+- Renamed `fotorama.js` to `carousel.js` to avoid confusion between the library and the implementation file  
+- Split `form-helpers.js` in to several different components to make disabling/enabling just indivudual helpers much easier, they are now `form-billing-shipping.js` for the billing-to-shipping helper, `form-datepicker` for date and time pickers, `form-enhanced.js` for the custom checkboxes/radios, `form-password-revealer.js` for revealing passwords and `form-password-score.js` for password scoring using zxcvbn.
+
+### Reorganised CSS folders
+
+- Moved `fonts.scss` in to the utilities folder and renamed to `font-face.scss` to avoid confusion with the other `@include font` mixin  
+- Created a `font-face` mixin for easy configuration of self-hosted webfonts, rather than relying on the developer to manually create the font-face declarations themselves  
+- Moved `styleguide.css` in to a styleguide folder to keep it away from everything else  
+- Renamed `fotorama-custom.scss` to `carousel.scss` to avoid confusion between the library and the implementation file  
+
+### Typography changes 
+
+Breaking:
+
+- Heading mixins have been changed from `@include heading-one` to `@include heading(1)`  
+- This is to make configuration of headings much easier via the two new lists configured at the top of the `typography.scss` partial  
+- Simply configure your headings at the top of the partial and all the mixins and classes are automatically generated for you  
+
+Non-breaking:
+
+- Cleaned up order of the typography stylesheet by seperating mixins from the utility classes  
+- Added a few new coloured type utility classes: `.type--error`, `.type--success` and `.type--primary`  
+- Added a `$font-families` flag at the top of the typography stylesheet to make switching between merged font-family webfonts and seperated font-family webfonts easier. Eg. `strong` tags are now just `font-weight: bold` rather setting an entirely different font. This can be set to `false` to use the old behaviour  
+- Updated default heading font sizes  
+- Added a `$system-fonts` variable for using various system fonts rather than a webfont. Implemented on styleguide  
+
+### TrayNav
+
+- The TrayNav component has been split in to two components - `drilldown` and `tray`  
+- `tray` is a component whose only concern is showing and hiding a slide-out tray  
+- `drilldown` is a component that lets the user drilldown through layers of list items  
+- These components can now be used independantly to each other or used together like previously, there is new markup for each so be sure to read the styleguide documentation  
+
+### Removals
+
+- `selector.js` - never used. It's a very specific component that it would probably be rebuilt with different requirements if we need it again
+- `sticky.js` - it was incomplete and buggy. Opted to use [StickyKit](http://leafo.net/sticky-kit/) instead when needed  
+- `oslide.js`- it was never used and there are better alternatives like [slick carousel](http://kenwheeler.github.io/slick/)  
+- `navigation.js` - it was overly complicated, may make a comeback in the future but we never used it  
+- `menu-aim.js` - removed due to it's reliance on specific markup and just general inflexibility  
+
+### Other Changes
+
+- Upgraded Fotorama to (final?) version and updated asset paths 
+- Added a `site.head_scripts` site setting to allow Koi users to add their own scripts to the `head` element. This makes 
+- Fotorama carousels now need `data-carousel` to integrate with Turbolinks 
+
 ## v1.2.6
 
 ### Rails 5 support 

@@ -23,15 +23,11 @@
     <%= render "layouts/webfonts" -%>
 
     <!-- STYLES -->
-    <%= split_stylesheet_link_tag "application", :media => "all", split_count: 2 %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
     <%= yield :styles %>
 
     <!-- SCRIPTS -->
     <%= javascript_include_tag "application" %>
-    <!--[if lt IE 9]>
-      <%#= javascript_include_tag "selectivizr" %>
-      <%= javascript_include_tag "respond" %>
-    <![endif]-->
     <%= yield :scripts %>
 
   </head>
@@ -96,7 +92,6 @@
       </div>
     <% end %>
 
-    <%= javascript_include_tag "application_bottom" %>
     <%= yield :scripts_bottom %>
     
     <%= render "layouts/analytics" -%>
