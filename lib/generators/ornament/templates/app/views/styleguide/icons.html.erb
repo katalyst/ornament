@@ -1,0 +1,124 @@
+<%- content_for :title, "SVG Icons" -%>
+<%- content_for :styles do -%>
+  <style>
+    .icon-grid {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: -12px;
+    }
+    .icon-grid--item {
+      width: 25%;
+      padding: 12px;
+      text-align: center;
+    }
+    .icon-grid--item--background {
+      border: 1px solid #ccc;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .icon-grid--item svg {
+      display: block;
+      margin-bottom: 16px;
+      margin: 0 auto;
+      height: 32px;
+    }
+    .icon-grid--item--icon {
+      padding: 16px;
+      flex-grow: 1;
+    }
+    .icon-grid--item--icon-name {
+      padding: 16px;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+<%- end -%>
+
+<div class="content-spacing">
+
+  <p>SVG icons are stored in <code>/app/views/shared/icons</code> as <code>_icon_name.html.erb</code>.
+
+  <h2 class="heading-two">Icon Helper</h2>
+
+  <p>There is a rails helper for using these SVG icons in your project:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper", no_html: true, ruby: capture { -%>
+&lt;%= icon("search", width: 32) -%>
+  <%- } } do -%>
+    <%= icon("search", width: 32) -%>
+  <%- end -%>
+
+  <p>You can pass in width and height attributes in to the helper to control the size of the icon:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper-size", no_html: true, ruby: capture { -%>
+&lt;%= icon("search", width: 16) -%>
+&lt;%= icon("search", width: 32) -%>
+&lt;%= icon("search", width: 64) -%>
+  <%- } } do -%>
+    <%= icon("search", width: 16) -%>
+    <%= icon("search", width: 32) -%>
+    <%= icon("search", width: 64) -%>
+  <%- end -%>
+
+  <p>You can control the colouring of the icon using the <code>fill</code> and <code>stroke</code> attributes:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper-colour", no_html: true, ruby: capture { -%>
+&lt;%= icon("search", width: 32) -%>
+  <%- } } do -%>
+    <%= icon("search", width: 32, stroke: "#cccccc") -%>
+    <%= icon("search", width: 32, stroke: "red") -%>
+    <%= icon("search", width: 32, stroke: "#ff00bb") -%>
+  <%- end -%>
+
+  <h2 class="heading-two">Project Icons</h2>
+
+  <p>This project has the following icons:</p>
+
+  <%- 
+    icon_path = Rails.root.join("app", "views", "shared", "icons")
+    if Rails.application.class.parent_name == "Dummy"
+      icon_path = Rails.root.join("..", "..", "lib", "generators", "ornament", "templates", "app", "views", "shared", "icons")
+    end
+  -%>
+  <%- begin -%>
+    <div class="icon-grid">
+      <%- Dir.foreach(icon_path) do |file| -%>
+        <%- 
+          next if file == '.' or file == '..' 
+          icon_name = file.split(".html")[0]
+          icon_name.slice!(0)
+        -%>
+        <div class="icon-grid--item">
+          <div class="icon-grid--item--background">
+            <div class="icon-grid--item--icon">
+              <%= icon(icon_name) -%>
+            </div>
+            <div class="icon-grid--item--icon-name">
+              <%= icon_name -%>
+            </div>
+          </div>
+        </div>
+      <%- end -%>
+    </div>
+  <%- rescue Errno::ENOENT -%>
+    <div class="icon-grid--item">
+      <div class="icon-grid--item--background">
+        <div class="icon-grid--item--icon">
+          <p>Error finding icon folder</p>
+        </div>
+      </div>
+    </div>
+  <%- end -%>
+
+  <%- if defined?(Koi) -%>
+    <h2 class="heading-two">Koi Icons</h2>
+
+    <p>If you are using Koi 2.3+, you have access to out-of-the-box Koi icons. You can <a href="/admin/styleguide/icons">log in to the developer area</a> to preview those icons.</p>
+
+    <p>You can use those icons by passing <code>koi: true</code> in to your icon helper:</p>
+
+    <pre>&lt;%= icon_helper("filter", koi: true) -%></pre>
+  <%- end -%>
+
+</div> 
