@@ -15,6 +15,7 @@
 
 .flash--inner {
   @include display-flex;
+  @include align-items(center);
 }
 
 .flash--content {

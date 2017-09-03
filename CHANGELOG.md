@@ -9,8 +9,6 @@
 - Wording changes on Form page to reference new function locations 
 - Weird source ording on password revealer and password scorer
 - Readmore clean up before turbolinks cache 
-- Add dismiss component and implement on flash partial 
-- Merge in v1.2.6 and get icons
 
 ### POSSIBLES BEFORE RELEASE
 
