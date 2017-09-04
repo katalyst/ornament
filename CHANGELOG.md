@@ -4,17 +4,18 @@
 
 ### TODO BEFORE RELEASE
 
-- Implement new tray component
-- Various form helpers need clean up method before turbolinks cache 
+- Various form helpers need clean up method before TLinks cache 
 - Wording changes on Form page to reference new function locations 
 - Weird source ording on password revealer and password scorer
-- Readmore clean up before turbolinks cache 
+- Remove docs for removed components 
+- Add more OOB icons 
+- Lightbox improvements with TLinks from OPN
+- Nicer default drilldown styling 
 
 ### POSSIBLES BEFORE RELEASE
 
 - Rebuild billing-to-shipping to dangerously find elements ("[name^='billing_']") etc.
 - Fotorama bullet styling scaffold 
-- GTM Koi settings 
 
 ### Reduced IE8/9 Support 
 
@@ -33,6 +34,7 @@
 - Moved `styleguide.js` in to a styleguide folder to keep it away from everything else  
 - Renamed `fotorama.js` to `carousel.js` to avoid confusion between the library and the implementation file  
 - Split `form-helpers.js` in to several different components to make disabling/enabling just indivudual helpers much easier, they are now `form-billing-shipping.js` for the billing-to-shipping helper, `form-datepicker` for date and time pickers, `form-enhanced.js` for the custom checkboxes/radios, `form-password-revealer.js` for revealing passwords and `form-password-score.js` for password scoring using zxcvbn.
+- Added `_component-template.js` to make building new javascript components easy-as  
 
 ### Reorganised CSS folders
 
@@ -72,10 +74,22 @@ Non-breaking:
 - `navigation.js` - it was overly complicated, may make a comeback in the future but we never used it  
 - `menu-aim.js` - removed due to it's reliance on specific markup and just general inflexibility  
 
+### Turbolinks enhancements
+
+There is now an `Ornament.beforeTurbolinksCache()` function that you can pass code to that executes on the before cache event  
+The following components have been enhanced to work nicer with Turbolinks:
+
+- Fotorama/Carousel 
+- Readmore
+- Show.js
+
+This is a continuing effort to move towards asynchronous and self-cleaning components. 
+
 ### Other Changes
 
 - Upgraded Fotorama to (final?) version and updated asset paths 
-- Added a `site.head_scripts` site setting to allow Koi users to add their own scripts to the `head` element. This makes 
+- Added a `site.head_scripts` site setting to allow Koi users to add their own scripts to the `head` element. This makes managing head scripts a lot easier and doesn't require deploys to update  
+- Added a `site.gtm_code` site setting to allow Koi users to manage Google Tag Manager embeds  
 - Fotorama carousels now need `data-carousel` to integrate with Turbolinks 
 
 ## v1.2.6

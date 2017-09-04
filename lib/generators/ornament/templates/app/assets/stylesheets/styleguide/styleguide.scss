@@ -99,7 +99,7 @@ $heading-beta-font-italic: ($system-fonts) italic bold;
 @import "components/text-limiter";
 @import "components/toggle";
 @import "components/tooltip";
-@import "components/tray-navigation";
+@import "components/tray";
 @import "components/print";
 
 // STYLEGUIDE TYPOGRAPHY
@@ -211,45 +211,28 @@ hr {
 
 // STYLEGUIDE MENU
 .styleguide {
-  .layout--mobile-tray hr {
+  .tray hr {
     display: none;
   }
-  .layout--mobile-tray,
-  .layout--mobile-tray .pane,
-  .layout--mobile-tray .pane .pane,
-  .layout--mobile-tray .back {
+  .tray {
     background: $secondary-color;
   }
-  .layout--mobile-tray .back a {
-    @include color-link($white, $white);
-  }
-  .navigation-mobile.simple .pane--navigation-container ul,
-  .navigation-mobile.simple .pane--navigation-container ul li > a, 
-  .navigation-mobile.simple .pane--navigation-container ul li > .faux-link {
-    border-bottom-color: $x-dark-grey;
-  }
-  .navigation-mobile.simple .pane-wrapper .pane a, .navigation-mobile.simple .pane-wrapper .pane .faux-link {
-    @include font($body-font);
-  }
-  .navigation-mobile.simple .navigation-item > a:before, 
-  .navigation-mobile.simple .navigation-item > span.faux-link:before, 
-  .navigation-mobile.simple .navigation-item > button:before {
-    background: transparent;
-  }
-  .navigation-mobile.simple .pane-wrapper .pane a, 
-  .navigation-mobile.simple .pane-wrapper .pane .faux-link {
-    @include color-link($primary-color, $primary-color);
-  }
 }
-.sg-nav--heading {
+.sg-nav--heading,
+.tray a {
   border-bottom: 1px solid $x-dark-grey;
-  padding: $x-small-unit $xxx-small-unit;
-  color: $light-grey;
-  @include font($bold-font);
+}
 
-  // ul + & {
-  //   padding-top: $x-large-unit;
-  // }
+.sg-nav--heading {
+  color: $light-grey;
+  padding: $x-small-unit $xxx-small-unit;
+  @include font($bold-font);
+}
+
+.tray a {
+  display: block;
+  padding: $xxx-small-unit $xxx-small-unit;
+  @include color-link($primary-color, $primary-color);
 }
 
 // FEATURE TABS 

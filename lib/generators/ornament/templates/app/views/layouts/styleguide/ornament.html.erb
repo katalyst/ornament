@@ -27,6 +27,16 @@
     <%= javascript_include_tag "styleguide/styleguide" %>
     <%= yield :scripts %>
 
+    <%# Google Tag Manager - GTM-XXXXXXX %>
+    <%- gtm_code = get_koi_site_setting("site.gtm_code") -%>
+    <%- if gtm_code -%>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','<%= gtm_code -%>');</script>
+    <%- end -%>
+
     <%# Webfonts %>
     <%#= render "layouts/webfonts", config: {
       google: {
@@ -40,22 +50,21 @@
 
   </head>
   <body class="styleguide <%= yield :body_class -%>"> 
-    <a class="skip-link" href="#main">skip to content</a>
-    <div class="layout">
+    <%- if gtm_code -%>
+      <%# Google Tag Manager (noscript Version) %>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= gtm_code -%>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <%- end -%>
 
-      <div class="layout--mobile-tray">
-        <nav class="navigation-mobile">
-          <div class="pane-wrapper">
-            <div class="pane">
-              <div class="pane--navigation-container">
-                <%= render "layouts/styleguide/styleguide_navigation", heading_class: "sg-nav--heading", list_class: "non-pane" -%>
-              </div>
-            </div>
-          </div>
+    <a class="skip-link" href="#main">skip to content</a>
+    <div class="layout tray-container" data-tray-layout>
+
+      <div class="tray" data-tray>
+        <nav aria-label="Global Navigation" role="navigation">
+          <%= render "layouts/styleguide/styleguide_navigation", heading_class: "sg-nav--heading" -%>
         </nav>
       </div>
 
-      <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
+      <div class="tray--page layout--content environment-<%= Rails.env -%>" data-tray-page>
 
         <header class="sg-header layout--header" role="banner">
           <div class="layout--container">
@@ -65,11 +74,13 @@
               <%- end -%></h1> <a href="https://github.com/katalyst/ornament" class="button__confirm button__small">Github</a>
               <h2>The front-end pattern library and styleguide for Katalyst web applications</h2>
             </hgroup>
-            <button class="sg-header--menu" data-mobile-menu-switch>open navigation</button>
+            <button class="header--menu" aria-label="Toggle menu" data-tray-anchor>
+              <%= icon("hamburger", fill: "#ffffff", width: 25, height: 23) -%>
+            </button>
           </div>
         </header>
 
-        <div data-layout-positioner class="layout--positioner">
+        <div data-layout-positioner class="layout--positioner tray--open-overlay">
           <%= render "/shared/oldie" -%>
           <%= yield :above_layout -%>
           <%- if content_for?(:title) -%>
@@ -93,7 +104,7 @@
         </div>
       </div>
 
-    <% end %>
+    </div>
 
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <%= yield :scripts_bottom %>

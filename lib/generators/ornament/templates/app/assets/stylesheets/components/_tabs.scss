@@ -53,8 +53,11 @@
 // PANES
 
 .tabs--pane {
-  display: none;
   padding: $xx-small-unit 0;
+}
+
+.tabs--pane__init {
+  display: none;
 }
 
 .tabs--pane__active {
