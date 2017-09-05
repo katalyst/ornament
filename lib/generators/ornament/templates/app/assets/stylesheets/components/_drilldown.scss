@@ -1,5 +1,13 @@
 // Styling settings 
-$pane-bg: $primary-color;
+$drilldown-bg: $passive-color;
+$drilldown-links: $foreground-color;
+$drilldown-border: 1px solid $white;
+$drilldown-item-padding-y: $xxx-small-unit;
+$drilldown-item-padding-x: $x-small-unit;
+
+// If true, adds border between each drilldown item
+// If false, only adds border between back button and description block
+$drilldown-borders-between-items: true;
 
 // Use SVG icons from the Ornament.icons namespace instead of arrow characters 
 // Will need to match the same setting in drilldown.js
@@ -57,7 +65,7 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
   }
 
   @if $block-out-past-panes {
-    background: $pane-bg;
+    background: $drilldown-bg;
   }
   
   @if $animate-panes {
@@ -132,35 +140,29 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
 }
 
 .drilldown__initial {
-  padding-top: $xxx-small-unit;
-
-  .tray__with-planner & {
-    padding-top: 0;
-  }
+  // padding-top: $xxx-small-unit;
+  // padding-bottom: $xxx-small-unit;
 }
 
 // =========================================================================
 // Styling
 // =========================================================================
 
-$drilldown-border: 1px solid $white;
-$drilldown-item-padding-y: $xxx-small-unit;
-$drilldown-item-padding-x: $x-small-unit;
-
 .drilldown {
-  color: $white;
-  background: $primary-color;
-  @include font($heading-alpha-font);
+  // color: $white;
+  background: $drilldown-bg;
 
   a,button {
-    @include color-link($white, $white);
+    @include color-link($drilldown-links, $drilldown-links);
     @include decorate-link(none, none);
   }
 }
 
 // Back buttons 
 .drilldown--back {
-  border-bottom: $drilldown-border;
+  @if not $drilldown-borders-between-items {
+    border-bottom: $drilldown-border;
+  }
 
   // Back buttons 
   @if $use-svg-icons == true {
@@ -173,7 +175,7 @@ $drilldown-item-padding-x: $x-small-unit;
       stroke: $white;
     }
   } @else {
-    button::before {
+    button > div::before {
       content: "‹";
       padding-right: .5em;
     }
@@ -212,12 +214,16 @@ $drilldown-item-padding-x: $x-small-unit;
 
 .drilldown--description {
   padding: $small-unit $drilldown-item-padding-x;
-  border-bottom: $drilldown-border;
-  margin-bottom: $xxx-small-unit;
+
+  @if not $drilldown-borders-between-items {
+    border-bottom: $drilldown-border;
+    margin-bottom: $xxx-small-unit;
+  }
 }
 
 .drilldown--description--title {
   font-size: $large-font-size;
+  @include font($bold-font);
 }
 
 // Parent link arrows
@@ -274,8 +280,9 @@ $drilldown-item-padding-x: $x-small-unit;
     border: 0;
     width: 44px;
     text-align: center;
-    background: $secondary-color;
+    background: $primary-color;
     cursor: pointer;
+    color: $white;
   }
 
   svg {
@@ -292,8 +299,12 @@ $drilldown-item-padding-x: $x-small-unit;
   a {
     display: block;
   }
-  .tray--button {
-    @include display-flex;
+}
+
+// Borders between items
+@if $drilldown-borders-between-items {
+  .drilldown--item + .drilldown--item {
+    border-top: $drilldown-border;
   }
 }
 
