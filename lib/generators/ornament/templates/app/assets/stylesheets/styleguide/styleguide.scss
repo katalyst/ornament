@@ -243,7 +243,7 @@ $sg-feature-background: $background-color;
   margin-top: $default-unit;
   margin-bottom: $default-unit;
   @include flush-children;
-  @include box-shadow(1px 1px 3px rgba(0,0,0,0.1));
+  @include box-shadow(0 2px 3px rgba(0,0,0,0.1));
 }
 
 .sg-feature > .tabs--links {

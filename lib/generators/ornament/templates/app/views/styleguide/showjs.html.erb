@@ -177,8 +177,8 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select" } do -%>
 <div class="inputs">
-  <div class="control-group check_boxes">
-    <label class="check_boxes required control-label">
+  <div class="control-group">
+    <label class="control-label">
       Select "3" to show the hidden field
     </label>
     <div class="controls">
@@ -195,7 +195,81 @@
   <div class="control-group form--small" data-show="show-js-select" data-show-option="3">
     <label class="optional control-label">Hidden Field</label>
     <div class="controls">
-      <input class="string tel optional" type="text" />
+      <input class="string optional" type="text" />
+    </div>
+  </div> 
+</div>
+  <%- end -%>
+
+  <p>Multiple selects with the same value by using the <code>_&_</code> syntax to define the fields, and set the single <code>data-show-option</code> value on the hidden field.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select-2" } do -%>
+<div class="inputs">
+  <div class="control-group">
+    <label class="control-label">
+      Answer Yes
+    </label>
+    <div class="controls">
+      <select class="select form--auto" id="show-js-select-2-1">
+        <option value="">Please select</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">
+      Answer Yes again
+    </label>
+    <div class="controls">
+      <select class="select form--auto" id="show-js-select-2-2">
+        <option value="">Please select</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+  </div>
+  <div class="control-group form--small" data-show="show-js-select-2-1_&_show-js-select-2-2" data-show-option="true">
+    <label class="optional control-label">Hidden Field</label>
+    <div class="controls">
+      <input class="string optional" type="text" />
+    </div>
+  </div> 
+</div>
+  <%- end -%>
+
+  <p>Multiple selects with different values by using the <code>_&_</code> syntax for the <code>data-show-option</code> attribute. Make sure that you're passing in the same number of <code>data-show</code> and <code>data-show-option</code> items. If there aren't enough values it will assume the value needs to be "true".</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select-3" } do -%>
+<div class="inputs">
+  <div class="control-group">
+    <label class="control-label">
+      Answer Yes
+    </label>
+    <div class="controls">
+      <select class="select form--auto" id="show-js-select-3-1">
+        <option value="">Please select</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">
+      Answer No
+    </label>
+    <div class="controls">
+      <select class="select form--auto" id="show-js-select-3-2">
+        <option value="">Please select</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+  </div>
+  <div class="control-group form--small" data-show="show-js-select-3-1_&_show-js-select-3-2" data-show-option="true_&_false">
+    <label class="optional control-label">Hidden Field</label>
+    <div class="controls">
+      <input class="string optional" type="text" />
     </div>
   </div> 
 </div>

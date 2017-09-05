@@ -23,6 +23,33 @@
 
 ### Ornament JS Framework 2.0 
 
+Ornament is taking steps toward being asynchronous and having it's own lifecycle to integrate better with things like Turbolinks and React.  
+
+There are now convenience functions like:
+
+```js
+Ornament.onLoad(function(){
+  // do something when ornament is ready
+});
+```
+
+When creating a component you can use the `registerComponent` function to autobind things like an init function and resize/scroll listeners:
+
+```js
+var MyComponent = {
+  resizeListener: function(){
+    // this will automatically bind on resize 
+  },
+  scrollListener: function(){
+    // this will automatically bind on scroll 
+  },
+  init: function(){
+    // this will get run automatically on page load
+    // and also when turbolinks transitions 
+  }
+}
+Ornament.registerComponent("MyComponent", MyComponent);
+```
 
 ### Reorganised JS folders
 
@@ -91,6 +118,8 @@ This is a continuing effort to move towards asynchronous and self-cleaning compo
 - Added a `site.head_scripts` site setting to allow Koi users to add their own scripts to the `head` element. This makes managing head scripts a lot easier and doesn't require deploys to update  
 - Added a `site.gtm_code` site setting to allow Koi users to manage Google Tag Manager embeds  
 - Fotorama carousels now need `data-carousel` to integrate with Turbolinks 
+- Added some convenience functions to the top of `show.js` for doing global things when showing/hiding fields  
+- Added support for matching multiple select fields in `show.js`  
 
 ## v1.2.6
 
