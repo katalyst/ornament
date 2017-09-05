@@ -8,8 +8,9 @@
 - Wording changes on Form page to reference new function locations 
 - Weird source ording on password revealer and password scorer
 - Remove docs for removed components 
-- Add more OOB icons 
 - Lightbox improvements with TLinks from OPN
+- Remove grunticon and generated files 
+- Add more OOB icons 
 
 ### POSSIBLES BEFORE RELEASE
 
