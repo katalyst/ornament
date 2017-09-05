@@ -122,6 +122,7 @@ This is a continuing effort to move towards asynchronous and self-cleaning compo
 - Fotorama carousels now need `data-carousel` to integrate with Turbolinks 
 - Added some convenience functions to the top of `show.js` for doing global things when showing/hiding fields  
 - Added support for matching multiple select fields in `show.js`  
+- Updated `analytics.html` partial to only push ga pageview event when Turbolinks is not present. When turbolinks is present we now push virtual pageviews to either analytics.js or gtm.js when present  
 
 ## v1.2.6
 
