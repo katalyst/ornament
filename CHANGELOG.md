@@ -10,7 +10,6 @@
 - Remove docs for removed components 
 - Add more OOB icons 
 - Lightbox improvements with TLinks from OPN
-- Nicer default drilldown styling 
 
 ### POSSIBLES BEFORE RELEASE
 
@@ -58,6 +57,7 @@ Non-breaking:
 - Added a `$font-families` flag at the top of the typography stylesheet to make switching between merged font-family webfonts and seperated font-family webfonts easier. Eg. `strong` tags are now just `font-weight: bold` rather setting an entirely different font. This can be set to `false` to use the old behaviour  
 - Updated default heading font sizes  
 - Added a `$system-fonts` variable for using various system fonts rather than a webfont. Implemented on styleguide  
+- Added a transition to font size changes  
 
 ### TrayNav
 
