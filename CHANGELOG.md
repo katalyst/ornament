@@ -5,18 +5,19 @@
 ### TODO BEFORE RELEASE
 
 - Various form helpers need clean up method before TLinks cache 
-- Wording changes on Form page to reference new function locations 
 - Weird source ording on password revealer and password scorer
+- Wording changes on Form page to reference new function locations 
 - Remove docs for removed components 
-- Lightbox improvements with TLinks from OPN
-- Remove grunticon and generated files 
+- Remove grunticon and generated files, replace with svg icons 
 - Add more OOB icons 
 - Custom marker cluster images / workflow 
 
 ### POSSIBLES BEFORE RELEASE
 
+- Lightbox improvements with TLinks from OPN
 - Rebuild billing-to-shipping to dangerously find elements ("[name^='billing_']") etc.
 - Fotorama bullet styling scaffold 
+- Remove compass dependancy  
 
 ### Reduced IE8/9 Support 
 
@@ -69,6 +70,7 @@ Ornament.registerComponent("MyComponent", MyComponent);
 - Moved `fonts.scss` in to the utilities folder and renamed to `font-face.scss` to avoid confusion with the other `@include font` mixin  
 - Created a `font-face` mixin for easy configuration of self-hosted webfonts, rather than relying on the developer to manually create the font-face declarations themselves  
 - Moved `styleguide.css` in to a styleguide folder to keep it away from everything else  
+- Moved vendor css files in to a `libs` directory to keep consistent with the JS structure  
 - Renamed `fotorama-custom.scss` to `carousel.scss` to avoid confusion between the library and the implementation file  
 
 ### Typography changes 
