@@ -11,6 +11,7 @@
 - Lightbox improvements with TLinks from OPN
 - Remove grunticon and generated files 
 - Add more OOB icons 
+- Custom marker cluster images / workflow 
 
 ### POSSIBLES BEFORE RELEASE
 
@@ -111,8 +112,17 @@ The following components have been enhanced to work nicer with Turbolinks:
 - Fotorama/Carousel 
 - Readmore
 - Show.js
+- Analytics.js
+- ScrollTo
+- ShiftyJS
 
 This is a continuing effort to move towards asynchronous and self-cleaning components. 
+
+The following components have known issues with Turbolinks still:
+
+- Lightbox
+- Map
+- Menu with more
 
 ### Other Changes
 
