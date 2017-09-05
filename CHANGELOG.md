@@ -100,6 +100,7 @@ Non-breaking:
 - `oslide.js`- it was never used and there are better alternatives like [slick carousel](http://kenwheeler.github.io/slick/)  
 - `navigation.js` - it was overly complicated, may make a comeback in the future but we never used it  
 - `menu-aim.js` - removed due to it's reliance on specific markup and just general inflexibility  
+- `conform.js` - There are [better options](http://brm.io/jquery-match-height/) and it's only required for IE8/9 which we are dropping support for  
 
 ### Turbolinks enhancements
 
