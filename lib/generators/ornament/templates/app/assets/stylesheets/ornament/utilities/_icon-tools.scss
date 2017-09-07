@@ -13,31 +13,14 @@
 /* 
 
   Icon blocks are a block element with a centred icon inside it. 
-  @include icon-block(["icon-name"], $block-width, $icon-width, $block-height, $icon-height);
 
-  The mixin can be applied to an existing icon:
+  To create a 44x44 block with a 12x12 icon centred inside:
+  @include icon-block(44px, 12px);
 
-  @include grunticon("facebook", 24px);
-  @include icon-block(44px, 24px);
-
-  This will result in a 24x24 icon centred inside a 44x44 block.
-
-  Alternatively you can provide a custom width and height to your
-  grunticon but will need to provide it to the icon-block mixin
-  as well:
-
-  @include grunticon("facebook", 12px, 24px);
-  @include icon-block(44px, 12px, 32px, 24px);
-
-  This will result in a 12x24 icon centred inside a 44x32 block.
-
-  This can be a bit verbose though so you can also optionally 
-  pass an icon name in to the first argument of icon-block to
-  not only define the icon block but the icon itself too.
-
-  This results in the two mixins above being simplified as:
-
-  @include icon-block("facebook", 44px, 12px, 44px, 24px);
+  Each argument can also take a sass list to specify width/height.
+  To create a 44x60 block with a 22x30 icon:
+  @include icon-block((44px, 60px), (22px, 30px));
+  
 */
 @mixin icon-block($block-size, $icon-size) {
   @include display-flex;
