@@ -4,8 +4,6 @@
 
 ### TODO BEFORE RELEASE
 
-- Various form helpers need clean up method before TLinks cache 
-- Weird source ording on password revealer and password scorer
 - Wording changes on Form page to reference new function locations 
 - Remove docs for removed components 
 - Remove grunticon and generated files, replace with svg icons 
@@ -117,6 +115,8 @@ The following components have been enhanced to work nicer with Turbolinks:
 - Analytics.js
 - ScrollTo
 - ShiftyJS
+- Form Password Revealer
+- Form Password Scorer
 
 This is a continuing effort to move towards asynchronous and self-cleaning components. 
 
