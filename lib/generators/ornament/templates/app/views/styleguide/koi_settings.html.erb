@@ -1,0 +1,66 @@
+<%- content_for :title, "Koi Integration" -%>
+
+<div class="content-spacing">
+
+  <h2 class="heading-two">Koi Settings</h2>
+
+  <p>There are several Koi Settings you can create that will automatically plug in to the default Ornament template:</p>
+
+  <%-
+    settings = [{
+      key: "site.gtm_code",
+      type: "string",
+      description: "<p>Used to generate both the head and body script for Google Tag Manager.</p>"
+    },{
+      key: "site.google_analytics.profile_id",
+      type: "string",
+      description: "<p>Used to generate Google Analytics script tag"
+    },{
+      key: "site.head_scripts",
+      type: "text",
+      description: "<p>Used to output arbitrary code to the head area of the website. Perfect for things like tracking scripts or custom global meta tags.</p>"
+    },{
+      key: "site.title",
+      type: "string",
+      description: "<p>Default fallback page title.</p>"
+    },{
+      key: "site.meta_description",
+      type: "text",
+      description: "<p>Default fallback meta description.</p>"
+    },{
+      key: "site.meta_keywords",
+      type: "text",
+      description: "<p>Default fallback meta keywords.</p>"
+    }]
+  -%>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush">
+      <thead>
+        <tr>
+          <th>Setting name</th>
+          <th>Type</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- settings.each do |setting| -%>
+          <tr>
+            <td>
+              <code>
+                <%= setting[:key] -%>
+              </code>
+            </td>
+            <td>
+              <%= setting[:type] -%>
+            </td>
+            <td>
+              <%= raw setting[:description] -%>
+            </td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+</div>
