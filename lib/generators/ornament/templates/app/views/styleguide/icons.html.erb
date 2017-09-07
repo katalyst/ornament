@@ -45,21 +45,21 @@
   <p>There is a rails helper for using these SVG icons in your project:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper", no_html: true, ruby: capture { -%>
-&lt;%= icon("search", width: 32) -%>
+&lt;%= icon("search", width: 32, height: 32) -%>
   <%- } } do -%>
-    <%= icon("search", width: 32) -%>
+    <%= icon("search", width: 32, height: 32) -%>
   <%- end -%>
 
   <p>You can pass in width and height attributes in to the helper to control the size of the icon:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper-size", no_html: true, ruby: capture { -%>
-&lt;%= icon("search", width: 16) -%>
-&lt;%= icon("search", width: 32) -%>
-&lt;%= icon("search", width: 64) -%>
+&lt;%= icon("search", width: 16, height: 16) -%>
+&lt;%= icon("search", width: 32, height: 32) -%>
+&lt;%= icon("search", width: 64, height: 64) -%>
   <%- } } do -%>
-    <%= icon("search", width: 16) -%>
-    <%= icon("search", width: 32) -%>
-    <%= icon("search", width: 64) -%>
+    <%= icon("search", width: 16, height: 16) -%>
+    <%= icon("search", width: 32, height: 32) -%>
+    <%= icon("search", width: 64, height: 64) -%>
   <%- end -%>
 
   <p>You can control the colouring of the icon using the <code>fill</code> and <code>stroke</code> attributes:</p>
@@ -67,9 +67,9 @@
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper-colour", no_html: true, ruby: capture { -%>
 &lt;%= icon("search", width: 32) -%>
   <%- } } do -%>
-    <%= icon("search", width: 32, stroke: "#cccccc") -%>
-    <%= icon("search", width: 32, stroke: "red") -%>
-    <%= icon("search", width: 32, stroke: "#ff00bb") -%>
+    <%= icon("search", width: 32, height: 32, stroke: "#cccccc") -%>
+    <%= icon("search", width: 32, height: 32, stroke: "red") -%>
+    <%= icon("search", width: 32, height: 32, stroke: "#ff00bb") -%>
   <%- end -%>
 
   <h2 class="heading-two">Project Icons</h2>
