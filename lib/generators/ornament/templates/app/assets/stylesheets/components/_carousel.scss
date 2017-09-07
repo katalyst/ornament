@@ -37,13 +37,16 @@
   background: $primary-color;
   background: rgba($primary-color,0.8);
   right: 0;
-  color: #fff;
-  padding: 10px $default-unit;
-  padding-right: $xx-large-unit;
   bottom: 0;
-  margin-top: -40px;
-  line-height: 1.7;
-  @include border-radius(0 0 $border-radius $border-radius);
+  color: $white;
+  padding: $xxxx-small-unit;
+  // @include transition(.2s transform $ease-out);
+  // @include transform(translateY(100%));
+
+  // .fotorama__active & {
+  //   @include transition(.2s transform $ease-in);
+  //   @include transform(translateY(0));
+  // }
 }
 
 .fotorama__caption {
@@ -56,6 +59,14 @@
   background: transparent;
   padding: 0;
   overflow: hidden;
+}
+
+// =========================================================================
+// Video frame styling
+// =========================================================================
+
+.fotorama__stage__frame--video {
+  background: $black;
 }
 
 // =========================================================================

@@ -26,14 +26,14 @@
     <h2 class="heading-two">Gallery</h2>
 
     <p>
-      Banners with thumbnails, lazy-loading, fullscreen, videos
+      Banners with thumbnails, lazy-loading, fullscreen, videos, captions 
     </p>
 
     <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "gallery" } do -%>
 <div class="fotorama" data-carousel data-nav="thumbs" data-allow-full-screen="true" data-width="100%">
+  <a href="http://placehold.it/1024x600" data-caption="This image has a caption"></a>
   <a href="http://placehold.it/1024x600"></a>
-  <a href="http://placehold.it/1024x600"></a>
-  <a href="https://www.youtube.com/watch?v=3FOzD4Sfgag"></a>
+  <a href="https://www.youtube.com/watch?v=3FOzD4Sfgag" data-caption="This video has a caption"></a>
   <a href="http://placehold.it/1024x600"></a>
   <a href="http://placehold.it/1024x600"></a>
   <a href="http://placehold.it/1024x600"></a>
