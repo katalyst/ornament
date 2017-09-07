@@ -8,5 +8,5 @@
 -%>
 
 <span class="pagination--last <%= "disabled" if current_page.last? -%>">
-  <%= link_to_unless current_page.last?, raw(t 'views.pagination.last'), url, {:remote => remote, title: "Go to last page"} %>
+  <%= link_to_unless current_page.last?, icon("chevron_right_double", width: 18, height: 16), url, {:remote => remote, title: "Go to last page"} %>
 </span>

@@ -39,69 +39,30 @@
 
   @include icon-block("facebook", 44px, 12px, 44px, 24px);
 */
-@mixin icon-block($params...) {
+@mixin icon-block($block-size, $icon-size) {
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(center);
 
-  // Initially assume that the first argument
-  // isn't an icon name 
-  $start: 1;
-  $icon: false;
-
-  // Check if first value is a string, if it is
-  // assume it's the icon to pass in to grunticon 
-  // If it's not, assume the first value is the width 
-  // and continue as normal
-  @if type-of(nth($params,1)) == string {
-    $icon: nth($params, 1);
-    $start: 2;
+  @if type-of($block-size) == "list" {
+    width: nth($block-size, 1);
+    height: nth($block-size, 2);
+  } @else {
+    width: $block-size;
+    height: $block-size;
   }
 
-  // Set up defaults
-  $block-width: 44px;
-  $icon-width: $block-width;
-  $block-height: $block-width;
-  $icon-height: $block-width;
+  svg {
+    display: block;
+    margin: 0 auto;
 
-  // Inspect the list of params and build out our 
-  // variables from the list 
-  @if length($params) >= $start {
-    $block-width: nth($params, $start);
-    $icon-width: $block-width;
-    $block-height: $block-width;
-    $icon-height: $block-width;
-  }
-  @if length($params) >= $start + 1 {
-    $icon-width: nth($params, $start + 1);
-    $icon-height: $icon-width;
-  }
-  @if length($params) >= $start + 2 {
-    $block-height: nth($params, $start + 2);
-    $icon-height: $block-height;
-  }
-  @if length($params) >= $start + 3 {
-    $icon-height: nth($params, $start + 3);
-  }
-
-  @if($icon) {
-    position: relative;
-  }
-  display: block;
-  text-indent: -99999px;
-  width: $block-width;
-  height: $block-height;
-  overflow: hidden;
-
-  &:before {
-    @if($icon) {
-      content: "";
-      @extend .grunticon-#{$icon};
+    @if type-of($icon-size) == "list" {
+      width: nth($icon-size, 1);
+      height: nth($icon-size, 2);
+    } @else {
+      width: $icon-size;
+      height: $icon-size;
     }
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    width: $icon-width;
-    height: $icon-height;
-    margin-left: -($icon-width)/2;
-    margin-top: -($icon-height)/2;
   }
 }
 

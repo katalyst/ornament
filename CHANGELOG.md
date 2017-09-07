@@ -2,20 +2,6 @@
 
 ## v2.0.0
 
-### TODO BEFORE RELEASE
-
-- Wording changes on Form page to reference new function locations  
-- Remove docs for removed components  
-- Remove grunticon and generated files, replace with svg icons  
-- Add more OOB icons  
-
-### POSSIBLES BEFORE RELEASE
-
-- Lightbox improvements with TLinks from OPN  
-- Rebuild billing-to-shipping to dangerously find elements ("[name^='billing_']") etc.  
-- Remove compass dependancy  
-- Custom marker cluster images / workflow
-
 ### Reduced IE8/9 Support 
 
 - Removed the .ie8 class on the body  
@@ -102,6 +88,7 @@ Non-breaking:
 - `navigation.js` - it was overly complicated, may make a comeback in the future but we never used it  
 - `menu-aim.js` - removed due to it's reliance on specific markup and just general inflexibility  
 - `conform.js` - There are [better options](http://brm.io/jquery-match-height/) and it's only required for IE8/9 which we are dropping support for  
+- Grunticon has been removed in favour of dropping IE8/9 support and the move toward inline SVG instead  
 
 ### Turbolinks enhancements
 

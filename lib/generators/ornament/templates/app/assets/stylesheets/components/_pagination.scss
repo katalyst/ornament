@@ -35,44 +35,12 @@ $pagination-button-size: 44px;
   }
 }
 
-// first arrow
-.pagination--first {
-  &.disabled,
-  a {
-    @include grunticon("chevron-double-left-16", 18px, 16px);
-  }
-}
-
-// prev arrow
-.pagination--prev {
-  &.disabled,
-  a {
-    @include grunticon("chevron-left-16", 12px, 16px);
-  }
-}
-
-// next arrow
-.pagination--next {
-  &.disabled,
-  a {
-    @include grunticon("chevron-right-16", 12px, 16px);
-  }
-}
-
-// last arrow
-.pagination--last {
-  &.disabled,
-  a {
-    @include grunticon("chevron-double-right-16", 18px, 16px);
-  }
-}
-
 // icon styling for prev/next
 .pagination--prev,
 .pagination--next {
   &.disabled,
   a {
-    @include icon-block($pagination-button-size, 12px, $pagination-button-size, 16px);
+    @include icon-block($pagination-button-size, (12px, 16px));
     font-size: 0;
   }
 }
@@ -82,7 +50,7 @@ $pagination-button-size: 44px;
 .pagination--last {
   &.disabled,
   a {
-    @include icon-block($pagination-button-size, 18px, $pagination-button-size, 16px);
+    @include icon-block($pagination-button-size, (18px, 16px));
     font-size: 0;
   }
 }
@@ -109,6 +77,10 @@ $pagination-button-size: 44px;
   display: table-cell;
   vertical-align: middle;
   height: $pagination-button-size;
+
+  a:hover .icon--fill {
+    fill: $primary-color;
+  }
 
   &.disabled {
     display: table-cell;

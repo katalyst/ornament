@@ -8,5 +8,5 @@
 -%>
 
 <span class="pagination--first <%= "disabled" if current_page.first? -%>">
-  <%= link_to_unless current_page.first?, raw(t 'views.pagination.first'), url, :remote => remote, title: "Go to first page" %>
+  <%= link_to_unless current_page.first?, icon("chevron_left_double", width: 18, height: 16), url, :remote => remote, title: "Go to first page" %>
 </span>

@@ -8,5 +8,5 @@
 -%>
 
 <span class="pagination--next <%= "disabled" if current_page.last? -%>">
-  <%= link_to_unless current_page.last?, raw(t 'views.pagination.next'), url, :rel => 'next', :remote => remote, title: "Go to next page" %>
+  <%= link_to_unless current_page.last?, icon("chevron_right", width: 12, height: 16), url, :rel => 'next', :remote => remote, title: "Go to next page" %>
 </span>

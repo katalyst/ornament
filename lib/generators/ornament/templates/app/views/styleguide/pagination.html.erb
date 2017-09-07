@@ -6,10 +6,10 @@
 <%- content_for :pagination_template do -%>
   <div class="pagination--table">
     <span class="pagination--first disabled">
-      First
+      <%= icon("chevron_left_double", width: 18, height: 16) -%>
     </span>
     <span class="pagination--prev disabled">
-      Previous
+      <%= icon("chevron_left", width: 12, height: 16) -%>
     </span>
     <span class="pagination--page current">
       1
@@ -30,10 +30,14 @@
       Page 1 of 6
     </div>
     <span class="pagination--next">
-      <a href="#" rel="next" title="Go to next page">Next</a>
+      <a href="#" rel="next" title="Go to next page">
+        <%= icon("chevron_right", width: 12, height: 16) -%>
+      </a>
     </span>
     <span class="pagination--last">
-      <a href="#" title="Go to last page">Last</a>
+      <a href="#" title="Go to last page">
+        <%= icon("chevron_right_double", width: 18, height: 16) -%>
+      </a>
     </span>
   </div>
 <%- end -%>
