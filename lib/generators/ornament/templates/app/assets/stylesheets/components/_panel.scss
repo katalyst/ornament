@@ -1,4 +1,34 @@
-$panel-border:          $background-color;
+$panel-border: $divider-color;
+
+// =========================================================================
+// Colour variation mixin
+// =========================================================================
+
+@mixin panel-color($background, $color:false) {
+  @extend .panel;
+  background: $background;
+
+  @if $color {
+    color: $color;
+
+    a {
+      @include color-link($color, $color);
+      @include decorate-link(underline, none);
+    }
+
+    .icon--stroke {
+      stroke: $color;
+    }
+
+    .icon--fill {
+      fill: $color;
+    }
+  }
+}
+
+// =========================================================================
+// Base panel
+// =========================================================================
 
 .panel {
   @include border-radius($border-radius);
@@ -12,62 +42,45 @@ $panel-border:          $background-color;
 // COLOUR VARIANTS
 
 .panel__primary {
-  @extend .panel;
-  background: $primary-color;
-  color: $white;
-  a {
-    @include color-link($white,$white);
-  }
+  @include panel-color($primary-color, $white);
 }
 
 .panel__passive {
-  @extend .panel;
-  background: $passive-color;
+  @include panel-color($passive-color);
 }
 
 .panel__warning {
-  @extend .panel;
-  background: $notice-background;
-  color: $foreground-color;
-
-  a {
-    @include color-link($foreground-color, $foreground-color);
-    @include decorate-link(underline, underline);
-  }
+  @include panel-color($notice-background, $foreground-color);
 }
 
 .panel__alert,
 .panel__error {
-  @extend .panel;
-  background: $error-background;
-  color: $error-color;
+  @include panel-color($error-background, $error-color);
 }
 
 .panel__alert {
-  @extend .panel;
-  background: $alert-background;
-  color: $alert-color;
+  @include panel-color($alert-background, $alert-color);
 }
 
 .panel__notice {
-  @extend .panel;
-  background: $notice-background;
-  color: $notice-color;
+  @include panel-color($notice-background, $notice-color);
 }
 
 .panel__success {
-  @extend .panel;
-  background: $success-background;
-  color: $success-color;
+  @include panel-color($success-background, $success-color);
 }
 
-// PADDING VARIANTS
+// =========================================================================
+// Padding variations
+// =========================================================================
 
 .panel--padding {
   padding: $panel-padding;
 }
 
-// BORDER RADIUS VARIANTS
+// =========================================================================
+// Border radius variations 
+// =========================================================================
 
 .panel__no-top-radius {
   @include border-top-left-radius(0);
@@ -79,7 +92,9 @@ $panel-border:          $background-color;
   @include border-bottom-right-radius(0);
 }
 
-// PANEL SPACING
+// =========================================================================
+// Panel spacing
+// =========================================================================
 
 .panel-spacing {
   .panel + .panel,
