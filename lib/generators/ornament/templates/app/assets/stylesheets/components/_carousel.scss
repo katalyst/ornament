@@ -1,5 +1,9 @@
 @import "libs/fotorama";
 
+// =========================================================================
+// Carousel frame 
+// =========================================================================
+
 .fotorama {
   opacity: 0;
   transition: opacity .2s;
@@ -9,13 +13,25 @@
   }
 }
 
+// =========================================================================
+// Gallery spacing 
+// =========================================================================
+
 .fotorama-gallery {
   margin-bottom: $large-unit;
 }
 
+// =========================================================================
+// Improving performance of stage__frame 
+// =========================================================================
+
 .fotorama__stage__frame {
   -webkit-transform: rotate(0.000001deg);
 }
+
+// =========================================================================
+// Caption styling 
+// =========================================================================
 
 .fotorama__caption {
   background: $primary-color;
@@ -42,16 +58,50 @@
   overflow: hidden;
 }
 
+// =========================================================================
+// Navigation styling 
+// =========================================================================
+
 .fotorama__nav-wrap {
   margin-top: $xx-small-unit;
   @include border-radius($border-radius);
 }
 
+// Thumbail border 
 .fotorama__thumb-border {
   border-color: $primary-color;
 }
 
-// Arrows
+// Custom dot base 
+$carousel-dot-size: $xxx-small-unit;
+.fotorama__nav--dots {}
+.fotorama__nav--dots .fotorama__nav__frame--dot {
+  width: $carousel-dot-size;
+  height: $carousel-dot-size;
+  margin-left: $xxxxx-small-unit;
+  margin-right: $xxxxx-small-unit;
+}
+.fotorama__dot {
+  width: 100%;
+  height: 100%;
+  background: $passive-color;
+  border: 0;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  transition: background-color .2s;
+
+  .fotorama__nav__frame.fotorama__active & {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: $primary-color;
+  }
+}
+
+// =========================================================================
+// Arrows 
+// =========================================================================
 
 .fotorama__arr.fotorama__arr--prev {
   @include grunticon("chevron-left-16-white", 16px);

@@ -4,18 +4,17 @@
 
 ### TODO BEFORE RELEASE
 
-- Wording changes on Form page to reference new function locations 
-- Remove docs for removed components 
-- Remove grunticon and generated files, replace with svg icons 
-- Add more OOB icons 
-- Custom marker cluster images / workflow 
+- Wording changes on Form page to reference new function locations  
+- Remove docs for removed components  
+- Remove grunticon and generated files, replace with svg icons  
+- Add more OOB icons  
 
 ### POSSIBLES BEFORE RELEASE
 
-- Lightbox improvements with TLinks from OPN
-- Rebuild billing-to-shipping to dangerously find elements ("[name^='billing_']") etc.
-- Fotorama bullet styling scaffold 
+- Lightbox improvements with TLinks from OPN  
+- Rebuild billing-to-shipping to dangerously find elements ("[name^='billing_']") etc.  
 - Remove compass dependancy  
+- Custom marker cluster images / workflow
 
 ### Reduced IE8/9 Support 
 
@@ -109,7 +108,7 @@ Non-breaking:
 There is now an `Ornament.beforeTurbolinksCache()` function that you can pass code to that executes on the before cache event  
 The following components have been enhanced to work nicer with Turbolinks:
 
-- Fotorama/Carousel 
+- Carousel (formerly Fotorama)
 - Readmore
 - Show.js
 - Analytics.js
@@ -135,6 +134,8 @@ The following components have known issues with Turbolinks still:
 - Added some convenience functions to the top of `show.js` for doing global things when showing/hiding fields  
 - Added support for matching multiple select fields in `show.js`  
 - Updated `analytics.html` partial to only push ga pageview event when Turbolinks is not present. When turbolinks is present we now push virtual pageviews to either analytics.js or gtm.js when present  
+- Streamlined production of coloured panels with a `panel-color` mixin. Any panels made using this mixin will autocolour links and icons  
+- Better default styling for carousel dot navigation based on most common implementation  
 
 ## v1.2.6
 
