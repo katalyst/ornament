@@ -40,13 +40,6 @@
   bottom: 0;
   color: $white;
   padding: $xxxx-small-unit;
-  // @include transition(.2s transform $ease-out);
-  // @include transform(translateY(100%));
-
-  // .fotorama__active & {
-  //   @include transition(.2s transform $ease-in);
-  //   @include transform(translateY(0));
-  // }
 }
 
 .fotorama__caption {
@@ -115,17 +108,23 @@ $carousel-dot-size: $xxx-small-unit;
 // =========================================================================
 
 .fotorama__arr.fotorama__arr--prev {
-  @include grunticon("chevron-left-16-white", 16px);
   @include translate3d($default-unit, 0, 0);
   position: absolute;
   padding: 0;
+
+  svg {
+    margin-left: -4px;
+  }
 }
 
 .fotorama__arr.fotorama__arr--next {
-  @include grunticon("chevron-right-16-white", 16px);
   @include translate3d(-($default-unit), 0, 0);
   position: absolute;
   padding: 0;
+
+  svg {
+    margin-right: -4px;
+  }
 }
 
 .fotorama__arr.fotorama__arr--prev,
@@ -134,11 +133,28 @@ $carousel-dot-size: $xxx-small-unit;
   background: rgba($primary-color,0.8);
   height: $button-height;
   width: $button-height;
-  text-align: center;
   color: #fff;
+  text-align: center;
+  position: absolute;
   top: 50%;
   margin-top: $button-height * -0.5;
   @include border-radius(50%);
-  @include icon-block($button-height, 16px);
-  position: absolute;
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(center); 
+  @include transition(background-color .2s);
+
+  &:hover {
+    background: $primary-color;
+  }
+
+  svg {
+    display: block;
+    width: auto;
+    height: 50%;
+  }
+
+  .icon--fill {
+    fill: $white;
+  }
 }
