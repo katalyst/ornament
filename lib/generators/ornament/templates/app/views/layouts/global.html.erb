@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
 
+    <%# Meta tags %>
     <meta charset="utf-8"/>
-
     <%= render "layouts/seo" -%>
-
-    <!-- META -->
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <% unless Rails.env == "production" %>
@@ -16,66 +13,75 @@
     <%= yield :meta %>
 
     <script>
-      window.Ornament = {};
+      Ornament = window.Ornament || {};
+      // dataLayer = window.dataLayer = {};
     </script>
 
-    <!-- WEBFONTS -->
-    <%= render "layouts/webfonts" -%>
-
-    <!-- STYLES -->
+    <%# Styles %>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= yield :styles %>
 
-    <!-- SCRIPTS -->
+    <%# Scripts %>
+    <%= javascript_include_tag "ornament/vendor" %>
     <%= javascript_include_tag "application" %>
     <%= yield :scripts %>
 
+    <%# Google Tag Manager - GTM-XXXXXXX %>
+    <%- gtm_code = get_koi_site_setting("site.gtm_code") -%>
+    <%- if gtm_code -%>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','<%= gtm_code -%>');</script>
+    <%- end -%>
+
+    <%# Webfonts %>
+    <%#= render "layouts/webfonts", config: {
+      google: {
+        families: ['Open Sans:400,700,400italic,700italic'],
+      }
+    } -%>
+
+    <%# Koi Scripts %>
+    <%- koi_scripts = get_koi_site_setting("site.head_scripts") -%>
+    <%= koi_scripts if koi_scripts -%>
+
   </head>
 
-  <!--[if lte IE 8 ]><body class="ie8 <%= yield :body_class -%>"> <![endif]-->
-  <!--[if (gt IE 8)|!(IE)]><!--> <body class="<%= yield :body_class -%>"> <!--<![endif]-->
+  <body class="styleguide <%= yield :body_class -%>"> 
+    <%- if gtm_code -%>
+      <%# Google Tag Manager (noscript Version) %>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= gtm_code -%>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <%- end -%>
 
     <a class="skip-link" href="#main">skip to content</a>
 
-    <div class="layout">
+    <div class="layout tray-container" data-tray-layout>
 
-      <div class="layout--mobile-tray">
-        <nav class="navigation-mobile">
-          <div class="pane-wrapper">
-            <div class="pane">
-              <div class="pane--navigation-container">
-                <ul class="non-pane">
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li data-description="Description of link with children.">
-                    <a href="#">Link with Children</a>
-                    <ul>
-                      <li><a href="#">Sublink</a></li>
-                      <li><a href="#">Sublink</a></li>
-                      <li><a href="#">Sublink</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+      <div class="tray" data-tray>
+        <nav aria-label="Global Navigation" role="navigation">
+          <%= render "layouts/styleguide/styleguide_navigation", heading_class: "sg-nav--heading" -%>
         </nav>
       </div>
 
-      <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
+      <div class="tray--page layout--content environment-<%= Rails.env -%>" data-tray-page>
+
         <header class="header" role="banner">
           <div class="layout--container">
             header
-            <button class="layout--switch header--menu" data-mobile-menu-switch>open navigation</button>
+            <button class="header--menu" aria-label="Toggle menu" data-tray-anchor>
+              <%= icon("hamburger", fill: "#ffffff", width: 25, height: 23) -%>
+            </button>
           </div>
         </header>
-        <a id="main" name="main" tabindex="-1"></a>
-        <div data-layout-positioner class="layout--positioner">
+
+        <div data-layout-positioner class="layout--positioner tray--open-overlay">
           <%= render "/shared/oldie" -%>
           <%= yield :above_layout -%>
           <%= render "/shared/flash" -%>
           <%- if content_for?(:global) || !yield.blank? -%>
+            <a id="main" name="main" tabindex="-1"></a>
             <main class="layout--main <%= yield(:layout_class) -%>" role="main">
               <div class="layout--container">
                 <%= content_for?(:global) ? yield(:global) : yield %>
@@ -90,11 +96,17 @@
           </footer>
         </div>
       </div>
-    <% end %>
+
+    </div>
 
     <%= yield :scripts_bottom %>
     
     <%= render "layouts/analytics" -%>
+
+    <div data-ornament-icons>
+      <div data-ornament-icon="chevron-left"><%= icon("chevron_left") -%></div>
+      <div data-ornament-icon="chevron-right"><%= icon("chevron_right") -%></div>
+    </div>
 
   </body>
 

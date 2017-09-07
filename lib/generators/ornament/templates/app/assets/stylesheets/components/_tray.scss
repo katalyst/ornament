@@ -1,7 +1,7 @@
 $tray-width: 250px;
 $tray-side: "right";
 $tray-scroll: true;
-$tray-background: $secondary-color;
+$tray-background: $passive-color;
 
 .tray-container {
   postion: relative;
@@ -15,6 +15,7 @@ $tray-background: $secondary-color;
   width: $tray-width;
   z-index: -1;
   display: none;
+  padding: $xxx-small-unit;
   
   @if $tray-side == "left" {
     left: 0;
