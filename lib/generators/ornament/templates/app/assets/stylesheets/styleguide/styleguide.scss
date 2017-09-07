@@ -100,7 +100,7 @@ $heading-beta-font-italic: ($system-fonts) italic bold;
 @import "components/toggle";
 @import "components/tooltip";
 @import "components/tray";
-@import "components/print";
+@import "print";
 
 // STYLEGUIDE TYPOGRAPHY
 
@@ -204,8 +204,6 @@ hr {
 }
 
 .sg-header--menu {
-  @include grunticon("menu-white", 24px);
-  @include icon-block(44px, 24px);
   overflow: visible;
 }
 
