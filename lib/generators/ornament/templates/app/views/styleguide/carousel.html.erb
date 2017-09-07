@@ -1,0 +1,45 @@
+<% content_for :title, "Carousel" %>
+
+<div class="rhythm">
+
+  <section class="spacing">
+
+    <h2 class="heading-two">Fotorama</h2>
+
+    <ul>
+      <li><a href="http://fotorama.io/">Official Website</a></li>
+      <li><a href="http://fotorama.io/customize/" target="_blank">Documentation</a></li>
+    </ul>
+
+    <h2 class="heading-two">Basic Slider</h2>
+
+    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "basic" } do -%>
+<div class="fotorama" data-carousel data-width="100%">
+  <img src="http://placehold.it/1024x600">
+  <img src="http://placehold.it/1024x600">
+  <img src="http://placehold.it/1024x600">
+  <img src="http://placehold.it/1024x600">
+  <img src="http://placehold.it/1024x600">
+</div>
+    <%- end -%>
+
+    <h2 class="heading-two">Gallery</h2>
+
+    <p>
+      Banners with thumbnails, lazy-loading, fullscreen, videos
+    </p>
+
+    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "gallery" } do -%>
+<div class="fotorama" data-carousel data-nav="thumbs" data-allow-full-screen="true" data-width="100%">
+  <a href="http://placehold.it/1024x600"></a>
+  <a href="http://placehold.it/1024x600"></a>
+  <a href="https://www.youtube.com/watch?v=3FOzD4Sfgag"></a>
+  <a href="http://placehold.it/1024x600"></a>
+  <a href="http://placehold.it/1024x600"></a>
+  <a href="http://placehold.it/1024x600"></a>
+</div>
+    <%- end -%>
+
+  </section>
+
+</div>

@@ -136,6 +136,7 @@ The following components have known issues with Turbolinks still:
 - Updated `analytics.html` partial to only push ga pageview event when Turbolinks is not present. When turbolinks is present we now push virtual pageviews to either analytics.js or gtm.js when present  
 - Streamlined production of coloured panels with a `panel-color` mixin. Any panels made using this mixin will autocolour links and icons  
 - Better default styling for carousel dot navigation based on most common implementation  
+- Added a more realistic implementation of a gallery sample on carousel page  
 
 ## v1.2.6
 
