@@ -68,6 +68,7 @@
 
 @mixin align-items($value) {
   -webkit-align-items: $value;
+  -ms-flex-align: $value;
   align-items: $value;
 }
 
@@ -78,12 +79,19 @@
 
 @mixin justify-content($value) {
   -webkit-justify-content: $value;
+  -ms-flex-pack: $value;
   justify-content: $value;
 }
 
 @mixin align-self($value) {
   -webkit-align-self: $value;
   align-self: $value;
+}
+
+@mixin order($value) {
+  -webkit-flex-order: $value;
+  -ms-flex-order: $value;
+  order: $value;
 }
 
 /**
