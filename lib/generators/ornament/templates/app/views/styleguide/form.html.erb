@@ -525,6 +525,10 @@
 
   <p>Without zxcvbn, it will operate in demo mode as you can see here, which will return a random score on field change.</p>
 
+  <div class="panel__alert panel--padding">
+    <p>Be aware if you are using zxcvbn-ruby for server-side validation that the JS and ruby implementations <a href="https://github.com/envato/zxcvbn-ruby/issues/18" target="_blank">have different results</a>.</p>
+  </div>
+
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-password-score", ruby: capture { -%>
 &lt;%= f.input :example, wrapper_html: { data: { password_sore: "" } } -%&gt;
   <%- } } do -%>
