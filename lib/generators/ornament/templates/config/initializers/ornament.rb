@@ -1,1 +1,6 @@
-Rails.application.config.assets.precompile += %w( styleguide/styleguide.css styleguide/styleguide.js koi/ckeditor/contents.css )
+Rails.application.config.assets.precompile += %w( 
+  ornament/vendor.js 
+  styleguide/styleguide.css 
+  styleguide/styleguide.js 
+  koi/ckeditor/contents.css 
+)
