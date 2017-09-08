@@ -18,7 +18,6 @@ class OrnamentGenerator < Rails::Generators::Base
     'uglifier'      => '>= 1.0.3',
     'compass-rails' => '~> 3.0.2',
     'htmlentities'  => '~> 4.3.4',
-    'css_splitter'  => '~> 0.4.6',
   }
 
   def generate
@@ -46,8 +45,7 @@ class OrnamentGenerator < Rails::Generators::Base
 
         copy_file "app/assets/stylesheets/application.scss"
         remove_file "app/assets/stylesheets/application.css"
-        copy_file "app/assets/stylesheets/styleguide.scss"
-        copy_file "app/assets/stylesheets/application_split2.css"
+        copy_file "app/assets/stylesheets/styleguide/styleguide.scss"
 
       end
 
