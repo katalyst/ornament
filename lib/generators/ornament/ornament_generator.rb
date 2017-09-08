@@ -123,7 +123,6 @@ class OrnamentGenerator < Rails::Generators::Base
           route "get '/styleguide' => 'styleguide#index'"
           route "get '/styleguide/:action' => 'styleguide'"
           copy_file "app/controllers/styleguide_controller.rb"
-          copy_file "../../../../test/dummy/app/helpers/application_helper.rb", "app/helpers/application_helper.rb"
         end
 
       end
