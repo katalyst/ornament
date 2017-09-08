@@ -1,8 +1,0 @@
-{
-  "name": "ornament",
-  "version": "0.1.0",
-  "dependencies": {
-    "grunt": "~0.4.4",
-    "grunt-grunticon": "1.6.0"
-  }
-}
