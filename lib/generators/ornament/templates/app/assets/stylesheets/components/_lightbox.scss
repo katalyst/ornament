@@ -127,7 +127,8 @@
 .mfp-inline-holder .mfp-close, 
 .mfp-ajax-holder .mfp-close,
 .mfp-figure .mfp-close,
-.mfp-iframe-scaler .mfp-close {
+.mfp-iframe-scaler .mfp-close,
+.mfp-image-holder .mfp-arrow {
   @include icon-block(44px, 16px);
 
   .icon--fill {
@@ -137,16 +138,9 @@
   .icon--stroke {
     stroke: $white;
   }
-}
-.mfp-image-holder .mfp-arrow {
-  @include icon-block(44px, 24px);
 
-  .icon--fill {
-    fill: $white;
-  }
-
-  .icon--stroke {
-    stroke: $white;
+  svg {
+    pointer-events: none;
   }
 }
 
@@ -192,20 +186,28 @@
 
 // Lightbox Arrows
 .mfp-image-holder .mfp-arrow-left {
-  // @include grunticon("chevron-left-24-white", 18px, 24px);
   left: $xxxxx-small-unit;
+
+  svg {
+    position: relative;
+    left: -2px;
+  }
 }
 
 .mfp-image-holder .mfp-arrow-right {
-  // @include grunticon("chevron-right-24-white", 18px, 24px);
   right: $xxxxx-small-unit;
+
+  svg {
+    position: relative;
+    right: -2px;
+  }
 }
 
 // Removing existing arrows
 .mfp-image-holder .mfp-arrow-left,
 .mfp-image-holder .mfp-arrow-right {
-  // @include icon-block(44px, 18px, 44px, 24px);
   position: absolute;
+
   &:before {
     border: 0;
     @include opacity(1);
