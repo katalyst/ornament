@@ -42,50 +42,35 @@ class OrnamentGenerator < Rails::Generators::Base
     unless options.development?
 
       if options.core?
-
         copy_file "app/assets/stylesheets/application.scss"
         remove_file "app/assets/stylesheets/application.css"
-        copy_file "app/assets/stylesheets/styleguide/styleguide.scss"
-
       end
 
       if options.uploader?
-
         unless options.example?
           # drag and drop image uploader dependancies
           route "end"
           route "  post :image, on: :collection"
           route "resources :uploads do"
-
           copy_file "app/controllers/uploads_controller.rb"
         end
-
         copy_file "app/views/koi/crud/_form_field_uploader.html.erb"
-
       end
 
       if options.core?
 
         copy_file "app/assets/javascripts/application.js"
-        copy_file "app/assets/javascripts/application_bottom.js"
-        copy_file "app/assets/javascripts/settings.js"
-        copy_file "app/assets/javascripts/styleguide.js"
         directory "app/assets/javascripts/ornament"
-        directory "app/assets/javascripts/utilities"
 
-        copy_file "app/assets/stylesheets/_fonts.scss"
+        copy_file "app/assets/stylesheets/_print.scss"
         directory "app/assets/stylesheets/ornament"
 
         directory "app/assets/images"
-        directory "app/assets/icons"
-
+        
         copy_file "config/initializers/simple_form.rb"
         copy_file "config/initializers/ornament.rb"
         copy_file "../../../../test/dummy/config/initializers/datetime_formats_ornament.rb", "config/initializers/datetime_formats_ornament.rb"
         copy_file "config/locales/en.yml"
-
-        copy_file "Gruntfile.js"
-        copy_file "package.json"
         copy_file ".editorconfig.ini"
         copy_file ".eslintrc.json"
         copy_file ".sass-lint.yml"
@@ -114,8 +99,9 @@ class OrnamentGenerator < Rails::Generators::Base
       end
 
       if options.styleguide?
-
         directory "app/views/styleguide"
+        directory "app/assets/javascripts/styleguide"
+        directory "app/assets/stylesheets/styleguide"
 
         unless options.example?
           route "get '/styleguide' => 'styleguide#index'"
