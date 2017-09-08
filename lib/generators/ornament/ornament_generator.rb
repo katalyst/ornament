@@ -107,6 +107,10 @@ class OrnamentGenerator < Rails::Generators::Base
           route "get '/styleguide' => 'styleguide#index'"
           route "get '/styleguide/:action' => 'styleguide'"
           copy_file "app/controllers/styleguide_controller.rb"
+          copy_file "../../../../test/dummy/app/helpers/ornament_helper.rb", "app/helpers/ornament_helper.rb"
+          copy_file "../../../../test/dummy/app/helpers/ornament_google_maps_helper.rb", "app/helpers/ornament_google_maps_helper.rb"
+          copy_file "../../../../test/dummy/app/helpers/ornament_koi_helper.rb", "app/helpers/ornament_koi_helper.rb"
+          copy_file "../../../../test/dummy/app/helpers/ornament_seo_helper.rb", "app/helpers/ornament_seo_helper.rb"
         end
 
       end
