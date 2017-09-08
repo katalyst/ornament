@@ -11,6 +11,7 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :styleguide,   :type => :boolean, :default => true
   class_option :example,      :type => :boolean, :default => false
   class_option :uploader,     :type => :boolean, :default => true
+  class_option :helpers,      :type => :boolean, :default => true
 
   GEMS = {
     'sass-rails'    => '~> 5.0.0',
@@ -105,6 +106,13 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/views/errors"
         directory "app/views/kaminari"
         directory "app/views/shared"
+      end
+
+      if options.helpers?
+        copy_file "../../../../test/dummy/app/helpers/ornament_helper.rb", "app/helpers/ornament_helper.rb"
+        copy_file "../../../../test/dummy/app/helpers/ornament_seo_helper.rb", "app/helpers/ornament_seo_helper.rb"
+        copy_file "../../../../test/dummy/app/helpers/ornament_koi_helper.rb", "app/helpers/ornament_koi_helper.rb"
+        copy_file "../../../../test/dummy/app/helpers/ornament_google_maps_helper.rb", "app/helpers/ornament_google_maps_helper.rb"
       end
 
       if options.styleguide?
