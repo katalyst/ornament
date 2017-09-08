@@ -68,9 +68,12 @@
   width: 44px;
   height: 44px;
   text-align: center;
-  // @include grunticon("close-16-white", 16px);
-  // @include icon-block(44px, 16px);
   overflow: visible;
+  @include icon-block(44px, 16px);
+
+  .icon--stroke {
+    stroke: $white;
+  }
 }
 
 // Lightbox Body
@@ -120,20 +123,37 @@
   }
 }
 
+// Lightbox Close Button and Arrows shared styles
 .mfp-inline-holder .mfp-close, 
 .mfp-ajax-holder .mfp-close,
-.mfp-figure .mfp-close {
+.mfp-figure .mfp-close,
+.mfp-iframe-scaler .mfp-close {
   @include icon-block(44px, 16px);
+
+  .icon--fill {
+    fill: $white;
+  }
+
+  .icon--stroke {
+    stroke: $white;
+  }
 }
 .mfp-image-holder .mfp-arrow {
   @include icon-block(44px, 24px);
+
+  .icon--fill {
+    fill: $white;
+  }
+
+  .icon--stroke {
+    stroke: $white;
+  }
 }
 
 // Lightbox Close Button
 .mfp-inline-holder .mfp-close, 
 .mfp-ajax-holder .mfp-close,
 .mfp-figure .mfp-close {
-  // @include grunticon("close-16-white", 16px);
   position: absolute;
   top: -$xxxxx-small-unit;
   right: -$xxxxx-small-unit;
