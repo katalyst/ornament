@@ -2,3 +2,21 @@
 .icon-inline {
   @include icon-inline;
 }
+
+.icon--primary {
+  .icon--fill {
+    fill: $primary-color;
+  }
+  .icon--stroke {
+    stroke: $primary-color;
+  }
+}
+
+.icon--white {
+  .icon--fill {
+    fill: $white;
+  }
+  .icon--stroke {
+    stroke: $white;
+  }
+}

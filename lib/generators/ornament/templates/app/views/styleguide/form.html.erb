@@ -553,8 +553,8 @@
 </div>
   <%- end -%>
 
-  <p>Password score comes with a helper to test if zxcbvn is available: <code>Ornament.C.FormHelpers.hasZxcvbn</code></p>
-  <p>You can rebind password scores if you need to, for example if the form has been ajaxed in, with <code>Ornament.C.FormHelpers.bindPasswordScores()</code></p>
+  <p>Password score comes with a helper to test if zxcbvn is available: <code>Ornament.C.FormPasswordScore.hasZxcvbn</code></p>
+  <p>You can rebind password scores if you need to, for example if the form has been ajaxed in, with <code>Ornament.C.FormPasswordScore.init()</code></p>
 
   <hr />
 
@@ -568,7 +568,9 @@
   <div class="form-inline--input-container">
     <input type="text" class="form-inline--input" />
   </div>
-  <button class="button form-inline--button icon-chevron-right"></button>
+  <button class="button form-inline--button icon--white">
+    <%= icon("chevron_right") -%>
+  </button>
 </form>
   <%- end -%>
 
@@ -579,7 +581,9 @@
   <div class="form-inline--input-container">
     <input type="text" class="form-inline--input" />
   </div>
-  <button class="button form-inline--button icon-chevron-right"></button>
+  <button class="button form-inline--button icon--white">
+    <%= icon("chevron_right") -%>
+  </button>
 </form>
   <%- end -%>
 
