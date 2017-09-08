@@ -112,7 +112,7 @@
   <h2 class="heading-two">Icons</h2>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "button-icons", ruby: capture { -%>
-&lt;%= link_to "Search", "#", class: "button button__icon-left icon-search" -%&gt;
+&lt;%= link_to "#{icon("search")} Search", "#", class: "button button__icon-left" -%&gt;
 &lt;%= link_to "Search", "#", class: "button__confirm button__icon-right icon-search" -%&gt;
 &lt;%= link_to "Search", "#", class: "button__secondary button__icon-right icon-search" -%&gt;
 &lt;%= link_to "", "#", class: "button button__icon icon-search" -%&gt;
@@ -123,16 +123,36 @@
 &lt;%= link_to "", "#", class: "button button__small button__icon icon-search" -%&gt;
   <%- } } do -%>
 <p>
-  <a href="#" class="button button__icon-left icon-search">Search</a>
-  <a href="#" class="button__confirm button__icon-left icon-search">Search</a>
-  <a href="#" class="button__secondary button__icon-right icon-search">Search</a>
-  <a href="#" class="button__secondary button__icon icon-search"></a>
+  <a href="#" class="button button__icon-left icon--white">
+    <%= icon("search", width: 24, height: 24) -%>
+    <span>Search</span>
+  </a>
+  <a href="#" class="button__confirm button__icon-right icon--white">
+    <span>Search</span>
+    <%= icon("search", width: 24, height: 24) -%>
+  </a>
+  <a href="#" class="button__secondary button__icon-right icon--white">
+    <span>Search</span>
+    <%= icon("search", width: 24, height: 24) -%>
+  </a>
+  <a href="#" class="button__secondary button__icon icon--white">
+    <%= icon("search", width: 24, height: 24) -%>
+  </a>
 </p>
 <p>
-  <a href="#" class="button button__small button__icon-left icon-search">Search</a>
-  <a href="#" class="button__confirm button__small button__icon-left icon-search">Search</a>
-  <a href="#" class="button__secondary button__small button__icon-right icon-search">Search</a>
-  <a href="#" class="button__secondary button__small button__icon icon-search"></a>
+  <a href="#" class="button button__small button__icon-left icon--white">
+    <%= icon("search", width: 16, height: 16) -%>
+    <span>Search</span>
+  </a>
+  <a href="#" class="button__confirm button__small button__icon-left icon--white">
+    <%= icon("search", width: 16, height: 16) -%>
+    <span>Search</span>
+  </a>
+  <a href="#" class="button__secondary button__small button__icon-right icon--white">
+    <span>Search</span>
+    <%= icon("search", width: 16, height: 16) -%>
+  </a>
+  <a href="#" class="button__secondary button__small button__icon icon--white"><%= icon("search") -%></a>
 </p>
   <%- end -%>
 

@@ -1,0 +1,7 @@
+.round {
+  @include border-radius($border-radius);
+}
+
+.round-circle {
+  @include border-radius(50%);
+}

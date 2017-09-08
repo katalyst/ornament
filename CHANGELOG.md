@@ -2,6 +2,10 @@
 
 ## v2.0.1
 
+### Features
+
+- Added some helper classes `.round` and `.round-circle` for making rounded corners and circles  
+
 ### Changes 
 
 - Removed compass dependancy 

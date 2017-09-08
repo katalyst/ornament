@@ -6,7 +6,6 @@
 }
 
 // MIXINS
-
 $button-line-border: 2px;
 
 // Custom button background colours and hovers
@@ -44,22 +43,6 @@ $button-line-border: 2px;
       background: transparent;
       border-color: darken($color, 10);
     }
-  }
-}
-
-@mixin button-large($line: false) {
-  @if $line {
-    padding: ($xxx-small-unit - $button-line-border) $x-small-unit;
-  } @else {
-    padding: $xxx-small-unit $x-small-unit;
-  }
-}
-
-@mixin button-small($line: false) {
-  @if $line {
-    padding: (8px - $button-line-border) 12px;
-  } @else {
-    padding: 8px 12px;
   }
 }
 
@@ -101,6 +84,30 @@ $button-line-border: 2px;
   }
 }
 
+// =========================================================================
+// Size variations
+// =========================================================================
+
+@mixin button-large($line: false) {
+  @if $line {
+    padding: ($xxx-small-unit - $button-line-border) $x-small-unit;
+  } @else {
+    padding: $xxx-small-unit $x-small-unit;
+  }
+}
+
+@mixin button-small($line: false) {
+  @if $line {
+    padding: (8px - $button-line-border) 12px;
+  } @else {
+    padding: 8px 12px;
+  }
+}
+
+// =========================================================================
+// Colour variations 
+// =========================================================================
+
 @mixin button-primary {
   @include button-base;
   @include button-background($primary-color);
@@ -120,4 +127,28 @@ $button-line-border: 2px;
 
 @mixin button-depressed {
   @include box-shadow(inset 2px 2px 4px 0px rgba(0,0,0,0.30));
+}
+
+// =========================================================================
+// Icon buttons
+// =========================================================================
+
+@mixin button-with-icon($side:right) {
+  @include display-inline-flex;
+  @include align-items(center);
+  vertical-align: middle;
+
+  span {
+    @include flex-fluid;
+  }
+
+  svg {
+    @include flex-static;
+    display: block;
+    @if $side == "right" {
+      margin-left: $xxxx-small-unit;
+    } @else {
+      margin-right: $xxxx-small-unit;
+    }
+  }
 }
