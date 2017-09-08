@@ -77,7 +77,7 @@ $button-line-border: 2px;
   @extend .button-object;
   @include border-radius($border-radius);
   @include decorate-link(none, none);
-  @include inline-block;
+  display: inline-block;
   @include font($bold-font);
   @include color-link($white, $white);
   @include disable-mouse-outline;

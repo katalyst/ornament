@@ -52,7 +52,7 @@
 }
 
 .nav__dropdown-wrapper {
-  @include inline-block;
+  display: inline-block;
   vertical-align: top;
   position: relative;
   visibility: hidden;

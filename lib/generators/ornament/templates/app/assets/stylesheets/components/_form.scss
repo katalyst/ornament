@@ -22,7 +22,7 @@ $hint-color:          $grey;
 // =========================================================================
 
 fieldset {
-  @include inline-block;
+  display: inline-block;
   width: 100%;
 }
 
@@ -58,7 +58,7 @@ input, select {
 }
 
 input, textarea, keygen, select {
-  @include inline-block;
+  display: inline-block;
 }
 
 textarea {
