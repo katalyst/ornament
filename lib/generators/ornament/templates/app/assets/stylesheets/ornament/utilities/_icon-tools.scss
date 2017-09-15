@@ -22,7 +22,7 @@
   @include icon-block((44px, 60px), (22px, 30px));
   
 */
-@mixin icon-block($block-size, $icon-size) {
+@mixin icon-block($block-size, $icon-size:false) {
   @include display-flex;
   @include align-items(center);
   @include justify-content(center);
@@ -39,12 +39,14 @@
     display: block;
     margin: 0 auto;
 
-    @if type-of($icon-size) == "list" {
-      width: nth($icon-size, 1);
-      height: nth($icon-size, 2);
-    } @else {
-      width: $icon-size;
-      height: $icon-size;
+    @if $icon-size {
+      @if type-of($icon-size) == "list" {
+        width: nth($icon-size, 1);
+        height: nth($icon-size, 2);
+      } @else {
+        width: $icon-size;
+        height: $icon-size;
+      }
     }
   }
 }

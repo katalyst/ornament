@@ -441,7 +441,6 @@ $file-thumbnail-width: 100px;
   display: table-cell;
   vertical-align: top;
   @include input__flat-left;
-  @include icon-block($form-inline-height, 16px);
 }
 
 // =========================================================================

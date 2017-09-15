@@ -95,13 +95,13 @@
 }
 
 .button__icon {
-  @include icon-block(44px, 24px);
+  @include icon-block(44px);
   @include display-inline-flex;
   padding: 0;
   vertical-align: middle;
 
   &.button__small {
-    @include icon-block(40px, 16px);
+    @include icon-block(40px);
     @include display-inline-flex;
   }
 }
