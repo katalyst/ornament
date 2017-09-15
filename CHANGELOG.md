@@ -11,6 +11,7 @@
 ### Features
 
 - Added some helper classes `.round` and `.round-circle` for making rounded corners and circles  
+- `Show.js` - Added support for select menus that match multiple options using the `_&_` syntax  
 
 ### Changes 
 
