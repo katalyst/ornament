@@ -61,7 +61,7 @@
 // [td with icon] [td with text]
 // used to vertically center a label against an icon
 // but with allowance for the label to extend past the icon
-@mixin icon-table($width:30px) {
+@mixin icon-table($width: 30px, $gutter: $xxx-small-unit) {
   display: table;
   
   .icon-table--icon,
@@ -70,8 +70,13 @@
   }
 
   .icon-table--icon {
-    vertical-align: top;
+    vertical-align: middle;
     width: $width;
+
+    svg,
+    img {
+      display: block;
+    }
   }
 
   .icon-table--label {
@@ -79,7 +84,7 @@
   }
 
   .icon-table--icon + .icon-table--label {
-    padding-left: $xxx-small-unit;
+    padding-left: $gutter;
   }
 
   .icon-table--label + .icon-table--icon {

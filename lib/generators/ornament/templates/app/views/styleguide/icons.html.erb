@@ -86,4 +86,44 @@
     <pre>&lt;%= icon_helper("filter", koi: true) -%></pre>
   <%- end -%>
 
+  <hr />
+
+  <h2 class="heading-two">Helper Sass Mixins</h2>
+
+  <p>Icon block</p>
+
+  <p>You can create some text aligned with an icon with the <code>table-icon($icon-size)</code> mixin, like so:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper", scss: capture { -%>
+.icon-table-32 {
+  @include icon-table(32px);
+}
+  <%- } } do -%>
+<div class="icon-table-32">
+  <div class="icon-table--icon">
+    <%= icon("clock", width: 32, height: 32) -%>
+  </div>
+  <div class="icon-table--label">
+    This text is aligned to the icon
+  </div>
+</div>
+  <%- end -%>
+
+  <p>You can pass in custom guttering with a second parameter:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper", scss: capture { -%>
+.icon-table-16 {
+  @include icon-table(16px, 8px);
+}
+  <%- } } do -%>
+<a href="#" class="icon-table-16">
+  <div class="icon-table--icon">
+    <%= icon("arrow_left", width: 16, height: 16) -%>
+  </div>
+  <div class="icon-table--label">
+    Go back
+  </div>
+</a>
+  <%- end -%>
+
 </div> 

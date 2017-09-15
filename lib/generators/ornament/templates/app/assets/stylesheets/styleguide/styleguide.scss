@@ -607,3 +607,15 @@ code {
   font-size: 14px;
   border-top: 1px solid #ccc;
 }
+
+// =========================================================================
+// Icon helpers 
+// =========================================================================
+
+.icon-table-16 {
+  @include icon-table(16px, 8px);
+}
+
+.icon-table-32 {
+  @include icon-table(32px);
+}
