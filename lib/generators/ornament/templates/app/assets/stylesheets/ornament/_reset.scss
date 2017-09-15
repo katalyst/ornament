@@ -1,28 +1,14 @@
-////////////////////////////////////////////////////////////////////////////////
-//
-// This file imports the compass reset, then does some additional resetting.
-//
-////////////////////////////////////////////////////////////////////////////////
-
-
-
-// BOX SIZING
-//
-//
-// Make all elements use border-box.
-//
+// =========================================================================
+// Set box sizing
+// =========================================================================
 
 * {
   box-sizing: border-box;
 }
 
-
-
-// BUTTON
-//
-//
-// Reset buttons to act like links.
-//
+// =========================================================================
+// Reset buttons to resemble links instead 
+// =========================================================================
 
 button {
   -webkit-appearance: inherit;
@@ -48,30 +34,29 @@ button {
   @include disable-mouse-outline;
 }
 
-
-
-// FORCED DOCUMENT HEIGHT
-//
-//
-// BODY & HTML elements should always be 100% of the viewports height and width.
-//
+// =========================================================================
+// Force document heights
+// BODY & HTML elements should always be 100% of the 
+// viewports height and width.
+// =========================================================================
 
 html, body {
   height: 100%;
   width: 100%;
 }
 
-// HTML5 MAIN SUPPORT
+// =========================================================================
+// HTML5 <main> element should be block level by default 
+// =========================================================================
 
 main {
   display: block;
 }
 
-// IMPROVED RENDERING
-//
-//
+// =========================================================================
+// Improved text rendering 
 // Text antialiasing and image interpolation.
-//
+// =========================================================================
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -88,24 +73,28 @@ img {
 }
 
 
-
-// RESPONSIVE MEDIA
-//
-//
+// =========================================================================
+// Responsive media types 
 // Make image, object & iframes scale down when they get squished.
-//
+// =========================================================================
 
 img, embed, object, video, iframe {
   max-width: 100%;
 }
 
-// SVG fix for IE
+// =========================================================================
+// SVG fix for various IEs
 // https://gist.github.com/larrybotha/7881691
+// =========================================================================
+
 img[src*=".svg"] {
   width: 100%; 
 }
 
-// Reset phone link colours
+// =========================================================================
+// Telephone link reset
+// =========================================================================
+
 a[href^=tel] {
   text-decoration:inherit;
   color: inherit;

@@ -17,6 +17,7 @@
 - Removed some old grunticon files 
 - Added some missing `-ms` flex properties for the flex mixins  
 - Added slight transition to pagination hover states 
+- Cleaned up the `reset.scss` file 
 
 ### Undocumented 2.0.0 changes
 
