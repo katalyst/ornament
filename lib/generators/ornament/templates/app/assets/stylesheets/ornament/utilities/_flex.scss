@@ -43,13 +43,13 @@
 
 @mixin flex-grow($value) {
   -webkit-flex-grow: $value;
-  -ms-flex-positive: 1;
+  -ms-flex-positive: $value;
   flex-grow: $value;
 }
 
 @mixin flex-shrink($value) {
   -webkit-flex-shrink: $value;
-  -ms-flex-positive: 0;
+  -ms-flex-positive: $value;
   flex-shrink: $value;
 }
 

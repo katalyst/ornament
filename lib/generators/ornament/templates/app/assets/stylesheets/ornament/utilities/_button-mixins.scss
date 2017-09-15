@@ -126,14 +126,14 @@ $button-line-border: 2px;
 }
 
 @mixin button-depressed {
-  @include box-shadow(inset 2px 2px 4px 0px rgba(0,0,0,0.30));
+  box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .3), inset 0 14px 28px rgba(0, 0, 0, .15);
 }
 
 // =========================================================================
 // Icon buttons
 // =========================================================================
 
-@mixin button-with-icon($side:right) {
+@mixin button-with-icon($side: right) {
   @include display-inline-flex;
   @include align-items(center);
   vertical-align: middle;
