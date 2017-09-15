@@ -81,7 +81,11 @@
 
 @mixin justify-content($value) {
   -webkit-justify-content: $value;
-  -ms-flex-pack: $value;
+  @if $value == center {
+    -ms-flex-pack: justify;
+  } @else {
+    -ms-flex-pack: $value;
+  }
   justify-content: $value;
 }
 
