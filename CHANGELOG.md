@@ -21,6 +21,8 @@
 
 ### Undocumented 2.0.0 changes
 
+Some changes I accidentally left out of the 2.0.0 release changelog  
+
 - The `flex-row` and `flex-col` mixins can now take arguments as lists instead of just values to specify different x/y values. eg. `flex-col(25%, (y-padding, x-padding))`
 - `icon-block` mixin has changed from `icon-block(gruticon-name, block-width, icon-width, block-height, icon-height)` to `icon-block(block-size, icon-size)` or alternatively using lists for greater specificity: `icon-block((block-width, block-height), (icon-height, icon-width))`
 

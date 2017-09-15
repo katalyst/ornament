@@ -1,15 +1,3 @@
-// Extend grunt-icon URIs in to psuedo elements
-@mixin grunticon($icon, $width, $height:$width, $psuedo:before) {
-  position: relative;
-
-  &:#{$psuedo} {
-    @extend .grunticon-#{$icon};
-    content: "";
-    width: $width;
-    height: $height;
-  }
-}
-
 /* 
 
   Icon blocks are a block element with a centred icon inside it. 
@@ -88,6 +76,13 @@
 
   .icon-table--label {
     vertical-align: middle;
+  }
+
+  .icon-table--icon + .icon-table--label {
     padding-left: $xxx-small-unit;
+  }
+
+  .icon-table--label + .icon-table--icon {
+    padding-right: $xxx-small-unit;
   }
 }

@@ -79,7 +79,6 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/assets/javascripts/components"
         directory "app/assets/stylesheets/aspects"
         directory "app/assets/stylesheets/components"
-        directory "app/assets/stylesheets/grunticon"
         directory "vendor/assets"
       end
 
