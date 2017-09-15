@@ -16,7 +16,6 @@ class OrnamentGenerator < Rails::Generators::Base
   GEMS = {
     'sass-rails'    => '~> 5.0.0',
     'uglifier'      => '>= 1.0.3',
-    'compass-rails' => '~> 3.0.2',
     'htmlentities'  => '~> 4.3.4',
   }
 

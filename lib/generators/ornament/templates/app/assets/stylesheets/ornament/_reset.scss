@@ -6,11 +6,6 @@
 
 
 
-@import "compass/css3/box-sizing";
-@import "compass/reset";
-
-
-
 // BOX SIZING
 //
 //
@@ -18,7 +13,7 @@
 //
 
 * {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
 }
 
 

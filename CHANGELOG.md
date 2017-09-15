@@ -2,13 +2,18 @@
 
 ## v2.0.1
 
+### Removed compass 
+
+- Removed compass mixins, replicated any required ones in to ornament 
+- Removed compass from gemfile and docs
+- Removed compass gem from generator 
+
 ### Features
 
 - Added some helper classes `.round` and `.round-circle` for making rounded corners and circles  
 
 ### Changes 
 
-- Removed compass dependancy 
 - Removed some old grunticon files 
 - Added some missing `-ms` flex properties for the flex mixins  
 - Added slight transition to pagination hover states 
