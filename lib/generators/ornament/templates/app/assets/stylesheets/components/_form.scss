@@ -417,15 +417,13 @@ $file-thumbnail-width: 100px;
 // =========================================================================
 
 .form-inline {
-  display: table;
-  width: 100%;
-  @include pie-clearfix;
+  @include display-flex;
 }
 
 .form-inline--input-container {
-  display: table-cell;
-  width: 100%;
-  vertical-align: top;
+  @include flex-grow(1);
+  @include flex-shrink(1);
+  @include align-items(flex-start);
 }
 
 .form-inline--input-container .form-inline--input {
@@ -438,8 +436,8 @@ $file-thumbnail-width: 100px;
 }
 
 .form-inline--button {
-  display: table-cell;
-  vertical-align: top;
+  @include flex-grow(0);
+  @include flex-shrink(0);
   @include input__flat-left;
 }
 
