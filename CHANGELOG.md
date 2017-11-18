@@ -20,6 +20,7 @@
 - Added some missing `-ms` flex properties for the flex mixins  
 - Added slight transition to pagination hover states 
 - Cleaned up the `reset.scss` file 
+- Added new utility mixin `overflow-scroll` that adds overflow auto, touch scrolling and prevents scroll bleeding  
 
 ### Undocumented 2.0.0 changes
 

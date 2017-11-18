@@ -78,8 +78,7 @@
 
 // Lightbox Body
 .lightbox--body {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
+  @include overflow-scroll;
 }
 
 // Lightbox Content
