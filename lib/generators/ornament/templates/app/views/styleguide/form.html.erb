@@ -811,6 +811,33 @@
 
   <h2 class="heading-one">Long form example</h2>
 
+  <%= simple_form_for :user, url: "/styleguide/form", remote: true do |f| %>
+
+    <div class="inputs">
+      <%= f.error_notification %>
+      <%= f.input :name, hint: "First and last name", input_html: { class: "form--medium" } %>
+      <%= f.input :phone, error: "This field has errors", input_html: { class: "form--medium" } %>
+      <%= f.input :email, input_html: { class: "form--medium" } %>
+      <%= f.input :state, as: :select, collection: ["NSW", "QLD", "SA", "TAS", "VIC", "WA", "NT", "ACT"], prompt: "Please select", input_html: { class: "form--auto" } %>
+      <%= f.input :introduction, as: :text, hint: "Limited to 10 words only", input_html: { class: "form--medium", data: { limiter: 10, limiter_word: "", limiter_micro: "" } } %>
+      <%= f.input :message, as: :text, input_html: { class: "form--large" } %>
+      <div>
+        <div class="form-siblings form--medium">
+          <div class="form-siblings--sibling">
+            <%= f.input :month %>
+          </div>
+          <div class="form-siblings--sibling">
+            <%= f.input :year %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.button :button, "Submit", class: "button" %>
+    </div>
+  <% end %>
+
+<%- if false -%>
   <form accept-charset="UTF-8" action="#" class="simple_form" method="post" novalidate="novalidate">
     <div class="inputs">
 
@@ -1173,4 +1200,6 @@
       <button class="button">Submit</button>
     </div>
   </form>
+<% end %>
+
 </div>

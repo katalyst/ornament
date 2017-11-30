@@ -9,8 +9,8 @@ SimpleForm.setup do |config|
     # Group label with hint 
     b.wrapper tag: 'div', class: 'control-group--label' do |ba|
       ba.use :label
-      ba.use :error, wrap_with: { :tag => 'span', class: 'error-block' }
-      ba.use :hint,  wrap_with: { :tag => 'p', class: 'hint-block' }
+      ba.use :error, :wrap_with => { :tag => 'span', :class => 'error-block' }
+      ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'hint-block' }
     end
 
     b.wrapper :tag => 'div', :class => 'controls' do |ba|
@@ -28,8 +28,8 @@ SimpleForm.setup do |config|
       ba.use :input
       ba.wrapper tag: 'div', class: 'control-group--boolean--label' do |bab|
         bab.use :label
-        bab.use :error, wrap_with: { :tag => 'span', class: 'error-block' }
-        bab.use :hint,  wrap_with: { :tag => 'p', class: 'hint-block' }
+        bab.use :error
+        bab.use :hint
       end
     end
   end
@@ -80,64 +80,11 @@ SimpleForm.setup do |config|
     b.use :error, :wrap_with => { :tag => :span, :class => :error }
   end
 
-  config.wrappers :inline, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
-    b.use :placeholder
-    b.wrapper :tag => 'div', :class => 'controls' do |ba|
-      ba.use :input
-      ba.use :label, :wrap_with => { :class => 'control-label' }
-      ba.use :error, :wrap_with => { :tag => 'span', :class => 'error-block' }
-    end
-    b.use :hint,  :wrap_with => { :tag => 'p', :class => 'hint-block' }
-  end
-
-  config.wrappers :bootstrap, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
-    b.use :html5
-    b.use :placeholder
-    b.use :label
-    b.use :error, :wrap_with => { :tag => 'span', :class => 'error-block' }
-    b.use :hint,  :wrap_with => { :tag => 'p', :class => 'hint-block' }
-    b.wrapper :tag => 'div', :class => 'controls' do |ba|
-      ba.use :input
-    end
-  end
-
-  config.wrappers :prepend, :tag => 'div', :class => "control-group", :error_class => 'error' do |b|
-    b.use :html5
-    b.use :placeholder
-    b.use :label
-    b.wrapper :tag => 'div', :class => 'controls' do |input|
-      input.wrapper :tag => 'div', :class => 'input-prepend' do |prepend|
-        prepend.use :input
-      end
-      input.use :hint,  :wrap_with => { :tag => 'span', :class => 'error-block' }
-      input.use :error, :wrap_with => { :tag => 'span', :class => 'hint-block' }
-    end
-  end
-
-  config.wrappers :append, :tag => 'div', :class => "control-group", :error_class => 'error' do |b|
-    b.use :html5
-    b.use :placeholder
-    b.use :label
-    b.wrapper :tag => 'div', :class => 'controls' do |input|
-      input.wrapper :tag => 'div', :class => 'input-append' do |append|
-        append.use :input
-      end
-      input.use :hint,  :wrap_with => { :tag => 'span', :class => 'error-block' }
-      input.use :error, :wrap_with => { :tag => 'span', :class => 'hint-block' }
-    end
-  end
-
-  config.wrappers :checkbox, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
-    b.wrapper :tag => 'div', :class => 'controls test' do |ba|
-      ba.use :label_input
-    end
-  end
-
   # Wrappers for forms and inputs using the Twitter Bootstrap toolkit.
   # Check the Bootstrap docs (http://twitter.github.com/bootstrap)
   # to learn about the different styles for forms and inputs,
   # buttons and other elements.
-  config.default_wrapper = :bootstrap
+  config.default_wrapper = :ornament
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
