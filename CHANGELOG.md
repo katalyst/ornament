@@ -12,7 +12,12 @@
 
 - Added some helper classes `.round` and `.round-circle` for making rounded corners and circles  
 - `Show.js` - Added support for select menus that match multiple options using the `_&_` syntax  
-- Added a new simplenav renderer to automatically add `.has-children` class to parent list items, named `:sf_menu`, overwriting Koi's default renderer  
+
+### Custom simple-navigation Renderer
+
+- Added a new simple-navigation renderer `ornament_renderer`  
+- Automatically adds `has-children` class to parent list items  
+- Passing in an `id_namespace` option allows you to namespace the key id attributes to prevent duplicate ids on the page  
 
 ### Changes 
 

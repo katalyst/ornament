@@ -15,6 +15,14 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     item_container.items.map { |item|
       li_options = item.html_options.except(:link)
       li_content = tag_for(item)
+
+      # Namespaced key IDs
+      if options[:id_namespace] 
+        li_id = li_options[:id] || ""
+        li_id = options[:id_namespace] + "_" + li_id
+        li_options[:id] = li_id
+      end
+      
       if include_sub_navigation?(item)
         # Add custom has-children class if required 
         if item.sub_navigation && item.sub_navigation.items.length > 0
