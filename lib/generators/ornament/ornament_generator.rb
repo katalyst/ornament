@@ -63,6 +63,7 @@ class OrnamentGenerator < Rails::Generators::Base
 
         copy_file "app/assets/stylesheets/_print.scss"
         directory "app/assets/stylesheets/ornament"
+        directory "app/assets/stylesheets/koi"
 
         directory "app/assets/images"
         
