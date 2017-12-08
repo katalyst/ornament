@@ -13,6 +13,9 @@
 - Added some helper classes `.round` and `.round-circle` for making rounded corners and circles  
 - `Show.js` - Added support for select menus that match multiple options using the `_&_` syntax  
 
+### Fixes
+- Added koi/contents.scss file to the generator
+
 ### Custom simple-navigation Renderer
 
 - Added a new simple-navigation renderer `ornament_renderer`  
