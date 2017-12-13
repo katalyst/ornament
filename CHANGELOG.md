@@ -14,6 +14,7 @@
 - `Show.js` - Added support for select menus that match multiple options using the `_&_` syntax  
 - Moved the custom `rails.allowAction` functionality in to a seperate `lightbox-rails-confirm.js` file to make it easily disabled or modified without having to impact `lightbox.js`  
 - Updated the `spang` mixins to use flexbox rather than floats  
+- Added `optimised_jpg` helper to convert and encode an image  
 
 ### Fixes
 - Added koi/contents.scss file to the generator

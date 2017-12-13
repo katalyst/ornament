@@ -20,6 +20,12 @@ module OrnamentHelper
     raw(value).gsub("<br>", " ").gsub("<br />", " ")
   end
 
+  # Helper to optimise an image
+  # image_tag optimised_jpg(resource.image).url
+  def optimised_jpg(image, dragonfly_command)
+    image.thumb(dragonfly_command).encode('jpg', "-strip -quality 75 -interlace Plane")
+  end
+
   # Link helper
   # takes a URL and outputs a link with a custom label with http
   # and www stripped out
