@@ -69,6 +69,7 @@
   height: 44px;
   text-align: center;
   overflow: visible;
+  cursor: pointer;
   @include icon-block(44px, 16px);
 
   .icon--stroke {
