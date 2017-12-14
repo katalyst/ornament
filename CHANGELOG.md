@@ -16,6 +16,7 @@
 - Updated the `spang` mixins to use flexbox rather than floats  
 - Added `optimised_jpg` helper to convert and encode an image  
 - Added automatic service-worker registration on HTTPS and on localhost if the user has `Ornament.localServiceWorkers` in their localstorage and set to true. This prevents local development sites undesirably registering serviceworkers  
+- Added application icon boilerplate to `_seo.html.erb` partial, disabled by default
 
 ### Fixes
 - Added koi/contents.scss file to the generator
