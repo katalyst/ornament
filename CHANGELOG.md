@@ -15,6 +15,7 @@
 - Moved the custom `rails.allowAction` functionality in to a seperate `lightbox-rails-confirm.js` file to make it easily disabled or modified without having to impact `lightbox.js`  
 - Updated the `spang` mixins to use flexbox rather than floats  
 - Added `optimised_jpg` helper to convert and encode an image  
+- Added automatic service-worker registration on HTTPS and on localhost if the user has `Ornament.localServiceWorkers` in their localstorage and set to true. This prevents local development sites undesirably registering serviceworkers  
 
 ### Fixes
 - Added koi/contents.scss file to the generator
