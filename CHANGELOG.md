@@ -21,6 +21,8 @@
 ### Fixes
 - Added koi/contents.scss file to the generator
 - Fixed koi site settings meta returning empty strings
+- Fixed `password-revealer` submitting forms when revealing the password  
+- Fixed Ornament.initComponents() so that you can pass an array of component names to it  
 
 ### Custom simple-navigation Renderer
 
