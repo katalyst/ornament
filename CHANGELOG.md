@@ -18,6 +18,7 @@
 
 ### Fixes
 - Added koi/contents.scss file to the generator
+- Fixed koi site settings meta returning empty strings
 
 ### Custom simple-navigation Renderer
 

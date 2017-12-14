@@ -22,8 +22,8 @@
     site_settings_title = clean_share_input(koi_title) if koi_title
     site_settings_meta = clean_share_input(koi_description) if koi_description
     site_settings_keywords = clean_share_input(koi_keywords) if koi_keywords
-    seo_title = site_settings_title
-    seo_title_postfix = seo_title
+    seo_title = site_settings_title if !koi_title.blank?
+    seo_title_postfix = seo_title if !koi_title.blank?
   end
 
   # Page Title
