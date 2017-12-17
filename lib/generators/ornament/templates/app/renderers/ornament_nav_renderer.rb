@@ -2,14 +2,14 @@
 
 class OrnamentNavRenderer < SimpleNavigation::Renderer::List
   
-    def render(item_container)
-      # Add support for a dom_class attribute on the parent element
-      item_container.dom_class = options.delete(:dom_class) if options.has_key?(:dom_class)
-      item_container.dom_id = options.delete(:dom_id) if options.has_key?(:dom_id)
-      super
-    end
+  def render(item_container)
+    # Add support for a dom_class attribute on the parent element
+    item_container.dom_class = options.delete(:dom_class) if options.has_key?(:dom_class)
+    item_container.dom_id = options.delete(:dom_id) if options.has_key?(:dom_id)
+    super
+  end
   
-    private
+  private
   
     # Accessible converts parent links to buttons and adds
     # click-to-toggle data attributes
@@ -19,7 +19,9 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
   
     # Helper function to check if navitems have children
     def item_has_children(item)
-      item.sub_navigation && item.sub_navigation.items.length > 0
+      #item.sub_navigation && item.sub_navigation.items.length > 0
+      # TODO
+      false
     end
   
     # Build out the key for an item based on the predefined key
