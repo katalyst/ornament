@@ -13,6 +13,11 @@
 - Added a new generator `rails generate ornament_devise <model>` which will generate pre-ornament-ed devise views  
 - They also come with `sessions/create.js.erb` and `sessions/new.js.erb` to support remote login forms out of the box  
 
+### Custom simple-navigation Renderer
+
+- Added a new simple-navigation renderer `ornament_renderer`  
+- Passing in an `id_namespace` option allows you to namespace the key id attributes to prevent duplicate ids on the page  
+
 ### Features
 
 - Added some helper classes `.round` and `.round-circle` for making rounded corners and circles  
@@ -20,19 +25,15 @@
 - Moved the custom `rails.allowAction` functionality in to a seperate `lightbox-rails-confirm.js` file to make it easily disabled or modified without having to impact `lightbox.js`  
 - Updated the `spang` mixins to use flexbox rather than floats  
 - Added `optimised_jpg` helper to convert and encode an image  
-- Added automatic service-worker registration on HTTPS and on localhost if the user has `Ornament.localServiceWorkers` in their localstorage and set to true. This prevents local development sites undesirably registering serviceworkers  
+- Added automatic service-worker registration on HTTPS and on localhost if the user has `Ornament.localServiceWorkers` in their localstorage and set to true. This prevents local development sites undesirably registering serviceworkers - Note: Ornament does not ship with a service-worker by default, service-worker registration can be disabled by commenting out `register-service-worker` require statement in `application.js`  
 - Added application icon boilerplate to `_seo.html.erb` partial, disabled by default
 
 ### Fixes
+
 - Added koi/contents.scss file to the generator
 - Fixed koi site settings meta returning empty strings
 - Fixed `password-revealer` submitting forms when revealing the password  
 - Fixed Ornament.initComponents() so that you can pass an array of component names to it  
-
-### Custom simple-navigation Renderer
-
-- Added a new simple-navigation renderer `ornament_renderer`  
-- Passing in an `id_namespace` option allows you to namespace the key id attributes to prevent duplicate ids on the page  
 
 ### Changes 
 
