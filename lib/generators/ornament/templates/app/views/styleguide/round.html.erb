@@ -1,0 +1,25 @@
+<% content_for :title, "Round" %>
+
+<div class="content-spacing">
+
+  <p>Ornament comes with two round helpers:</p>
+
+  <p><code>round</code> added rounded corners that use the <code>$border-radius</code> sass setting in <code>settings.scss</code></p>
+
+  <p><code>round-ellipse</code> gives the object a 50% border-radius. </p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "round" } do -%>
+<div class="spacing">
+  <div>
+    <%= image_tag "https://placehold.it/150x150", class: "round" %>
+  </div>
+  <div>
+    <%= image_tag "https://placehold.it/150x150", class: "round-ellipse" %>
+  </div>
+  <div>
+    <%= image_tag "https://placehold.it/150x80", class: "round-ellipse" %>
+  </div>
+</div>
+  <%- end -%>
+
+</div>
