@@ -20,6 +20,7 @@
 
 ### Features
 
+- Added a new top-level stylesheet folder `helpers` for helper/utility classes, moved `align` in to this folder  
 - Added some helper classes `.round` and `.round-circle` for making rounded corners and circles  
 - `Show.js` - Added support for select menus that match multiple options using the `_&_` syntax  
 - Moved the custom `rails.allowAction` functionality in to a seperate `lightbox-rails-confirm.js` file to make it easily disabled or modified without having to impact `lightbox.js`  
@@ -34,6 +35,7 @@
 - Fixed koi site settings meta returning empty strings
 - Fixed `password-revealer` submitting forms when revealing the password  
 - Fixed Ornament.initComponents() so that you can pass an array of component names to it  
+- Updated `carousel` breakpoint so that `breakpoint-tiny` can be removed without crashing other components  
 
 ### Changes 
 
@@ -43,6 +45,7 @@
 - Cleaned up the `reset.scss` file 
 - Added new utility mixin `overflow-scroll` that adds overflow auto, touch scrolling and prevents scroll bleeding  
 - Disabled ornament debugging by default  
+- Removed unused `sticky.scss`
 
 ### Undocumented 2.0.0 changes
 

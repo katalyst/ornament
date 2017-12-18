@@ -43,7 +43,7 @@
 }
 
 .fotorama__caption {
-  @include media-query(tiny) {
+  @include media-query(620px) {
     display: none;
   }
 }
