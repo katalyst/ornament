@@ -21,7 +21,8 @@
 ### Features
 
 - Added a new top-level stylesheet folder `helpers` for helper/utility classes, moved `align` in to this folder  
-- Added some helper classes `.round` and `.round-ellipse` for making rounded corners and ellipses  
+- Added some helper classes `.round` and `.round-ellipse` for making rounded corners and ellipses
+- Added some `bg` helper classes  
 - `Show.js` - Added support for select menus that match multiple options using the `_&_` syntax  
 - Moved the custom `rails.allowAction` functionality in to a seperate `lightbox-rails-confirm.js` file to make it easily disabled or modified without having to impact `lightbox.js`  
 - Updated the `spang` mixins to use flexbox rather than floats  
