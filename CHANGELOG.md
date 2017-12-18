@@ -28,6 +28,7 @@
 - Added `optimised_jpg` helper to convert and encode an image  
 - Added automatic service-worker registration on HTTPS and on localhost if the user has `Ornament.localServiceWorkers` in their localstorage and set to true. This prevents local development sites undesirably registering serviceworkers - Note: Ornament does not ship with a service-worker by default, service-worker registration can be disabled by commenting out `register-service-worker` require statement in `application.js`  
 - Added application icon boilerplate to `_seo.html.erb` partial, disabled by default
+- Updated `static_map` rails helper to making signing optional  
 
 ### Fixes
 

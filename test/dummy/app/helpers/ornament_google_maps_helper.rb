@@ -15,7 +15,12 @@ module OrnamentGoogleMapsHelper
   def static_map(resource, options={})
     # config
     api_key = ""
+
+    # high trafficked maps require maps to be signed by
+    # Google, enable signing and add the secret to sort 
+    # it all out for you
     api_secret = ""
+    signed = false
 
     # settings for this map
     location = "#{resource.latitude},#{resource.longitude}"
@@ -28,10 +33,12 @@ module OrnamentGoogleMapsHelper
 
     # keys and address
     url = "https://maps.googleapis.com/maps/api/staticmap?center=#{location}&zoom=#{zoom}&size=#{size}&maptype=roadmap&#{markers}&key=#{api_key}"
-    encoded_signature = ornament_google_signer(url, api_key, api_secret)
+    if signed
+      encoded_signature = ornament_google_signer(url, api_key, api_secret)
+      url += "&signature=#{encoded_signature}"
+    end
 
-    # return signed url
-    "#{url}&signature=#{encoded_signature}"
+    url
   end
 
 end
