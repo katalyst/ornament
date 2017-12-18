@@ -8,6 +8,11 @@
 - Removed compass from gemfile and docs
 - Removed compass gem from generator 
 
+### Custom devise views
+
+- Added a new generator `rails generate ornament_devise <model>` which will generate pre-ornament-ed devise views  
+- They also come with `sessions/create.js.erb` and `sessions/new.js.erb` to support remote login forms out of the box  
+
 ### Features
 
 - Added some helper classes `.round` and `.round-circle` for making rounded corners and circles  
@@ -27,7 +32,6 @@
 ### Custom simple-navigation Renderer
 
 - Added a new simple-navigation renderer `ornament_renderer`  
-- Automatically adds `has-children` class to parent list items  
 - Passing in an `id_namespace` option allows you to namespace the key id attributes to prevent duplicate ids on the page  
 
 ### Changes 

@@ -1,0 +1,15 @@
+<% content_for :title, "Forgot your password?" %>
+
+<div class="spacing">
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="inputs">
+      <%= f.error_notification %>
+      <%= f.input :email, required: true %>
+      <div class="actions">
+        <%= f.button :button, "Send me reset password instructions", class: "button" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>

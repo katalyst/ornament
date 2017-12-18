@@ -122,7 +122,7 @@ class OrnamentGenerator < Rails::Generators::Base
     puts "Please ensure the following gems are in your local Gemfile:"
     puts ""
     GEMS.each do |name, version|
-     puts "   gem #{name}, #{version}"
+    puts "   gem #{name}, #{version}"
     end
     puts ""
     puts "Then bundle and restart your server"
