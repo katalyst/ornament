@@ -4,8 +4,9 @@ $tray-scroll: true;
 $tray-background: $passive-color;
 
 .tray-container {
-  postion: relative;
-  height: 100%;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   background: $tray-background;
 }
 
