@@ -48,15 +48,11 @@
 
 // Lightbox Header
 .lightbox--header {
+  @include display-flex;
+  @include align-items(center);
   border-bottom: $divider;
-  display: table;
   width: 100%;
   background: $black;
-}
-.lightbox--title,
-.lightbox--close {
-  display: table-cell;
-  vertical-align: middle;
 }
 .lightbox--title {
   color: $white;
@@ -64,13 +60,20 @@
   width: 100%;
   @include font($bold-font);
 }
+
 .lightbox--close {
   width: 44px;
   height: 44px;
   text-align: center;
   overflow: visible;
   cursor: pointer;
-  @include icon-block(44px, 16px);
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .icon--stroke {
     stroke: $white;
