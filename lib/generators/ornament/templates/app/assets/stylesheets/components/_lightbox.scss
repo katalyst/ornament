@@ -57,7 +57,7 @@
 .lightbox--title {
   color: $white;
   padding: $xxxx-small-unit $panel-padding;
-  width: 100%;
+  @include flex-fluid;
   @include font($bold-font);
 }
 
