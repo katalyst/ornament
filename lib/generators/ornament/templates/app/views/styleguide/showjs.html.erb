@@ -13,7 +13,7 @@
 &lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes" } } -%&gt;
   <%- } } do -%>
 <div class="inputs">
-  <div class="control-group radios form--horizontal">
+  <div class="control-group radio_buttons form--horizontal">
     <label class="radios required control-label">
       Show hidden field?
     </label>
@@ -51,7 +51,7 @@
 &lt;/div>
   <%- } } do -%>
 <div class="inputs">
-  <div class="control-group radios form--horizontal">
+  <div class="control-group radio_buttons form--horizontal">
     <label class="radios required control-label">
       Show hidden field?
     </label>
@@ -91,7 +91,7 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi-option-1" } do -%>
 <div class="inputs">
-  <div class="control-group radios form--horizontal">
+  <div class="control-group radio_buttons form--horizontal">
     <label class="radios required control-label">
       Select Donatello AND Raphael
     </label>
@@ -133,7 +133,7 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi-option-2" } do -%>
 <div class="inputs">
-  <div class="control-group radios form--horizontal">
+  <div class="control-group radio_buttons form--horizontal">
     <label class="radios required control-label">
       Select Donatello OR Raphael
     </label>
@@ -275,6 +275,34 @@
 </div>
   <%- end -%>
 
+  <p>If you need multiple options from a single select menu, simply use the <code>_&_</code> syntax inside the <code>data-show-option</code> value: 
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select-4" } do -%>
+<div class="inputs">
+  <div class="control-group">
+    <label class="control-label">
+      Answer 2 or 4
+    </label>
+    <div class="controls">
+      <select class="select form--auto" id="show-js-select-4">
+        <option value="">Please select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  </div>
+  <div class="control-group form--small" data-show="show-js-select-4" data-show-option="2_&_4" data-show-debug>
+    <label class="optional control-label">Hidden Field</label>
+    <div class="controls">
+      <input class="string optional" type="text" />
+    </div>
+  </div> 
+</div>
+  <%- end -%>
+
   <hr />
 
   <h2 class="heading-two">Text matches</h2>
@@ -346,7 +374,7 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-1" } do -%>
 <div class="inputs">
-  <div class="control-group radios form--horizontal">
+  <div class="control-group radio_buttons form--horizontal">
     <label class="radios required control-label">
       Select Donatello AND Raphael to hide the field
     </label>
@@ -382,7 +410,7 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-2" } do -%>
 <div class="inputs">
-  <div class="control-group radios form--horizontal">
+  <div class="control-group radio_buttons form--horizontal">
     <label class="radios required control-label">
       Select Donatello OR Raphael to hide the field
     </label>
@@ -457,7 +485,7 @@
 &lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes", show_destroy: "" } } -%&gt;
   <%- } } do -%>
 <div class="inputs">
-  <div class="control-group radios form--horizontal">
+  <div class="control-group radio_buttons form--horizontal">
     <label class="radios required control-label">
       Show hidden field?
     </label>
@@ -490,7 +518,7 @@
         </select>
       </div>
     </div> 
-    <div class="control-group radios form--horizontal">
+    <div class="control-group radio_buttons form--horizontal">
       <label class="radios required control-label">
         Hidden Radio Field
       </label>
@@ -505,7 +533,7 @@
         </label>
       </div>
     </div>  
-    <div class="control-group radios form--horizontal">
+    <div class="control-group radio_buttons form--horizontal">
       <label class="radios required control-label">
         Hidden Checkbox Field
       </label>
@@ -534,7 +562,7 @@
 &lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes", show_disable: "" } } -%&gt;
   <%- } } do -%>
 <div class="inputs">
-  <div class="control-group radios form--horizontal">
+  <div class="control-group radio_buttons form--horizontal">
     <label class="radios required control-label">
       Show hidden field?
     </label>
@@ -567,7 +595,7 @@
         </select>
       </div>
     </div> 
-    <div class="control-group radios form--horizontal">
+    <div class="control-group radio_buttons form--horizontal">
       <label class="radios required control-label">
         Hidden Radio Field
       </label>
@@ -582,7 +610,7 @@
         </label>
       </div>
     </div>  
-    <div class="control-group radios form--horizontal">
+    <div class="control-group radio_buttons form--horizontal">
       <label class="radios required control-label">
         Hidden Checkbox Field
       </label>

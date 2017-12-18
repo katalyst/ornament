@@ -1,0 +1,16 @@
+<%- content_for :title, "Resend confirmation instructions" %>
+
+<div class="spacing">
+  <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="inputs">
+      <%= f.error_notification %>
+      <%= f.full_error :confirmation_token %>
+      <%= f.input :email, required: true %>
+      <div class="actions">
+        <%= f.button :button, "Resend confirmation instructions", class: "button" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>

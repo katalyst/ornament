@@ -78,6 +78,10 @@ $pagination-button-size: 44px;
   vertical-align: middle;
   height: $pagination-button-size;
 
+  a .icon--fill {
+    transition: fill .2s;
+  }
+
   a:hover .icon--fill {
     fill: $primary-color;
   }

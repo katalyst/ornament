@@ -568,21 +568,32 @@
   <div class="form-inline--input-container">
     <input type="text" class="form-inline--input" />
   </div>
-  <button class="button form-inline--button icon--white">
-    <%= icon("chevron_right") -%>
+  <button class="button form-inline--button icon--white button__icon">
+    <%= icon("chevron_right", width: 11, height: 16) -%>
   </button>
 </form>
   <%- end -%>
 
   <p>You can control the width of them using the regular <code>form--*</code> width classes.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-short" } do -%>
 <form class="form-inline form--medium">
   <div class="form-inline--input-container">
     <input type="text" class="form-inline--input" />
   </div>
-  <button class="button form-inline--button icon--white">
-    <%= icon("chevron_right") -%>
+  <button class="button form-inline--button icon--white button__icon">
+    <%= icon("chevron_right", width: 11, height: 16) -%>
+  </button>
+</form>
+  <%- end -%>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-email" } do -%>
+<form class="form-inline form--medium">
+  <div class="form-inline--input-container">
+    <input type="text" class="form-inline--input" placeholder="email" />
+  </div>
+  <button class="button form-inline--button">
+    Subscribe
   </button>
 </form>
   <%- end -%>
@@ -691,8 +702,8 @@
     <div class="form-inline--input-container">
       <input type="text" class="form-inline--input" id="search_things" name="search_things" />
     </div>
-    <button type="submit" class="button form-inline--button icon--white">
-      <%= icon("chevron_right") -%>
+    <button type="submit" class="button form-inline--button icon--white button__icon">
+      <%= icon("chevron_right", width: 11, height: 16) -%>
     </button>
   </div>
 </form>

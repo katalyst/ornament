@@ -1,0 +1,9 @@
+Description:
+    Generate the Ornament devise views by passing in the pluralised model name as the argument.
+
+Example:
+    rails generate ornament_devise customers
+
+    This generates the pre-ornament-ised devise views in to the /app/views/customers folder.
+
+    If no argument is passed in, it will default to users.

@@ -13,7 +13,6 @@ Installation
     ```ruby
     gem 'sass-rails', '~> 5.0.6'
     gem 'uglifier', '~> 3.0.4'
-    gem 'compass-rails', '~> 3.0.2'
     gem 'htmlentities', '~> 4.3.4'
 
     group :development do

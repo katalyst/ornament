@@ -1,18 +1,21 @@
-// BUTTON CLASSES
+// =========================================================================
+// Basic button classes 
+// =========================================================================
+
+.button {
+  @include button-base;
+  @include button-primary;
+}
 
 .button__inactive {
   @include button-base;
   @include button-background($grey);
 }
 
+// =========================================================================
+// Coloured buttons
+// =========================================================================
 
-// basic button
-.button {
-  @include button-base;
-  @include button-primary;
-}
-
-// button colours
 .button__secondary {
   @include button-base;
   @include button-background($secondary-color);
@@ -26,12 +29,18 @@
   @include button-background($error-color);
 }
 
-// button states
+// =========================================================================
+// Button states
+// =========================================================================
+
 .button__depressed {
   @include button-depressed;
 }
 
-// line styles
+// =========================================================================
+// Lined buttons 
+// =========================================================================
+
 .button__line {
   @include button-base(true);
   @include button-line($primary-color, false, $primary-color);
@@ -49,60 +58,58 @@
   @include button-line($error-color, false, $error-color);
 }
 
-// disabled buttons
+// =========================================================================
+// Disabled buttons
+// =========================================================================
+
+.button__disabled {
+  @include button-base;
+}
+
+.button__disabled,
 .button[disabled] {
   @include button-background($grey,$grey);
   color: $white;
   cursor: not-allowed;
 }
 
-.button__disabled {
-  @include button-base;
-  @extend .button[disabled];
-}
+// =========================================================================
+// Button variations 
+// =========================================================================
 
-// full width buttons
 .button__full {
   text-align: center;
   width: 100%;
 }
 
-// buttons with icons
-.button__icon-right,
+// =========================================================================
+// Button icons 
+// =========================================================================
+
+.button__icon-right {
+  @include button-with-icon;
+}
+
 .button__icon-left {
-  display: inline-block;
-
-  &:before {
-    position: relative;
-    top: 3px;
-  }
-}
-
-.button__icon-right:before {
-  float: right;
-  margin-left: $xxxxx-small-unit;
-}
-
-.button__icon-left:before {
-  float: left;
-  margin-right: $xxxxx-small-unit;
+  @include button-with-icon(left);
 }
 
 .button__icon {
-  @include icon-block(44px, 16px);
-  display: inline-block;
+  @include icon-block(44px);
+  @include display-inline-flex;
+  padding: 0;
+  vertical-align: middle;
 
   &.button__small {
-    @include icon-block(40px, 16px);
-    display: inline-block;
-  }
-
-  &:before {
-    float: left;
+    @include icon-block(40px);
+    @include display-inline-flex;
   }
 }
 
-// button groups
+// =========================================================================
+// Grouped buttons 
+// =========================================================================
+
 .button-group {
   @include pie-clearfix;
 
@@ -128,7 +135,10 @@
   }
 }
 
-// Button set
+// =========================================================================
+// Button sets 
+// =========================================================================
+
 .button-set {
   margin: $xxxx-small-unit * -0.5;
   @include pie-clearfix;
@@ -139,7 +149,10 @@
   }
 }
 
-// button sides
+// =========================================================================
+// Split-side buttons 
+// =========================================================================
+
 .button-sides {
   @include pie-clearfix;
 

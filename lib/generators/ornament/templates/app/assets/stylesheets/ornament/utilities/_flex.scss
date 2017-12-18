@@ -43,7 +43,14 @@
 
 @mixin flex-grow($value) {
   -webkit-flex-grow: $value;
+  -ms-flex-positive: $value;
   flex-grow: $value;
+}
+
+@mixin flex-shrink($value) {
+  -webkit-flex-shrink: $value;
+  -ms-flex-positive: $value;
+  flex-shrink: $value;
 }
 
 @mixin flex-static {
@@ -56,11 +63,6 @@
   @include flex-grow(1);
 }
 
-@mixin flex-shrink($value) {
-  -webkit-flex-shrink: $value;
-  flex-shrink: $value;
-}
-
 @mixin flex-basis($value) {
   -webkit-flex-basis: $value;
   flex-basis: $value;
@@ -68,6 +70,7 @@
 
 @mixin align-items($value) {
   -webkit-align-items: $value;
+  -ms-flex-align: $value;
   align-items: $value;
 }
 
@@ -78,12 +81,23 @@
 
 @mixin justify-content($value) {
   -webkit-justify-content: $value;
+  @if $value == center {
+    -ms-flex-pack: justify;
+  } @else {
+    -ms-flex-pack: $value;
+  }
   justify-content: $value;
 }
 
 @mixin align-self($value) {
   -webkit-align-self: $value;
   align-self: $value;
+}
+
+@mixin order($value) {
+  -webkit-flex-order: $value;
+  -ms-flex-order: $value;
+  order: $value;
 }
 
 /**

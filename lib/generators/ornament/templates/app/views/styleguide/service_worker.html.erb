@@ -1,0 +1,31 @@
+<% content_for :title, "Service Worker" %>
+
+<div class="content-spacing">
+
+  <h2 class="heading-two">Creation</h2>
+
+  <p>Note: Ornament does not come with a service worker out of the box. If you wish to utilise service workers you will need to create a service worker.</p>
+
+  <p>The simplest way to do this is to create a <code>service-worker.js</code> file in your public directory.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Local development</h2>
+
+  <p>Due to local development often resulting in service workers being registered and then continued to be used when switching to a different local rails application, you must opt-in to use local service workers. You can do so by executing the following code in your javascript console:</p>
+
+  <p><code>Ornament.localServiceWorkerOptIn();</code></p>
+
+  <p>To opt-out again later on, simply run this code:</p>
+
+  <p><code>Ornament.localServiceWorkerOptOut();</code></p>
+
+  <p>Once opted-out, you will need to unregister your service workers, which can be done in Chrome under the "application" tab in the developer tools.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Disabling service workers</h2>
+
+  <p>Service workers can be disabled entirely by opening up <code>application.js</code> and disabling the require statement for the service worker code: <code>//= require ornament/register-service-worker</code></p>
+
+</div>

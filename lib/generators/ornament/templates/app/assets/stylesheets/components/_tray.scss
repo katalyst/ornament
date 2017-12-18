@@ -4,8 +4,9 @@ $tray-scroll: true;
 $tray-background: $passive-color;
 
 .tray-container {
-  postion: relative;
-  height: 100%;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   background: $tray-background;
 }
 
@@ -44,6 +45,7 @@ $tray-background: $passive-color;
 
 @include media-query($breakpoint-header) {
   .tray--page {
+    min-height: 100vh;
     background: $background-color;
     transition: transform .2s;
     position: relative;

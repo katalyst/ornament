@@ -6,7 +6,6 @@
 }
 
 // MIXINS
-
 $button-line-border: 2px;
 
 // Custom button background colours and hovers
@@ -47,22 +46,6 @@ $button-line-border: 2px;
   }
 }
 
-@mixin button-large($line: false) {
-  @if $line {
-    padding: ($xxx-small-unit - $button-line-border) $x-small-unit;
-  } @else {
-    padding: $xxx-small-unit $x-small-unit;
-  }
-}
-
-@mixin button-small($line: false) {
-  @if $line {
-    padding: (8px - $button-line-border) 12px;
-  } @else {
-    padding: 8px 12px;
-  }
-}
-
 @mixin button-pill($line: false) {
   font-size: $x-small-font-size;
 
@@ -77,7 +60,7 @@ $button-line-border: 2px;
   @extend .button-object;
   @include border-radius($border-radius);
   @include decorate-link(none, none);
-  @include inline-block;
+  display: inline-block;
   @include font($bold-font);
   @include color-link($white, $white);
   @include disable-mouse-outline;
@@ -101,6 +84,30 @@ $button-line-border: 2px;
   }
 }
 
+// =========================================================================
+// Size variations
+// =========================================================================
+
+@mixin button-large($line: false) {
+  @if $line {
+    padding: ($xxx-small-unit - $button-line-border) $x-small-unit;
+  } @else {
+    padding: $xxx-small-unit $x-small-unit;
+  }
+}
+
+@mixin button-small($line: false) {
+  @if $line {
+    padding: (8px - $button-line-border) 12px;
+  } @else {
+    padding: 8px 12px;
+  }
+}
+
+// =========================================================================
+// Colour variations 
+// =========================================================================
+
 @mixin button-primary {
   @include button-base;
   @include button-background($primary-color);
@@ -119,5 +126,29 @@ $button-line-border: 2px;
 }
 
 @mixin button-depressed {
-  @include box-shadow(inset 2px 2px 4px 0px rgba(0,0,0,0.30));
+  box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .3), inset 0 14px 28px rgba(0, 0, 0, .15);
+}
+
+// =========================================================================
+// Icon buttons
+// =========================================================================
+
+@mixin button-with-icon($side: right) {
+  @include display-inline-flex;
+  @include align-items(center);
+  vertical-align: middle;
+
+  span {
+    @include flex-fluid;
+  }
+
+  svg {
+    @include flex-static;
+    display: block;
+    @if $side == "right" {
+      margin-left: $xxxx-small-unit;
+    } @else {
+      margin-right: $xxxx-small-unit;
+    }
+  }
 }

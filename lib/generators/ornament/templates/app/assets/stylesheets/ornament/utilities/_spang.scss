@@ -17,25 +17,25 @@
 // Setting negative outer gutters on the row
 // =========================================================================
 
-@mixin rowGenerate($gutter-x-size, $gutter-y-size:$gutter-x-size) {
+@mixin row-generate($gutter-x-size, $gutter-y-size:$gutter-x-size) {
   margin-top: $gutter-y-size * -.5;
   margin-left: $gutter-x-size * -.5;
   margin-right: $gutter-x-size * -.5;
   margin-bottom: $gutter-y-size * -.5;
+  @include display-flex;
+  @include flex-wrap;
 }
 
 @mixin row($gutter: false) {
-  @include pie-clearfix;
-
   @if($gutter) {
-    @include rowGenerate($gutter);
+    @include row-generate($gutter);
   }
   @else {
-    @include rowGenerate($desktop-gutters);
+    @include row-generate($desktop-gutters);
     @each $gutter in $site-gutters {
       @if $gutter != false {
         @include media-query(nth($gutter, 1)) {
-          @include rowGenerate(nth($gutter, 2));
+          @include row-generate(nth($gutter, 2));
         }
       }
     }
@@ -47,7 +47,7 @@
 // Generate responsive gutters with padding
 // =========================================================================
 
-@mixin guttersGenerate($gutter-x-size, $gutter-y-size:$gutter-x-size) {
+@mixin gutters-generate($gutter-x-size, $gutter-y-size:$gutter-x-size) {
   padding-top: $gutter-y-size * .5;
   padding-left: $gutter-x-size * .5;
   padding-right: $gutter-x-size * .5;
@@ -56,14 +56,14 @@
 
 @mixin gutters($gutter: false) {
   @if($gutter) {
-    @include guttersGenerate($gutter);
+    @include gutters-generate($gutter);
   }
   @else {
-    @include guttersGenerate($desktop-gutters);
+    @include gutters-generate($desktop-gutters);
     @each $gutter in $site-gutters {
       @if $gutter != false {
         @include media-query(nth($gutter, 1)) {
-          @include guttersGenerate(nth($gutter, 2));
+          @include gutters-generate(nth($gutter, 2));
         }
       }
     }
@@ -77,14 +77,12 @@
   @if $mediaQuery != false {
     @include media-query($mediaQuery) {
       width: span($columnCount, $totalCol);
-      float: left;
       min-height: 1px;
       //@include gutters();
       // No gutters added. Assumes mixin has already been called without a media query.
     }
   } @else {
     width: span($columnCount, $totalCol);
-    float: left;
     min-height: 1px;
     @include gutters($gutter);
   }
@@ -127,11 +125,9 @@
   @if $mediaQuery != false {
     @include media-query($mediaQuery) {
       width: 100%;
-      float: none;
     }
   } @else {
     width: 100%;
-    float: none;
   }
 }
 

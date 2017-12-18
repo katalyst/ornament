@@ -198,6 +198,7 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
 .drilldown--item > button,
 .drilldown--back button {
   @include disable-mouse-outline;
+  text-align: left; // ie10 fix
 }
 
 // Consistent padding on various elements
@@ -263,11 +264,11 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
 }
 
 .drilldown--item__split {
-  display: flex;
+  @include display-flex;
+  width: 100%; // ie10 fix
   
   a {
-    flex-grow: 1;
-    flex-shrink: 1;
+    @include flex-fluid;
   }
   
   a::before {
@@ -275,8 +276,7 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
   }
   
   button {
-    flex-grow: 0;
-    flex-shrink: 0;
+    @include flex-static;
     border: 0;
     width: 44px;
     text-align: center;

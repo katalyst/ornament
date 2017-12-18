@@ -5,8 +5,6 @@ gemspec
 gem "jquery-rails"
 gem "sass", "~> 3.4.23"
 gem "sass-rails", "~> 5.0.0"
-gem "compass-rails", "~> 3.0.2"
-gem "compass", "~> 1.0.3"
 gem 'uglifier', '>= 1.0.3'
 gem 'turbolinks', '~> 5.0.1'
 gem 'protected_attributes', '~> 1.1.3'

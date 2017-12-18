@@ -1,0 +1,45 @@
+<% content_for :title, "Custom Navigation Renderer" %>
+
+<div class="spacing">
+  <div class="content-spacing content-lists">
+    <p>Ornament comes with a custom simple-navigation <code>ornament_menu</code> renderer:</p>
+  </div>
+
+  <pre class="sg-pre prettyprint">&lt;%= koi_render_navigation "header_nav", 
+  "header_navigation", 
+  renderer: :ornament_menu, 
+  level: 1..2, 
+  expand_all: true, 
+  id_namespace: "header"
+%></pre>
+
+  <div class="content-spacing content-lists">
+
+    <% if false %>
+      <p>Passive features:</p>
+
+      <ul>
+        <li>Automatically adds <code>has_children</code> class to parent list items.</li>
+        <li>Parents are replaced with <code>button</code> elements rather than links and have <code>toggle</code> data-attributes added to enable click-to-toggle menu functionality.</li>
+        <li>By including the <code>simple-navigation.js</code> component, javascript events are bound to parent links and child links to improve accessibility:
+          <ul>
+            <li>While on the parent link, pressing <kbd>down</kbd> will open the child menu and focus on the first link.</li>
+            <li>While on the parent link, pressing <kbd>escape</kbd> will close the child menu and focus on the parent link.</li>
+            <li>While on a menu item, pressing <kbd>down</kbd> will move to the next menu item, or the first menu item if there are no more.</li>
+            <li>While on a menu item, pressing <kbd>up</kbd> will move to the previous menu item, or the last menu item if there are no more.</li>
+            <li>While on a menu item, pressing <kdb>esc</kdb> will close the menu and focus back on the parent link.</li>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
+    
+    <p>Features:</p>
+    
+    <ul>
+      <li><code>id_namespace</code> option can be used to namespace the key ids that get added to each menu item. This option can be used to avoid duplicate ids between for example a header menu and a mobile menu.</li>
+    </ul>
+
+    <p>The renderer gets generated in to <code>app/renderers/ornament_nav_renderer.rb</code> for easy customisation.</p>
+  </div>
+
+</div>

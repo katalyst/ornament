@@ -16,7 +16,6 @@ class OrnamentGenerator < Rails::Generators::Base
   GEMS = {
     'sass-rails'    => '~> 5.0.0',
     'uglifier'      => '>= 1.0.3',
-    'compass-rails' => '~> 3.0.2',
     'htmlentities'  => '~> 4.3.4',
   }
 
@@ -64,6 +63,7 @@ class OrnamentGenerator < Rails::Generators::Base
 
         copy_file "app/assets/stylesheets/_print.scss"
         directory "app/assets/stylesheets/ornament"
+        directory "app/assets/stylesheets/koi"
 
         directory "app/assets/images"
         
@@ -80,7 +80,6 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/assets/javascripts/components"
         directory "app/assets/stylesheets/aspects"
         directory "app/assets/stylesheets/components"
-        directory "app/assets/stylesheets/grunticon"
         directory "vendor/assets"
       end
 
@@ -123,7 +122,7 @@ class OrnamentGenerator < Rails::Generators::Base
     puts "Please ensure the following gems are in your local Gemfile:"
     puts ""
     GEMS.each do |name, version|
-     puts "   gem #{name}, #{version}"
+    puts "   gem #{name}, #{version}"
     end
     puts ""
     puts "Then bundle and restart your server"

@@ -16,7 +16,7 @@
   left: 0;
   right: 0;
   padding-top: 100px;
-  @include background-image(linear-gradient(top, rgba($white, 0) 0%, $background-color 80%));
+  @include linear-gradient(top, rgba($white, 0) 0%, $background-color 80%);
 
   .no-cssgradients & {
     background: $white;
