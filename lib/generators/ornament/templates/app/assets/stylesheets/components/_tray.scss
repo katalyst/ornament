@@ -45,6 +45,7 @@ $tray-background: $passive-color;
 
 @include media-query($breakpoint-header) {
   .tray--page {
+    min-height: 100vh;
     background: $background-color;
     transition: transform .2s;
     position: relative;

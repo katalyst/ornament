@@ -1,0 +1,15 @@
+<% content_for :title, "Devise Views" %>
+
+<div class="spacing">
+
+  <div class="content-spacing content-lists">
+    <p>You can generate pre-ornament-ed devise views by running the following generator with your devise model as the argument:</p>
+  </div>
+  <pre class="sg-pre prettyprint">rails generate ornament_devise [users]</pre>
+
+  <div class="content-spacing content-lists">
+    <p>If no argument is passed to it, the generator will assume the folder name should be <code>users</code></p>
+    <p>This will generate all the default devise views and will also generate <code>sessions/create.js.erb</code> and <code>sessions/new.js.erb</code> for remote login support.</p>
+  </div>
+
+</div>
