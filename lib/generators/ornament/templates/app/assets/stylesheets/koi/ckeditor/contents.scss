@@ -8,8 +8,13 @@
 
 // Add some padding to the editor
 body {
+  @include body-type;
   padding: $x-small-unit;
-}  
+}
+
+small {
+  @include small-type;
+}
 
 // Include normal aspect
 @include aspect-normal;
@@ -27,9 +32,6 @@ table:hover {
 
 .cke_editable
 {
-  font-size: 13px;
-  line-height: 1.6;
-
   /* Fix for missing scrollbars with RTL texts. (#10488) */
   word-wrap: break-word;
 }

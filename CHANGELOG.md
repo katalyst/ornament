@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.0.2
+
+### Fixes
+
+- Added `body-type` mixin in to the CKEditor `contents.css` body tag and removed default font-size and line-height from the original CKEditor boilerplate  
+- Added `<small>` support to CKEditor `contents.css`  
+
 ## v2.0.1
 
 ### Removed compass 
