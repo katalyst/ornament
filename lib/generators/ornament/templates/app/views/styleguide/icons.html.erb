@@ -2,7 +2,7 @@
 
 <div class="content-spacing">
 
-  <p>SVG icons are stored in <code>/app/views/shared/icons</code> as <code>_icon_name.html.erb</code>.
+  <p>SVG icons are stored in <code>/app/views/shared/icons</code> as <code>_icon_name.svg.erb</code>.
 
   <h2 class="heading-two">Icon Helper</h2>
 
@@ -51,7 +51,7 @@
       <%- Dir.foreach(icon_path) do |file| -%>
         <%- 
           next if file == '.' or file == '..' 
-          icon_name = file.split(".html")[0]
+          icon_name = file.split(".svg")[0]
           icon_name.slice!(0)
         -%>
         <div class="icon-grid--item">

@@ -2,6 +2,13 @@
 
 ## v2.0.2
 
+### Changes
+
+- Changed the `icon()` rails helper:
+  - Generate class names from the filename of the icon 
+  - Use inline styles for width/height to accomodate issues in Firefox with rem sizing
+  - Icon partials are now `.svg.erb` rather than `.html.erb`
+
 ### Fixes
 
 - Added `body-type` mixin in to the CKEditor `contents.css` body tag and removed default font-size and line-height from the original CKEditor boilerplate  
