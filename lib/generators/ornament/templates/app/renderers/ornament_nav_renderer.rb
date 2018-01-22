@@ -17,13 +17,6 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
       true 
     end
   
-    # Helper function to check if navitems have children
-    def item_has_children(item)
-      #item.sub_navigation && item.sub_navigation.items.length > 0
-      # TODO
-      false
-    end
-  
     # Build out the key for an item based on the predefined key
     # and namespaced via the id_namespace option
     def build_item_key(item)
@@ -52,12 +45,9 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
         # Build the tag for the link/button/span
         li_content = tag_for(item, item_container.level)
         if include_sub_navigation?(item)
-  
-          # Add custom has-children class if required 
-          if item_has_children(item)
-            li_options[:class] = li_options[:class] || ""
-            li_options[:class] += " has-children"
-          end
+          
+          li_options[:class] = li_options[:class] || ""
+          li_options[:class] += " has-children"
   
           # Build subnavigation with accessible considerations
           # if accessible is enabled
@@ -101,7 +91,7 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
         end
       end
   
-      if accessible && item_has_children(item)
+      if accessible && include_sub_navigation?(item)
         # Add data-toggle attributes
         item_options[:data][:toggle_anchor] = build_item_key(item)
         item_options[:data][:toggle_timing] = "100"

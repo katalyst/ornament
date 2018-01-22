@@ -14,6 +14,7 @@
 - Added `body-type` mixin in to the CKEditor `contents.css` body tag and removed default font-size and line-height from the original CKEditor boilerplate  
 - Added `<small>` support to CKEditor `contents.css`  
 - Fixed `overscroll-behavior` spelling  
+- Fixed `ornament_renderer` adding `has_children` to every navitem that has a child navitem, regardless of if it was rendering that child or not  
 
 ## v2.0.1
 
