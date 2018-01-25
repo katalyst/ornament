@@ -8,6 +8,7 @@
   - Generate class names from the filename of the icon 
   - Use inline styles for width/height to accomodate issues in Firefox with rem sizing
   - Icon partials are now `.svg.erb` rather than `.html.erb`
+- Changed `.nvmrc` file to use node 8 by default to be more compatible with webpacker. 
 
 ### Fixes
 
