@@ -493,20 +493,29 @@
 
   <h2 class="heading-one">Long form example</h2>
 
-  <%= simple_form_for :user, url: "/styleguide/form", remote: true do |f| %>
+  <div class="content">
+    <p>Minim ex qui amet minim culpa et quis dolore consequat. Veniam sint est adipisicing elit sunt tempor aliquip enim laboris consequat minim. Laborum cupidatat quis irure aute quis esse dolor officia velit.</p>
+    <p>Non irure aliqua amet consectetur esse sit esse exercitation incididunt duis aute consectetur ullamco. Voluptate Lorem consectetur mollit ipsum occaecat aliqua cillum nisi sunt tempor sint nostrud nostrud voluptate. Incididunt proident adipisicing duis deserunt laboris ipsum dolore aliqua et fugiat nostrud. Elit velit magna ullamco veniam mollit eiusmod est cupidatat.</p>
+  </div>
+
+  <%= simple_form_for :full_example, url: "/styleguide/form", html: { class: "form-embedded" }, remote: true do |f| %>
 
     <div class="inputs form--enhanced">
       <%= f.error_notification %>
+      <h3 class="heading-five">About you</h3>
       <%= f.input :name, hint: "First and last name", input_html: { class: "form--medium" } %>
       <%= f.input :phone, error: "This field has errors", input_html: { class: "form--medium" } %>
       <%= f.input :email, input_html: { class: "form--medium" } %>
-      <%= f.input :countries, as: :select, collection: @countries, input_html: { class: "form--medium" } %>
       <%= f.input :date_of_birth, input_html: { type: "date", class: "form--medium" } %>
-      <%= f.input :state, as: :select, collection: ["NSW", "QLD", "SA", "TAS", "VIC", "WA", "NT", "ACT"], prompt: "Please select", input_html: { class: "form--auto" } %>
+      <%= f.input :country, as: :select, collection: @countries, prompt: "Please select", input_html: { class: "form--medium" } %>
+      <%= f.input :state, as: :select, collection: ["SA", "NSW", "QLD", "TAS", "VIC", "WA", "NT", "ACT"], prompt: "Please select", wrapper_html: { data: { show: "full_example_country", show_option: "AU" } }, input_html: { class: "form--auto" } %>
+      <h3 class="heading-five">About your submission</h3>
       <%= f.input :genre, as: :radio_buttons, collection: ["Comedy", "Drama", "Dramedy" ], hint: "Please choose only one." %>
       <%= f.input :tags, as: :check_boxes, collection: ["Funny", "Serious"], hint: "Please choose as many as you like." %>
+      <h3 class="heading-five">Details</h3>
       <%= f.input :introduction, as: :text, hint: "Limited to 10 words only.", input_html: { class: "form--medium", data: { limiter: 10, limiter_word: "", limiter_micro: "" } } %>
       <%= f.input :message, as: :text, input_html: { class: "form--large" } %>
+      <h3 class="heading-five">Expiry</h3>
       <div>
         <div class="form-siblings form--medium">
           <div class="form-siblings--sibling">
@@ -523,123 +532,5 @@
       <%= f.button :button, "Submit", class: "button" %>
     </div>
   <% end %>
-
-<%- if false -%>
-  <form accept-charset="UTF-8" action="#" class="simple_form" method="post" novalidate="novalidate">
-    <div class="inputs">
-
-      <div class="panel__error panel--padding">
-        Some errors were found, please take a look:
-      </div>
-
-      <h2 class="heading-two">Your Information</h2>
-
-      <div class="control-group string required name form--medium error">
-        <label class="string required control-label" for="name">
-          <abbr title="required">*</abbr> Your name<span class='error-block'>can't be blank</span>
-          <p class='hint-block'>This is a hint message.</p>
-        </label>
-        <div class="controls">
-          <input class="string required" id="name" name="form[enrollers_name]" size="50" type="text">
-        </div>
-      </div>
-
-      <div class="control-group string required birth_date form--small">
-        <label class="string required control-label" for="birth_date">
-          <abbr title="required">*</abbr> Date of birth
-        </label>
-        <div class="controls">
-          <input class="string required datemask" id="birth_date" name="form[birth_date]" size="50" type="text">
-        </div>
-      </div>
-
-      <div class="control-group tel optional phone_number form--medium">
-        <label class="tel optional control-label" for="phone_number">
-          Phone number</label>
-        <div class="controls">
-          <input class="string tel optional" id="phone_number" name="form[phone_number]" size="50" type="tel">
-        </div>
-      </div>
-
-      <div class="control-group string optional mobile_number form--medium">
-        <label class="string optional control-label" for="mobile_number">
-          Mobile number
-        </label>
-        <div class="controls">
-          <input class="string optional" id="mobile_number" name="form[mobile_number]" size="50" type="text" disabled>
-        </div>
-      </div>
-
-      <div class="control-group string optional date form--medium">
-        <label class="string optional control-label" for="date">
-          Date
-        </label>
-        <div class="controls">
-          <input class="string optional datepicker" id="date" name="form[date]" type="text">
-        </div>
-      </div>
-
-      <div class="control-group email optional email form--medium">
-        <label class="email optional control-label" for="email">
-          Email
-        </label>
-        <div class="controls">
-          <input class="string email optional" id="email" name="form[email]" size="50" type="email">
-        </div>
-      </div>
-
-      <div class="control-group radio_buttons required form--horizontal">
-        <label class="radio_buttons required control-label">
-          <abbr title="required">*</abbr> Show hidden field?
-        </label>
-        <div class="controls">
-          <label class="radio">
-            <input class="radio_buttons required" id="show_hidden_true" name="form[show_hidden]" type="radio" value="true">Yes
-          </label>
-          <label class="radio">
-            <input class="radio_buttons required" id="show_hidden_false" name="form[show_hidden]" type="radio" value="false">No
-          </label>
-        </div>
-      </div>
-
-      <div class="control-group string required hidden_field form--medium" data-show="show_hidden_true" style="display: none;">
-        <label class="string required control-label" for="hidden_field">
-          <abbr title="required">*</abbr> Hidden field
-        </label>
-        <div class="controls">
-          <input class="string required" id="hidden_field" name="form[hidden_field]" size="50" type="text">
-        </div>
-      </div>
-
-      <div class="control-group country required form--medium">
-        <label class="country required control-label" for="country">
-          <abbr title="required">*</abbr> Country
-        </label>
-        <div class="controls">
-          <select class="country required" id="country" name="form[country]">
-
-          </select>
-        </div>
-      </div>
-
-      <div class="control-group boolean optional checkbox__single">
-        <label class="boolean optional control-label" for="terms">
-          I have read and agreed to these terms &amp; conditions.
-        </label>
-        <div class="controls">
-          <input name="enrollment[terms]" type="hidden" value="0">
-          <label class="checkbox">
-            <input class="boolean optional" id="terms" name="form[terms]" type="checkbox" value="1">
-          </label>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="actions">
-      <button class="button">Submit</button>
-    </div>
-  </form>
-<% end %>
 
 </div>

@@ -23,7 +23,6 @@ class StyleguideController < ActionController::Base
     }
     @years = (Time.current.year..Time.current.year+10)
     @countries = {
-      "Please select" => "",
       "Australia" => "AU",
       "Afghanistan" => "AF",
       "Albania" => "AL",
