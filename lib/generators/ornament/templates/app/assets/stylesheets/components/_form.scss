@@ -256,9 +256,16 @@ $radio-offset: 24px;
 
     input {
       position: absolute;
-      top: 7px;
+      top: 8px;
       left: 0;
     }
+  }
+}
+
+.control-group:not(.form--horizontal) {
+  &.radio_buttons .radio + .radio,
+  &.check_boxes .checkbox + .checkbox {
+    margin-top: 4px;
   }
 }
 
@@ -281,7 +288,7 @@ $radio-offset: 24px;
       height: 1em;
       border: 1px solid $input-border-color;
       position: absolute;
-      top: 0.2em;
+      top: 0.3em;
       left: 0;
       background: $primary-color;
       @include box-shadow(inset 0 0 0 1em $white);
@@ -335,22 +342,19 @@ $radio-offset: 24px;
 // Boolean checkboxes / single checkboxes
 // =========================================================================
 
-.control-group.boolean,
-.checkbox__single {
+.control-group__boolean {
   position: relative;
 
-  .control-label {
-    padding-left: $radio-offset;
-    display: inline-block;
-  }
-  .controls {
-    margin-top: 0;
-  }
-  .controls label {
+  .control-group--input {
     position: absolute;
     top: 0;
     left: 0;
   }
+}
+
+.control-group--boolean--label {
+  padding-left: $radio-offset;
+  display: inline-block;
 }
 
 // =========================================================================
