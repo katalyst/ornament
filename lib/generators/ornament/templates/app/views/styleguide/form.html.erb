@@ -3,14 +3,32 @@
 
 <% content_for :js_billing_to_shipping do %>
   Ornament.onLoad(function(){
-    Ornament.C.FormBillingToShipping.create("#checkout_use_billing_address", {
-      "#billing_address_1": "#shipping_address_1",
-      "#billing_address_2": "#shipping_address_2",
-      "#billing_state": "#shipping_state",
-      "#billing_country": "#shipping_country"
+    Ornament.C.FormBillingToShipping.create("#test_form_use_billing_address", {
+      "#test_form_billing_address_1": "#test_form_shipping_address_1",
+      "#test_form_billing_address_2": "#test_form_shipping_address_2",
+      "#test_form_billing_state": "#test_form_shipping_state",
+      "#test_form_billing_country": "#test_form_shipping_country"
     });
   });
 <% end %>
+
+<%-
+  months = {
+    "1 - January" => 1,
+    "2 - February" => 2,
+    "3 - March" => 3,
+    "4 - April" => 4,
+    "5 - May" => 5,
+    "6 - June" => 6,
+    "7 - July" => 7,
+    "8 - August" => 8,
+    "9 - September" => 9,
+    "10 - October" => 10,
+    "11 - November" => 11,
+    "12 - December" => 12
+  }
+  years = (Time.current.year..Time.current.year+10)
+-%>
 
 <% content_for :scripts_bottom do %>
   <script>
@@ -22,6 +40,7 @@
 <% end %>
 
 <div class="content-spacing">
+  <%= simple_form_for :test_form, url: "/styleguide/form", remote: true do |f| %>
 
   <div class="panel panel__passive panel--padding">
     <em>Note: Ornament assumes you are using simple_form to generate form fields.</em>
@@ -42,8 +61,8 @@
   &lt;%- unless f.error_notification.blank? -%>
     &lt;%= f.error_notification %>
   &lt;%- end -%>
-  &lt;%= f.input :field_1 -%&gt;
-  &lt;%= f.input :field_2 -%&gt;
+  &lt;%= f.input :sample_field_1, input_html: { class: "form--medium" } %>
+  &lt;%= f.input :sample_field_2, input_html: { class: "form--medium" } %>
 &lt;/div>
 &lt;div class="actions">
   &lt;%= f.button :button, "Submit" -%&gt;
@@ -53,18 +72,8 @@
   <div class="panel__error panel--padding">
     Errors were found!
   </div>
-  <div class="control-group">
-    <label class="optional control-label">Field</label>
-    <div class="controls">
-      <input class="form--medium" type="text" />
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="optional control-label">Field</label>
-    <div class="controls">
-      <input class="form--medium" type="text" />
-    </div>
-  </div>
+  <%= f.input :sample_field_1, input_html: { class: "form--medium" } %>
+  <%= f.input :sample_field_2, input_html: { class: "form--medium" } %>
 </div>
 <div class="actions">
   <button class="button">Submit</button>
@@ -82,55 +91,16 @@
   <p>The available lengths are:</p>
 
   <div class="inputs">
-    <div class="control-group">
-      <label class="optional control-label"><code>.form--large</code></label>
-      <div class="controls">
-        <input class="form--large" type="text" />
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="optional control-label"><code>.form--medium</code></label>
-      <div class="controls">
-        <input class="form--medium" type="text" />
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="optional control-label"><code>.form--small</code></label>
-      <div class="controls">
-        <input class="form--small" type="text" />
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="optional control-label"><code>.form--x-small</code></label>
-      <div class="controls">
-        <input class="form--x-small" type="text" />
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="optional control-label"><code>.form--auto</code></label>
-      <div class="controls">
-        <select class="form--auto">
-          <option>Please select</option>
-          <option>Lorem</option>
-          <option>Ipsum</option>
-        </select>
-      </div>
-    </div>
-
+    <%= f.input :size_large,  required: false, label: "<code>.form--large</code>".html_safe, input_html: { class: "form--large" } %>
+    <%= f.input :size_medium, required: false, label: "<code>.form--medium</code>".html_safe, input_html: { class: "form--medium" } %>
+    <%= f.input :size_small,  required: false, label: "<code>.form--small</code>".html_safe, input_html: { class: "form--small" } %>
+    <%= f.input :size_x_small,required: false, label: "<code>.form--x-small</code>".html_safe, input_html: { class: "form--x-small" } %>
+    <%= f.input :size_auto,   required: false, label: "<code>.form--auto</code>".html_safe, input_html: { class: "form--auto" }, as: :select, collection: ["Lorem", "Ipsum"], prompt: "Please select" %>
   </div>
 
   <p>If you want a thinner input field, you can use <code>.input__tight</code>:</p>
 
-  <div class="control-group">
-    <label class="optional control-label"><code>.form--x-small.input__tight</code></label>
-    <div class="controls">
-      <input class="form--x-small input__tight" type="text" />
-    </div>
-  </div>
+  <%= f.input :size_tight, required: false, label: "<code>.form--x-small.input__tight</code>".html_safe, input_html: { class: "form--x-small input__tight" } %>
 
   <hr />
 
@@ -139,32 +109,17 @@
   <p>Placeholders are added with the <code>placeholder</code> input attribute.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-placeholder", ruby: capture { -%>
-&lt;%= f.input :example, placeholder: "Example Placeholder" -%&gt;
+&lt;%= f.input :with_placeholder, placeholder: "Example placeholder", input_html: { class: "form--medium" } %>
   <%- } } do -%>
-<div class="control-group string required form--medium">
-  <label class="string required control-label" for="modifier-placeholder">
-    <abbr title="required">*</abbr> Your name
-  </label>
-  <div class="controls">
-    <input class="string required" id="modifier-placeholder" type="text" placeholder="Example Placeholder">
-  </div>
-</div>
+<%= f.input :with_placeholder, placeholder: "Example placeholder", input_html: { class: "form--medium" } %>
   <%- end -%>
 
   <p>Hints appear inside the label element just after the text for the label and use the class <code>hint-block</code>.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-hint", ruby: capture { -%>
-&lt;%= f.input :example, hint: "Example Hint" -%&gt;
+&lt;%= f.input :with_hint, hint: "This is a hint message.", input_html: { class: "form--medium" } %>
   <%- } } do -%>
-<div class="control-group string required form--medium">
-  <label class="string required control-label" for="modifier-hint">
-    <abbr title="required">*</abbr> Your name
-    <p class='hint-block'>This is a hint message.</p>
-  </label>
-  <div class="controls">
-    <input class="string required" id="modifier-hint" type="text">
-  </div>
-</div>
+<%= f.input :with_hint, hint: "This is a hint message.", input_html: { class: "form--medium" } %>
   <%- end -%>
 
   <p>Errors appear inline next to labels and use the <code>error-block</code> class.</p>
@@ -174,9 +129,11 @@
 &lt;%= f.input :example, error: "Example Error" -%&gt;
   <%- } } do -%>
 <div class="control-group string required form--medium error">
-  <label class="string required control-label" for="modifier-error">
-    <abbr title="required">*</abbr> Your name<span class='error-block'>can't be blank</span>
-  </label>
+  <div class='control-group--label'>
+    <label class="string required control-label" for="modifier-error">
+      <abbr title="required">*</abbr> With error<span class='error-block'>can't be blank</span>
+    </label>
+  </div>
   <div class="controls">
     <input class="string required" id="modifier-error" type="text">
   </div>
@@ -186,140 +143,68 @@
   <p>Disabled fields use the <code>disabled</code> input attribute.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "disabled", ruby: capture { -%>
-&lt;%= f.input :example, disabled: true -%&gt;
+&lt;%= f.input :disabled_field, disabled: true, input_html: { class: "form--medium" } -%&gt;
   <%- } } do -%>
-<div class="control-group string required form--medium">
-  <label class="string required control-label" for="modifier-disabled">
-    <abbr title="required">*</abbr> Your name
-  </label>
-  <div class="controls">
-    <input class="string required" id="modifier-disabled" type="text" disabled>
-  </div>
-</div>
+<%= f.input :disabled_field, disabled: true, input_html: { class: "form--medium" } %>
   <%- end -%>
 
   <p>Similarly, read-only fields use the <code>readonly</code> input attribute.</p>
   <p>Be aware of the <a href="http://stackoverflow.com/questions/7730695/whats-the-difference-between-disabled-disabled-and-readonly-readonly-for-ht">difference between readonly and disabled</a> and use the correct one where appropriate.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "readonly", ruby: capture { -%>
-&lt;%= f.input :example, readonly: true -%&gt;
+&lt;%= f.input :readonly_field, readonly: true, input_html: { class: "form--medium" } %>
   <%- } } do -%>
-<div class="control-group string required form--medium">
-  <label class="string required control-label" for="modifier-readonly">
-    <abbr title="required">*</abbr> Your name
-  </label>
-  <div class="controls">
-    <input class="string required" id="modifier-readonly" type="text" readonly>
-  </div>
-</div>
+<%= f.input :readonly_field, readonly: true, input_html: { class: "form--medium" } %>
+
   <%- end -%>
 
   <div data-jquery-modifiers>
     <p>jQuery Datepicker can be added by giving your input field the class <code>datepicker</code>.</p>
 
     <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
-&lt;%= f.input :example, input_class: { "datepicker" } -%&gt;
+&lt;%= f.input :datepicker, input_html: { class: "datepicker form--medium" } %>
     <%- } } do -%>
-<div class="control-group string required form--medium">
-  <label class="string required control-label" for="datepicker">
-    Date
-  </label>
-  <div class="controls">
-    <input class="string required datepicker" id="datepicker" type="text">
-  </div>
-</div>
+<%= f.input :datepicker, input_html: { class: "datepicker form--medium" } %>
     <%- end -%>
 
     <p>Alternatively there's also a datetimepicker using the <code>datetimepicker</code> class.</p>
 
     <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-modifiers-disabled", ruby: capture { -%>
-&lt;%= f.input :example, input_class: { "datetimepicker" } -%&gt;
+&lt;%= f.input :example, input_html: { class: "datetimepicker form--medium" } %>
     <%- } } do -%>
-<div class="control-group string required form--medium">
-  <label class="string required control-label" for="datetimepicker">
-    Date
-  </label>
-  <div class="controls">
-    <input class="string required datetimepicker" id="datetimepicker" type="text">
-  </div>
-</div>
+<%= f.input :datetimepicker, input_html: { class: "datetimepicker form--medium" } %>
     <%- end -%>
-  </div>
 
-  <p>You can customise the settings of your datepicker by passing in data attributes in the format of <code>data-datepicker-&lt;setting>=""</code>. eg. <code>data-datepicker-changemonth="false"</code>.</p>
+    <p>You can customise the settings of your datepicker by passing in data attributes in the format of <code>data-datepicker-&lt;setting>=""</code>. eg. <code>data-datepicker-changemonth="false"</code>.</p>
+    
+  </div>
 
   <hr />
 
   <h2 class="heading-two">Radios and checkboxes</h2>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes", ruby: capture { -%>
-&lt;%= f.input :example, as: :check_boxes -%&gt;
+&lt;%= f.input :basic_checkboxes, as: :check_boxes -%&gt;
   <%- } } do -%>
-<div class="control-group check_boxes required">
-  <label class="check_boxes required control-label">
-    Basic checkboxes
-  </label>
-  <div class="controls">
-    <label class="checkbox">
-      <input class="check_boxes required" id="checkboxes_true" name="form[checkboxes]" type="checkbox" value="true">Yes
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="checkboxes_false" name="form[checkboxes]" type="checkbox" value="false">No
-    </label>
-  </div>
-</div>
+<%= f.input :basic_checkboxes, as: :check_boxes %>
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios", ruby: capture { -%>
-&lt;%= f.input :example, as: :radios -%&gt;
+&lt;%= f.input :basic_radios, as: :radio_buttons -%&gt;
   <%- } } do -%>
-<div class="control-group radio_buttons required">
-  <label class="radio_buttons required control-label">
-    Basic radios
-  </label>
-  <div class="controls">
-    <label class="radio">
-      <input class="radio_buttons required" id="radios_true" name="form[radios]" type="radio" value="true">Yes
-    </label>
-    <label class="radio">
-      <input class="radio_buttons required" id="radios_false" name="form[radios]" type="radio" value="false">No
-    </label>
-  </div>
-</div>
+<%= f.input :basic_radios, as: :radio_buttons %>
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios", ruby: capture { -%>
-&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--horizontal" } -%&gt;
+&lt;%= f.input :hotizontal_checkboxes, as: :check_boxes, wrapper_html: { class: "form--horizontal" } %>
   <%- } } do -%>
-<div class="control-group radio_buttons required form--horizontal">
-  <label class="radio_buttons required control-label">
-    Horizontal radios/checkboxes with wrapper class of <code>form--horizontal</code>
-  </label>
-  <div class="controls">
-    <label class="radio">
-      <input class="radio_buttons required" id="horizontal_radios_true" name="form[horizontal_radios]" type="radio" value="true">Yes
-    </label>
-    <label class="radio">
-      <input class="radio_buttons required" id="horizontal_radios_false" name="form[horizontal_radios]" type="radio" value="false">No
-    </label>
-  </div>
-</div>
+<%= f.input :hotizontal_checkboxes, as: :check_boxes, wrapper_html: { class: "form--horizontal" } %>
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox", ruby: capture { -%>
 &lt;%= f.input :example, as: :boolean -%&gt;
   <%- } } do -%>
-<div class="control-group boolean optional">
-  <label class="boolean optional control-label" for="single-checkbox">
-    A single checkbox / boolean
-  </label>
-  <div class="controls">
-    <input name="form[single-checkbox]" type="hidden" value="0">
-    <label class="checkbox">
-      <input class="boolean optional" id="single-checkbox" name="form[single-checkbox]" type="checkbox" value="1">
-    </label>
-  </div>
-</div>
+<%= f.input :single_boolean, as: :boolean %>
   <%- end -%>
 
   <hr />
@@ -329,73 +214,27 @@
   <p>Note: falls back to regular radios/checkboxes in IE8</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes-enhanced", ruby: capture { -%>
-&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--enhanced" } -%&gt;
+&lt;%= f.input :ehanced_checkboxes, as: :check_boxes, wrapper_html: { class: "form--enhanced" } -%&gt;
   <%- } } do -%>
-<div class="control-group check_boxes required form--enhanced">
-  <label class="check_boxes required control-label">
-    Enhanced checkboxes with wrapper class of <code>form--enhanced</code>
-  </label>
-  <div class="controls">
-    <label class="checkbox">
-      <input class="check_boxes required" id="checkboxes_true" name="form[checkboxes_enhanced]" type="checkbox" value="true">Yes
-    </label>
-    <label class="checkbox">
-      <input class="check_boxes required" id="checkboxes_false" name="form[checkboxes_enhanced]" type="checkbox" value="false">No
-    </label>
-  </div>
-</div>
+<%= f.input :ehanced_checkboxes, as: :check_boxes, wrapper_html: { class: "form--enhanced" } %>
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios-enhanced", ruby: capture { -%>
-&lt;%= f.input :example, as: :radios, wrapper_html: { class: "form--enhanced" } -%&gt;
+&lt;%= f.input :ehanced_radios, as: :radio_buttons, wrapper_html: { class: "form--enhanced" } -%&gt;
   <%- } } do -%>
-<div class="control-group radio_buttons required form--enhanced">
-  <label class="radio_buttons required control-label">
-    Enhanced radios with wrapper class of <code>form--enhanced</code>
-  </label>
-  <div class="controls">
-    <label class="radio">
-      <input class="radio_buttons required" id="radios_true" name="form[radios_enhanced]" type="radio" value="true">Yes
-    </label>
-    <label class="radio">
-      <input class="radio_buttons required" id="radios_false" name="form[radios_enhanced]" type="radio" value="false">No
-    </label>
-  </div>
-</div>
+<%= f.input :ehanced_radios, as: :radio_buttons, wrapper_html: { class: "form--enhanced" } %>
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios-enhanced", ruby: capture { -%>
-&lt;%= f.input :example, as: :check_boxes, wrapper_html: { class: "form--horizontal form--enhanced" } -%&gt;
+&lt;%= f.input :ehanced_horizontal, as: :check_boxes, wrapper_html: { class: "form--enhanced form--horizontal" } -%&gt;
   <%- } } do -%>
-<div class="control-group radio_buttons required form--horizontal form--enhanced">
-  <label class="radio_buttons required control-label">
-    Horizontal radios/checkboxes with wrapper class of <code>form--horizontal</code> and <code>form--enhanced</code>
-  </label>
-  <div class="controls">
-    <label class="radio">
-      <input class="radio_buttons required" id="horizontal_radios_true" name="form[horizontal_radios_enhanced]" type="radio" value="true">Yes
-    </label>
-    <label class="radio">
-      <input class="radio_buttons required" id="horizontal_radios_false" name="form[horizontal_radios_enhanced]" type="radio" value="false">No
-    </label>
-  </div>
-</div>
+<%= f.input :ehanced_horizontal, as: :check_boxes, wrapper_html: { class: "form--enhanced form--horizontal" } %>
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox-enhanced", ruby: capture { -%>
 &lt;%= f.input :example, as: :boolean, wrapper_html: { class: "form--enhanced" } -%&gt;
   <%- } } do -%>
-<div class="control-group boolean optional checkbox__single form--enhanced">
-  <label class="boolean optional control-label" for="terms_enhanced">
-    A single checkbox / boolean with the wrapper class <code>form--enhanced</code>
-  </label>
-  <div class="controls">
-    <input name="form[terms_enhanced]" type="hidden" value="0">
-    <label class="checkbox">
-      <input class="boolean optional" id="terms_enhanced" name="form[terms_enhanced]" type="checkbox" value="1">
-    </label>
-  </div>
-</div>
+<%= f.input :enhanced_boolean, as: :boolean, wrapper_html: { class: "form--enhanced" } %>
   <%- end -%>
 
   <hr />
@@ -406,7 +245,9 @@
 
 <%- cocoon_field = capture { -%>
 <div class='nested-fields control-group select'>
-  <label class="control-label">My Nested Field</label>
+  <div class="control-group--label">
+    <label class="control-label">My Nested Field</label>
+  </div>
   <div class="controls cocoon-field form--medium">
     <div class="cocoon-field--field">
       <select>
@@ -472,8 +313,8 @@
 &lt;%= f.input :example, input_html: { data: { limiter: 30 } } -%&gt;
   <%- } } do -%>
 <div class="inputs">
-  <input type="text" class="form--medium" data-limiter="30" />
-  <textarea class="form--medium" data-limiter="200"></textarea>
+  <%= f.input :character_limited_string, input_html: { class: "form--medium", data: { limiter: 30 } } %>
+  <%= f.input :character_limited_text, as: :text, input_html: { class: "form--medium", data: { limiter: 200 } } %>
 </div>
   <%- end -%>
 
@@ -483,8 +324,8 @@
 &lt;%= f.input :example, input_html: { data: { limiter: 30, limiter_word: "" } } -%&gt;
   <%- } } do -%>
 <div class="inputs">
-  <input type="text" class="form--medium" data-limiter="3" data-limiter-word />
-  <textarea class="form--medium" data-limiter="10" data-limiter-word></textarea>
+  <%= f.input :word_limited_string, input_html: { class: "form--medium", data: { limiter: 3, limiter_word: "" } } %>
+  <%= f.input :word_limited_text, as: :text, input_html: { class: "form--medium", data: { limiter: 10, limiter_word: "" } } %>
 </div>
   <%- end -%>
 
@@ -494,8 +335,10 @@
 &lt;%= f.input :example, input_html: { data: { limiter: 30, limiter_micro: "" } } -%&gt;
   <%- } } do -%>
 <div class="inputs">
-  <input type="text" class="form--medium" data-limiter="30" data-limiter-micro />
-  <textarea class="form--medium" data-limiter="200" data-limiter-micro></textarea>
+  <%= f.input :character_limited_string_micro, input_html: { class: "form--medium", data: { limiter: 30, limiter_micro: "" } } %>
+  <%= f.input :character_limited_text_micro, as: :text, input_html: { class: "form--medium", data: { limiter: 200, limiter_micro: "" } } %>
+  <%= f.input :word_limited_string_micro, input_html: { class: "form--medium", data: { limiter: 3, limiter_word: "", limiter_micro: "" } } %>
+  <%= f.input :word_limited_text_micro, as: :text, input_html: { class: "form--medium", data: { limiter: 10, limiter_word: "", limiter_micro: "" } } %>
 </div>
   <%- end -%>
 
@@ -506,14 +349,9 @@
   <p>Use <code>data-password-reveal</code> on your input field to add a reveal button. This will toggle the input type between text and password.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "password-reveal", ruby: capture { -%>
-&lt;%= f.input :example, input_html: { data: { password_reveal: "" } } -%&gt;
+&lt;%= f.input :password_revealer, wrapper_html: { class: "form--medium" }, input_html: { data: { password_reveal: "" } } %>
   <%- } } do -%>
-<div class="control-group form--medium">
-  <label class="control-label">Password:</label>
-  <div class="controls">
-    <input type="password" data-password-reveal />
-  </div>
-</div>
+<%= f.input :password_revealer, wrapper_html: { class: "form--medium" }, input_html: { data: { password_reveal: "" } } %>
   <%- end -%>
 
   <hr />
@@ -530,27 +368,17 @@
   </div>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-password-score", ruby: capture { -%>
-&lt;%= f.input :example, wrapper_html: { data: { password_sore: "" } } -%&gt;
+&lt;%= f.input :password_score, wrapper_html: { class: "form--medium", data: { password_score: "" } } %>
   <%- } } do -%>
-<div data-password-score class="control-group">
-  <label class="control-label">Password:</label>
-  <div class="controls">
-    <input type="password" />
-  </div>
-</div>
+<%= f.input :password_score, wrapper_html: { class: "form--medium", data: { password_score: "" } } %>
   <%- end -%>
 
   <p>You can customise the label under the field by using <code>data-password-score-label</code>. Here's an example with a custom label, using one of the form sizing classes and the password revealer for good measure.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-password-score-2", ruby: capture { -%>
-&lt;%= f.input :example, input_wrapper: { data: { password_reveal: "" } }, wrapper_html: { class: "form--medium", data: { password_sore: "", password_score_label: "<('.' <)" } } -%&gt;
+&lt;%= f.input :password_score_custom, wrapper_html: { class: "form--medium", data: { password_score: "", password_score_label: "<('.' <)" } }, input_html: { data: { password_reveal: "" } } %>
   <%- } } do -%>
-<div data-password-score data-password-score-label="<('.' <)" class="control-group form--medium">
-  <label class="control-label">Password:</label>
-  <div class="controls">
-    <input type="password" data-password-reveal />
-  </div>
-</div>
+<%= f.input :password_score_custom, wrapper_html: { class: "form--medium", data: { password_score: "", password_score_label: "<('.' <)" } }, input_html: { data: { password_reveal: "" } } %>
   <%- end -%>
 
   <p>Password score comes with a helper to test if zxcbvn is available: <code>Ornament.C.FormPasswordScore.hasZxcvbn</code></p>
@@ -614,77 +442,16 @@
 <%= yield :js_billing_to_shipping -%>
   <%- } } do -%>
 <div class="inputs">
-  
-  <div class="control-group">
-    <label for="billing_address_1" class="control-label">Billing address 1</label>
-    <div class="controls">
-      <input type="text" name="billing[address_1]" id="billing_address_1" value="Address 1" />
-    </div>
-  </div>
-
-  <div class="control-group">
-    <label for="billing_address_2" class="control-label">Billing address 2</label>
-    <div class="controls">
-      <input type="text" name="billing[address_2]" id="billing_address_2" value="Address 2" />
-    </div>
-  </div>
-
-  <div class="control-group">
-    <label for="billing_state" class="control-label">Billing address state</label>
-    <div class="controls">
-      <input type="text" name="billing[state]" id="billing_state" value="My state" />
-    </div>
-  </div>
-
-  <div class="control-group">
-    <label for="billing_country" class="control-label">Billing country</label>
-    <div class="controls">
-      <input type="text" name="billing[country]" id="billing_country" value="Australia" />
-    </div>
-  </div>
-
-  <div class="control-group boolean">
-    <label class="boolean control-label" for="checkout_use_billing_address">
-      Ship to billing address
-    </label>
-    <div class="controls">
-      <input name="checkout[use_billing_address]" type="hidden" value="0">
-      <label class="checkbox">
-        <input class="boolean" id="checkout_use_billing_address" name="checkout[use_billing_address]" type="checkbox" value="1">
-      </label>
-    </div>
-  </div>
-
-  <div class="inputs" data-show="checkout_use_billing_address" data-show-inverse>
-
-    <div class="control-group">
-      <label for="shipping_address_1" class="control-label">Shipping address 1</label>
-      <div class="controls">
-        <input type="text" name="shipping[address_1]" id="shipping_address_1" />
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label for="shipping_address_2" class="control-label">Shipping address 2</label>
-      <div class="controls">
-        <input type="text" name="shipping[address_2]" id="shipping_address_2" />
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label for="shipping_state" class="control-label">Shipping address state</label>
-      <div class="controls">
-        <input type="text" name="shipping[state]" id="shipping_state" />
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label for="shipping_country" class="control-label">Shipping country</label>
-      <div class="controls">
-        <input type="text" name="shipping[country]" id="shipping_country" />
-      </div>
-    </div>
-
+  <%= f.input :billing_address_1, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :billing_address_2, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :billing_state, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :billing_country, as: :string, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :use_billing_address, as: :boolean, wrapper_html: { class: "form--medium" } %>
+  <div class="inputs" data-show="test_form_use_billing_address" data-show-inverse>
+    <%= f.input :shipping_address_1, wrapper_html: { class: "form--medium" } %>
+    <%= f.input :shipping_address_2, wrapper_html: { class: "form--medium" } %>
+    <%= f.input :shipping_state, wrapper_html: { class: "form--medium" } %>
+    <%= f.input :shipping_country, as: :string, wrapper_html: { class: "form--medium" } %>
   </div>
 </div>
   <%- end -%>
@@ -718,44 +485,10 @@
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-siblings" } do -%>
 <div class="form-siblings">
   <div class="form-siblings--sibling">
-    <div class="control-group">
-      <label class="optional control-label">Month</label>
-      <div class="controls">
-        <select>
-          <%-
-            months = {
-              "1 - January" => 1,
-              "2 - February" => 2,
-              "3 - March" => 3,
-              "4 - April" => 4,
-              "5 - May" => 5,
-              "6 - June" => 6,
-              "7 - July" => 7,
-              "8 - August" => 8,
-              "9 - September" => 9,
-              "10 - October" => 10,
-              "11 - November" => 11,
-              "12 - December" => 12
-            }
-          -%>
-          <%- months.each do |month,value| -%>
-            <option value="<%= value -%>"><%= month -%></option>
-          <%- end %>
-        </select>
-      </div>
-    </div>
+    <%= f.input :sibling_month, as: :select, collection: months %>
   </div>
   <div class="form-siblings--sibling">
-    <div class="control-group">
-      <label class="optional control-label">Year</label>
-      <div class="controls">
-        <select>
-          <%- (Time.current.year..Time.current.year+10).each do |year| -%>
-            <option value="<%= year -%>"><%= year -%></option>
-          <%- end %>
-        </select>
-      </div>
-    </div>
+    <%= f.input :sibling_year, as: :select, collection: years %>
   </div>
 </div>
   <%- end -%>
@@ -765,47 +498,14 @@
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-siblings-small" } do -%>
 <div class="form-siblings form--medium">
   <div class="form-siblings--sibling">
-    <div class="control-group">
-      <label class="optional control-label">Month</label>
-      <div class="controls">
-        <select>
-          <%-
-            months = {
-              "1 - January" => 1,
-              "2 - February" => 2,
-              "3 - March" => 3,
-              "4 - April" => 4,
-              "5 - May" => 5,
-              "6 - June" => 6,
-              "7 - July" => 7,
-              "8 - August" => 8,
-              "9 - September" => 9,
-              "10 - October" => 10,
-              "11 - November" => 11,
-              "12 - December" => 12
-            }
-          -%>
-          <%- months.each do |month,value| -%>
-            <option value="<%= value -%>"><%= month -%></option>
-          <%- end %>
-        </select>
-      </div>
-    </div>
+    <%= f.input :sibling_month_small, as: :select, collection: months %>
   </div>
   <div class="form-siblings--sibling">
-    <div class="control-group">
-      <label class="optional control-label">Year</label>
-      <div class="controls">
-        <select>
-          <%- (Time.current.year..Time.current.year+10).each do |year| -%>
-            <option value="<%= year -%>"><%= year -%></option>
-          <%- end %>
-        </select>
-      </div>
-    </div>
+    <%= f.input :sibling_month_small, as: :select, collection: years %>
   </div>
 </div>
   <%- end -%>
+  <% end %>
 
   <hr />
 
@@ -813,13 +513,16 @@
 
   <%= simple_form_for :user, url: "/styleguide/form", remote: true do |f| %>
 
-    <div class="inputs">
+    <div class="inputs form--enhanced">
       <%= f.error_notification %>
       <%= f.input :name, hint: "First and last name", input_html: { class: "form--medium" } %>
       <%= f.input :phone, error: "This field has errors", input_html: { class: "form--medium" } %>
       <%= f.input :email, input_html: { class: "form--medium" } %>
+      <%= f.input :date_of_birth, input_html: { type: "date", class: "form--medium" } %>
       <%= f.input :state, as: :select, collection: ["NSW", "QLD", "SA", "TAS", "VIC", "WA", "NT", "ACT"], prompt: "Please select", input_html: { class: "form--auto" } %>
-      <%= f.input :introduction, as: :text, hint: "Limited to 10 words only", input_html: { class: "form--medium", data: { limiter: 10, limiter_word: "", limiter_micro: "" } } %>
+      <%= f.input :genre, as: :radio_buttons, collection: ["Comedy", "Drama", "Dramedy" ], hint: "Please choose only one." %>
+      <%= f.input :tags, as: :check_boxes, collection: ["Funny", "Serious"], hint: "Please choose as many as you like." %>
+      <%= f.input :introduction, as: :text, hint: "Limited to 10 words only.", input_html: { class: "form--medium", data: { limiter: 10, limiter_word: "", limiter_micro: "" } } %>
       <%= f.input :message, as: :text, input_html: { class: "form--large" } %>
       <div>
         <div class="form-siblings form--medium">
@@ -831,6 +534,7 @@
           </div>
         </div>
       </div>
+      <%= f.input :terms, as: :boolean, label: "I have read an accept the <a href='#' target='_blank'>terms and conditions</a>.".html_safe %>
     </div>
     <div class="actions">
       <%= f.button :button, "Submit", class: "button" %>
