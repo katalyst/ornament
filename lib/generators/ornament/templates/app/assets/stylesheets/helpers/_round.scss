@@ -2,6 +2,6 @@
   @include border-radius($border-radius);
 }
 
-.round-circle {
+.round-ellipse {
   @include border-radius(50%);
 }

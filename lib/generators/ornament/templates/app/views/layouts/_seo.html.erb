@@ -9,6 +9,7 @@
   seo_keywords ||= false
   seo_description ||= ""
   seo_image ||= false # "#{root_url}assets/share.png?v=#{cache_version}"
+  theme_colour ||= "#4b9dd0";
 
   # Twitter Settings
   twitter_handle ||= ""
@@ -22,8 +23,8 @@
     site_settings_title = clean_share_input(koi_title) if koi_title
     site_settings_meta = clean_share_input(koi_description) if koi_description
     site_settings_keywords = clean_share_input(koi_keywords) if koi_keywords
-    seo_title = site_settings_title
-    seo_title_postfix = seo_title
+    seo_title = site_settings_title if !koi_title.blank?
+    seo_title_postfix = seo_title if !koi_title.blank?
   end
 
   # Page Title
@@ -109,8 +110,14 @@
   # Add base URL to twitter image
   twitter_image = absolute_url(twitter_image)
 
+  # Thene Colour
+  if content_for?(:meta_theme_colour)
+    theme_colour = yield(:meta_theme_colour)
+  end
+
 -%>
 
+<%# Meta %>
 <title><%= seo_title -%></title>
 <meta name="description" content="<%= raw seo_description %>">
 <%- if seo_keywords -%>
@@ -120,7 +127,7 @@
   <link rel="image_src" href="<%= facebook_image -%>" />
 <%- end -%>
 
-<!-- FACEBOOK -->
+<%# Facebook %>
 <%- if facebook_image && !content_for?(:disable_og_image) -%>
   <meta property="og:image" content="<%= facebook_image -%>" />
 <%- end -%>
@@ -134,7 +141,7 @@
   <meta property="og:published_time" content="<%= facebook_publish_time -%>" />
 <%- end -%>
 
-<!-- TWITTER -->
+<%# Twitter %>
 <meta name="twitter:card" content="summary" />
 <%- unless twitter_handle.blank? -%>
   <meta name="twitter:site" content="<%= twitter_handle -%>" />
@@ -148,3 +155,13 @@
 <meta name="twitter:title" content="<%= seo_title -%>">
 <meta name="twitter:url" content="<%= request.original_url %>">
 <meta name="twitter:description" content="<%= raw seo_description -%>">
+
+<%# Application Icons %>
+<% if false %>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="<%= theme_colour %>">
+  <meta name="theme-color" content="<%= theme_colour %>">
+<% end %>

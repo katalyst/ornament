@@ -1,5 +1,22 @@
 # Changelog
 
+## v2.0.2
+
+### Changes
+
+- Changed the `icon()` rails helper:
+  - Generate class names from the filename of the icon 
+  - Use inline styles for width/height to accomodate issues in Firefox with rem sizing
+  - Icon partials are now `.svg.erb` rather than `.html.erb`
+- Changed `.nvmrc` file to use node 8 by default to be more compatible with webpacker. 
+
+### Fixes
+
+- Added `body-type` mixin in to the CKEditor `contents.css` body tag and removed default font-size and line-height from the original CKEditor boilerplate  
+- Added `<small>` support to CKEditor `contents.css`  
+- Fixed `overscroll-behavior` spelling  
+- Fixed `ornament_renderer` adding `has_children` to every navitem that has a child navitem, regardless of if it was rendering that child or not  
+
 ## v2.0.1
 
 ### Removed compass 
@@ -8,11 +25,36 @@
 - Removed compass from gemfile and docs
 - Removed compass gem from generator 
 
+### Custom devise views
+
+- Added a new generator `rails generate ornament_devise <model>` which will generate pre-ornament-ed devise views  
+- They also come with `sessions/create.js.erb` and `sessions/new.js.erb` to support remote login forms out of the box  
+
+### Custom simple-navigation Renderer
+
+- Added a new simple-navigation renderer `ornament_renderer`  
+- Passing in an `id_namespace` option allows you to namespace the key id attributes to prevent duplicate ids on the page  
+
 ### Features
 
-- Added some helper classes `.round` and `.round-circle` for making rounded corners and circles  
+- Added a new top-level stylesheet folder `helpers` for helper/utility classes, moved `align` in to this folder  
+- Added some helper classes `.round` and `.round-ellipse` for making rounded corners and ellipses
+- Added some `bg` helper classes  
 - `Show.js` - Added support for select menus that match multiple options using the `_&_` syntax  
-- Added a new simplenav renderer to automatically add `.has-children` class to parent list items, named `:sf_menu`, overwriting Koi's default renderer  
+- Moved the custom `rails.allowAction` functionality in to a seperate `lightbox-rails-confirm.js` file to make it easily disabled or modified without having to impact `lightbox.js`  
+- Updated the `spang` mixins to use flexbox rather than floats  
+- Added `optimised_jpg` helper to convert and encode an image  
+- Added automatic service-worker registration on HTTPS and on localhost if the user has `Ornament.localServiceWorkers` in their localstorage and set to true. This prevents local development sites undesirably registering serviceworkers - Note: Ornament does not ship with a service-worker by default, service-worker registration can be disabled by commenting out `register-service-worker` require statement in `application.js`  
+- Added application icon boilerplate to `_seo.html.erb` partial, disabled by default
+- Updated `static_map` rails helper to making signing optional  
+
+### Fixes
+
+- Added koi/contents.scss file to the generator
+- Fixed koi site settings meta returning empty strings
+- Fixed `password-revealer` submitting forms when revealing the password  
+- Fixed Ornament.initComponents() so that you can pass an array of component names to it  
+- Updated `carousel` breakpoint so that `breakpoint-tiny` can be removed without crashing other components  
 
 ### Changes 
 
@@ -21,6 +63,8 @@
 - Added slight transition to pagination hover states 
 - Cleaned up the `reset.scss` file 
 - Added new utility mixin `overflow-scroll` that adds overflow auto, touch scrolling and prevents scroll bleeding  
+- Disabled ornament debugging by default  
+- Removed unused `sticky.scss`
 
 ### Undocumented 2.0.0 changes
 

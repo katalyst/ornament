@@ -1,0 +1,9 @@
+<%- @login_errors = true -%>
+$("[data-devise-sessions-form]").html("<%= escape_javascript render("users/sessions/form", resource: resource, resource_name: resource_name) %>");
+Ornament.initComponents([
+  "FormDatepicker",
+  "FormLimiter",
+  "FormPasswordRevealer",
+  "FormPasswordScore",
+  "FormsEnhanced"
+]);

@@ -1,0 +1,17 @@
+<% content_for :title, "Background Helper Classes" %>
+
+<div class="content-spacing">
+
+  <p>Background-color helper classes:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "round" } do -%>
+<div class="spacing">
+  <div class="bg-primary">lorem ipsum</div>
+  <div class="bg-secondary">lorem ipsum</div>
+  <div class="bg-success">lorem ipsum</div>
+  <div class="bg-alert">lorem ipsum</div>
+  <div class="bg-notice">lorem ipsum</div>
+</div>
+  <%- end -%>
+
+</div>

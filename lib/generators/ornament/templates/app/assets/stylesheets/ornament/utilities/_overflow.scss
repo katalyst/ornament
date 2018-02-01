@@ -1,5 +1,5 @@
 @mixin overflow-scroll {
   overflow: auto;
-  overscroll-behaviour: none;
+  overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
 }

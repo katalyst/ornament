@@ -1,0 +1,31 @@
+<% 
+  resource ||= User.new
+  resource_name ||= :user
+  devise_mapping = Devise.mappings[resource_name]
+  submission_type ||= "modal"
+%>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), remote: true, html: { data: { user_form: submission_type, devise_sessions_form: "" } }) do |f| %>
+  <div class="inputs form--enhanced">
+
+    <%- if @login_errors -%>
+      <div class="panel panel__error panel--padding">
+        There were errors logging in
+      </div>
+    <%- end -%>
+
+    <%= f.input :email, required: false, input_html: { autocomplete: "username email" } %>
+
+    <div class="spacing-xxx-tight">
+      <%= f.input :password, required: false, input_html: { autocomplete: "new-password", data: { password_reveal: "" } } %>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <p><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
+      <% end -%>
+    </div>
+
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <div>
+      <%= f.button :button, "Log in", class: "button" %>
+    </div>
+  </div>
+<% end %>

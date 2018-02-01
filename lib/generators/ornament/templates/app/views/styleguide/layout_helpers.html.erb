@@ -1,7 +1,7 @@
 <%- content_for :title, "Rails Helpers" -%>
 
 <div class="content-spacing">
-  <h2 class="heading-two">link_helper()</h2>
+  <h2 class="heading-two">link_helper</h2>
 
   <p><code>link_helper(url)</code> will output a <code>link_to</code> and format the URL and the text that gets output.</p>
 
@@ -16,13 +16,13 @@
 
   <hr />
 
-  <h2 class="heading-two">yes_or_no()</h2>
+  <h2 class="heading-two">yes_or_no</h2>
 
   <p><code>yes_or_no(boolean)</code> is a simple little helper to convert true/false values in to yes or no.</p>
 
   <hr />
 
-  <h2 class="heading-two">country_name()</h2>
+  <h2 class="heading-two">country_name</h2>
 
   <p>A small helper to convert country codes in to correct country names.</p>
 
@@ -32,11 +32,31 @@
 
   <hr />
 
-  <h2 class="heading-two">svg_image()</h2>
+  <h2 class="heading-two">svg_image</h2>
 
   <p><code>svg_image(@model.image)</code></p>
 
   <p>Will take a dragonfly-stored image and output it as inline SVG and will handle missing assets with a fallback message.</p>
+
+  <hr />
+
+  <h2 class="heading-two">optimised_jpg</h2>
+
+  <p><code>optimised_jpg(@model.image, "800x600#")</code></p>
+
+  <p>Will take a dragonfly-stored image, run the thumb command passed in to the second argument then compress and optimise for you.</p>
+
+  <hr />
+
+  <h2 class="heading-two">static_map</h2>
+
+  <p><code>static_map("-34.921619,138.599257", zoom: 15, size: "350x200")</code></p>
+
+  <p>Will generate a google static map.</p>
+  <p>Zoom and Size are optional arguments.</p>
+  <p>To use this helper you will need to add in a Google Maps API key that has access to the static maps API.</p>
+  <p>To make the helper use signed maps instead, you will need to enable the <code>signed</code> flag in the helper and you will also need to add in a <code>api_secret</code>.</p>
+  <p>This helper lives in <code>ornment_google_maps_helper.rb</code> for easy editing.</p>
 
   <hr />
 

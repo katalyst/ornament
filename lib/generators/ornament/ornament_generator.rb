@@ -63,6 +63,8 @@ class OrnamentGenerator < Rails::Generators::Base
 
         copy_file "app/assets/stylesheets/_print.scss"
         directory "app/assets/stylesheets/ornament"
+        directory "app/assets/stylesheets/helpers"
+        directory "app/assets/stylesheets/koi"
 
         directory "app/assets/images"
         
@@ -72,6 +74,7 @@ class OrnamentGenerator < Rails::Generators::Base
         copy_file "config/locales/en.yml"
         copy_file ".editorconfig.ini"
         copy_file ".eslintrc.json"
+        copy_file ".nvmrc"
         copy_file ".sass-lint.yml"
       end
 
@@ -121,7 +124,7 @@ class OrnamentGenerator < Rails::Generators::Base
     puts "Please ensure the following gems are in your local Gemfile:"
     puts ""
     GEMS.each do |name, version|
-     puts "   gem #{name}, #{version}"
+    puts "   gem #{name}, #{version}"
     end
     puts ""
     puts "Then bundle and restart your server"
