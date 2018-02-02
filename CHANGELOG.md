@@ -2,6 +2,15 @@
 
 ## v2.0.2
 
+### Form refactors
+
+- Simplified the `simple_form.rb` initializer by stripping out a lot of the inherited defaults  
+- Added a new wrapper `ornament` that is used by default across the app  
+- Added a new wrapper `oranment_boolean` that is used specifically for boolean types  
+- Re-enabled html5 validation by default  
+- Wrapped label, hints and errors around a single wrapper div `.control-group--label` to make grouping them together consistently  
+- Added `:active` states to enhanced checkbox/radios  
+
 ### Changes
 
 - Changed the `icon()` rails helper:
