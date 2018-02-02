@@ -60,11 +60,11 @@
 &lt;%= f.button :button, "Disabled Button", class: "button", disabled: true -%&gt;
   <%- } } do -%>
 <p>
-  <a href="#" class="button__disabled">Disabled button class</a>
+  <a href="" class="button__disabled" onClick="javascript:return false;">Disabled button class</a>
 </p>
 
 <p>
-  <button href="#" class="button" disabled>Button with disabled attribute</button>
+  <button type="button" class="button" disabled>Button with disabled attribute</button>
 </p>
   <%- end -%>
 

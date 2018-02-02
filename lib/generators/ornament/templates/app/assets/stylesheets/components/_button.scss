@@ -22,11 +22,11 @@
 }
 .button__confirm {
   @include button-base;
-  @include button-background($success-color);
+  @include button-background($success-button);
 }
 .button__cancel {
   @include button-base;
-  @include button-background($error-color);
+  @include button-background($error-button);
 }
 
 // =========================================================================
@@ -51,11 +51,11 @@
 }
 .button__confirm__line {
   @include button-base(true);
-  @include button-line($success-color, false, $success-color);
+  @include button-line($success-button, false, $success-button);
 }
 .button__cancel__line {
   @include button-base(true);
-  @include button-line($error-color, false, $error-color);
+  @include button-line($error-button, false, $error-button);
 }
 
 // =========================================================================

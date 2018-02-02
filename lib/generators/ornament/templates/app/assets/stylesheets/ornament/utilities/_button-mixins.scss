@@ -28,6 +28,8 @@ $button-line-border: 2px;
 @mixin button-line($color, $hover-color:false, $text-color:false) {
   background: transparent;
   border: $button-line-border solid $color;
+  transition: border-color $ease-timing $ease-out,
+              color $ease-timing $ease-out;
 
   @if($text-color) {
     @include color-link($text-color, $text-color);

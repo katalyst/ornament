@@ -22,6 +22,8 @@
 - Added missing alert panel to the panel documentation
 - Added `panel__border` and `panel__bordered` class and added panel bordering docs  
 - Changed `panel--padding-border` class to `panel--border-top` and added a `panel--border-bottom` class to match  
+- Added new success and error colours for buttons and implemented  
+- Added border transition to `button__*__line` classes  
 
 ### Fixes
 
