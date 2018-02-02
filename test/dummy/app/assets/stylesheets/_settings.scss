@@ -33,10 +33,10 @@ $base-line-size:      $base-font-size * $base-line-height;
 // Layout and container settings
 // =========================================================================
 
+$fixed-footer: true;
+
 $layout-mobile-tray-width:  250px;
 $layout-animation-duration: 0.5s;
-
-$fixed-footer: true;
 
 $container-width: 1072px;
 $container-percentage: 92%;
@@ -96,41 +96,46 @@ $site-gutters:
 // Colours 
 // =========================================================================
 
+// Default helper colours
 $black: #000;
 $white: #fff;
 $grey: #bbb;
 
+// Brand colours
 $primary-color: #4b9dd0;
 $secondary-color: #252525;
 $passive-color: #eee;
 
+// Page background and default body typogrpahy colour
 $foreground-color: #222;
 $background-color: #fff;
 
+// Links
 $link-color: blue;
 $link-hover-color: false;
 
-$error-color: #990000;
-$error-background: #ffcccc;
-
-$alert-color: #F1c40f;
-$alert-background: #ffffcc;
-
-$notice-color: #236cd9;
-$notice-background: #cbdcf6;
-
-$success-color: #2ecc71;
-$success-background: #ccffcc;
-
+// Lightbox and mobile menu overlays
 $overlay-color: #222;
 
+// Panels and general application colours
+$error-color: #990000;
+$error-background: #ffcccc;
+$alert-color: #856404;
+$alert-background: #ffffcc;
+$notice-color: #236cd9;
+$notice-background: #cbdcf6;
+$success-color: #155724;
+$success-background: #d4edda;
+
+// Social network colours
 $facebook: #3b5998;
 $twitter: #44ccf6;
 $linkedin: #1b86bd;
 
+// Dividers
 $divider-color: $passive-color;
 $divider: 1px solid $divider-color;
-$image-border: 0;
+$panel-border: $divider;
 
 // =========================================================================
 // Input settings

@@ -49,7 +49,7 @@
 
   </head>
 
-  <body class="styleguide <%= yield :body_class -%>"> 
+  <body class="<%= yield :body_class -%>"> 
     <%- if gtm_code -%>
       <%# Google Tag Manager (noscript Version) %>
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= gtm_code -%>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

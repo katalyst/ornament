@@ -1,5 +1,3 @@
-$panel-border: $divider-color;
-
 // =========================================================================
 // Colour variation mixin
 // =========================================================================
@@ -35,8 +33,17 @@ $panel-border: $divider-color;
   @include pie-clearfix;
 }
 
-.panel--padding-border {
-  border-top: 1px solid $panel-border;
+.panel__bordered,
+.panel__border {
+  border: $panel-border;
+}
+
+.panel--border-top {
+  border-top: $panel-border;
+}
+
+.panel--border-bottom {
+  border-bottom: $panel-border;
 }
 
 // COLOUR VARIANTS
@@ -47,10 +54,6 @@ $panel-border: $divider-color;
 
 .panel__passive {
   @include panel-color($passive-color);
-}
-
-.panel__warning {
-  @include panel-color($notice-background, $foreground-color);
 }
 
 .panel__alert,

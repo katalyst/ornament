@@ -19,8 +19,8 @@
   <div class="panel__primary">
     Primary colour panel <a href="#">Link</a>
   </div>
-  <div class="panel__warning">
-    Warning panel <a href="#">Link</a>
+  <div class="panel__alert">
+    Alert panel <a href="#">Link</a>
   </div>
   <div class="panel__error">
     Error panel <a href="#">Link</a>
@@ -99,6 +99,33 @@
   </div>
   <div class="panel__passive panel--padding">
     Panel 3
+  </div>
+</div>
+  <%- end -%>
+
+
+  <hr />
+
+  <h2 class="heading-two">Panel bordering</h2>
+
+  <p>You can add a border around the entire panel with the <code>.panel__border</code> class.</p>
+  <p>You can add top borders to panel sections using the <code>.panel--border-top</code> class.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-borders" } do -%>
+<div class="panel-spacing">
+  <div class="panel__passive panel--padding panel__border">
+    Panel
+  </div>
+  <div class="panel__success panel--padding panel__border">
+    Panel
+  </div>
+  <div class="panel__error panel__border">
+    <div class="panel--padding">
+      Panel
+    </div>
+    <div class="panel--padding panel--border-top">
+      Panel
+    </div>
   </div>
 </div>
   <%- end -%>

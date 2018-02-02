@@ -17,7 +17,11 @@
   - Generate class names from the filename of the icon 
   - Use inline styles for width/height to accomodate issues in Firefox with rem sizing
   - Icon partials are now `.svg.erb` rather than `.html.erb`
-- Changed `.nvmrc` file to use node 8 by default to be more compatible with webpacker. 
+- Changed `.nvmrc` file to use node 8 by default to be more compatible with webpacker  
+- Improved the contrast of the default success and alert panels
+- Added missing alert panel to the panel documentation
+- Added `panel__border` and `panel__bordered` class and added panel bordering docs  
+- Changed `panel--padding-border` class to `panel--border-top` and added a `panel--border-bottom` class to match  
 
 ### Fixes
 
@@ -25,6 +29,8 @@
 - Added `<small>` support to CKEditor `contents.css`  
 - Fixed `overscroll-behavior` spelling  
 - Fixed `ornament_renderer` adding `has_children` to every navitem that has a child navitem, regardless of if it was rendering that child or not  
+- Removed the `styleguide` class from the default global template 
+- Removed un-used `$image-border` variable from `settings.scss`
 
 ## v2.0.1
 
