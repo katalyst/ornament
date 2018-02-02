@@ -36,22 +36,14 @@ SimpleForm.setup do |config|
     # Optional attributes
     b.optional :readonly
 
-    b.use :input, wrap_with: { tag: 'div', class: 'control-group--input checkbox' }
-    b.wrapper tag: 'div', class: 'control-group--boolean--label' do |ba|
-      ba.use :label
-      ba.use :error, wrap_with: { :tag => 'span', class: 'error-block' }
-      ba.use :hint,  wrap_with: { :tag => 'p', class: 'hint-block' }
+    b.wrapper tag: 'label', class: 'control-group__boolean--wrapper' do |ba|
+      ba.use :input, wrap_with: { tag: 'div', class: 'control-group__boolean--input checkbox' }
+      ba.wrapper tag: 'div', class: 'control-group__boolean--label' do |bab|
+        bab.use :label
+        bab.use :error, wrap_with: { :tag => 'span', class: 'error-block' }
+        bab.use :hint,  wrap_with: { :tag => 'p', class: 'hint-block' }
+      end
     end
-  end
-
-  config.wrappers :inline, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
-    b.use :placeholder
-    b.wrapper :tag => 'div', :class => 'controls' do |ba|
-      ba.use :input
-      ba.use :label, :wrap_with => { :class => 'control-label' }
-      ba.use :error, :wrap_with => { :tag => 'span', :class => 'error-block' }
-    end
-    b.use :hint,  :wrap_with => { :tag => 'p', :class => 'hint-block' }
   end
 
   # Default wrapper for all form elements
