@@ -24,6 +24,9 @@
 - Changed `panel--padding-border` class to `panel--border-top` and added a `panel--border-bottom` class to match  
 - Added new success and error colours for buttons and implemented  
 - Added border transition to `button__*__line` classes  
+- Rebuilt the `form-inline` class and added `form-inline--cap` to cap form fields with icons, labels or buttons  
+- Removed the "Full width search" form example as it was replaced by field caps  
+- Added a new `form_control_group` rails helper to make mocking up new form fields easier without having to worry about dynamically changing error classes or conditionally showing hints/errors/labels  
 
 ### Fixes
 
@@ -31,6 +34,7 @@
 - Added `<small>` support to CKEditor `contents.css`  
 - Fixed `overscroll-behavior` spelling  
 - Fixed `ornament_renderer` adding `has_children` to every navitem that has a child navitem, regardless of if it was rendering that child or not  
+- Fixed `button__icon` class in IE11  
 - Removed the `styleguide` class from the default global template 
 - Removed un-used `$image-border` variable from `settings.scss`
 

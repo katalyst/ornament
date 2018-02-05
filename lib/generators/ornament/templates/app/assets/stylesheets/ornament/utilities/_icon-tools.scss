@@ -13,7 +13,8 @@
 @mixin icon-block($block-size, $icon-size:false) {
   @include display-flex;
   @include align-items(center);
-  @include justify-content(center);
+  // "center" doesn't work properly in IE11, "space around" does essentially the same thing in this situation
+  @include justify-content(space-around);
 
   @if type-of($block-size) == "list" {
     width: nth($block-size, 1);

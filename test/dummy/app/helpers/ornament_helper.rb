@@ -58,34 +58,34 @@ module OrnamentHelper
     link_to(link, url)
   end
 
-    # Icon Helper
-    # <%= icon("close", width: 24, height: 24, stroke: "#BADA55", fill: "purple") -%>
-    def icon(icon_path, options={})
-      options[:stroke] = "#000000" unless options[:stroke].present?
-      options[:fill] = "#000000" unless options[:fill].present?
-      options[:class] = "" unless options[:class].present?
+  # Icon Helper
+  # <%= icon("close", width: 24, height: 24, stroke: "#BADA55", fill: "purple") -%>
+  def icon(icon_path, options={})
+    options[:stroke] = "#000000" unless options[:stroke].present?
+    options[:fill] = "#000000" unless options[:fill].present?
+    options[:class] = "" unless options[:class].present?
 
-      # Get path for icons
-      path = "shared/icons"
-      if options[:koi] && defined?(Koi) 
-        path = "koi/shared/icons"
-      end
-
-      # build styles string
-      options[:styles] = ""
-      {width: :width, height: :height}.each do |attribute, key|
-        value = options[key]
-        if value
-          # allow shorthand numbers to auto-format to pixels
-          value = "#{value}px" if value.is_a? Numeric
-          options[:styles] += "#{attribute}: #{value}; "
-        end
-      end
-      options[:className] ||= "icon-#{icon_path.parameterize}";
-
-      # build svg
-      render("#{path}/#{icon_path}.svg", options: options)
+    # Get path for icons
+    path = "shared/icons"
+    if options[:koi] && defined?(Koi) 
+      path = "koi/shared/icons"
     end
+
+    # build styles string
+    options[:styles] = ""
+    {width: :width, height: :height}.each do |attribute, key|
+      value = options[key]
+      if value
+        # allow shorthand numbers to auto-format to pixels
+        value = "#{value}px" if value.is_a? Numeric
+        options[:styles] += "#{attribute}: #{value}; "
+      end
+    end
+    options[:className] ||= "icon-#{icon_path.parameterize}";
+
+    # build svg
+    render("#{path}/#{icon_path}.svg", options: options)
+  end
 
   # SVG Image Helper
   # Converts a dragonfly-stored SVG image to inline SVG with a missing
@@ -100,6 +100,21 @@ module OrnamentHelper
   def render_source(code)
     @html_encoder ||= HTMLEntities.new
     raw(@html_encoder.encode(code))
+  end
+
+  def form_control_group(attr, f, wrapper_opts={}, &block)
+    wrapper_class = wrapper_opts[:class] || "";
+    wrapper_class += " control-group"
+    wrapper_class += " error" if f.error(attr)
+    output =  "<div class='#{wrapper_class}'>"
+    output += "  <div class='control-group--label'>"
+    output += f.label(attr)
+    output += f.error(attr) if f.error(attr)
+    output += f.hint(attr) if f.hint(attr)
+    output += "  </div>"
+    output += "  #{capture(&block)}"
+    output += "</div>"
+    output.html_safe
   end
 
 end

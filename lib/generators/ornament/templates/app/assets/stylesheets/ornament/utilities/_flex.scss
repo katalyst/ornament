@@ -49,7 +49,7 @@
 
 @mixin flex-shrink($value) {
   -webkit-flex-shrink: $value;
-  -ms-flex-positive: $value;
+  -ms-flex-negative: $value;
   flex-shrink: $value;
 }
 
