@@ -9,6 +9,9 @@
 ### Fixes
 
 - Fixed rails.confirm lightbox close button alignment
+- Added docs for fullscreen lightboxes
+- Added docs for scrollable lightbox footer
+- Added docs for lightbox section classes
 
 ## v2.0.2
 
