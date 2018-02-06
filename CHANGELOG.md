@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.0.3
+
+### Changes
+
+- Added a new sass variable in `lightbox.scss`, `$fullscreen-mobile`. This variable will make the scrollable lightbox fullscreen at a screensize determined by the `$fullscreen-mobile` variable. You can set the variable to `false` to disable the feature entirely and keep the existing scrollable functionality. 
+
+### Fixes
+
+- Fixed rails.confirm lightbox close button alignment
+
 ## v2.0.2
 
 ### Form refactors
