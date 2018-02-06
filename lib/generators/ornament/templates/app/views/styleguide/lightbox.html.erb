@@ -31,8 +31,21 @@
   <p>You can add the <code>data-lightbox-size="small"</code> attribute to the lightbox to give it a smaller window:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-2" } do -%>
-<a href="#example-2" data-lightbox-basic data-lightbox-size="small">Open lightbox</a>
+<a href="#example-2" data-lightbox-basic data-lightbox-size="small">Open small lightbox</a>
 <div class="mfp-hide" id="example-2">
+  <div class="panel--padding content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+  </div>
+</div>
+  <%- end -%>
+
+  <p><code>fullscreen</code> is also a valid sizing option:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-fullscreen" } do -%>
+<a href="#example-fullscreen" data-lightbox-basic data-lightbox-size="fullscreen">Open fullscreen lightbox</a>
+<div class="mfp-hide" id="example-fullscreen">
   <div class="panel--padding content">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
@@ -45,6 +58,8 @@
   <h2 class="heading-two">Scrollable Lightbox</h2>
 
   <p>You can use the <code>shared/inline_lightbox</code> partial to markup your scrollable lightbox, use the <code>data-lightbox</code> attribute instead of <code>data-lightbox-basic</code> to complete the scrollable lightbox.</p>
+
+  <p>This lightbox will automatically go fullscreen at smaller screensizes. This functionality can be disabled with the <code>$fullscreen-mobile</code> sass variable in the lightbox component.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-scrollable", ruby: capture { -%>
 &lt;%= render layout: "shared/inline_lightbox", locals: { inline_id: "example-scrollable" } do -%>
@@ -64,7 +79,6 @@
   </div>
 <%- end -%>
   <%- end -%>
-
 
   <hr />
   <h2 class="heading-two">Types</h2>
