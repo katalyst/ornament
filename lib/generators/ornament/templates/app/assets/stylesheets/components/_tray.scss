@@ -43,6 +43,10 @@ $tray-background: $passive-color;
   }
 }
 
+.tray--page {
+  min-height: 100vh;
+}
+
 @include media-query($breakpoint-header) {
   .tray--page {
     min-height: 100vh;
