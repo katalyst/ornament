@@ -1,6 +1,7 @@
 .header {
   background: #ccc;
-  padding: $xx-small-unit;
+  padding-top: $xx-small-unit;
+  padding-bottom: $xx-small-unit;
   @include pie-clearfix;
   
   // Fix for choppy fixed positioning after a CSS transition has

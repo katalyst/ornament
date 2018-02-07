@@ -12,6 +12,10 @@
 - Added docs for fullscreen lightboxes
 - Added docs for scrollable lightbox footer
 - Added docs for lightbox section classes
+- Removed default left/right padding on header
+- Removed default left/right padding on footer
+- Added 100vh min-height to `.tray--page` to make footer default to bottom of screen
+- Removed styleguide navigation from default global layout
 
 ## v2.0.2
 
