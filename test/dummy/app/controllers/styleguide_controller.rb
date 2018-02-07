@@ -4,7 +4,7 @@ class StyleguideController < ActionController::Base
     include CommonControllerActions
   end
 
-  layout "styleguide/ornament"
+  layout "application"
 
   def form
     @months = {

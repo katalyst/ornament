@@ -5,6 +5,7 @@
 ### Changes
 
 - Added a new sass variable in `lightbox.scss`, `$fullscreen-mobile`. This variable will make the scrollable lightbox fullscreen at a screensize determined by the `$fullscreen-mobile` variable. You can set the variable to `false` to disable the feature entirely and keep the existing scrollable functionality. 
+- Refactored `ornament_menu` simple-navigation renderer to show dropdown arrows and keyboard access
 
 ### Fixes
 
@@ -16,6 +17,7 @@
 - Removed default left/right padding on footer
 - Added 100vh min-height to `.tray--page` to make footer default to bottom of screen
 - Removed styleguide navigation from default global layout
+- Added the `ornament_menu` simple-navigation renderer to the generator
 
 ## v2.0.2
 

@@ -82,9 +82,15 @@ module OrnamentHelper
       end
     end
     options[:className] ||= "icon-#{icon_path.parameterize}";
-
-    # build svg
-    render("#{path}/#{icon_path}.svg", options: options)
+    # simple-navigation has it's own render() method so 
+    # rendering partials inside simple-navigation needs a 
+    # bit of trickery
+    svg_path = "#{path}/#{icon_path}.svg"
+    if defined?(render_icon)
+      render_icon(partial: svg_path, locals: { options: options })
+    else
+      render(svg_path, options: options)
+    end
   end
 
   # SVG Image Helper
