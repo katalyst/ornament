@@ -18,6 +18,8 @@
 - Added 100vh min-height to `.tray--page` to make footer default to bottom of screen
 - Removed styleguide navigation from default global layout
 - Added the `ornament_menu` simple-navigation renderer to the generator
+- Added `element.remove` js polyfill for IE11 to fix crash with `icon-loader`  
+- Added `display: none` to ornament icon div to prevent being displayed during a JS crash  
 
 ## v2.0.2
 
