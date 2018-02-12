@@ -6,6 +6,7 @@
 
 - Added a new sass variable in `lightbox.scss`, `$fullscreen-mobile`. This variable will make the scrollable lightbox fullscreen at a screensize determined by the `$fullscreen-mobile` variable. You can set the variable to `false` to disable the feature entirely and keep the existing scrollable functionality. 
 - Refactored `ornament_menu` simple-navigation renderer to show dropdown arrows and keyboard access
+- Panel backgrounds now no longer inherit from `.panel`, this is to allow panel background classes to be used with or without rounded corners
 
 ### Fixes
 
@@ -20,6 +21,7 @@
 - Added the `ornament_menu` simple-navigation renderer to the generator
 - Added `element.remove` js polyfill for IE11 to fix crash with `icon-loader`  
 - Added `display: none` to ornament icon div to prevent being displayed during a JS crash  
+- Fixed alignment of flash message close buttons
 
 ## v2.0.2
 

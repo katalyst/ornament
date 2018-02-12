@@ -3,7 +3,6 @@
 // =========================================================================
 
 @mixin panel-color($background, $color:false) {
-  @extend .panel;
   background: $background;
 
   @if $color {
