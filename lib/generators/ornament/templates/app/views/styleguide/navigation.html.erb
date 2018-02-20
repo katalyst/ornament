@@ -11,7 +11,7 @@
 <%- content_for :above_layout do -%>
 <div class="navigation">
   <div class="layout--container">
-    <nav>
+    <nav class="navigation__simple">
       <ul>
         <li>
           <a href="#">Home</a>
@@ -44,19 +44,99 @@
 </div>
 <%- end -%>
 
-<div class="content-spacing">
-  <p>Just a simple little starter navigation component to quickly drop-in some global navigation when necessary.</p>
-  <p>You can see an example of the navigation yielded in <code>:above_layout</code> just under the header.</p>
-</div>
+<div class="spacing">
 
-<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "blankstate", ruby: capture { -%>
+  <div class="content-spacing">
+    <p>Just a simple little starter navigation component to quickly drop-in some global navigation when necessary.</p>
+    <p>You can see an example of the navigation yielded in <code>:above_layout</code> just under the header.</p>
+  </div>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-simple", ruby: capture { -%>
 &lt;div class="navigation">
   &lt;div class="layout--container">
-    &lt;nav>
-      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :sf_menu, level: 1..2, expand_all: true, dom_class: '' %>
+    &lt;nav class="navigation__simple">
+      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :sf_menu, level: 1..2, expand_all: true %>
     &lt;/nav>
   &lt;/div>
 &lt;/div>
-<%- } } do -%>
+  <%- } } do -%>
 <%= yield :above_layout -%>
-<%- end -%>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-four">Custom Renderer</h2>
+
+  <div class="content-spacing">
+    <p>You can use the <code>ornament_menu</code> simple-navigation renderer to automatically add arrows, toggle and accessibility features.</p>
+    <p>Note that the <code>navigation__simple</code> class has been removed for this menu, which removes the hover-to-show-subnavigation functionality.</p>
+  </div>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament", ruby: capture { -%>
+&lt;div class="navigation">
+  &lt;div class="layout--container">
+    &lt;nav>
+      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..2, expand_all: true %>
+    &lt;/nav>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
+<div class="navigation">
+  <div class="layout--container">
+    <nav class="simple-navigation__with-toggles simple-navigation__with-icons">
+      <ul>
+        <li>
+          <a href="#" data-navigation-item>Home</a>
+        </li>
+        <li class="has-children">
+          <button data-navigation-parent data-toggle-anchor="key1" data-toggle-timing="100" data-toggle-temporary-anchor aria-expanded="false" data-toggle-anchor-ready>
+            About
+            <%= icon("chevron_right") %>
+          </button>
+          <div class="simple-navigation--nested" data-toggle="key1" data-toggle-temporary>
+            <ul>
+              <li>
+                <a href="#" data-navigation-item>History</a>
+              </li>
+              <li>
+                <a href="#" data-navigation-item>Board Members</a>
+              </li>
+              <li>
+                <a href="#" data-navigation-item>Executive Team</a>
+              </li>
+              <li>
+                <a href="#" data-navigation-item>Contacts</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="has-children">
+          <button data-navigation-parent data-toggle-anchor="key2" data-toggle-timing="100" data-toggle-temporary-anchor aria-expanded="false" data-toggle-anchor-ready>
+            Products
+            <%= icon("chevron_right") %>
+          </button>
+          <div class="simple-navigation--nested" data-toggle="key2" data-toggle-temporary>
+            <ul>
+              <li class="navigation--active-item">
+                <a href="#" data-navigation-item>On Sale</a>
+              </li>
+              <li>
+                <a href="#" data-navigation-item>Other</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+  <%- end -%>
+
+  <div class="content-spacing">
+    <p>The <code>ornament_menu</code> renderer has a couple of options:</p>
+    <p><code>no_icons: true</code> will render the menu without the automatic svg arrow icons.</p>
+    <p><code>no_toggle: true</code> will disable the click-to-toggle subnavigation behaviour. Keep in mind that doing this will drastically impact the accessibility of the menu.</p>
+    <p>If you are intending to hide the arrows and disable the toggle functions, you may be better off just using the default <code>sf_menu</code> renderer.</p>
+  </div>
+
+</div>

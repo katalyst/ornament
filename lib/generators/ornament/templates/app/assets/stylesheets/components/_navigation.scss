@@ -1,29 +1,87 @@
 $navigation-menu-width: 200px;
-$navigation-padding: $xxxx-small-unit;
+$navigation-padding-y: $xxxx-small-unit;
+$navigation-padding-x: $xxx-small-unit;
+
+// =========================================================================
+// Navigation bar
+// =========================================================================
 
 .navigation {
   background: $secondary-color;
 }
 
+// =========================================================================
+// First level
+// =========================================================================
+
 .navigation nav > ul {
-  @include list-horizontal($navigation-padding, $delegate: "> a");
-  @include list-flush("left and right", $delegate: "> a");
+  @include display-flex;
+  @include flex-wrap;
+  border-left: $divider;
+
+  > li {
+    border-right: $divider;
+  }
+
+  > li > a,
+  > li > button {
+    padding: $navigation-padding-y $navigation-padding-x;
+    @include color-link($white, $white);
+    @include decorate-link(none, none);
+    transition: .2s background;
+
+    &:hover,
+    &:focus {
+      background: rgba($white, .1);
+    }
+  }
+
+  a {
+    display: block;
+  }
 }
 
-.navigation nav > ul > li {
+// =========================================================================
+// First level with children
+// =========================================================================
+
+.navigation nav > ul > .has-children {
+  position: relative;
+
+  button {
+    position: relative;
+  }
+
+  svg {
+    position: relative;
+    top: 2px;
+    width: 11px;
+    height: 16px;
+    @include transform(rotateZ(90deg));
+    @include transition(transform .2s);
+    margin-left: $xxxx-small-unit;
+  }
+
+  button.active svg {
+    @include transform(rotate(270deg));
+  }
+  
+  .icon--fill {
+    fill: $white;
+  }
+}
+
+.navigation__simple li {
   position: relative;
 }
 
-.navigation nav > ul > li > a,
-.navigation nav > .nav__dropdown-wrapper button {
-  @include color-link($white, $white);
-  @include decorate-link(none, none);
-  padding-top: $navigation-padding;
-  padding-bottom: $navigation-padding;
-}
+// =========================================================================
+// Second level
+// =========================================================================
 
 .navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown,
-.navigation nav > ul ul {
+.navigation__simple ul ul,
+.simple-navigation--nested {
   display: none;
   position: absolute;
   background: $secondary-color;
@@ -31,23 +89,24 @@ $navigation-padding: $xxxx-small-unit;
   left: 0;
   width: $navigation-menu-width;
   z-index: 200;
-  padding-bottom: $navigation-padding;
   border: 0;
+  padding: $navigation-padding-y $navigation-padding-x;
+
+  // Ornament nav renderer without-toggles class allows hover
+  // to show subnavigation
+  .simple-navigation__without-toggles li:hover > & {
+    display: block;
+  }
 }
 
-.navigation nav > ul > li:hover ul {
+// navigation-simple hover states to show subnavigation
+.navigation__simple li:hover ul {
   display: block;
 }
 
 .navigation nav > .nav__dropdown-wrapper ul a,
-.navigation nav > ul ul a {
+.navigation nav > ul ul a,
+.navigation nav > ul ul button {
   @include color-link($white, $white);
   @include decorate-link(none, underline);
-  padding-left: $navigation-padding;
-  padding-right: $navigation-padding;
-}
-
-.navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown {
-  // left: auto;
-  // right: 0;
 }

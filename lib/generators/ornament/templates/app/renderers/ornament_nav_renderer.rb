@@ -11,8 +11,11 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
 
   def render(item_container)
     # Add support for a dom_class attribute on the parent element
+    item_container.dom_class = ""
     item_container.dom_class = options.delete(:dom_class) if options.has_key?(:dom_class)
     item_container.dom_id = options.delete(:dom_id) if options.has_key?(:dom_id)
+    item_container.dom_class += has_icons ? " simple-navigation__with-icons" : " simple-navigation__without-icons"
+    item_container.dom_class += has_toggles ? " simple-navigation__with-toggles" : " simple-navigation__without-toggles"
     super
   end
 
@@ -22,6 +25,14 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
   # click-to-toggle data attributes
   def accessible
     true 
+  end
+
+  def has_toggles
+    !(options[:no_toggle] && options[:no_toggle].eql?(true))
+  end
+
+  def has_icons
+    !(options[:no_icons] && options[:no_icons].eql?(true))
   end
 
   # Build out the key for an item based on the predefined key
@@ -37,6 +48,7 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
   # Customised simple-navigation method
   # Building out custom navigation items
   def list_content(item_container)
+
     item_container.items.map { |item|
       li_options = item.html_options.except(:link)
 
@@ -63,8 +75,10 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
 
         if accessible 
           subnav_container_options[:data] = {}
-          subnav_container_options[:data][:toggle] = build_item_key(item)
-          subnav_container_options[:data][:toggle_temporary] = ""
+          if has_toggles
+            subnav_container_options[:data][:toggle] = build_item_key(item)
+            subnav_container_options[:data][:toggle_temporary] = ""
+          end
           li_content << content_tag(:div, render_sub_navigation_for(item), subnav_container_options)
         else
           # If not accessible, just generate sub_navigation like
@@ -100,12 +114,18 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
 
     if accessible && include_sub_navigation?(item)
       # Add data-toggle attributes
-      item_options[:data][:toggle_anchor] = build_item_key(item)
-      item_options[:data][:toggle_timing] = "100"
-      item_options[:data][:toggle_temporary_anchor] = ""
+      if has_toggles
+        item_options[:data][:toggle_anchor] = build_item_key(item)
+        item_options[:data][:toggle_timing] = "100"
+        item_options[:data][:toggle_temporary_anchor] = ""
+      end
 
       # Render the button with all the options
-      item_content = "#{item.name} #{icon('chevron_right')}"
+      if has_icons
+        item_content = "#{item.name} #{icon('chevron_right')}"
+      else
+        item_content = item.name
+      end
       content_tag('button', item_content, item_options)
     else
       if suppress_link?(item)

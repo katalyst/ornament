@@ -4,8 +4,10 @@
 
 ### Changes
 
-- Added a new sass variable in `lightbox.scss`, `$fullscreen-mobile`. This variable will make the scrollable lightbox fullscreen at a screensize determined by the `$fullscreen-mobile` variable. You can set the variable to `false` to disable the feature entirely and keep the existing scrollable functionality. 
+- Added a new sass variable in `lightbox.scss`, `$fullscreen-mobile`. This variable will make the scrollable lightbox fullscreen at a screensize determined by the `$fullscreen-mobile` variable. You can set the variable to `false` to disable the feature entirely and keep the existing scrollable functionality 
 - Refactored `ornament_menu` simple-navigation renderer to show dropdown arrows and keyboard access
+- Added a couple of options to `ornament_menu` renderer to allow icons and toggle behaviour to be turned off
+- Added documentation for `ornament_menu` renderer in the navigation component page
 - Panel backgrounds now no longer inherit from `.panel`, this is to allow panel background classes to be used with or without rounded corners
 - Moved vendor.js back in to the application.js bundle
 
