@@ -28,6 +28,7 @@
 - Added `element.remove` js polyfill for IE11 to fix crash with `icon-loader`  
 - Added `display: none` to ornament icon div to prevent being displayed during a JS crash  
 - Fixed alignment of flash message close buttons
+- Fixed spacing in show.js docs by changing to simple_form helpers
 
 ## v2.0.2
 
