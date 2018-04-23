@@ -10,6 +10,7 @@
 - Added documentation for `ornament_menu` renderer in the navigation component page
 - Panel backgrounds now no longer inherit from `.panel`, this is to allow panel background classes to be used with or without rounded corners
 - Moved vendor.js back in to the application.js bundle
+- Added `$instagram` colour variable to the list of social colours
 
 ### Fixes
 
