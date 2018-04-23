@@ -1,0 +1,59 @@
+// =========================================================================
+// Enhanced radio / checkboxes
+// =========================================================================
+
+.radio .form--enhanced--control {
+  @include border-radius(50%);
+}
+
+.radio,
+.checkbox {
+
+  .form--enhanced--control {
+    content: "";
+    width: 1em;
+    height: 1em;
+    border: 1px solid $input-border-color;
+    position: absolute;
+    top: 0.3em;
+    left: 0;
+    background: $primary-color;
+    @include box-shadow(inset 0 0 0 1em $white);
+    @include transition(box-shadow .2s);
+  }
+
+  .form--enhanced--control:hover {
+    border-color: $input-border-focus-color;
+    cursor: pointer;
+  }
+
+  // Hiding enhanced controls for hidden input fields
+  input[type="hidden"] + .form--enhanced--control {
+    display: none;
+  }
+
+  input:focus + .form--enhanced--control {
+    border-color: $input-border-focus-color;
+  }
+
+  input:checked + .form--enhanced--control {
+    border-color: $input-border-focus-color;
+    @include box-shadow(inset 0 0 0 3px $white);
+  }
+
+  // Removing original input field
+  input {
+    border: 0;
+    clip: rect(0,0,0,0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    padding: 0;
+  }
+}
+
+label:active .form--enhanced--control {
+  border: 2px solid $input-border-focus-color;
+}

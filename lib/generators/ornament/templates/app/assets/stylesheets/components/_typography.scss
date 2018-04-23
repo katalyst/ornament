@@ -13,13 +13,12 @@ $system-fonts:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica
 // eg. @include font($heading-alpha-font);
 // =========================================================================
 
-$body-font: (sans-serif) normal normal;
-$italic-font: (sans-serif) italic normal;
-$bold-font: (sans-serif) normal bold;
-$bold-italic-font: (sans-serif) italic bold;
-$heading-alpha-font: (sans-serif) normal bold;
-$heading-alpha-font-italic: (sans-serif) italic bold;
-$heading-beta-font: (georgia, serif) normal bold;
+$body-font: ($system-fonts) normal normal;
+$italic-font: ($system-fonts) italic normal;
+$bold-font: ($system-fonts) normal bold;
+$bold-italic-font: ($system-fonts) italic bold;
+$heading-alpha-font: ($system-fonts) normal bold;
+$heading-alpha-font-italic: ($system-fonts) italic bold;
 
 @if not $font-families {
   $body-font: ('Myriad W01 Regular', sans-serif) normal normal;

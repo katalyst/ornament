@@ -193,31 +193,7 @@
 
   <h2 class="heading-two">Enhanced Radios and checkboxes</h2>
 
-  <p>Note: falls back to regular radios/checkboxes in IE8</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-checkboxes-enhanced", ruby: capture { -%>
-&lt;%= f.input :ehanced_checkboxes, as: :check_boxes, wrapper_html: { class: "form--enhanced" } -%&gt;
-  <%- } } do -%>
-<%= f.input :ehanced_checkboxes, as: :check_boxes, wrapper_html: { class: "form--enhanced" } %>
-  <%- end -%>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-radios-enhanced", ruby: capture { -%>
-&lt;%= f.input :ehanced_radios, as: :radio_buttons, wrapper_html: { class: "form--enhanced" } -%&gt;
-  <%- } } do -%>
-<%= f.input :ehanced_radios, as: :radio_buttons, wrapper_html: { class: "form--enhanced" } %>
-  <%- end -%>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-horizontal-radios-enhanced", ruby: capture { -%>
-&lt;%= f.input :ehanced_horizontal, as: :check_boxes, wrapper_html: { class: "form--enhanced form--horizontal" } -%&gt;
-  <%- } } do -%>
-<%= f.input :ehanced_horizontal, as: :check_boxes, wrapper_html: { class: "form--enhanced form--horizontal" } %>
-  <%- end -%>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox-enhanced", ruby: capture { -%>
-&lt;%= f.input :example, as: :boolean, wrapper_html: { class: "form--enhanced" } -%&gt;
-  <%- } } do -%>
-<%= f.input :enhanced_boolean, as: :boolean, wrapper_html: { class: "form--enhanced" } %>
-  <%- end -%>
+  <p>You'll notice that radios and checkboxes are styled differently than native controls. If you wish to disable this functionality you will need to comment out or remove the <code>form-enhanced</code> includes in your <code>application.scss</code> and <code>application.js</code> files.</p>
 
   <hr />
 
@@ -509,7 +485,7 @@
   <%= f.input :billing_address_2, wrapper_html: { class: "form--medium" } %>
   <%= f.input :billing_state, wrapper_html: { class: "form--medium" } %>
   <%= f.input :billing_country, as: :string, wrapper_html: { class: "form--medium" } %>
-  <%= f.input :use_billing_address, as: :boolean, wrapper_html: { class: "form--medium form--enhanced" } %>
+  <%= f.input :use_billing_address, as: :boolean, wrapper_html: { class: "form--medium" } %>
   <div class="inputs" data-show="test_form_use_billing_address" data-show-inverse>
     <%= f.input :shipping_address_1, wrapper_html: { class: "form--medium" } %>
     <%= f.input :shipping_address_2, wrapper_html: { class: "form--medium" } %>
@@ -561,7 +537,7 @@
 
   <%= simple_form_for :full_example, url: "/styleguide/form", html: { class: "form-embedded" }, remote: true do |f| %>
 
-    <div class="inputs form--enhanced">
+    <div class="inputs">
       <%= f.error_notification %>
       <h3 class="heading-five">About you</h3>
       <%= f.input :name, hint: "First and last name", input_html: { class: "form--medium" } %>
