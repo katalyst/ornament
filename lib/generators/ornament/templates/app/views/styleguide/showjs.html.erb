@@ -1,5 +1,6 @@
 <% content_for :title, "Show.js" %>
 
+<%= simple_form_for :form, url: "/styleguide/form", remote: true do |f| %>
 <div class="content-spacing">
 
   <h2 class="heading-two">Basic example</h2>
@@ -9,31 +10,12 @@
   <p>In this first example, we have two radio buttons. One with the ID of <code>showjs_example_1_true</code> and the second with the ID of <code>showjs_example_1_false</code>. If we want to show the hidden field when selecting the true radio, we add <code>data-show="showjs_example_1_true"</code> to the hidden field.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-example-1", ruby: capture { -%>
-&lt;%= f.input :example, as: :radios -%&gt;
-&lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes" } } -%&gt;
+&lt;%= f.input :example, as: :radio_buttons %>
+&lt;%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_example_true" } } %>
   <%- } } do -%>
 <div class="inputs">
-  <div class="control-group radio_buttons form--horizontal">
-    <label class="radios required control-label">
-      Show hidden field?
-    </label>
-    <div class="controls">
-      <label class="radio">
-        <input class="radios required" id="showjs_example_1_true" name="showjs_example_1" type="radio" value="true">
-        Yes
-      </label>
-      <label class="radio">
-        <input class="radios required" id="showjs_example_1_false" name="showjs_example_1" type="radio" value="false">
-        No
-      </label>
-    </div>
-  </div>  
-  <div class="control-group form--small" data-show="showjs_example_1_true">
-    <label class="optional control-label">Hidden Field</label>
-    <div class="controls">
-      <input class="string tel optional" type="text" />
-    </div>
-  </div> 
+  <%= f.input :basic_example, as: :radio_buttons, label: "Show hidden field?", required: false, wrapper_html: { class: "form--horizontal" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_basic_example_true" } } %>
 </div>
   <%- end -%>
 
@@ -44,41 +26,17 @@
   <p>Sometimes you might want to toggle a group of fields together. Rather than adding the <code>data-show</code> attribute to each of the element wrappers, you can wrap them all in a <code>div</code> with the fields in it. You will need to make sure you add the <code>inputs</code> class on it to retain the spacing.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi", ruby: capture { -%>
-&lt;%= f.input :example, as: :radios -%&gt;
-&lt;div class="inputs" data-show="example_yes">
+&lt;%= f.input :example, as: :radio_buttons -%&gt;
+&lt;div class="inputs" data-show="form_example_true">
   &lt;%= f.input :hidden_field_1 -%&gt;
   &lt;%= f.input :hidden_field_2 -%&gt;
 &lt;/div>
   <%- } } do -%>
 <div class="inputs">
-  <div class="control-group radio_buttons form--horizontal">
-    <label class="radios required control-label">
-      Show hidden field?
-    </label>
-    <div class="controls">
-      <label class="radio">
-        <input class="radios required" id="showjs_example_multi_true" name="showjs_example_multi" type="radio" value="true">
-        Yes
-      </label>
-      <label class="radio">
-        <input class="radios required" id="showjs_example_multi_false" name="showjs_example_multi" type="radio" value="false">
-        No
-      </label>
-    </div>
-  </div>  
-  <div class="inputs" data-show="showjs_example_multi_true">
-    <div class="control-group form--small">
-      <label class="optional control-label">Hidden Field 1</label>
-      <div class="controls">
-        <input class="string tel optional" type="text" />
-      </div>
-    </div> 
-    <div class="control-group form--small">
-      <label class="optional control-label">Hidden Field 2</label>
-      <div class="controls">
-        <input class="string tel optional" type="text" />
-      </div>
-    </div> 
+  <%= f.input :multiple, as: :radio_buttons, label: "Show hidden field?", required: false, wrapper_html: { class: "form--horizontal" } %>
+  <div class="inputs" data-show="form_multiple_true">
+    <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small" } %>
+    <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small" } %>
   </div>
 </div>
   <%- end -%>
@@ -91,37 +49,8 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi-option-1" } do -%>
 <div class="inputs">
-  <div class="control-group radio_buttons form--horizontal">
-    <label class="radios required control-label">
-      Select Donatello AND Raphael
-    </label>
-    <div class="controls">
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_leonardo" name="showjs_leonardo" type="checkbox" value="true">
-        Leonardo
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_donatello" name="showjs_donatello" type="checkbox" value="true">
-        Donatello
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_raphael" name="showjs_raphael" type="checkbox" value="true">
-        Raphael
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_michaelangelo" name="showjs_michaelangelo" type="checkbox" value="true">
-        Michaelangelo
-      </label>
-    </div>
-  </div>  
-  <div class="inputs" data-show="showjs_raphael_&_showjs_donatello">
-    <div class="control-group form--small">
-      <label class="optional control-label">Hidden Field</label>
-      <div class="controls">
-        <input class="string tel optional" type="text" />
-      </div>
-    </div> 
-  </div>
+  <%= f.input :multiple_and, as: :check_boxes, collection: ["Leonardo", "Donatello", "Raphael", "Michaelangelo"], label: "Select Donatello AND Raphael", required: false, wrapper_html: { class: "form--horizontal" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_multiple_and_raphael_&_form_multiple_and_donatello" } } %>
 </div>
   <%- end -%>  
 
@@ -133,37 +62,8 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-multi-option-2" } do -%>
 <div class="inputs">
-  <div class="control-group radio_buttons form--horizontal">
-    <label class="radios required control-label">
-      Select Donatello OR Raphael
-    </label>
-    <div class="controls">
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_leonardo2" name="showjs_leonardo2" type="checkbox" value="true">
-        Leonardo
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_donatello2" name="showjs_donatello2" type="checkbox" value="true">
-        Donatello
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_raphael2" name="showjs_raphael2" type="checkbox" value="true">
-        Raphael
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_michaelangelo2" name="showjs_michaelangelo2" type="checkbox" value="true">
-        Michaelangelo
-      </label>
-    </div>
-  </div>  
-  <div class="inputs" data-show="showjs_raphael2_&_showjs_donatello2" data-show-type="any">
-    <div class="control-group form--small">
-      <label class="optional control-label">Hidden Field</label>
-      <div class="controls">
-        <input class="string tel optional" type="text" />
-      </div>
-    </div> 
-  </div>
+  <%= f.input :multiple_or, as: :check_boxes, collection: ["Leonardo", "Donatello", "Raphael", "Michaelangelo"], label: "Select Donatello OR Raphael", required: false, wrapper_html: { class: "form--horizontal" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_multiple_or_raphael_&_form_multiple_or_donatello", show_type: "any" } } %>
 </div>
   <%- end -%>  
 
@@ -177,27 +77,8 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select" } do -%>
 <div class="inputs">
-  <div class="control-group">
-    <label class="control-label">
-      Select "3" to show the hidden field
-    </label>
-    <div class="controls">
-      <select class="select form--auto" id="show-js-select">
-        <option value="">Please select</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div>
-  </div>
-  <div class="control-group form--small" data-show="show-js-select" data-show-option="3">
-    <label class="optional control-label">Hidden Field</label>
-    <div class="controls">
-      <input class="string optional" type="text" />
-    </div>
-  </div> 
+  <%= f.input :select, as: :select, collection: (1..5), label: "Select \"3\" to show the hidden field", required: false, prompt: "Please select", input_html: { class: "form--auto" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_select", show_option: "3" } } %>
 </div>
   <%- end -%>
 
@@ -205,36 +86,9 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select-2" } do -%>
 <div class="inputs">
-  <div class="control-group">
-    <label class="control-label">
-      Answer Yes
-    </label>
-    <div class="controls">
-      <select class="select form--auto" id="show-js-select-2-1">
-        <option value="">Please select</option>
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-      </select>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label">
-      Answer Yes again
-    </label>
-    <div class="controls">
-      <select class="select form--auto" id="show-js-select-2-2">
-        <option value="">Please select</option>
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-      </select>
-    </div>
-  </div>
-  <div class="control-group form--small" data-show="show-js-select-2-1_&_show-js-select-2-2" data-show-option="true">
-    <label class="optional control-label">Hidden Field</label>
-    <div class="controls">
-      <input class="string optional" type="text" />
-    </div>
-  </div> 
+  <%= f.input :multiselect_1, as: :select, collection: ["Yes", "No"], label: "Answer Yes", required: false, prompt: "Please select", input_html: { class: "form--auto" } %>
+  <%= f.input :multiselect_2, as: :select, collection: ["Yes", "No"], label: "Answer Yes again", required: false, prompt: "Please select", input_html: { class: "form--auto" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_multiselect_1_&_form_multiselect_2", show_option: "Yes" } } %>
 </div>
   <%- end -%>
 
@@ -242,36 +96,9 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select-3" } do -%>
 <div class="inputs">
-  <div class="control-group">
-    <label class="control-label">
-      Answer Yes
-    </label>
-    <div class="controls">
-      <select class="select form--auto" id="show-js-select-3-1">
-        <option value="">Please select</option>
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-      </select>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label">
-      Answer No
-    </label>
-    <div class="controls">
-      <select class="select form--auto" id="show-js-select-3-2">
-        <option value="">Please select</option>
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-      </select>
-    </div>
-  </div>
-  <div class="control-group form--small" data-show="show-js-select-3-1_&_show-js-select-3-2" data-show-option="true_&_false">
-    <label class="optional control-label">Hidden Field</label>
-    <div class="controls">
-      <input class="string optional" type="text" />
-    </div>
-  </div> 
+  <%= f.input :multiselect_3, as: :select, collection: ["Yes", "No"], label: "Answer Yes", required: false, prompt: "Please select", input_html: { class: "form--auto" } %>
+  <%= f.input :multiselect_4, as: :select, collection: ["Yes", "No"], label: "Answer No", required: false, prompt: "Please select", input_html: { class: "form--auto" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_multiselect_3_&_form_multiselect_4", show_option: "Yes_&_No" } } %>
 </div>
   <%- end -%>
 
@@ -279,27 +106,8 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select-4" } do -%>
 <div class="inputs">
-  <div class="control-group">
-    <label class="control-label">
-      Answer 2 or 4
-    </label>
-    <div class="controls">
-      <select class="select form--auto" id="show-js-select-4">
-        <option value="">Please select</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div>
-  </div>
-  <div class="control-group form--small" data-show="show-js-select-4" data-show-option="2_&_4" data-show-debug>
-    <label class="optional control-label">Hidden Field</label>
-    <div class="controls">
-      <input class="string optional" type="text" />
-    </div>
-  </div> 
+  <%= f.input :multiselect_value, as: :select, collection: (1..5), label: "Answer 2 or 4", required: false, prompt: "Please select", input_html: { class: "form--auto" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_multiselect_value", show_option: "2_&_4" } } %>
 </div>
   <%- end -%>
 
@@ -311,18 +119,8 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-text" } do -%>
 <div class="inputs">
-  <div class="control-group check_boxes form--medium">
-    <label class="optional control-label">Type "Hello World" (without quotes, case insensitive)</label>
-    <div class="controls">
-      <input class="string tel optional" type="text" id="show-text-exact" />
-    </div>
-  </div>
-  <div class="control-group form--small" data-show="show-text-exact" data-show-input="hello world">
-    <label class="optional control-label">Hidden Field</label>
-    <div class="controls">
-      <input class="string tel optional" type="text" />
-    </div>
-  </div> 
+  <%= f.input :text_match, label: "Type \"Hello World\" (without quotes, case insensitive)", required: false, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_text_match", show_input: "hello world" } } %>
 </div>
   <%- end -%>
 
@@ -330,18 +128,8 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-text-fuzzy" } do -%>
 <div class="inputs">
-  <div class="control-group check_boxes form--medium">
-    <label class="optional control-label">Type anything that includes the word "hello" (without quotes, case insensitive)</label>
-    <div class="controls">
-      <input class="string tel optional" type="text" id="show-text-fuzzy" />
-    </div>
-  </div>
-  <div class="control-group form--small" data-show="show-text-fuzzy" data-show-input="hello" data-show-type="any">
-    <label class="optional control-label">Hidden Field</label>
-    <div class="controls">
-      <input class="string tel optional" type="text" />
-    </div>
-  </div> 
+  <%= f.input :text_match_fuzzy, label: "Type anything that includes the word \"hello\" (without quotes, case insensitive)", required: false, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_text_match_fuzzy", show_input: "hello", show_type: "any" } } %>
 </div>
   <%- end -%>
 
@@ -349,18 +137,8 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-text-any" } do -%>
 <div class="inputs">
-  <div class="control-group check_boxes form--medium">
-    <label class="optional control-label">Type anything</label>
-    <div class="controls">
-      <input class="string tel optional" type="text" id="show-text-any" />
-    </div>
-  </div>
-  <div class="control-group form--small" data-show="show-text-any" data-show-input data-show-type="*">
-    <label class="optional control-label">Hidden Field</label>
-    <div class="controls">
-      <input class="string tel optional" type="text" />
-    </div>
-  </div> 
+  <%= f.input :text_match_any, label: "Type anything", required: false, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_text_match_any", show_input: "hello", show_type: "*" } } %>
 </div>
   <%- end -%>
 
@@ -374,101 +152,22 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-1" } do -%>
 <div class="inputs">
-  <div class="control-group radio_buttons form--horizontal">
-    <label class="radios required control-label">
-      Select Donatello AND Raphael to hide the field
-    </label>
-    <div class="controls">
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_leonardo3" name="showjs_leonardo3" type="checkbox" value="true">
-        Leonardo
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_donatello3" name="showjs_donatello3" type="checkbox" value="true">
-        Donatello
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_raphael3" name="showjs_raphael3" type="checkbox" value="true">
-        Raphael
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_michaelangelo3" name="showjs_michaelangelo3" type="checkbox" value="true">
-        Michaelangelo
-      </label>
-    </div>
-  </div>  
-  <div class="inputs" data-show="showjs_raphael3_&_showjs_donatello3" data-show-inverse>
-    <div class="control-group form--small">
-      <label class="optional control-label">Hide This Field</label>
-      <div class="controls">
-        <input class="string tel optional" type="text" />
-      </div>
-    </div> 
-  </div>
+  <%= f.input :inverse_multiple_and, as: :check_boxes, collection: ["Leonardo", "Donatello", "Raphael", "Michaelangelo"], label: "Select Donatello AND Raphael to hide the field", required: false, wrapper_html: { class: "form--horizontal" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_inverse_multiple_and_raphael_&_form_inverse_multiple_and_donatello", show_inverse: "" } } %>
 </div>
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-2" } do -%>
 <div class="inputs">
-  <div class="control-group radio_buttons form--horizontal">
-    <label class="radios required control-label">
-      Select Donatello OR Raphael to hide the field
-    </label>
-    <div class="controls">
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_leonardo4" name="showjs_leonardo4" type="checkbox" value="true">
-        Leonardo
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_donatello4" name="showjs_donatello4" type="checkbox" value="true">
-        Donatello
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_raphael4" name="showjs_raphael4" type="checkbox" value="true">
-        Raphael
-      </label>
-      <label class="checkbox">
-        <input class="check_boxes required" id="showjs_michaelangelo4" name="showjs_michaelangelo4" type="checkbox" value="true">
-        Michaelangelo
-      </label>
-    </div>
-  </div>  
-  <div class="inputs" data-show="showjs_raphael4_&_showjs_donatello4" data-show-type="any" data-show-inverse>
-    <div class="control-group form--small">
-      <label class="optional control-label">Hide This Field</label>
-      <div class="controls">
-        <input class="string tel optional" type="text" />
-      </div>
-    </div> 
-  </div>
+  <%= f.input :inverse_multiple_or, as: :check_boxes, collection: ["Leonardo", "Donatello", "Raphael", "Michaelangelo"], label: "Select Donatello OR Raphael to hide the field", required: false, wrapper_html: { class: "form--horizontal" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_inverse_multiple_or_raphael_&_form_inverse_multiple_or_donatello", show_type: "any", show_inverse: "" } } %>
 </div>
   <%- end -%>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-3" } do -%>
 <div class="inputs">
-  <div class="control-group check_boxes form--horizontal ">
-    <label class="check_boxes required control-label">
-      Select "3" to hide the field
-    </label>
-    <div class="controls form--small">
-      <select class="select" id="show-js-select-inverted">
-        <option value="">Please select</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div>
-  </div>
-  <div class="inputs" data-show="show-js-select-inverted" data-show-option="3" data-show-inverse>
-    <div class="control-group form--small">
-      <label class="optional control-label">Hide This Field</label>
-      <div class="controls">
-        <input class="string tel optional" type="text" />
-      </div>
-    </div> 
-  </div>
+  <%= f.input :inverse_select, as: :select, collection: (1..5), label: "Select \"3\" to show the hidden field", required: false, prompt: "Please select", input_html: { class: "form--auto" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_inverse_select", show_option: "3", show_inverse: "" } } %>
 </div>
   <%- end -%>
 
@@ -482,72 +181,15 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-destroy", ruby: capture { -%>
 &lt;%= f.input :example, as: :radios -%&gt;
-&lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes", show_destroy: "" } } -%&gt;
+&lt;%= f.input :hidden_field, wrapper_html: { data: { show: "form_example_true", show_destroy: "" } } -%&gt;
   <%- } } do -%>
 <div class="inputs">
-  <div class="control-group radio_buttons form--horizontal">
-    <label class="radios required control-label">
-      Show hidden field?
-    </label>
-    <div class="controls">
-      <label class="radio">
-        <input class="radios required" id="showjs_example_destroy_true" name="showjs_example_destroy" type="radio" value="true">
-        Yes
-      </label>
-      <label class="radio">
-        <input class="radios required" id="showjs_example_destroy_false" name="showjs_example_destroy" type="radio" value="false">
-        No
-      </label>
-    </div>
-  </div>  
-  <div class="inputs" data-show="showjs_example_destroy_true" data-show-destroy>
-    <div class="control-group form--small">
-      <label class="optional control-label">Hidden Text Field</label>
-      <div class="controls">
-        <input class="string tel optional" type="text" />
-      </div>
-    </div> 
-    <div class="control-group form--small">
-      <label class="optional control-label">Hidden Select Field</label>
-      <div class="controls">
-        <select> 
-          <option></option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-        </select>
-      </div>
-    </div> 
-    <div class="control-group radio_buttons form--horizontal">
-      <label class="radios required control-label">
-        Hidden Radio Field
-      </label>
-      <div class="controls">
-        <label class="radio">
-          <input class="radios required" id="showjs_example_destroy_hidden_true" name="showjs_example_destroy_hidden" type="radio" value="true">
-          Yes
-        </label>
-        <label class="radio">
-          <input class="radios required" id="showjs_example_destroy_hidden_false" name="showjs_example_destroy_hidden" type="radio" value="false">
-          No
-        </label>
-      </div>
-    </div>  
-    <div class="control-group radio_buttons form--horizontal">
-      <label class="radios required control-label">
-        Hidden Checkbox Field
-      </label>
-      <div class="controls">
-        <label class="checkbox">
-          <input class="checkboxes required" id="showjs_example_destroy_hidden_true" name="showjs_example_destroy_hidden_checkboxes" type="checkbox" value="true">
-          Yes
-        </label>
-        <label class="checkbox">
-          <input class="checkboxes required" id="showjs_example_destroy_hidden_false" name="showjs_example_destroy_hidden_checkboxes" type="checkbox" value="false">
-          No
-        </label>
-      </div>
-    </div>  
+  <%= f.input :destroy, as: :radio_buttons, label: "Show hidden field?", required: false, wrapper_html: { class: "form--horizontal" } %>
+  <div class="inputs" data-show="form_destroy_true" data-show-destroy>
+    <%= f.input :hidden_field, required: false, input_html: { class: "form--small" } %>
+    <%= f.input :hidden_field, as: :select, collection: (1..4), prompt: "Please select", required: false, input_html: { class: "form--small" } %>
+    <%= f.input :hidden_field, as: :check_boxes, required: false, wrapper_html: { class: "form--horizontal" } %>
+    <%= f.input :hidden_field, as: :radio_buttons, required: false, wrapper_html: { class: "form--horizontal" } %>
   </div>
 </div>
   <%- end -%>
@@ -558,75 +200,19 @@
   <p>Another option for not sending data to the server is to disable the fields when unchecked. This will keep the data present for the user if they change their minds, but won't submit. </p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-destroy", ruby: capture { -%>
-&lt;%= f.input :example, as: :radios -%&gt;
-&lt;%= f.input :hidden_field, wrapper_html: { data: { show: "example_yes", show_disable: "" } } -%&gt;
+&lt;%= f.input :example, as: :radio_buttons -%&gt;
+&lt;%= f.input :hidden_field, wrapper_html: { data: { show: "form_example_true", show_disable: "" } } -%&gt;
   <%- } } do -%>
 <div class="inputs">
-  <div class="control-group radio_buttons form--horizontal">
-    <label class="radios required control-label">
-      Show hidden field?
-    </label>
-    <div class="controls">
-      <label class="radio">
-        <input class="radios required" id="showjs_example_disable_true" name="showjs_example_disable" type="radio" value="true">
-        Yes
-      </label>
-      <label class="radio">
-        <input class="radios required" id="showjs_example_disable_false" name="showjs_example_disable" type="radio" value="false">
-        No
-      </label>
-    </div>
-  </div>  
-  <div class="inputs" data-show="showjs_example_disable_true" data-show-disable>
-    <div class="control-group form--small">
-      <label class="optional control-label">Hidden Text Field</label>
-      <div class="controls">
-        <input class="string tel optional" type="text" />
-      </div>
-    </div> 
-    <div class="control-group form--small">
-      <label class="optional control-label">Hidden Select Field</label>
-      <div class="controls">
-        <select> 
-          <option></option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-        </select>
-      </div>
-    </div> 
-    <div class="control-group radio_buttons form--horizontal">
-      <label class="radios required control-label">
-        Hidden Radio Field
-      </label>
-      <div class="controls">
-        <label class="radio">
-          <input class="radios required" id="showjs_example_destroy_hidden_true" name="showjs_example_destroy_hidden" type="radio" value="true">
-          Yes
-        </label>
-        <label class="radio">
-          <input class="radios required" id="showjs_example_destroy_hidden_false" name="showjs_example_destroy_hidden" type="radio" value="false">
-          No
-        </label>
-      </div>
-    </div>  
-    <div class="control-group radio_buttons form--horizontal">
-      <label class="radios required control-label">
-        Hidden Checkbox Field
-      </label>
-      <div class="controls">
-        <label class="checkbox">
-          <input class="checkboxes required" id="showjs_example_destroy_hidden_true" name="showjs_example_destroy_hidden_checkboxes" type="checkbox" value="true">
-          Yes
-        </label>
-        <label class="checkbox">
-          <input class="checkboxes required" id="showjs_example_destroy_hidden_false" name="showjs_example_destroy_hidden_checkboxes" type="checkbox" value="false">
-          No
-        </label>
-      </div>
-    </div>  
+  <%= f.input :disabling, as: :radio_buttons, label: "Show hidden field?", required: false, wrapper_html: { class: "form--horizontal" } %>
+  <div class="inputs" data-show="form_disabling_true" data-show-disable>
+    <%= f.input :hidden_field, required: false, input_html: { class: "form--small" } %>
+    <%= f.input :hidden_field, as: :select, collection: (1..4), prompt: "Please select", required: false, input_html: { class: "form--small" } %>
+    <%= f.input :hidden_field, as: :check_boxes, required: false, wrapper_html: { class: "form--horizontal" } %>
+    <%= f.input :hidden_field, as: :radio_buttons, required: false, wrapper_html: { class: "form--horizontal" } %>
   </div>
 </div>
   <%- end -%>
 
 </div>
+<% end %>
