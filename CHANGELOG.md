@@ -4,6 +4,8 @@
 
 ### Changes
 
+- Converted all sass `-unit`s and font-sizes to `rem`
+- Added a `convert-px-to-rem()` function for easy px-to-rem conversion
 - Enhanced form elements are now added to all radio/checkbox elements by default, removing the requirement for the `.form--enhanced` wrapper
 - Added a new sass variable in `lightbox.scss`, `$fullscreen-mobile`. This variable will make the scrollable lightbox fullscreen at a screensize determined by the `$fullscreen-mobile` variable. You can set the variable to `false` to disable the feature entirely and keep the existing scrollable functionality
 - Refactored `ornament_menu` simple-navigation renderer to show dropdown arrows and keyboard access

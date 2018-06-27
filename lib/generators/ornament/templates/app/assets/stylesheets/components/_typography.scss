@@ -54,23 +54,23 @@ $input-typeface: $body-font;
 
 // Regular headings
 $headings-regular: (
-  ("one",   48px),
-  ("two",   36px),
-  ("three", 32px),
-  ("four",  28px),
-  ("five",  24px),
-  ("six",   20px)
+  ("one",   3rem),
+  ("two",   2.25rem),
+  ("three", 2rem),
+  ("four",  1.75rem),
+  ("five",  1.5rem),
+  ("six",   1.25rem)
 );
 
 // Smaller headings, automatically rendered via a media query on top
 // of the headings above
 $headings-small: (
-  ("one",   28px),
-  ("two",   24px),
-  ("three", 22px),
-  ("four",  20px),
-  ("five",  18px),
-  ("six",   16px)
+  ("one",   1.75rem),
+  ("two",   1.5rem),
+  ("three", 1.375rem),
+  ("four",  1.25rem),
+  ("five",  1.125rem),
+  ("six",   1rem)
 );
 
 // Build a responsive heading via the label of the configuration

@@ -1,4 +1,7 @@
 @mixin line-height-padding($height,$line-height:$base-line-size) {
+  @if unit($height) == "px" {
+    $height: convert-px-to-rem($height);
+  }
   $padding: ($height - $line-height) / 2;
   padding-top: $padding;
   padding-bottom: $padding;

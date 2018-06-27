@@ -566,7 +566,7 @@ code {
 }
 
 .container-pixel {
-  @include container(800px, $default-unit, $small-unit);
+  @include container(50rem, $default-unit, $small-unit);
 }
 
 // =========================================================================

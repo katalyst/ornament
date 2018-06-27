@@ -2,30 +2,31 @@
 // Sizing Units
 // =========================================================================
 
-$xxxxx-small-unit:      8px;
-$xxxx-small-unit:       12px;
-$xxx-small-unit:        16px;
-$xx-small-unit:         20px;
-$x-small-unit:          24px;
-$small-unit:            28px;
-$default-unit:          32px;
-$large-unit:            36px;
-$x-large-unit:          40px;
-$xx-large-unit:         44px;
-$xxx-large-unit:        48px;
-$xxxx-large-unit:       56px;
-$xxxxx-large-unit:      64px;
-$xxxxxx-large-unit:     72px;
-$xxxxxxx-large-unit:    80px;
+$xxxxxx-small-unit:     .25rem;
+$xxxxx-small-unit:      .5rem;
+$xxxx-small-unit:       .75rem;
+$xxx-small-unit:        1rem;
+$xx-small-unit:         1.25rem;
+$x-small-unit:          1.5rem;
+$small-unit:            1.75rem;
+$default-unit:          2rem;
+$large-unit:            2.25rem;
+$x-large-unit:          2.5rem;
+$xx-large-unit:         2.75rem;
+$xxx-large-unit:        3rem;
+$xxxx-large-unit:       3.5rem;
+$xxxxx-large-unit:      4rem;
+$xxxxxx-large-unit:     4.5rem;
+$xxxxxxx-large-unit:    5rem;
 
 // =========================================================================
 // Typogrpahy units
 // =========================================================================
 
-$x-small-font-size:   12px;
-$small-font-size:     14px;
-$base-font-size:      16px;
-$large-font-size:     18px;
+$x-small-font-size:   .75rem;
+$small-font-size:     .875rem;
+$base-font-size:      1rem;
+$large-font-size:     1.125rem;
 $base-line-height:    1.5;
 $base-line-size:      $base-font-size * $base-line-height;
 
@@ -53,6 +54,11 @@ $button-height:   44px;
 $panel-padding:         $xx-small-unit;
 $panel-padding-small:   $xxx-small-unit;
 $panel-spacing:         $xx-small-unit;
+
+@function convert-px-to-rem($px) {
+  $base-rem: 16px;
+  @return $px / $base-rem;
+}
 
 // =========================================================================
 // Breakpoints

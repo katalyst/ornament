@@ -92,7 +92,7 @@ $button-line-border: 2px;
 
 @mixin button-large($line: false) {
   @if $line {
-    padding: ($xxx-small-unit - $button-line-border) $x-small-unit;
+    padding: ($xxx-small-unit - convert-px-to-rem($button-line-border)) $x-small-unit;
   } @else {
     padding: $xxx-small-unit $x-small-unit;
   }
