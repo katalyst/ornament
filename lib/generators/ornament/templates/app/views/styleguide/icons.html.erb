@@ -29,7 +29,9 @@
   <p>You can control the colouring of the icon using the <code>fill</code> and <code>stroke</code> attributes:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper-colour", no_html: true, ruby: capture { -%>
-&lt;%= icon("search", width: 32) -%>
+&lt;%= icon("search", width: 32, height: 32, stroke: "#cccccc") -%>
+&lt;%= icon("search", width: 32, height: 32, stroke: "red") -%>
+&lt;%= icon("search", width: 32, height: 32, stroke: "#ff00bb") -%>
   <%- } } do -%>
     <%= icon("search", width: 32, height: 32, stroke: "#cccccc") -%>
     <%= icon("search", width: 32, height: 32, stroke: "red") -%>
@@ -90,7 +92,51 @@
 
   <h2 class="heading-two">Helper Sass Mixins</h2>
 
-  <p>Icon block</p>
+  <h3 class="heading-three">icon-block</h3>
+
+  <p><code>icon-block</code> will let you create a sized element with icon centred inside of it. This is ideal for little square blocks with icons inside them.</p>
+
+  <p>Passing only one value in will size the element and the icon will use it's inline width/height to size itself:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-block-single", scss: capture { -%>
+.icon-block-32 {
+  @include icon-block(32px);
+  background: orange;
+}
+  <%- } } do -%>
+<div class="icon-block-32">
+  <%= icon("clock", width: 32, height: 32) -%>
+</div>
+  <%- end -%>
+
+  <p>Passing two values in will size the element as a square using the first value as the width and height, and size the icon as a square as well using the second value as the width and height:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-block-single", scss: capture { -%>
+.icon-block-32-16 {
+  @include icon-block(32px, 16px);
+  background: orange;
+}
+  <%- } } do -%>
+<div class="icon-block-32-16">
+  <%= icon("clock") -%>
+</div>
+  <%- end -%>
+
+  <p>You can also treat both values as a list of <code>($width, $height)</code>:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-block-single", scss: capture { -%>
+.icon-block-lists {
+  @include icon-block((64px, 32px), (11px, 16px));
+  background: orange;
+}
+  <%- } } do -%>
+<div class="icon-block-lists">
+  <%= icon("chevron_right") -%>
+</div>
+  <%- end -%>
+
+
+  <h3 class="heading-three">table-icon</h3>
 
   <p>You can create some text aligned with an icon with the <code>table-icon($icon-size)</code> mixin, like so:</p>
 

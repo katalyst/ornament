@@ -618,6 +618,21 @@ code {
 // Icon helpers 
 // =========================================================================
 
+.icon-block-32 {
+  @include icon-block(32px);
+  background: orange;
+}
+
+.icon-block-32-16 {
+  @include icon-block(32px, 16px);
+  background: orange;
+}
+
+.icon-block-lists {
+  @include icon-block((64px, 32px), (11px, 16px));
+  background: orange;
+}
+
 .icon-table-16 {
   @include icon-table(16px, 8px);
 }
