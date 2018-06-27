@@ -162,8 +162,18 @@ $headings-small: (
   line-height: 1;
 }
 
-@mixin type--grey {
-  color: $grey;
+// =========================================================================
+// Mixins for colourising typography
+// eg. blue panel gets light blue text
+// =========================================================================
+
+@mixin type-color($color:$white, $hover-color:$color) {
+  color: $color;
+
+  a:not(.button) {
+    @include color-link($color, $hover-color);
+    @include decorate-link(underline, none);
+  }
 }
 
 // =========================================================================
@@ -185,7 +195,7 @@ small,
 }
 
 .type--grey {
-  @include type--grey;
+  @include type-color($grey);
 }
 
 .type--ellipsis {
@@ -193,27 +203,31 @@ small,
 }
 
 .type--passive {
-  color: $passive-color;
+  @include type-color($passive-color);
 }
 
 .type--success {
-  color: $success-color;
+  @include type-color($success-color);
 }
 
 .type--error {
-  color: $error-color;
+  @include type-color($error-color);
 }
 
 .type--notice {
-  color: $notice-color;
+  @include type-color($notice-color);
 }
 
 .type--alert {
-  color: $notice-color;
+  @include type-color($alert-color);
 }
 
 .type--primary {
-  color: $primary-color;
+  @include type-color($primary-color);
+}
+
+.type--inverse {
+  @include type-color($white);
 }
 
 // =========================================================================

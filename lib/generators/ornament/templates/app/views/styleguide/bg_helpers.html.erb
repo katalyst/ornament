@@ -6,12 +6,28 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "round" } do -%>
 <div class="spacing">
-  <div class="bg-primary">lorem ipsum</div>
-  <div class="bg-secondary">lorem ipsum</div>
-  <div class="bg-success">lorem ipsum</div>
-  <div class="bg-alert">lorem ipsum</div>
-  <div class="bg-notice">lorem ipsum</div>
+  <div class="bg--primary">lorem ipsum</div>
+  <div class="bg--secondary">lorem ipsum</div>
+  <div class="bg--success">lorem ipsum</div>
+  <div class="bg--alert">lorem ipsum</div>
+  <div class="bg--notice">lorem ipsum</div>
+  <div class="bg--passive">lorem ipsum</div>
 </div>
   <%- end -%>
+
+  <p>To go along with these bg classes, you can take advantage of the <code>.type--</code> classes to make the text look a bit nicer:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "round" } do -%>
+<div class="spacing">
+  <div class="bg--primary type--inverse">lorem ipsum</div>
+  <div class="bg--secondary type--inverse">lorem ipsum</div>
+  <div class="bg--success type--success">lorem ipsum</div>
+  <div class="bg--alert type--alert">lorem ipsum</div>
+  <div class="bg--notice type--notice">lorem ipsum</div>
+</div>
+  <%- end -%>
+
+  <p>Be sure to use <a href="/styleguide/panel">panels</a> if those are more appropriate.</p>
+  <p>Panels will inherit things like panel spacing, rounded corners etc.</p>
 
 </div>

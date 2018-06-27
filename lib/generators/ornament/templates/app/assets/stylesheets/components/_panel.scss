@@ -8,7 +8,7 @@
   @if $color {
     color: $color;
 
-    a {
+    a:not(.button) {
       @include color-link($color, $color);
       @include decorate-link(underline, none);
     }
@@ -48,27 +48,33 @@
 // COLOUR VARIANTS
 
 .panel__primary {
+  @extend .panel;
   @include panel-color($primary-color, $white);
 }
 
 .panel__passive {
+  @extend .panel;
   @include panel-color($passive-color);
 }
 
 .panel__alert,
 .panel__error {
+  @extend .panel;
   @include panel-color($error-background, $error-color);
 }
 
 .panel__alert {
+  @extend .panel;
   @include panel-color($alert-background, $alert-color);
 }
 
 .panel__notice {
+  @extend .panel;
   @include panel-color($notice-background, $notice-color);
 }
 
 .panel__success {
+  @extend .panel;
   @include panel-color($success-background, $success-color);
 }
 
@@ -99,10 +105,10 @@
 // =========================================================================
 
 .panel-spacing {
-  .panel + .panel,
-  .panel + .panel-spacer,
-  .panel-spacer + .panel-spacer,
-  .panel-spacer + .panel {
+  .panel ~ .panel,
+  .panel ~ .panel-spacer,
+  .panel-spacer ~ .panel-spacer,
+  .panel-spacer ~ .panel {
     margin-top: $panel-spacing;
   }
 }

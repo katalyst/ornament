@@ -20,6 +20,9 @@
 - Replaced direct image paths in sass files to use `asset-path` helper instead to fix issues with Rails 5.1
 - Allowed `@content` in the `font-face` mixin so you can use it to define font-families
 - Align `th` to the left by default via `reset.scss`
+- Changed `bg-*` helpers to `bg--*` to match the `type--` class syntax  
+- Updated the `type--*` classes to modify link colours as well, along with a make-your-own-type-class mixin, `type-color($color, $hover-color)`
+- Added `.type--inverse` for colouring text and links white in things like panels or `bg--*` classes
 
 ### Fixes
 

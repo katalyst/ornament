@@ -1,23 +1,27 @@
-.bg-primary {
+.bg--primary {
   background-color: $primary-color;
 }
 
-.bg-secondary {
+.bg--passive {
+  background-color: $passive-color;
+}
+
+.bg--secondary {
   background-color: $secondary-color;
 }
 
-.bg-success {
+.bg--success {
   background-color: $success-background;
 }
 
-.bg-error {
+.bg--error {
   background-color: $error-background;
 }
 
-.bg-notice {
+.bg--notice {
   background-color: $notice-background;
 }
 
-.bg-alert {
+.bg--alert {
   background-color: $alert-background;
 }
