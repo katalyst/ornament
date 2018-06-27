@@ -11,7 +11,6 @@
 - Refactored `ornament_menu` simple-navigation renderer to show dropdown arrows and keyboard access
 - Added a couple of options to `ornament_menu` renderer to allow icons and toggle behaviour to be turned off
 - Added documentation for `ornament_menu` renderer in the navigation component page
-- Panel backgrounds now no longer inherit from `.panel`, this is to allow panel background classes to be used with or without rounded corners
 - Moved vendor.js back in to the application.js bundle
 - Added `$instagram` colour variable to the list of social colours
 - Set system fonts as the default font
