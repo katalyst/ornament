@@ -36,6 +36,7 @@
 - Added `display: none` to ornament icon div to prevent being displayed during a JS crash  
 - Fixed alignment of flash message close buttons
 - Fixed spacing in show.js docs by changing to simple_form helpers
+- Updated docs for enabling jQUery UI support now that the datepicker components have been separated in to `form-datepicker.js` as of v2.0.0
 
 ## v2.0.2
 
