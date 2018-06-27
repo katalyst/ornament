@@ -4,6 +4,7 @@
 
 ### Changes
 
+- Much needed update to the readme
 - Converted all sass `-unit`s and font-sizes to `rem`
 - Added a `convert-px-to-rem()` function for easy px-to-rem conversion
 - Enhanced form elements are now added to all radio/checkbox elements by default, removing the requirement for the `.form--enhanced` wrapper
