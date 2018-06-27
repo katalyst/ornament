@@ -189,7 +189,7 @@ hr {
   }
 
   h1 {
-    @include heading(5);
+    @include heading("five");
   }
 
   h2 {
@@ -530,7 +530,7 @@ code {
 // CONTENT SAMPLE EXTENSIONS
 
 .example table caption {
-  @include heading(5);
+  @include heading("five");
 }
 .example table {
   // @extend .table;

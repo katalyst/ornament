@@ -73,8 +73,18 @@ $headings-small: (
   ("six",   16px)
 );
 
+// Build a responsive heading via the label of the configuration
+// @include heading("one");
+@mixin heading($heading-label) {
+  $heading-setting-index: get-heading-index-for($heading-label);
+  @if $heading-setting-index {
+    @include heading-for-index($heading-setting-index);
+  }
+}
+
 // Builds out a responsive heading 
-@mixin heading($heading-config-index) {
+// @include heading-for-index(1);
+@mixin heading-for-index($heading-config-index) {
   @if length($headings-regular) >= $heading-config-index {
     $regular-heading: nth($headings-regular, $heading-config-index);
     $regular-heading-length: length($regular-heading);
@@ -108,11 +118,30 @@ $headings-small: (
   }
 }
 
+// Get settings for the heading label
+// get-heading-index-for("three") => 3;
+// get-heading-index-for("three", true) => ("three", ...)
+@function get-heading-index-for($heading-label, $return-setting: false) {
+  $result: false;
+  @for $index from 1 through length($headings-regular) {
+    $heading-setting: nth($headings-regular, $index);
+    $heading-list-label: nth($heading-setting, 1);
+    @if $heading-list-label == $heading-label {
+      @if $return-setting {
+        $result: $heading-setting;
+      } @else {
+        $result: $index;
+      }
+    }
+  }
+  @return $result;
+}
+
 // Loop over each configuration above and generate our classes
 @for $i from 1 through length($headings-regular) {
   $config: nth($headings-regular, $i);
   .heading-#{nth($config, 1)} {
-    @include heading($i);
+    @include heading-for-index($i);
   }
 }
 

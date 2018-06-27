@@ -13,7 +13,8 @@
 - Moved vendor.js back in to the application.js bundle
 - Added `$instagram` colour variable to the list of social colours
 - Set system fonts as the default font
-- Supported the new `event.prompt()` method of registering service workers as per [a2hs-updates](https://developers.google.com/web/updates/2018/06/a2hs-updates).
+- Supported the new `event.prompt()` method of registering service workers as per [a2hs-updates](https://developers.google.com/web/updates/2018/06/a2hs-updates)
+- Changed `heading(index)` to `heading-for-index(index)` and replaced first mixin so that it takes the name of the heading, `heading("one")`
 
 ### Fixes
 
