@@ -1,16 +1,29 @@
-$font-path: "/assets/";
-
+// Mixin for self hosted fonts
 @mixin font-face($name, $filename) {
-  $file: $font-path + $filename;
   @font-face {
     font-family: $name;
-      src: url("#{$file}.eot");
-      src: url("#{$file}.eot?#iefix") format("embedded-opentype"),
-           url("#{$file}.woff") format("woff"),
-           url("#{$file}.ttf") format("truetype"),
-           url("#{$file}.svg#my-font") format("svg");
+      src: url(asset_path("#{$filename}.eot"));
+      src: url(asset_path("#{$filename}.eot?#iefix")) format("embedded-opentype"),
+           url(asset_path("#{$filename}.woff2")) format("woff2"),
+           url(asset_path("#{$filename}.woff")) format("woff"),
+           url(asset_path("#{$filename}.ttf")) format("truetype"),
+           url(asset_path("#{$filename}.svg#my-font")) format("svg");
+    @content;
   }
 }
 
-// Declare your fonts here
-// @include font-face("myFont", "my-font");
+/*
+  Declare your fonts here
+  @include font-face("myFont", "my-font");
+
+  If using font-families, define your fonts like so:
+  @include font-face("myFont", "my-font-regular") {
+    font-weight: 300;
+    font-style: normal;
+  }
+  @include font-face("myFont", "my-font-italic") {
+    font-weight: 300;
+    font-style: italic;
+  }
+  ... etc
+*/

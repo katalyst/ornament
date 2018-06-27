@@ -205,7 +205,7 @@ select {
   select,
   select[size='0'],
   select[size='1'] {
-    background-image: url('/assets/select_arrow.png');
+    background-image: url(asset_path('select_arrow.png'));
     background-repeat: no-repeat;
     background-position: right center;
     padding-right: 36px;
