@@ -23,6 +23,7 @@
 - Changed `bg-*` helpers to `bg--*` to match the `type--` class syntax  
 - Updated the `type--*` classes to modify link colours as well, along with a make-your-own-type-class mixin, `type-color($color, $hover-color)`
 - Added `.type--inverse` for colouring text and links white in things like panels or `bg--*` classes
+- Created a new function to track virtual pageviews in analytics, `Ornament.C.Analytics.trackVirtualPageview(path, pageTitle)` and refactored the turbolinks listener to use this function rather than it's own virtual pageview tracking
 
 ### Fixes
 
