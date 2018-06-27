@@ -19,6 +19,7 @@
 - Changed `heading(index)` to `heading-for-index(index)` and replaced first mixin so that it takes the name of the heading, `heading("one")`
 - Replaced direct image paths in sass files to use `asset-path` helper instead to fix issues with Rails 5.1
 - Allowed `@content` in the `font-face` mixin so you can use it to define font-families
+- Align `th` to the left by default via `reset.scss`
 
 ### Fixes
 
