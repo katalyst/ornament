@@ -5,7 +5,7 @@
   <h2 class="heading-two">Show/hide something</h2>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-1" } do -%>
-<a href="#" data-toggle-anchor="example-1">Show/hide example 1</a>
+<button data-toggle-anchor="example-1">Show/hide example 1</button>
 <div data-toggle="example-1">
   This is the content for example 1
 </div>
@@ -20,19 +20,19 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-2" } do -%>
 <div>
-  <a href="#" data-toggle-anchor="example-2-1" data-toggle-group="example-2">Heading 1</a>
+  <button data-toggle-anchor="example-2-1" data-toggle-group="example-2">Heading 1</button>
 </div>
 <div data-toggle="example-2-1">
   This is the content for 1
 </div>
 <div>
-  <a href="#" data-toggle-anchor="example-2-2" data-toggle-group="example-2">Heading 2</a>
+  <button data-toggle-anchor="example-2-2" data-toggle-group="example-2">Heading 2</button>
 </div>
 <div data-toggle="example-2-2">
   This is the content for 2
 </div>
 <div>
-  <a href="#" data-toggle-anchor="example-2-3" data-toggle-group="example-2">Heading 3</a>
+  <button data-toggle-anchor="example-2-3" data-toggle-group="example-2">Heading 3</button>
 </div>
 <div data-toggle="example-2-3">
   This is the content for 3
@@ -47,13 +47,13 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-2" } do -%>
 <div>
-  <a href="#" data-toggle-anchor="example-speed-1" data-toggle-timing="100">Heading 1 (100)</a>
+  <button data-toggle-anchor="example-speed-1" data-toggle-timing="100">Heading 1 (100)</button>
 </div>
 <div data-toggle="example-speed-1">
   This is the content for 1
 </div>
 <div>
-  <a href="#" data-toggle-anchor="example-speed-2" data-toggle-timing="2000">Heading 2 (2000)</a>
+  <button data-toggle-anchor="example-speed-2" data-toggle-timing="2000">Heading 2 (2000)</button>
 </div>
 <div data-toggle="example-speed-2">
   This is the content for 2
@@ -67,7 +67,7 @@
   <p>Add <code>data-toggle-visible-label</code> to your anchor to swap the label.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
-<a href="#" data-toggle-anchor="example-3-1" data-toggle-visible-label="Hide">Show</a>
+<button data-toggle-anchor="example-3-1" data-toggle-visible-label="Hide">Show</button>
 <div data-toggle="example-3-1">
   This is the hidden content
 </div>
@@ -80,7 +80,7 @@
   <p>Add <code>data-toggle-focus</code> to focus on the first available input after toggling.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
-<a href="#" data-toggle-anchor="example-focus" data-toggle-focus>Show</a>
+<button data-toggle-anchor="example-focus" data-toggle-focus>Show</button>
 <div data-toggle="example-focus">
   <input type="text" />
 </div>
@@ -93,7 +93,7 @@
   <p>Clicking away will hide the toggle when adding <code>data-toggle-temporary</code> and <code>data-toggle-temporary-anchor</code> attributes:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
-<a href="#" data-toggle-anchor="example-temporary" data-toggle-temporary-anchor>Show</a>
+<button data-toggle-anchor="example-temporary" data-toggle-temporary-anchor>Show</button>
 <div data-toggle="example-temporary" data-toggle-temporary>
   This will hide when you click away!
 </div>
@@ -106,7 +106,7 @@
   <p>You can default a toggle open by adding <code>data-toggle-default</code></p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
-<a href="#" data-toggle-anchor="example-default" class="active">Show</a>
+<button data-toggle-anchor="example-default" class="active">Show</button>
 <div data-toggle="example-default" data-toggle-default>
   This is open by default! 
 </div>
@@ -117,7 +117,7 @@
   <h2 class="heading-two">Add a bottom toggle which scroll back to the top when hiding</h2>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-4" } do -%>
-<a href="#" data-toggle-anchor="example-4" data-toggle-scroll data-toggle-scroll-master>This is the master toggle anchor</a>
+<button data-toggle-anchor="example-4" data-toggle-scroll data-toggle-scroll-master>This is the master toggle anchor</button>
 <div data-toggle="example-4">
   This<br />
   is<br />
@@ -137,7 +137,7 @@
   really<br />
   long<br />
   content<br />
-  <a href="#" data-toggle-anchor="example-4" data-toggle-scroll>This is a slave anchor that will scroll to the top</a>
+  <button data-toggle-anchor="example-4" data-toggle-scroll>This is a slave anchor that will scroll to the top</button>
 </div>
   <%- end -%>
 
