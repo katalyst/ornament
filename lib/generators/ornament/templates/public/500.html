@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Server Error 500</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <style>
+      html {
+        -webkit-font-smoothing: antialiased;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background: #F1F1F1;
+        font-size: 16px;
+      }
+      .error-page--table {
+        width: 100vw;
+        max-width: 480px;
+        min-height: 100vh;
+        display: table;
+        margin: 0 auto;
+      }
+      .error-page--cell {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        padding: 48px;
+      }
+      img {
+        display: block;
+        margin: 0 auto 24px;
+      }
+      .button {
+        text-transform: uppercase;
+        background-color: #4b9dd0;
+        border-radius: 4px;
+        display: inline-block;
+        padding: 10px 16px;
+        font-weight: bold;
+      }
+      .button:hover {
+        background-color: #2c5fb2;
+      }
+      a.button:visited,
+      a.button:link,
+      a.button:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body class="error-page">
+    <div class="error-page--table">
+      <div class="error-page--cell">
+        <!--
+        <img src="/error_assets/logo.svg" alt="Logo" />
+        -->
+        <p>There has been a server-side error, meaning the problem is not with your computer or internet connection but instead with this website's server.</p>
+        <p>We apologize for any inconvenience this may cause.</p>
+        <p>
+          <a href="javascript:window.history.back()">Go back</a> or <a href="/">start again</a>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
