@@ -67,7 +67,8 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/assets/stylesheets/koi"
 
         directory "app/assets/images"
-        
+
+        directory "public"
         copy_file "config/initializers/simple_form.rb"
         copy_file "config/initializers/ornament.rb"
         copy_file "../../../../test/dummy/config/initializers/datetime_formats_ornament.rb", "config/initializers/datetime_formats_ornament.rb"
