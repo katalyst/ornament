@@ -107,8 +107,10 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/assets/stylesheets/styleguide"
 
         unless options.example?
-          route "get '/styleguide' => 'styleguide#index'"
-          route "get '/styleguide/:action' => 'styleguide'"
+          route "if Rails.env.development?"
+          route "  get '/styleguide' => 'styleguide#index'"
+          route "  get '/styleguide/:action' => 'styleguide'"
+          route "end"
           copy_file "app/controllers/styleguide_controller.rb"
           copy_file "../../../../test/dummy/app/helpers/ornament_helper.rb", "app/helpers/ornament_helper.rb"
           copy_file "../../../../test/dummy/app/helpers/ornament_google_maps_helper.rb", "app/helpers/ornament_google_maps_helper.rb"
