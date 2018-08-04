@@ -2,6 +2,13 @@
 
 ## v2.0.3
 
+### Privacy features
+
+- Disabling `Ornament.features.serviceWorker` when cookies are disabled
+- Added new feature detection, `Ornament.features.localStorage` and disabled when the localStorage is disabled (eg when cookies are disabled)
+- Added new feature detection, `Ornament.features.tracking` and disabled when the user has opted-in to doNotTrack
+- Aborting tracking events like `Ornament.C.Analytics.trackEvent` when `Ornament.features.tracking` is false
+
 ### Changes
 
 - Much needed update to the readme
