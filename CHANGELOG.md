@@ -20,6 +20,7 @@
 - Renamed `utilities/flex.scss` to `utilities/flex-mixins.scss`
 - Added default sans-serif font-sizing and light blue link colouring to 500.html page
 - Added `maintenance.html` template to public folder based on the 500 page
+- Removed `views/errors/500` to avoid confusion, the 500 page shouldn't be served by rails and should be entirely static
 
 ### Fixes
 
