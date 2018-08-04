@@ -7,15 +7,19 @@
  */
 
 .menu-more {
-
   font-size: 0;
   white-space: nowrap; // prevent flash of unstyled content
+
+  html:not(.js-priorityNav) & {
+    @include overflow-scroll-x;
+  }
 
   /*
    * Makes sure the menu's are inline-block so they don't take up
    * the entire width of its parent. This will break the plugin.
    */
-  > ul{
+  > ul, 
+  .navigation & > ul {
     display: inline-block;
   }
   > ul > li{
@@ -73,6 +77,6 @@
   }
 }
 
-.priority-nav.priority-nav-has-dropdown .nav__dropdown-wrapper:hover ul.nav__dropdown {
+.priority-nav.priority-nav-has-dropdown .is-open + ul.nav__dropdown {
   display: block;
 }

@@ -14,17 +14,21 @@ $navigation-padding-x: $xxx-small-unit;
 // First level
 // =========================================================================
 
-.navigation nav > ul {
-  @include display-flex;
-  @include flex-wrap;
-  border-left: $divider;
+.navigation nav {
 
-  > li {
+  > ul {
+    @include display-flex;
+    @include flex-wrap;
+    border-left: $divider;
+  }
+
+  > ul > li {
     border-right: $divider;
   }
 
-  > li > a,
-  > li > button {
+  > ul > li > a,
+  > ul > li > button,
+  .priority-nav__dropdown-toggle {
     padding: $navigation-padding-y $navigation-padding-x;
     @include color-link($white, $white);
     @include decorate-link(none, none);

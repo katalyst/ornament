@@ -53,6 +53,7 @@
 - Fixed alignment of flash message close buttons
 - Fixed spacing in show.js docs by changing to simple_form helpers
 - Updated docs for enabling jQUery UI support now that the datepicker components have been separated in to `form-datepicker.js` as of v2.0.0
+- Fixed menu-with-more collapsing on page load, still issues with unbinding events when used with turbolinks
 
 ## v2.0.2
 
