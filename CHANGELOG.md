@@ -1,5 +1,19 @@
 # Changelog
 
+## v2.0.4
+
+### Lib updates
+
+- Changed to jQuery 3 by default
+- Updated `lodash` to v1.9.1
+- Updated `what-input` to v5.1.1
+- Updated `priority-nav` to v1.0.13
+- Updated `jquery-ui-timepicker-addon` to v1.6.3
+- Updated `clipboard.js` to v2.0.0
+- Moved `youtube-wmode` out of libs and in to polyfills and moved the include down with the other IE8 polyfills
+- Removed the `menu-aim` lib and associated component stylesheets as it was no longer being used
+- Removed prevent-overscroll.js lib as `overscroll-behavior` is now a CSS spec
+
 ## v2.0.3
 
 ### Privacy features
