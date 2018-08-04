@@ -21,6 +21,9 @@
 - Added default sans-serif font-sizing and light blue link colouring to 500.html page
 - Added `maintenance.html` template to public folder based on the 500 page
 - Removed `views/errors/500` to avoid confusion, the 500 page shouldn't be served by rails and should be entirely static
+- Added Rails Caching to icon partial rendering
+- Added `service_worker` controller and routes for a dynamically generated webmanifest with staging/development flags in the app name.
+- Added placeholder `service-worker.js`
 
 ### Fixes
 

@@ -86,10 +86,13 @@ module OrnamentHelper
     # rendering partials inside simple-navigation needs a 
     # bit of trickery
     svg_path = "#{path}/#{icon_path}.svg"
-    if defined?(render_icon)
-      render_icon(partial: svg_path, locals: { options: options })
-    else
-      render(svg_path, options: options)
+
+    Rails.cache.fetch "#{path}-#{icon_path.parameterize}__#{options.to_s}", expires_in: 12.hours do
+      if defined?(render_icon)
+        render_icon(partial: svg_path, locals: { options: options })
+      else
+        render(svg_path, options: options)
+      end
     end
   end
 
