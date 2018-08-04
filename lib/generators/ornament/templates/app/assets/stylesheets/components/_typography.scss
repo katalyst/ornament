@@ -163,20 +163,6 @@ $headings-small: (
 }
 
 // =========================================================================
-// Mixins for colourising typography
-// eg. blue panel gets light blue text
-// =========================================================================
-
-@mixin type-color($color:$white, $hover-color:$color) {
-  color: $color;
-
-  a:not(.button) {
-    @include color-link($color, $hover-color);
-    @include decorate-link(underline, none);
-  }
-}
-
-// =========================================================================
 // Premade classes for typography 
 // =========================================================================
 
@@ -194,12 +180,12 @@ small,
   @include text-wrap;
 }
 
-.type--grey {
-  @include type-color($grey);
-}
-
 .type--ellipsis {
   @include ellipsis;
+}
+
+.type--grey {
+  @include type-color($grey);
 }
 
 .type--passive {

@@ -2,11 +2,9 @@
 // Flash Panel
 // =========================================================================
 
-.flash,
-.panel__flash {
+.flash {
   padding-top: $panel-padding;
   padding-bottom: $panel-padding;
-  @include border-radius(0);
 }
 
 // =========================================================================

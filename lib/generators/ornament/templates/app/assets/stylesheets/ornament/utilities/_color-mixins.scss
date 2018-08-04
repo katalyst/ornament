@@ -1,0 +1,38 @@
+// =========================================================================
+// Icon colouring
+// =========================================================================
+
+@mixin icon-color($color) {
+  .icon--fill {
+    fill: $color;
+  }
+  .icon--stroke {
+    stroke: $color;
+  }
+}
+
+// =========================================================================
+// Typography colouring
+// =========================================================================
+
+@mixin type-color($color:$white, $link-color:$color, $hover-color:$color) {
+  color: $color;
+
+  a:not(.button) {
+    @include color-link($color, $hover-color);
+    @include decorate-link(underline, none);
+  }
+}
+
+// =========================================================================
+// Panel colouring
+// =========================================================================
+
+@mixin panel-color($background, $color:false, $link-color:$color, $hover-color:$link-color) {
+  background: $background;
+
+  @if $color {
+    @include type-color($color, $link-color, $hover-color);
+    @include icon-color($color);
+  }
+}

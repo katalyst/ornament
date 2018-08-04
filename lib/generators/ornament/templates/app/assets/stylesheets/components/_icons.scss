@@ -4,19 +4,29 @@
 }
 
 .icon--primary {
-  .icon--fill {
-    fill: $primary-color;
-  }
-  .icon--stroke {
-    stroke: $primary-color;
-  }
+  @include icon-color($primary-color);
 }
 
 .icon--white {
-  .icon--fill {
-    fill: $white;
-  }
-  .icon--stroke {
-    stroke: $white;
-  }
+  @include icon-color($white);
+}
+
+.icon--passive {
+  @include icon-color($passive-color);
+}
+
+.icon--success {
+  @include icon-color($success-color);
+}
+
+.icon--error {
+  @include icon-color($error-color);
+}
+
+.icon--alert {
+  @include icon-color($alert-color);
+}
+
+.icon--notice {
+  @include icon-color($notice-color);
 }

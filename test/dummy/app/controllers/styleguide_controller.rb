@@ -4,7 +4,7 @@ class StyleguideController < ActionController::Base
     include CommonControllerActions
   end
 
-  layout "styleguide/ornament"
+  layout :styleguide_layout
 
   def form
     @months = {
@@ -271,5 +271,13 @@ class StyleguideController < ActionController::Base
       "Zimbabwe" => "ZW",
       "Åland Islands" => "AX",
     }
+  end
+
+  private
+
+  def styleguide_layout
+    layout = "styleguide/ornament"
+    layout = "application" if params[:no_layout]
+    layout
   end
 end

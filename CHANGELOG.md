@@ -26,6 +26,9 @@
 - Created a new function to track virtual pageviews in analytics, `Ornament.C.Analytics.trackVirtualPageview(path, pageTitle)` and refactored the turbolinks listener to use this function rather than it's own virtual pageview tracking
 - Added docs for `icon-block`
 - Made styleguide routes accessible only in development environment by default
+- Moved `panel-color`, `type-color` and `icon-color` mixins in to a `color-mixins` partial for better management
+- Added docs for `type--*` colours to the typography page
+- Used the `bg--*`, `type--*` and `icon--*` classes on flash rather than using panel classes
 
 ### Fixes
 

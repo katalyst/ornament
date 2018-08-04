@@ -1,29 +1,4 @@
 // =========================================================================
-// Colour variation mixin
-// =========================================================================
-
-@mixin panel-color($background, $color:false) {
-  background: $background;
-
-  @if $color {
-    color: $color;
-
-    a:not(.button) {
-      @include color-link($color, $color);
-      @include decorate-link(underline, none);
-    }
-
-    .icon--stroke {
-      stroke: $color;
-    }
-
-    .icon--fill {
-      fill: $color;
-    }
-  }
-}
-
-// =========================================================================
 // Base panel
 // =========================================================================
 
@@ -57,7 +32,6 @@
   @include panel-color($passive-color);
 }
 
-.panel__alert,
 .panel__error {
   @extend .panel;
   @include panel-color($error-background, $error-color);
