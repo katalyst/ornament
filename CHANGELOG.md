@@ -18,6 +18,8 @@
 
 - Added `section` component for dividing full-width sectional content, applied as a replacement for `lightbox--section` and applied to the `container` docs
 - Renamed `utilities/flex.scss` to `utilities/flex-mixins.scss`
+- Added default sans-serif font-sizing and light blue link colouring to 500.html page
+- Added `maintenance.html` template to public folder based on the 500 page
 
 ### Fixes
 
