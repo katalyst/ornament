@@ -12,7 +12,17 @@
 - Updated `clipboard.js` to v2.0.0
 - Moved `youtube-wmode` out of libs and in to polyfills and moved the include down with the other IE8 polyfills
 - Removed the `menu-aim` lib and associated component stylesheets as it was no longer being used
-- Removed prevent-overscroll.js lib as `overscroll-behavior` is now a CSS spec
+- Removed `prevent-overscroll.js` lib as `overscroll-behavior` is now a CSS spec
+
+### Changes
+
+- Added `section` component for dividing full-width sectional content, applied as a replacement for `lightbox--section` and applied to the `container` docs
+- Renamed `utilities/flex.scss` to `utilities/flex-mixins.scss`
+
+### Fixes
+
+- Fixed styleguide copy buttons attempting to submit forms, very problematic on the form documentation page
+- Removed double includes of `flexible-input`
 
 ## v2.0.3
 

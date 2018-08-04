@@ -25,17 +25,17 @@
 </div>
   <%- end -%>
 
-  <p>There is a <code>lightbox--section</code> helper class that you can use to seperate content in lightboxes:</p>
+  <p>There is a <code>section</code> helper class that you can use to seperate content in lightboxes:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-sections" } do -%>
 <a href="#example-sections" data-lightbox-basic>Open lightbox</a>
 <div class="mfp-hide" id="example-sections">
-  <div class="lightbox--section panel--padding content">
+  <div class="section panel--padding content">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
   </div>
-  <div class="lightbox--section panel--padding content">
+  <div class="section panel--padding content">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
@@ -141,11 +141,11 @@
 <%- end -%>
   <%- end -%>
 
-  <p>Note that this will keep the content on the screen at all times, outside of the scrollable area. If you don't want this content always on the screen, consider using <code>.lightbox-section</code> classes instead:
+  <p>Note that this will keep the content on the screen at all times, outside of the scrollable area. If you don't want this content always on the screen, consider using <code>.section</code> classes instead:
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-scrollable-sections", ruby: capture { -%>
 &lt;%= render layout: "shared/inline_lightbox", locals: { inline_id: "example-scrollable-sections" } do -%>
-  &lt;div class="lightbox--section panel--padding content">
+  &lt;div class="section panel--padding content">
     &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.&lt;/p>
     &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.&lt;/p>
     &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.&lt;/p>
@@ -154,7 +154,7 @@
     &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.&lt;/p>
     &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.&lt;/p>
   &lt;/div>
-  &lt;div class="lightbox--section panel--padding content">
+  &lt;div class="section panel--padding content">
     &lt;div class="button-set">
       &lt;div>
         &lt;button type="button" class="button__confirm">
@@ -172,7 +172,7 @@
   <%- } } do -%>
 <a href="#example-scrollable-sections" data-lightbox data-lightbox-size="small">Open lightbox</a>
 <%= render layout: "shared/inline_lightbox", locals: { inline_id: "example-scrollable-sections" } do -%>
-  <div class="lightbox--section panel--padding content">
+  <div class="section panel--padding content">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
@@ -181,7 +181,7 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
   </div>
-  <div class="lightbox--section panel--padding content">
+  <div class="section panel--padding content">
     <div class="button-set">
       <div><button type="button" class="button__confirm">Ok</button></div>
       <div><button type="button" class="button__cancel" data-lightbox-close>Cancel</button></div>

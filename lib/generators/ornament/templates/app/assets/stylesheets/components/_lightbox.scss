@@ -128,11 +128,6 @@ $fullscreen-mobile: 450px;
 // Lightbox Content
 .lightbox--content {}
 
-// Lightbox sections
-.lightbox--section + .lightbox--section {
-  border-top: $divider;
-}
-
 // Lightbox footer
 .lightbox--footer {
   border-top: $divider;

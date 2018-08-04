@@ -1,0 +1,26 @@
+// =========================================================================
+// Mixins
+// =========================================================================
+
+// .section + .section = border-top
+// .section__top = border-top
+// .section__bottom = border-bottom
+@mixin section-dividers($selector:".section", $division:$divider) {
+  #{$selector} + #{$selector} {
+    border-top: $division;
+  }
+  #{$selector}__top {
+    border-top: $divider;
+  }
+  #{$selector}__bottom {
+    border-bottom: $divider;
+  }
+}
+
+// Default section dividers
+@include section-dividers(".section", $divider);
+
+.section__large {
+  padding-top: $xxxxxxx-large-unit;
+  padding-bottom: $xxxxxxx-large-unit;
+}
