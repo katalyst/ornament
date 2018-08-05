@@ -14,9 +14,10 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :helpers,      :type => :boolean, :default => true
 
   GEMS = {
-    'sass-rails'    => '~> 5.0.0',
-    'uglifier'      => '>= 1.0.3',
-    'htmlentities'  => '~> 4.3.4',
+    'sass-rails'        => '~> 5.0.0',
+    'uglifier'          => '>= 1.0.3',
+    'htmlentities'      => '~> 4.3.4',
+    'simple-navigation' => '~> 3.14.0',
   }
 
   def generate

@@ -2,7 +2,7 @@
 
 ## v2.0.4
 
-### Styleguide redesign part 2
+### Styleguide redesign
 
 - New filterable navigation on the left hand side using keywords to identify links of interest, eg. "modal" will find the lightbox docs
 - Press "F" to focus on the filter input for quick-filtering action
@@ -29,6 +29,8 @@
 - Added Rails Caching to icon partial rendering
 - Added `service_worker` controller and routes for a dynamically generated webmanifest with staging/development flags in the app name.
 - Added placeholder `service-worker.js`
+- Removed a bunch of countries from the `form` country select element as it was causing encoding errors when deploying
+- Added `simple-navigation` as a gem dependancy
 
 ### Fixes
 
