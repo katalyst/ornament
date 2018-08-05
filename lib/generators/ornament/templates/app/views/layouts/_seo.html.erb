@@ -10,6 +10,7 @@
   seo_description ||= ""
   seo_image ||= false # "#{root_url}assets/share.png?v=#{cache_version}"
   theme_colour ||= "#4b9dd0";
+  use_pwa_settings ||= false
 
   # Twitter Settings
   twitter_handle ||= ""
@@ -157,7 +158,7 @@
 <meta name="twitter:description" content="<%= raw seo_description -%>">
 
 <%# Application Icons %>
-<% if false %>
+<% if use_pwa_settings %>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">

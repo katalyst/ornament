@@ -4,7 +4,10 @@
 
     <%# Meta tags %>
     <meta charset="utf-8"/>
-    <%= render "layouts/seo" -%>
+    <%= render "layouts/seo",
+      use_pwa_settings: true,
+      theme_colour: "#db892a"
+    -%>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <% unless Rails.env == "production" %>
@@ -48,6 +51,496 @@
     <%= koi_scripts if koi_scripts -%>
 
   </head>
+
+  <body class="styleguide <%= yield :body_class -%>"> 
+    <%- if gtm_code -%>
+      <%# Google Tag Manager (noscript Version) %>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= gtm_code -%>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <%- end -%>
+
+    <a class="skip-link" href="#main">skip to content</a>
+
+    <div class="layout">
+      <div class="layout--content environment-<%= Rails.env -%>" data-layout-positioner>
+
+        <div class="layout--positioner">
+          <div class="styleguide-page">
+            <div class="styleguide-page--sidebar-overlay" data-transition="main-sidebar" data-transition-speed="200"></div>
+            <div class="styleguide-page--sidebar">
+              <button class="styleguide-page--sidebar--close" data-transition="main-sidebar" data-transition-speed="200" title="Close menu">
+                <div>
+                  <span>Close menu</span>
+                  <%= icon "close", width: 16, height: 16 %>
+                </div>
+              </button>
+
+              <div class="styleguide-page--sidebar--filter">
+                <%= icon("search", width: 16, height: 16) %>
+                <input type="text" placeholder="Filter" aria-label="Filter pages" data-sidebar-filter-input />
+              </div>
+              <%
+                last_section = false
+                navigation = [
+                  {
+                    section: "Introduction",
+                    label: "What is Ornament?",
+                    url: "/styleguide/introduction",
+                    keywords: "philosphy,styleguide,help,information,framework",
+                  },
+                  {
+                    section: "Introduction",
+                    label: "Getting started",
+                    url: "/styleguide/getting_started",
+                    keywords: "generate,generator,generating",
+                  },
+                  {
+                    section: "Introduction",
+                    label: "JQueryUI",
+                    url: "/styleguide/jquery_ui",
+                    keywords: "datepicker",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Koi integration",
+                    url: "/styleguide/#",
+                    keywords: "cms",
+                  },
+                  {
+                    section: "Layout",
+                    label: "SEO partial",
+                    url: "/styleguide/#",
+                    keywords: "search,engine,meta,tag",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Flash messages",
+                    url: "/styleguide/#",
+                    keywords: "global,alert,info,popup",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Sidebar yields",
+                    url: "/styleguide/#",
+                    keywords: "template,global,application",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Above and below yields",
+                    url: "/styleguide/#",
+                    keywords: "template,global,application",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Other default yields",
+                    url: "/styleguide/#",
+                    keywords: "template,global,application",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Rails helpers",
+                    url: "/styleguide/#",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Environment banner",
+                    url: "/styleguide/#",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Fixed Footer",
+                    url: "/styleguide/#",
+                    keywords: "sticky",
+                  },
+                  {
+                    section: "Layout",
+                    label: "SVG icons",
+                    url: "/styleguide/#",
+                    keywords: "grunticon,helpers,rails",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Devise views",
+                    url: "/styleguide/#",
+                    keywords: "user,login,session",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Navigation renderer",
+                    url: "/styleguide/#",
+                    keywords: "simple navigation,menu",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Service worker",
+                    url: "/styleguide/#",
+                    keywords: "pwa,mobile,app",
+                  },
+                  {
+                    section: "Layout",
+                    label: "Skip link",
+                    url: "/styleguide/#",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Align",
+                    url: "/styleguide/#",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Background helpers",
+                    url: "/styleguide/#",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Blankstate",
+                    url: "/styleguide/#",
+                    keywords: "well,emptystate",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Buttons",
+                    url: "/styleguide/#",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Card",
+                    url: "/styleguide/#",
+                    keywords: "grid,tiles,listing",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Heading with button",
+                    url: "/styleguide/#",
+                    keywords: "structure,layout",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Navigation",
+                    url: "/styleguide/#",
+                    keywords: "layout,structure,menu",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Nested link",
+                    url: "/styleguide/#",
+                    keywords: "cards,fake link",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Pagination",
+                    url: "/styleguide/#",
+                    keywords: "kaminari",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Panel",
+                    url: "/styleguide/#",
+                    keywords: "structure,layout",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Responsive embeds",
+                    url: "/styleguide/#",
+                    keywords: "youtube,issuu",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Round",
+                    url: "/styleguide/#",
+                    keywords: "border-radius,circle,button,image",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Spacing",
+                    url: "/styleguide/#",
+                    keywords: "layout,structure",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Table",
+                    url: "/styleguide/#",
+                  },
+                  {
+                    section: "CSS",
+                    label: "Typography",
+                    url: "/styleguide/#",
+                    keywords: "type,link,colour,text,heading,body,layout,spacing",
+                  },
+                  {
+                    section: "JS",
+                    label: "Ornament helpers",
+                    url: "/styleguide/#",
+                  },
+                  {
+                    section: "JS",
+                    label: "Event tracking",
+                    url: "/styleguide/#",
+                    keywords: "analytics,google tag manager",
+                  },
+                  {
+                    section: "JS",
+                    label: "ScrollTo",
+                    url: "/styleguide/#",
+                    keywords: "animation,link",
+                  },
+                  {
+                    section: "JS",
+                    label: "ShowJS",
+                    url: "/styleguide/#",
+                    keywords: "show,hide,form,fields",
+                  },
+                  {
+                    section: "JS",
+                    label: "SelectLink",
+                    url: "/styleguide/#",
+                    keywords: "<select>,menu,list",
+                  },
+                  {
+                    section: "JS",
+                    label: "ShiftyJS",
+                    url: "/styleguide/#",
+                    keywords: "move,show,hide,responsive",
+                  },
+                  {
+                    section: "JS",
+                    label: "TransitionToggle",
+                    url: "/styleguide/#",
+                    keywords: "show,hide,animation",
+                  },
+                  {
+                    section: "SASS",
+                    label: "Container",
+                    url: "/styleguide/#",
+                    keywords: "max-width,center,centre,structure,layout",
+                  },
+                  {
+                    section: "SASS",
+                    label: "Flexbox",
+                    url: "/styleguide/#",
+                  },
+                  {
+                    section: "SASS",
+                    label: "List mixins",
+                    url: "/styleguide/#",
+                    keywords: "items,navigation,menu,listing",
+                  },
+                  {
+                    section: "SASS",
+                    label: "Media queries",
+                    url: "/styleguide/#",
+                    keywords: "responsive",
+                  },
+                  {
+                    section: "SASS",
+                    label: "Overlay",
+                    url: "/styleguide/#",
+                    keywords: "black,darken,fill",
+                  },
+                  {
+                    section: "SASS",
+                    label: "Spang Grids",
+                    url: "/styleguide/#",
+                    keywords: "flexbox,float,system",
+                  },
+                  {
+                    section: "Components",
+                    label: "Carousel",
+                    url: "/styleguide/#",
+                    keywords: "gallery,fotorama,slider,banner,thumbnails",
+                  },
+                  {
+                    section: "Components",
+                    label: "Drilldown",
+                    url: "/styleguide/#",
+                    keywords: "menu,navigation",
+                  },
+                  {
+                    section: "Components",
+                    label: "Flexible Input",
+                    url: "/styleguide/#",
+                    keywords: "form,responsive",
+                  },
+                  {
+                    section: "Components",
+                    label: "Form",
+                    url: "/styleguide/#",
+                    keywords: "field,input,textarea",
+                  },
+                  {
+                    section: "Components",
+                    label: "Form - Image Uploader",
+                    url: "/styleguide/#",
+                    keywords: "gallery,file"
+                  },
+                  {
+                    section: "Components",
+                    label: "Lightbox",
+                    url: "/styleguide/#",
+                    keywords: "popup,modal"
+                  },
+                  {
+                    section: "Components",
+                    label: "Map",
+                    url: "/styleguide/#",
+                    keywords: "google,leaflet,pin,marker",
+                  },
+                  {
+                    section: "Components",
+                    label: "Menu with more",
+                    url: "/styleguide/#",
+                    keywords: "responsive,hide,navigation",
+                  },
+                  {
+                    section: "Components",
+                    label: "Read more",
+                    url: "/styleguide/#",
+                    keywords: "reveal,show,hide,animation",
+                  },
+                  {
+                    section: "Components",
+                    label: "Tabs",
+                    url: "/styleguide/#",
+                  },
+                  {
+                    section: "Components",
+                    label: "Toggle",
+                    url: "/styleguide/#",
+                    keywords: "show,hide,animation",
+                  },
+                  {
+                    section: "Components",
+                    label: "Tooltip",
+                    url: "/styleguide/#",
+                    keywords: "tippy,popup",
+                  },
+                  {
+                    section: "Components",
+                    label: "Tray navigation",
+                    url: "/styleguide/#",
+                    keywords: "mobile,menu",
+                  },
+                  {
+                    section: "Developer resources",
+                    label: "Development board",
+                    url: "/styleguide/#",
+                    target: "_blank",
+                    keywords: "jira,tasks,todo",
+                  },
+                  {
+                    section: "Developer resources",
+                    label: "Changelog",
+                    url: "/styleguide/#",
+                    target: "_blank",
+                  },
+                  {
+                    section: "Developer resources",
+                    label: "S/CSS coding standards",
+                    url: "https://github.com/katalyst/ornament/wiki/CSS-Styleguide-and-Coding-Standards",
+                    target: "_blank",
+                    keywords: "styleguide,best practices",
+                  }
+                ]
+              %>
+              <div class="styleguide-page--sidebar--filter-list" data-sidebar-filter-list></div>
+              <ul class="styleguide-page--sidebar--list" data-sidebar-navigation>
+                <% navigation.each do |nav_item| %>
+                  <% if !nav_item[:section].eql?(last_section) %>
+                    <% last_section = nav_item[:section] %>
+                    <li class="styleguide-page--sidebar--section-header"><%= nav_item[:section] %></li>
+                  <% end %>
+                  <li class="<%= "active" if request.path.eql?(nav_item[:url]) %>" data-navigation-item data-section="<%= last_section %>" data-keywords="<%= nav_item[:keywords] %>">
+                    <%= link_to nav_item[:url], target: nav_item[:target] do %>
+                      <%= nav_item[:label] %>
+                      <% if nav_item[:target] && nav_item[:target].eql?("_blank") %>
+                        <%= icon "external_link", width: 16, height: 16 %>
+                      <% end %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+
+            </div>
+            <main role="main" class="styleguide-page--main">
+
+              <% large_header = request.path.eql?(styleguide_path) %>
+              <header class="header <%= "header__main" if large_header %>" role="banner">
+                <div class="<%= large_header ? "header--container" : "styleguide-page--main--container" %> spacing">
+                  <div class="spacing-xxx-tight">
+                    <h1>
+                      <span class="<%= large_header ? "heading-one" : "heading-three" %>"><%= link_to "Ornament", styleguide_path %></span>
+                      <span class="type--grey" data-ornament-version></span>
+                    </h1>
+                    <% if large_header %>
+                      <p>The front-end pattern library and styleguide for Katalyst web applications</p>
+                    <% end %>
+                  </div>
+                  <% if large_header %>
+                    <div>
+                      <div class="button-set button-set__center">
+                        <div>
+                          <%= link_to "Get Started", "", class:"button button__shadowed" %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+                <% if large_header %>
+                  <div class="header--github">
+                    <%= link_to "https://github.com/katalyst/ornament", class: "button button__icon-left icon--white", title: "View on Github" do %>
+                      <%= icon("github", width: 24, height: 24) %>
+                      <span>View on Github</span>
+                    <% end %>
+                  </div>
+                <% end %>
+                <button class="header--menu" title="Open menu" data-transition="main-sidebar" data-transition-speed="200">
+                  <%= icon("hamburger", width: 25, height: 23) -%>
+                </button>
+              </header>
+
+              <%= render "/shared/oldie" -%>
+              <%= render "/shared/flash" -%>
+              <%= yield :above_layout -%>
+
+              <div class="styleguide-page--main--container styleguide-page--main-content">
+                <%- if content_for?(:title) -%>
+                  <div class="styleguide--title">
+                    <h2 class="heading-one"><%= yield(:title) -%></h2>
+                    <%= link_to raw("&lsaquo; Back"), styleguide_path -%>
+                  </div>
+                <%- end -%>
+
+                <%- if content_for?(:global) || !yield.blank? -%>
+                  <a id="main" name="main" tabindex="-1"></a>
+                  <div class="layout--main <%= yield(:layout_class) -%>" role="main">
+                    <%= content_for?(:global) ? yield(:global) : yield %>
+                  </div>
+                <%- end -%>
+              </div>
+
+              <%= yield :below_layout -%>
+            </main>
+
+            <footer class="footer align__right" role="contentinfo">
+              By <%= link_to "Katalyst Interactive", "https://katalyst.com.au" %>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <%= yield :scripts_bottom %>
+    
+    <%= render "layouts/analytics" -%>
+
+    <div data-ornament-icons style="display: none;">
+      <div data-ornament-icon="chevron-left"><%= icon("chevron_left") -%></div>
+      <div data-ornament-icon="chevron-right"><%= icon("chevron_right") -%></div>
+      <div data-ornament-icon="close"><%= icon("close") -%></div>
+    </div>
+  </body>
+
+  <% if false %>
   <body class="styleguide <%= yield :body_class -%>"> 
     <%- if gtm_code -%>
       <%# Google Tag Manager (noscript Version) %>
@@ -117,5 +610,6 @@
     </div>
 
   </body>
+  <% end %>
 
 </html>

@@ -141,12 +141,16 @@
 
 .button-set {
   margin: $xxxx-small-unit * -0.5;
-  @include pie-clearfix;
+  @include display-flex;
+  @include flex-wrap;
 
   > div {
-    float: left;
     padding: $xxxx-small-unit * 0.5;
   }
+}
+
+.button-set__center {
+  @include justify-content(center);
 }
 
 // =========================================================================

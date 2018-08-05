@@ -2,6 +2,11 @@
 
 ## v2.0.4
 
+### Styleguide redesign part 2
+
+- New filterable navigation on the left hand side using keywords to identify links of interest, eg. "modal" will find the lightbox docs
+- Press "F" to focus on the filter input for quick-filtering action
+
 ### Lib updates
 
 - Changed to jQuery 3 by default

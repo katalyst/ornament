@@ -17,10 +17,10 @@
   padding-left: $padding;
   padding-right: $padding;
 
-  @if $container-padding-mobile {
+  @if $mobile-padding {
     @include media-query($breakpoint-header) {
-      padding-left: $container-padding-mobile;
-      padding-right: $container-padding-mobile;
+      padding-left: $mobile-padding;
+      padding-right: $mobile-padding;
     }
   }
 }

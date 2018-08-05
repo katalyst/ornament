@@ -4,6 +4,8 @@
   display: block;
   padding: 0.8em 0;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .environment-development:before {
