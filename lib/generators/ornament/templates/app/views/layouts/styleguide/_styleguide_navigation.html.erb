@@ -272,13 +272,13 @@
       section: "Components",
       label: "Drilldown",
       url: "/styleguide/drilldown",
-      keywords: "menu,navigation",
+      keywords: "menu,navigation,jquery",
     },
     {
       section: "Components",
       label: "Flexible Input",
       url: "/styleguide/flexible_input",
-      keywords: "form,responsive",
+      keywords: "form,responsive,jquery",
     },
     {
       section: "Components",
@@ -290,13 +290,13 @@
       section: "Components",
       label: "Form - Image Uploader",
       url: "/styleguide/form_upload",
-      keywords: "gallery,file"
+      keywords: "gallery,file,jquery"
     },
     {
       section: "Components",
       label: "Lightbox",
       url: "/styleguide/lightbox",
-      keywords: "popup,modal,magnific popup"
+      keywords: "popup,modal,magnific popup,jquery"
     },
     {
       section: "Components",
@@ -361,7 +361,7 @@
     }
   ]
 %>
-<div class="styleguide-page--sidebar--filter-list" data-sidebar-filter-list></div>
+<div class="styleguide-page--sidebar--filter-list" data-sidebar-filter-list style="display: none;"></div>
 <ul class="styleguide-page--sidebar--list" data-sidebar-navigation>
   <% navigation.each do |nav_item| %>
     <% if !nav_item[:section].eql?(last_section) %>

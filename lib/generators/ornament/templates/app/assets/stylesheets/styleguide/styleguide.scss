@@ -425,6 +425,7 @@ $sidebar-padding: $xxx-small-unit;
 // Links in sidebar and filter
 .styleguide-page--sidebar--list,
 .styleguide-page--sidebar--filter-list {
+  border-bottom: $divider;
 
   li + li,
   .styleguide--filter-item + .styleguide--filter-item {
@@ -435,9 +436,23 @@ $sidebar-padding: $xxx-small-unit;
     padding: $xxxxx-small-unit $sidebar-padding;
     transition: background .2s, color .2s;
     @include color-link($link-color, $foreground-color);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 8px;
+      transform: translateX(-100%);
+      transition: transform .2s;
+      background: $primary-color;
+    }
   }
-  a:hover {
-    background: $passive-color;
+  a:hover::before {
+    transform: translateX(0);
+    // background: $passive-color;
   }
   .active a {
     background: $primary-color;

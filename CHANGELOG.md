@@ -38,6 +38,9 @@
 - Fixed styleguide copy buttons attempting to submit forms, very problematic on the form documentation page
 - Removed double includes of `flexible-input`
 - Fixed minor style issues with `page__with-sidebar-right`
+- Fixed duplicate docs for `spacing-*` classes
+- Fixed outdated panel class on the `flex mixins` page
+- Added code samples to drilldown docs
 
 ## v2.0.3
 

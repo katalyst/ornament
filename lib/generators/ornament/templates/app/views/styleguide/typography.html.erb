@@ -266,40 +266,5 @@
 
 <div class="content-spacing">
   <h2 class="heading-two">Block spacing</h2>
-
-  <p>There are several <code>spacing-</code> classes you can use to space out block-level elements. While technically you can do this to text, you should use the content classes above to do so. This should only be used to space out non-typographical block-level elements, such as a series of tables for example.</p>
-
-  <p>The spacing classes range from <code>spacing-xxx-tight</code> for the smallest to <code>spacing-xxx-loose</code> for the largest.</p>
-
-  <p>These classes will space only the direct decendants inside the element with that class, so it's perfect for spacing out sibling elements.</p>
-
-  <h3 class="heading-three">spacing-xxx-tight</h3>
+  <p>There are <a href="/styleguide/spacing">several block-level spacing classes</a> that can be used to evenly space out block-level elements.</p>
 </div>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "spacing-xxx-tight" } do -%>
-<div class="spacing-xxx-tight">
-  <div class="panel">Block</div>
-  <div class="panel">Block</div>
-  <div class="panel">Block</div>
-</div>
-  <%- end -%>
-
-  <h3 class="heading-three">spacing</h3>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "spacing-tight" } do -%>
-<div class="spacing">
-  <div class="panel">Block</div>
-  <div class="panel">Block</div>
-  <div class="panel">Block</div>
-</div>
-  <%- end -%>
-
-  <h3 class="heading-three">spacing-xxx-loose</h3>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "spacing-xxx-loose" } do -%>
-<div class="spacing-xxx-loose">
-  <div class="panel">Block</div>
-  <div class="panel">Block</div>
-  <div class="panel">Block</div>
-</div>
-  <%- end -%>
