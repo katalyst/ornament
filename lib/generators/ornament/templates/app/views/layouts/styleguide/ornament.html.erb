@@ -61,7 +61,7 @@
     <a class="skip-link" href="#main">skip to content</a>
 
     <div class="layout">
-      <div class="layout--content environment-<%= Rails.env -%>" data-layout-positioner>
+      <div class="layout--content" data-layout-positioner>
 
         <div class="layout--positioner">
           <div class="styleguide-page">
@@ -81,7 +81,7 @@
               <%= render "layouts/styleguide/styleguide_navigation" %>
 
             </div>
-            <main role="main" class="styleguide-page--main">
+            <main role="main" class="styleguide-page--main  environment-<%= Rails.env -%>">
 
               <% large_header = request.path.eql?(styleguide_path) %>
               <header class="header <%= "header__main" if large_header %>" role="banner">
@@ -124,7 +124,7 @@
 
               <div class="styleguide-page--main--container styleguide-page--main-content">
                 <%- if content_for?(:title) -%>
-                  <div class="styleguide--title">
+                  <div class="page--title styleguide--title">
                     <h2 class="heading-one"><%= yield(:title) -%></h2>
                     <%= link_to raw("&lsaquo; Back"), styleguide_path -%>
                   </div>
@@ -132,7 +132,7 @@
 
                 <%- if content_for?(:global) || !yield.blank? -%>
                   <a id="main" name="main" tabindex="-1"></a>
-                  <div class="layout--main <%= yield(:layout_class) -%>" role="main">
+                  <div class="<%= yield(:layout_class) -%>" role="main">
                     <%= content_for?(:global) ? yield(:global) : yield %>
                   </div>
                 <%- end -%>
@@ -153,6 +153,8 @@
     <%= yield :scripts_bottom %>
     
     <%= render "layouts/analytics" -%>
+
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
     <div data-ornament-icons style="display: none;">
       <div data-ornament-icon="chevron-left"><%= icon("chevron_left") -%></div>

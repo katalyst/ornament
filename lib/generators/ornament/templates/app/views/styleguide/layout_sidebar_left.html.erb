@@ -1,49 +1,60 @@
-<%- content_for :title, "Sidebar Left" -%>
+<%- content_for :title, "Sidebar Yields" -%>
 
-<%- content_for :styles do -%>
-  <style>
-    .example {
-      background: #ccc;
-      width: 100%;
-      padding: 10px;
-    }
-  </style>
-<%- end -%>
+<div class="spacing">
 
-<%- content_for :sidebar do -%>
-  <div class="example">
-    This is the sidebar
-  </div>
-<%- end -%>
+  <h2 class="heading-two">Sidebar</h2>
 
-<%- content_for :page_main do -%>
   <div class="content-spacing content-lists">
-    <p>You can throw things in to a sidebar layout by using the :sidebar yield:</p>
+    <p>You can throw things in to a sidebar layout by using the <code>:sidebar</code> yield:</p>
+  </div>
 
-<pre class="sg-pre prettyprint">&lt;%- content_for :sidebar do -%>
-  This is the sidebar
-&lt;%- end -%></pre>
-  </div>
-<%- end -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "sidebar_left", ruby: capture { -%>
+&lt;%- content_for :sidebar do -%>
+  &lt;div class="panel panel__passive">
+    Panel in sidebar
+  &lt;/div>
+&lt;%- end -%>
 
-<%- if content_for? :sidebar -%>
-  <div class="page__with-sidebar">
-    <div class="page--main">
-      <%= yield :page_main -%>
-    </div>
-    <div class="page--sidebar">
-      <%= yield :sidebar -%>
+Content
+  <%- } } do -%>
+<div class="page__with-sidebar">
+  <div class="page--main">
+    Content
+  </div>
+  <div class="page--sidebar">
+    <div class="panel panel__passive">
+      Panel in sidebar
     </div>
   </div>
-<%- elsif content_for? :sidebar_right -%>
-  <div class="page__with-sidebar-right">
-    <div class="page--main">
-      <%= yield :page_main -%>
-    </div>
-    <div class="page--sidebar">
-      <%= yield :sidebar_right -%>
+</div>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Sidebar right</h2>
+
+  <div class="content-spacing content-lists">
+    <p>You can put the content on the right by changing the yield to <code>:sidebar_right</code>.</p>
+  </div>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "sidebar_right", ruby: capture { -%>
+&lt;%- content_for :sidebar_right do -%>
+  &lt;div class="panel panel__passive">
+    Panel in sidebar
+  &lt;/div>
+&lt;%- end -%>
+
+Content
+  <%- } } do -%>
+<div class="page__with-sidebar-right">
+  <div class="page--main">
+    Content
+  </div>
+  <div class="page--sidebar">
+    <div class="panel panel__passive">
+      Panel in sidebar
     </div>
   </div>
-<%- else -%>
-  <%= yield :page_main -%>
-<%- end -%>  
+</div>
+  <%- end -%>
+
+</div>

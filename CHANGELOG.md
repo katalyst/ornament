@@ -31,11 +31,13 @@
 - Added placeholder `service-worker.js`
 - Removed a bunch of countries from the `form` country select element as it was causing encoding errors when deploying
 - Added `simple-navigation` as a gem dependancy
+- Merged docs for `sidebar_left` and `sidebar_right` with proper code samples
 
 ### Fixes
 
 - Fixed styleguide copy buttons attempting to submit forms, very problematic on the form documentation page
 - Removed double includes of `flexible-input`
+- Fixed minor style issues with `page__with-sidebar-right`
 
 ## v2.0.3
 

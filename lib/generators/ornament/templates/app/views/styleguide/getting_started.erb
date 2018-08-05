@@ -2,9 +2,15 @@
 
 <div class="content-spacing">
 
-  <p>Simply run the ornament generator:</p>
+  <p>Simply add the gem:</p>
 
-  <pre class="sg-pre">rails generate ornament</pre>
+  <pre class="sg-pre prettyprint">gem 'ornament', github: 'katalyst/ornament', branch: 'master'</pre>
+  
+  <p>And then run the ornament generator:</p>
+
+  <pre class="sg-pre prettyprint">rails generate ornament</pre>
+
+  <p>If you want to be on the bleeding-edge development version you can use the <code>develop</code> branch instead of master, however there may be bugs.</p>
 
   <hr />
 
@@ -12,18 +18,18 @@
 
   <p>Make sure these gems to your Gemfile:</p>
 
-  <pre class="sg-pre">gem 'sass-rails', '~> 5.0.0'
+  <pre class="sg-pre prettyprint">gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier', '>= 1.0.3'
 gem 'htmlentities', '~> 4.3.4'
-</pre>
+gem 'simple-navigation', '~> 3.14.0'</pre>
+
+  <p>These gems should be automatically appended to your gemfile and printed to the terminal when you generate Ornament.</p>
 
   <hr />
 
   <h2 class="heading-two">Asset Precompilation</h2>
 
-  <p>The <code>ornament</code> initialiser will add this line to make sure the required assets get precompiled:</p>
-
-  <pre class="sg-pre">Rails.application.config.assets.precompile += %w( application_split2.css  selectivizr.js respond.js application_bottom.js styleguide.css styleguide_split2.css styleguide.js )</pre>
+  <p>There are a few assets that Ornament will need to be precompiled, these are managed in <code>config/initializers/ornament.rb</code>.</p>
 
   <hr />
   <h2 class="heading-two">Non-Koi projects</h2>
@@ -44,5 +50,12 @@ gem 'htmlentities', '~> 4.3.4'
   <p>At the beginning of a project I typically go in to the <code>application.scss</code>, <code>application.js</code> and <code>application_bottom.js</code> files and disable components I likely won't be using such as object slider, tabs, tooltips etc.</p>
 
   <p>Then when I start to implement these features in the application I'm developing I will bring them back in.</p>
+
+  <hr />
+  <h2 class="heading-two">Application layout</h2>
+
+  <p>There are two application layouts that Ornament uses.</p>
+  <p>The first is <code>global.html.erb</code> which is your global template, header, footer, navigation etc.</p>
+  <p>The second is <code>application.html.erb</code> which is wrapped in the global template. This is where you develop your page layout logic.</p>
 
 </div>

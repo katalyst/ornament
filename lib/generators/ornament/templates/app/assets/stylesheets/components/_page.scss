@@ -1,3 +1,6 @@
+$page-breakpoint: 960px;
+$page-breakpoint-small: 720px;
+
 .page--title {
   margin-bottom: $xx-large-unit;
 }
@@ -10,39 +13,37 @@
 .page--main {
   @include spang(8,12);
 
-  @include media-query(780px) {
+  @include media-query($page-breakpoint-small) {
     @include spang(1,1);
   }
 
   .page__with-sidebar & {
-    float: right;
-    @include spacer-left(1,12);
-
-    @include media-query(960px) {
-      margin-left: 0;
+    @include media-query($page-breakpoint, min) {
+      @include spacer-left(1,12);
     }
   }
 
   .page__with-sidebar-right & {
-    @include spacer-right(1,12);
-
-    @include media-query(960px) {
-      margin-right: 0;
+    @include media-query($page-breakpoint, min) {
+      @include spacer-right(1,12);
     }
   }
 }
 
 .page--sidebar {
   @include spang(3,12);
-  // avoids collapsing empty sidebar
-  min-height: 1px;
 
-  @include media-query(960px) {
+  @include media-query($page-breakpoint) {
     @include spang(4,12);
   }
 
-  @include media-query(780px) {
-    margin-top: $large-unit;
+  @include media-query($page-breakpoint-small) {
     @include spang(1,1);
+  }
+
+  .page__with-sidebar & {
+    @include media-query($page-breakpoint-small, min) {
+      @include order(-1);
+    }
   }
 }
