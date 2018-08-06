@@ -5,6 +5,7 @@
 ### Changes
 
 - Removed px sizing from `button.scss` and `button-mixins.scss`
+- Added `app-height-variable` component as a replacement for `100vh` - [More info](https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser), can be used as either `height: var(--app-height)` or `@include app-height` in SCSS.
 
 ### Fixes
 

@@ -41,6 +41,10 @@ button {
 // viewports height and width.
 // =========================================================================
 
+:root {
+  --app-height: 100vh;
+}
+
 html, body {
   height: 100%;
   width: 100%;

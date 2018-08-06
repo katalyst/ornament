@@ -1,0 +1,5 @@
+// See app-height-variable.js for more information
+@mixin app-height {
+  height: 100vh; // for non-var support
+  height: var(--app-height);
+}
