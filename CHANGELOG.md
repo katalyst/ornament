@@ -10,6 +10,7 @@
 
 - Added `views/service_worker` to generator
 - Removed old `service_worker.js` so it doesn't conflict with the new generated service worker
+- Fixed service worker controller not being accessible in the test/dummy app
 
 ## v2.0.4
 
