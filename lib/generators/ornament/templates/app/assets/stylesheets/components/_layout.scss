@@ -20,7 +20,7 @@ body.lightbox-open {
 }
 
 .layout {
-  min-height: 100vh;
+  @include app-height("min");
 }
 
 .layout--content {

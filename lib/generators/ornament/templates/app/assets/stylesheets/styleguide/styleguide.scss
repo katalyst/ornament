@@ -261,7 +261,7 @@ $styleguide-sidebar-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
 .styleguide-page {
   @include display-flex;
   @include flex-direction(column);
-  min-height: 100vh;
+  @include app-height("min");
 
   // Offset main content on desktop to fit sidebar
   @include media-query($breakpoint-header, min) {
