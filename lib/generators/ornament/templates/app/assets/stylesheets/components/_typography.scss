@@ -166,7 +166,7 @@ $headings-small: (
 // Premade classes for typography 
 // =========================================================================
 
-body, 
+html, 
 .body-type {
   @include body-type;
 }
