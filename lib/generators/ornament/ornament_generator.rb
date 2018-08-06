@@ -92,6 +92,7 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/views/errors"
         directory "app/views/kaminari"
         directory "app/views/shared"
+        directory "app/views/service_worker"
       end
 
       if options.helpers?

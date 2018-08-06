@@ -6,6 +6,10 @@
 
 - Removed px sizing from `button.scss` and `button-mixins.scss`
 
+### Fixes
+
+- Added `views/service_worker` to generator
+
 ## v2.0.4
 
 ### Styleguide redesign
@@ -16,7 +20,7 @@
 ### Lib updates
 
 - Changed to jQuery 3 by default
-- Updated `lodash` to v1.9.1
+- Updated `underscore` to v1.9.1
 - Updated `what-input` to v5.1.1
 - Updated `priority-nav` to v1.0.13
 - Updated `jquery-ui-timepicker-addon` to v1.6.3
