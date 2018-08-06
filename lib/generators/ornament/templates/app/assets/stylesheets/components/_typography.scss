@@ -171,6 +171,10 @@ html,
   @include body-type;
 }
 
+body {
+  line-height: $base-line-height;
+}
+
 small,
 .type--small {
   @include small-type;

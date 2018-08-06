@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.5
+
+### Changes
+
+- Removed px sizing from `button.scss` and `button-mixins.scss`
+
 ## v2.0.4
 
 ### Styleguide redesign

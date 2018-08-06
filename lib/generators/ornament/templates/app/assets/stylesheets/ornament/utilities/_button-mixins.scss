@@ -52,9 +52,9 @@ $button-line-border: 2px;
   font-size: $x-small-font-size;
 
   @if $line {
-    padding: (4px - $button-line-border) 8px;
+    padding: calc(#{$xxxxxx-small-unit} - #{$button-line-border}) $xxxxx-small-unit;
   } @else {
-    padding: 4px 8px;
+    padding: $xxxxxx-small-unit $xxxxx-small-unit;
   }
 }
 
@@ -68,9 +68,9 @@ $button-line-border: 2px;
   @include disable-mouse-outline;
 
   @if $line {
-    padding: (10px - $button-line-border) 19px;
+    padding: calc(#{$xxxx-small-unit} - #{$button-line-border}) $xx-small-unit;
   } @else {
-    padding: 10px 19px;
+    padding: $xxxx-small-unit $xx-small-unit;
   }
 
   &.button__pill {
@@ -92,7 +92,7 @@ $button-line-border: 2px;
 
 @mixin button-large($line: false) {
   @if $line {
-    padding: ($xxx-small-unit - convert-px-to-rem($button-line-border)) $x-small-unit;
+    padding: calc(#{$xxx-small-unit} - #{$button-line-border}) $x-small-unit;
   } @else {
     padding: $xxx-small-unit $x-small-unit;
   }
@@ -100,9 +100,9 @@ $button-line-border: 2px;
 
 @mixin button-small($line: false) {
   @if $line {
-    padding: (8px - $button-line-border) 12px;
+    padding: calc(#{$xxxxx-small-unit} - #{$button-line-border}) $xxxx-small-unit;
   } @else {
-    padding: 8px 12px;
+    padding: $xxxxx-small-unit $xxxx-small-unit;
   }
 }
 

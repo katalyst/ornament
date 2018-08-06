@@ -95,7 +95,7 @@
 }
 
 .button__icon {
-  @include icon-block(44px);
+  @include icon-block(48px);
   @include display-inline-flex;
   padding: 0;
   vertical-align: middle;
