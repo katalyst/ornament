@@ -1,5 +1,5 @@
 // See app-height-variable.js for more information
-@mixin app-height($context) {
+@mixin app-height($context:false) {
   @if $context == "min" {
     $context: "min-";
   }
