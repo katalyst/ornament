@@ -1,0 +1,126 @@
+<% content_for :title, "Tray Navigation (Push)" %>
+
+<div class="content-spacing content-lists">
+
+  <p>This is the push variant of mobile tray navigation.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Scaffolding the menu</h2>
+
+  <p>The menu requires the following markup to get started. Some of the classes used may need to change depending on implementation.</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">&lt;body>
+
+  &lt;!-- container for the entire website -->
+  &lt;div class="layout tray-container" data-tray-layout>
+
+    &lt;!-- container for the slide-out tray -->
+    &lt;div class="tray" data-tray>
+
+      &lt;nav aria-label="Mobile Navigation" role="navigation">
+        &lt;ul>
+          &lt;!-- navigation goes here -->
+          &lt;li>&lt;a href="#">Home&lt;/a>&lt;/li>
+          &lt;li>&lt;a href="#">About&lt;/a>&lt;/li>
+          &lt;li>&lt;a href="#">Contact&lt;/a>&lt;/li>
+        &lt;/ul>
+      &lt;/nav>
+
+    &lt;/div>
+
+    &lt;!-- container for the main website that will get pushed away from the navigation -->
+    &lt;div class="tray--page layout--content" data-tray-page>
+
+      &lt;!-- header content will sit over the darkened overlay -->
+      &lt;header class="header" role="banner">&lt;/header>
+
+      &lt;!-- container for everything that will get darkened by the overlay -->
+      &lt;div data-layout-positioner class="layout--positioner tray--open-overlay">
+        &lt;!-- website goes here -->
+
+        &lt;!-- make sure your footer is inside the tray--open-overlay element -->
+        &lt;footer class="footer" role="contentinfo">&lt;/footer>
+      &lt;/div>
+    &lt;/div>
+  &lt;/div>
+
+&lt;/body></pre>
+  </div>
+
+  <%- 
+    traynav = "Ornament.C.PushNav" 
+    dom_elements = [{
+      call: "#{traynav}.anchor",
+      description: "The menu button that opens/closes the tray."
+    },{
+      call: "#{traynav}.tray",
+      description: "The tray"
+    }]
+    public_functions = [{
+      call: "#{traynav}.openMenu();",
+      description: "Slide the menu open."
+    },{
+      call: "#{traynav}.closeMenu();",
+      description: "Slide the menu closed."
+    },{
+      call: "#{traynav}.toggleMenu();",
+      description: "Either close or open the menu."
+    },{
+      call: "#{traynav}.isOpen();",
+      description: "Returns true or false depending on if the menu is open or not."
+    }]
+  -%>
+  <p>The menu is accessed via the public variable <code><%= traynav -%></code></p>
+
+  <hr />
+
+  <h2 class="heading-two">Accessing the menu externally</h2>
+
+  <p>The menu features several public functions that you can call anywhere.</p>
+
+  <h3 class="heading-three">DOM Elements</h3>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush" style="min-width: 800px;">
+      <thead>
+        <tr>
+          <th width="400">JS</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- dom_elements.each do |field| -%>
+          <tr>
+            <td><code><%= field[:call] -%></code></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h3 class="heading-three">Public Functions</h3>
+
+  <div class="table-container">
+    <table class="table table__bordered table__flush" style="min-width: 800px;">
+      <thead>
+        <tr>
+          <th width="400">JS</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- public_functions.each do |field| -%>
+          <tr>
+            <td><code><%= field[:call] -%></code></td>
+            <td><%= raw field[:description] -%></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+</div>
