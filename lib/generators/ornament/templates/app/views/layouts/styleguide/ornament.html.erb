@@ -61,13 +61,12 @@
     <a class="skip-link" href="#main">skip to content</a>
 
     <div class="layout">
-      <div class="layout--content" data-layout-positioner>
+      <div class="layout--content" data-tray-scroll-positioner>
 
         <div class="layout--positioner">
-          <div class="styleguide-page">
-            <div class="styleguide-page--sidebar-overlay" data-transition="main-sidebar" data-transition-speed="200"></div>
-            <div class="styleguide-page--sidebar">
-              <button class="styleguide-page--sidebar--close" data-transition="main-sidebar" data-transition-speed="200" title="Close menu">
+          <div class="styleguide-page" data-tray-overlay-darken>
+            <div class="styleguide-page--sidebar" data-tray-overlay>
+              <button class="styleguide-page--sidebar--close" data-tray-close title="Close menu">
                 <div>
                   <span>Close menu</span>
                   <%= icon "close", width: 16, height: 16 %>
@@ -113,7 +112,7 @@
                     <% end %>
                   </div>
                 <% end %>
-                <button class="header--menu" title="Open menu" data-transition="main-sidebar" data-transition-speed="200">
+                <button class="header--menu" title="Open menu" data-tray-button>
                   <%= icon("hamburger", width: 25, height: 23) -%>
                 </button>
               </header>

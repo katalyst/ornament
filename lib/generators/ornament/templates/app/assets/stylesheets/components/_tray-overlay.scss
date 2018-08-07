@@ -1,0 +1,69 @@
+$tray-overlay-width: 250px;
+$tray-overlay-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
+$tray-overlay-open-class: "overlay__open";
+$tray-overlay-transition-class: "overlay__transitioning";
+$tray-breakpoint: $breakpoint-header;
+
+// Position relative the scroll positioner so we can move it up and down the page
+[data-tray-scroll-positioner] {
+  position: relative;
+}
+
+// Prevent body scroll when mobile sidebar is open
+.#{$tray-overlay-open-class} {
+  @include media-query($tray-breakpoint) {
+    overflow: hidden;
+  }
+}
+
+// Sidebar overlay when mobile sidebar is open
+[data-tray-overlay-darken] {
+  @include media-query($tray-breakpoint) {
+    &::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 9;
+      display: none;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .#{$tray-overlay-open-class} &::before,
+    .#{$tray-overlay-transition-class} &::before {
+      display: block;
+    }
+
+    .#{$tray-overlay-open-class} &::before {
+      opacity: 1;
+    }
+  }
+}
+
+// Sidebar
+[data-tray-overlay] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  @include overflow-scroll;
+  background: $background-color;
+  width: $tray-overlay-width;
+  border-right: $divider;
+  z-index: 10;
+  display: none;
+
+  @include media-query($tray-breakpoint) {
+    transform: translateX(-100%);
+    transition: transform .2s;
+
+    .#{$tray-overlay-open-class} & {
+      transform: translateX(0);
+      box-shadow: $tray-overlay-shadow;
+    }
+  }
+}

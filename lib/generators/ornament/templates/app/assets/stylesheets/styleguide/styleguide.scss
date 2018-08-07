@@ -102,6 +102,7 @@ $panel-border: 1px solid $grey;
 @import "components/text-limiter";
 @import "components/toggle";
 @import "components/tooltip";
+@import "components/tray-overlay";
 @import "components/tray-push";
 
 @import "helpers/align";
@@ -248,15 +249,6 @@ hr {
 // =========================================================================
 // Styleguide Page
 // =========================================================================
-$styleguide-sidebar-width: 250px;
-$styleguide-sidebar-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
-
-// Prevent body scroll when mobile sidebar is open
-.main-sidebar-open {
-  @include media-query($breakpoint-header) {
-    overflow: hidden;
-  }
-}
 
 .styleguide-page {
   @include display-flex;
@@ -265,58 +257,16 @@ $styleguide-sidebar-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
 
   // Offset main content on desktop to fit sidebar
   @include media-query($breakpoint-header, min) {
-    margin-left: $styleguide-sidebar-width;
-  }
-}
-
-// Sidebar overlay when mobile sidebar is open
-.styleguide-page--sidebar-overlay {
-  @include media-query($breakpoint-header) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 9;
-    display: none;
-    opacity: 0;
-    transition: opacity .2s;
-
-    .main-sidebar-open &,
-    .main-sidebar-transitioning & {
-      display: block;
-    }
-
-    .main-sidebar-open & {
-      opacity: 1;
-    }
+    margin-left: $tray-overlay-width;
   }
 }
 
 // Fixed sidebar
 .styleguide-page--sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  @include overflow-scroll;
-  background: $background-color;
-  width: $styleguide-sidebar-width;
-  border-right: $divider;
-  // box-shadow: $styleguide-sidebar-shadow;
-  z-index: 10;
+  display: block;
 
   @include media-query($breakpoint-header) {
     border-right: 4px solid $primary-color;
-    transform: translateX(-100%);
-    transition: transform .2s;
-    box-shadow: none;
-
-    .main-sidebar-open & {
-      transform: translateX(0);
-      box-shadow: $styleguide-sidebar-shadow;
-    }
   }
 }
 
