@@ -1,0 +1,108 @@
+<% content_for :title, "Tray Navigation (Overlay)" %>
+
+<div class="content-spacing content-lists">
+
+  <p>This is the overlay variant of mobile tray navigation.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Scaffolding the menu</h2>
+
+  <p>The menu requires the following markup to get started. Some of the classes used may need to change depending on implementation.</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">&lt;body>
+
+  &lt;!-- The container element that gets moved around when opening the overlay tray to give the illusion of keeping the scroll position -->
+  &lt;div data-tray-scroll-positioner>
+
+    &lt;!-- The element that gets darkened off when the overlay is open -->
+    &lt;!-- Feel free to move eg. the header out of this element so that it doesn't get darkened off if you have a sticky header -->
+    &lt;div data-tray-overlay-darken>
+
+      &lt;!-- The container for the overlay itself, this is where the navigation will appear -->
+      &lt;div data-tray-overlay>
+        &lt;button data-tray-close title="Close menu">Close&lt;/button>
+        &lt;ul>
+          &lt;li>...&lt;/li>
+        &lt;/ul>
+      &lt;/div>
+
+      &lt;!-- Example header containing toggle button -->
+      &lt;header role="banner">
+        &lt;button title="Open menu" data-tray-button>Toggle menu&lt;/button>
+      &lt;/header>
+
+      &lt;!-- Your main content area -->
+      &lt;main role="main" id="main">&lt;/main>
+
+      &lt;!-- Your footer -->
+      &lt;footer role="contentinfo">&lt;/footer>
+    &lt;/div>
+  &lt;/div>
+
+&lt;/body></pre>
+  </div>
+
+  <hr />
+
+  <h2 class="heading-two">Triggers</h2>
+
+  <p>Any element (preferably a <code>button</code>) that has the data-attribute <code>data-tray-button</code> will act as a <strong>toggle</strong> to show or hide the overlay tray when clicked.</p>
+
+  <p>Any element (again, preferably a <code>button</code>) that has the data-attribute <code>data-tray-close</code> will close the overlay when clicked.</p>
+
+  <p>As with most Ornament components, there is a public API, <code>Ornament.C.OverlayTray</code> which has functions to open/close/toggle the overlay on command. Feel free to use these methods to build out custom functionality.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Visible on desktop</h2>
+
+  <p>By default, this component assumes you have a seperate desktop navigation.</p>
+  <p>If you would like to have the navigation visible on desktop and only hidden on mobile there are a few changes you need to make.</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">[data-tray-overlay] {
+  // Make sure it's visible on desktop
+  display: block;
+  visibility: visible;
+
+  @include media-query($tray-breakpoint) {
+    // Make sure it goes back to being untabbable at the breakpoint it hides
+    visibility: hidden;
+  }
+}</pre>
+  </div>
+
+  <p>Depending on the scroll and positioning behaviour you may need to remove overflows and positioning properties on desktop.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Callbacks and customisation</h2>
+
+  <h3 class="heading-three">Transition callbacks</h3>
+
+  <p>There are callbacks implemented throughout the show/hide cycle:</p>
+  <ul>
+    <li>Ornament.C.OverlayTray.beforeOpen()</li>
+    <li>Ornament.C.OverlayTray.afterOpen()</li>
+    <li>Ornament.C.OverlayTray.beforeClose()</li>
+    <li>Ornament.C.OverlayTray.afterClose()</li>
+  </ul>
+
+  <h3 class="heading-three">Focus on open</h3>
+
+  <p>By default, the component will focus on the first focusable element in the overlay when opened. You can override this functionality and have it focus on something specific with <code>Ornament.C.OverlayTray.focusTrap.firstAfterOpen</code>, which should be a single element.</p>
+
+  <p>An implementation might look like this:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">var $searchField = document.querySelector("[data-my-search-field]");
+Ornament.C.OverlayTray.focusTrap.firstAfterOpen = $searchField;
+Ornament.C.OverlayTray.beforeClose(function(){
+  $searchField.blur();
+})
+    </pre>
+  </div>
+
+</div>

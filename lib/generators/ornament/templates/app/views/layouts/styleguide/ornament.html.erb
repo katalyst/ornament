@@ -80,7 +80,7 @@
               <%= render "layouts/styleguide/styleguide_navigation" %>
 
             </div>
-            <main role="main" class="styleguide-page--main  environment-<%= Rails.env -%>" data-tray-disable-when-open>
+            <main role="main" class="styleguide-page--main environment-<%= Rails.env -%>">
 
               <% large_header = request.path.eql?(styleguide_path) %>
               <header class="header <%= "header__main" if large_header %>" role="banner">
@@ -123,6 +123,8 @@
               <%= yield :above_layout -%>
 
               <div class="styleguide-page--main--container styleguide-page--main-content">
+                <a id="main" name="main" tabindex="-1"></a>
+                
                 <%- if content_for?(:title) -%>
                   <div class="page--title styleguide--title">
                     <h2 class="heading-one"><%= yield(:title) -%></h2>
@@ -131,8 +133,7 @@
                 <%- end -%>
 
                 <%- if content_for?(:global) || !yield.blank? -%>
-                  <a id="main" name="main" tabindex="-1"></a>
-                  <div class="<%= yield(:layout_class) -%>" role="main">
+                  <div class="<%= yield(:layout_class) -%>">
                     <%= content_for?(:global) ? yield(:global) : yield %>
                   </div>
                 <%- end -%>
