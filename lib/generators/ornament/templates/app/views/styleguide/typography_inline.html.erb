@@ -1,0 +1,49 @@
+<%- content_for :title, "Inline typography styles" -%>
+
+<div class="content-spacing">
+
+  <p>Along with the content classes above, we have some element styling out of the box to make marking up your document easier. Unlike headings, these tags are usually used in specific-enough situations that styling should be assumed:</p>
+
+  <h2 class="heading-two">Sizing and decorations</h2>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "Sizing" } do -%>
+<p>Regular text with <a href="#">a link</a></p>
+<p><small>Small text with <a href="#">a link</a></small></p>
+<p><del>Deleted text with <a href="#">a link</a></del></p>
+<p><sup>Superscript with <a href="#">a link</a></sup></p>
+<p><sub>Subscript with <a href="#">a link</a></sub></p>
+  <%- end -%>
+
+  <hr />
+
+  <h2 class="heading-two">Colouring</h2>
+
+  <p>Just like the background helpers, there are text-colour helpers too:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "Colouring" } do -%>
+<p class="type--primary">.type--primary with <a href="#">a link</a></p>
+<p class="type--passive">.type--passive with <a href="#">a link</a></p>
+<p class="type--grey">.type--grey with <a href="#">a link</a></p>
+<p class="type--success">.type--success with <a href="#">a link</a></p>
+<p class="type--error">.type--error with <a href="#">a link</a></p>
+<p class="type--alert">.type--alert with <a href="#">a link</a></p>
+<p class="type--notice">.type--notice with <a href="#">a link</a></p>
+  <%- end -%>
+
+  <p>If you have a crazy long word that is just breaking <em>everything</em>, you can add <code>.type--wrap</code> on the text to force wrap it:</p>
+
+  <hr />
+
+  <h2 class="heading-two">Other inline helpers</h2>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "wrapping" } do -%>
+<span class="type--wrap">Loremipsumdolorsitamet,consecteturadipisicingelit.Nobisquamdoloremeaquisquamatfugiatnostrumquoquidemestexcepturi.Loremipsumdolorsitamet,consecteturadipisicingelit.Nobisquamdoloremeaquisquamatfugiatnostrumquoquidemestexcepturi.</span>
+  <%- end -%>
+
+  <p>Alternatively instead of wrapping it you can truncate it with the <code>.type--ellipsis</code> class.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "ellipsis" } do -%>
+<span class="type--ellipsis">Loremipsumdolorsitamet,consecteturadipisicingelit.Nobisquamdoloremeaquisquamatfugiatnostrumquoquidemestexcepturi.Loremipsumdolorsitamet,consecteturadipisicingelit.Nobisquamdoloremeaquisquamatfugiatnostrumquoquidemestexcepturi.</span>
+  <%- end -%>
+
+</div>

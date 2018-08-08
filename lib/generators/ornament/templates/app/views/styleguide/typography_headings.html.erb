@@ -1,0 +1,77 @@
+<%- content_for :title, "Headings" -%>
+
+<div class="content-spacing">
+  <h2 class="heading-two">Why doesn't Ornament style headings by default?</h2>
+  <p>Not all heading tags should dictate their styling. Sometimes semantically you need a <code>h6</code> that looks like a <code>h2</code>. This can be achieved by using heading classes.</p>
+
+  <hr />
+  <h2 class="heading-two">Heading classes</h2>
+
+  <p>There are several out-of-the-box <code>heading</code> classes:</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "content-spacing" } do -%>
+<h1 class="heading-one">Heading one</h1>
+<h2 class="heading-two">Heading two</h2>
+<h3 class="heading-three">Heading three</h3>
+<h4 class="heading-four">Heading four</h4>
+<h5 class="heading-five">Heading five</h5>
+<h6 class="heading-six">Heading six</h6>
+<%- end -%>
+
+<div class="content-spacing">
+  <hr />
+  <h2 class="heading-two">SASS Mixins</h2>
+
+  <p>All heading definitions are in the <code>typography</code> partial.</p>
+
+  <h3 class="heading-three">Heading definitions</h3>
+
+  <p>There are two sass lists that define the desktop heading sizes and mobile heading sizes.</p>
+  <p>The headings will switch between these sizes based on the <code>$breakpoint-typography</code> setting.</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">$headings-regular: (
+  ("one",   3rem),
+  ("two",   2.25rem),
+  ("three", 2rem),
+  ("four",  1.75rem),
+  ("five",  1.5rem),
+  ("six",   1.25rem)
+);
+
+$headings-small: (
+  ("one",   1.75rem),
+  ("two",   1.5rem),
+  ("three", 1.375rem),
+  ("four",  1.25rem),
+  ("five",  1.125rem),
+  ("six",   1rem)
+);</pre>
+</div>
+
+  <p>Both sets of lists take the same arguments:</p>
+
+  <ol class="content-lists">
+    <li>Name - This is the name of the class. eg if the name is "one", then the class will be "heading-one"</li>
+    <li>Font size</li>
+    <li>Line-height (optional)</li>
+    <li>Font-face (optional)</li>
+  </ol>
+
+  <p>A simple implementation would be <code>("section", 3rem)</code></p>
+  <p>A more complex one would be <code>("secondary", 1.5rem, 1.2, $bold-italic-font)</code>
+
+
+  <h3 class="heading-three">@heading</h3>
+
+  <p><code>@heading</code> is a convenient mixin for applying heading styles to a selector. The only argument it takes is the name of the heading:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">.section-heading {
+  @include heading("two");
+  text-decoration: underline;
+}</pre>
+  </div>
+
+</div>

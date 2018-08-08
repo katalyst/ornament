@@ -1,0 +1,54 @@
+<%- content_for :title, "Compressed content" -%>
+
+<div class="content-spacing">
+  <p>For smaller areas such as tiles or panels we have the <code>compressed</code> class that tightens things up significantly. This class <strong>only</strong> determines spacing and will not style headings or lists. </p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "compressed" } do -%>
+<div class="compressed">
+  <h1>Heading one</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur fuga vitae numquam accusantium quam quidem ex impedit aperiam modi ab.</p>
+  <h2>Heading two</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, eligendi!</p>
+  <h3>Heading three</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius provident voluptas aspernatur at dolor, libero placeat eum beatae illum ducimus.</p>
+  <h4>Heading four</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem quo aliquam velit voluptas laborum eum quod in qui rerum possimus consequatur fugiat dolor alias eius, reiciendis repellat accusamus optio tenetur aspernatur veritatis perferendis, odio illo! Eveniet dolor earum porro est totam, minus adipisci quos exercitationem! Reprehenderit dolore ipsum repellat inventore.</p>
+  <h5>Heading five</h5>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, alias ullam, nesciunt earum distinctio recusandae odit obcaecati temporibus quasi rem!</p>
+  <h6>Heading six</h6>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cum assumenda minus, minima odio cupiditate, nulla autem qui animi iste, modi aperiam. Officia eius quis, alias ipsam odio aliquid repellat.</p>
+  <ul>
+    <li>Lorem </li>
+    <li>ipsum </li>
+    <li>dolor 
+      <ul>
+        <li>Lorem </li>
+        <li>ipsum </li>
+        <li>dolor </li>
+        <li>sit </li>
+        <li>amet</li>
+      </ul>
+    </li>
+    <li>sit </li>
+    <li>amet</li>
+  </ul>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores repudiandae molestias excepturi non odio maiores beatae tenetur explicabo, blanditiis minus.</p>
+  <ol>
+    <li>Lorem </li>
+    <li>ipsum </li>
+    <li>dolor 
+      <ul>
+        <li>Lorem </li>
+        <li>ipsum </li>
+        <li>dolor </li>
+        <li>sit </li>
+        <li>amet</li>
+      </ul>
+    </li>
+    <li>sit </li>
+    <li>amet</li>
+  </ol>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores repudiandae molestias excepturi non odio maiores beatae tenetur explicabo, blanditiis minus.</p>
+</div>
+<%- end -%>
