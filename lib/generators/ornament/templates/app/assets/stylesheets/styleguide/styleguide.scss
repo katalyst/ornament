@@ -269,6 +269,7 @@ hr {
 .styleguide-page--sidebar {
   display: block;
   visibility: visible;
+  padding-bottom: $default-unit;
 
   @include media-query($breakpoint-header) {
     border-right: 4px solid $primary-color;
@@ -429,7 +430,19 @@ $sidebar-padding: $xxx-small-unit;
 
 .styleguide-page--sidebar--section-header {
   padding: $default-unit $sidebar-padding $sidebar-padding;
-  font-weight: bold;
+}
+
+.styleguide-page--sidebar--section-description {
+  margin-top: $xxxx-small-unit;
+  font-size: $small-font-size;
+}
+
+.styleguide-page--sidebar--disabled {
+  text-decoration: line-through;
+
+  a {
+    @include color-link($grey, $grey);
+  }
 }
 
 .styleguide--filter__empty {

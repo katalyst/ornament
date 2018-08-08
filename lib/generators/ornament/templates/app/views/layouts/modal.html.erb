@@ -1,0 +1,8 @@
+<%= render layout: "/shared/inline_lightbox", locals: {
+  title: @lightbox_title,
+  lightbox_class: @lightbox_class,
+  no_hide: true,
+  inline_id: "modal_layout"
+} do %>
+  <%= yield %>
+<% end %>

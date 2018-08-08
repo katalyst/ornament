@@ -1,0 +1,43 @@
+<%- content_for :title, "Modal routes" -%>
+
+<div class="content-spacing">
+
+  <p>Sometimes you may need a page that can be viewed as a page, but also loaded in via an ajax modal.</p>
+
+  <p>When you load it in via ajax, you don't want to load in the entire page but just the view content itself.</p>
+
+  <p>A pattern we've found to be successful and easy to work with is to append a parameter to the URL when loading in the content and then watching for that parameter in the controller, and responding with a different layout. Luckily, magnific popup makes that super easy to do. So when any page is loaded in via an ajax modal, the param <code>lightbox=true</code> is added. You can use this param to throw out the layout and just load the view:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">// things_controller
+def show
+  if params[:lightbox].present?
+    render layout: false
+  end
+end</pre>
+  </div>
+
+  <p>If you want to render the inline lightbox partial around the page, you can use the modal layout instead:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">// things_controller
+def show
+  if params[:lightbox].present?
+    @lightbox_title = "Thing details"
+    render layout: "modal"
+  end
+end</pre>
+  </div>
+
+  <p>You can use exactly the same logic in your view to control actions.</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">// things/show.html.erb
+&lt;% if params[:lightbox].present?
+  &lt;button class='button' data-lightbox-close>Close modal&lt;/button>
+&lt;% else %>
+  &lt;a href='#' class='button'>Return to list of things&lt;/button>
+&lt;% end %></pre>
+  </div>
+
+</div>

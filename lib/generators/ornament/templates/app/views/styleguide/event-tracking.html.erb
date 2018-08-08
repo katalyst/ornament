@@ -18,8 +18,6 @@
 
   <pre class="sg-pre prettyprint">&lt;a href="http://www.google.com" data-track-category="[category]" data-track-label="[label]">Go to Google&lt;/a></pre>
 
-  <a href="#" data-track data-track-category="Category" data-track-label="Label">Test</a>
-
   <hr />
 
   <h2 class="heading-two">Programatic event tracking</h2>
@@ -34,5 +32,15 @@
   </div>
 
   <pre class="sg-pre prettyprint">Ornament.C.Analytics.trackEvent("Modal Shown", "Register")</pre>
+
+  <hr />
+
+  <h2 class="heading-two">Programatic virtual pageview</h2>
+
+  <p>Virtual pageviews can be handy for situations where you might want to track filters used, especially in cases where the history API is implemented.</p>
+
+  <p>The <code>trackVirtualPageview</code> function takes a URL to track and you can optionally pass in a page title to track with it. If no page title is passed in it will track the URL with the current page title, which should be fine in most cases.</p>
+
+  <pre class="sg-pre prettyprint">Ornament.C.Analytics.trackVirtualPageview("/products?category=virtual")</pre>
 
 </div>

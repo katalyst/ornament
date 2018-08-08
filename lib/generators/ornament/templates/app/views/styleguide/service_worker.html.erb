@@ -1,12 +1,12 @@
-<% content_for :title, "Service Worker" %>
+<% content_for :title, "Service worker and webmanifest" %>
 
 <div class="content-spacing">
 
-  <h2 class="heading-two">Creation</h2>
+  <h2 class="heading-two">Controller and views</h2>
 
-  <p>Note: Ornament does not come with a service worker out of the box. If you wish to utilise service workers you will need to create a service worker.</p>
+  <p>Ornament generates a <code>service_worker_controller</code> and a view for both the webmanifest and the service worker itself.</p>
 
-  <p>The simplest way to do this is to create a <code>service-worker.js</code> file in your public directory.</p>
+  <p>The webmanifest file will append staging and development flags at the start of the application names so that you can differentiate them when adding to homescreen.</p>
 
   <hr />
 

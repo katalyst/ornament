@@ -1,14 +1,21 @@
 <% content_for :title, "Navigation" %>
 
-<%- content_for :styles do -%>
-  <style>
-    .layout--header + .navigation {
-      border-top: 1px solid #ccc;
-    }
-  </style>
-<%- end -%>
+<div class="spacing">
 
-<%- content_for :above_layout do -%>
+  <div class="content-spacing">
+    <p>Just a simple little starter navigation component to quickly drop-in some global navigation when necessary.</p>
+    <p>You can see an example of the navigation yielded in <code>:above_layout</code> just under the header.</p>
+  </div>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-simple", ruby: capture { -%>
+&lt;div class="navigation">
+  &lt;div class="layout--container">
+    &lt;nav class="navigation__simple">
+      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :sf_menu, level: 1..2, expand_all: true %>
+    &lt;/nav>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
 <div class="navigation">
   <div class="layout--container">
     <nav class="navigation__simple">
@@ -42,25 +49,6 @@
     </nav>
   </div>
 </div>
-<%- end -%>
-
-<div class="spacing">
-
-  <div class="content-spacing">
-    <p>Just a simple little starter navigation component to quickly drop-in some global navigation when necessary.</p>
-    <p>You can see an example of the navigation yielded in <code>:above_layout</code> just under the header.</p>
-  </div>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-simple", ruby: capture { -%>
-&lt;div class="navigation">
-  &lt;div class="layout--container">
-    &lt;nav class="navigation__simple">
-      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :sf_menu, level: 1..2, expand_all: true %>
-    &lt;/nav>
-  &lt;/div>
-&lt;/div>
-  <%- } } do -%>
-<%= yield :above_layout -%>
   <%- end -%>
 
   <hr />
