@@ -1,0 +1,126 @@
+<% content_for :title, "Inline Fields and Field Caps" %>
+
+<div class="content-spacing">
+<%= simple_form_for :test_form, url: request.path, remote: true do |f| %>
+
+  <p>You can attach caps to fields using the <code>form-inline</code> wrapper class and the <code>form-inline--cap</code> class for the caps.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cap" } do -%>
+<%= form_control_group(:single_cap, f) do %>
+  <div class="form-inline">
+    <div class="form-inline--cap">$</div>
+    <%= f.input_field :single_cap %>
+  </div>
+<% end %>
+  <% end %>
+
+  <p>Caps can appear on either side:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-caps-double" } do -%>
+<%= form_control_group(:double_cap, f) do %>
+  <div class="form-inline">
+    <div class="form-inline--cap">$</div>
+    <%= f.input_field :double_cap %>
+    <div class="form-inline--cap">.00</div>
+  </div>
+<% end %>
+  <% end %>
+
+  <p>Caps can be buttons, you don't need a <code>form-inline--cap</code> class.
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cap-button" } do -%>
+<%= form_control_group(:capped_button, f) do %>
+  <div class="form-inline">
+    <%= f.input_field :capped_button, placeholder: "my@email.com" %>
+    <button type="button" class="button">Subscribe</button>
+  </div>
+<% end %>
+  <% end %>
+
+  <p>Caps can include icons and work fine with buttons in the mix too:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cap-and-button" } do -%>
+<%= form_control_group(:icon_cap_and_capped_button, f) do %>
+  <div class="form-inline">
+    <div class="form-inline--cap">
+      <%= icon("search", width: 16, height: 16) %>
+    </div>
+    <%= f.input_field :icon_cap_and_capped_button %>
+    <button type="button" class="button button__icon icon--white">
+      <%= icon("chevron_right", width: 11, height: 16) -%>
+    </button>
+  </div>
+<% end %>
+  <%- end -%>
+
+  <p>Select menus can also take part in this pattern:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-select" } do -%>
+<%= form_control_group(:inline_select, f) do %>
+  <div class="form-inline">
+    <%= f.input_field :inline_select, as: :select, collection: @months %>
+    <button type="button" class="button">+ Add</button>
+  </div>
+<% end %>
+  <%- end -%>
+
+  <p>You can control the width of them using the regular <code>form--*</code> width classes.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-short" } do -%>
+<%= form_control_group(:short_capped_button, f, { class: "form--medium" }) do %>
+  <div class="form-inline">
+    <%= f.input_field :short_capped_button %>
+    <button type="button" class="button button__icon icon--white">
+      <%= icon("chevron_right", width: 11, height: 16) -%>
+    </button>
+  </div>
+<% end %>
+  <%- end -%>
+
+  <p>Do be careful when adding caps and/or sizing your field. By default the input field will grow or shrink to fix the button or caps in the container.</p>
+  <p>Caps and buttons will not get smaller.</p>
+  <p>This <em>can</em> mean that the input fields are perfectly happy being reduced to zero pixel widths.</p>
+  <p>Consider this when implementing caps, you may need to alter the layout at a certain breakpoint to ensure that the user experience isn't poorly affected.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-dont-do-this" } do -%>
+<div class="inputs">
+  <%= form_control_group(:just_dont, f, { class: "form--x-small" }) do %>
+    <div class="form-inline">
+      <%= f.input_field :just_dont %>
+      <button type="button" class="button">Subscribe</button>
+    </div>
+  <% end %>
+</div>
+  <%- end -%>
+
+  <p>You can use this pattern to create flush inline sibling fields:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cap-button" } do -%>
+<%= form_control_group(:inline_siblings, f) do %>
+  <div class="form-inline">
+    <%= f.input_field :inline_siblings_one, placeholder: "First Name" %>
+    <%= f.input_field :inline_siblings_two, placeholder: "Last Name" %>
+  </div>
+<% end %>
+  <% end %>
+
+  <p>Why not add an input, select menu with a sizing class AND two buttons?</p>
+  <p>Take note you can also provide a <code>form-*</code> sizing class to the sibling fields to control their width.</p>
+  <p>Again take responsive considerations if doing something like this.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cap-button" } do -%>
+<%= form_control_group(:capped_sibling_fields_with_buttons, f) do %>
+  <div class="form-inline">
+    <div class="form-inline--cap">
+      <%= icon("search", width: 16, height: 16) %>
+    </div>
+    <%= f.input_field :capped_sibling_fields_with_buttons_one, placeholder: "Search terms" %>
+    <%= f.input_field :capped_sibling_fields_with_buttons_two, as: :select, collection: ["Everything", "Blogs", "Pages", "Events"], prompt: "Please select...", class: "form--auto" %>
+    <button type="button" class="button__confirm">Search</button>
+    <button type="button" class="button__cancel">Cancel</button>
+  </div>
+<% end %>
+  <% end %>
+
+<% end %>
+</div>

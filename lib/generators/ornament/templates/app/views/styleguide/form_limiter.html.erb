@@ -1,0 +1,43 @@
+
+<% content_for :title, "Text limiter" %>
+
+<div class="content-spacing">
+  <%= simple_form_for :test_form, url: request.path, remote: true do |f| %>
+
+  <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter", ruby: capture { -%>
+&lt;%= f.input :example, input_html: { data: { limiter: 30 } } -%&gt;
+  <%- } } do -%>
+<div class="inputs">
+  <%= f.input :character_limited_string, input_html: { class: "form--medium", data: { limiter: 30 } } %>
+  <%= f.input :character_limited_text, as: :text, input_html: { class: "form--medium", data: { limiter: 200 } } %>
+</div>
+  <%- end -%>
+
+  <p>You can limit by words instead of letters by adding in the <code>data-limiter-word</code> attribute.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-word-limiter", ruby: capture { -%>
+&lt;%= f.input :example, input_html: { data: { limiter: 30, limiter_word: "" } } -%&gt;
+  <%- } } do -%>
+<div class="inputs">
+  <%= f.input :word_limited_string, input_html: { class: "form--medium", data: { limiter: 3, limiter_word: "" } } %>
+  <%= f.input :word_limited_text, as: :text, input_html: { class: "form--medium", data: { limiter: 10, limiter_word: "" } } %>
+</div>
+  <%- end -%>
+
+  <p>Both word and character limiter has a "micro" styling option by adding <code>data-limiter-micro</code> to your input.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-limiter-micro", ruby: capture { -%>
+&lt;%= f.input :example, input_html: { data: { limiter: 30, limiter_micro: "" } } -%&gt;
+  <%- } } do -%>
+<div class="inputs">
+  <%= f.input :character_limited_string_micro, input_html: { class: "form--medium", data: { limiter: 30, limiter_micro: "" } } %>
+  <%= f.input :character_limited_text_micro, as: :text, input_html: { class: "form--medium", data: { limiter: 200, limiter_micro: "" } } %>
+  <%= f.input :word_limited_string_micro, input_html: { class: "form--medium", data: { limiter: 3, limiter_word: "", limiter_micro: "" } } %>
+  <%= f.input :word_limited_text_micro, as: :text, input_html: { class: "form--medium", data: { limiter: 10, limiter_word: "", limiter_micro: "" } } %>
+</div>
+  <%- end -%>
+  
+  <% end %>
+</div>

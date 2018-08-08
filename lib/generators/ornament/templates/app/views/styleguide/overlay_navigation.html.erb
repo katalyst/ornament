@@ -54,8 +54,6 @@
 
   <p>As with most Ornament components, there is a public API, <code>Ornament.C.OverlayTray</code> which has functions to open/close/toggle the overlay on command. Feel free to use these methods to build out custom functionality.</p>
 
-  <p>Depending on the scroll and positioning behaviour you may need to remove overflows and positioning properties on desktop.</p>
-
   <hr />
 
   <h2 class="heading-two">Callbacks and customisation</h2>
@@ -116,13 +114,13 @@ Ornament.C.OverlayTray.beforeClose(function(){
 }</pre>
   </div>
 
+  <p>Depending on the scroll and positioning behaviour you may need to remove overflows and positioning properties on desktop.</p>
+
   <p>If the user opens the mobile menu on mobile, then switches back to the desktop without closing the menu, the user will have their tab focusing locked to the overlay. You can get around this by setting the <code>Ornament.C.OverlayTray.breakTabLockAt</code> variable to the same value as your <code>$tray-breakpoint</code>. If <code>$tray-breakpoint</code> is the same as your <code>$breakpoint-header</code>, feel free to use:</p>
 
   <div data-styleguide-code-sample>
     <pre class="sg-pre prettyprint">// Remove tab focus lock on desktop
 Ornament.C.OverlayTray.breakTabLockAt = Ornament.breakpoints.mobileHeader;</pre>
   </div>
-
-
 
 </div>

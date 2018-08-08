@@ -1,0 +1,51 @@
+
+<% content_for :title, "Billing to Shipping" %>
+
+<% content_for :js_billing_to_shipping do %>
+  Ornament.onLoad(function(){
+    Ornament.C.FormBillingToShipping.create("#test_form_use_billing_address", {
+      "#test_form_billing_address_1": "#test_form_shipping_address_1",
+      "#test_form_billing_address_2": "#test_form_shipping_address_2",
+      "#test_form_billing_state": "#test_form_shipping_state",
+      "#test_form_billing_country": "#test_form_shipping_country"
+    });
+  });
+<% end %>
+
+<% content_for :scripts_bottom do %>
+  <script>
+    <%= yield :js_billing_to_shipping -%>
+  </script>
+<% end %>
+
+<div class="content-spacing">
+  <%= simple_form_for :test_form, url: request.path, remote: true do |f| %>
+
+  <p><code>Ornament.C.FormBillingToShipping.create</code> is a really easy-to-use helper method to copy data from one group of fields to another group of fields when a checkbox is selected.</p>
+
+  <p>All you need to do is first pass in the checkbox selector, then an object of key/value pair selectors matching the fields up.</p>
+
+  <p>Combine with <code>show.js</code> to hide the second group of fields when the checkbox is selected for a nicer user experience.</p>
+
+  <p>Take a look at the JS tab below to see how it works.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-single-checkbox-enhanced", js: capture { -%>
+<%= yield :js_billing_to_shipping -%>
+  <%- } } do -%>
+<div class="inputs">
+  <%= f.input :billing_address_1, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :billing_address_2, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :billing_state, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :billing_country, as: :string, wrapper_html: { class: "form--medium" } %>
+  <%= f.input :use_billing_address, as: :boolean, wrapper_html: { class: "form--medium" } %>
+  <div class="inputs" data-show="test_form_use_billing_address" data-show-inverse>
+    <%= f.input :shipping_address_1, wrapper_html: { class: "form--medium" } %>
+    <%= f.input :shipping_address_2, wrapper_html: { class: "form--medium" } %>
+    <%= f.input :shipping_state, wrapper_html: { class: "form--medium" } %>
+    <%= f.input :shipping_country, as: :string, wrapper_html: { class: "form--medium" } %>
+  </div>
+</div>
+  <%- end -%>
+
+  <% end %>
+</div>

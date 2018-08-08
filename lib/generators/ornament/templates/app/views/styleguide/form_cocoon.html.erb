@@ -1,0 +1,69 @@
+<% content_for :title, "Simple cocoon styling" %>
+
+<div class="content-spacing">
+  <%= simple_form_for :test_form, url: request.path, remote: true do |f| %>
+
+  <p>Here is a quick way to markup your cocoon fields in rails to make them look a bit nicer by default.</p>
+
+<%- cocoon_field = capture { -%>
+<div class='nested-fields control-group select'>
+  <div class="control-group--label">
+    <label class="control-label">My Nested Field</label>
+  </div>
+  <div class="controls cocoon-field form--medium">
+    <div class="cocoon-field--field">
+      <select>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </select>
+    </div>
+    <div class="cocoon-field--remove">
+      <button>Remove field</button>
+    </div>
+  </div>
+</div>
+<%- } -%>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cocoon", ruby: capture { -%>
+&lt;div class='nested-fields control-group select'>
+  &lt;%= f.label :my_nested_field %>
+  &lt;%= f.hint :my_nested_field -%>
+  &lt;%= f.error :my_nested_field -%>
+  &lt;div class="controls cocoon-field form--medium">
+    &lt;div class="cocoon-field--field">
+      &lt;%= f.input_field :my_nested_field, collection: data_source, label_method: :title, value_method: :id, include_blank: true %>
+    &lt;/div>
+    &lt;div class="cocoon-field--remove">
+      &lt;%= link_to_remove_association "Remove", f %>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
+<%= cocoon_field -%>
+  <%- end -%>
+
+  <p>And to space out your cocoon fields, simply update your wrapper to add the inputs field, and add a button class to your add button:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cocoon", ruby: capture { -%>
+&lt;div class='my_nested_fields inputs'>
+  &lt;%= f.simple_fields_for :my_nested_fields do |nested_field| -%>
+    &lt;%= render 'my_nested_fields', f: nested_field| -%>
+  &lt;%- end -%>
+  &lt;div>
+    &lt;%= link_to_add_association 'Add', f, :my_nested_fields, class: "button" -%>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
+<div class='my_nested_fields inputs'>
+  <%= cocoon_field -%>
+  <%= cocoon_field -%>
+  <%= cocoon_field -%>
+  <div>
+    <button class="button">Add</button>
+  </div>
+</div>
+  <%- end -%>
+
+  <% end %>
+</div>
