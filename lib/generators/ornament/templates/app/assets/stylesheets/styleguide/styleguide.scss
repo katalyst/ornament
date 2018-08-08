@@ -231,6 +231,10 @@ hr {
   width: 44px;
   vertical-align: middle;
 
+  &:hover {
+    background: rgba($black, .5);
+  }
+
   .header__main & {
     bottom: auto;
     height: 44px;
@@ -264,9 +268,11 @@ hr {
 // Fixed sidebar
 .styleguide-page--sidebar {
   display: block;
+  visibility: visible;
 
   @include media-query($breakpoint-header) {
     border-right: 4px solid $primary-color;
+    visibility: hidden;
   }
 }
 

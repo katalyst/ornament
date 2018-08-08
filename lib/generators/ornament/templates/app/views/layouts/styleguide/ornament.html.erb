@@ -58,7 +58,7 @@
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= gtm_code -%>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <%- end -%>
 
-    <a class="skip-link" href="#main">skip to content</a>
+    <a class="skip-link button button__large" href="#main">skip to content</a>
 
     <div class="layout">
       <div class="layout--content" data-tray-scroll-positioner>
@@ -80,10 +80,14 @@
               <%= render "layouts/styleguide/styleguide_navigation" %>
 
             </div>
-            <main role="main" class="styleguide-page--main  environment-<%= Rails.env -%>">
+            <main role="main" class="styleguide-page--main  environment-<%= Rails.env -%>" data-tray-disable-when-open>
 
               <% large_header = request.path.eql?(styleguide_path) %>
               <header class="header <%= "header__main" if large_header %>" role="banner">
+                <button class="header--menu" title="Open menu" data-tray-button>
+                  <%= icon("hamburger", width: 25, height: 23) -%>
+                </button>
+
                 <div class="<%= large_header ? "header--container" : "styleguide-page--main--container" %> spacing">
                   <div class="spacing-xxx-tight">
                     <h1>
@@ -112,9 +116,6 @@
                     <% end %>
                   </div>
                 <% end %>
-                <button class="header--menu" title="Open menu" data-tray-button>
-                  <%= icon("hamburger", width: 25, height: 23) -%>
-                </button>
               </header>
 
               <%= render "/shared/oldie" -%>

@@ -1,14 +1,17 @@
 .skip-link {
   position: absolute;
-  top: -45px;
-  padding: $xxxxx-small-unit;
-  background: $primary-color;
-  @include color-link($white, $white);
-  @include transition(top .1s ease-in);
+  left: $xxxxx-small-unit;
+  // padding: $xxx-small-unit $default-unit;
+  // background: $primary-color;
+  // @include color-link($white, $white);
+
+  @include transition(transform .1s ease-in);
+  @include transform(translateY(-100%));
+  z-index: 995;
 
   &:focus {
-    top: 0;
-    left: 0;
+    @include transform(translateY($xxx-small-unit));
     text-indent: 0;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
   }
 }
