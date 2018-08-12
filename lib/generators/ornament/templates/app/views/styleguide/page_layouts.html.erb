@@ -2,7 +2,10 @@
 
 <div class="spacing">
 
-  <p>Page layouts by default live in <code>application.html.erb</code> and will get injected in to the global template.</p>
+  <div class="content-spacing">
+    <p>Page layouts by default live in <code>application.html.erb</code> and will get injected in to the global template.</p>
+    <p>The general idea of this file is to have a consistent application layout that has a set of areas where content can dynamically appear, then in your view you define which layout gets used by implementing a <code>yield</code> where needed.</p>
+  </div>
 
   <hr />
 
@@ -66,5 +69,14 @@ Content
   <h2 class="heading-two">Full-width</h2>
 
   <p>You can break out of the layout-container by yielding directly to either <code>:above_layout</code> or <code>:below_layout</code>. If you only want a single full-width yield, make sure you don't accidentally yield anything outside of either of those yields otherwise you may end up with a gap where the page layout would normally be.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Enhancing</h2>
+
+  <div class="content-spacing">
+    <p>As with all things Ornament, you are welcome to enhance this file with more variations that are used when different yields are called. The Ornament defaults aren't always going to 100% match your use-cases, so it's there to be tampered with.</p>
+    <p>Alternatively you also have the opportunity to implement entirely new <code>layout/*.html.erb</code> files as is the standard Railsy way if that is more your style.</p>
+  </div>
 
 </div>

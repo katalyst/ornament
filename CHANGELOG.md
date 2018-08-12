@@ -8,6 +8,8 @@
 - Added `app-height-variable` component as a replacement for `100vh` - [More info](https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser), can be used as either `height: var(--app-height)` or `@include app-height` in SCSS.
 - Renamed `TrayNav` to `PushTray` and updated docs
 - Added `OverlayNav` component for an alternate mobile tray navigation, this is the navigation used in the styleguide
+- Added `layouts/modal.html.erb` for easily rendering an action in the modal template
+- Re-organised the navigation of the styleguide to make browsing concepts easier
 
 ### Fixes
 
