@@ -43,19 +43,20 @@ gem 'simple-navigation', '~> 3.14.0'</pre>
   <pre class="sg-pre">include CommonControllerActions</pre>
 
   <hr />
-  <h2 class="heading-two">Optional steps</h2>
+  <h2 class="heading-two">Setting up your application</h2>
 
-  <p>Ornament comes with a lot of big components made up of large JS and CSS. Depending on the size of your project you probably won't need everything included.</p>
-
-  <p>At the beginning of a project I typically go in to the <code>application.scss</code>, <code>application.js</code> and <code>application_bottom.js</code> files and disable components I likely won't be using such as object slider, tabs, tooltips etc.</p>
-
-  <p>Then when I start to implement these features in the application I'm developing I will bring them back in.</p>
-
-  <hr />
-  <h2 class="heading-two">Application layout</h2>
-
+  <h3 class="heading-three">Layout</h3>
   <p>There are two application layouts that Ornament uses.</p>
   <p>The first is <code>global.html.erb</code> which is your global template, header, footer, navigation etc.</p>
-  <p>The second is <code>application.html.erb</code> which is wrapped in the global template. This is where you develop your page layout logic.</p>
+  <p>The second is <code>application.html.erb</code> which is wrapped in the global template. This is where you develop <a href="/styleguide/page_layouts">your page layout logic</a>.</p>
+
+  <h3 class="heading-three">Identity</h3>
+  <p>Jump into the <a href="/styleguide/seo_partial">SEO partial</a> and update the default values.</p>
+  <p>Update the names and icons in <a href="/styleguide/service_worker">the webmanifest file</a>.</p>
+
+  <h3 class="heading-three">Optimising</h3>
+  <p>Ornament comes with a lot of big components made up of large JS and CSS. Depending on the size of your project you probably won't need everything included.</p>
+  <p>At the beginning of a project I typically go in to the <code>application.scss</code>, <code>application.js</code> and <code>application_bottom.js</code> files and disable components I likely won't be using such as object slider, tabs, tooltips etc.</p>
+  <p>Then when I start to implement these features in the application I'm developing I will bring them back in.</p>
 
 </div>
