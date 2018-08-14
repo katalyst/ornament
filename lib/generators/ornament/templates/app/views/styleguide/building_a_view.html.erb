@@ -1,1 +1,79 @@
-TODO: How to build a view, where to yield, what to yield, order of things, SEO, meta tags, layout etc.
+<% content_for :title, "Building a view" %>
+
+<div class="content-spacing content-lists">
+  <h2 class="heading-two">Meta tags</h2>
+
+  <p>Make sure your view has all the necessary meta tags defined at the top of your page.</p>
+
+  <p>A typical show view would have a title, short description and potentially a share image:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">&lt;%
+  content_for :title, resource.title
+  content_for :og_description, resource.short_description
+  content_for :meta_image, resource.image.thumb("1200x630#").url
+%></pre>
+  </div>
+
+  <p>An index or hard-coded view would typically have more hard-coded values.</p>
+
+  <p><strong>Note:</strong> Title and description here will be overridden by the Koi SEO tab if that is implemented for this particular resource or collection.</p>
+
+  <hr />
+  <h2 class="heading-two">Layout</h2>
+
+  <p>As you may have read in the page layouts section, you can also define content for a sidebar yield to make the page render in a two column layout:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">&lt;%
+  content_for :title, resource.title
+  content_for :og_description, resource.short_description
+  content_for :meta_image, resource.image.thumb("1200x630#").url
+%>
+
+&lt;% content_for :sidebar do %>
+  My sidebar
+&lt;% end %>
+
+My content</pre>
+  </div>
+
+  <hr />
+  <h2 class="heading-two">Sensible view logic</h2>
+
+  <p>Some things to keep in mind when developing your views:</p>
+
+  <ul>
+    <li>If you have a consistent sidebar across multiple templates, consider moving it in to a partial.</li>
+    <li>When there are no items in a listing, make sure you aren't rendering an empty page.</li>
+  </ul>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">&lt;%
+  content_for :title, "Latest news"
+  content_for :og_description, "Find out what's happening in and around your personal space."
+  content_for :meta_image, asset_path("banners/news.jpg")
+%>
+
+&lt;%= render "news_items/sidebar" %>
+
+&lt;% if collection.present? %>
+  &lt;p>No news is good news!&lt;/p>
+&lt;% else %>
+  &lt;div class="news">
+    &lt;% collection.each do |news_item| %>
+      &lt;div class="news--item">
+        &lt;%= news_item.title %>
+      &lt;/div>
+    &lt;% end %>
+  &lt;/div>
+&lt;% end %>
+
+&lt;% content_for :below_layout do %>
+  &lt;div class="news--footer">
+    Subscribe for updates
+  &lt;/div>
+&lt;% end %></pre>
+  </div>
+
+</div>

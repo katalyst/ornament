@@ -66,9 +66,49 @@ Content
 
   <hr />
 
-  <h2 class="heading-two">Full-width</h2>
+  <div class="content-spacing content-lists">
+    <h2 class="heading-two">Full-width</h2>
 
-  <p>You can break out of the layout-container by yielding directly to either <code>:above_layout</code> or <code>:below_layout</code>. If you only want a single full-width yield, make sure you don't accidentally yield anything outside of either of those yields otherwise you may end up with a gap where the page layout would normally be.</p>
+    <p>You can break out of the layout-container by yielding directly to either <code>:above_layout</code> or <code>:below_layout</code>. If you only want a single full-width yield, make sure you don't accidentally yield anything outside of either of those yields otherwise you may end up with a gap where the page layout would normally be.</p>
+
+    <p>Anything yielded to the before or after yields will not come with any sort of padding or out of the box styling, it's essentially giving you the keys to building an entirely unique layout for a specific view.</p>
+
+    <p>This can be convenient for things like a homepage, where you might have a series of full-width modules running down the page, while your inner pages should be the standard left/right two column layout.</p>
+
+    <p>There are some handy helper classes that can help in building full-width layouts:</p>
+
+    <ul>
+      <li>
+        <code>layout--container</code> is an out-of-the-box default container.<br />
+        This can be used when you have a full-width coloured box with some content inside of it that should align with the rest of the text on the page.
+      </li>
+      <li>
+        <code>section</code> can be used to add a dividers between blocks consecutive sections.
+      </li>
+    </ul>
+  </div>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "sidebar_right", ruby: capture { -%>
+&lt;%- content_for :above_layout do -%>
+  &lt;div class="section homepage--banner">
+    Section one full-width
+  &lt;/div>
+  &lt;div class="section homepage--content">
+    &lt;div class="layout--container content">
+      &lt;p>Section two inside a layout container&lt;/p>
+    &lt;/div>
+  &lt;/div>
+&lt;%- end -%>
+  <%- } } do -%>
+<div class="section">
+  Section one full-width
+</div>
+<div class="section">
+  <div class="layout--container content">
+    <p>Section two inside a layout container</p>
+  </div>
+</div>
+  <%- end -%>
 
   <hr />
 
