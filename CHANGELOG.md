@@ -10,6 +10,7 @@
 - Added `OverlayNav` component for an alternate mobile tray navigation, this is the navigation used in the styleguide
 - Added `layouts/modal.html.erb` for easily rendering an action in the modal template
 - Re-organised the navigation of the styleguide to make browsing concepts easier
+- Added "External link: " at the front of generic external link event tracking categories, this will be omitted if providing a custom category
 
 ### Fixes
 
