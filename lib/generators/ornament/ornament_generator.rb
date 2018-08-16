@@ -96,10 +96,12 @@ class OrnamentGenerator < Rails::Generators::Base
       end
 
       if options.helpers?
-        copy_file "../../../../test/dummy/app/helpers/ornament_helper.rb", "app/helpers/ornament_helper.rb"
-        copy_file "../../../../test/dummy/app/helpers/ornament_seo_helper.rb", "app/helpers/ornament_seo_helper.rb"
-        copy_file "../../../../test/dummy/app/helpers/ornament_koi_helper.rb", "app/helpers/ornament_koi_helper.rb"
         copy_file "../../../../test/dummy/app/helpers/ornament_google_maps_helper.rb", "app/helpers/ornament_google_maps_helper.rb"
+        copy_file "../../../../test/dummy/app/helpers/ornament_helper.rb", "app/helpers/ornament_helper.rb"
+        copy_file "../../../../test/dummy/app/helpers/ornament_koi_helper.rb", "app/helpers/ornament_koi_helper.rb"
+        copy_file "../../../../test/dummy/app/helpers/ornament_seo_helper.rb", "app/helpers/ornament_seo_helper.rb"
+        copy_file "../../../../test/dummy/app/helpers/ornament_styleguide_helper.rb", "app/helpers/ornament_styleguide_helper.rb"
+        copy_file "../../../../test/dummy/app/helpers/ornament_svg_helper.rb", "app/helpers/ornament_svg_helper.rb"
         directory "app/renderers"
       end
 

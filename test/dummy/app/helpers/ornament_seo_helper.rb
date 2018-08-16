@@ -1,5 +1,12 @@
 module OrnamentSeoHelper
 
+  # Fix for non-seo-enabled sites
+  if !defined?(seo)
+    def seo(value)
+      false
+    end
+  end
+
   # Function to convert an image to absolute URL
   def absolute_url(url)
     if url && !url.include?("http") 
@@ -14,11 +21,10 @@ module OrnamentSeoHelper
     raw(input).gsub(/"/, '\'')
   end
 
-  # Fix for non-seo-enabled sites
-  if !defined?(seo)
-    def seo(value)
-      false
-    end
+  # Format share descriptions a bit nicer by converting <br> and
+  # <br /> to spaces.
+  def share_description(value) 
+    raw(value).gsub("<br>", " ").gsub("<br />", " ")
   end
 
 end

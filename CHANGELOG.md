@@ -11,6 +11,8 @@
 - Added `layouts/modal.html.erb` for easily rendering an action in the modal template
 - Re-organised the navigation of the styleguide to make browsing concepts easier
 - Added "External link: " at the front of generic external link event tracking categories, this will be omitted if providing a custom category
+- Added `-auto-orient` command to the `optimised_jpg` rails helper
+- Re-organised helpers and created two new helpers to seperate concerns a little bit, `ornament_svg_helper` and `ornament_styleguide_helper`.
 
 ### Fixes
 
