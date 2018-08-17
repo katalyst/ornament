@@ -12,7 +12,10 @@
 - Re-organised the navigation of the styleguide to make browsing concepts easier
 - Added "External link: " at the front of generic external link event tracking categories, this will be omitted if providing a custom category
 - Added `-auto-orient` command to the `optimised_jpg` rails helper
-- Re-organised helpers and created two new helpers to seperate concerns a little bit, `ornament_svg_helper` and `ornament_styleguide_helper`.
+- Re-organised helpers and created two new helpers to seperate concerns a little bit, `ornament_svg_helper` and `ornament_styleguide_helper`
+- Added `lazysizes` as an out-of-the-box vendor lib to allow for easy lazyloading
+- Added `axios` as an out-of-the-box vendor lib to replace `$.ajax/$.get`
+- Added `url-search-params` polyfill for the [URLSearchParams API](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 
 ### Fixes
 
