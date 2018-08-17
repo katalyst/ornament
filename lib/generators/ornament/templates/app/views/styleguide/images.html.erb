@@ -1,0 +1,71 @@
+<% content_for :title, "Image Optimisation" %>
+
+<div class="content-spacing">
+  <p>For a broad overview of image compression and optimisation, check out <a href="https://images.guide" target="_blank">images.guide.</a>
+
+  <hr />
+  <h2 class="heading-two">Static assets</h2>
+
+  <p>Until Ornament moves to webpacker, you will need to optimise your images by hand.</p>
+  <p>There are some handy <a href="https://github.com/katalyst/ornament/wiki/Optimising-Images" target="_blank">bash/terminal options</a> to make the process quicker.</p>
+
+  <hr />
+  <h2 class="heading-two">Dragonfly optimisations</h2>
+
+  <p>Dragonfly has an inline-syntax for resizing and optimising images.</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint"># sizing
+&lt;%= resource.image.thumb("200x200#").url %>
+
+# converting to compressed jpg
+&lt;%= resource.image.thumb("200x200#").encode("jpg", "-quality 75 -strip -interlace Plane").url %>
+
+# auto-orienting
+&lt;%= resource.image.convert("-auto-orient").thumb("200x200#").encode("jpg", "-quality 75 -strip -interlace Plane").url %></pre>
+  </div>
+
+  <h3 class="heading-three">Helpers</h3>
+
+  <p>Ornament comes with an out-of-the-box solution for converting images to jpgs and compressing them:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">&lt;%= optimised_jpg(resource.image, "200x200#").url %></pre>
+  </div>
+
+  <p>This will automatically convert to jpg and run some basic optimisations.</p>
+
+  <h3 class="heading-three">Using constants</h3>
+
+  <p>If you find yourself using the same resize commands over and over again, consider moving your sizes in to a constants file.</p>
+  <p>The common pattern we use at Katalyst is to create a constants file in the initializers folder:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint"># config/initializers/constants.rb
+module App
+
+  # Image sizes
+  IMAGE_SIZE_FACEBOOK = "1200x630#"
+  IMAGE_SIZE_TILE = "300x300#"
+
+end</pre>
+  </div>
+
+  <p>Then you can use along with the jpg helper above, or just inline as a usual dragonfly command:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">&lt;%= optimised_jpg(resource.image, App::IMAGE_SIZE_TILE).url %>
+&lt;%= resource.image.thumb(App::IMAGE_SIZE_TILE).url %></pre>
+  </div>
+
+  <h3 class="heading-three">ImageOptim gem</h3>
+
+  <p>If you need a flexible compression solution with Dragonfly, maybe consider <a href="https://gist.github.com/bobbus/8913693" target="_blank">using ImageOptim with a custom dragonfly processor</a>.</p>
+
+  <hr />
+  <h2 class="heading-two">Lazyloading</h2>
+
+  <p>Until the lazyloading spec is shipped, Ornament suggests using <a href="https://github.com/katalyst/ornament/wiki/Optimising-Images" target="_blank">lazysizes</a>.</p>
+  <p>Lazysizes ships in Ornament so it's ready to be used out of the box.</p>
+
+</div>
