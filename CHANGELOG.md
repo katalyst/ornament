@@ -17,6 +17,7 @@
 - Added `lazysizes` as an out-of-the-box vendor lib to allow for easy lazyloading
 - Added `axios` replace `$.ajax/$.get` when not using jQuery
 - Added `url-search-params` polyfill for the [URLSearchParams API](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+- Added basic event API `Ornament.triggerEvent(element, eventName)` as a replacement for `$(element).trigger(eventName);`
 
 ### Fixes
 
