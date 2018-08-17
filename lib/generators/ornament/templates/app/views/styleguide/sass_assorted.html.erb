@@ -2,12 +2,12 @@
 
 <div class="content-spacing">
 
-  <h2 class="heading-two">App Height</h2>
+  <h2 class="heading-two">App height</h2>
 
   <p>
-    <code>@include app-height</code><br />
-    <code>@include app-height("min")</code><br />
-    <code>@include app-height("max")</code>
+    <code>@include app-height;</code><br />
+    <code>@include app-height("min");</code><br />
+    <code>@include app-height("max");</code>
   </p>
 
   <p>A drop-in replacement for <code>100vh</code> for cases where vh units aren't exactly representative of the visual viewport.</p>
@@ -16,13 +16,76 @@
 
   <p>You can switch to min-height or max-height by passing in either min or max as the first and only argument.</p>
   
-  <h2 class="heading-two">Background Cover</h2>
+  <h2 class="heading-two">Background cover</h2>
+
+  <p><code>@include background-cover;</code></p>
 
   <p>A mixin that sets the background size to cover and background-position to center.</p>
 
-  <h2 class="heading-two">Colour link</h2>
+  <h2 class="heading-two">Colour and decorate link</h2>
 
-  <h2 class="heading-two">Decorate link</h2>
+  <p>
+    <code>@include color-link(default, hover);</code><br />
+    <code>@include decorate-link(default, hover);</code>
+  </p>
+
+  <p>These two mixins are very similar and are used for quickly styling links.</p>
+
+  <p>For example, say you want a blue underline link that should go purple and no underline on hover:</p>
+
+  <p>
+    <code>@include color-link(blue, purple);</code><br />
+    <code>@include decorate-link(underline, none);</code>
+  </p>
+
+  <h2 class="heading-two">Disable mouse outline</h2>
+
+  <p><code>@include disable-mouse-outline;</code></p>
+
+  <p>This will disable the <code>outline</code> on focusable elements when the user's primary interaction is the mouse, retaining the outline on other input types.</p>
+
+  <h2 class="heading-two">Flush children</h2>
+
+  <p><code>@include flush-children;</code></p>
+
+  <p>This will remove the top margin from the first-child and bottom margin from the last-child.</p>
+
+  <p>The equivelent of writing:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">margin-top: 20px;
+margin-bottom: 20px;
+&:first-child {
+  margin-top: 0;
+}
+&:last-child {
+  margin-bottom: 0;
+}</pre>
+  </div>
+
+  <p>Instead you can write:</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint">margin-top: 20px;
+margin-bottom: 20px;
+@include flush-children;</pre>
+  </div>
+
+
+  <h2 class="heading-two">Input placeholder</h2>
+
+  <p><code>@include input-placeholder { color: purple };</code></p>
+
+  <p>A mixin for styling input placeholders cross browser.</p>
+
+  <h2 class="heading-two">Overflow scroll</h2>
+
+  <p><code>@include overflow-scroll</code></p>
+  <p><code>@include overflow-scroll-x</code></p>
+
+  <p>A way to set overflow: scroll and webkit touch scrolling at once.</p>
+
+  <h2 class="heading-two">Ratio</h2>
 
 
 </div>
