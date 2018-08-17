@@ -1,6 +1,7 @@
 <% content_for :title, "Dismiss" %>
 
-<p>Automatically dismiss elements by adding <code>data-dismiss</code> to the element.</p>
+<div class="content-spacing">
+  <p>Automatically dismiss elements by adding <code>data-dismiss</code> to the element.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "dismiss" } do -%><div data-dismiss>
   This will disappear after 10 seconds. (default)
@@ -11,4 +12,16 @@
 <div data-dismiss="2">
   This will disappear after 2 seconds.
 </div>
-<%- end -%>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Events</h2>
+
+  <p>There are two events fired on the dismissed elements that you can listen for:</p>
+
+  <ul>
+    <li><code>element.addEventListener("ornement:dismiss:started", function(){})</code> - element has started counting down</li>
+    <li><code>element.addEventListener("ornement:dismiss:dismissed", function(){})</code> - element has been dismissed</li>
+  </ul>
+
+</h2>
