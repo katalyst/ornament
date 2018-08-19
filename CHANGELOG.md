@@ -2,6 +2,15 @@
 
 ## v2.0.5
 
+### Styleguide redesign
+
+Continuing the redesign, the navigation has been restructured to make browsing concepts easier:
+
+- Navigation concepts are grouped together, including menu with more, simple navigation renderer and the tray navigations
+- Layout concepts like seo partial, flash messages and left/right yields are all grouped together with new docs for things like building a basic view, image optimisations, modal routes
+- Form docs have been broken out in to several pages along with showjs
+- General clean up of unused views and attempting to make things easier to find
+
 ### Changes
 
 - Removed px sizing from `button.scss` and `button-mixins.scss`
@@ -10,7 +19,6 @@
 - Added `OverlayNav` component for an alternate mobile tray navigation, this is the navigation used in the styleguide
 - Added `layouts/modal.html.erb` for easily rendering an action in the modal template
 - Added `dismiss` component
-- Re-organised the navigation of the styleguide to make browsing concepts easier
 - Added "External link: " at the front of generic external link event tracking categories, this will be omitted if providing a custom category
 - Added `-auto-orient` command to the `optimised_jpg` rails helper
 - Re-organised helpers and created two new helpers to seperate concerns a little bit, `ornament_svg_helper` and `ornament_styleguide_helper`

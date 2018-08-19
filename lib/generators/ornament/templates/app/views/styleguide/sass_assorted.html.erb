@@ -10,18 +10,22 @@
     <code>@include app-height("max");</code>
   </p>
 
-  <p>A drop-in replacement for <code>100vh</code> for cases where vh units aren't exactly representative of the visual viewport.</p>
+  <p>A drop-in replacement for <code>100vh</code> for <a href="https://css-tricks.com/the-trick-to-viewport-units-on-mobile/">cases where vh units aren't exactly representative of the visual viewport</a>.</p>
 
   <p>Without any arguments, it resolves to the equivelent of <code>height: 100vh</code></p>
 
   <p>You can switch to min-height or max-height by passing in either min or max as the first and only argument.</p>
+
+  <p>Note: This requires support for css custom properties (native variables), in places where this is not supported, 100vh will be used instead.</p>
   
+  <hr />
   <h2 class="heading-two">Background cover</h2>
 
   <p><code>@include background-cover;</code></p>
 
   <p>A mixin that sets the background size to cover and background-position to center.</p>
 
+  <hr />
   <h2 class="heading-two">Colour and decorate link</h2>
 
   <p>
@@ -38,12 +42,14 @@
     <code>@include decorate-link(underline, none);</code>
   </p>
 
+  <hr />
   <h2 class="heading-two">Disable mouse outline</h2>
 
   <p><code>@include disable-mouse-outline;</code></p>
 
   <p>This will disable the <code>outline</code> on focusable elements when the user's primary interaction is the mouse, retaining the outline on other input types.</p>
 
+  <hr />
   <h2 class="heading-two">Flush children</h2>
 
   <p><code>@include flush-children;</code></p>
@@ -71,13 +77,14 @@ margin-bottom: 20px;
 @include flush-children;</pre>
   </div>
 
-
+  <hr />
   <h2 class="heading-two">Input placeholder</h2>
 
   <p><code>@include input-placeholder { color: purple };</code></p>
 
   <p>A mixin for styling input placeholders cross browser.</p>
 
+  <hr />
   <h2 class="heading-two">Overflow scroll</h2>
 
   <p><code>@include overflow-scroll</code></p>
@@ -85,7 +92,16 @@ margin-bottom: 20px;
 
   <p>A way to set overflow: scroll and webkit touch scrolling at once.</p>
 
+  <hr />
   <h2 class="heading-two">Ratio</h2>
 
+  <p><code>padding-top: ratio(5,10)</code></p>
+
+  <p>Ratio is a function that will return the ratio between a width and a height.</p>
+  <p>This is useful for ratio-aware sizing.</p>
+
+  <p><code>@include ratio-size(5,10,>div)</code></p>
+
+  <p>Ratio-size takes ratio-aware sizing a step further by scaffolding up the styles used in creating a container that is sized by a ratio, then positioning an element absolutely inside that container.</p>
 
 </div>
