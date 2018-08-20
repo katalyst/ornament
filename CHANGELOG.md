@@ -27,6 +27,7 @@ Continuing the redesign, the navigation has been restructured to make browsing c
 - Added `url-search-params` polyfill for the [URLSearchParams API](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 - Added basic event API `Ornament.triggerEvent(element, eventName)` as a replacement for `$(element).trigger(eventName);`
 - Added `basic: true` option to simple-navigation renderer
+- Added initial documentation for page navigation
 
 ### Fixes
 
