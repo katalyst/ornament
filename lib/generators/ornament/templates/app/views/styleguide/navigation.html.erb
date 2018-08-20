@@ -1,11 +1,96 @@
-<% content_for :title, "Navigation" %>
+<% content_for :title, "Simple navigation renderer" %>
 
-<div class="spacing">
+<div class="content-spacing">
 
-  <div class="content-spacing">
-    <p>Just a simple little starter navigation component to quickly drop-in some global navigation when necessary.</p>
-    <p>You can see an example of the navigation yielded in <code>:above_layout</code> just under the header.</p>
+  <p>You can use the <code>ornament_menu</code> simple-navigation renderer to automatically add arrows, toggle and accessibility features.</p>
+  <p>Note that the <code>navigation__simple</code> class has been removed for this menu, which is what is used for the hover-to-show-subnavigation functionality.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament1", no_html: true, ruby: capture { -%>
+&lt;div class="navigation">
+  &lt;div class="layout--container">
+    &lt;nav>
+      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..2, expand_all: true %>
+    &lt;/nav>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
+<div class="navigation">
+  <div class="layout--container">
+    <nav>
+      <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..2, expand_all: true, id_namespace: "example1" %>
+    </nav>
   </div>
+</div>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">A note about IDs</h2>
+  <p>One of the benefits of this renderer is that also comes with the ability to customise the key ids to a namespace with <code>id_namespace</code>.</p>
+  <p>This is required if you have multiple menus using any of the same navitems, eg in the case of seperate desktop and mobile navigation. If you have multiple menus using either no namespace or the same namespace, you will notice duplicate id errors in the console and any toggles may start triggering multiple times. Best practice is to always define a namespace.</p>
+
+  <hr />
+  <h2 class="heading-two">No icons</h2>
+  <p><code>no_icons: true</code> will render the menu without the automatic svg arrow icons.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament2", no_html: true, ruby: capture { -%>
+&lt;div class="navigation">
+  &lt;div class="layout--container">
+    &lt;nav>
+      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..2, expand_all: true, no_icons: true %>
+    &lt;/nav>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
+<div class="navigation">
+  <div class="layout--container">
+    <nav>
+      <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..2, expand_all: true, id_namespace: "example2", no_icons: true %>
+    </nav>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Hover instead of toggle</h2>
+  <p><code>no_toggle: true</code> will disable the click-to-toggle subnavigation behaviour. Keep in mind that doing this will negatively impact the accessibility of the menu and is not recommended.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament3", no_html: true, ruby: capture { -%>
+&lt;div class="navigation">
+  &lt;div class="layout--container">
+    &lt;nav>
+      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..2, expand_all: true, no_icons: true, no_toggle: true %>
+    &lt;/nav>
+  &lt;/div>
+&lt;/div>
+  <%- } } do -%>
+<div class="navigation">
+  <div class="layout--container">
+    <nav>
+      <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..2, expand_all: true, id_namespace: "example3", no_icons: true, no_toggle: true %>
+    </nav>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Basic</h2>
+
+  <p>If you are intending to hide the arrows and disable the toggle functions, you may be interested in the <code>basic</code> option which removes all toggles and icons and generates just a nested unordered list for use with things like the Drilldown component or anything else that requires just a regular old <code>ul</code>.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament3", no_html: true, ruby: capture { -%>
+&lt;div data-drilldown>
+  &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..2, expand_all: true, basic: true %>
+&lt;/div>
+  <%- } } do -%>
+<div data-drilldown>
+  <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..2, expand_all: true, id_namespace: "example4", basic: true %>
+</div>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">No renderer</h2>
+
+  <p>If you aren't using simple-navigation, you can leverage the navigation classes in your HTML to produce basic hover navigation variation:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-simple", ruby: capture { -%>
 &lt;div class="navigation">
@@ -50,81 +135,5 @@
   </div>
 </div>
   <%- end -%>
-
-  <hr />
-
-  <h2 class="heading-four">Custom Renderer</h2>
-
-  <div class="content-spacing">
-    <p>You can use the <code>ornament_menu</code> simple-navigation renderer to automatically add arrows, toggle and accessibility features.</p>
-    <p>Note that the <code>navigation__simple</code> class has been removed for this menu, which removes the hover-to-show-subnavigation functionality.</p>
-  </div>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament", ruby: capture { -%>
-&lt;div class="navigation">
-  &lt;div class="layout--container">
-    &lt;nav>
-      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..2, expand_all: true %>
-    &lt;/nav>
-  &lt;/div>
-&lt;/div>
-  <%- } } do -%>
-<div class="navigation">
-  <div class="layout--container">
-    <nav class="simple-navigation__with-toggles simple-navigation__with-icons">
-      <ul>
-        <li>
-          <a href="#" data-navigation-item>Home</a>
-        </li>
-        <li class="has-children">
-          <button data-navigation-parent data-toggle-anchor="key1" data-toggle-timing="100" data-toggle-temporary-anchor aria-expanded="false" data-toggle-anchor-ready>
-            About
-            <%= icon("chevron_right") %>
-          </button>
-          <div class="simple-navigation--nested" data-toggle="key1" data-toggle-temporary>
-            <ul>
-              <li>
-                <a href="#" data-navigation-item>History</a>
-              </li>
-              <li>
-                <a href="#" data-navigation-item>Board Members</a>
-              </li>
-              <li>
-                <a href="#" data-navigation-item>Executive Team</a>
-              </li>
-              <li>
-                <a href="#" data-navigation-item>Contacts</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="has-children">
-          <button data-navigation-parent data-toggle-anchor="key2" data-toggle-timing="100" data-toggle-temporary-anchor aria-expanded="false" data-toggle-anchor-ready>
-            Products
-            <%= icon("chevron_right") %>
-          </button>
-          <div class="simple-navigation--nested" data-toggle="key2" data-toggle-temporary>
-            <ul>
-              <li class="navigation--active-item">
-                <a href="#" data-navigation-item>On Sale</a>
-              </li>
-              <li>
-                <a href="#" data-navigation-item>Other</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</div>
-  <%- end -%>
-
-  <div class="content-spacing">
-    <p>The <code>ornament_menu</code> renderer has a couple of options:</p>
-    <p><code>no_icons: true</code> will render the menu without the automatic svg arrow icons.</p>
-    <p><code>no_toggle: true</code> will disable the click-to-toggle subnavigation behaviour. Keep in mind that doing this will drastically impact the accessibility of the menu.</p>
-    <p>If you are intending to hide the arrows and disable the toggle functions, you may be better off just using the default <code>sf_menu</code> renderer.</p>
-  </div>
 
 </div>

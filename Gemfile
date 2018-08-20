@@ -12,3 +12,4 @@ gem 'htmlentities', '~> 4.3.4'
 gem 'tzinfo-data', '~> 1.2015.7', platforms: [:mingw, :mswin]
 gem 'pry'
 gem 'simple_form'
+gem 'simple-navigation'

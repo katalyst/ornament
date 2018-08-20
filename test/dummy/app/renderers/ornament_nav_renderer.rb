@@ -38,7 +38,7 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
   end
 
   def is_basic
-    (options[:basic] && options[:basic].eql?(true))
+    options[:basic] && options[:basic].eql?(true)
   end
 
   # Build out the key for an item based on the predefined key

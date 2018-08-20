@@ -26,6 +26,7 @@ Continuing the redesign, the navigation has been restructured to make browsing c
 - Added `axios` replace `$.ajax/$.get` when not using jQuery
 - Added `url-search-params` polyfill for the [URLSearchParams API](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 - Added basic event API `Ornament.triggerEvent(element, eventName)` as a replacement for `$(element).trigger(eventName);`
+- Added `basic: true` option to simple-navigation renderer
 
 ### Fixes
 
@@ -33,6 +34,7 @@ Continuing the redesign, the navigation has been restructured to make browsing c
 - Removed old `service_worker.js` so it doesn't conflict with the new generated service worker
 - Fixed service worker controller not being accessible in the test/dummy app
 - Fixed `lastModifiedDate` not being a date object in Safari for the image uploader component
+- Improved `drilldown` component compatability with `button` and `span` parents
 
 ## v2.0.4
 
