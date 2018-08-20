@@ -102,7 +102,7 @@ class OrnamentGenerator < Rails::Generators::Base
         copy_file "../../../../test/dummy/app/helpers/ornament_seo_helper.rb", "app/helpers/ornament_seo_helper.rb"
         copy_file "../../../../test/dummy/app/helpers/ornament_styleguide_helper.rb", "app/helpers/ornament_styleguide_helper.rb"
         copy_file "../../../../test/dummy/app/helpers/ornament_svg_helper.rb", "app/helpers/ornament_svg_helper.rb"
-        directory "app/renderers"
+        copy_file "../../../../test/dummy/app/renderers/ornament_nav_renderer.rb", "app/renderers/ornament_nav_renderer.rb"
       end
 
       if options.styleguide?

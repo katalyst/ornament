@@ -2,7 +2,7 @@
 
 class OrnamentNavRenderer < SimpleNavigation::Renderer::List
 
-  include OrnamentHelper
+  include OrnamentSvgHelper
 
   def render_icon(render_opts={})
     ac = ActionController::Base.new()
@@ -28,11 +28,17 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
   end
 
   def has_toggles
+    !is_basic &&
     !(options[:no_toggle] && options[:no_toggle].eql?(true))
   end
 
   def has_icons
+    !is_basic &&
     !(options[:no_icons] && options[:no_icons].eql?(true))
+  end
+
+  def is_basic
+    (options[:basic] && options[:basic].eql?(true))
   end
 
   # Build out the key for an item based on the predefined key
@@ -79,12 +85,14 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
             subnav_container_options[:data][:toggle] = build_item_key(item)
             subnav_container_options[:data][:toggle_temporary] = ""
           end
-          li_content << content_tag(:div, render_sub_navigation_for(item), subnav_container_options)
+        end
+
+        if is_basic
+          li_content << render_sub_navigation_for(item)
         else
-          # If not accessible, just generate sub_navigation like
-          # normal
           li_content << content_tag(:div, render_sub_navigation_for(item), subnav_container_options)
         end
+        
       end
       content_tag(:li, li_content, li_options)
     }.join
