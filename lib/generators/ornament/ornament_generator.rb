@@ -109,6 +109,7 @@ class OrnamentGenerator < Rails::Generators::Base
         directory "app/views/styleguide"
         directory "app/assets/javascripts/styleguide"
         directory "app/assets/stylesheets/styleguide"
+        copy_file "../../../../test/dummy/config/styleguide_sample_navigation.rb", "config/styleguide_sample_navigation.rb"
 
         unless options.example?
           route "get '/service-worker' => 'service_worker#index', format: :js, as: :service_worker"

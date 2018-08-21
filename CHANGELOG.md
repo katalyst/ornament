@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.0.6
+
+### Changes
+
+- Added docs to navigation on how to register the custom renderer
+
+### Fixes
+
+- Fixed styleguide example navigation not being generated
+
 ## v2.0.5
 
 ### Styleguide redesign

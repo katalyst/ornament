@@ -3,7 +3,12 @@
 <div class="content-spacing">
 
   <p>You can use the <code>ornament_menu</code> simple-navigation renderer to automatically add arrows, toggle and accessibility features.</p>
-  <p>Note that the <code>navigation__simple</code> class has been removed for this menu, which is what is used for the hover-to-show-subnavigation functionality.</p>
+  <p>In order to use this renderer in your app, you will need to register the renderer in your <code>navigation.rb</code> file.</p>
+
+  <div data-styleguide-code-sample>
+    <pre class="sg-pre prettyprint"># config/navigation.rb
+SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
+  </div>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament1", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
