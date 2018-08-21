@@ -35,4 +35,19 @@
 
   <pre class="sg-pre">Ornament.C.FormDatepicker.enabled</pre>
 
+  <hr />
+  <h2 class="heading-two">Legacy jQuery UI support</h2>
+
+  <p>jquery-ui-rails is a gem that likes to rearrange their assets every now and then causing major breaking changes.</p>
+  <p>It's likely that following this guide with a different version of jquery-ui-rails will not work as expected.</p>
+  <p>The easiest method for discovering the correct includes paths to use in your js and css is by running <code>bundle open jquery-ui-rails</code> and exploring the folder structure.</p>
+  <p>It's likely one of these:</p>
+  <ul class="content-lists">
+    <li>jquery.ui.foo</li>
+    <li>jquery-ui/foo</li>
+    <li>jquery-ui/widgets/foo</li>
+  </ul>
+  <p>Some older versions will require a <code>core</code> file to be included before working properly.</p>
+  <p>If you find the theme isn't working, try <a href="https://github.com/katalyst/ornament/blob/v2.0.5/lib/generators/ornament/templates/app/assets/stylesheets/ornament/_jquery-ui-theme.scss">the previous version of the theme file</a>.</p>
+
 </div>
