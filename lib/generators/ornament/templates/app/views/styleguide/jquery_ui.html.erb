@@ -6,17 +6,24 @@
 
   <p>Add the jQuery UI gem (then bundle and restart your server):</p>
 
-  <pre class="sg-pre">gem 'jquery-ui-rails'</pre>
+  <pre class="sg-pre">gem 'jquery-ui-rails', '~> 6.0.1'</pre>
 
-  <p>Add the jQuery UI imports to <code>core.js</code>:</p>
+  <p>Add the jQuery UI imports to <code>vendor.js</code>:</p>
 
-  <pre class="sg-pre">//= require jquery-ui/core
-//= require jquery-ui/datepicker
-//= require jquery-ui-timepicker-addon</pre>
+  <pre class="sg-pre">// =========================================================================
+// jQuery UI
+// =========================================================================
+
+//= require jquery-ui/widget
+//= require jquery-ui/widgets/datepicker
+//= require libs/jquery-ui-timepicker-addon</pre>
 
   <p>Add the jQuery UI imports to <code>core.scss</code>, along with the ornament jQuery UI theme:</p>
 
-  <pre class="sg-pre">@import "jquery-ui/core";
+  <pre class="sg-pre">// =========================================================================
+// jQuery UI
+// =========================================================================
+
 @import "jquery-ui/datepicker";
 @import "ornament/jquery-ui-theme";</pre>
 
