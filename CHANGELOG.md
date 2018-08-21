@@ -5,6 +5,7 @@
 ### Changes
 
 - Added docs to navigation on how to register the custom renderer
+- Updated docs for jQuery UI 6.0.1 and updated theme file to use new assets
 
 ### Fixes
 
