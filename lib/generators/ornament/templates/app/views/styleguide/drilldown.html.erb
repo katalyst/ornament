@@ -74,6 +74,7 @@
   <%- end -%>
 
   <div class="content-spacing">
+    <hr />
     <h2 class="heading-two">Descriptions and titles</h2>
     <p>You can inject descriptions using <code>data-description</code> attribute on the parent links. Here item 2 has a description but item 1 does not:</p>
   </div>
@@ -123,6 +124,7 @@
   <%- end -%>
 
   <div class="content-spacing">
+    <hr />
     <h2 class="heading-two">Overview links</h2>
     <p>You can add overview links that link to the parent pane link by adding <code>data-drilldown-overviews</code>:</p>
   </div>
@@ -172,7 +174,8 @@
   <%- end -%>
 
   <div class="content-spacing">
-    <h2 class="heading-two">Split</h2>
+    <hr />
+    <h2 class="heading-two">Split link and arrow</h2>
     <p>Split the drilldown anchor and main link as seperate elements with <code>data-drilldown-split</code>.</p>
   </div>
 
@@ -192,6 +195,7 @@
   <%- end -%>
 
   <div class="content-spacing">
+    <hr />
     <h2 class="heading-two">Deeplinking</h2>
     <p>Deeplinking is supported with simple-navigation by default. You can change the <code>Drilldown.selectors.selectedListItem</code> variable to your selected class of choice to implement outside of simple-navigation.</p>
   </div>
@@ -212,8 +216,10 @@
   <%- end -%>
 
   <div class="content-spacing">
+    <hr />
     <h2 class="heading-two">Merged Drilldowns</h2>
-    <p>Drilldowns are typically made up of a single <code>ul</code> element, but if you have multiple lists you want to merge in to a single dropdown (eg. multiple simple-navigation lists), you can use <code>drilldown-merge</code> attribute to merge all lists in a div and turn it in to a single drilldown:</p>
+    <p>Drilldowns are typically made up of a single <code>ul</code> element, but if you have multiple lists you want to merge in to a single dropdown (eg. multiple simple-navigation lists), you can use <code>drilldown-merge</code> attribute to merge all lists in a div and turn it in to a single drilldown.</p>
+    <p>This is convenient when using multiple <code>koi_render_navigation</code>s to build a single drilldown component.</p>
   </div>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "drilldown-merged" } do -%>
@@ -246,6 +252,7 @@
   <%- end -%>
 
   <div class="content-spacing">
+    <hr />
     <h2 class="heading-two">Custom drilldowns</h2>
     <p>You can have a completely custom drilldown by adding <code>data-drilldown-custom</code> attribute to your container. This will however require you to create your own forward/back buttons using <code>data-drilldown-forward</code> and <code>data-drilldown-back</code>:</p>
   </div>
@@ -288,6 +295,14 @@
   <%- end -%>
 
   <div class="content-spacing">
+    <hr />
+    <h2 class="heading-two">Autofocus</h2>
+    <p>You can automatically focus your drilldown on page load by using <code>data-drilldown-focus</code>.</p>
+    <p>This doesn't affect the automatic focus handling when transitioning through the drilldown.</p>
+  </div>
+
+  <div class="content-spacing">
+    <hr />
     <h2 class="heading-two">API Notes</h2>
     <h3 class="heading-three">Relationships</h3>
 
