@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.0.7
+
+### Dependancy changes
+
+- Removed jQuery usage from `ornament/core.js`
+- Removed jQuery usage from `ornament/asset-preloader.js`
+- Removed some es6 from the `app-height-variable.js` utility
+- Rewrote `components/body-scroll.js` without jQuery
+
 ## v2.0.6
 
 ### Changes
