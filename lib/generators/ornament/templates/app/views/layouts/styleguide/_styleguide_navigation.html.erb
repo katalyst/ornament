@@ -440,7 +440,7 @@
           <%= " active" if request.path.eql?(nav_item[:url]) %>
           <%= " styleguide-page--sidebar--disabled" if nav_item[:disabled] %>
         "
-        data-navigation-item data-section="<%= last_section %>"
+        data-styleguide-navigation-item data-section="<%= last_section %>"
         data-keywords="<%= nav_item[:keywords] %>"
       >
         <%= link_to nav_item[:url], target: nav_item[:target] do %>

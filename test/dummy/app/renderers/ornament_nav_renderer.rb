@@ -107,17 +107,14 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     item_options = options_for(item)
     item_options[:data] = item_options[:data] || {}
 
+    if level && level > 1
+      item_options[:data][:navigation_item] = ""
+    end
+
     # Add navigation data attributes for navigation.js 
     # accessibility
-    if level && level.eql?(1)
+    if include_sub_navigation?(item)
       item_options[:data][:navigation_parent] = ""
-    else
-      item_options[:data][:navigation_item] = ""
-      
-      # Disabling tabindex on menu items
-      if accessible
-        item_options[:tabindex] = "-1"
-      end
     end
 
     if accessible && include_sub_navigation?(item)

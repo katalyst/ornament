@@ -7,6 +7,7 @@
 - Removed jQuery usage from `ornament/core.js`
 - Removed jQuery usage from `ornament/asset-preloader.js`
 - Removed jQuery usage from `components/menu-with-more.js`
+- Removed jQuery usage from `components/simple-navigation.js`
 - Removed some es6 from the `app-height-variable.js` utility
 - Rewrote `components/body-scroll.js` without jQuery
 - Rewrote `components/pagination-helper.js` without jQuery
@@ -17,6 +18,10 @@
 - Added `Ornament.U.nodeIndex(element);` to get the element index, replacement for $(element).index;
 - Added `Ornament.U.isFirstNode(element);` as a replacement for `$(element).first();`
 - Added `Ornament.U.isLastNode(element);` as a replacement for `$(element).last();`
+
+### Fixes
+
+- Fixed simple navigation renderer applying `data-navigation-parent` to all top-level links even if they don't have children
 
 ## v2.0.6
 
