@@ -25,6 +25,9 @@
   - `Ornament.$.parent(element, matcher);`
   - `Ornament.$.parentWithClass(element, classRequired);`
   - `Ornament.$.parentWithAttribute(element, attributeRequired);`
+  - `Ornament.$.slideUp(element, timing, callback)`
+  - `Ornament.$.slideDown(element, timing, callback)`
+- Note: The `slideUp` and `slideDown` replacements require the webanimation api, and will fallback to show/hide functionality where unsupported
 
 ### Fixes
 
