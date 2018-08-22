@@ -5,19 +5,26 @@
 ### Dependancy changes
 
 - Removed jQuery usage from `ornament/core.js`
-- Removed jQuery usage from `ornament/asset-preloader.js`
+- Removed jQuery usage from `ornament/utilities/measure.js`
+- Removed jQuery usage from `ornament/utilities/asset-preloader.js`
 - Removed jQuery usage from `components/menu-with-more.js`
 - Removed jQuery usage from `components/simple-navigation.js`
-- Removed some es6 from the `app-height-variable.js` utility
+- Removed some es6 from the `ornament/utilities/app-height-variable.js`
 - Rewrote `components/body-scroll.js` without jQuery
 - Rewrote `components/pagination-helper.js` without jQuery
 - Rewrote `components/wysiwyg-helpers` without jQuery
+- Rewrote `components/form-password-score` without jQuery
 
 ### Changes
 
-- Added `Ornament.U.nodeIndex(element);` to get the element index, replacement for $(element).index;
-- Added `Ornament.U.isFirstNode(element);` as a replacement for `$(element).first();`
-- Added `Ornament.U.isLastNode(element);` as a replacement for `$(element).last();`
+- Added a couple of jQuery polyfill functions namespaced to `Ornament.$` for getting parent elements
+  - `Ornament.U.nodeIndex(element);`
+  - `Ornament.U.isFirstNode(element);`
+  - `Ornament.U.isLastNode(element);`
+  - `Ornament.$.remove(element);`
+  - `Ornament.$.parent(element, matcher);`
+  - `Ornament.$.parentWithClass(element, classRequired);`
+  - `Ornament.$.parentWithAttribute(element, attributeRequired);`
 
 ### Fixes
 
