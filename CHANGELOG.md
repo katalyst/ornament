@@ -11,6 +11,7 @@
 - Removed jQuery usage from `components/simple-navigation.js`
 - Removed jQuery usage from `components/select-link.js`
 - Removed jQuery usage from `components/flexible-input.js`
+- Removed jQuery usage from `components/form-password-revealer.js`
 - Removed some es6 from the `ornament/utilities/app-height-variable.js`
 - Rewrote `components/body-scroll.js` without jQuery
 - Rewrote `components/pagination-helper.js` without jQuery
