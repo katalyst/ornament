@@ -20,6 +20,7 @@
   - `components/transition-toggle.js`
   - `components/tray-push.js`
   - `components/shifty.js`
+  - `components/read-more.js`
 - Some components required a larger rewrite without jQuery:
   - `components/body-scroll.js`
   - `components/pagination-helper.js`

@@ -7,6 +7,8 @@
   overflow: hidden;
   position: relative;
   z-index: 1;
+  will-change: height;
+  transition: height .2s;
 }
 
 [data-read-more-link] {
@@ -25,12 +27,13 @@
 }
 
 [data-read-more-return-link] {
-  @include opacity(0);
+  display: none;
   padding-top: $xx-small-unit
 }
 
 [data-read-more-link],
 [data-read-more-return-link] {
   display: block;
+  width: 100%;
   @include font($bold-font);
 }
