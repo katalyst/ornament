@@ -4,25 +4,26 @@
 
 ### Dependancy changes
 
-- Removed jQuery usage from `ornament/core.js`
-- Removed jQuery usage from `ornament/utilities/measure.js`
-- Removed jQuery usage from `ornament/utilities/asset-preloader.js`
-- Removed jQuery usage from `components/menu-with-more.js`
-- Removed jQuery usage from `components/simple-navigation.js`
-- Removed jQuery usage from `components/select-link.js`
-- Removed jQuery usage from `components/flexible-input.js`
-- Removed jQuery usage from `components/form-password-revealer.js`
-- Removed jQuery usage from `components/form-text-limiter.js`
-- Removed jQuery usage from `components/form-billing-shipping.js`
-- Removed jQuery usage from `components/embed.js`
-- Removed jQuery usage from `components/analytics.js`
-- Removed jQuery usage from `components/transition-toggle.js`
-- Removed jQuery usage from `components/tray-push.js`
-- Removed some es6 from the `ornament/utilities/app-height-variable.js`
-- Rewrote `components/body-scroll.js` without jQuery
-- Rewrote `components/pagination-helper.js` without jQuery
-- Rewrote `components/wysiwyg-helpers` without jQuery
-- Rewrote `components/form-password-score` without jQuery
+- Significant push to remove jQuery as a dependancy, removed from:
+  -`ornament/core.js`
+  -`ornament/utilities/measure.js`
+  -`ornament/utilities/asset-preloader.js`
+  -`components/menu-with-more.js`
+  -`components/simple-navigation.js`
+  -`components/select-link.js`
+  -`components/flexible-input.js`
+  -`components/form-password-revealer.js`
+  -`components/form-text-limiter.js`
+  -`components/form-billing-shipping.js`
+  -`components/embed.js`
+  -`components/analytics.js`
+  -`components/transition-toggle.js`
+  -`components/tray-push.js`
+- Some components required a larger rewrite without jQuery:
+  - `components/body-scroll.js`
+  - `components/pagination-helper.js`
+  - `components/wysiwyg-helpers`
+  - `components/form-password-score`
 
 ### Changes
 
@@ -42,6 +43,7 @@
 ### Fixes
 
 - Fixed simple navigation renderer applying `data-navigation-parent` to all top-level links even if they don't have children
+- Fixed some es6 in `ornament/utilities/app-height-variable.js`
 
 ## v2.0.6
 
