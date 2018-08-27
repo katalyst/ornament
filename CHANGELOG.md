@@ -5,20 +5,21 @@
 ### Dependancy changes
 
 - Significant push to remove jQuery as a dependancy, removed from:
-  -`ornament/core.js`
-  -`ornament/utilities/measure.js`
-  -`ornament/utilities/asset-preloader.js`
-  -`components/menu-with-more.js`
-  -`components/simple-navigation.js`
-  -`components/select-link.js`
-  -`components/flexible-input.js`
-  -`components/form-password-revealer.js`
-  -`components/form-text-limiter.js`
-  -`components/form-billing-shipping.js`
-  -`components/embed.js`
-  -`components/analytics.js`
-  -`components/transition-toggle.js`
-  -`components/tray-push.js`
+  - `ornament/core.js`
+  - `ornament/utilities/measure.js`
+  - `ornament/utilities/asset-preloader.js`
+  - `components/menu-with-more.js`
+  - `components/simple-navigation.js`
+  - `components/select-link.js`
+  - `components/flexible-input.js`
+  - `components/form-password-revealer.js`
+  - `components/form-text-limiter.js`
+  - `components/form-billing-shipping.js`
+  - `components/embed.js`
+  - `components/analytics.js`
+  - `components/transition-toggle.js`
+  - `components/tray-push.js`
+  - `components/shifty.js`
 - Some components required a larger rewrite without jQuery:
   - `components/body-scroll.js`
   - `components/pagination-helper.js`
