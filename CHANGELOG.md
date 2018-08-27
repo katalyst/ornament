@@ -43,6 +43,7 @@
   - `Ornament.$.slideDown(element, timing, callback)`
 - Note: The `slideUp` and `slideDown` replacements require the webanimation api, and will fallback to show/hide functionality where unsupported
 - `Ornament.U.bindOnce` can now accept multiple event names, eg. `Ornament.U.bindOnce(element, "click focus blur", doTheThing);`
+- `Ornament.U.findData(attribute, value, scope, jQuery?)` now assumes non-jquery by default
 
 ### Fixes
 
