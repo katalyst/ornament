@@ -15,6 +15,8 @@
 - Removed jQuery usage from `components/form-text-limiter.js`
 - Removed jQuery usage from `components/form-billing-shipping.js`
 - Removed jQuery usage from `components/embed.js`
+- Removed jQuery usage from `components/analytics.js`
+- Removed jQuery usage from `components/transition-toggle.js`
 - Removed some es6 from the `ornament/utilities/app-height-variable.js`
 - Rewrote `components/body-scroll.js` without jQuery
 - Rewrote `components/pagination-helper.js` without jQuery
