@@ -17,6 +17,7 @@
 - Removed jQuery usage from `components/embed.js`
 - Removed jQuery usage from `components/analytics.js`
 - Removed jQuery usage from `components/transition-toggle.js`
+- Removed jQuery usage from `components/tray-push.js`
 - Removed some es6 from the `ornament/utilities/app-height-variable.js`
 - Rewrote `components/body-scroll.js` without jQuery
 - Rewrote `components/pagination-helper.js` without jQuery
