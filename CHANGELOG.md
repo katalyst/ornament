@@ -32,6 +32,7 @@
   - `Ornament.U.nodeIndex(element);`
   - `Ornament.U.isFirstNode(element);`
   - `Ornament.U.isLastNode(element);`
+  - `Ornament.U.delegateBindOnce(wrapper, target, eventName, functionName, opposite?)`
   - `Ornament.$.remove(element);`
   - `Ornament.$.parent(element, matcher);`
   - `Ornament.$.parentWithClass(element, classRequired);`
