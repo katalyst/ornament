@@ -22,7 +22,6 @@
   - `components/shifty.js`
   - `components/read-more.js`
   - `components/toggle.js`
-- Some components required a larger rewrite without jQuery:
   - `components/body-scroll.js`
   - `components/pagination-helper.js`
   - `components/wysiwyg-helpers`
