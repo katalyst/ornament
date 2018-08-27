@@ -3,10 +3,9 @@
 <%- content_for :scripts_bottom do -%>
   <script>
     Ornament.C.Shifty.uiElements = [{
-      desktop: $("[data-panel-desktop]"),
-      mobile: $("[data-panel-mobile]")
+      desktop: document.querySelector("[data-panel-desktop]"),
+      mobile: document.querySelector("[data-panel-mobile]")
     }];
-    Ornament.C.Shifty.init();
   </script>
 <%- end -%>
 
@@ -16,10 +15,9 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "buttons", js: capture { -%>
 Ornament.C.Shifty.uiElements = [{
-  desktop: $("[data-panel-desktop]"),
-  mobile: $("[data-panel-mobile]")
+  desktop: document.querySelector("[data-panel-desktop]"),
+  mobile: document.querySelector("[data-panel-mobile]")
 }];
-Ornament.C.Shifty.init();
   <%- } } do -%>
 <p>For example, on desktop there is a big success panel right here:</p>
 
