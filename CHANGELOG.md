@@ -24,8 +24,9 @@
   - `components/toggle.js`
   - `components/body-scroll.js`
   - `components/pagination-helper.js`
-  - `components/wysiwyg-helpers`
-  - `components/form-password-score`
+  - `components/wysiwyg-helpers.js`
+  - `components/form-password-score.js`
+  - `components/shadowable.js`
 
 ### Changes
 
