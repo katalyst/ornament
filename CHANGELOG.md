@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.0.7
+## v2.1.0
 
 ### Dependancy changes
 
@@ -47,6 +47,7 @@
   - `Ornament.slide(element, timing, direction, callback);`
 - `Ornament.U.bindOnce` can now accept multiple event names, eg. `Ornament.U.bindOnce(element, "click focus blur", doTheThing);`
 - `Ornament.U.findData(attribute, value, scope, jQuery?)` now assumes non-jquery by default
+- Replaced tooltips with `tippy` and a light integration wrapper
 
 ### Fixes
 

@@ -8,126 +8,13 @@
 
 <div class="content-spacing">
 
-  <h2 class="heading-two">Basic Tooltip</h2>
+  <h2 class="heading-two">Tippy</h2>
 
-  <p>To implement a basic tooltip, all you need is a <code>data-tooltip</code> attribute on your anchor, and a div with a matching <code>data-tooltip-for</code> attribute.</p>
+  <p>Tooltips are provided by the <a href="https://atomiks.github.io/tippyjs/" target="_blank">Tippy library</a>.</p>
+  <p>We have a light wrapper for Ornament that allows tooltips via the <code>data-tooltip</code> attribute:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tip" } do -%>
-<span class="tooltip" data-tooltip="tooltip-1">This is my anchor</span>
-<div class="tooltip--hide" data-tooltip-for="tooltip-1">
-  This is my tooltip.
-</div>
+<span class="tooltip" data-tooltip title="This is my tooltip">This is my anchor</span>
   <%- end -%>
-
-  <p>The <code>.tooltip--hide</code> class is a helper class that hides the tooltip's content from being displayed on the page.</p>
-
-  <p>Tooltips will automatically reposition themselves if they run out of room:</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tip-right" } do -%>
-<div class="align-right">
-  <span class="tooltip" data-tooltip="tooltip-2">Simple Tooltip</span>
-  <div class="tooltip--hide" data-tooltip-for="tooltip-2">
-    <strong>Tooltip</strong><br />
-    Standard tooltip pulls to the left when there's no room on the right. Will move up when there's no room underneath.
-  </div>
-</div>
-  <%- end -%>
-
-  <hr />
-
-  <h2 class="heading-two">Toggle and Follow Mouse Options</h2>
-
-  <p>You can make tooltips <em>togglable</em> by adding the <code>data-tooltip-toggle</code> attribute:</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tip-toggle" } do -%>
-<span class="tooltip" data-tooltip="tooltip-3" data-tooltip-toggle>Toggle Tooltip</span>
-<div class="tooltip--hide" data-tooltip-for="tooltip-3">
-  <strong>Toggle Tooltip</strong><br />
-  This tooltip will toggle on and off with a click.
-</div>
-  <%- end -%>
-
-  <p>To make a tooltip follow the mouse, you likewise need to add in the <code>data-tooltip-follow</code> attribute.</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tip-follow" } do -%>
-<p>
-  <span class="tooltip" data-tooltip="tooltip-4" data-tooltip-follow>Follow Mouse. This is a really long anchor so you can see how it moves around based on viewport contraints.</span>
-  <div class="tooltip--hide" data-tooltip-for="tooltip-4">
-    <strong>Tooltip</strong><br />
-    This tooltip follows the mouse.
-  </div>
-</p>
-  <%- end -%>
-
-  <hr />
-
-  <h2 class="heading-two">Custom positioning</h2>
-
-  <p>You can pass in a custom position as a <code>data-position</code> attribute. The attribute takes two values, one for the tooltip and one for the arrow.</p>
-
-  <p>Available tooltip positions are top, left, right, bottom.<br />
-    Available arrow positions are top, left, middle, right, bottom.</p>
-
-  <p>The tooltip position is where the tooltip appears in relation to the anchor. The arrow position is where the arrow appears in relation to the tooltip. Here are some examples to illustrate the feature:</p>
-
-  <p>
-    <div class="tooltip--hide" data-tooltip-for="tooltip-position">
-      <strong>Tooltip</strong><br />
-      This a tooltip that is custom positioned.
-    </div>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="top left">Top left</span>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="top middle">Top middle</span>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="top right">Top right</span>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="bottom left">Bottom left</span>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="bottom middle">Bottom middle</span>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="bottom right">Bottom right</span>
-    <br />
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="right top">Right top</span>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="right middle">Right middle</span>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="right bottom">Right bottom</span>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="left top">Left top</span>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="left middle">Left middle</span>
-    <span class="tooltip" data-tooltip="tooltip-position" data-tooltip-position="left bottom">Left bottom</span>
-  </p>
-
-  <hr />
-
-  <h2 class="heading-two">Without repositioning</h2>
-
-  <p>If you always want a tooltip to show in one specific position you can add another data attribute: <code>data-tooltip-static</code>. This will prevent the tooltip from repositioning based on viewport constraints.</p>
-
-  <hr />
-
-  <h2 class="heading-two">Auto-show</h2>
-
-  <p>Adding the <code>data-tooltip-show</code> attribute will make the tooltip appear always-on.</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tip-autoshow" } do -%>
-<span class="tooltip" data-tooltip="tooltip-show" data-tooltip-show data-tooltip-position="right middle" data-tooltip-static>This is an anchor</span>
-<div class="tooltip--hide" data-tooltip-for="tooltip-show">
-  This tooltip is always on.
-</div>
-  <%- end -%>
-
-  <p><code>data-tooltip-show</code> can be combined with <code>data-tooltip-toggle</code> to create a toggle tooltip that defaults to visible.</p>
-
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tip-autoshow-toggle" } do -%>
-<span class="tooltip" data-tooltip="tooltip-show-2" data-tooltip-show data-tooltip-toggle data-tooltip-position="right middle" data-tooltip-static>Toggle anchor</span>
-<div class="tooltip--hide" data-tooltip-for="tooltip-show-2">
-  This is my tooltip.
-</div>
-  <%- end -%>
-
-  <hr />
-
-  <h2 class="heading-two">Global over-rides</h2>
-
-  <p>There are some global settings in the <code>tooltip.js</code> file that you can hard-code to over-ride on a global basis:</p>
-
-  <pre class="sg-pre prettyprint">var defaultPosition   = "right top"
-var followMouse       = false;
-var toggleTooltips    = false;</pre>
-
-  <p>Changing these settings will over-ride all tooltips without having to add in the required <code>data</code> attributes.</p>
 
 </div>
