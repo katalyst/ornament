@@ -45,7 +45,7 @@
 
   <p>And to space out your cocoon fields, simply update your wrapper to add the inputs field, and add a button class to your add button:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cocoon", ruby: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cocoon2", ruby: capture { -%>
 &lt;div class='my_nested_fields inputs'>
   &lt;%= f.simple_fields_for :my_nested_fields do |nested_field| -%>
     &lt;%= render 'my_nested_fields', f: nested_field| -%>

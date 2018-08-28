@@ -199,7 +199,7 @@
 
   <p>Another option for not sending data to the server is to disable the fields when unchecked. This will keep the data present for the user if they change their minds, but won't submit. </p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-destroy", ruby: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-disable", ruby: capture { -%>
 &lt;%= f.input :example, as: :radio_buttons -%&gt;
 &lt;%= f.input :hidden_field, wrapper_html: { data: { show: "form_example_true", show_disable: "" } } -%&gt;
   <%- } } do -%>

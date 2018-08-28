@@ -203,7 +203,7 @@
 
   <p>To lightbox up a gallery of images, simply create a container with <code>data-lightbox-gallery</code> attribute. No data-attributes are needed on the images or anchors themselves as it's all delegated through this container.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "image" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "image-gallery" } do -%>
 <div data-lightbox-gallery>
   <a href="http://placehold.it/500x300">
     <img src="http://placehold.it/150x150" />
@@ -299,7 +299,7 @@ Ornament.C.Lightbox.openLightbox({
 
   <p>You can over-ride the text on the confirm and cancel buttons by passing in <code>data-confirm-cancel=""</code> and <code>data-confirm-confirm=""</code>. </p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "confirm-1" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "confirm-2" } do -%>
 <a href="/styleguide" data-confirm="Do you really, really want to delete your account?" data-confirm-cancel="No! I don't want to any more!" data-confirm-confirm="Yes! I really, really do.">Delete my account</a>
   <%- end -%>
 

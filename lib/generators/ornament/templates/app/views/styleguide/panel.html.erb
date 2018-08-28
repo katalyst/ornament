@@ -76,7 +76,7 @@
 
   <p>You can space out panels by using the <code>panel-spacing</code> wrapper class:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-stacked" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-spacing" } do -%>
 <div class="panel-spacing">
   <div class="panel__passive panel--padding">
     Panel 1
@@ -89,7 +89,7 @@
 
   <p>By default it will space out all <code>panel</code> elements, but you can also add a <code>panel-spacer</code> class to space out non-panels as if they were a panel. In the example below, "Panel 2" isn't actually a panel, but it acts like one when sitting next to other panels.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-stacked" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-spacing-with-spacers" } do -%>
 <div class="panel-spacing">
   <div class="panel__passive panel--padding">
     Panel 1

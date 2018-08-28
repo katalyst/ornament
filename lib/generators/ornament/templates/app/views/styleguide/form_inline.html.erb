@@ -95,7 +95,7 @@
 
   <p>You can use this pattern to create flush inline sibling fields:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cap-button" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-siblings" } do -%>
 <%= form_control_group(:inline_siblings, f) do %>
   <div class="form-inline">
     <%= f.input_field :inline_siblings_one, placeholder: "First Name" %>
@@ -108,7 +108,7 @@
   <p>Take note you can also provide a <code>form-*</code> sizing class to the sibling fields to control their width.</p>
   <p>Again take responsive considerations if doing something like this.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-cap-button" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "form-inline-siblings-2" } do -%>
 <%= form_control_group(:capped_sibling_fields_with_buttons, f) do %>
   <div class="form-inline">
     <div class="form-inline--cap">

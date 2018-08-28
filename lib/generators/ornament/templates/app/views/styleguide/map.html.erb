@@ -46,7 +46,7 @@
 
   <p>Zoom level can be customised with <code>data-map-zoom</code>.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "map-centering" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "map-zoom" } do -%>
 <div data-map data-map-zoom="8">
   <div data-map-pin="-34.921619,138.599257"></div>
 </div>
@@ -59,7 +59,7 @@
   <p>Add <code>data-map-colour</code> to your map element.</p>
   <p>Customising the colours themselves can be done in <code>ornament/defaults.js</code>. You should notice a really long array of colour definitions. You can either update each colour manually or plug one in from <a href="http://www.snazzymaps.com" target="_blank">SnazzyMaps</a>.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "map-zoom" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "map-colour" } do -%>
 <div data-map data-map-colour>
   <div data-map-pin="-34.921619,138.599257"></div>
 </div>
@@ -103,7 +103,7 @@
 
   <p>You can pass in a value to the <code>data-map-static</code> attribute which will turn the static map in to a link, using the value as the page it links to:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "map-static" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "map-static-link" } do -%>
 <div data-map data-map-controls="false" data-map-static="https://www.google.com.au/maps/place/North+Terrace,+Adelaide+SA">
   <div data-map-pin="-34.921619,138.599257"></div>
 </div>

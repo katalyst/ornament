@@ -35,7 +35,7 @@
   <p>You can optionally pass <code>false</code> in as the mobile padding to only use one value all the way down.</p>
   <p>The syntax for this mixin is <code>container($max-width, $desktop-padding, $mobile-padding)</code>.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "container-pixel", scss: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "container-padded", scss: capture { -%>
 .container-pixel {
   @include container(50rem, $default-unit, $small-unit);
 }
