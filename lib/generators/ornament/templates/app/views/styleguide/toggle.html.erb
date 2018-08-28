@@ -45,7 +45,7 @@
 
   <p>Customise the timing of toggles by adding <code>data-toggle-timing</code> attribute to your anchor.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-2" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-speed" } do -%>
 <div>
   <button data-toggle-anchor="example-speed-1" data-toggle-timing="100">Heading 1 (100)</button>
 </div>
@@ -66,7 +66,7 @@
 
   <p>Add <code>data-toggle-visible-label</code> to your anchor to swap the label.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-labels" } do -%>
 <button data-toggle-anchor="example-3-1" data-toggle-visible-label="Hide">Show</button>
 <div data-toggle="example-3-1">
   This is the hidden content
@@ -79,7 +79,7 @@
 
   <p>Add <code>data-toggle-focus</code> to focus on the first available input after toggling.</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-focus" } do -%>
 <button data-toggle-anchor="example-focus" data-toggle-focus>Show</button>
 <div data-toggle="example-focus">
   <input type="text" />
@@ -92,7 +92,7 @@
 
   <p>Clicking away will hide the toggle when adding <code>data-toggle-temporary</code> and <code>data-toggle-temporary-anchor</code> attributes:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-temporary" } do -%>
 <button data-toggle-anchor="example-temporary" data-toggle-temporary-anchor>Show</button>
 <div data-toggle="example-temporary" data-toggle-temporary>
   This will hide when you click away!
@@ -105,7 +105,7 @@
 
   <p>You can default a toggle open by adding <code>data-toggle-default</code></p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-default" } do -%>
 <button data-toggle-anchor="example-default" class="active">Show</button>
 <div data-toggle="example-default" data-toggle-default>
   This is open by default! 
@@ -116,7 +116,7 @@
 
   <h2 class="heading-two">Add a bottom toggle which scroll back to the top when hiding</h2>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-4" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-scroll" } do -%>
 <button data-toggle-anchor="example-4" data-toggle-scroll data-toggle-scroll-master>This is the master toggle anchor</button>
 <div data-toggle="example-4">
   This<br />

@@ -28,7 +28,7 @@
   // @include border-radius($border-radius $border-radius 0 0);
 }
 
-.tabs--link__active {
+.tabs--link.active {
   border-color: $primary-color;
   position: relative;
 

@@ -1,157 +1,46 @@
-<% content_for :title, "Tabs (Legacy)" %>
+<% content_for :title, "Tabs" %>
 
 <div class="spacing">
 
-  <section class="spacing-tight">
+  <p>These tabs piggyback off of <code>toggle.js</code> by taking some shorthand attributes and automatically converting them when rendering.</p>
 
-    <p>These tabs are being phased out soon and will be replaced with a new system that ties in to <code>toggle.js</code></p>
-    
-    <hr />
-
-    <p>Example tabset:</p>
-
-    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab" } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab" } do -%>
 <div class="tabs">
-  <nav class="tabs--links">
-    <ul>
-      <li><a href="#" class="tabs--link" data-tab="tab1_1">Tab #1</a></li>
-      <li><a href="#" class="tabs--link" data-tab="tab1_2">Tab #2</a></li>
-      <li><a href="#" class="tabs--link" data-tab="tab1_3">Tab #3</a></li>
-    </ul>
-  </nav>
-  <div class="tabs--panes">
-    <div class="tabs--pane" data-tab-for="tab1_1">
-      Tab #1
-    </div>
-    <div class="tabs--pane" data-tab-for="tab1_2">
-      Tab #2
-    </div>
-    <div class="tabs--pane" data-tab-for="tab1_3">
-      Tab #3
-    </div>
+<nav class="tabs--links">
+  <ul>
+    <li><button class="tabs--link" data-tab="tab1_1" data-tab-group="tab1">Tab #1</button></li>
+    <li><button class="tabs--link" data-tab="tab1_2" data-tab-group="tab1">Tab #2</button></li>
+    <li><button class="tabs--link" data-tab="tab1_3" data-tab-group="tab1">Tab #3</button></li>
+  </ul>
+</nav>
+<div class="tabs--panes">
+  <div class="tabs--pane" data-tab-for="tab1_1">
+    Tab #1
+  </div>
+  <div class="tabs--pane" data-tab-for="tab1_2">
+    Tab #2
+  </div>
+  <div class="tabs--pane" data-tab-for="tab1_3">
+    Tab #3
   </div>
 </div>
-    <%- end -%>
-
-    <hr />
-
-    <h2 class="heading-two">Passive Deeplinking</h2>
-
-    <p>Passive deeplinking allows you to employ a tabset and deeplink to a particular pane. Interacting with the tabs will not update the URL.</p>
-
-    <p>You can passively deeplink to a tab by passing in the <code>data-tab</code> attribute as a hash in the URL. <code>&lt;a href="/my-page#tab-2"></code> will link to tab-2 on /my-page.</p>
-
-    <p>You can also open a tab with a link outside of the tabset, as long as it has a matching tab id inside a <code>data-tab-link</code> attribute. eg. <a href="#tab1_3" data-tab-link="tab1_3">This link</a> will open up tab three. The link has a data attribute of <code>data-tab-link="tab1_3"</code>, which is the <code>data-tab</code> id of the third tab. It's worth also adding the tab id to the <code>href</code> so that if the user opens the link in a new window, it will still deeplink to the tab. Here is how to properly write a link that opens up a tab outside of the tab container:</p>
-
-    <pre class="sg-pre prettyprint">...
-&lt;li>&lt;a href="#" class="tabs--link" data-tab="tab1_1">Tab #1&lt;a>&lt;/li>
-&lt;li>&lt;a href="#" class="tabs--link" data-tab="tab1_2">Tab #2&lt;a>&lt;/li>
-&lt;li>&lt;a href="#" class="tabs--link" <strong>data-tab="tab1_3"</strong>>Tab #3&lt;a>&lt;/li>
-...
-&lt;a <strong>href="#tab1_3" data-tab-link="tab1_3"</strong>>This link lives outside of a tabset, but will open a tab.&lt;/a></pre>
-
-    <hr />
-
-    <h2 class="heading-two">Active Deeplinking</h2>
-
-    <p>You can turn on active deeplinking by adding <code>data-tabs-deeplink</code> to the main tabs container. Active deeplinking will update the URL as the user clicks on the tabs. </p>
-
-    <p>Notice that clicking on these tabs will update your URL. </p>
-
-    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab-deeplink" } do -%>
-<div class="tabs" data-tabs-deeplink>
-  <nav class="tabs--links">
-    <ul>
-      <li><a href="#" class="tabs--link" data-tab="tab2_1">Tab #1</a></li>
-      <li><a href="#" class="tabs--link" data-tab="tab2_2">Tab #2</a></li>
-      <li><a href="#" class="tabs--link" data-tab="tab2_3">Tab #3</a></li>
-    </ul>
-  </nav>
-  <div class="tabs--panes">
-    <div class="tabs--pane" data-tab-for="tab2_1">
-      Tab #1
-    </div>
-    <div class="tabs--pane" data-tab-for="tab2_2">
-      Tab #2
-    </div>
-    <div class="tabs--pane" data-tab-for="tab2_3">
-      Tab #3
-    </div>
-  </div>
 </div>
-    <%- end -%>
+  <%- end -%>
 
-    <hr />
+  <hr />
 
-    <h2 class="heading-two">Select menu fallback on smaller screens</h2>
+  <h2 class="heading-two">Mapping to toggle attributes</h2>
 
-    <p>To make your tabs fall back to a <code>select</code> menu, simple add <code>data-tabs-fallback-select</code> attribute. to your tabs container.</p>
-
-    <p>The select menu will appear when the tabs are too long to fit on the screen.</p>
-
-    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab-select" } do -%>
-<div class="tabs" data-tabs-fallback-select>
-  <nav class="tabs--links">
-    <ul>
-      <%- (1..7).each do |i| -%>
-        <li><a href="#" class="tabs--link" data-tab="tab_select_<%= i -%>">Tab #<%= i -%></a></li>
-      <%- end -%>
-    </ul>
-  </nav>
-  <div class="tabs--panes">
-    <%- (1..7).each do |i| -%>
-      <div class="tabs--pane" data-tab-for="tab_select_<%= i -%>">
-        Tab #<%= i %>
-      </div>
-    <%- end -%>
-  </div>
-</div>
-    <%- end -%>
-
-    <hr />
-
-    <h2 class="heading-two">Swipable Tabs <span class="poc" title="Warning: untested and unfinalised. Should not be used in production.">Proof of Concept</span></h2>
-
-    <p>Not ready for production, see TODO.md</p>
-
-    <p>Swipable tabs allow the user to swipe the tab row to access tabs that are not able to fit on-screen.</p>
-
-    <p>As always, adding a data attribute will enable this, <code>data-tabs-swipable</code>.</p>
-
-    <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab-swipe" } do -%>
-<div class="tabs" data-tabs-swipable style="max-width: 300px;">
-  <nav class="tabs--links">
-    <ul>
-      <%- (1..10).each do |i| -%>
-        <li><a class="tabs--link" data-tab="tab_swipe_<%= i -%>">Tab #<%= i -%></a></li>
-      <%- end -%>
-    </ul>
-  </nav>
-  <div class="tabs--panes">
-    <%- (1..10).each do |i| -%>
-      <div class="tabs--pane" data-tab-for="tab_swipe_<%= i -%>">
-        Tab #<%= i %>
-      </div>
-    <%- end -%>
-  </div>
-</div>
-    <%- end -%>
-
-    <hr />
-
-    <h2 class="heading-two">Global settings</h2>
-
-    <p>Active deeplinking can be enabled at the top of the javascript file by changing <code>activeDeeplinking</code> to true.</p>
-    <p>Swipable tab overscroll value can be adjusted by changing the <code>tabOverScroll</code> value.</p>
-
-    <hr />
-
-    <h2 class="heading-two">Events</h2>
-
-    <p>You can call javascript functions when a tab changes with:</p>
-
-    <pre class="sg-pre pretty-print">$(document).on("ornament:tab-change", function(){ ... })</pre>
-
-  </section>
+  <p>
+    <strong>Anchor</strong><br />
+    Add: <code>data-tab="tabId" data-tab-group="groupId"</code><br />
+    Will get translated to <code>data-toggle-anchor="tabId" data-toggle-group="groupId" data-toggle-one-way data-toggle-timing="1"</code>
+  </p>
+  <p>
+    <strong>Pane</strong><br />
+    Add: <code>data-tab-for="tabId"</code><br />
+    Translates to: <code>data-toggle="tabId" data-tab-immediate</code>
+  </p>
+  <p>The first anchor in the group will get <code>data-toggle-anchor-default</code> and matching pane will get <code>data-toggle-default</code>.</p>
 
 </div>

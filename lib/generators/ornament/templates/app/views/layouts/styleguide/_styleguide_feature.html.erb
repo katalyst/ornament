@@ -11,19 +11,19 @@
   <nav class="tabs--links">
     <ul>
       <%- unless no_preview -%>
-        <li><a href="#<%= id -%>__preview" class="tabs--link" data-tab="<%= id -%>__preview">Preview</a></li>
+        <li><button class="tabs--link" data-tab="<%= id -%>__preview" data-tab-group="<%= id %>">Preview</button></li>
       <%- end -%>
       <%- unless no_html -%>
-        <li><a href="#<%= id -%>__source" class="tabs--link" data-tab="<%= id -%>__source">HTML</a></li>
+        <li><button class="tabs--link" data-tab="<%= id -%>__source" data-tab-group="<%= id %>">HTML</button></li>
       <%- end -%>
       <%- if ruby -%>
-        <li><a href="#<%= id -%>__ruby" class="tabs--link" data-tab="<%= id -%>__ruby">Ruby</a></li>
+        <li><button class="tabs--link" data-tab="<%= id -%>__ruby" data-tab-group="<%= id %>">Ruby</button></li>
       <%- end -%>
       <%- if scss -%>
-        <li><a href="#<%= id -%>__scss" class="tabs--link" data-tab="<%= id -%>__scss">SCSS</a></li>
+        <li><button class="tabs--link" data-tab="<%= id -%>__scss" data-tab-group="<%= id %>">SCSS</button></li>
       <%- end -%>
       <%- if js -%>
-        <li><a href="#<%= id -%>__js" class="tabs--link" data-tab="<%= id -%>__js">JS</a></li>
+        <li><button class="tabs--link" data-tab="<%= id -%>__js" data-tab-group="<%= id %>">JS</button></li>
       <%- end -%>
     </ul>
   </nav>

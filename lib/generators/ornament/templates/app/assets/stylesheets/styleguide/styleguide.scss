@@ -516,7 +516,7 @@ $sg-feature-background: $background-color;
   margin: 0;
 }
 
-.sg-feature > .tabs--links > ul > li > .tabs--link__active {
+.sg-feature > .tabs--links > ul > li > .active {
   background: $sg-feature-background;
   border-color: $sg-feature-border;
   @include color-link($foreground-color, $foreground-color);
