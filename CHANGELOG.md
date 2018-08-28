@@ -27,6 +27,7 @@
   - `components/wysiwyg-helpers.js`
   - `components/form-password-score.js`
   - `components/shadowable.js`
+  - `components/drilldown.js`
 
 ### Changes
 
