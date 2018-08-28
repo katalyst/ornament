@@ -41,9 +41,10 @@
   - `Ornament.$.parent(element, matcher);`
   - `Ornament.$.parentWithClass(element, classRequired);`
   - `Ornament.$.parentWithAttribute(element, attributeRequired);`
-  - `Ornament.$.slideUp(element, timing, callback)`
-  - `Ornament.$.slideDown(element, timing, callback)`
-- Note: The `slideUp` and `slideDown` replacements require the webanimation api, and will fallback to show/hide functionality where unsupported
+- Added `Ornament.slide` functions to replace jQuery slideUp/slideDown
+  - `Ornament.slideUp(element, timing, callback);`
+  - `Ornament.slideDown(element, timing, callback);`
+  - `Ornament.slide(element, timing, direction, callback);`
 - `Ornament.U.bindOnce` can now accept multiple event names, eg. `Ornament.U.bindOnce(element, "click focus blur", doTheThing);`
 - `Ornament.U.findData(attribute, value, scope, jQuery?)` now assumes non-jquery by default
 

@@ -103,6 +103,16 @@ $navigation-padding-x: $xxx-small-unit;
   }
 }
 
+.simple-navigation__with-toggles .simple-navigation--nested {
+  display: block;
+  height: 0;
+  padding: 0;
+
+  ul {
+    padding: $navigation-padding-y $navigation-padding-x;
+  }
+}
+
 // navigation-simple hover states to show subnavigation
 .navigation__simple li:hover ul {
   display: block;
