@@ -4,30 +4,7 @@
 
 ### Dependancy changes
 
-- Significant push to remove jQuery as a dependancy, removed from:
-  - `ornament/core.js`
-  - `ornament/utilities/measure.js`
-  - `ornament/utilities/asset-preloader.js`
-  - `components/menu-with-more.js`
-  - `components/simple-navigation.js`
-  - `components/select-link.js`
-  - `components/flexible-input.js`
-  - `components/form-password-revealer.js`
-  - `components/form-text-limiter.js`
-  - `components/form-billing-shipping.js`
-  - `components/embed.js`
-  - `components/analytics.js`
-  - `components/transition-toggle.js`
-  - `components/tray-push.js`
-  - `components/shifty.js`
-  - `components/read-more.js`
-  - `components/toggle.js`
-  - `components/body-scroll.js`
-  - `components/pagination-helper.js`
-  - `components/wysiwyg-helpers.js`
-  - `components/form-password-score.js`
-  - `components/shadowable.js`
-  - `components/drilldown.js`
+- Significant push to remove jQuery as a dependancy
 - Replaced tooltips with [tippy](https://atomiks.github.io/tippyjs/) and a light integration wrapper
 - Replaced fotorama with [tiny-slider](https://github.com/ganlanyuan/tiny-slider)
 
@@ -38,7 +15,6 @@
   - `Ornament.U.nodeIndex(element);`
   - `Ornament.U.isFirstNode(element);`
   - `Ornament.U.isLastNode(element);`
-  - `Ornament.U.delegateBindOnce(wrapper, target, eventName, functionName, opposite?)`
   - `Ornament.$.remove(element);`
   - `Ornament.$.parent(element, matcher);`
   - `Ornament.$.parentWithClass(element, classRequired);`
@@ -49,6 +25,8 @@
   - `Ornament.slide(element, timing, direction, callback);`
 - `Ornament.U.bindOnce` can now accept multiple event names, eg. `Ornament.U.bindOnce(element, "click focus blur", doTheThing);`
 - `Ornament.U.findData(attribute, value, scope, jQuery?)` now assumes non-jquery by default
+- Added `Ornament.U.delegateBindOnce(wrapper, target, eventName, functionName, opposite?)` as a way to bind an event via a wrapping element. This can be used as a replacement for delegated jQuery events
+- Added `Ornament.U.bodyScrollToElement(element)` for scrolling to an element rather than a scroll position
 
 ### Fixes
 
