@@ -4,19 +4,16 @@
 
   <section class="spacing">
 
-    <h2 class="heading-two">Fotorama</h2>
+    <h2 class="heading-two">TinySlider</h2>
 
-    <ul>
-      <li><a href="http://fotorama.io/">Official Website</a></li>
-      <li><a href="http://fotorama.io/customize/" target="_blank">Documentation</a></li>
-    </ul>
+    <p>Carousels are provided by the <a href="https://github.com/ganlanyuan/tiny-slider">TinySlider</a> library.</p>
 
     <hr />
 
     <h2 class="heading-two">Basic Slider</h2>
 
     <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "basic" } do -%>
-<div class="fotorama" data-carousel data-width="100%">
+<div data-carousel>
   <img src="http://placehold.it/1024x600">
   <img src="http://placehold.it/1024x600">
   <img src="http://placehold.it/1024x600">
@@ -34,7 +31,7 @@
     </p>
 
     <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "gallery" } do -%>
-<div class="fotorama" data-carousel data-nav="thumbs" data-allow-full-screen="true" data-width="100%">
+<div data-carousel>
   <a href="http://placehold.it/1024x600" data-caption="This image has a caption"></a>
   <a href="http://placehold.it/1024x600"></a>
   <a href="https://www.youtube.com/watch?v=3FOzD4Sfgag" data-caption="This video has a caption"></a>

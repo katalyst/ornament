@@ -28,6 +28,8 @@
   - `components/form-password-score.js`
   - `components/shadowable.js`
   - `components/drilldown.js`
+- Replaced tooltips with [tippy](https://atomiks.github.io/tippyjs/) and a light integration wrapper
+- Replaced fotorama with [tiny-slider](https://github.com/ganlanyuan/tiny-slider)
 
 ### Changes
 
@@ -47,7 +49,6 @@
   - `Ornament.slide(element, timing, direction, callback);`
 - `Ornament.U.bindOnce` can now accept multiple event names, eg. `Ornament.U.bindOnce(element, "click focus blur", doTheThing);`
 - `Ornament.U.findData(attribute, value, scope, jQuery?)` now assumes non-jquery by default
-- Replaced tooltips with `tippy` and a light integration wrapper
 
 ### Fixes
 
