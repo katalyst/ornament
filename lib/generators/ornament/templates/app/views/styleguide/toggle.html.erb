@@ -44,6 +44,7 @@
   <h2 class="heading-two">Custom Timing</h2>
 
   <p>Customise the timing of toggles by adding <code>data-toggle-timing</code> attribute to your anchor.</p>
+  <p>Internally, the timing assumes a framerate of 60fps, so it will resize the height of the element by <em>(element height / timing)</em> pixels every 16ms. As this method uses <code>requestAnimationFrame</code> for performance, we can't be guaranteed that the animation will run at 60fps. Given that, use this timing as a <em>suggestion</em> rather than an exact timing.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-speed" } do -%>
 <div>
