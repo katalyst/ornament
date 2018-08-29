@@ -25,6 +25,13 @@
     <%= yield :styles %>
 
     <%# Scripts %>
+    <script>
+      var Ornicons = {
+        chevronLeft: "<%= escape_javascript icon("chevron_left") %>",
+        chevronRight: "<%= escape_javascript icon("chevron_right") %>",
+        close: "<%= escape_javascript icon("close") %>"
+      }
+    </script>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "styleguide/styleguide" %>
     <%= yield :scripts %>
@@ -152,16 +159,10 @@
     </div>
 
     <%= yield :scripts_bottom %>
-    
+
     <%= render "layouts/analytics" -%>
 
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-
-    <div data-ornament-icons style="display: none;">
-      <div data-ornament-icon="chevron-left"><%= icon("chevron_left") -%></div>
-      <div data-ornament-icon="chevron-right"><%= icon("chevron_right") -%></div>
-      <div data-ornament-icon="close"><%= icon("close") -%></div>
-    </div>
   </body>
 
 </html>
