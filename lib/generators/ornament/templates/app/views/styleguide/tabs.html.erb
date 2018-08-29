@@ -6,24 +6,24 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab" } do -%>
 <div class="tabs">
-<nav class="tabs--links">
-  <ul>
-    <li><button class="tabs--link" data-tab="tab1_1" data-tab-group="tab1">Tab #1</button></li>
-    <li><button class="tabs--link" data-tab="tab1_2" data-tab-group="tab1">Tab #2</button></li>
-    <li><button class="tabs--link" data-tab="tab1_3" data-tab-group="tab1">Tab #3</button></li>
-  </ul>
-</nav>
-<div class="tabs--panes">
-  <div class="tabs--pane" data-tab-for="tab1_1">
-    Tab #1
+  <nav class="tabs--links">
+    <ul>
+      <li><button class="tabs--link active" data-tab="tab1_1" data-tab-group="tab1">Tab #1</button></li>
+      <li><button class="tabs--link" data-tab="tab1_2" data-tab-group="tab1">Tab #2</button></li>
+      <li><button class="tabs--link" data-tab="tab1_3" data-tab-group="tab1">Tab #3</button></li>
+    </ul>
+  </nav>
+  <div class="tabs--panes">
+    <div class="tabs--pane" data-tab-for="tab1_1">
+      Tab #1
+    </div>
+    <div class="tabs--pane" data-tab-for="tab1_2">
+      Tab #2
+    </div>
+    <div class="tabs--pane" data-tab-for="tab1_3">
+      Tab #3
+    </div>
   </div>
-  <div class="tabs--pane" data-tab-for="tab1_2">
-    Tab #2
-  </div>
-  <div class="tabs--pane" data-tab-for="tab1_3">
-    Tab #3
-  </div>
-</div>
 </div>
   <%- end -%>
 
@@ -42,5 +42,30 @@
     Translates to: <code>data-toggle="tabId" data-tab-immediate</code>
   </p>
   <p>The first anchor in the group will get <code>data-toggle-anchor-default</code> and matching pane will get <code>data-toggle-default</code>.</p>
+
+  <p>Knowing this, you can roll your own custom tab implementations just using the toggle attributes if the defaults are too opinionated.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab-toggle-feature" } do -%>
+<div class="tabs">
+  <nav class="tabs--links">
+    <ul>
+      <li><button class="tabs--link active" data-toggle-anchor="tab-toggle_1" data-toggle-group="tab-toggle" data-toggle-one-way data-toggle-timing="1" data-toggle-anchor-default>Tab #1</button></li>
+      <li><button class="tabs--link" data-toggle-anchor="tab-toggle_2" data-toggle-group="tab-toggle" data-toggle-one-way data-toggle-timing="1">Tab #2</button></li>
+      <li><button class="tabs--link" data-toggle-anchor="tab-toggle_3" data-toggle-group="tab-toggle" data-toggle-one-way data-toggle-timing="1">Tab #3</button></li>
+    </ul>
+  </nav>
+  <div class="tabs--panes">
+    <div class="tabs--pane" data-toggle="tab-toggle_1" data-toggle-default>
+      Tab #1
+    </div>
+    <div class="tabs--pane" data-toggle="tab-toggle_2">
+      Tab #2
+    </div>
+    <div class="tabs--pane" data-toggle="tab-toggle_3">
+      Tab #3
+    </div>
+  </div>
+</div>
+  <%- end -%>
 
 </div>
