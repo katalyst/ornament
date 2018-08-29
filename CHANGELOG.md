@@ -27,6 +27,7 @@
 - `Ornament.U.findData(attribute, value, scope, jQuery?)` now assumes non-jquery by default
 - Added `Ornament.U.delegateBindOnce(wrapper, target, eventName, functionName, opposite?)` as a way to bind an event via a wrapping element. This can be used as a replacement for delegated jQuery events
 - Added `Ornament.U.bodyScrollToElement(element)` for scrolling to an element rather than a scroll position
+- Replaced `data-ornament-icons` and related `Ornament.icons` namespace with specific icons object `Ornicons`
 
 ### Fixes
 
