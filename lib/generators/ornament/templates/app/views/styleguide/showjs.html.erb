@@ -82,6 +82,16 @@
 </div>
   <%- end -%>
 
+  <p>You can match against labels rather than values by using <code>data-show-option-text</code>.</p>
+  <p>Here you can see the value required is 3, but the label is "three" which is what we're testing against.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select-label" } do -%>
+<div class="inputs">
+  <%= f.input :select_label, as: :select, collection: { "one" => 1, "two" => 2, "three" => 3, "four" => 4, "five" => 5 }, label: "Select \"three\" to show the hidden field", required: false, prompt: "Please select", input_html: { class: "form--auto" } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_select_label", show_option: "three", show_option_text: "" } } %>
+</div>
+  <%- end -%>
+
   <p>Multiple selects with the same value by using the <code>_&_</code> syntax to define the fields, and set the single <code>data-show-option</code> value on the hidden field.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-select-2" } do -%>
