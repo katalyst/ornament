@@ -133,12 +133,12 @@
 </div>
   <%- end -%>
 
-  <p>You can match any input by using the <code>data-show-type="*"</code> attribute.</p>
+  <p>You can match any input by using just the <code>data-show</code> attribute by itself.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-text-any" } do -%>
 <div class="inputs">
   <%= f.input :text_match_any, label: "Type anything", required: false, wrapper_html: { class: "form--medium" } %>
-  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_text_match_any", show_input: "hello", show_type: "*" } } %>
+  <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_text_match_any" } } %>
 </div>
   <%- end -%>
 
@@ -166,7 +166,7 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "showjs-inverse-3" } do -%>
 <div class="inputs">
-  <%= f.input :inverse_select, as: :select, collection: (1..5), label: "Select \"3\" to show the hidden field", required: false, prompt: "Please select", input_html: { class: "form--auto" } %>
+  <%= f.input :inverse_select, as: :select, collection: (1..5), label: "Select \"3\" to hide the field", required: false, prompt: "Please select", input_html: { class: "form--auto" } %>
   <%= f.input :hidden_field, required: false, wrapper_html: { class: "form--small", data: { show: "form_inverse_select", show_option: "3", show_inverse: "" } } %>
 </div>
   <%- end -%>
@@ -186,10 +186,10 @@
 <div class="inputs">
   <%= f.input :destroy, as: :radio_buttons, label: "Show hidden field?", required: false, wrapper_html: { class: "form--horizontal" } %>
   <div class="inputs" data-show="form_destroy_true" data-show-destroy>
-    <%= f.input :hidden_field, required: false, input_html: { class: "form--small" } %>
-    <%= f.input :hidden_field, as: :select, collection: (1..4), prompt: "Please select", required: false, input_html: { class: "form--small" } %>
-    <%= f.input :hidden_field, as: :check_boxes, required: false, wrapper_html: { class: "form--horizontal" } %>
-    <%= f.input :hidden_field, as: :radio_buttons, required: false, wrapper_html: { class: "form--horizontal" } %>
+    <%= f.input :destroy_hidden_field_one, required: false, input_html: { class: "form--small" } %>
+    <%= f.input :destroy_hidden_field_two, as: :select, collection: (1..4), prompt: "Please select", required: false, input_html: { class: "form--small" } %>
+    <%= f.input :destroy_hidden_field_three, as: :check_boxes, required: false, wrapper_html: { class: "form--horizontal" } %>
+    <%= f.input :destroy_hidden_field_four, as: :radio_buttons, required: false, wrapper_html: { class: "form--horizontal" } %>
   </div>
 </div>
   <%- end -%>
@@ -206,10 +206,10 @@
 <div class="inputs">
   <%= f.input :disabling, as: :radio_buttons, label: "Show hidden field?", required: false, wrapper_html: { class: "form--horizontal" } %>
   <div class="inputs" data-show="form_disabling_true" data-show-disable>
-    <%= f.input :hidden_field, required: false, input_html: { class: "form--small" } %>
-    <%= f.input :hidden_field, as: :select, collection: (1..4), prompt: "Please select", required: false, input_html: { class: "form--small" } %>
-    <%= f.input :hidden_field, as: :check_boxes, required: false, wrapper_html: { class: "form--horizontal" } %>
-    <%= f.input :hidden_field, as: :radio_buttons, required: false, wrapper_html: { class: "form--horizontal" } %>
+    <%= f.input :disable_hidden_field_one, required: false, input_html: { class: "form--small" } %>
+    <%= f.input :disable_hidden_field_two, as: :select, collection: (1..4), prompt: "Please select", required: false, input_html: { class: "form--small" } %>
+    <%= f.input :disable_hidden_field_three, as: :check_boxes, required: false, wrapper_html: { class: "form--horizontal" } %>
+    <%= f.input :disable_hidden_field_four, as: :radio_buttons, required: false, wrapper_html: { class: "form--horizontal" } %>
   </div>
 </div>
   <%- end -%>
