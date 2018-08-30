@@ -12,9 +12,7 @@
 
 - Removed the legacy tabs solution and implemented a new simple tab solution that piggy-backs off of toggle instead.
 - Added a couple of jQuery polyfill functions namespaced to `Ornament.$` for getting parent elements
-  - `Ornament.U.nodeIndex(element);`
-  - `Ornament.U.isFirstNode(element);`
-  - `Ornament.U.isLastNode(element);`
+  - `Ornament.$.nodeIndex(element);`
   - `Ornament.$.remove(element);`
   - `Ornament.$.parent(element, matcher);`
   - `Ornament.$.parentWithClass(element, classRequired);`
