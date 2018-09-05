@@ -27,6 +27,7 @@
 - Added `Ornament.U.delegateBindOnce(wrapper, target, eventName, functionName, opposite?)` as a way to bind an event via a wrapping element. This can be used as a replacement for delegated jQuery events
 - Added `Ornament.U.bodyScrollToElement(element)` for scrolling to an element rather than a scroll position
 - Replaced `data-ornament-icons` and related `Ornament.icons` namespace with specific icons object `Ornicons`
+- New utility, `Ornament.U.keyCodes` for common keycode mapping, eg. `if(event.keyCode === Ornament.U.keyCodes.up) { doUpMethod() }`
 
 ### Fixes
 
