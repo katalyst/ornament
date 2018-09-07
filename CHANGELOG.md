@@ -7,6 +7,7 @@
 - Significant push to remove jQuery as a dependancy
 - Replaced tooltips with [tippy](https://atomiks.github.io/tippyjs/) and a light integration wrapper
 - Replaced fotorama with [tiny-slider](https://github.com/ganlanyuan/tiny-slider)
+- Due to some of the component rewrites there are several features lacking in this build of Ornament, that we will endevour to bring back in future builds. These are being tracked in the [Ornament board](https://github.com/katalyst/ornament/projects/1).
 
 ### Changes
 
