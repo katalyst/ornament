@@ -1,14 +1,14 @@
 # Custom simple-navigation renderer to add some enhancements 
 
 class OrnamentNavRenderer < SimpleNavigation::Renderer::List
-
   include OrnamentSvgHelper
 
-  def render_icon(render_opts={})
-    ac = ActionController::Base.new()
-    ac.render_to_string(render_opts)
-  end
+  # =========================================================================
+  # Render
+  # =========================================================================
 
+  # The render method for parent lists
+  # ie. the <ul> elements
   def render(item_container)
     # Add support for a dom_class attribute on the parent element
     item_container.dom_class = ""
@@ -21,8 +21,31 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
 
   private
 
-  # Accessible converts parent links to buttons and adds
-  # click-to-toggle data attributes
+  # =========================================================================
+  # Helpers
+  # =========================================================================
+
+  # This is a little helper method that will assist the Ornament `icon()` helper to work
+  # in the context of this renderer
+  def render_icon(render_opts={})
+    ac = ActionController::Base.new()
+    ac.render_to_string(render_opts)
+  end
+
+  # Build out the key for an item based on the predefined key
+  # and namespaced via the id_namespace option
+  def build_item_key(item)
+    if options[:id_namespace]
+      "#{options[:id_namespace]}_#{item.key}"
+    else
+      item.key
+    end
+  end
+
+  # =========================================================================
+  # Flags and settings determined by wrapper
+  # =========================================================================
+
   def accessible
     true 
   end
@@ -41,15 +64,9 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     options[:basic] && options[:basic].eql?(true)
   end
 
-  # Build out the key for an item based on the predefined key
-  # and namespaced via the id_namespace option
-  def build_item_key(item)
-    if options[:id_namespace]
-      "#{options[:id_namespace]}_#{item.key}"
-    else
-      item.key
-    end
-  end
+  # =========================================================================
+  # List item renderer
+  # =========================================================================
 
   # Customised simple-navigation method
   # Building out custom navigation items
@@ -97,6 +114,10 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
       content_tag(:li, li_content, li_options)
     }.join
   end
+
+  # =========================================================================
+  # Link/button renderer
+  # =========================================================================
 
   # Custom tag_for method to generate a button rather than a link
   # when there are nested links

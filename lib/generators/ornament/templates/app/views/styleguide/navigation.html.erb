@@ -34,6 +34,10 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <p>This is required if you have multiple menus using any of the same navitems, eg in the case of seperate desktop and mobile navigation. If you have multiple menus using either no namespace or the same namespace, you will notice duplicate id errors in the console and any toggles may start triggering multiple times. Best practice is to always define a namespace.</p>
 
   <hr />
+  <h2 class="heading-two">Customising renderer</h2>
+  <p>Like all of Ornament, the renderer is generated in to your project so you can customise to suit your needs. The renderer is generated in to <code>/app/renderers/ornament_nav_renderer.rb</code>.</p>
+
+  <hr />
   <h2 class="heading-two">No icons</h2>
   <p><code>no_icons: true</code> will render the menu without the automatic svg arrow icons.</p>
 
