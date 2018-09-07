@@ -29,6 +29,9 @@
 - Added `Ornament.U.bodyScrollToElement(element)` for scrolling to an element rather than a scroll position
 - Replaced `data-ornament-icons` and related `Ornament.icons` namespace with specific icons object `Ornicons`
 - New utility, `Ornament.U.keyCodes` for common keycode mapping, eg. `if(event.keyCode === Ornament.U.keyCodes.up) { doUpMethod() }`
+- Added polyfill for `element.closest`
+- Added polyfill for `Promise`
+- Added polyfill for `fetch` and `AbortController`
 
 ### Fixes
 
