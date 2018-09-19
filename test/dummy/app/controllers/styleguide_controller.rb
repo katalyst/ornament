@@ -36,7 +36,6 @@ class StyleguideController < ActionController::Base
       "Argentina" => "AR",
       "Armenia" => "AM",
       "Aruba" => "AW",
-      "Australia" => "AU",
       "Austria" => "AT",
       "Azerbaijan" => "AZ",
       "Bahamas" => "BS",

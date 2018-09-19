@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.1
+
+### Changes
+
+- Updated Rails to 5.2
+- Replaced `jquery_ujs` with `rails-ujs`
+- Removed `lightbox-rails-confirm` component now that jquery_ujs has been removed
+
 ## v2.1.0
 
 ### Dependancy changes
