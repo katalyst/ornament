@@ -7,6 +7,7 @@
 - Updated Rails to 5.2
 - Replaced `jquery_ujs` with `rails-ujs`
 - Removed `lightbox-rails-confirm` component now that jquery_ujs has been removed
+- Added basic [structured data](https://developers.google.com/search/docs/guides/intro-structured-data) block to the `seo` partial along with a yield to customise as needed
 
 ## v2.1.0
 

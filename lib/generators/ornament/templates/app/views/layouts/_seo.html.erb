@@ -166,3 +166,19 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="<%= theme_colour %>">
   <meta name="theme-color" content="<%= theme_colour %>">
 <% end %>
+
+<%# Strucuted Data for enhanced search results %>
+<%# Docs - https://developers.google.com/search/docs/guides/enhance-site %>
+<%# Testing tool - https://search.google.com/structured-data/testing-tool %>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  <% if content_for?(:structured_data) %>
+    <%= yield :structured_data %>
+  <% else %>
+    "@type": "Organization",
+    "url": "<%= root_url %>",
+    "logo": "<%#= asset_url("logo.png") %>"
+  <% end %>
+}
+</script>
