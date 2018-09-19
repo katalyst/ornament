@@ -1,5 +1,7 @@
 <%- @login_errors = true -%>
-$("[data-devise-sessions-form]").html("<%= escape_javascript render("users/sessions/form", resource: resource, resource_name: resource_name) %>");
+document.querySelectorAll("[data-devise-sessions-form]").forEach(function($node){
+  $node.innerHTML = "<%= escape_javascript render("users/sessions/form", resource: resource, resource_name: resource_name) %>";
+});
 Ornament.initComponents([
   "FormDatepicker",
   "FormLimiter",

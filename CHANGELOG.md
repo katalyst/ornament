@@ -24,7 +24,7 @@
   - `Ornament.slide(element, timing, direction, callback);`
 - `Ornament.Data` is a global element data storage to replace `$(element).data()`, it comes with `Ornament.Data.get(element, key)` and `Ornament.Data.set(element, key, value)`
 - `Ornament.U.bindOnce` can now accept multiple event names, eg. `Ornament.U.bindOnce(element, "click focus blur", doTheThing);`
-- `Ornament.U.findData(attribute, value, scope, jQuery?)` now assumes non-jquery by default
+- Removed jQuery option in `Ornament.U.findData`
 - Added `Ornament.U.delegateBindOnce(wrapper, target, eventName, functionName, opposite?)` as a way to bind an event via a wrapping element. This can be used as a replacement for delegated jQuery events
 - Added `Ornament.U.bodyScrollToElement(element)` for scrolling to an element rather than a scroll position
 - Replaced `data-ornament-icons` and related `Ornament.icons` namespace with specific icons object `Ornicons`

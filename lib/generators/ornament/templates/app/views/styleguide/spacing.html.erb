@@ -2,13 +2,16 @@
 
 <%- content_for :scripts_bottom do -%>
   <script>
-    $(function(){
-      var $spacer = $("#spacing-radios");
-      var $spacingTarget = $("#spacing-target");
-      $spacer.on("change", function(){
-        var newValue = $(this).val();
-        $spacingTarget.attr("class", "").addClass(newValue);
-      });
+    document.addEventListener("ornament:refresh", function(){
+      var $spacer = document.querySelector("#spacing-radios");
+      var $spacingTarget = document.querySelector("#spacing-target");
+      if($spacer) {
+        $spacer.addEventListener("change", function(event){
+          var newValue = event.target.value;
+          $spacingTarget.className = "";
+          $spacingTarget.classList.add(newValue);
+        });
+      }
     });
   </script>
   <style>
