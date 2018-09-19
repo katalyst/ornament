@@ -3,8 +3,8 @@
 
 <% content_for :scripts_bottom do %>
   <script>
-    $(document).on("ornament:refresh", function(){ 
-      !Ornament.C.FormDatepicker.enabled && $("[data-jquery-modifiers]").hide();
+    Ornament.onLoad(function(){
+      if(!Ornament.C.FormDatepicker || !(Ornament.C.FormatDatepikcer && Ornament.C.FormatDatepicker.enabled)) document.querySelector("[data-jquery-modifiers]").style.display = "none";
     });
   </script>
 <% end %>
