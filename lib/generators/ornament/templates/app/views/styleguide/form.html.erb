@@ -3,8 +3,13 @@
 
 <% content_for :scripts_bottom do %>
   <script>
-    Ornament.onLoad(function(){
-      if(!Ornament.C.FormDatepicker || !(Ornament.C.FormatDatepikcer && Ornament.C.FormatDatepicker.enabled)) document.querySelector("[data-jquery-modifiers]").style.display = "none";
+    document.addEventListener("ornament:refresh", function(){
+      if(!Ornament.C.FormDatepicker || !(Ornament.C.FormatDatepikcer && Ornament.C.FormatDatepicker.enabled)){
+        var $modifiers = document.querySelector("[data-jquery-modifiers]");
+        if($modifiers) {
+          $modifiers.style.display = "none";
+        }
+      }
     });
   </script>
 <% end %>
