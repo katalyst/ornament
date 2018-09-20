@@ -1,4 +1,4 @@
-import tippy from "tippy.js";
+import tippy from "tippy.js/dist/tippy";
 
 (function (document, window) {
   "use strict";

@@ -12,6 +12,7 @@
     "turbolinks": "^5.2.0",
     "underscore": "^1.9.1",
     "velocity": "^0.7.2",
+    "webpack-bundle-analyzer": "^3.0.2",
     "what-input": "^5.1.2"
   },
   "devDependencies": {
