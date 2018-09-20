@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.2.0
+
+### Changes
+
+- Moved all ornament assets to webpacker instead of sprockets
+
 ## v2.1.1
 
 ### Changes
