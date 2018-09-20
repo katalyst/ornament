@@ -9,3 +9,4 @@ test/dummy/.sass-cache
 lib/generators/ornament/templates/node_modules
 node_modules
 test/dummy/node_modules
+test/dummy/public/packs

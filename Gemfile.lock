@@ -85,6 +85,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     rack (2.0.5)
+    rack-proxy (0.6.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.1)
@@ -145,6 +147,10 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (3.1.13)
       execjs (>= 0.3.0, < 3)
+    webpacker (3.5.5)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -167,6 +173,7 @@ DEPENDENCIES
   turbolinks (~> 5.0.1)
   tzinfo-data (~> 1.2015.7)
   uglifier (>= 1.0.3)
+  webpacker (~> 3.5)
 
 BUNDLED WITH
    1.16.1
