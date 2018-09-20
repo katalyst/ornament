@@ -3,13 +3,10 @@ gemspec
 
 gem "rails", "~> 5.2"
 gem 'webpacker', '~> 3.5'
-gem 'turbolinks', '~> 5.0.1'
 gem 'pry'
 
-# legacy jquery availability
-gem "jquery-rails"
-
 # sprockets asset compilation
+# gem "jquery-rails"
 # gem "sass", "~> 3.4.23"
 # gem "sass-rails", "~> 5.0.0"
 # gem 'uglifier', '>= 1.0.3'
