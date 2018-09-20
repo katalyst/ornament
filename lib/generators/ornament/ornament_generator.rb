@@ -13,9 +13,9 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :helpers,      :type => :boolean, :default => true
 
   GEMS = {
-    'webpacker'         => '~> 3.5'
-    'sass-rails'        => '~> 5.0.0',
-    'uglifier'          => '>= 1.0.3',
+    'webpacker'         => '~> 3.5',
+    # 'sass-rails'        => '~> 5.0.0',
+    # 'uglifier'          => '>= 1.0.3',
     'htmlentities'      => '~> 4.3.4',
     'simple-navigation' => '~> 3.14.0',
   }
@@ -25,13 +25,16 @@ class OrnamentGenerator < Rails::Generators::Base
     if options.gems?
       gemfile = File.read('Gemfile')
       GEMS.each do |name, version|
-        unless gemfile.include?(name)
+        unless false #gemfile.include?(name)
           if version.present?
             gem name.dup, version
           else
             gem name.dup
           end
         end
+      end
+      Bundler.with_clean_env do
+        run "bundle install"
       end
     end
 
@@ -44,10 +47,16 @@ class OrnamentGenerator < Rails::Generators::Base
         remove_file "app/assets/javascripts/application.js"
 
         # Install webpacker
-        bundle exec rails webpacker:install
+        Bundler.with_clean_env do
+          if Rails::VERSION::MAJOR == 5
+            run "bundle exec rails webpacker:install"
+          else
+            run "bundle exec rake webpacker:install"
+          end
+        end
 
         # Copy frontend assets
-        remove_file "app/javascripts"
+        remove_file "app/javascript"
         directory "../../../../test/dummy/app/frontend", "app/frontend"
 
         # Copy over webpacker configs
@@ -64,7 +73,9 @@ class OrnamentGenerator < Rails::Generators::Base
         copy_file "../../../../test/dummy/.nvmrc", ".nvmrc"
 
         # Rerun yarn
-        yarn
+        Bundler.with_clean_env do
+          run "yarn"
+        end
 
         # Koi sprockets files
         directory "app/assets/stylesheets/koi"
