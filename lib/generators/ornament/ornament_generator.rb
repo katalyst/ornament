@@ -14,8 +14,6 @@ class OrnamentGenerator < Rails::Generators::Base
 
   GEMS = {
     'webpacker'         => '~> 3.5',
-    # 'sass-rails'        => '~> 5.0.0',
-    # 'uglifier'          => '>= 1.0.3',
     'htmlentities'      => '~> 4.3.4',
     'simple-navigation' => '~> 3.14.0',
   }
@@ -25,7 +23,7 @@ class OrnamentGenerator < Rails::Generators::Base
     if options.gems?
       gemfile = File.read('Gemfile')
       GEMS.each do |name, version|
-        unless false #gemfile.include?(name)
+        unless gemfile.include?(name)
           if version.present?
             gem name.dup, version
           else

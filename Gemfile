@@ -10,9 +10,9 @@ gem 'pry'
 gem "jquery-rails"
 
 # sprockets asset compilation
-gem "sass", "~> 3.4.23"
-gem "sass-rails", "~> 5.0.0"
-gem 'uglifier', '>= 1.0.3'
+# gem "sass", "~> 3.4.23"
+# gem "sass-rails", "~> 5.0.0"
+# gem 'uglifier', '>= 1.0.3'
 
 # styleguide dependancies
 gem 'htmlentities', '~> 4.3.4'
