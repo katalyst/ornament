@@ -9,7 +9,7 @@
 // Apply resets, apply default Ornament styles and import fonts & settings.
 //
 
-@import "../ornament/core";
+@import "ornament/core";
 
 // SETTINGS OVER-RIDE
 $breakpoint-header: 920px;
@@ -55,10 +55,10 @@ $panel-border: 1px solid $grey;
 // Spacing around elements in different areas of the website
 //
 
-@import "../aspects/normal";
-@import "../aspects/compressed";
-@import "../aspects/expanded";
-@import "../aspects/inputs";
+@import "aspects/normal";
+@import "aspects/compressed";
+@import "aspects/expanded";
+@import "aspects/inputs";
 
 // COMPONENTS
 //
@@ -67,49 +67,49 @@ $panel-border: 1px solid $grey;
 // Ornament utilities/mixins here, import them directly into your components
 //
 
-@import "../components/blankstate";
-@import "../components/button";
-@import "../components/card";
-@import "../components/carousel";
-@import "../components/clearfix";
-@import "../components/drilldown";
-@import "../components/embed";
-@import "../components/environment";
-@import "../components/error-page";
-@import "../components/flash";
-@import "../components/flexible-input";
-@import "../components/footer";
-@import "../components/form";
-@import "../components/form-enhanced";
-@import "../components/header";
-@import "../components/heading-with-button";
-@import "../components/icons";
-@import "../components/kat-image-upload";
-@import "../components/layout";
-@import "../components/lightbox";
-@import "../components/map";
-@import "../components/menu-with-more";
-@import "../components/navigation";
-@import "../components/page";
-@import "../components/pagination";
-@import "../components/panel";
-@import "../components/read-more";
-@import "../components/section";
-@import "../components/shadows";
-@import "../components/skip-link";
-@import "../components/table";
-@import "../components/tabs";
-@import "../components/text-limiter";
-@import "../components/toggle";
-@import "../components/tooltip";
-@import "../components/tray-overlay";
-@import "../components/tray-push";
+@import "components/blankstate";
+@import "components/button";
+@import "components/card";
+@import "components/carousel";
+@import "components/clearfix";
+@import "components/drilldown";
+@import "components/embed";
+@import "components/environment";
+@import "components/error-page";
+@import "components/flash";
+@import "components/flexible-input";
+@import "components/footer";
+@import "components/form";
+@import "components/form-enhanced";
+@import "components/header";
+@import "components/heading-with-button";
+@import "components/icons";
+@import "components/kat-image-upload";
+@import "components/layout";
+@import "components/lightbox";
+@import "components/map";
+@import "components/menu-with-more";
+@import "components/navigation";
+@import "components/page";
+@import "components/pagination";
+@import "components/panel";
+@import "components/read-more";
+@import "components/section";
+@import "components/shadows";
+@import "components/skip-link";
+@import "components/table";
+@import "components/tabs";
+@import "components/text-limiter";
+@import "components/toggle";
+@import "components/tooltip";
+@import "components/tray-overlay";
+@import "components/tray-push";
 
-@import "../helpers/align";
-@import "../helpers/bg";
-@import "../helpers/round";
+@import "helpers/align";
+@import "helpers/bg";
+@import "helpers/round";
 
-@import "../print";
+@import "print";
 
 // =========================================================================
 // Styleguide Reset

@@ -1,5 +1,5 @@
-// Generate a styleguide.css file
-import "../stylesheets/styleguide/styleguide";
+// Generate styleguide.css
+import "../stylesheets/styleguide.scss";
 
 // Import the styleguide component as the contents of this file
-import "../javascripts/ornament/styleguide";
+import "../javascripts/ornament/styleguide.js";

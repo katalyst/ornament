@@ -1,7 +1,7 @@
 "use strict";
 
 // Import clipboard library
-import "../vendor/libs/clipboard";
+import ClipboardJS from "clipboard";
 
 (function (document, window, Ornament) {
 
@@ -39,7 +39,7 @@ import "../vendor/libs/clipboard";
     $button.setAttribute("type", "button");
     $button.innerText = "Copy";
     var content = container.querySelector("pre");
-    container.appendChild($button);
+    container.insertBefore($button, container.firstChild);
 
     var clipboard = new ClipboardJS('#' + copyBtnId, {
       target: function(trigger) {
