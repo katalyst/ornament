@@ -1,0 +1,672 @@
+$form-line-height:    $button-height - 2;
+$form-inline-height:  $button-height;
+$form-width:          748px; // used for calculating % widths of inputs
+$hint-color:          $grey;
+
+// =========================================================================
+// Helper mixins to flatten input edges 
+// =========================================================================
+
+@mixin input__flat-right {
+  @include border-top-right-radius(0);
+  @include border-bottom-right-radius(0);
+}
+
+@mixin input__flat-left {
+  @include border-top-left-radius(0);
+  @include border-bottom-left-radius(0);
+}
+
+// =========================================================================
+// Form normalisation
+// =========================================================================
+
+fieldset {
+  display: inline-block;
+  width: 100%;
+}
+
+legend {
+  display: none;
+}
+
+[type="text"], [type="password"], [type="date"], [type="datetime"],
+[type="email"], [type="number"], [type="search"], [type="tel"], [type="time"],
+[type="url"], textarea {
+  @include border-radius($input-border-radius);
+  background: $input-background;
+  border: $input-border;
+  color: $input-color;
+  width: $input-width;
+}
+
+[type="radio"], [type="checkbox"], [type="submit"] {
+  cursor: pointer;
+}
+
+[type="radio"], [type="checkbox"] {
+  margin: $checkbox-radio-padding;
+}
+
+[type="submit"] {
+  line-height: inherit;
+  margin: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+input, textarea, keygen, select {
+  display: inline-block;
+}
+
+textarea {
+  height: $textarea-height;
+  overflow: auto;
+  max-width: 100%;
+}
+
+input[type=file] {
+  max-width: 100%;
+}
+
+button, input[type=submit] {
+  -webkit-appearance: none;
+}
+
+// =========================================================================
+// Firefox 2px button issue fix
+// =========================================================================
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+// =========================================================================
+// Removing spinners from input fields
+// =========================================================================
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    display: none;
+}
+
+input[type="number"] {
+  -moz-appearance:textfield;
+}
+
+// =========================================================================
+// Helper class for embedded forms that appear after content
+// =========================================================================
+
+.form-embedded {
+  margin-top: $default-unit;
+}
+
+// =========================================================================
+// Spacing controls away from their labels when inside control-groups
+// =========================================================================
+
+.control-group--label {
+  margin-bottom: $xxxx-small-unit;
+}
+
+// =========================================================================
+// Global input styling
+// =========================================================================
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=search],
+input[type=tel],
+input[type=email],
+input[type=url],
+input[type=date],
+input[type=datetime],
+input[type=time],
+select,
+textarea,
+.form-label-combo {
+  border: $input-border;
+  background: $white;
+  line-height: $base-line-size;
+  @include line-height-padding($form-line-height);
+  padding-left: $xxxx-small-unit;
+  padding-right: $xxxx-small-unit;
+  margin: 0;
+  @include border-radius($input-border-radius);
+  @include transition(border-color .2s);
+
+  .layout--body & {
+    border: $input-border;
+    @include box-shadow(inset 2px 2px 2px #dfe0e2);
+  }
+
+  &.input__flat-right {
+    @include input__flat-right;
+  }
+  &.input__flat-left {
+    @include input__flat-left;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $input-border-focus-color;
+  }
+
+  .error &,
+  .error &:focus {
+    border-color: $error-color;
+  }
+
+  &[disabled],
+  &[readonly] {
+    background-color: lighten($grey,20);
+    cursor: not-allowed;
+  }
+
+  &.input__tight {
+    padding: 6px 8px;
+  }
+}
+
+// =========================================================================
+// Placeholders 
+// =========================================================================
+
+@include input-placeholder {
+  color: $input-border-color;
+}
+
+// =========================================================================
+// Select menus
+// =========================================================================
+
+select {
+  width: 100%;
+  font: inherit;
+  color: $input-color;
+}
+
+@include pretty-select {
+
+  select[multiple],
+  select[multiple][size], 
+  select[size] {
+    background-image: none;
+    padding-right: 3px;
+  }
+
+  select,
+  select[size='0'],
+  select[size='1'] {
+    background-image: url('../images/select_arrow.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 36px;
+  }
+
+}
+
+// =========================================================================
+// Field length modifiers
+// =========================================================================
+
+.form--large {
+  max-width: spanf(3,4,$form-width);
+}
+
+.form--medium {
+  max-width: spanf(1,2,$form-width);
+}
+.form--small {
+  max-width: spanf(1,3,$form-width);
+}
+.form--x-small {
+  max-width: spanf(1,4,$form-width);
+}
+
+.form--auto {
+  width: auto;
+  max-width: 100%;
+}
+
+// =========================================================================
+// Radios and checkboxes
+// =========================================================================
+
+$radio-offset: 24px;
+
+.radio_buttons,
+.check_boxes {
+  @include pie-clearfix;
+
+  .radio,
+  .checkbox {
+    position: relative;
+    padding-left: $radio-offset;
+    margin-right: $xxx-small-unit;
+    float: left;
+    clear: both;
+
+    input {
+      position: absolute;
+      top: 8px;
+      left: 0;
+    }
+  }
+}
+
+.control-group:not(.form--horizontal) {
+  &.radio_buttons .radio + .radio,
+  &.check_boxes .checkbox + .checkbox {
+    margin-top: 4px;
+  }
+}
+
+// =========================================================================
+// Horizontal radios/checkboxes 
+// =========================================================================
+
+.form--horizontal {
+  @include pie-clearfix;
+
+  .radio,
+  .checkbox {
+    float: left;
+    clear: none;
+    margin-right: $xx-small-unit;
+  }
+}
+
+// =========================================================================
+// Boolean checkboxes / single checkboxes
+// =========================================================================
+
+.control-group__boolean {
+  position: relative;
+}
+
+.control-group__boolean--input {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.control-group__boolean--label {
+  padding-left: $radio-offset;
+  display: inline-block;
+}
+
+// =========================================================================
+// Errors & Hints
+// =========================================================================
+
+.help-block {
+  display: block;
+  clear: both;
+}
+
+p.hint-block { 
+  color: $hint-color;
+  font-style: italic;
+  margin: 0;
+}
+
+// Errors
+span.error-block { 
+  color: $error-color;
+  &:before {
+    content: " ";
+  }
+}
+
+// Labels with errors
+.error .control-label {
+  color: $error-color;
+}
+
+// =========================================================================
+// Required fields
+// =========================================================================
+
+.control-label abbr,
+abbr[title=required] {
+  color: $primary-color;
+  margin-right: -3px;
+}
+
+// =========================================================================
+// Inline file upload field
+// =========================================================================
+
+$file-thumbnail-width: 6.25rem;
+.form--file-upload {
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .media-body {
+    padding-left: ($file-thumbnail-width + $xx-small-unit);
+    min-height: $file-thumbnail-width;
+  }
+}
+
+// =========================================================================
+// INLINE FORMS
+// [input]button
+// =========================================================================
+
+.form-inline {
+  @include display-flex;
+
+  input:not(:last-child),
+  select:not(:last-child),
+  button:not(:last-child) {
+    @include border-top-right-radius(0);
+    @include border-bottom-right-radius(0);
+    border-right-width: 0;
+  }
+
+  input:not(:first-child),
+  select:not(:first-child) {
+    border-left-width: 0;
+  }
+
+  input:not(:first-child),
+  select:not(:first-child),
+  button:not(:first-child),
+  input + button,
+  select + button,
+  input + a,
+  select + a {
+    @include border-top-left-radius(0);
+    @include border-bottom-left-radius(0);
+  }
+
+  input + input:not(:first-child),
+  input + select:not(:first-child),
+  select + input:not(:first-child),
+  select + select:not(:first-child) {
+    border-left-width: 1px;
+  }
+
+  input,
+  select {
+    @include flex-grow(1);
+    @include flex-shrink(1);
+  }
+
+  button {
+    @include flex-grow(0);
+    @include flex-shrink(0);
+  }
+}
+
+.form-inline--cap {
+  @include display-flex;
+  @include align-items(center);
+  padding: 0 $xxxx-small-unit;
+  background: $passive-color;
+  border: 1px solid $input-border-color;
+  @include flex-shrink(0);
+  @include flex-grow(0);
+  @include transition(border-color .2s);
+
+  &:first-child {
+    @include border-top-left-radius($input-border-radius);
+    @include border-bottom-left-radius($input-border-radius);
+  }
+
+  &:last-child {
+    @include border-top-right-radius($input-border-radius);
+    @include border-bottom-right-radius($input-border-radius);
+  }
+
+  & + .form-inline--cap {
+    border-left: 0;
+  }
+
+  .form-inline:focus-within & {
+    border-color: $input-border-focus-color;
+  }
+}
+
+// =========================================================================
+// Full-width search
+// =========================================================================
+
+.form-search {
+  @include pie-clearfix;
+
+  .form-search--label,
+  .form-inline {
+    float: left;
+  }
+
+  .form-search--label {
+    width: span(4,12);
+    @include font($bold-font);
+    @include line-height-padding($form-inline-height);
+
+    @include media-query($breakpoint-small) {
+      width: 100%;
+      padding-top: 0;
+    }
+  }
+
+  .form-inline {
+    width: span(8,12);
+
+    @include media-query($breakpoint-small) {
+      width: 100%;
+      clear: both;
+    }
+  }
+}
+
+// =========================================================================
+// Field combinations 
+// =========================================================================
+
+.form-label-combo {
+  padding: 0 !important;
+  position: relative;
+  @include pie-clearfix;
+  @include font($bold-font);
+
+  label {
+    @include line-height-padding($form-line-height);
+    border-right: $input-border;
+    width: 30px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .controls {
+    padding-left: 30px;
+    margin-top: 0;
+  }
+  .controls input {
+    border: 0;
+    background: transparent;
+    @include box-shadow(none);
+    padding-left: $xxxx-small-unit;
+    padding-right: $xxxx-small-unit;
+    // Due to firefox line-height bug, line-height needs to be defined by padding
+    // http://www.cssnewbie.com/input-button-line-height-bug/#.UvwMSEKSwt0
+    line-height: 1.2; // bring in line with firefox
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+}
+
+// =========================================================================
+// Sibling fields
+// =========================================================================
+
+.form-siblings {
+  @include row;
+
+  .form-siblings--sibling {
+    @include spang(1,2);
+
+    @include media-query(400px) {
+      @include spang(1,1);
+      margin-top: $xx-small-unit;
+    }
+  }
+}
+
+// =========================================================================
+// Password revealer
+// =========================================================================
+
+.form--password-revealer {
+  position: relative;
+
+  input {
+    padding-right: 80px;
+
+    &::-ms-clear,
+    &::-ms-reveal { display: none; }
+  }
+
+  button {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    right: 4px;
+    text-transform: uppercase;
+    @include disable-mouse-outline;
+  }
+}
+
+// =========================================================================
+// Password score
+// =========================================================================
+
+$password-0: #e14816;
+$password-1: #e1ad16;
+$password-2: #0088d5;
+$password-3: #9cd034;
+$password-spacer: $xxx-small-unit;
+$password-grey: $passive-color;
+
+.password-score {
+  overflow: hidden;
+  padding-top: $password-spacer;
+  font-size: 12px;
+  width: 100%;
+}
+.password-score--demo-mode {
+  background: $error-color;
+  padding: $xxxxx-small-unit;
+  font-size: $small-font-size;
+  color: $white;
+  @include border-top-left-radius($input-border-radius);
+  @include border-top-right-radius($input-border-radius);
+
+  // Flush the input against the demo mode warning
+  & + input,
+  & + .form--password-revealer input {
+    @include border-top-left-radius(0);
+    @include border-top-right-radius(0);
+    border-top: none;
+  }
+
+  // offset reveal button to fix extra space without the border
+  & + .form--password-revealer button {
+    margin-top: -1px;
+  }
+}
+.password-score--label {
+  float: left;
+  margin-bottom: $password-spacer;
+}
+.password-score--rating {
+  float: right;
+  margin-bottom: $password-spacer;
+
+  @include media-query(500px) {
+    float: left;
+    clear: both;
+  }
+
+  .password-score__0 &,
+  .password-score__1 & {
+    color: $password-0;
+  }
+  .password-score__2 & {
+    color: $password-1;
+  }
+  .password-score__3 & {
+    color: $password-2;
+  }
+  .password-score__4 &,
+  .password-score__5 & {
+    color: $password-3;
+  }
+}
+.password-score--bar {
+  background: $password-grey;
+  clear: both;
+}
+.password-score--progress {
+  height: 6px;
+
+  .password-score__0 &,
+  .password-score__1 & {
+    background: $password-0;
+    width: 25%;
+  }
+  .password-score__2 & {
+    background: $password-1;
+    width: 50%;
+  }
+  .password-score__3 & {
+    background: $password-2;
+    width: 75%;
+  }
+  .password-score__4 &,
+  .password-score__5 & {
+    background: $password-3;
+    width: 100%;
+  }
+}
+
+// =========================================================================
+// Nested/Cocoon fields
+// =========================================================================
+
+.cocoon-field {
+  @include media-query(500px, min) {
+    display: table;
+    width: 100%;
+  }
+}
+.cocoon-field--field,
+.cocoon-field--remove {
+  @include media-query(500px, min) {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+.cocoon-field--remove {
+  @include media-query(500px, min) {
+    padding-left: $xxx-small-unit;
+  }
+  @include media-query(500px) {
+    padding-top: $xxxx-small-unit;
+  }
+}

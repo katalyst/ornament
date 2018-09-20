@@ -1,0 +1,89 @@
+{
+  "env": {
+    // Defines globals exposed by modern browsers
+    "browser": true,
+    // Defines globals exposed by jQuery
+    "jquery": true,
+    // Defines globals exposed by Node.js
+    "node": true
+  },
+  "globals": {
+    // Stop complaining that lodash is undefined
+    "_": true
+  },
+  "installedESLint": true,
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      // add support for JSX
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "react"
+  ],
+  // Our rules
+  "rules": {
+
+    // Two space indent
+    "indent": ["error", 2],
+
+    // Force use of === and !==
+    "eqeqeq": ["error"],
+
+    // Spaces and style 
+    "array-bracket-spacing": ["error", "never"],
+    "block-spacing": ["error", "never"],
+    "brace-style": ["error", "1tbs"],
+    "camelcase": ["error"],
+    "comma-dangle": ["error", "never"],
+    "eol-last": "error",
+
+    // Require curly brackets around everything
+    // no more if(foo) bar;
+    "curly": ["error", "all"],
+
+    // No assignment in conditionals
+    // eg. if(foo = "bar"){...}
+    // foo is now "bar", regardless
+    "no-cond-assign": ["error", "always"],
+
+    // Force double quotes
+    // May change to single quotes to match rails
+    // styleguide 
+    "quotes": ["error","double"],
+
+    // Rquire semicolons
+    "semi": ["error","always"],
+
+    // But not too many semicolons
+    "no-extra-semi": ["error"],
+
+    // Disable duplicate keys in objects
+    // eg. { foo: "bar", foo: "baz" }
+    "no-dupe-keys": ["error"],
+
+    // Highlight left over debuggers
+    "no-debugger": ["error"],
+
+    // Highlight duplicate case stemement labels
+    "no-duplicate-case": ["error"],
+
+    // Require a "default" case in switch statements
+    "default-case": ["error"],
+
+    // Stop if(condition) {} else { if(condition} {} }
+    // Should be if(condition) {} else if(condition) {}
+    "no-lonely-if": "error",
+
+    // Misc best practices 
+    "linebreak-style": ["error","unix"],
+    "use-isnan": ["error"],
+    "no-invalid-regexp": ["error"],
+    "strict": ["error", "global"],
+    "no-redeclare": ["error", { "builtinGlobals": true }],
+    "no-fallthrough": ["error"],
+    "no-undef": ["error"],
+    "no-unused-vars": ["error"]
+  }
+}

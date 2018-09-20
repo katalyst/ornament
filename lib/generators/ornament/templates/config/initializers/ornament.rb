@@ -1,5 +1,3 @@
-Rails.application.config.assets.precompile += %w( 
-  styleguide/styleguide.css 
-  styleguide/styleguide.js 
+Rails.application.config.assets.precompile += %w(
   koi/ckeditor/contents.css 
 )

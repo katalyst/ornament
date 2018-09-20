@@ -1,0 +1,142 @@
+@import "../vendor/libs/tiny-slider";
+
+// =========================================================================
+// Slides
+// =========================================================================
+
+.tns-item img,
+.tns-item iframe {
+  display: block;
+}
+
+// =========================================================================
+// Arrows
+// =========================================================================
+
+.tns-outer {
+  position: relative;
+}
+
+.tns-controls button {
+  position: absolute;
+  top: 50%;
+  @include transform(translateY(-50%));
+  z-index: 10;
+  @include color-link($white, $white);
+  background: $primary-color;
+  border-radius: 50%;
+  text-align: center;
+  transition: opacity .2s;
+  opacity: .2;
+
+  // Icon sizing
+  > div {
+    @include icon-block($button-height, (16px, 22px));
+  }
+
+  .icon--stroke {
+    stroke: $white;
+  }
+
+  .icon--fill {
+    fill: $white;
+  }
+
+  .tns-outer:hover &:not([disabled]) {
+    opacity: 1;
+  }
+
+  &[data-controls="prev"] {
+    left: $xxx-small-unit;
+
+    svg {
+      // Offset for arrow visual
+      @include transform(translateX(-2px));
+    }
+  }
+
+  &[data-controls="next"] {
+    right: $xxx-small-unit;
+
+    svg {
+      // Offset for arrow visual
+      @include transform(translateX(2px));
+    }
+  }
+}
+
+// =========================================================================
+// Captions
+// =========================================================================
+
+.tns-item {
+  position: relative;
+}
+
+.carousel--caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba($primary-color, .8);
+  color: $white;
+  padding: $xxx-small-unit;
+}
+
+// =========================================================================
+// Dot navigation
+// =========================================================================
+
+.tns-nav {
+  @include display-flex;
+  @include flex-wrap;
+  @include justify-content(center);
+
+  button {
+    width: $xxx-small-unit;
+    height: $xxx-small-unit;
+    border-radius: 50%;
+    background: $passive-color;
+    @include disable-mouse-outline;
+  }
+
+  button + button {
+    margin-left: $xxxxx-small-unit;
+  }
+
+  .tns-nav-active {
+    background: $primary-color;
+  }
+}
+
+// Add gutter between nav and slider
+.tns-nav + .tns-ovh,
+.tns-outer + .tns-nav {
+  margin-top: $xxx-small-unit;
+}
+
+// =========================================================================
+// Thumbnail navigation
+// =========================================================================
+
+.tns-nav__thumbnails {
+  ul {
+    @include display-flex;
+    @include flex-wrap;
+    @include justify-content(center);
+    margin: $xxxxx-small-unit * -.5;
+  }
+  li {
+    cursor: pointer;
+    padding: $xxxxx-small-unit * .5;
+    @include disable-mouse-outline;
+  }
+  li + li {
+    // margin-left: $xxxxx-small-unit;
+  }
+  img {
+    display: block;
+    max-height: 50px;
+    width: auto;
+  }
+}

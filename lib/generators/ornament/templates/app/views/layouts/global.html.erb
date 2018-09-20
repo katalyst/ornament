@@ -18,7 +18,7 @@
     </script>
 
     <%# Styles %>
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_pack_tag "application" %>
     <%= yield :styles %>
 
     <%# Scripts %>
@@ -29,7 +29,7 @@
         close: "<%= escape_javascript icon("close") %>"
       }
     </script>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_pack_tag "application" %>
     <%= yield :scripts %>
 
     <%# Google Tag Manager - GTM-XXXXXXX %>
@@ -108,12 +108,6 @@
     <%= yield :scripts_bottom %>
     
     <%= render "layouts/analytics" -%>
-
-    <div data-ornament-icons style="display: none;">
-      <div data-ornament-icon="chevron-left"><%= icon("chevron_left") -%></div>
-      <div data-ornament-icon="chevron-right"><%= icon("chevron_right") -%></div>
-      <div data-ornament-icon="close"><%= icon("close") -%></div>
-    </div>
 
   </body>
 

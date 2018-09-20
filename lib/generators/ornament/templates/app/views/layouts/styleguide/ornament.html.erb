@@ -21,7 +21,7 @@
     </script>
 
     <%# Styles %>
-    <%= stylesheet_link_tag "styleguide/styleguide", :media => "all" %>
+    <%= stylesheet_pack_tag "styleguide" %>
     <%= yield :styles %>
 
     <%# Scripts %>
@@ -32,8 +32,9 @@
         close: "<%= escape_javascript icon("close") %>"
       }
     </script>
-    <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "styleguide/styleguide" %>
+
+    <%= javascript_pack_tag "application" %>
+    <%= javascript_pack_tag "styleguide" %>
     <%= yield :scripts %>
 
     <%# Google Tag Manager - GTM-XXXXXXX %>
