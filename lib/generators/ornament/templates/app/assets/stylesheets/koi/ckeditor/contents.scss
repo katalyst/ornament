@@ -2,14 +2,9 @@
 // Custom CKEditor styles
 // =========================================================================
 
-/* 
-
-  TODO: Figure out how to get these partials from webpacker land to
-  sprockets land for ckeditor
-
 // Include application styles 
-@import "ornament/core";
-@import "aspects/normal";
+@import "../../frontend/stylesheets/ornament/core";
+@import "../../frontend/stylesheets/aspects/normal";
 
 // Add some padding to the editor
 body {
@@ -30,7 +25,6 @@ table:hover {
     border: 1px dotted #222 !important;
   }
 }
-*/
 
 // =========================================================================
 // CKEditor Core styles (CKEditor 4.6.2)
