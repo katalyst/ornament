@@ -7,6 +7,10 @@
 - Moved all ornament assets to webpacker instead of sprockets
 - `sass-rails` and `uglifier` gems are no longer required, instead they are installed via webpacker / yarn
 
+### Important
+
+- `ckeditor/contents.css` has been stripped of default aspects and typography styles until we can figure out the best approach to get the sass partials loaded in here again
+
 ## v2.1.1
 
 ### Changes
