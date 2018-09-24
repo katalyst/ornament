@@ -2,7 +2,7 @@
 
 ## v2.2.0
 
-### Changes
+### Major Changes
 
 - Moved all ornament assets to webpacker instead of sprockets
 - `sass-rails` and `uglifier` gems are no longer required, instead they are installed via webpacker / yarn
