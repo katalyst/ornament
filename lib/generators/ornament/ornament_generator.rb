@@ -16,7 +16,7 @@ class OrnamentGenerator < Rails::Generators::Base
     'webpacker'         => '~> 3.5',
     'htmlentities'      => '~> 4.3.4',
     'simple-navigation' => '~> 3.14.0',
-    'react-on-rails'    =>  '~> 11.1.4',
+    'react_on_rails'    =>  '~> 11.1.4',
   }
 
   def generate
