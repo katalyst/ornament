@@ -16,6 +16,7 @@ class OrnamentGenerator < Rails::Generators::Base
     'webpacker'         => '~> 3.5',
     'htmlentities'      => '~> 4.3.4',
     'simple-navigation' => '~> 3.14.0',
+    'react-on-rails'    =>  '~> 11.1.4',
   }
 
   def generate
@@ -40,18 +41,30 @@ class OrnamentGenerator < Rails::Generators::Base
 
       if options.core?
 
-        # Remove default assets
-        remove_file "app/assets/stylesheets/application.css"
-        remove_file "app/assets/javascripts/application.js"
-
         # Install webpacker
         Bundler.with_clean_env do
           if Rails::VERSION::MAJOR == 5
             run "bundle exec rails webpacker:install"
+            run "bundle exec rails webpacker:install:react"
           else
             run "bundle exec rake webpacker:install"
+            run "bundle exec rake webpacker:install:react"
           end
         end
+
+        # Install react on rails
+        run "rails generate react_on_rails:install --ignore-warnings"
+
+        # Clean up after react on rails
+        remove_file "app/controllers/hello_world_controller.rb"
+        remove_file "app/javascript"
+        remove_file "app/views/layouts/hello_world.html.erb"
+        remove_file "app/views/hello_world"
+        # TODO: Figure out how to remove hello_world route from ReactOnRails
+
+        # Remove default assets
+        remove_file "app/assets/stylesheets/application.css"
+        remove_file "app/assets/javascripts/application.js"
 
         # Copy frontend assets
         remove_file "app/javascript"
