@@ -11,6 +11,7 @@
     "rails-ujs": "^5.2.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-on-rails": "11.1.4",
     "store": "^2.0.12",
     "tippy.js": "^2.6.0",
     "turbolinks": "^5.2.0",
