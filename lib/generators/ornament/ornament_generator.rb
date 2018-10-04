@@ -13,10 +13,11 @@ class OrnamentGenerator < Rails::Generators::Base
   class_option :helpers,      :type => :boolean, :default => true
 
   GEMS = {
-    'webpacker'         => '~> 3.5',
     'htmlentities'      => '~> 4.3.4',
     'simple-navigation' => '~> 3.14.0',
-    'react_on_rails'    =>  '~> 11.1.4',
+    'webpacker'         => '~> 3.5',
+    'foreman'           => '~> 0.64.0',
+    'react_on_rails'    => '~> 11.1.4',
   }
 
   def generate
@@ -77,6 +78,7 @@ class OrnamentGenerator < Rails::Generators::Base
 
         # Linters
         copy_file "../../../../test/dummy/.babelrc", ".babelrc"
+        copy_file "../../../../test/dummy/.browserslistrc", ".browserslistrc"
         copy_file "../../../../test/dummy/.editorconfig.ini", ".editorconfig.ini"
         copy_file "../../../../test/dummy/.eslintrc.json", ".eslintrc.json"
         copy_file "../../../../test/dummy/.postcssrc.yml", ".postcssrc.yml"
