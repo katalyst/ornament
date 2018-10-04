@@ -5,7 +5,8 @@
 ### Major Changes
 
 - Moved all ornament assets to webpacker instead of sprockets
-- `sass-rails` and `uglifier` gems are no longer required, instead they are installed via webpacker / yarn
+- `sass-rails` and `uglifier` gems are no longer required, instead they (and some other vendor dependencies) are installed via webpacker / yarn
+- Added `react_on_rails` and `foreman` dependancies
 
 ## v2.1.1
 
