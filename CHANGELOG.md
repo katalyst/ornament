@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.2.1
+
+- Added `$PORT` flag to the procfile, so when running with foreman you can specify port `foreman start -f Procfile.dev -p 4000`
+
 ## v2.2.0
 
 ### Major Changes
