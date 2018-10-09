@@ -84,6 +84,8 @@ class OrnamentGenerator < Rails::Generators::Base
         copy_file "../../../../test/dummy/.postcssrc.yml", ".postcssrc.yml"
         copy_file "../../../../test/dummy/.sass-lint.yml", ".sass-lint.yml"
         copy_file "../../../../test/dummy/.nvmrc", ".nvmrc"
+        copy_file "../../../../test/dummy/Procfile.dev", "Procfile.dev"
+        copy_file "../../../../test/dummy/Procfile.dev-server", "Procfile.dev-server"
 
         # Rerun yarn
         Bundler.with_clean_env do
