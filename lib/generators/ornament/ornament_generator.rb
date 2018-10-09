@@ -61,7 +61,7 @@ class OrnamentGenerator < Rails::Generators::Base
         remove_file "app/javascript"
         remove_file "app/views/layouts/hello_world.html.erb"
         remove_file "app/views/hello_world"
-        # TODO: Figure out how to remove hello_world route from ReactOnRails
+        gsub_file "config/routes.rb", "get 'hello_world', to: 'hello_world#index'", ""
 
         # Remove default assets
         remove_file "app/assets/stylesheets/application.css"
@@ -150,9 +150,8 @@ class OrnamentGenerator < Rails::Generators::Base
           route "get '/service-worker' => 'service_worker#index', format: :js, as: :service_worker"
           route "get '/site' => 'service_worker#webmanifest', format: :webmanifest, as: :webmanifest"
           route "# PWA Routes"
-          route ""
-          route "get '/styleguide/:action' => 'styleguide'"
-          route "get '/styleguide' => 'styleguide#index'"
+          route "get '/styleguide/:action' => 'styleguide' if Rails.env.development?"
+          route "get '/styleguide' => 'styleguide#index' if Rails.env.development?"
           copy_file "app/controllers/styleguide_controller.rb"
           copy_file "app/controllers/service_worker_controller.rb"
           copy_file "../../../../test/dummy/app/helpers/ornament_helper.rb", "app/helpers/ornament_helper.rb"
