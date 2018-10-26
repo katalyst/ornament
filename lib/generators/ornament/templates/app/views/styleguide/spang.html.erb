@@ -189,32 +189,4 @@
 </div>
   <%- end -%>
 
-  <hr />
-
-  <h2 class="heading-two">Responsive gutters</h2>
-
-  <p>This option is disabled by default, but can be enabled by making some configuration changes in your <code>settings.scss</code> file.</p>
-  <p>First you need some breakpoint variables and some gutter variables. Of course you don't <em>need</em> these as variables, but it certainly helps in building a system in case these same breakpoints need to affect things like panel padding and such.</p>
-  <p>Once you have those two groups of variables set up, take a look at the <code>$site-gutters</code> variable and update that with your breakpoints and gutter variables, like below:</p>
-
-  <pre class="sg-pre prettyprint lang-css">$breakpoint-large: 1200px;
-$breakpoint-medium: 800px;
-$breakpoint-small: 600px;
-$breakpoint-tiny: 400px;
-
-$large-gutter:    $large-unit;
-$medium-gutter:   $large-unit;
-$small-gutter:    $large-unit;
-$tiny-gutter:     $default-unit;
-
-$site-gutters:
-  ($breakpoint-large,  $large-gutter),
-  ($breakpoint-medium, $medium-gutter),
-  ($breakpoint-small,  $small-gutter),
-  ($breakpoint-tiny,   $tiny-gutter),
-  false
-;</pre>
-
-  <p>Once it's all configured you should start seeing your spang gutters respond as you scale down your browser.</p>
-
 </div>
