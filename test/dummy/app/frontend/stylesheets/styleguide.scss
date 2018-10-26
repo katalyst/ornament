@@ -812,11 +812,11 @@ code {
 // =========================================================================
 
 .icon-grid {
-  @include flex-row($desktop-gutters);
+  @include flex-row($site-gutters);
 }
 .icon-grid--item {
   text-align: center;
-  @include flex-col(25%, $desktop-gutters);
+  @include flex-col(25%, $site-gutters);
   @include media-query(900px) {
     @include flex-col(span(1,3));
   }

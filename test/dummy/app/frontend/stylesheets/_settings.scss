@@ -85,18 +85,8 @@ $site-breakpoints:
 // Gutters
 // =========================================================================
 
-$desktop-gutters: $x-small-unit;
+$site-gutters: $x-small-unit;
 
-// $large-gutter:    $large-unit;
-// $medium-gutter:   $large-unit;
-// $small-gutter:    $large-unit;
-// $tiny-gutter:     $default-unit;
-
-$site-gutters:
-  // (large, $large-gutter),
-  // (medium, $tiny-gutter),
-  false
-;
 
 // =========================================================================
 // Colours 

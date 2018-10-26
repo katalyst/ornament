@@ -17,7 +17,7 @@ $heading-with-button-breakpoint: 800px;
 
 .heading-with-button--heading {
   @include media-query($heading-with-button-breakpoint, min) {
-    padding-right: $desktop-gutters;
+    padding-right: $site-gutters;
   }
 }
 

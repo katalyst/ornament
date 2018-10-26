@@ -17,29 +17,17 @@
 // Setting negative outer gutters on the row
 // =========================================================================
 
-@mixin row-generate($gutter-x-size, $gutter-y-size:$gutter-x-size) {
-  margin-top: $gutter-y-size * -.5;
-  margin-left: $gutter-x-size * -.5;
-  margin-right: $gutter-x-size * -.5;
-  margin-bottom: $gutter-y-size * -.5;
+@mixin row($gutter-x-size: $site-gutters, $gutter-y-size: $gutter-x-size) {
+  @if $gutter-x-size != false {
+    margin-left: $gutter-x-size * -.5;
+    margin-right: $gutter-x-size * -.5;
+  }
+  @if  $gutter-y-size != false {
+    margin-top: $gutter-y-size * -.5;
+    margin-bottom: $gutter-y-size * -.5;
+  }
   @include display-flex;
   @include flex-wrap;
-}
-
-@mixin row($gutter: false) {
-  @if($gutter) {
-    @include row-generate($gutter);
-  }
-  @else {
-    @include row-generate($desktop-gutters);
-    @each $gutter in $site-gutters {
-      @if $gutter != false {
-        @include media-query(nth($gutter, 1)) {
-          @include row-generate(nth($gutter, 2));
-        }
-      }
-    }
-  }
 }
 
 // =========================================================================
@@ -47,33 +35,21 @@
 // Generate responsive gutters with padding
 // =========================================================================
 
-@mixin gutters-generate($gutter-x-size, $gutter-y-size:$gutter-x-size) {
-  padding-top: $gutter-y-size * .5;
-  padding-left: $gutter-x-size * .5;
-  padding-right: $gutter-x-size * .5;
-  padding-bottom: $gutter-y-size * .5;
-}
-
-@mixin gutters($gutter: false) {
-  @if($gutter) {
-    @include gutters-generate($gutter);
+@mixin gutters($gutter-x-size: $site-gutters, $gutter-y-size: $gutter-x-size) {
+  @if $gutter-x-size != false {
+    padding-left: $gutter-x-size * .5;
+    padding-right: $gutter-x-size * .5;
   }
-  @else {
-    @include gutters-generate($desktop-gutters);
-    @each $gutter in $site-gutters {
-      @if $gutter != false {
-        @include media-query(nth($gutter, 1)) {
-          @include gutters-generate(nth($gutter, 2));
-        }
-      }
-    }
+  @if  $gutter-y-size != false {
+    padding-top: $gutter-y-size * .5;
+    padding-bottom: $gutter-y-size * .5;
   }
 }
 
 // =========================================================================
 // Spang mixins to create columns with percentage widths
 // =========================================================================
-@mixin spang($columnCount, $totalCol, $mediaQuery:false, $gutter: false) {
+@mixin spang($columnCount, $totalCol, $mediaQuery:false, $gutter-x-size: $site-gutters, $gutter-y-size: $gutter-x-size) {
   @if $mediaQuery != false {
     @include media-query($mediaQuery) {
       width: span($columnCount, $totalCol);
@@ -84,7 +60,7 @@
   } @else {
     width: span($columnCount, $totalCol);
     min-height: 1px;
-    @include gutters($gutter);
+    @include gutters($gutter-x-size, $gutter-y-size);
   }
 }
 
