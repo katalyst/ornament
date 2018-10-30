@@ -87,7 +87,15 @@
 
       // If the element has reached the target height, we can assume
       // that the animation has finished and fire off any callbacks
-      if(currentHeight === targetHeight) {
+      if(
+        direction === "down" && currentHeight >= targetHeight ||
+        direction === "up" && currentHeight <= targetHeight
+      ) {
+        if(targetHeight === 0) {
+          element.style.height = 0;
+        } else {
+          element.style.height = "auto";
+        }
         removeTimer();
         if(callback) {
           callback();

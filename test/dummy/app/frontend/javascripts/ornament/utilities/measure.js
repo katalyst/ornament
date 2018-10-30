@@ -12,11 +12,11 @@
     var $clone = $element.cloneNode(true);
 
     // Move it off the screen
-    $clone.style.position = "absolute";
+    // $clone.style.position = "absolute";
     $clone.style.visibility = "hidden";
     $clone.style.display = "block";
     $clone.style.height = "auto";
-    $clone.style.width = "auto";
+    // $clone.style.width = "auto";
 
     $element.parentNode.appendChild($clone);
 
