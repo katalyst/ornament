@@ -9,6 +9,7 @@
 - Removed responsive gutters from spang
 - Added ability to independentaly set X and Y gutters in Spang
 - Added abilty to turn X and Y gutters gutters in Spang off using `false` keyword
+- Added left and right arrows to `Ornament.U.keyCodes`
 
 ### Fixes
 
