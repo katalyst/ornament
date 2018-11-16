@@ -127,6 +127,7 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     # Get simple-navigation options
     item_options = options_for(item)
     item_options[:data] = item_options[:data] || {}
+    item_options[:data][:navigation_level] = level
 
     if level && level > 1
       item_options[:data][:navigation_item] = ""
@@ -152,12 +153,12 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
       else
         item_content = item.name
       end
-      content_tag('button', item_content, item_options)
+      content_tag('button', content_tag(:span, item_content), item_options)
     else
       if suppress_link?(item)
         content_tag('span', item.name, item_options)
       else
-        link_to(item.name, item.url, item_options)
+        link_to(content_tag(:span, item.name), item.url, item_options)
       end
     end
   end

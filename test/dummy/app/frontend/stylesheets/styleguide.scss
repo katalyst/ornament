@@ -614,7 +614,7 @@ pre.prettyprint {
   }
 }
 
-code {
+code, kbd {
   border: 1px solid $light-grey;
   background: $x-light-grey;
   font-family: $sg-code-font;

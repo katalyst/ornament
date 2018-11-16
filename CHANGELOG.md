@@ -10,6 +10,8 @@
 - Added ability to independentaly set X and Y gutters in Spang
 - Added abilty to turn X and Y gutters gutters in Spang off using `false` keyword
 - Added left and right arrows to `Ornament.U.keyCodes`
+- `OrnamentNavRenderer` now includes `data-navigation-level` attribute on all buttons and links
+- `OrnamentNavRenderer` now wraps all button and link content in spans
 
 ### Fixes
 
