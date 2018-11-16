@@ -1,6 +1,6 @@
-import "../vendor/libs/priority-nav";
+import priorityNav from "../vendor/libs/priority-nav";
 
-(function (document, window) {
+(function (document, window, priorityNav) {
   "use strict";
 
   var MenuWithMore = {
@@ -54,4 +54,4 @@ import "../vendor/libs/priority-nav";
 
   Ornament.registerComponent("MenuWithMore", MenuWithMore);
 
-}(document, window));
+}(document, window, priorityNav));

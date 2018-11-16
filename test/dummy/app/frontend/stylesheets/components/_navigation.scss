@@ -35,8 +35,12 @@ $navigation-padding-x: $xxx-small-unit;
     }
   }
 
-  a, button, span {
+  // Blockerising all link elements
+  a, button {
     display: block;
+    > span {
+      display: block;
+    }
   }
 }
 
@@ -149,6 +153,15 @@ $navigation-padding-x: $xxx-small-unit;
   }
 }
 
+// Menu with more / last items should go to the left rather
+// than right
+li:last-child .simple-navigation--nested,
+.navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown {
+  left: auto;
+  right: 0;
+}
+
+// Hide nested elements by default
 .simple-navigation__with-toggles .simple-navigation--nested {
   display: block;
   height: 0;
@@ -171,7 +184,7 @@ $navigation-padding-x: $xxx-small-unit;
 // Third level
 // =========================================================================
 
-.navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown,
+.navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown ul,
 .navigation nav > ul > li > .simple-navigation--nested .simple-navigation--nested {
   top: 0;
   left: 100%;
