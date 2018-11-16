@@ -13,7 +13,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament1", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav>
-    &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..2, expand_all: true, id_namespace: "example1" %>
+    &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example1" %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
@@ -44,13 +44,32 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <p>Like all of Ornament, the renderer is generated in to your project so you can customise to suit your needs. The renderer is generated in to <code>/app/renderers/ornament_nav_renderer.rb</code>.</p>
 
   <hr />
+  <h2 class="heading-two">Split parent icons</h2>
+
+  <p>If you would like parent items to act as links with a secondary button to toggle child menus, you can use the <code>split_parents: true</code> option:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament-split", no_html: true, ruby: capture { -%>
+&lt;div class="navigation">
+  &lt;nav>
+    &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example-split", split_parents: true %>
+  &lt;/nav>
+&lt;/div>
+  <%- } } do -%>
+<div class="navigation">
+  <nav>
+    <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example-split", split_parents: true %>
+  </nav>
+</div>
+  <%- end -%>
+
+  <hr />
   <h2 class="heading-two">No icons</h2>
   <p><code>no_icons: true</code> will render the menu without the automatic svg arrow icons.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament2", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav>
-    &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..2, expand_all: true, id_namespace: "example2", no_icons: true %>
+    &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example2", no_icons: true %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>

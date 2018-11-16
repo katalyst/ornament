@@ -108,7 +108,7 @@ $background-color: #fff;
 
 // Links
 $link-color: blue;
-$link-hover-color: false;
+$link-hover-color: darken($link-color, .25);
 
 // Lightbox and mobile menu overlays
 $overlay-color: #222;

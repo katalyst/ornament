@@ -7,7 +7,8 @@
     keycodes: Ornament.U.keyCodes,
 
     bindParentFunctions: function($node) {
-      var $pane = $node.parentNode.querySelector("[data-toggle]");
+      var $parent = $node.closest(".has-children");
+      var $pane = $parent.querySelector("[data-toggle]");
       if(!$pane) {
         return;
       }
@@ -31,8 +32,8 @@
             event.preventDefault();
 
             // Close all other menus and open this on
-            var $parent = $node.parentElement.parentElement;
-            var $others = $parent.querySelectorAll("[data-toggle-anchor]");
+            var $parentMenu = $parent.closest("ul");
+            var $others = $parentMenu.querySelectorAll("[data-toggle-anchor]");
             $others.forEach(function($other){
               if($other === $node) {
                 return;

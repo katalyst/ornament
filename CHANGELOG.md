@@ -14,6 +14,7 @@
 - `OrnamentNavRenderer` now wraps all button and link content in spans
 - Added support for third-level fly out menus in both `navigation.scss` for styling and `simple-navigation.js` for keyboard access
 - Lightened up the base styling for navigation, made arrows smaller by default
+- Added `split_parents` option to `OrnamentNavRenderer` for instances where parents are links but still need togglable child menus
 
 ### Fixes
 

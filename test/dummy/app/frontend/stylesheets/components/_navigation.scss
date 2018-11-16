@@ -1,6 +1,7 @@
 $navigation-menu-width: 200px;
 $navigation-padding-y: $xxxx-small-unit;
 $navigation-padding-x: $xxx-small-unit;
+$navigation-hover-bg: rgba($black, .05);
 
 // =========================================================================
 // Navigation bar
@@ -31,7 +32,7 @@ $navigation-padding-x: $xxx-small-unit;
 
     &:hover,
     &:focus {
-      background: rgba($black, .05);
+      background-color: $navigation-hover-bg;
     }
   }
 
@@ -70,11 +71,68 @@ $navigation-padding-x: $xxx-small-unit;
   
   .icon--fill {
     fill: $grey;
+    transition: fill .2s;
+  }
+
+  button:hover .icon--fill,
+  button:focus .icon--fill {
+    fill: $link-hover-color;
   }
 }
 
 .navigation__simple li {
   position: relative;
+}
+
+// =========================================================================
+// First level split-parent links
+// =========================================================================
+
+.simple-navigation--split-parent {
+  display: flex;
+
+  > a,
+  > button {
+    padding-top: $navigation-padding-y;
+    padding-bottom: $navigation-padding-y;
+
+    &:hover,
+    &:focus {
+      background-color: $navigation-hover-bg;
+    }
+  }
+
+  > a {
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-left: $navigation-padding-x;
+    padding-right: $navigation-padding-x * .5;
+  }
+
+  .simple-navigation--nested & > button {
+    width: auto;
+  }
+
+  > button {
+    padding-left: $navigation-padding-x * .5;
+    padding-right: $navigation-padding-x;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      margin-top: 1em * -.5;
+      height: 1em;
+      width: 1px;
+      background: $divider-color;
+    }
+
+    .navigation .has-children & svg {
+      margin-left: 0;
+    }
+  }
 }
 
 // =========================================================================
@@ -111,8 +169,9 @@ $navigation-padding-x: $xxx-small-unit;
   // Second / third-level hover state
   li > button,
   li > a {
-    &:hover {
-      background: rgba($black, .05);
+    &:hover,
+    &:focus {
+      background-color: $navigation-hover-bg;
     }
   }
 

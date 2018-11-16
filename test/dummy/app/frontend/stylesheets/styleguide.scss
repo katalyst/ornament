@@ -26,7 +26,7 @@ $primary-color-dark: darken($primary-color, 20);
 $secondary-color: #252525;
 
 $link-color: #4b9dd0;
-$link-color-hover: darken($link-color, 20);
+$link-hover-color: darken($link-color, 20);
 
 $light-grey:     #ccc;
 $x-light-grey:   lighten($light-grey, 15);
@@ -116,7 +116,7 @@ $panel-border: 1px solid $grey;
 // =========================================================================
 
 a,button {
-  @include color-link($link-color, $link-color-hover);
+  @include color-link($link-color, $link-hover-color);
 }
 
 hr {
