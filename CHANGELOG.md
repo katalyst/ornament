@@ -21,6 +21,7 @@
 - Fixed `slide.js` not respecting parent container dimensions
 - Fixed crash when using `drilldown` merge option
 - Fixed `drilldown` skipping every second link when generating new list
+- Fixed `menu-with-more` crashing on load
 
 ## v2.2.0
 
