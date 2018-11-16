@@ -14,6 +14,7 @@
 
       // Get all tabbable elements
       var $allActions = $pane.querySelectorAll("a, button");
+      const level = $node.getAttribute("data-navigation-level") || "1";
 
       // When toggling parent links, focus on child menu
       Ornament.U.bindOnce($node, "ornament:toggle:toggled-on", function(){
@@ -22,8 +23,10 @@
 
       // On keydown of parent element
       Ornament.U.bindOnce($node, "keydown", function(event){
-        // Down = close menu
-        if(event.keyCode === Navigation.keycodes.down) {
+        const openKey = level === "1" ? Navigation.keycodes.down : Navigation.keycodes.right;
+        
+        // Down = open menu
+        if(event.keyCode === openKey) {
           if($node.hasAttribute("data-toggle-anchor")) {
             event.preventDefault();
 
@@ -41,14 +44,17 @@
             Ornament.triggerEvent($node, "ornament:toggle:toggle-on");
           }
         }
+
         // Up = open menu
         // Esc = close menu
-        if(event.keyCode === Navigation.keycodes.up || event.keyCode === Navigation.keycodes.esc) {
+        const closeKeys = [Navigation.keycodes.up, Navigation.keycodes.left, Navigation.keycodes.esc];
+        if(closeKeys.indexOf(event.keyCode) > -1) {
           if($node.hasAttribute("data-toggle-anchor")) {
-            if(event.keyCode === Navigation.keycodes.up) {
+            const closeKeyRequired = level === "1" ? Navigation.keycodes.up : Navigation.keycodes.left;
+            if(event.keyCode === closeKeyRequired) {
               event.preventDefault();
+              Ornament.triggerEvent($node, "ornament:toggle:toggle-off");
             }
-            Ornament.triggerEvent($node, "ornament:toggle:toggle-off");
           }
         }
       });
@@ -59,9 +65,11 @@
       var $parentAnchor = $menuContainer.parentElement.querySelector("[data-toggle-anchor]");
       var $listItem = $node.parentElement; // li
       var $list = $listItem.parentElement; // ul
-      var $selectableItems = $list.querySelectorAll("button, a");
+      const level = $node.getAttribute("data-navigation-level") || "1";
+      var $selectableItems = $list.querySelectorAll("button[data-navigation-level='" + level + "'], a[data-navigation-level='" + level + "']");
 
       Ornament.U.bindOnce($node, "keydown", function(event){
+
         // Down = next list item, or first list item if last
         if(event.keyCode === Navigation.keycodes.down) {
           event.preventDefault();
@@ -71,6 +79,7 @@
             $selectableItems[0].focus();
           }
         }
+
         // Up - previous list item, or last item if first
         if(event.keyCode === Navigation.keycodes.up) {
           event.preventDefault();
@@ -80,8 +89,9 @@
             $selectableItems[$selectableItems.length - 1].focus();
           }
         }
+        
         // Esc - close menu
-        if(event.keyCode === Navigation.keycodes.esc) {
+        if(event.keyCode === Navigation.keycodes.esc || level === "3" && event.keyCode === Navigation.keycodes.left) {
           if($menuContainer) {
             $parentAnchor.focus();
             Ornament.triggerEvent($menuContainer, "ornament:toggle:toggle-off");

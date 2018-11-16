@@ -7,7 +7,7 @@ $navigation-padding-x: $xxx-small-unit;
 // =========================================================================
 
 .navigation {
-  background: $secondary-color;
+  
 }
 
 // =========================================================================
@@ -19,28 +19,23 @@ $navigation-padding-x: $xxx-small-unit;
   > ul {
     @include display-flex;
     @include flex-wrap;
-    border-left: $divider;
-  }
-
-  > ul > li {
-    border-right: $divider;
   }
 
   > ul > li > a,
   > ul > li > button,
   .priority-nav__dropdown-toggle {
     padding: $navigation-padding-y $navigation-padding-x;
-    @include color-link($white, $white);
-    @include decorate-link(none, none);
+    // @include color-link($white, $white);
+    // @include decorate-link(none, none);
     transition: .2s background;
 
     &:hover,
     &:focus {
-      background: rgba($white, .1);
+      background: rgba($black, .05);
     }
   }
 
-  a {
+  a, button, span {
     display: block;
   }
 }
@@ -49,7 +44,7 @@ $navigation-padding-x: $xxx-small-unit;
 // First level with children
 // =========================================================================
 
-.navigation nav > ul > .has-children {
+.navigation .has-children {
   position: relative;
 
   button {
@@ -58,20 +53,19 @@ $navigation-padding-x: $xxx-small-unit;
 
   svg {
     position: relative;
-    top: 2px;
-    width: 11px;
-    height: 16px;
-    @include transform(rotateZ(90deg));
-    @include transition(transform .2s);
-    margin-left: $xxxx-small-unit;
+    width: 7px;
+    height: 10px;
+    transform: rotateZ(90deg);
+    transition: transform .2s;
+    margin-left: $xxxxx-small-unit;
   }
 
   button.active svg {
-    @include transform(rotate(270deg));
+    transform: rotate(270deg);
   }
   
   .icon--fill {
-    fill: $white;
+    fill: $grey;
   }
 }
 
@@ -88,13 +82,65 @@ $navigation-padding-x: $xxx-small-unit;
 .simple-navigation--nested {
   display: none;
   position: absolute;
-  background: $secondary-color;
+  background: $white;
+  border: $divider;
   top: 100%;
   left: 0;
   width: $navigation-menu-width;
   z-index: 200;
-  border: 0;
-  padding: $navigation-padding-y $navigation-padding-x;
+  box-shadow: 0 10px 40px rgba($black, .2);
+
+  li {
+    position: relative;
+  }
+
+  li + li {
+    border-top: $divider;
+  }
+
+  li > button, 
+  li > a, 
+  li > span {
+    padding: $navigation-padding-y $navigation-padding-x;
+  }
+
+  // Second / third-level hover state
+  li > button,
+  li > a {
+    &:hover {
+      background: rgba($black, .05);
+    }
+  }
+
+  // Second / third-level active state
+  .selected {
+    a, button, span {
+      @include color-link($foreground-color, $foreground-color);
+    }
+  }
+
+  // Fix buttons not full-width even with display block
+  button {
+    width: 100%;
+  }
+
+  // Arrow rotation and position
+  .has-children {
+    button {
+      padding-right: $xx-small-unit;
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      margin-top: -5px;
+      right: $xxxxx-small-unit;
+      transform: rotate(0deg);
+    }
+    button.active svg {
+      transform: rotate(180deg);
+    }
+  }
 
   // Ornament nav renderer without-toggles class allows hover
   // to show subnavigation
@@ -107,10 +153,6 @@ $navigation-padding-x: $xxx-small-unit;
   display: block;
   height: 0;
   padding: 0;
-
-  ul {
-    padding: $navigation-padding-y $navigation-padding-x;
-  }
 }
 
 // navigation-simple hover states to show subnavigation
@@ -121,6 +163,16 @@ $navigation-padding-x: $xxx-small-unit;
 .navigation nav > .nav__dropdown-wrapper ul a,
 .navigation nav > ul ul a,
 .navigation nav > ul ul button {
-  @include color-link($white, $white);
-  @include decorate-link(none, underline);
+  // @include color-link($white, $white);
+  // @include decorate-link(none, underline);
+}
+
+// =========================================================================
+// Third level
+// =========================================================================
+
+.navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown,
+.navigation nav > ul > li > .simple-navigation--nested .simple-navigation--nested {
+  top: 0;
+  left: 100%;
 }

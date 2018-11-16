@@ -95,6 +95,8 @@
           element.style.height = 0;
         } else {
           element.style.height = "auto";
+          const originalOverflow = element.getAttribute("data-scroll-overflow");
+          element.style.overflow = originalOverflow || "";
         }
         removeTimer();
         if(callback) {

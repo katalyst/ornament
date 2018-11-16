@@ -12,21 +12,27 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament1", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
-  &lt;div class="layout--container">
-    &lt;nav>
-      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..2, expand_all: true %>
-    &lt;/nav>
-  &lt;/div>
+  &lt;nav>
+    &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..2, expand_all: true %>
+  &lt;/nav>
 &lt;/div>
   <%- } } do -%>
 <div class="navigation">
-  <div class="layout--container">
-    <nav>
-      <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..2, expand_all: true, id_namespace: "example1" %>
-    </nav>
-  </div>
+  <nav>
+    <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example1" %>
+  </nav>
 </div>
   <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Accessability features</h2>
+
+  <p>When used in conjuction with the <code>simple-navigation.js</code>, your navigation menus will gain several accessibility features:</p>
+  <p>When focused on a first-level parent item, you can press <kbd>down</kbd> or <kbd>space</kbd> to open the menu and focus on the first link.</p>
+  <p>When focused on second-level or third-level items, you can press <kbd>up</kbd> or <kbd>down</kbd> to cycle focus through the list links.</p>
+  <p>When focused on a second-level parent item, you can press <kbd>right</kbd> or <kbd>space</kbd> to open the child menu.</p>
+  <p>When focused on a third-level item, you can press <kbd>left</kbd> to close the menu and focus on the parent button.</p>
+  <p>Any second or third-level menus can be closed with <kbd>esc</kbd>, one level at a time. Closing will focus on the opener.</p>
 
   <hr />
   <h2 class="heading-two">A note about IDs</h2>

@@ -12,6 +12,8 @@
 - Added left and right arrows to `Ornament.U.keyCodes`
 - `OrnamentNavRenderer` now includes `data-navigation-level` attribute on all buttons and links
 - `OrnamentNavRenderer` now wraps all button and link content in spans
+- Added support for third-level fly out menus in both `navigation.scss` for styling and `simple-navigation.js` for keyboard access
+- Lightened up the base styling for navigation, made arrows smaller by default
 
 ### Fixes
 

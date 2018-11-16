@@ -10,7 +10,11 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :officia, "officia", "#officia"
     primary.item :eu, "eu", "#eu"
     primary.item :non, "non", "#non" do |secondary|
-      secondary.item :anim, "anim", "#anim"
+      secondary.item :anim, "anim", "#anim" do |tertiary|
+        tertiary.item :culpa, "culpa", "#culpa"
+        tertiary.item :enim, "enim", "#enim"
+        tertiary.item :occaecat, "occaecat", "#occaecat"
+      end
       secondary.item :sint, "sint", "#sint"
     end
     primary.item :id, "id", "#id"
