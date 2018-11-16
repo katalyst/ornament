@@ -134,7 +134,7 @@ Attach to either a div or a unordered list with data-drilldown
     },
 
     _getActiveList: function($container) {
-      return $container.querySelectorAll("." + Drilldown.classes.currentList);
+      return $container.querySelectorAll("." + Drilldown.classes.currentList)[0];
     },
 
     _isSplitDrilldown: function($container) {
@@ -152,10 +152,10 @@ Attach to either a div or a unordered list with data-drilldown
     _resizeContainer: function($container, $list) {
       var listHeight = $list.offsetHeight;
       var $clone = $list.cloneNode(true);
-      document.body.appendChild($clone);
+      $container.appendChild($clone);
       $clone.style.display = "block";
       listHeight = $clone.offsetHeight;
-      document.body.removeChild($clone);
+      $container.removeChild($clone);
       $container.style.height = listHeight + "px";
       return listHeight;
     },
@@ -271,16 +271,23 @@ Attach to either a div or a unordered list with data-drilldown
         if($drilldown.hasAttribute(Drilldown.selectors.merge)) {
           var $newUl = document.createElement("ul");
           $drilldown.appendChild($newUl);
-          $childUl.forEach(function($child){
-            $child.childNodes.forEach(function($childChild){
-              // Move all <li>s in to new merged <ul>
+
+          for(let childNodeIndex = $childUl.length; childNodeIndex >= 1; childNodeIndex--) {
+            const $child = $childUl[childNodeIndex - 1];
+            // Move all <li>s in to new merged <ul>
+            for(let childChildNodeIndex = $child.childNodes.length; childChildNodeIndex >= 1; childChildNodeIndex--) {
+              const $childChild = $child.childNodes[childChildNodeIndex - 1];
               if($childChild.nodeName.toLowerCase() !== "#text") {
-                $newUl.appendChild($childChild);
+                if($newUl.childNodes === 0) {
+                  $newUl.appendChild($childChild);
+                } else {
+                  $newUl.insertBefore($childChild, $newUl.childNodes[0]);
+                }
               }
-            });
+            }
             // Remove left over <ul>
             $child.parentNode.removeChild($child);
-          });
+          }
           // Use new <ul>
           $childUl = [$newUl];
         }
