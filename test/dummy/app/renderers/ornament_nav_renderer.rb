@@ -46,10 +46,6 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
   # Flags and settings determined by wrapper
   # =========================================================================
 
-  def accessible
-    true 
-  end
-
   def has_toggles
     !is_basic &&
     !(options[:no_toggle] && options[:no_toggle].eql?(true))
@@ -66,6 +62,10 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
 
   def has_split_icons
     options[:split_parents] && options[:split_parents].eql?(true)
+  end
+
+  def accessible
+    has_toggles
   end
 
   # =========================================================================
@@ -94,6 +94,11 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
 
         li_options[:class] = li_options[:class] || ""
         li_options[:class] += " has-children"
+
+        li_options[:data] = li_options[:data] ||{}
+        if has_split_icons
+          li_options[:data][:split_icon_parent] = ""
+        end
 
         # Build subnavigation with accessible considerations
         # if accessible is enabled
@@ -135,16 +140,21 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     # Store toggle options
     toggle_options = {}
     toggle_options[:data] = toggle_options[:data] || {}
-    toggle_options[:data][:navigation_level] = level
+    toggle_options[:title] = "Open menu"
 
-    if level && level > 1
+    if accessible
+      toggle_options[:data][:navigation_level] = level
+      link_options[:data][:navigation_level] = level
+    end
+
+    if level && level > 1 && accessible
       link_options[:data][:navigation_item] = ""
       toggle_options[:data][:navigation_item] = ""
     end
 
     # Add navigation data attributes for navigation.js 
     # accessibility
-    if include_sub_navigation?(item)
+    if include_sub_navigation?(item) && accessible
       link_options[:data][:navigation_parent] = ""
       toggle_options[:data][:navigation_parent] = ""
     end

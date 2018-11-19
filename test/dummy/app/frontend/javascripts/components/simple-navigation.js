@@ -17,9 +17,15 @@
       var $allActions = $pane.querySelectorAll("a, button");
       const level = $node.getAttribute("data-navigation-level") || "1";
 
-      // When toggling parent links, focus on child menu
+      // When toggling parent links, focus on child menu, update titles
       Ornament.U.bindOnce($node, "ornament:toggle:toggled-on", function(){
         $allActions[0].focus();
+        $node.setAttribute("title", "Close menu");
+      });
+
+      // Update title of buttons
+      Ornament.U.bindOnce($node, "ornament:toggle:toggled-off", function(){
+        $node.setAttribute("title", "Open menu");
       });
 
       // On keydown of parent element
@@ -28,21 +34,23 @@
         
         // Down = open menu
         if(event.keyCode === openKey) {
+          event.preventDefault();
+
+          // Close all other menus and open this on
+          var $parentMenu = $parent.closest("ul");
+          var $others = $parentMenu.querySelectorAll("[data-toggle-anchor]");
+          $others.forEach(function($other){
+            if($other === $node) {
+              return;
+            }
+            Ornament.triggerEvent($other, "ornament:toggle:toggle-off");
+          });
+
+          // Toggle this one on
           if($node.hasAttribute("data-toggle-anchor")) {
-            event.preventDefault();
-
-            // Close all other menus and open this on
-            var $parentMenu = $parent.closest("ul");
-            var $others = $parentMenu.querySelectorAll("[data-toggle-anchor]");
-            $others.forEach(function($other){
-              if($other === $node) {
-                return;
-              }
-              Ornament.triggerEvent($other, "ornament:toggle:toggle-off");
-            });
-
-            // Toggle this one on
             Ornament.triggerEvent($node, "ornament:toggle:toggle-on");
+          } else {
+            Ornament.triggerEvent($node.parentElement.querySelector("[data-toggle-anchor]"), "ornament:toggle:toggle-on");
           }
         }
 
@@ -50,11 +58,14 @@
         // Esc = close menu
         const closeKeys = [Navigation.keycodes.up, Navigation.keycodes.left, Navigation.keycodes.esc];
         if(closeKeys.indexOf(event.keyCode) > -1) {
-          if($node.hasAttribute("data-toggle-anchor")) {
-            const closeKeyRequired = level === "1" ? Navigation.keycodes.up : Navigation.keycodes.left;
-            if(event.keyCode === closeKeyRequired) {
-              event.preventDefault();
+          
+          const closeKeyRequired = level === "1" ? Navigation.keycodes.up : Navigation.keycodes.left;
+          if(event.keyCode === closeKeyRequired) {
+            event.preventDefault();
+            if($node.hasAttribute("data-toggle-anchor")) {
               Ornament.triggerEvent($node, "ornament:toggle:toggle-off");
+            } else {
+              Ornament.triggerEvent($node.parentElement.querySelector("[data-toggle-anchor]"), "ornament:toggle:toggle-off");
             }
           }
         }
@@ -62,10 +73,10 @@
     },
 
     bindItemFunctions: function($node) {
-      var $menuContainer = $node.parentElement.parentElement.hasAttribute("data-toggle") ? $node.parentElement.parentElement : $node.parentElement.parentElement.parentElement;
+      var $menuContainer = $node.closest(".simple-navigation--nested");
       var $parentAnchor = $menuContainer.parentElement.querySelector("[data-toggle-anchor]");
-      var $listItem = $node.parentElement; // li
-      var $list = $listItem.parentElement; // ul
+      var $listItem = $node.closest("li"); // li
+      var $list = $listItem.closest("ul"); // ul
       const level = $node.getAttribute("data-navigation-level") || "1";
       var $selectableItems = $list.querySelectorAll("button[data-navigation-level='" + level + "'], a[data-navigation-level='" + level + "']");
 
@@ -74,8 +85,13 @@
         // Down = next list item, or first list item if last
         if(event.keyCode === Navigation.keycodes.down) {
           event.preventDefault();
-          if($listItem.nextElementSibling) {
+          // Select next element if button (split-parent)
+          if($node.nextElementSibling && $node.nextElementSibling.nodeName.toLowerCase() === "button") {
+            $node.nextElementSibling.focus();
+          // Select next element a or button
+          } else if($listItem.nextElementSibling) {
             $listItem.nextElementSibling.querySelector("a, button").focus();
+          // Select item #1
           } else {
             $selectableItems[0].focus();
           }
@@ -84,8 +100,20 @@
         // Up - previous list item, or last item if first
         if(event.keyCode === Navigation.keycodes.up) {
           event.preventDefault();
-          if($listItem.previousElementSibling) {
-            $listItem.previousElementSibling.querySelector("a, button").focus();
+          const previousListItem = $listItem.previousElementSibling;
+          const previousNode = $node.previousElementSibling;
+          // Select link of a split-parent
+          if(previousNode && previousNode.nodeName.toLowerCase() === "a") {
+            previousNode.focus();
+          } else if(previousListItem) {
+            // Select button of a split-parent
+            if(previousListItem.hasAttribute("data-split-icon-parent")) {
+              previousListItem.querySelector("button").focus();
+            // Select previous list item
+            } else {
+              previousListItem.querySelector("button, a").focus();
+            }
+          // Select last item in list
           } else {
             $selectableItems[$selectableItems.length - 1].focus();
           }
