@@ -24,7 +24,7 @@
 - Fixed crash when using `drilldown` merge option
 - Fixed `drilldown` skipping every second link when generating new list
 - Fixed `menu-with-more` crashing on load
-- Fixed `carousel` not initialising properly after the 2.0 update
+- Fixed `carousel` not initialising properly after the 2.8 update
 
 ## v2.2.0
 
