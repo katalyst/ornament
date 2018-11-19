@@ -15,6 +15,7 @@
 - Added support for third-level fly out menus in both `navigation.scss` for styling and `simple-navigation.js` for keyboard access
 - Lightened up the base styling for navigation, made arrows smaller by default
 - Added `split_parents` option to `OrnamentNavRenderer` for instances where parents are links but still need togglable child menus
+- Added `Carousel` option, `autoplayVideos` to autoplay videos when transitioning to them in the carousel. Disabled by default and undocumented  
 
 ### Fixes
 
@@ -23,6 +24,7 @@
 - Fixed crash when using `drilldown` merge option
 - Fixed `drilldown` skipping every second link when generating new list
 - Fixed `menu-with-more` crashing on load
+- Fixed `carousel` not initialising properly after the 2.0 update
 
 ## v2.2.0
 

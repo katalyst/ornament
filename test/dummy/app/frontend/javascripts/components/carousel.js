@@ -1,14 +1,23 @@
-import "../vendor/libs/tiny-slider";
+import { tns } from 'tiny-slider/src/tiny-slider';
 
-(function (document, window) {
+(function (document, window, tns) {
   "use strict";
 
   var Carousel = {
     selector: "data-carousel",
     activeClass: "carousel-active",
+    autoplayVideos: false,
 
     getVideos: function($container) {
       return $container.querySelectorAll("iframe[src*='youtube']");
+    },
+
+    playCurrentVideo(info){
+      const currentSlide = info.slideItems[info.index];
+      const videos = Carousel.getVideos(currentSlide);
+      if(videos[0] && videos[0].contentWindow) {
+        videos[0].contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      }
     },
 
     buildSlider: function($container) {
@@ -181,12 +190,18 @@ import "../vendor/libs/tiny-slider";
 
       // Callbacks
       api.events.on("transitionStart", function(info){
-
         // When transitioning, pause any youtube videos
         $videos.forEach(function($video){
           var youtube = $video.contentWindow;
           youtube.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
         });
+      });
+
+      api.events.on("transitionEnd", function(info){
+        // Autoplay video when transition ends
+        if(Carousel.autoplayVideos) {
+          Carousel.playCurrentVideo(info);
+        }
       });
     },
 
@@ -199,4 +214,4 @@ import "../vendor/libs/tiny-slider";
 
   Ornament.registerComponent("Carousel", Carousel);
 
-}(document, window));
+}(document, window, tns));
