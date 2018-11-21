@@ -306,11 +306,11 @@
     <h2 class="heading-two">API Notes</h2>
     <h3 class="heading-three">Relationships</h3>
 
-    <p>You can find the first list of a drilldown by accessing <code>Ornament.C.Drilldown.getData("firstList")</code> like so:</p>
-    <pre><code>Ornament.C.Drilldown.getData($drilldown, "firstList")</code></pre>
+    <p>You can find the first list of a drilldown by getting the data on the drilldown element like so:</p>
+    <pre><code>Ornament.Data.get($drilldown, "firstList")</code></pre>
     
     <p>Similarly, all child lists have a "parentList" data object you can access:</p>
-    <pre><code>Ornament.C.Drilldown.getData($myList, "parentList")</code></pre>
+    <pre><code>Ornament.Data.get($myList, "parentList")</code></pre>
 
     <h3 class="heading-three">Resizing</h3>
     <p>You can resize a drilldown programatically (say it gets revealed by an accordion or an ajax call or something) by triggering an event on the drilldown element.</p>
