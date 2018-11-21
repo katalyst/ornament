@@ -6,7 +6,7 @@
   "use strict";
 
   var Ornament = window.Ornament || {};
-  Ornament.version = "2.2.0";
+  Ornament.version = "2.2.1";
   Ornament.ready = false;
   Ornament.debug = false;
 
