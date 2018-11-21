@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.2.2
+
+### Changes
+
+- Added `-b 0.0.0.0` to procfile so it can be accessed via network by default
+
+### Fixes
+
+- Fixed `Ornament.Data` documentation on drilldown page
+
 ## v2.2.1
 
 ### Changes
