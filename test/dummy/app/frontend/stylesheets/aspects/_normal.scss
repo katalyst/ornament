@@ -190,9 +190,20 @@ ol.content-lists {
   }
 }
 
+@mixin coloured-headings {
+  // h1,h2,h3,h4,h5,h6 {
+  //   color: $primary-color;
+  // }
+}
+
 .normal-headings,
 .content-headings {
   @include normal-headings;
+  @include coloured-headings;
+}
+
+.coloured-headings {
+  @include coloured-headings;
 }
 
 // EVERYTHING ALL TOGETHER IN ONE CLASS
@@ -201,6 +212,7 @@ ol.content-lists {
   @include normal-spacing;
   // @include normal-sizing;
   @include normal-headings;
+  @include coloured-headings;
 
   ul {
     @include normal-lists(ul);
