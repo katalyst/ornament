@@ -37,7 +37,7 @@
       }
       var $wrapper = document.createElement("div");
       $wrapper.classList.add(EmbedHelpers.classes.youtube);
-      $video.parentNode.insertBefore($video, $wrapper);
+      $video.parentNode.insertBefore($wrapper, $video);
       $wrapper.appendChild($video);
     },
 

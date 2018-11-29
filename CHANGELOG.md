@@ -10,6 +10,7 @@
 ### Fixes
 
 - Fixed `Ornament.Data` documentation on drilldown page
+- Fixed `embed.js` youtube helper argument order
 
 ## v2.2.1
 
