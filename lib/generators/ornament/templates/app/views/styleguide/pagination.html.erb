@@ -45,7 +45,7 @@
   <p>"pages" style can be used by changing the pagination modifier to <code>pagination__pages</code>:</p>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "pagination-1" } do -%>
-<nav class="pagination pagination__pages" role="navigation">
+<nav aria-label="Pagination" class="pagination pagination__pages">
   <%= yield :pagination_template -%>
 </nav>
 <%- end -%>
@@ -53,7 +53,7 @@
   <p>"count" style can be used by changing the pagination modifier to <code>pagination__count</code>:</p>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "pagination-count" } do -%>
-<nav class="pagination pagination__count" role="navigation">
+<nav aria-label="Pagination" class="pagination pagination__count">
   <%= yield :pagination_template -%>
 </nav>
 <%- end -%>
@@ -61,7 +61,7 @@
   <p>You can use a hybrid of both pages and count that starts as pages on desktop and then goes to count on mobile by using the <code>pagination__hybrid</code> class.</p>
 
 <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "pagination-hybrid" } do -%>
-<nav class="pagination pagination__hybrid" role="navigation">
+<nav aria-label="Pagination" class="pagination pagination__hybrid">
   <%= yield :pagination_template -%>
 </nav>
 <%- end -%>

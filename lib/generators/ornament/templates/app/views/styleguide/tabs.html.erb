@@ -6,7 +6,7 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab" } do -%>
 <div class="tabs">
-  <nav class="tabs--links">
+  <nav aria-label="Example Tabs" class="tabs--links">
     <ul>
       <li><button class="tabs--link active" data-tab="tab1_1" data-tab-group="tab1">Tab #1</button></li>
       <li><button class="tabs--link" data-tab="tab1_2" data-tab-group="tab1">Tab #2</button></li>
@@ -47,7 +47,7 @@
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "tab-toggle-feature" } do -%>
 <div class="tabs">
-  <nav class="tabs--links">
+  <nav aria-label="Example One-Way Tabs" class="tabs--links">
     <ul>
       <li><button class="tabs--link active" data-toggle-anchor="tab-toggle_1" data-toggle-group="tab-toggle" data-toggle-one-way data-toggle-timing="1" data-toggle-anchor-default>Tab #1</button></li>
       <li><button class="tabs--link" data-toggle-anchor="tab-toggle_2" data-toggle-group="tab-toggle" data-toggle-one-way data-toggle-timing="1">Tab #2</button></li>

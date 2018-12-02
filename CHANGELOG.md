@@ -6,6 +6,8 @@
 
 - Added `-b 0.0.0.0` to procfile so it can be accessed via network by default
 - Added `coloured-headings` mixin to highlight headings in the normal `content` aspect, disabled by default
+- Added `aria-label` to various `nav` elements throughout styleguide
+- Removed unnecessary `role='navigation'` on some `nav` elements
 
 ### Fixes
 
