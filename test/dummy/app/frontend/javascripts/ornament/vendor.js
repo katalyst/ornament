@@ -2,19 +2,22 @@
 // Priority vendor libraries 
 // =========================================================================
 
-window.$ = require("jquery");
-window.jQuery = $;
-
 // Rails UJS
 import Rails from 'rails-ujs';
 Rails.start();
+
+// Cocoon
+// import "../vendor/libs/cocoon-katalyst";
 
 // Turbolinks
 var Turbolinks = require("turbolinks")
 Turbolinks.start();
 
+// window.$ = require("jquery");
+// window.jQuery = $;
+
 // Underscore
-import {} from "underscore";
+// import {} from "underscore";
 
 // =========================================================================
 // Secondary vendor libraries

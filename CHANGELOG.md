@@ -8,6 +8,7 @@
 - Added `coloured-headings` mixin to highlight headings in the normal `content` aspect, disabled by default
 - Added `aria-label` to various `nav` elements throughout styleguide
 - Removed unnecessary `role='navigation'` on some `nav` elements
+- Added a jQuery-less `cocoon.js` alternative, present in `vendor.js`, diabled by default
 
 ### Fixes
 
