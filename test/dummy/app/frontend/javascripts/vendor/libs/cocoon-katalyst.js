@@ -4,10 +4,10 @@ import Rails from 'rails-ujs';
 // Cocoon 1.2.12
 // cocoon.js rebuild sans-jquery
 //
-// Hard Requirements:
+// Hard Requirements
 // - Rails-ujs
 //
-// Optional polyfills:
+// Optional polyfills
 // - node.closest
 //
 // Missing features
@@ -15,6 +15,7 @@ import Rails from 'rails-ujs';
 //   during cocoon:before-insert, this is due to the jQuery
 //   method event.isDefaultPrevented needing a polyfill or
 //   alternative
+// - Untested in IE10 or below
 // 
 // Possible issues
 // - Non-dynamic removals may inject values in to the wrong field
@@ -26,7 +27,7 @@ import Rails from 'rails-ujs';
 // Breaking changes
 // - insertion-method has changed to have value-parity with
 //   node.insertAdjacentHTML(), default changing from "before" to
-//   "afterEnd". Possible values are "beforeBegin", "afterBegin",
+//   "beforeBegin". Possible values are "beforeBegin", "afterBegin",
 //   "beforeEnd" or "afterEnd".
 // =========================================================================
 
@@ -75,7 +76,7 @@ import Rails from 'rails-ujs';
         assoc                 = $this.getAttribute('data-association') || "",
         assocs                = $this.getAttribute('data-associations') || "",
         content               = $this.getAttribute('data-association-insertion-template') || "",
-        insertionMethod       = $this.getAttribute('data-association-insertion-method') || $this.getAttribute('data-association-insertion-position') || 'afterEnd',
+        insertionMethod       = $this.getAttribute('data-association-insertion-method') || $this.getAttribute('data-association-insertion-position') || 'beforeBegin',
         insertionNode         = $this.getAttribute('data-association-insertion-node') || "",
         insertionTraversal    = $this.getAttribute('data-association-insertion-traversal') || "",
         count                 = parseInt($this.getAttribute('count'), 10),
@@ -162,7 +163,7 @@ import Rails from 'rails-ujs';
       var $this = items[i],
           wrapper_class = $this.getAttribute('data-wrapper-class') || 'nested-fields';
       $this.closest('.' + wrapper_class).style.display("none");
-    });
+    }
   });
 
 })(Rails);
