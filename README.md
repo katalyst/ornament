@@ -5,6 +5,12 @@ Ornament is a pattern/component library and a boilerplate template for kick-star
 
 Visit the [Ornament website](http://ornament.katalyst.com.au/) for more information.
 
+Dependancies
+------------
+
+* RailsUJS
+* React (optional)
+
 Installation
 ------------
 
