@@ -63,13 +63,13 @@ import "./components/wysiwyg-helpers";
 // jQuery dependant components
 // =========================================================================
 
-import "./components/kat-image-upload";
-import "./components/lightbox";
-import "./components/map";
+// import "./components/kat-image-upload";
+// import "./components/lightbox";
+// import "./components/map";
 
 // =========================================================================
 // jQueryUI Dependant components
 // =========================================================================
 
-import "./components/form-datepicker";
+// import "./components/form-datepicker";
 
