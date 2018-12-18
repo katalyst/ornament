@@ -2,6 +2,16 @@
 
 ## v2.2.2
 
+### Rails UJS integration
+
+There are functions that both Ornament and RailsUJS have built to get around the old dependancy that both had on jQuery.  
+Rather than both building out functionality and doubling up on code, Ornament will start moving toward using RailsUJS' functions rather than providing our own.  
+This will make RailsUJS a hard dependancy. 
+
+- Replaced `Ornament.triggerEvent` as an alias for `Rails.fire`
+- `Ornament.triggerEvent` first argument is now optional. If the first argument is a string it will be treated as an event on `document`:
+  - `Ornament.triggerEvent("event-name") -> Ornament.triggerEvent(document, "event-name");`
+
 ### Changes
 
 - Added `-b 0.0.0.0` to procfile so it can be accessed via network by default
@@ -9,6 +19,7 @@
 - Added `aria-label` to various `nav` elements throughout styleguide
 - Removed unnecessary `role='navigation'` on some `nav` elements
 - Added a jQuery-less `cocoon.js` alternative, present in `vendor.js`, diabled by default
+- Diabled jQuery by default along with any remaining components that require jQuery. These are considered opt-in and deprecated
 
 ### Fixes
 

@@ -1,8 +1,15 @@
+import Rails from 'rails-ujs';
+
+if(!window.Rails) {
+  window.Rails = Rails;
+  Rails.start();
+}
+
 // =========================================================================
 // Ornament Core Settings
 // =========================================================================
 
-(function(doc, win){
+(function(doc, win, Rails){
   "use strict";
 
   var Ornament = window.Ornament || {};
@@ -73,13 +80,41 @@
   // Events
   // =========================================================================
 
-  Ornament.triggerEvent = function(element, eventName, canBubble, canBeCancelled) {
-    canBubble = canBubble || false;
-    canBeCancelled = true;
-    var event = document.createEvent('Event');
-    event.initEvent(eventName, canBubble, canBeCancelled);
-    element.dispatchEvent(event);
-  }
+  /*
+    Rails UJS for custom events
+    Ornament.triggerEvent($element, "custom-event-name");
+
+    If no element, assume triggering on `document`
+    Ornament.triggerEvent("custom-event-name") -> Ornament.triggerEvent(document, "custom-event-name");
+
+    You can pass other related data as the third param (or second if omittting element)
+    Ornament.triggerEvent($element, "custom-event-name", { customData });
+    Ornament.triggerEvent("custom-event-name", { customData });
+
+    Listen for events using regular old addEventListener
+    $element.addEventListener("custom-event-name", event => {
+      event.details // { customData }
+    });
+
+    You can also use the bindOnce utility to make sure that you aren't
+    doubling up on bindings:
+    Ornament.U.bindOnce($element, "custom-event-name", function);
+
+    It's recommended to namespace your events to avoid collisions with
+    other libraries and even native browser events, eg:
+    Ornament.triggerEvent($element, "ornament:component-name:event-name");
+    Ornament.triggerEvent($element, "ornament:toggle:toggled-on");
+    Ornament.triggerEvent($element, "ornament:navigation:parent-clicked");
+  */
+  Ornament.triggerEvent = (first, ...rest) => {
+    // If first argument is a string, assume it's the event
+    // name and that we're binding on document
+    if(typeof first === "string") {
+      Rails.fire(document, first, ...rest);
+    } else {
+      Rails.fire(first, ...rest);
+    }
+  };
 
   // =========================================================================
   // Datastore
@@ -269,4 +304,4 @@
     });
   }
 
-}(document, window));
+}(document, window, Rails));

@@ -2,10 +2,6 @@
 // Priority vendor libraries 
 // =========================================================================
 
-// Rails UJS
-import Rails from 'rails-ujs';
-Rails.start();
-
 // Cocoon
 // import "../vendor/libs/cocoon-katalyst";
 
