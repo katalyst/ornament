@@ -100,6 +100,11 @@ if(!window.Rails) {
     doubling up on bindings:
     Ornament.U.bindOnce($element, "custom-event-name", function);
 
+    If the elements aren't guaranteed to be on the DOM before you bind
+    your events (eg. ajax, react etc.) then delegated events are
+    recommend. You can use RailsUJS for this:
+    Rails.delegate(document, "[data-my-selector]", "click", function);
+
     It's recommended to namespace your events to avoid collisions with
     other libraries and even native browser events, eg:
     Ornament.triggerEvent($element, "ornament:component-name:event-name");
