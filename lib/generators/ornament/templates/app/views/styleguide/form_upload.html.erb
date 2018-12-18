@@ -137,7 +137,10 @@
 
 <%- content_for :events_script do -%>
 <script>
-  $(document).on("ornament:refresh", function(){
+  Ornament.onLoad(function(){
+    if(typeof $ === "undefined") {
+      return;
+    }
     var $callbacksContainer = $("[data-uploader-callbacks]");
     var $callbackUploader = $callbacksContainer.find("[data-file-uploader]");
     var $callbackTracker = $callbacksContainer.find("[data-uploader-tracker]");
