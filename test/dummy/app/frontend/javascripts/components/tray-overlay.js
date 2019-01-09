@@ -238,7 +238,7 @@
       Tray.bindShortcuts();
 
       // Clicking away from the tray should close it
-      Ornament.U.bindOnce(document, "mousedown", function(event){
+      Ornament.U.bindOnce(document, "mousedown touchstart", function(event){
         if(Tray.isOpen) {
           var target = event.target;
           var inOverlay = Tray.$overlay && Tray.$overlay.contains(target);

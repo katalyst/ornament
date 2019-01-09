@@ -26,6 +26,7 @@ This will make RailsUJS a hard dependancy.
 
 - Fixed `Ornament.Data` documentation on drilldown page
 - Fixed `embed.js` youtube helper argument order
+- Fixed `TrayOverlay` not closing when clicking on the background overlay on touch devices
 
 ## v2.2.1
 
