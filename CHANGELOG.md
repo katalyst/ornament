@@ -23,6 +23,7 @@ This will make RailsUJS a hard dependancy.
 - Added year reference in footer
 - Added placeholder `koi_render_navigation` in mobile tray
 - Added sample navigation code with placeholder `koi_render_navigation`
+- Added `#top` anchor point
 
 ### Changes
 
