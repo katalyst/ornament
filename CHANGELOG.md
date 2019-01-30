@@ -12,6 +12,18 @@ This will make RailsUJS a hard dependancy.
 - `Ornament.triggerEvent` first argument is now optional. If the first argument is a string it will be treated as an event on `document`:
   - `Ornament.triggerEvent("event-name") -> Ornament.triggerEvent(document, "event-name");`
 
+### Layout changes
+
+- Merged `application` and `global` layouts, removing the `global` layout
+- Rebuilt default page layout in flexbox columns
+- Added `page_fullwidth` yield to remove all `layout--main` and `layout--container` code from around the page content
+- Re-ordered yields
+- Switched to overlay tray by default
+- Added `root_path` link around header text
+- Added year reference in footer
+- Added placeholder `koi_render_navigation` in mobile tray
+- Added sample navigation code with placeholder `koi_render_navigation`
+
 ### Changes
 
 - Added `-b 0.0.0.0` to procfile so it can be accessed via network by default

@@ -24,43 +24,47 @@
 
 Content
   <%- } } do -%>
-<div class="page__with-sidebar">
-  <div class="page--main">
-    Content
-  </div>
+<div class="page page__with-sidebar">
   <div class="page--sidebar">
     <div class="panel panel__passive">
       Panel in sidebar
     </div>
+  </div>
+  <main class="page--main" role="main" id="main">
+    Content
   </div>
 </div>
   <%- end -%>
 
   <hr />
-  <h2 class="heading-two">Sidebar right</h2>
 
   <div class="content-spacing content-lists">
-    <p>You can put the content on the right by changing the yield to <code>:sidebar_right</code>.</p>
+    <h2 class="heading-two">Sidebar on the right</h2>
+
+    <div class="content-spacing content-lists">
+      <p>You can put the content on the right by yielding anything to <code>page_reversed</code>.</p>
+    </div>
   </div>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "sidebar_right", ruby: capture { -%>
-&lt;%- content_for :sidebar_right do -%>
+&lt;% content_for :page_reversed, true %>
+&lt;% content_for :sidebar do %>
   &lt;div class="panel panel__passive">
     Panel in sidebar
   &lt;/div>
-&lt;%- end -%>
+&lt;% end %>
 
 Content
   <%- } } do -%>
-<div class="page__with-sidebar-right">
-  <div class="page--main">
-    Content
-  </div>
+<div class="page page__with-sidebar page__reversed">
   <div class="page--sidebar">
     <div class="panel panel__passive">
       Panel in sidebar
     </div>
   </div>
+  <main class="page--main" role="main" id="main">
+    Content
+  </main>
 </div>
   <%- end -%>
 
@@ -69,11 +73,9 @@ Content
   <div class="content-spacing content-lists">
     <h2 class="heading-two">Full-width</h2>
 
-    <p>You can break out of the layout-container by yielding directly to either <code>:above_layout</code> or <code>:below_layout</code>. If you only want a single full-width yield, make sure you don't accidentally yield anything outside of either of those yields otherwise you may end up with a gap where the page layout would normally be.</p>
+    <p>Yield anything to <code>:page_fullwidth</code> to break out of the default padding of the page.</p>
 
-    <p>Anything yielded to the before or after yields will not come with any sort of padding or out of the box styling, it's essentially giving you the keys to building an entirely unique layout for a specific view.</p>
-
-    <p>This can be convenient for things like a homepage, where you might have a series of full-width modules running down the page, while your inner pages should be the standard left/right two column layout.</p>
+    <p>If you know that the site you're building is going to be mostly or always full-width, I'd suggest modifying the behaviour of the <code>is_fullwidth</code> flag in the application template.</p>
 
     <p>There are some handy helper classes that can help in building full-width layouts:</p>
 
@@ -89,16 +91,19 @@ Content
   </div>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "above_below", ruby: capture { -%>
-&lt;%- content_for :above_layout do -%>
-  &lt;div class="section homepage--banner">
-    Section one full-width
+&lt;% content_for :page_fullwidth, true %>
+
+&lt;div class="section homepage--banner">
+  Section one full-width
+&lt;/div>
+&lt;div class="section homepage--content">
+  &lt;div class="layout--container content">
+    &lt;p>Section two inside a layout container&lt;/p>
   &lt;/div>
-  &lt;div class="section homepage--content">
-    &lt;div class="layout--container content">
-      &lt;p>Section two inside a layout container&lt;/p>
-    &lt;/div>
-  &lt;/div>
-&lt;%- end -%>
+&lt;/div>
+&lt;div class="section homepage--banner">
+  Section three full-width
+&lt;/div>
   <%- } } do -%>
 <div class="section">
   Section one full-width
@@ -108,15 +113,20 @@ Content
     <p>Section two inside a layout container</p>
   </div>
 </div>
+<div class="section">
+  Section three full-width
+</div>
   <%- end -%>
 
   <hr />
 
-  <h2 class="heading-two">Enhancing</h2>
+  <div class="content-spacing content-lists">
+    <h2 class="heading-two">Enhancing</h2>
 
-  <div class="content-spacing">
-    <p>As with all things Ornament, you are welcome to enhance this file with more variations that are used when different yields are called. The Ornament defaults aren't always going to 100% match your use-cases, so it's there to be tampered with.</p>
-    <p>Alternatively you also have the opportunity to implement entirely new <code>layout/*.html.erb</code> files as is the standard Railsy way if that is more your style.</p>
+    <div class="content-spacing">
+      <p>As with all things Ornament, you are welcome to enhance this file with more variations that are used when different yields are called. The Ornament defaults aren't always going to 100% match your use-cases, so it's there to be tampered with.</p>
+      <p>Alternatively you also have the opportunity to implement entirely new <code>layout/*.html.erb</code> files as is the standard Railsy way if that is more your style.</p>
+    </div>
   </div>
 
 </div>

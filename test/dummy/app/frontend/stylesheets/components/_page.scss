@@ -1,49 +1,85 @@
 $page-breakpoint: 960px;
 $page-breakpoint-small: 720px;
 
+// =========================================================================
+// Page title
+// =========================================================================
+
 .page--title {
-  margin-bottom: $xx-large-unit;
+  margin-bottom: $large-unit;
 }
 
-.page__with-sidebar,
-.page__with-sidebar-right {
-  @include row;
+// =========================================================================
+// Page columns
+// =========================================================================
+
+// Page gutters should be standard site gutter on the x-axis
+// but on the y-axis should match the .layout--main gaps
+$page-gutters: ($large-unit, $site-gutters);
+
+.page__with-sidebar {
+  @include flex-row($page-gutters);
+  flex-grow: 1;
 }
 
 .page--main {
-  @include spang(8,12);
-
-  @include media-query($page-breakpoint-small) {
-    @include spang(1,1);
-  }
 
   .page__with-sidebar & {
+    @include flex-col(span(8,12), $page-gutters)
+
+    // Add gap between main column and sidebar only
+    // at desktop
     @include media-query($page-breakpoint, min) {
       @include spacer-left(1,12);
     }
+
+    // Full width at mobile
+    @include media-query($page-breakpoint-small) {
+      @include flex-col(100%);
+    }
   }
 
-  .page__with-sidebar-right & {
+  // Swap column gap on reversed layout
+  .page__reversed & {
     @include media-query($page-breakpoint, min) {
       @include spacer-right(1,12);
+      @include spacer-left-clear;
     }
   }
 }
 
 .page--sidebar {
-  @include spang(3,12);
+  // Don't quite fill out on desktop because there is a
+  // one column gap (set on .page--main)
+  @include flex-col(span(3,12), $page-gutters)
 
+  // The gap is removed at a breakpoint, expand the
+  // size of this column
   @include media-query($page-breakpoint) {
-    @include spang(4,12);
+    @include flex-col(span(4,12))
   }
 
+  // Fullwidth and move below content on mobile
   @include media-query($page-breakpoint-small) {
-    @include spang(1,1);
+    @include flex-col(100%);
+    @include order(1);
   }
 
-  .page__with-sidebar & {
-    @include media-query($page-breakpoint-small, min) {
-      @include order(-1);
-    }
+  // If page is reversed, put column on other side
+  // This is done with CSS so that the repeat sidebar content
+  // is still skipped for screen-readers
+  .page__reversed & {
+    @include order(1);
   }
+}
+
+// =========================================================================
+// Thin page template
+// Central column for pages with no sidebar
+// =========================================================================
+
+.page__thin {
+  width: spanf(8,12);
+  margin-left: auto;
+  margin-right: auto;
 }

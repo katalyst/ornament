@@ -1,36 +1,158 @@
-<% content_for :global do %>
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
 
-  <%- content_for :page_main do -%>
-    <% if content_for? :title %>
-      <h1 class="heading-one page--title">
-        <%= yield :title %>
-      </h1>
-    <% end %>
-    <%= content_for?(:application) ? yield(:application) : yield %>
-  <%- end -%>
+    <%# Meta tags %>
+    <meta charset="utf-8"/>
+    <%= render "layouts/seo" -%>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <% unless Rails.env == "production" %>
+      <meta name="robots" content="noindex,nofollow"/>
+    <% end  %>
+    <%= yield :meta %>
 
-  <%- if content_for? :sidebar -%>
-    <div class="page__with-sidebar">
-      <div class="page--main">
-        <%= yield :page_main -%>
+    <script>
+      Ornament = window.Ornament || {};
+      // dataLayer = window.dataLayer = {};
+    </script>
+
+    <%# Styles %>
+    <%= stylesheet_pack_tag "application" %>
+    <%= yield :styles %>
+
+    <%# Scripts %>
+    <script>
+      var Ornicons = {
+        chevronLeft: "<%= escape_javascript icon("chevron_left") %>",
+        chevronRight: "<%= escape_javascript icon("chevron_right") %>",
+        close: "<%= escape_javascript icon("close") %>"
+      }
+    </script>
+    <%= javascript_pack_tag "application" %>
+    <%= yield :scripts %>
+
+    <%# Google Tag Manager - GTM-XXXXXXX %>
+    <%- gtm_code = get_koi_site_setting("site.gtm_code") -%>
+    <%- if gtm_code -%>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','<%= gtm_code -%>');</script>
+    <%- end -%>
+
+    <%# Webfonts %>
+    <%#= render "layouts/webfonts", config: {
+      google: {
+        families: ['Open Sans:400,700,400italic,700italic'],
+      }
+    } -%>
+
+    <%# Koi Scripts %>
+    <%- koi_scripts = get_koi_site_setting("site.head_scripts") -%>
+    <%= koi_scripts if koi_scripts -%>
+
+  </head>
+
+  <body class="<%= yield :body_class -%>"> 
+
+    <%- if gtm_code -%>
+      <%# Google Tag Manager (noscript Version) %>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= gtm_code -%>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <%- end -%>
+
+    <a class="skip-link" href="#main">skip to content</a>
+
+    <div class="layout" data-tray-scroll-positioner>
+
+      <header class="header" role="banner">
+        <div class="layout--container">
+          <%= link_to root_path, class: "header--logo" do %>
+            Header
+          <% end %>
+          <button class="header--menu" aria-label="Toggle menu" data-tray-button>
+            <%= icon("hamburger", fill: "#ffffff", width: 25, height: 23) -%>
+          </button>
+        </div>
+      </header>
+
+      <div class="navigation">
+        <div class="layout--container">
+          <nav aria-label="Desktop Navigation">
+            <%#= koi_render_navigation 'header_nav', 'header_navigation', renderer: :ornament_menu, level: 1, expand_all: true, dom_class: '' %>
+          </nav>
+        </div>
       </div>
-      <div class="page--sidebar">
-        <%= yield :sidebar -%>
+
+      <%# Tray Navigation%>
+      <div data-tray-overlay>
+        <button data-tray-close title="Close menu">Close</button>
+        <nav aria-label="Global Navigation">
+          <div data-drilldown data-drilldown-merge>
+            <%#= koi_render_navigation 'header_nav', 'header_navigation', renderer: :sf_menu, level: 1, expand_all: true, dom_class: '' %>
+          </div>
+        </nav>
       </div>
+
+      <%# Content area that gets dark when overlay is open %>
+      <div data-tray-overlay-darken class="layout--content">
+
+        <%= render "/shared/oldie" -%>
+        <%= render "/shared/flash" -%>
+        <%= yield :above_layout %>
+
+        <div class="layout--page environment-<%= Rails.env -%>">
+
+          <%
+            has_sidebar = content_for?(:sidebar)
+            is_reversed = content_for?(:sidebar_right) || content_for?(:page_reversed)
+            is_fullwidth = content_for?(:page_fullwidth)
+            has_page_title = content_for?(:title)
+            
+            page_class = "page"
+            page_class += " page__with-sidebar" if has_sidebar
+            page_class += " page__reversed" if is_reversed
+
+            container_class = ""
+            container_class += " layout--main layout--container" unless is_fullwidth
+          %>
+
+          <div class="<%= container_class %>">
+            <div class="<%= page_class %>">
+              <% if has_sidebar %>
+                <div class="page--sidebar">
+                  <%= yield :sidebar %>
+                </div>
+              <% end %>
+              <main class="page--main <%= yield(:layout_class) -%>" role="main" id="main">
+                <% if has_page_title %>
+                  <h1 class="heading-one page--title">
+                    <%= yield :title %>
+                  </h1>
+                <% end %>
+                <% if content_for?(:global) || !yield.blank? %>
+                  <%= content_for?(:global) ? yield(:global) : yield %>
+                <% end %>
+              </main>
+            </div>
+          </div>
+        </div>
+
+        <%= yield :below_layout -%>
+        <footer class="footer" role="contentinfo">
+          <div class="layout--container">
+            &copy <%= Time.now.year %>
+          </div>
+        </footer>
+      </div>
+
     </div>
-  <%- elsif content_for? :sidebar_right -%>
-    <div class="page__with-sidebar-right">
-      <div class="page--main">
-        <%= yield :page_main -%>
-      </div>
-      <div class="page--sidebar">
-        <%= yield :sidebar_right -%>
-      </div>
-    </div>
-  <%- else -%>
-    <%= yield :page_main -%>
-  <%- end -%>  
-  
-<% end %>
 
-<%= render :file => "layouts/global" %>
+    <%= yield :scripts_bottom %>
+    
+    <%= render "layouts/analytics" -%>
+
+  </body>
+
+</html>
