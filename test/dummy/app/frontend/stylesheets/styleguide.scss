@@ -255,7 +255,7 @@ hr {
 // =========================================================================
 
 .styleguide--chapters:not(:empty) {
-  margin-bottom: $large-unit;
+  margin-bottom: $xx-large-unit;
   border-top: $divider;
   border-bottom: $divider;
   padding-top: $xxx-small-unit;
@@ -574,10 +574,16 @@ $sg-feature-background: $background-color;
   padding: 5px 10px;
   display: block;
   background: $primary-color;
-  @include border-bottom-left-radius($border-radius);
+  opacity: .3;
+  transition: opacity .2s;
+  border-bottom-left-radius: $border-radius;
   @include color-link($white, $white);
   text-transform: uppercase;
   font-size: $x-small-font-size;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .sg-feature > .tabs--panes > .tabs--pane__flush {
