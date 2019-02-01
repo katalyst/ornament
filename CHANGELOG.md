@@ -123,6 +123,10 @@ This will make RailsUJS a hard dependancy.
 - Fixed simple navigation renderer applying `data-navigation-parent` to all top-level links even if they don't have children
 - Fixed some es6 in `ornament/utilities/app-height-variable.js`
 
+### Documentation Changes
+
+- Added autogenerating table of contents to top of documentation pages
+
 ## v2.0.6
 
 ### Changes

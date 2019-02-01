@@ -135,10 +135,12 @@
                 
                 <%- if content_for?(:title) -%>
                   <div class="page--title styleguide--title">
-                    <h2 class="heading-one"><%= yield(:title) -%></h2>
+                    <h2 class="heading-one" data-ignore-chapters><%= yield(:title) -%></h2>
                     <%= link_to raw("&lsaquo; Back"), styleguide_path -%>
                   </div>
                 <%- end -%>
+
+                <div class="styleguide--chapters" data-page-chapters></div>
 
                 <%- if content_for?(:global) || !yield.blank? -%>
                   <div class="<%= yield(:layout_class) -%>">

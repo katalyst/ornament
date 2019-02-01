@@ -254,6 +254,14 @@ hr {
 // Styleguide Page
 // =========================================================================
 
+.styleguide--chapters {
+  margin-bottom: $large-unit;
+
+  ul {
+    @include normal-lists(ul);
+  }
+}
+
 .styleguide-page {
   @include display-flex;
   @include flex-direction(column);

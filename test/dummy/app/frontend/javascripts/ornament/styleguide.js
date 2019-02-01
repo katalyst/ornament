@@ -162,6 +162,67 @@ import ClipboardJS from "clipboard";
     });
   }
 
+  Styleguide.buildChapterNavigation = function(){
+    const $toc = document.querySelector("[data-page-chapters]");
+    const $content = document.querySelector(".styleguide-page--main-content");
+    const $headings = $content.querySelectorAll("h2, h3, h4");
+
+    let toc = "";
+    let level = 0;
+    const existingAnchors = [];
+
+    // Recursive function to ensure anchor ids are unique by adding an integer
+    // to the end of the anchor
+    const safeNewAnchor = (anchor, iteration) => {
+      const fullAnchor = iteration > 0 ? anchor + "-" + iteration : anchor;
+      if(existingAnchors.indexOf(fullAnchor) > -1) {
+        return safeNewAnchor(anchor, iteration + 1);
+      } else {
+        existingAnchors.push(fullAnchor);
+        return fullAnchor;
+      }
+    }
+
+    // Loop over each heading
+    $headings.forEach($heading => {
+
+      // Ignore headings that are flagged as ignorable
+      if($heading.hasAttribute("data-ignore-chapters")) {
+        return;
+      }
+
+      const nodeName = $heading.nodeName.toLowerCase();
+      const headingText = $heading.innerText;
+      let thisLevel = parseInt(nodeName.replace("h",""));
+
+      // Either close current list item or create a new list if
+      // the level has changed
+      if(thisLevel > level) {
+        toc += "<ul>";
+      } else if(thisLevel < level) {
+        toc += "</li></ul>";
+      } else {
+        toc += "</li>";
+      }
+
+      level = thisLevel;
+
+      // Use existing anchors if present
+      let anchor = $heading.getAttribute("id");
+
+      // Otherwise build out a new safe anchor
+      if(!anchor) {
+        anchor = safeNewAnchor(Ornament.U.parameterize(headingText), 0);
+        $heading.id = anchor;
+      }
+
+      // Build out list item
+      toc += "<li><a href='#" + anchor + "'>" + headingText + "</a>";
+    });
+
+    $toc.innerHTML = toc;
+  }
+
   Styleguide.init = function(){
     // Sidebar targets
     Styleguide.$sidebarFilter = document.querySelector("[data-sidebar-filter-input]");
@@ -189,13 +250,8 @@ import ClipboardJS from "clipboard";
       Styleguide.addCopyLinkToCodeSample(node, index, value);
     });
 
-    // Auto-anchor H2s
-    document.querySelectorAll("h2").forEach(function($h2){
-      if(!$h2.id) {
-        var text = Ornament.U.parameterize($h2.innerText);
-        $h2.id = text;
-      }
-    });
+    // Build chapter navigation
+    Styleguide.buildChapterNavigation();
   }
 
   Ornament.onLoad(function(){
