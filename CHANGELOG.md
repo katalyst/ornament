@@ -32,7 +32,7 @@ This will make RailsUJS a hard dependancy.
 - Added `aria-label` to various `nav` elements throughout styleguide
 - Removed unnecessary `role='navigation'` on some `nav` elements
 - Added a jQuery-less `cocoon.js` alternative, present in `vendor.js`, diabled by default
-- Diabled jQuery by default along with any remaining components that require jQuery. These are considered opt-in and deprecated
+- Disabled jQuery by default along with any remaining components that require jQuery. These are considered opt-in and deprecated
 - Added base response in service worker to allow enhanced PWA banner and enhanced add2hs on Chrome for Android
 
 ### Fixes
@@ -41,6 +41,10 @@ This will make RailsUJS a hard dependancy.
 - Fixed `embed.js` youtube helper argument order
 - Fixed `TrayOverlay` not closing when clicking on the background overlay on touch devices
 - Fixed `TrayOverlay` being always hidden
+
+### Documentation Changes
+
+- Added autogenerating table of contents to top of documentation pages
 
 ## v2.2.1
 
@@ -122,10 +126,6 @@ This will make RailsUJS a hard dependancy.
 
 - Fixed simple navigation renderer applying `data-navigation-parent` to all top-level links even if they don't have children
 - Fixed some es6 in `ornament/utilities/app-height-variable.js`
-
-### Documentation Changes
-
-- Added autogenerating table of contents to top of documentation pages
 
 ## v2.0.6
 
