@@ -254,11 +254,23 @@ hr {
 // Styleguide Page
 // =========================================================================
 
-.styleguide--chapters {
+.styleguide--chapters:not(:empty) {
   margin-bottom: $large-unit;
+  border-top: $divider;
+  border-bottom: $divider;
+  padding-top: $xxx-small-unit;
+  padding-bottom: $xxx-small-unit;
+
+  &::before {
+    content: "Table of contents";
+    display: block;
+    margin-bottom: $xxx-small-unit;
+    @include heading("five");
+  }
 
   ul {
     @include normal-lists(ul);
+    margin-bottom: 0;
   }
 }
 
