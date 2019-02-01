@@ -163,6 +163,13 @@ import ClipboardJS from "clipboard";
   }
 
   Styleguide.buildChapterNavigation = function(){
+    // Block all headings that are in feature tabs - eg. content documentation pages
+    document.querySelectorAll(".sg-feature").forEach($feature => {
+      $feature.querySelectorAll("h2, h3, h4").forEach($heading => {
+        $heading.setAttribute("data-ignore-chapters", "");
+      });
+    });
+
     const $toc = document.querySelector("[data-page-chapters]");
     const $content = document.querySelector(".styleguide-page--main-content");
     const $headings = $content.querySelectorAll("h2, h3, h4");
