@@ -80,7 +80,7 @@
       <div class="navigation">
         <div class="layout--container">
           <nav aria-label="Desktop Navigation">
-            <%#= koi_render_navigation 'header_nav', 'header_navigation', renderer: :ornament_menu, level: 1, expand_all: true, dom_class: '' %>
+            <%#= koi_render_navigation 'header_nav', 'header_navigation', renderer: :ornament_menu, level: 1..2, expand_all: true, dom_class: '' %>
           </nav>
         </div>
       </div>
@@ -90,7 +90,7 @@
         <button data-tray-close title="Close menu">Close</button>
         <nav aria-label="Global Navigation">
           <div data-drilldown data-drilldown-merge>
-            <%#= koi_render_navigation 'header_nav', 'header_navigation', renderer: :sf_menu, level: 1, expand_all: true, dom_class: '' %>
+            <%#= koi_render_navigation 'header_nav', 'header_navigation', renderer: :sf_menu, level: 1..4, expand_all: true, dom_class: '' %>
           </div>
         </nav>
       </div>
