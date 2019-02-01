@@ -217,7 +217,7 @@ import ClipboardJS from "clipboard";
       }
 
       // Build out list item
-      toc += "<li><a href='#" + anchor + "'>" + headingText + "</a>";
+      toc += "<li><a href='#" + anchor + "' data-turbolinks='false'>" + headingText + "</a>";
     });
 
     $toc.innerHTML = toc;
