@@ -630,6 +630,7 @@ code, kbd {
   @include border-radius($border-radius);
   text-shadow: 1px 1px #fff;
   // white-space: nowrap;
+  word-break: break-all;
 
   // remove some styling for codes inside pre tags
   pre & {
