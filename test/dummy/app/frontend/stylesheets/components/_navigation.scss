@@ -7,7 +7,7 @@ $navigation-hover-bg: rgba($black, .05);
 // Navigation bar
 // =========================================================================
 
-.navigation {
+.navigation__primary {
   @include media-query($breakpoint-header) {
     display: none;
   }
