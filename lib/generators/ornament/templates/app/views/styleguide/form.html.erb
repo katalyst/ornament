@@ -234,20 +234,20 @@
 
     <div class="inputs">
       <%= f.error_notification %>
-      <h3 class="heading-five">About you</h3>
+      <h3 class="heading-five" data-ignore-chapters>About you</h3>
       <%= f.input :name, hint: "First and last name", input_html: { class: "form--medium" } %>
       <%= f.input :phone, error: "This field has errors", input_html: { class: "form--medium" } %>
       <%= f.input :email, input_html: { class: "form--medium" } %>
       <%= f.input :date_of_birth, input_html: { type: "date", class: "form--medium" } %>
       <%= f.input :country, as: :select, collection: @countries, prompt: "Please select", input_html: { class: "form--medium" } %>
       <%= f.input :state, as: :select, collection: ["SA", "NSW", "QLD", "TAS", "VIC", "WA", "NT", "ACT"], prompt: "Please select", wrapper_html: { data: { show: "full_example_country", show_option: "AU" } }, input_html: { class: "form--auto" } %>
-      <h3 class="heading-five">About your submission</h3>
+      <h3 class="heading-five" data-ignore-chapters>About your submission</h3>
       <%= f.input :genre, as: :radio_buttons, collection: ["Comedy", "Drama", "Dramedy" ], hint: "Please choose only one." %>
       <%= f.input :tags, as: :check_boxes, collection: ["Funny", "Serious"], hint: "Please choose as many as you like." %>
-      <h3 class="heading-five">Details</h3>
+      <h3 class="heading-five" data-ignore-chapters>Details</h3>
       <%= f.input :introduction, as: :text, hint: "Limited to 10 words only.", input_html: { class: "form--medium", data: { limiter: 10, limiter_word: "", limiter_micro: "" } } %>
       <%= f.input :message, as: :text, input_html: { class: "form--large" } %>
-      <h3 class="heading-five">Expiry</h3>
+      <h3 class="heading-five" data-ignore-chapters>Expiry</h3>
       <div>
         <div class="form-siblings form--medium">
           <div class="form-siblings--sibling">
