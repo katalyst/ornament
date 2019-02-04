@@ -34,6 +34,7 @@ This will make RailsUJS a hard dependancy.
 - Added a jQuery-less `cocoon.js` alternative, present in `vendor.js`, diabled by default
 - Disabled jQuery by default along with any remaining components that require jQuery. These are considered opt-in and deprecated
 - Added base response in service worker to allow enhanced PWA banner and enhanced add2hs on Chrome for Android
+- Removed lightbox documentation and components in favour of a new React-based modal component
 
 ### Fixes
 

@@ -1,0 +1,194 @@
+// Set to false to disable fullscreen feature
+$fullscreen-mobile: 450px;
+
+// Make scrollable lightboxes take up full screen on smaller
+// screen sizes
+@mixin if-modal-fullscreen-mobile {
+  @if $fullscreen-mobile {
+    @include media-query($fullscreen-mobile) {
+      @content;
+    }
+  }
+}
+
+// Fullscreen modal styles to be applied to modals
+// when too small, and also specifically fullscreen
+// modals
+@mixin modal-fullscreen {
+  width: 100%;
+  margin: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-self: stretch;
+  max-height: 100%;
+  border-radius: 0;
+}
+
+// =========================================================================
+// React Modal styles
+// =========================================================================
+
+// Note: Some of these styles need to be applied in the react component
+// see ControlledModal.jsx
+
+// Overlay / Background
+.ReactModal__Overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .2s;
+  background-color: rgba($primary-color, .5) !important;
+}
+
+.ReactModal__Overlay--after-open.ReactModal__Overlay--before-close,
+.ReactModal__Overlay {
+  opacity: 0;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Content {
+  display: flex;
+  flex-direction: column;
+  background: $white;
+  transition: transform .2s;
+  max-height: calc(100vh - 4rem);
+  max-width: 100%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.3);
+  border-radius: $border-radius;
+  overflow: hidden;
+  @include disable-mouse-outline;
+
+  @include media-query($fullscreen-mobile) {
+    transition: transform .4s;
+  }
+}
+
+.ReactModal__Content,
+.ReactModal__Content--after-open.ReactModal__Content--before-close {
+  transform: translateY(80px);
+
+  @include media-query($fullscreen-mobile) {
+    transform: translateY(100%);
+  }
+}
+
+.ReactModal__Content--after-open {
+  transform: translateY(0);
+}
+
+// =========================================================================
+// Modal types
+// =========================================================================
+
+// Default sizing
+.ReactModal__Content {
+  width: 800px;
+}
+
+// Fullscreenable is a class that automatically gets applied to modals
+// that aren't videos or if the modal has a header
+.ReactModal__Fullscreenable {
+  // Fullscreen modals at small screen sizes
+  @include if-modal-fullscreen-mobile {
+    @include modal-fullscreen;
+  }
+}
+
+.ReactModal__small {
+  width: 420px;
+}
+
+.ReactModal__large {
+  width: 1000px;
+}
+
+.ReactModal__fullscreen {
+  @include modal-fullscreen;
+}
+
+// Video modals
+.ReactModal__Video {
+  background: $black;
+}
+
+// Ajax States
+.ReactModal__AjaxLoading,
+.ReactModal__AjaxError {
+  width: 420px;
+}
+
+.ReactModal__AjaxLoading {
+  background: transparent;
+  box-shadow: none;
+}
+
+// =========================================================================
+// Modal content styling
+// =========================================================================
+
+// Lightbox Header
+.lightbox--header {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: $black;
+}
+.lightbox--title {
+  padding: $xxxx-small-unit $panel-padding;
+  flex-grow: 1;
+  flex-shrink: 1;
+  font-weight: bold;
+  color: $white;
+}
+
+.lightbox--close {
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  overflow: visible;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  margin-left: auto;
+  @include decorate-link(none, none);
+  @include color-link($white, $white);
+}
+
+// Lightbox Body
+.lightbox--body {
+  @include overflow-scroll;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+// Ajax modals require an extra container element
+.lightbox--nested-body {
+  display: flex;
+  flex-direction: column;
+}
+
+// Loading (ajax)
+.lightbox--loading-message {
+  text-align: center;
+}
+
+// Lightbox footer
+.lightbox--footer {
+  border-top: $divider;
+  padding: $panel-padding;
+}
+
+// Lightbox Buttons
+.lightbox--buttons {
+  padding: $small-unit;
+  padding-top: 0;
+
+  .button + .button {
+    margin-left: $xxxx-small-unit;
+  }
+}

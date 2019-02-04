@@ -1,8 +1,15 @@
-<%= render layout: "/shared/inline_lightbox", locals: {
-  title: @lightbox_title,
-  lightbox_class: @lightbox_class,
-  no_hide: true,
-  inline_id: "modal_layout"
-} do %>
+<%
+  modal_title = ""
+  modal_title = yield :title if content_for? :title
+  modal_title = yield :page_title if content_for? :page_title
+%>
+
+<div class="lightbox--header">
+  <div class="lightbox--title">
+    <%= modal_title %>
+  </div>
+  <button class="lightbox--close" data-modal-close aria-label="Close modal">&times;</button>
+</div>
+<div class="lightbox--body panel--padding">
   <%= yield %>
-<% end %>
+</div>

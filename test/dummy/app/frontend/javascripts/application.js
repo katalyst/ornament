@@ -44,6 +44,7 @@ import "./components/form-enhanced";
 import "./components/form-limiter";
 import "./components/form-password-revealer";
 import "./components/form-password-score";
+import "./components/modal";
 import "./components/menu-with-more";
 import "./components/pagination-helper";
 import "./components/read-more";
@@ -72,4 +73,3 @@ import "./components/wysiwyg-helpers";
 // =========================================================================
 
 // import "./components/form-datepicker";
-

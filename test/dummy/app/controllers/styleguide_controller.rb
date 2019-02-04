@@ -53,7 +53,7 @@ class StyleguideController < ActionController::Base
   def styleguide_layout
     layout = "styleguide/ornament"
     layout = "application" if params[:no_layout]
-    layout = "modal" if params[:lightbox]
+    layout = "modal" if params[:modal]
     layout
   end
 end

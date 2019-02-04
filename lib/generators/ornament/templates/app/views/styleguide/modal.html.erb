@@ -1,0 +1,411 @@
+<% content_for :title, "Modal" %>
+
+<% modal_content = capture do %>
+  <div class="panel--padding content">
+    <p>Mollit consequat esse minim est ut pariatur veniam aliqua et irure. Aute est et dolore Lorem do. In deserunt tempor sunt incididunt excepteur proident occaecat proident.</p>
+    <p>Enim excepteur aliqua non in veniam incididunt in laborum consequat laborum. Dolore tempor do voluptate minim pariatur dolor cupidatat eu aute ipsum ex. Incididunt aute deserunt consequat enim amet cillum nostrud quis pariatur non irure esse duis. Aliqua in in nisi non do culpa Lorem aliqua esse quis. Elit ad veniam deserunt proident commodo. Velit non culpa ipsum ut aute sint ex amet anim duis consequat anim. Aliqua proident enim ullamco labore ut occaecat reprehenderit minim sint pariatur magna.</p>
+    <p>Esse ad anim occaecat sunt. Culpa pariatur elit amet esse cillum velit ex dolore in. Ut officia non dolor commodo laborum in. Veniam sunt amet sit pariatur ut qui deserunt qui ad labore eu aute. Et anim aliquip non commodo sint. Ex proident ea incididunt tempor eiusmod adipisicing consectetur duis laboris dolore aliqua cupidatat do.</p>
+  </div>
+<% end %>
+
+<% footer_content = capture do %>
+  <div class="button-set">
+    <div><button class="button__confirm" data-modal-close>Ok, sure</button></div>
+    <div><button class="button__cancel" data-modal-close>No way, Jose</button></div>
+  </div>
+<% end %>
+
+<div class="content-spacing">
+  
+  <p>Modals are implemented using a mixture of <a href="https://github.com/reactjs/react-modal">react-modal</a>, <a href="https://github.com/jossmac/react-scrolllock">react-scrolllock</a> and custom react components.</p>
+
+  <h2 class="heading-two">Basic Modal</h2>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "basic", no_html: true, ruby: capture { %>
+&lt;button data-modal="basic" class="button">Open modal&lt;/button>
+&lt;%= react_component "Modal", props: {
+  id: "basic",
+  label: "Sample modal",
+  renderHTML: modal_content,
+} %>
+  <% } } do %>
+    <button data-modal="basic" class="button">Open modal</button>
+    <%= react_component "Modal", props: {
+      id: "basic",
+      label: "Sample modal",
+      renderHTML: modal_content,
+    } %>
+  <% end %>
+
+  <hr />
+
+  <h2 class="heading-two">Available component options</h2>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>id</td>
+        <td>Event name for use with <code>Ornament.openModal()</code></td>
+      </tr>
+      <tr>
+        <td>label</td>
+        <td>Used in the header and for screenreaders</td>
+      </tr>
+      <tr>
+        <td>isOpen</td>
+        <td>Boolean to determine wether modal is open by default</td>
+      </tr>
+      <tr>
+        <td>render</td>
+        <td>Render prop when used in react, expects a react component</td>
+      </tr>
+      <tr>
+        <td>renderHTML</td>
+        <td>HTML to be rendered inside modal</td>
+      </tr>
+      <tr>
+        <td>noHeader</td>
+        <td>Boolean to disable the header</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>Custom class for the wrapper element</td>
+      </tr>
+      <tr>
+        <td>afterClose</td>
+        <td>Function to call after closing modal</td>
+      </tr>
+      <tr>
+        <td>afterOpen</td>
+        <td>Function to call after opening modal</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <h2 class="heading-two">Events</h2>
+
+  <p>Events can be listened for with <code>document.addEventListener(eventName, func)</code>.</p>
+
+  <ul class="content-lists">
+    <li>ornament:modal:{id}:before-open</li>
+    <li>ornament:modal:{id}:after-open</li>
+    <li>ornament:modal:{id}:before-close</li>
+    <li>ornament:modal:{id}:after-close</li>
+  </ul>
+
+  <p>You can trigger events in the modal by calling events on the document, eg. <code>Ornament.fireEvent(eventName)</code>.</p>
+
+  <ul class="content-lists">
+    <li>ornament:modal:{id}:open</li>
+    <li>ornament:modal:{id}:close</li>
+  </ul>
+
+  <hr />
+
+  <h2 class="heading-two">Sizing</h2>
+
+  <p>Using the <code>size</code> prop, you can change the size of your modal.</p>
+
+  <p>Sizes are defined entirely in CSS, check out the <code>modal.scss</code> partial to configure your sizes.</p>
+
+  <p>Ornament by default comes with these sizes:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "size-small", no_html: true, ruby: capture { %>
+&lt;button data-modal="size-small" class="button">Open small modal&lt;/button>
+&lt;%= react_component "Modal", props: {
+  id: "size-small",
+  label: "Small modal",
+  size: "small",
+  renderHTML: modal_content,
+} %>
+  <% } } do %>
+    <button data-modal="size-small" class="button">Open small modal</button>
+    <%= react_component "Modal", props: {
+      id: "size-small",
+      label: "Small modal",
+      size: "small",
+      renderHTML: modal_content,
+    } %>
+  <% end %>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "size-large", no_html: true, ruby: capture { %>
+&lt;%button data-modal="size-large" class="button">Open large modal&lt;%/button>
+&lt;%%= react_component "Modal", props: {
+  id: "size-large",
+  label: "Large modal",
+  size: "large",
+  renderHTML: modal_content,
+} %>
+  <% } } do %>
+    <button data-modal="size-large" class="button">Open large modal</button>
+    <%= react_component "Modal", props: {
+      id: "size-large",
+      label: "Large modal",
+      size: "large",
+      renderHTML: modal_content,
+    } %>
+  <% end %>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "size-fullscreen", no_html: true, ruby: capture { %>
+&lt;button data-modal="size-fullscreen" class="button">Open fullscreen modal&lt;/button>
+&lt;%= react_component "Modal", props: {
+  id: "size-fullscreen",
+  label: "Fullscreen modal",
+  size: "fullscreen",
+  renderHTML: modal_content,
+} %>
+  <% } } do %>
+    <button data-modal="size-fullscreen" class="button">Open fullscreen modal</button>
+    <%= react_component "Modal", props: {
+      id: "size-fullscreen",
+      label: "Fullscreen modal",
+      size: "fullscreen",
+      renderHTML: modal_content,
+    } %>
+  <% end %>
+
+  <p>All modals with the exception of videos and ajax loading/error states will go fullscreen when they hit a breakpoint.</p>
+  <p>This behaviour can be disabled globally by setting the sass variable <code>$fullscreen-mobile</code> to false.</p>
+  <p>This behaviour can also be disabled as a prop with <code>noFullscreen: true</code>.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Ajax content</h2>
+
+  <p>A common pattern is to load in an ajax endpoint and inject the resulting HTML in to a modal. This can be accomplished by using <code>data-modal-ajax="url"</code> on your button. This requires no modal component as it will use a global ajax-ready modal.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "ajax-basic" } do %>
+<button data-modal-ajax="/styleguide/getting_started" class="button">Load modal with ajax content</button>
+  <% end %>
+
+  <p>You can programatically load content in to the ajax modal with <code>Ornament.C.Modal.openAjaxModal(url);</code>.</p>
+
+  <h3 class="heading-three">Sizing</h3>
+
+  <p>You can set the size of ajax modals using <code>data-modal-size</code>:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "ajax-sizing" } do %>
+<button data-modal-ajax="/styleguide/getting_started" data-modal-size="small" class="button">Load small ajax modal</button>
+  <% end %>
+
+  <h3 class="heading-three">Error state</h3>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "ajax-eror" } do %>
+<button data-modal-ajax="/bad-url" class="button">Load modal with ajax content</button>
+  <% end %>
+
+  <h3 class="heading-three">Templating ajax views</h3>
+
+  <p>Any URLs loaded in to the ajax modal will get an extra URL parameter <code>modal=true</code>, you can use this parameter to render the resulting view with the <code>modal</code> rails layout.</p>
+  <p>If using Koi, I'd recommend modifying the <code>layout_by_resource</code> method in <code>common_controller_actions</code> to check for this param and return the modal layout.</p>
+  <p>This layout provides the header and body structure for seamless modal integration.</p>
+  <p>Keep in mind that if you customise the layout of <code>ControlledModal.jsx</code>, you'll likely want to update <code>layouts/modal.html.erb</code> to match.</p>
+
+  <h3 class="heading-three">Ajaxed components</h3>
+
+  <p>Be aware that if your ajaxed content has javascript components you may need to reinitialise them.</p>
+  <p>This includes react components, which can be remounted using <code>ReactOnRails.reactOnRailsPageLoaded();</code>.</p>
+  <p>Most Ornament components have an <code>init</code> function you can call, eg. <code>Ornament.C.FormsEnhanced.init()</code>.</p>
+
+  <hr />
+
+  <h2 class="heading-two">Videos</h2>
+
+  <p>You can use a <code>video</code> prop instead of the other render props to load in a responsive iframe:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "video-youtube-iframe", no_html: true, ruby: capture { %>
+&lt;button data-modal="video-youtube-iframe" class="button">Open video from youtube&lt;/button>
+&lt;%= react_component "Modal", props: {
+  id: "video-youtube-iframe",
+  label: "Video",
+  video: "https://www.youtube.com/embed/6ZfuNTqbHE8",
+} %>
+  <% } } do %>
+    <button data-modal="video-youtube-iframe" class="button">Open video from youtube</button>
+    <%= react_component "Modal", props: {
+      id: "video-youtube-iframe",
+      label: "Video",
+      video: "https://www.youtube.com/embed/6ZfuNTqbHE8",
+    } %>
+  <% end %>
+
+  <p>This prop is strictly an iframe and can be any sort of iframe. The only limitation is that it's wrapped in a responsive video wrapper so it's aspect ratio will be that of a video. For example here is one from vimeo.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "video-vimeo-iframe", no_html: true, ruby: capture { %>
+&lt;button data-modal="video-vimeo-iframe" class="button">Open video from vimeo&lt;/button>
+&lt;%= react_component "Modal", props: {
+  id: "video-vimeo-iframe",
+  label: "Video",
+  video: "https://player.vimeo.com/video/112866269",
+} %>
+  <% } } do %>
+    <button data-modal="video-vimeo-iframe" class="button">Open video from vimeo</button>
+    <%= react_component "Modal", props: {
+      id: "video-vimeo-iframe",
+      label: "Video",
+      video: "https://player.vimeo.com/video/112866269",
+    } %>
+  <% end %>
+
+  <h3 class="heading-three">With Youtube id</h3>
+
+  <p>If you're using a youtube video, you can use the youtube video ID and take advantage of the pre-baked youtube configuration by using <code>youtube</code> prop instead.</p>
+
+  <p>You can enable autoplaying with <code>autoplay: true</code>.</p>
+
+  <p>Using <code>noHeader</code> is recommended for a more cinematic experience, but left optional.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "video-youtube", no_html: true, ruby: capture { %>
+&lt;button data-modal="video-youtube" class="button">Open video from youtube&lt;/button>
+&lt;%= react_component "Modal", props: {
+  id: "video-youtube",
+  label: "Video",
+  youtube: "6ZfuNTqbHE8",
+  autoplay: true,
+  noHeader: true,
+} %>
+  <% } } do %>
+    <button data-modal="video-youtube" class="button">Open video from youtube</button>
+    <%= react_component "Modal", props: {
+      id: "video-youtube",
+      label: "Video",
+      youtube: "6ZfuNTqbHE8",
+      autoplay: true,
+      noHeader: true,
+    } %>
+  <% end %>
+
+  <hr />
+
+  <h2 class="heading-two">Custom close buttons</h2>
+
+  <p>You can create a custom close button by adding <code>data-modal-close</code> on any button.<p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "custom-close", no_html: true, ruby: capture { %>
+&lt;button data-modal="custom-close" class="button">Open modal&lt;/button>
+&lt;%= react_component "Modal", props: {
+  id: "custom-close",
+  label: "Custom close button",
+  renderHTML: modal_content + "&lt;div class='panel--padding content'>&lt;button class='button__cancel' data-modal-close>Custom close button&lt;/button>&lt;/div>".html_safe,
+} %>
+  <% } } do %>
+    <button data-modal="custom-close" class="button">Open modal</button>
+    <%= react_component "Modal", props: {
+      id: "custom-close",
+      label: "Custom close button",
+      renderHTML: modal_content + "<div class='panel--padding content'><button class='button__cancel' data-modal-close>Custom close button</button></div>".html_safe,
+    } %>
+  <% end %>
+
+  <hr />
+
+  <h2 class="heading-two">Linking Modals</h2>
+
+  <p>Add <code>data-modal-link</code> to your button to add close any open modals, wait, then open the requested modal.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "linking-modals", no_html: true, ruby: capture { %>
+&lt;button data-modal="linking-one" class="button">Open modal&lt;/button>
+&lt;%= react_component "Modal", props: {
+  id: "linking-one",
+  label: "Modal #1",
+  renderHTML: "&lt;div class='panel--padding content'>&lt;button class='button' data-modal='linking-two' data-modal-link>Go to modal #2&lt;/button>&lt;/div>".html_safe,
+} %>
+&lt;%= react_component "Modal", props: {
+  id: "linking-two",
+  label: "Modal #2",
+  renderHTML: "&lt;div class='panel--padding content'>&lt;button class='button' data-modal='linking-one' data-modal-link>Go to modal #1&lt;/button> or &lt;button class='button__cancel' data-modal-close>Close button&lt;/button>&lt;/div>".html_safe,
+} %>
+  <% } } do %>
+    <button data-modal="linking-one" class="button">Open modal</button>
+    <%= react_component "Modal", props: {
+      id: "linking-one",
+      label: "Modal #1",
+      renderHTML: "<div class='panel--padding content'><button class='button' data-modal='linking-two' data-modal-link>Go to modal #2</button></div>".html_safe,
+    } %>
+    <%= react_component "Modal", props: {
+      id: "linking-two",
+      label: "Modal #2",
+      renderHTML: "<div class='panel--padding content'><button class='button' data-modal='linking-one' data-modal-link>Go to modal #1</button> or <button class='button__cancel' data-modal-close>Close button</button></div>".html_safe,
+    } %>
+  <% end %>
+
+  <hr />
+
+  <h2 class="heading-two">Footers</h2>
+
+  <p>You can provide a fixed footer using either HTML string in <code>footerHTML</code> or a react component in <code>footer</code>.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "with-footer", no_html: true, ruby: capture { %>
+&lt;button data-modal="with-footer" class="button">Open modal&lt;/button>
+&lt;%= react_component "Modal", props: {
+  id: "with-footer",
+  label: "Modal with footer",
+  footerHTML: footer_content,
+  renderHTML: modal_content,
+} %>
+  <% } } do %>
+    <button data-modal="with-footer" class="button">Open modal</button>
+    <%= react_component "Modal", props: {
+      id: "with-footer",
+      label: "Modal with footer",
+      footerHTML: footer_content,
+      renderHTML: modal_content,
+    } %>
+  <% end %>
+
+  <hr />
+
+  <h2 class="heading-two">React compositioning</h2>
+
+  <p>Sometimes you need really complex javascript-driven modals, or modals inside react components.</p>
+
+  <p>Here is a very simple example of creating a user component that shows user details in a modal using a controlled modal, local state and render props:</p>
+
+  <pre class="sg-pre prettyprint">
+import React from "react";
+import ControlledModal from '../Modal/ControlledModal';
+
+export default class UserListItem extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalOpen: false,
+    }
+  }
+
+  openModal = () => {
+    this.setState({
+      modalOpen: true,
+    });
+  }
+
+  closeModal = () => {
+    this.setState({
+      modalOpen: false,
+    })
+  }
+
+  render(){
+    &lt;div>
+      &lt;strong>{this.props.userName}&lt;/strong>
+      &lt;button onclick={this.openModal}>View more details&lt;/button>
+      &lt;ControlledModal
+        open={this.state.modalOpen}
+        onClose={this.props.closeModal}
+        className="ReactModal__User"
+        render={() => (
+          &lt;div>
+            &lt;h2>{this.props.userName}&lt;/h2>
+            &lt;div className="content" dangerouslySetInnerHTML={{__html: this.props.userContent }} />
+          &lt;/div>
+        )}
+      &lt;/>
+    &lt;/div>
+  }
+
+}</pre>
+
+</div>
