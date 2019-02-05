@@ -65,7 +65,6 @@ import "./components/wysiwyg-helpers";
 // =========================================================================
 
 // import "./components/kat-image-upload";
-// import "./components/lightbox";
 // import "./components/map";
 
 // =========================================================================
