@@ -58,8 +58,6 @@ My content</pre>
 &lt;%= render "news_items/sidebar" %>
 
 &lt;% if collection.present? %>
-  &lt;p>No news is good news!&lt;/p>
-&lt;% else %>
   &lt;div class="news">
     &lt;% collection.each do |news_item| %>
       &lt;div class="news--item">
@@ -67,6 +65,8 @@ My content</pre>
       &lt;/div>
     &lt;% end %>
   &lt;/div>
+&lt;% else %>
+  &lt;p>No news is good news!&lt;/p>
 &lt;% end %>
 
 &lt;% content_for :below_layout do %>
