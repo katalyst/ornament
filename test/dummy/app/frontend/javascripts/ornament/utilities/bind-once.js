@@ -1,18 +1,39 @@
 (function (document, window, Ornament, Utils) {
   "use strict";
 
+  // Passive event listener tests
+  // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
+  Ornament.supportsPassiveEvents = false;
+  try {
+    var opts = Object.defineProperty({}, 'passive', {
+      get: function(){
+        Ornament.supportsPassiveEvents = true;
+      }
+    });
+    window.addEventListener("testPassive", null, opts);
+    window.removeEventListener("testPassive", null, opts);
+  } catch(e) {}
+
   // Bind-once function with clean unbinding on page leave and
   // turbolinks travel 
-  // Ornament.bind(button, "click", onButtonClick);
+  // Ornament.U.bindOnce(button, "click", onButtonClick);
+  // You can support Chrome's passive event listeners with
+  // Ornament.U.bindOnce(button, "click", onButtonClick, { passive: true });
+  // Passive support is detected and gracefully falls back, unlike
+  // native functionality of addEventListener
 
-  Ornament.U.bindOnce = function(target, events, func) {
+  Ornament.U.bindOnce = function(target, events, func, opts) {
     events.split(" ").map(function(event){
       // Unbind if already bound to prevent multiple 
       // bindings of the same function 
       target.removeEventListener(event, func);
     
       // Bind event to the target
-      target.addEventListener(event, func);
+      if(Ornament.supportsPassiveEvents) {
+        target.addEventListener(event, func, opts);
+      } else {
+        target.addEventListener(event, func, opts);
+      }
     
       // Clean up the event listener after page unload
       window.onunload = function(){

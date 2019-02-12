@@ -36,6 +36,7 @@ This will make RailsUJS a hard dependancy.
 - Added base response in service worker to allow enhanced PWA banner and enhanced add2hs on Chrome for Android
 - Removed lightbox documentation and components in favour of a new React-based modal component
 - Disabled the native appinstallbanner call via `beforeinstallprompt` when a2hs UI is disabled - this means there is no app install prompt of any kind by default. Developers can either enable the call in `register-service-worker.js` or build a UI for it.
+- Added support for `{passive: true}` event listeners in `Ornament.U.bindOnce($element, "scroll", func, { passive: true });`
 
 ### Fixes
 
