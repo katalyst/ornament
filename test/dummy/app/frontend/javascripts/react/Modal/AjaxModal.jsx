@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "./Modal";
 import Axios from "axios";
+import ShadowScroller from "../ShadowScroller/ShadowScroller";
 
 /*
 
@@ -140,7 +141,15 @@ export default class AjaxModal extends React.Component {
               </div>
             }
             {!this.state.loading && this.state.content &&
-              <div className="lightbox--nested-body" dangerouslySetInnerHTML={{__html: this.state.content}}></div>
+              <ShadowScroller
+                render={(scrollRef, domRef) => (
+                  <div
+                    className="lightbox--nested-body"
+                    ref={el => domRef(el, ".lightbox--body")}
+                    dangerouslySetInnerHTML={{__html: this.state.content}}
+                  ></div>
+                )}
+              />
             }
             {!this.state.loading && !this.state.content && !this.state.error &&
               <div class="lightbox--body panel--padding align__center">No content</div>

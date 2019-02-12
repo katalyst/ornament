@@ -4,6 +4,7 @@
   .ReactModal__Content & {
     flex-grow: 1;
     flex-shrink: 1;
+    flex-direction: column;
     display: flex;
   }
 }
