@@ -1,6 +1,5 @@
 import React from "react";
 import ReactModal from 'react-modal';
-import ScrollLock from 'react-scrolllock';
 import ShadowScroller from '../ShadowScroller/ShadowScroller';
 
 /*
@@ -183,7 +182,6 @@ export default class ControlledModal extends React.Component {
           },
         }}
       >
-        {/*<ScrollLock accountForScrollbars={false} />*/}
         {!this.props.noHeader &&
           <div className="lightbox--header">
             <div className="lightbox--title">
