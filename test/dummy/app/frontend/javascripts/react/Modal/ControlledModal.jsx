@@ -22,7 +22,6 @@ import ShadowScroller from '../ShadowScroller/ShadowScroller';
   noHeader: boolean - don't render the header of the modal
   noBodyWrapper: boolean - only when using renderprops, don't put a modal--body wrapper around content
   onClose: function - the function to call to close the modal (eg. set state)
-  noShadows: boolean - don't render the scroll shadows
 
   Content Props
   -------------

@@ -6,8 +6,24 @@ import Axios from "axios";
 
   An ajax-ready modal for loading in remote content
 
-  TODO
-  - Setting sizes?
+  Opening
+  -------
+
+  Opening a modal is done via a custom event:
+  Ornament.triggerEvent(`ornament:modal:global-ajax:load`, { url });
+
+  eg:
+  Ornament.triggerEvent(`ornament:modal:global-ajax:load`, { "/login" });
+  
+  You can pass a size in as a second parameter:
+  Ornament.triggerEvent(`ornament:modal:global-ajax:load`, { "/login", "small" });
+
+  Closing
+  -------
+
+  Closing the modal can be externally triggered just like any
+  regular ControlledModal:
+  Ornament.triggerEvent(`ornament:modal:close-any`);
 
 */
 
