@@ -1,6 +1,7 @@
 import React from "react";
 import ReactModal from 'react-modal';
 import ScrollLock from 'react-scrolllock';
+import ShadowScroller from '../ShadowScroller/ShadowScroller';
 
 /*
 
@@ -21,6 +22,7 @@ import ScrollLock from 'react-scrolllock';
   noHeader: boolean - don't render the header of the modal
   noBodyWrapper: boolean - only when using renderprops, don't put a modal--body wrapper around content
   onClose: function - the function to call to close the modal (eg. set state)
+  noShadows: boolean - don't render the scroll shadows
 
   Content Props
   -------------
@@ -92,15 +94,23 @@ export default class ControlledModal extends React.Component {
         content = this.props.render();
       } else {
         content = 
-          <div className="lightbox--body">
-            {this.props.render()}
-          </div>
+          <ShadowScroller render={scrollRef => (
+            <div className="lightbox--body" {...scrollRef}>
+              {this.props.render()}
+            </div>
+          )} />
       }
 
     // Render HTML
     } else if(this.props.renderHTML) {
       content = 
-        <div className="lightbox--body" dangerouslySetInnerHTML={{ __html: this.props.renderHTML }}></div>
+        <ShadowScroller render={scrollRef => (
+          <div
+            className="lightbox--body"
+            dangerouslySetInnerHTML={{ __html: this.props.renderHTML }}
+            ref={el => scrollRef(el)}
+          ></div>
+        )} />
     }
 
     return content;

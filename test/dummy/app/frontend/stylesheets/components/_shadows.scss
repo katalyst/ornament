@@ -1,5 +1,11 @@
 .shadow--wrapper {
   position: relative;
+
+  .ReactModal__Content & {
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+  }
 }
 .shadow__top,
 .shadow__bottom {

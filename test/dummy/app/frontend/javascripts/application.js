@@ -26,7 +26,6 @@ import "./ornament/utilities/measure";
 import "./ornament/utilities/node-list-array";
 import "./ornament/utilities/parameterize";
 import "./ornament/utilities/slide";
-import "./ornament/utilities/shadowable";
 import "./ornament/utilities/show-js";
 
 // =========================================================================
