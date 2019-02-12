@@ -25,6 +25,10 @@ This will make RailsUJS a hard dependancy.
 - Added sample navigation code with placeholder `koi_render_navigation`
 - Added `#top` anchor point
 
+### Modal rebuild
+
+- Removed `magnific-popup` and related `lightbox.js/.css` files, rebuilt modals in react using `react-modal`
+
 ### Changes
 
 - Added `-b 0.0.0.0` to procfile so it can be accessed via network by default
@@ -37,6 +41,7 @@ This will make RailsUJS a hard dependancy.
 - Removed lightbox documentation and components in favour of a new React-based modal component
 - Disabled the native appinstallbanner call via `beforeinstallprompt` when a2hs UI is disabled - this means there is no app install prompt of any kind by default. Developers can either enable the call in `register-service-worker.js` or build a UI for it.
 - Added support for `{passive: true}` event listeners in `Ornament.U.bindOnce($element, "scroll", func, { passive: true });`
+- Removed the `Shadowable` JS utility in favour of a react `ShadowScroller` component
 
 ### Fixes
 
