@@ -47,7 +47,8 @@ Ornament.hijackServiceWorkerPrompt = function(){
         });
       }
     } else {
-      Ornament.addToHomescreen();
+      // Call the app install banner
+      // Ornament.addToHomescreen();
     }
   });
 }
