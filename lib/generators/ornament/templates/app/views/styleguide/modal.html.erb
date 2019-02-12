@@ -408,4 +408,33 @@ export default class UserListItem extends React.Component {
 
 }</pre>
 
+  <h2 class="heading-two">ShadowScroller Component</h2>
+
+  <p>The custom react modal uses a custom content wrapper component called <code>ShadowScroller</code>, which automatically adds shadows to the top and bottom of scrollable areas when the content is overflowed.</p>
+
+  <p>ShadowScroller can be utilised for other scrollable areas in two ways:</p>
+
+  <h3 class="heading-three">React ref</h3>
+
+  <p>If your scrollable div is in React land, you can use the <code>scrollRef</code> function to target the scrollable area:</p>
+
+  <pre class="sg-pre prettyprint">
+&lt;ShadowScroller render={(scrollRef) => (
+  &lt;div ref={el => scrollRef(el)}>
+    Your scrollable content
+  &lt;/div>
+)} /></pre>
+
+  <h3 class="heading-three">DOM selector</h3>
+
+  <p>However, if your scrollable area is not in React land, say you're using <code>dangerouslySetInnerHTML</code> to dump a bunch of HTML in a react component and THAT has a scrollable area in it, you can use the second parameter of the wrapper component, <code>domRef</code> to target a selector:</p>
+
+  <pre class="sg-pre prettyprint">
+&lt;ShadowScroller render={(scrollRef, domRef) => (
+  &lt;div
+    ref={el => domRef(el, ".my-scrollable-area")}
+    dangerouslySetInnerHTML={{__html: this.props.htmlContent}}
+  >&lt;/div>
+)} /></pre>
+
 </div>
