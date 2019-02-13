@@ -1,184 +1,264 @@
-<%-
+<%
 
+  # Settings
   cache_version ||= "1"
   koi_settings ||= true
+  use_facebook ||= true
+  use_twitter ||= true
+  use_pwa_settings ||= true
+  use_structured_data ||= true
 
-  # Defaults 
-  seo_title ||= "Ornament Pattern Library and UI/UX Documentation"
-  seo_title_postfix ||= seo_title
-  seo_keywords ||= false
-  seo_description ||= ""
-  seo_image ||= false # "#{root_url}assets/share.png?v=#{cache_version}"
-  theme_colour ||= "#4b9dd0";
-  use_pwa_settings ||= false
+  # Defaults
+  site_name ||= "Ornament Pattern Library and UI/UX Documentation"
+  meta_title ||= site_name
+  meta_title_postfix ||= site_name
+  meta_title_postfix_seperator ||= " - "
+  meta_keywords ||= false
+  meta_description ||= ""
+  meta_image ||= false # "#{root_url}assets/share.png?v=#{cache_version}"
+  meta_theme_colour ||= "#4b9dd0";
 
-  # Twitter Settings
-  twitter_handle ||= ""
+  # Facebook defaults
+  facebook_app_id ||= false
+
+  # Twitter defaults
+  twitter_site ||= ""
   twitter_creator ||= ""
 
-  # Koi Site Settings 
-  if defined?(Translation) && koi_settings 
+  # Inner settings
+  facebook_crop = "1200x630#"
+  twitter_crop = "800x418#"
+
+  # Overrides via Koi Site Settings
+  if defined?(Translation) && koi_settings
+
+    # Get site settings
     koi_title = Translation.find_by_key('site.title').try(:value)
     koi_description = Translation.find_by_key('site.meta_description').try(:value)
     koi_keywords = Translation.find_by_key('site.meta_keywords').try(:value)
+
+    # Clean inputs
     site_settings_title = clean_share_input(koi_title) if koi_title
-    site_settings_meta = clean_share_input(koi_description) if koi_description
+    site_settings_description = clean_share_input(koi_description) if koi_description
     site_settings_keywords = clean_share_input(koi_keywords) if koi_keywords
-    seo_title = site_settings_title if !koi_title.blank?
-    seo_title_postfix = seo_title if !koi_title.blank?
+
+    # Update values from koi settings
+    meta_title = site_settings_title if !koi_title.blank?
+    meta_title_postfix = meta_title if !koi_title.blank?
+    meta_keywords = site_settings_keywords if !koi_keywords.blank?
+    meta_description = site_settings_description if !koi_description.blank?
   end
 
-  # Page Title
+  # 
+  # Standard meta tags
+  #
+  # These come from:
+  # 1. The Koi CRUD seo() helper
+  # 2. The meta() view helper
+  # 3. Fallback Koi site settings
+  # 4. Fallback hardcoded values above
+  #
+
+  ### Page title
+
+  # Try from koi setting
   if !seo("title").blank?
-    seo_title = seo("title")
-  elsif content_for?(:page_title)
-    seo_title = yield(:page_title)
+    meta_title = seo("title")
+
+  # Try from meta(page_title)
+  elsif content_for?(:meta_page_title)
+    meta_title = yield(:meta_page_title)
+
+  # Try from meta(title)
+  elsif content_for?(:meta_title)
+    meta_title = yield(:meta_title)
+
+  # Try from generic :title yield
   elsif content_for?(:title)
-    seo_title = yield(:title)
-  elsif content_for?(:og_title)
-    seo_title = yield(:og_title)
+    meta_title = yield(:title)
   end
 
-  # Append | <postfix> to the end of title if necessary
-  if !seo_title_postfix.blank? && !seo_title.include?(seo_title_postfix)
-    seo_title = raw "#{seo_title} - #{seo_title_postfix}"
-  end
+  ### Meta Keywords
 
-  # Meta Description
+  # Try from koi setting
   if !seo("meta_description").blank?
-    seo_description = clean_share_input(seo('meta_description'))
-  elsif content_for?(:og_description) 
-    seo_description = yield(:og_description)
-  elsif site_settings_meta.present?
-    seo_description = clean_share_input(site_settings_meta)
+    meta_description = clean_share_input(seo('meta_description'))
+  
+  # Try from meta(description)
+  elsif content_for?(:meta_description) 
+    meta_description = yield(:meta_description)
   end
 
-  # Meta Keywords
+  ### Meta Keywords
+
+  # Try from koi setting
   if !seo("meta_keywords").blank?
-    seo_keywords = clean_share_input(seo('meta_keywords'))
-  elsif site_settings_keywords.present?
-    seo_keywords = clean_share_input(site_settings_keywords)
+    meta_keywords = clean_share_input(seo('meta_keywords'))
+
+  # Try from meta(keywords)
+  elsif content_for?(:meta_keywords)
+    meta_keywords = yield(:meta_keywords)
   end
 
-  # Meta Image
-  if content_for?(:meta_image)
-    seo_image = yield(:meta_image)
-  end
+  ### Meta Image
 
-  # Facebook Title
-  if content_for?(:og_title) 
-    facebook_title = yield(:og_title)
-  else
-    facebook_title = seo_title
-  end
+  # Try from meta(image)
+  meta_image = share_image(yield(:meta_image), facebook_crop) if content_for?(:meta_image)
 
-  # Facebook description
-  if content_for?(:og_description)
-    facebook_description = yield(:og_description)
-  else
-    facebook_description = seo_description
-  end
+  ## Theme colour
+  meta_theme_colour = yield(:meta_theme_colour) if content_for?(:meta_theme_colour)
 
-  # Facebook author
-  facebook_author = content_for?(:og_author) ? yield(:og_author) : false
+  #
+  # Facebook meta overrides
+  #
+  # meta({
+  #   facebook: {
+  #     title: ""
+  #   }
+  # })
+  #
 
-  # Facebook publish time
-  facebook_publish_time = content_for?(:og_publish_time) ? yield(:og_publish_time) : false
+  # Title
+  facebook_title = meta_title
+  facebook_title = yield(:meta_facebook_title) if content_for?(:meta_facebook_title)
 
-  # Facebook image
-  if content_for?(:og_image)
-    facebook_image = yield(:og_image)
-  elsif content_for?(:meta_image)
-    facebook_image = yield(:meta_image)
-  else
-    facebook_image = seo_image
-  end
+  # Description
+  facebook_description = meta_description
+  facebook_description = yield(:meta_facebook_description) if content_for?(:meta_facebook_description)
 
-  # Twitter Image
-  if content_for?(:twitter_image)
-    twitter_image = yield(:twitter_image)
-  elsif content_for(:og_image)
-    twitter_image = yield(:og_image)
-  elsif content_for(:meta_image)
-    twitter_image = yield(:meta_image)
-  else
-    twitter_image = seo_image
-  end
+  # URL
+  facebook_url = request.original_url
+  facebook_url = yield(:meta_facebook_url) if content_for?(:meta_facebook_url)
 
-  # Add base URL to facebook image
-  facebook_image = absolute_url(facebook_image)
+  # Image
+  facebook_image = meta_image
+  facebook_image = share_image(yield(:meta_facebook_image), facebook_crop) if content_for?(:meta_facebook_image)
 
-  # Add base URL to twitter image
-  twitter_image = absolute_url(twitter_image)
+  # Misc
+  facebook_author = yield(:meta_facebook_author) if content_for?(:meta_facebook_author)
+  facebook_publish_time = yield(:meta_facebook_publish_time) if content_for?(:meta_facebook_publish_time)
 
-  # Thene Colour
-  if content_for?(:meta_theme_colour)
-    theme_colour = yield(:meta_theme_colour)
-  end
+  #
+  # Twitter meta overrides
+  #
+  # meta({
+  #   twitter: {
+  #     title: ""
+  #   }
+  # })
+  #
 
--%>
+  # Title
+  twitter_title = meta_title
+  twitter_title = yield(:meta_twitter_title) if content_for?(:meta_twitter_title)
 
-<%# Meta %>
-<title><%= seo_title -%></title>
-<meta name="description" content="<%= raw seo_description %>">
-<%- if seo_keywords -%>
-  <meta name="keywords" content="<%= raw seo_keywords %>">
-<%- end -%>
-<%- if facebook_image -%>
-  <link rel="image_src" href="<%= facebook_image -%>" />
-<%- end -%>
+  # Description
+  twitter_description = meta_description
+  twitter_description = yield(:meta_twitter_description) if content_for?(:meta_twitter_description)
 
-<%# Facebook %>
-<%- if facebook_image && !content_for?(:disable_og_image) -%>
-  <meta property="og:image" content="<%= facebook_image -%>" />
-<%- end -%>
-<meta property="og:title" content="<%= facebook_title -%>" />
-<meta property="og:url" content="<%= request.original_url %>" />
-<meta property="og:description" content="<%= raw facebook_description -%>">
-<%- if facebook_author -%>
-  <meta property="og:author" content="<%= facebook_author -%>" />
-<%- end -%>
-<%- if facebook_publish_time -%>
-  <meta property="og:published_time" content="<%= facebook_publish_time -%>" />
-<%- end -%>
+  # Image
+  twitter_image = meta_image
+  twitter_image = share_image(yield(:meta_twitter_image), twitter_crop) if content_for?(:meta_twitter_image)
+  twitter_image_alt = false
+  twitter_image_alt = yield(:meta_twitter_image_alt) if content_for?(:meta_twitter_image_alt)
 
-<%# Twitter %>
-<meta name="twitter:card" content="summary" />
-<%- unless twitter_handle.blank? -%>
-  <meta name="twitter:site" content="<%= twitter_handle -%>" />
-<%- end -%>
-<%- unless twitter_image.blank? -%>
-  <meta name="twitter:image" content="<%= twitter_image -%>" />
-<%- end -%>
-<%- unless twitter_creator.blank? -%>
-  <meta name="twitter:creator" content="<%= twitter_creator -%>">
-<%- end -%>
-<meta name="twitter:title" content="<%= seo_title -%>">
-<meta name="twitter:url" content="<%= request.original_url %>">
-<meta name="twitter:description" content="<%= raw seo_description -%>">
+  # URL
+  twitter_url = request.original_url
+  twitter_url = yield(:meta_twitter_url) if content_for?(:meta_twitter_url)
+
+  # Handle / Creator
+  # These are usually site-wide set above by the defaults
+  # Some cases might come where they may need to be unique
+  twitter_site = yield(:meta_twitter_site) if content_for?(:meta_twitter_site)
+  twitter_creator = yield(:meta_twitter_creator) if content_for?(:meta_twitter_creator)
+
+  twitter_card_type = "summary"
+  twitter_card_type = "summary_large_image" if twitter_image.present?
+  twitter_card_type = yield(:meta_twitter_card) if content_for(:meta_twitter_card)
+%>
+
+  <title><%= meta_postfixer(meta_title, meta_title_postfix, meta_title_postfix_seperator) %></title>
+<% if meta_description.present? %>
+  <meta name="description" content="<%= raw meta_description %>" />
+<% end %>
+<% if meta_keywords %>
+  <meta name="keywords" content="<%= raw meta_keywords %>">
+<% end %>
+<% if meta_image.present? %>
+  <link rel="image_src" href="<%= meta_image %>" />
+<% end %>
+
+<%# Facebook Output %>
+<% if use_facebook %>
+  <meta property="og:site_name" content="<%= site_name %>" />
+  <meta property="og:title" content="<%= meta_postfixer(facebook_title, meta_title_postfix, meta_title_postfix_seperator) %>" />
+  <meta property="og:url" content="<%= facebook_url %>" />
+  <meta property="og:type" content="website" />
+
+  <% if facebook_app_id %>
+    <meta property="fb:app_id" content="<%= facebook_app_id %>" />
+  <% end %>
+  
+  <% if facebook_description.present? %>
+    <meta property="og:description" content="<%= raw facebook_description %>" />
+  <% end %>
+  <% if facebook_image.present? || content_for(:meta_facebook_disable_image) %>
+    <meta property="og:image" content="<%= facebook_image %>" />
+  <% end %>
+  <% if facebook_author.present? %>
+    <meta property="og:author" content="<%= facebook_author %>" />
+  <% end %>
+  <% if facebook_publish_time.present? %>
+    <meta property="og:published_time" content="<%= facebook_publish_time %>" />
+  <% end %>
+<% end %>
+
+<%# Twitter Output %>
+<% if use_twitter %>
+  <meta name="twitter:card" content="<%= twitter_card_type %>" />
+  <% if twitter_site.present? %>
+    <meta name="twitter:site" content="<%= twitter_site %>" />
+  <% end %>
+  <% if twitter_image.present? %>
+    <meta name="twitter:image" content="<%= twitter_image %>" />
+  <% end %>
+  <% if twitter_image_alt.present? %>
+    <meta name="twitter:image:alt" content="<%= twitter_image_alt %>" />
+  <% end %>
+  <% if twitter_creator.present? %>
+    <meta name="twitter:creator" content="<%= twitter_creator %>" />
+  <% end %>
+  <meta name="twitter:title" content="<%= meta_postfixer(twitter_title, meta_title_postfix, meta_title_postfix_seperator) %>" />
+  <meta name="twitter:url" content="<%= twitter_url %>" />
+  <meta name="twitter:description" content="<%= raw twitter_description %>" />
+<% end %>
 
 <%# Application Icons %>
 <% if use_pwa_settings %>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="<%= webmanifest_path(format: :webmanifest) %>">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="<%= theme_colour %>">
-  <meta name="theme-color" content="<%= theme_colour %>">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="<%= webmanifest_path(format: :webmanifest) %>" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="<%= meta_theme_colour %>" />
+  <meta name="theme-color" content="<%= meta_theme_colour %>" />
 <% end %>
 
 <%# Strucuted Data for enhanced search results %>
 <%# Docs - https://developers.google.com/search/docs/guides/enhance-site %>
 <%# Testing tool - https://search.google.com/structured-data/testing-tool %>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  <% if content_for?(:structured_data) %>
-    <%= yield :structured_data %>
-  <% else %>
-    "@type": "Organization",
-    "url": "<%= root_url %>",
-    "logo": "<%#= asset_url("logo.png") %>"
-  <% end %>
-}
-</script>
+<% if use_structured_data %>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    <% if content_for?(:structured_data) %>
+      <%= yield :structured_data %>
+    <% else %>
+      "@type": "Organization",
+      "url": "<%= root_url %>",
+      <% if meta_image %>
+      "logo": "<%= meta_image %>"
+      <% end %>
+    <% end %>
+  }
+  </script>
+<% end %>

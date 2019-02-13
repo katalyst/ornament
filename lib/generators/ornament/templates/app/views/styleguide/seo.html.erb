@@ -1,4 +1,4 @@
-<%= content_for :title, "SEO" -%>
+<% content_for :title, "SEO" %>
 
 <div class="content-spacing content-lists">
 
@@ -7,59 +7,50 @@
       code: "cache_version",
       description: "A simple cache-buster"
     },{
-      code: "seo_title",
+      code: "koi_settings",
+      description: "A boolean flag to use the global koi setting fallbacks from Koi's Site Settings section"
+    },{
+      code: "use_facebook",
+      description: "A boolean flag to output the opengraph facebook meta tags, enabled by default"
+    },{
+      code: "use_twitter",
+      description: "A boolean flag to output the twitter card meta tags, enabled by default"
+    },{
+      code: "use_pwa_settings",
+      description: "A boolean flag to output the PWA tags, app icons, theme colours etc."
+    },{
+      code: "use_structured_data",
+      description: "A boolean flag to output the structured data tags, enabled by default"
+    },{
+      code: "meta_title",
       description: "The default <code>title</code> of all pages."
     },{
-      code: "seo_title_postfix",
-      description: "An automatically appeneded post-fix for page titles. It is recommended to use the website name. Will result in something like <code>Page Title - Website Name</code>"
+      code: "meta_title_postfix",
+      description: "An automatically appeneded post-fix for page titles. It is recommended to use the website name. Will result in something like <code>Page Title - Website Name</code>, by default it's the same as <code>meta_title</code>"
     },{
-      code: "seo_keywords",
+      code: "meta_title_postfix_seperator",
+      description: "The seperator between the postfix and the page title"
+    },{
+      code: "meta_keywords",
       description: "Default meta keywords"
     },{
-      code: "seo_description",
+      code: "meta_description",
       description: "Default meta description"
     },{
-      code: "seo_image",
+      code: "meta_image",
       description: "Default seo image"
     },{
-      code: "twitter_handle",
-      description: "Global <code>twitter:site</code> meta tag"
+      code: "meta_theme_colour",
+      description: "Default PWA theme colour"
+    },{
+      code: "facebook_app_id",
+      description: "Facebook App ID for analytics"
+    },{
+      code: "twitter_site",
+      description: "Global <code>twitter:site</code> meta tag, should represent a username on twitter"
     },{
       code: "twitter_creator",
       description: "Global <code>twitter:creator</code> meta tag"
-    }]
-    meta = [{
-      code: "title",
-      description: "<code>&lt;title&gt;</code> and a <code>&lt;h1&gt;</code> tag in <code>application.html.erb</code>"
-    },{
-      code: "page_title",
-      description: "<code>&lt;title&gt;</code>, superceding the above"
-    },{
-      code: "meta_description",
-      description: "<code>&lt;meta name='description'&gt;</code>"
-    },{
-      code: "meta_image",
-      description: "<code>&lt;link rel='image_src'&gt;</code>"
-    }]
-    opengraph = [{
-      code: "og_title",
-      description: "<code>&lt;meta name='og:title'&gt;</code>"
-    },{
-      code: "og_description",
-      description: "<code>&lt;meta name='og:description'&gt;</code>"
-    },{
-      code: "og_image",
-      description: "<code>&lt;meta name='og:image'&gt;</code>"
-    },{
-      code: "og_author",
-      description: "<code>&lt;meta name='og:author'&gt;</code>"
-    },{
-      code: "og_publish_time",
-      description: "<code>&lt;meta name='og:published_time'&gt;</code>"
-    }]
-    twitter_cards = [{
-      code: "twitter_image",
-      description: "<code>&lt;meta name='twitter:image'&gt;</code>"
     }]
   -%>
 
@@ -88,78 +79,96 @@
 
   <hr />
 
-  <h2 class="heading-two">Meta tags</h2>
+  <h2 class="heading-two">Meta tags and the meta helper</h2>
 
-  <p>Ornament has a series of yields that you can use on your page to push content to your meta tags</p>
+  <p>The <code>meta</code> rails helper can be used to populate the SEO partial in your view:</p>
 
-  <div class="table-container">
-    <table class="table table__bordered table__flush">
-      <thead>
-        <tr>
-          <th width="200">content_for</th>
-          <th>tag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%- meta.each do |field| -%>
-          <tr>
-            <td><%= field[:code] -%></td>
-            <td><%= raw field[:description] -%></td>
-          </tr>
-        <%- end -%>
-      </tbody>
-    </table>
-  </div>
+  <pre class="sg-pre prettyprint">
+meta({
+  title: "Page title",
+  description: "Custom page description",
+  image: "Custom meta share image"
+})</pre>
+
+  <p>You can specify custom options for twitter and facebook by using a nested structure like so:</p>
+
+  <pre class="sg-pre prettyprint">
+meta({
+  title: "Page title",
+  description: "Custom page description",
+  image: "Custom meta share image",
+  facebook: {
+    title: "Custom facebook title",
+    image: "Custom facebook image"
+  }
+})</pre>
+
+  <p>The full list of options:</p>
+
+  <pre class="sg-pre prettyprint">
+meta({
+  title: "Page/Tab/Window title",
+  description: "meta description, facebook description, twitter description",
+  keywords: "meta keywords",
+  image: "meta image, facebook image, twitter image",
+  theme_colour: "PWA theme colour",
+  facebook: {
+    title: "Facebook title",
+    description: "Facebook description",
+    image: "Facebook image",
+    url: "Facebook URL override",
+    author: "Facebook author",
+    publish_time: "Facebook publish time",
+  },
+  twitter: {
+    title: "Twitter title",
+    description: "Twitter description",
+    image: "Twitter image",
+    image_alt: "Twitter image description for visually impaired",
+    url: "Twitter URL override",
+    site: "Twitter site override (if seperate from global setting)",
+    creator: "Twitter creator override (if seperate from global setting)",
+    card: "Twitter card tag, defaults to summary, or summary_large_image if there's an image"
+  }
+})</pre>
 
   <hr />
 
-  <h2 class="heading-two">Opengraph</h2>
+  <h2 class="heading-two">Formatters</h2>
 
-  <p>By default if no <code>og_*</code> yields are used it will fallback to use the same values as the meta tags above where logical.</p>
+  <h3 class="heading-three">Images</h3>
 
-  <div class="table-container">
-    <table class="table table__bordered table__flush">
-      <thead>
-        <tr>
-          <th width="200">content_for</th>
-          <th>tag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%- opengraph.each do |field| -%>
-          <tr>
-            <td><%= field[:code] -%></td>
-            <td><%= raw field[:description] -%></td>
-          </tr>
-        <%- end -%>
-      </tbody>
-    </table>
-  </div>
+  <p>Images get passed through to the <code>share_image</code> helper.</p>
+  <p>This helper checks to see if it's a string (eg. URL), if it is, it then checks to see if it's an absolute URL and if it isn't will turn it in to one. If it is an absolute URL it will pass the string as-is back to the meta tag like nothing happened.</p>
+  <p>If it ISN'T a string, it's likely an image object, something like <code>resource.image</code>.</p>
+  <p>It will attempt to crop the image based on the scenario, eg. Default/Facebook will crop to 1200x630, twitter will crop to 800x418.</p>
 
   <hr />
 
-  <h2 class="heading-two">Twitter Cards</h2>
+  <h2 class="heading-two">Page titles</h2>
 
-  <p>Twitter cards will inherit from the opengraph tags above. If there are no opengraph tags it will fallback to the standard meta ones.</p>
+  <p>Note that Ornament uses a <code>title</code> yield for page titles. This will automatically pull from the <code>meta({ title })</code> option, but can be overridden with <code>content_for :title, "Custom view title"</code> to make the visible title on the page different from the window title.</p>
 
-  <div class="table-container">
-    <table class="table table__bordered table__flush">
-      <thead>
-        <tr>
-          <th width="200">content_for</th>
-          <th>tag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%- twitter_cards.each do |field| -%>
-          <tr>
-            <td><%= field[:code] -%></td>
-            <td><%= raw field[:description] -%></td>
-          </tr>
-        <%- end -%>
-      </tbody>
-    </table>
-  </div>
+  <hr />
+
+  <h2 class="heading-two">Structured data</h2>
+
+  <p>Structured data is some JSON you can add to your view to help Google represent your page in search results.</p>
+
+  <p>You can read more about that over at <a href="https://developers.google.com/search/docs/guides/intro-structured-data" target="_blank">the Google Developer Guides</a>.</p>
+
+  <p>To use it in Ornament, you simply need to define some content for the <code>structured_data</code> yield:</p>
+
+  <pre class="sg-pre prettyprint">&lt;% content_for :structured_data do %>
+  "@type": "Recipe",
+  "name": "Awesome recipe",
+  "author": "Katalyst",
+  "description": "Just a cool thing to make",
+&lt;% end %></pre>
+
+  <p>Note that the structured data yield will automatically add the <code>@context</code> key/value and drop you in to the main object, so the initial wrapping <code>{}</code> aren't needed.</p>
+
+  <p>If you don't define any content for it and the <code>use_structured_data</code> flag is enabled, some very basic structured data will be put on your page.</p>
 
   <hr />
 

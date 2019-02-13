@@ -133,9 +133,15 @@
               <div class="styleguide-page--main--container styleguide-page--main-content">
                 <a id="main" name="main" tabindex="-1"></a>
                 
-                <%- if content_for?(:title) -%>
+                <%- if content_for?(:title) || content_for?(:meta_title) -%>
                   <div class="page--title styleguide--title">
-                    <h2 class="heading-one" data-ignore-chapters><%= yield(:title) -%></h2>
+                    <h2 class="heading-one" data-ignore-chapters>
+                      <% if content_for? :title %>
+                        <%= yield :title %>
+                      <% elsif content_for? :meta_title %>
+                        <%= yield :meta_title %>
+                      <% end %>
+                    </h2>
                     <%= link_to raw("&lsaquo; Back"), styleguide_path -%>
                   </div>
                 <%- end -%>

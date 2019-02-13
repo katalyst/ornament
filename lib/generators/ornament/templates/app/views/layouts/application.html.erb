@@ -108,7 +108,7 @@
             has_sidebar = content_for?(:sidebar)
             is_reversed = content_for?(:sidebar_right) || content_for?(:page_reversed)
             is_fullwidth = content_for?(:page_fullwidth)
-            has_page_title = content_for?(:title)
+            has_page_title = content_for?(:meta_title) || content_for?(:title)
             
             page_class = "page"
             page_class += " page__with-sidebar" if has_sidebar
@@ -128,7 +128,11 @@
               <main class="page--main <%= yield(:layout_class) -%>" role="main" id="main">
                 <% if has_page_title %>
                   <h1 class="heading-one page--title">
-                    <%= yield :title %>
+                    <% if content_for? :title %>
+                      <%= yield :title %>
+                    <% elsif content_for? :meta_title %>
+                      <%= yield :meta_title %>
+                    <% end %>
                   </h1>
                 <% end %>
                 <% if content_for?(:global) || !yield.blank? %>
