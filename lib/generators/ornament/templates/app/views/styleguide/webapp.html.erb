@@ -1,0 +1,14 @@
+<% content_for :title, "Add to Home Screen (A2HS)" %>
+
+<div class="content-spacing">
+
+  <p>By default, all <a href="https://developers.google.com/web/fundamentals/app-install-banners/" target="_blank">Add to Home Screen</a> functionality is disabled.</p>
+  <p>There are two steps you need to take in order to create a custom UI for add to homescreen.</p>
+  <p>First, open up <code>register-service-worker.js</code> and enable the flag <code>showA2HSUI</code>.
+  <p>Now in your application any element you add the attribute <code>data-a2hs</code> to, will appear when the add to homescreen requirements have been met.</p>
+
+  <pre class="prettyprint sg-pre">&lt;button class="a2hs-button" data-a2hs>
+  Add to homescreen
+&lt;/button></pre>
+
+</div>

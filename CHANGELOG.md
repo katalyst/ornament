@@ -35,13 +35,12 @@ This will make RailsUJS a hard dependancy.
 - Added `coloured-headings` mixin to highlight headings in the normal `content` aspect, disabled by default
 - Added `aria-label` to various `nav` elements throughout styleguide
 - Removed unnecessary `role='navigation'` on some `nav` elements
-- Added a jQuery-less `cocoon.js` alternative, present in `vendor.js`, diabled by default
+- Added a jQuery-less `cocoon.js` alternative, present in `vendor.js`, disabled by default
 - Disabled jQuery by default along with any remaining components that require jQuery. These are considered opt-in and deprecated
 - Added base response in service worker to allow enhanced PWA banner and enhanced add2hs on Chrome for Android
-- Removed lightbox documentation and components in favour of a new React-based modal component
 - Disabled the native appinstallbanner call via `beforeinstallprompt` when a2hs UI is disabled - this means there is no app install prompt of any kind by default. Developers can either enable the call in `register-service-worker.js` or build a UI for it.
 - Added support for `{passive: true}` event listeners in `Ornament.U.bindOnce($element, "scroll", func, { passive: true });`
-- Removed the `Shadowable` JS utility in favour of a react `ShadowScroller` component
+- Added docs for a2hs
 
 ### Fixes
 
