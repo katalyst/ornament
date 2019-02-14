@@ -9,7 +9,7 @@
   use_structured_data ||= true
 
   # Defaults
-  site_name ||= "Ornament Pattern Library and UI/UX Documentation"
+  site_name ||= Rails.application.class.name.split("::").first.humanize
   meta_title ||= site_name
   meta_title_postfix ||= site_name
   meta_title_postfix_seperator ||= " - "

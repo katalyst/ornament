@@ -38,6 +38,7 @@ This will make RailsUJS a hard dependancy.
 
 - Added new `meta` rails helper to make setting lots of meta tags easier
 - Rebuilt the SEO partial to use the `meta` helper, added support for much more specific settings for things like twitter and facebook if they need to be different from the generic global stuff e.g. you can now set `facebook_title` for a facebook-specific title, `twitter_title` for a twitter-specific title and `title` for the page title tag
+- Using app name as default site name rather than Ornament Styleguide
 
 ### Changes
 
