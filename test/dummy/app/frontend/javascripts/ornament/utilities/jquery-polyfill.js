@@ -1,10 +1,10 @@
 (function (document, window, Ornament, Utils) {
   "use strict";
   
-  Ornament.$ = {};
-  // Ornament.$ = function(query){
-  //   return document.querySelectorAll(query);
-  // }
+  // Shorthand for querySelectorAll
+  Ornament.$ = function(query){
+    return document.querySelectorAll(query);
+  }
 
   // Get the index of an element
   Ornament.$.nodeIndex = function(elm){

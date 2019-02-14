@@ -52,6 +52,7 @@ This will make RailsUJS a hard dependancy.
 - Disabled the native appinstallbanner call via `beforeinstallprompt` when a2hs UI is disabled - this means there is no app install prompt of any kind by default. Developers can either enable the call in `register-service-worker.js` or build a UI for it.
 - Added support for `{passive: true}` event listeners in `Ornament.U.bindOnce($element, "scroll", func, { passive: true });`
 - Added docs for a2hs
+- Added jQuery-esque selector shorthand `Ornament.$()`
 
 ### Fixes
 
