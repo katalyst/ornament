@@ -236,7 +236,7 @@ if(!window.Rails) {
   // be initialised.
   Ornament.initComponents = function(components) {
     components = components || Object.keys(Ornament.Components);
-    components.map(function(component) {
+    components.forEach(function(component) {
       Ornament.initComponent(component);
     });
   }
