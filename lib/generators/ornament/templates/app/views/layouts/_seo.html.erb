@@ -3,10 +3,10 @@
   # Settings
   cache_version ||= "1"
   koi_settings ||= true
-  use_facebook ||= true
-  use_twitter ||= true
-  use_pwa_settings ||= true
-  use_structured_data ||= true
+  disable_facebook ||= false
+  disable_twitter ||= false
+  disable_pwa_settings ||= false
+  disable_structured_data ||= false
 
   # Defaults
   site_name ||= Rails.application.class.name.split("::").first.humanize
@@ -187,9 +187,10 @@
 <% if meta_image.present? %>
   <link rel="image_src" href="<%= meta_image %>" />
 <% end %>
+  <meta name="theme-color" content="<%= meta_theme_colour %>" />
 
 <%# Facebook Output %>
-<% if use_facebook %>
+<% unless disable_facebook %>
   <meta property="og:site_name" content="<%= site_name %>" />
   <meta property="og:title" content="<%= meta_postfixer(facebook_title, meta_title_postfix, meta_title_postfix_seperator) %>" />
   <meta property="og:url" content="<%= facebook_url %>" />
@@ -214,7 +215,7 @@
 <% end %>
 
 <%# Twitter Output %>
-<% if use_twitter %>
+<% unless disable_twitter %>
   <meta name="twitter:card" content="<%= twitter_card_type %>" />
   <% if twitter_site.present? %>
     <meta name="twitter:site" content="<%= twitter_site %>" />
@@ -234,19 +235,18 @@
 <% end %>
 
 <%# Application Icons %>
-<% if use_pwa_settings %>
+<% unless disable_pwa_settings %>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="manifest" href="<%= webmanifest_path(format: :webmanifest) %>" />
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="<%= meta_theme_colour %>" />
-  <meta name="theme-color" content="<%= meta_theme_colour %>" />
 <% end %>
 
 <%# Strucuted Data for enhanced search results %>
 <%# Docs - https://developers.google.com/search/docs/guides/enhance-site %>
 <%# Testing tool - https://search.google.com/structured-data/testing-tool %>
-<% if use_structured_data %>
+<% unless disable_structured_data %>
   <script type="application/ld+json">
   {
     "@context": "http://schema.org",
