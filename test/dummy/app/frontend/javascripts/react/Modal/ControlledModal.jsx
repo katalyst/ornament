@@ -1,6 +1,7 @@
 import React from "react";
 import ReactModal from 'react-modal';
 import ShadowScroller from '../ShadowScroller/ShadowScroller';
+import RatioSizer from '../RatioSizer/RatioSizer';
 
 /*
 
@@ -75,9 +76,9 @@ export default class ControlledModal extends React.Component {
     // Video content
     if(this.props.video) {
       content = 
-        <div className="embed__youtube">
+        <RatioSizer ratio={this.props.ratio || "16x9"}>
           <iframe src={this.props.video} frameBorder="0" allowFullScreen></iframe>
-        </div>
+        </RatioSizer>
 
     // Youtube embed
     } else if(this.props.youtube) {
