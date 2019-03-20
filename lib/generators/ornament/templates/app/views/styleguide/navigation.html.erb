@@ -13,13 +13,30 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament1", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav aria-label="Global Navigation">
-    &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example1" %>
+    &lt;%= koi_render_navigation({
+      cache_key: "header_nav",
+      nav_items_fetch_key: "header_navigation",
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "example1",
+      icons: true,
+      toggles: true,
+    }) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
 <div class="navigation">
   <nav aria-label="Global Navigation">
-    <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example1" %>
+    <%= render_navigation({
+      context: :styleguide_sample,
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "example1",
+      icons: true,
+      toggles: true,
+     }) %>
   </nav>
 </div>
   <%- end -%>
@@ -46,54 +63,143 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <hr />
   <h2 class="heading-two">Split parent icons</h2>
 
-  <p>If you would like parent items to act as links with a secondary button to toggle child menus, you can use the <code>split_parents: true</code> option:</p>
+  <p>To split the toggle button and still have the parent link as an actual link, you can change <code>toggle: true</code> to <code>toggle: "split"</code>.</p>
+  <p>Keyboard shortcuts will work on both the parent link and the toggle button.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament-split", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav aria-label="Global Navigation">
-    &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example-split", split_parents: true %>
+    &lt;%= koi_render_navigation({
+      cache_key: "header_nav",
+      nav_items_fetch_key: "header_navigation",
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "example-split",
+      toggles: "split",
+      icons: true,
+    }) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
 <div class="navigation">
   <nav aria-label="Global Navigation">
-    <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example-split", split_parents: true %>
+    <%= render_navigation({
+      context: :styleguide_sample,
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "example-split",
+      toggles: "split",
+      icons: true,
+    }) %>
   </nav>
 </div>
   <%- end -%>
 
   <hr />
-  <h2 class="heading-two">No icons</h2>
-  <p><code>no_icons: true</code> will render the menu without the automatic svg arrow icons, this could be useful if you want to use CSS arrows instead.</p>
+  <h2 class="heading-two">Icons</h2>
+  
+  <p><code>icons: true</code> will render the chevron icons by default. You can omit this option to render without icons:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament2", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav>
-    &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example2", no_icons: true %>
+    &lt;%= koi_render_navigation({
+      cache_key: "header_nav",
+      nav_items_fetch_key: "header_navigation",
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "nav-no-icons",
+      toggles: true,
+    }) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
 <div class="navigation">
   <nav aria-label="Global Navigation">
-    <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example2", no_icons: true %>
+    <%= render_navigation({
+      context: :styleguide_sample,
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "nav-no-icons",
+      toggles: true,
+    }) %>
+  </nav>
+</div>
+  <%- end -%>
+
+  <p>Alternatively you can pass a hash to define the expand and collapse icons, <code>icons: { expand: icon("expand"), collapse: icon("collapse") }</code>:
+  <p>If you only pass in <code>expand</code> you will simply override the default icon.</p>
+  <p>If you pass in both <code>expand</code> and <code>collapse</code> you will then be able to swap the icon based on active state.</p>
+  <p>This can be handy if you have entirely different icons for collapse and expand states, however it is recommended to use a single icon and animate it when you can.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-icons-custom", no_html: true, ruby: capture { -%>
+&lt;div class="navigation">
+  &lt;nav>
+    &lt;%= koi_render_navigation({
+      cache_key: "header_nav",
+      nav_items_fetch_key: "header_navigation",
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "nav-icons-custom",
+      toggles: true,
+      icons: {
+        expand: icon("star_empty"),
+        collapse: icon("star"),
+      }
+    }) %>
+  &lt;/nav>
+&lt;/div>
+  <%- } } do -%>
+<div class="navigation">
+  <nav aria-label="Global Navigation">
+    <%= render_navigation({
+      context: :styleguide_sample,
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "nav-icons-custom",
+      toggles: true,
+      icons: {
+        expand: icon("star_empty"),
+        collapse: icon("star"),
+      }
+    }) %>
   </nav>
 </div>
   <%- end -%>
 
   <hr />
   <h2 class="heading-two">Hover instead of toggle</h2>
-  <p><code>no_toggle: true</code> will disable the click-to-toggle subnavigation behaviour. Keep in mind that doing this will negatively impact the accessibility of the menu and is not recommended.</p>
+  <p>Omit the <code>toggle</code> option and you will get hover menus instead:</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament3", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav>
-    &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example3", no_icons: true, no_toggle: true %>
+    &lt;%= koi_render_navigation({
+      cache_key: "header_nav",
+      nav_items_fetch_key: "header_navigation",
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "nav-hover",
+    }) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
 <div class="navigation">
   <nav aria-label="Global Navigation">
-    <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example3", no_icons: true, no_toggle: true %>
+    <%= render_navigation({
+      context: :styleguide_sample,
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "nav-hover",
+    }) %>
   </nav>
 </div>
   <%- end -%>
@@ -101,32 +207,42 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <hr />
   <h2 class="heading-two">Basic</h2>
 
-  <p>If you are intending to hide the arrows and disable the toggle functions, you may be interested in the <code>basic</code> option which removes all toggles and icons and generates just a nested unordered list for use with things like the Drilldown component or anything else that requires just a regular old <code>ul</code>.</p>
+  <p>When you omit the icons and toggle options you end up with a pretty basic unordered list, which can be useful if you're pushing the list to another widget, such as the dropdown component.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament-basic", no_html: true, ruby: capture { -%>
 &lt;div data-drilldown>
-  &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example4", basic: true %>
+  &lt;%= koi_render_navigation({
+    cache_key: "header_nav",
+    nav_items_fetch_key: "header_navigation",
+    renderer: :ornament_menu,
+    level: 1..3,
+    expand_all: true,
+    id_namespace: "basic",
+  }) %>
 &lt;/div>
   <%- } } do -%>
 <div data-drilldown>
-  <%= render_navigation context: :styleguide_sample, renderer: :ornament_menu, level: 1..3, expand_all: true, id_namespace: "example4", basic: true %>
+  <%= render_navigation({
+    context: :styleguide_sample,
+    renderer: :ornament_menu,
+    level: 1..3,
+    expand_all: true,
+    id_namespace: "basic",
+  }) %>
 </div>
   <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Classes</h2>
+
+  <p>If you want to customise the classes, you can pass in <code>class_prefix</code>.</p>
 
   <hr />
   <h2 class="heading-two">No renderer</h2>
 
   <p>If you aren't using simple-navigation, you can leverage the navigation classes in your HTML to produce basic hover navigation variation:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-simple", ruby: capture { -%>
-&lt;div class="navigation">
-  &lt;div class="layout--container">
-    &lt;nav class="navigation__simple">
-      &lt;%= koi_render_navigation "header_nav", "header_navigation", renderer: :sf_menu, level: 1..3, expand_all: true %>
-    &lt;/nav>
-  &lt;/div>
-&lt;/div>
-  <%- } } do -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-simple" } do -%>
 <div class="navigation">
   <nav aria-label="Global Navigation" class="navigation__simple">
     <ul>

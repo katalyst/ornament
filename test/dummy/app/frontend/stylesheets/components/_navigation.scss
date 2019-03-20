@@ -41,8 +41,9 @@ $navigation-hover-bg: rgba($black, .05);
   // Blockerising all link elements
   a, button {
     display: block;
+
     > span {
-      display: block;
+      display: flex;
     }
   }
 }
@@ -138,12 +139,32 @@ $navigation-hover-bg: rgba($black, .05);
 }
 
 // =========================================================================
+// Icon toggling
+// =========================================================================
+
+.simple-navigation--icon {
+  .simple-navigation--icon--collapse {
+    display: none;
+  }
+  
+  .active > span > & {
+    & > .simple-navigation--icon--expand {
+      display: none;
+    }
+    & > .simple-navigation--icon--collapse {
+      display: block;
+    }
+  } 
+}
+
+// =========================================================================
 // Second level
 // =========================================================================
 
 .navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown,
 .navigation__simple ul ul,
-.simple-navigation--nested {
+.simple-navigation--nested,
+.simple-navigation__without-toggles ul {
   display: none;
   position: absolute;
   background: $white;
@@ -206,12 +227,12 @@ $navigation-hover-bg: rgba($black, .05);
       transform: rotate(180deg);
     }
   }
+}
 
-  // Ornament nav renderer without-toggles class allows hover
-  // to show subnavigation
-  .simple-navigation__without-toggles li:hover > & {
-    display: block;
-  }
+// Ornament nav renderer without-toggles class allows hover
+// to show subnavigation
+.simple-navigation__without-toggles li:hover > ul {
+  display: block;
 }
 
 // Menu with more / last items should go to the left rather
@@ -246,7 +267,8 @@ li:last-child .simple-navigation--nested,
 // =========================================================================
 
 .navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown ul,
-.navigation nav > ul > li > .simple-navigation--nested .simple-navigation--nested {
+.navigation nav > .simple-navigation__with-toggles > li > .simple-navigation--nested .simple-navigation--nested,
+.navigation nav > .simple-navigation__without-toggles > li > ul ul {
   top: 0;
   left: 100%;
 }

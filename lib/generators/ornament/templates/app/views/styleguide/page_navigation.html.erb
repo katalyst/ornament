@@ -2,8 +2,16 @@
 
 <div class="content-spacing">
 
-  <p>By default, Ornament doesn't come with any out-of-the-box sidebar navigation styling.</p>
-  <p>This page instead will act as a cookbook of receipes for building second-level page navigation.</p>
+  <h2 class="heading-two">Renderer</h2>
+
+  <%= render_navigation({
+    context: :styleguide_sample,
+    renderer: :ornament_menu,
+    level: 1..3,
+    expand_all: true,
+    id_namespace: "example-pagenav",
+    toggles: true
+  }) %>
 
   <hr />
   <h2 class="heading-two">Managing tree levels</h2>
