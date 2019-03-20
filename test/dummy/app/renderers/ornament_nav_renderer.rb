@@ -51,6 +51,7 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     item_container.dom_id = options.delete(:dom_id) if options.has_key?(:dom_id)
     item_container.dom_class += " " + get_class(has_icons ? "__with-icons" : "__without-icons")
     item_container.dom_class += " " + get_class(has_toggles ? "__with-toggles" : "__without-toggles")
+    item_container.dom_class += " level-#{item_container.level}"
     super
   end
 
@@ -158,9 +159,10 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
 
       # Build the tag for the link/button/span
       li_content = tag_for(item, item_container.level)
+      li_options[:class] = li_options[:class] || ""
+
       if include_sub_navigation?(item)
 
-        li_options[:class] = li_options[:class] || ""
         li_options[:class] += " has-children"
 
         li_options[:data] = li_options[:data] ||{}

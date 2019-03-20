@@ -179,7 +179,9 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
 
   <hr />
   <h2 class="heading-two">Hover instead of toggle</h2>
-  <p>Omit the <code>toggle</code> option and you will get hover menus instead:</p>
+  <p>Omit the <code>toggle</code> option and you will get hover menus instead.</p>
+  <p>Keyboard shortcuts will no longer work as they are tied to the toggle actions.</p>
+  <p>When focusing on parent links as a keyboard user the child menu will appear, note this can be quite jarring for screen reader users. This approach is provided but advised against.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament3", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
@@ -249,7 +251,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-simple" } do -%>
 <div class="navigation">
   <nav aria-label="Global Navigation" class="navigation__simple">
-    <ul>
+    <ul class="level-1">
       <li>
         <a href="#">Home</a>
       </li>

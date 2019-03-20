@@ -3,7 +3,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
     primary.item :Eu, "Eu", "#Eu"
     primary.item :magna, "magna", "#magna" do |secondary|
-      secondary.item :laborum, "laborum", "#laborum"
+      secondary.item :laborum, "laborum", "#laborum", highlights_on: //
       secondary.item :exercitation, "exercitation", "#exercitation"
       secondary.item :anim, "anim", "#anim"
     end
