@@ -51,6 +51,7 @@ window.store = window.store || require("store/dist/store.modern");
 
 // IE11 Polyfills
 import "../vendor/polyfills/element.remove";
+import "../vendor/polyfills/custom-events";
 
 // Future Polyfills
 import "../vendor/polyfills/array.from";

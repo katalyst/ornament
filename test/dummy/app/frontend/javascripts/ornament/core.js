@@ -80,45 +80,30 @@ if(!window.Rails) {
   // Events
   // =========================================================================
 
-  /*
-    Rails UJS for custom events
-    Ornament.triggerEvent($element, "custom-event-name");
-
-    If no element, assume triggering on `document`
-    Ornament.triggerEvent("custom-event-name") -> Ornament.triggerEvent(document, "custom-event-name");
-
-    You can pass other related data as the third param (or second if omittting element)
-    Ornament.triggerEvent($element, "custom-event-name", { customData });
-    Ornament.triggerEvent("custom-event-name", { customData });
-
-    Listen for events using regular old addEventListener
-    $element.addEventListener("custom-event-name", event => {
-      event.details // { customData }
-    });
-
-    You can also use the bindOnce utility to make sure that you aren't
-    doubling up on bindings:
-    Ornament.U.bindOnce($element, "custom-event-name", function);
-
-    If the elements aren't guaranteed to be on the DOM before you bind
-    your events (eg. ajax, react etc.) then delegated events are
-    recommend. You can use RailsUJS for this:
-    Rails.delegate(document, "[data-my-selector]", "click", function);
-
-    It's recommended to namespace your events to avoid collisions with
-    other libraries and even native browser events, eg:
-    Ornament.triggerEvent($element, "ornament:component-name:event-name");
-    Ornament.triggerEvent($element, "ornament:toggle:toggled-on");
-    Ornament.triggerEvent($element, "ornament:navigation:parent-clicked");
-  */
   Ornament.triggerEvent = (first, ...rest) => {
-    // If first argument is a string, assume it's the event
-    // name and that we're binding on document
+    let element, name, detail, bubbles, cancelable;
+    let optionOffset = 0;
+
     if(typeof first === "string") {
-      Rails.fire(document, first, ...rest);
+      element = document;
+      name = first;
+      optionOffset = -1;
     } else {
-      Rails.fire(first, ...rest);
+      element = first;
+      name = rest[0];
     }
+
+    detail = rest[1 + optionOffset];
+    bubbles = rest[2 + optionOffset] || false;
+    cancelable = rest[3 + optionOffset] || true;
+
+    const event = new CustomEvent(name, {
+      bubbles,
+      cancelable,
+      detail,
+    });
+    element.dispatchEvent(event);
+    return !event.defaultPrevented;
   };
 
   // =========================================================================

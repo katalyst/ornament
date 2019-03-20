@@ -8,10 +8,6 @@ There are functions that both Ornament and RailsUJS have built to get around the
 Rather than both building out functionality and doubling up on code, Ornament will start moving toward using RailsUJS' functions rather than providing our own.  
 This will make RailsUJS a hard dependancy. 
 
-- Replaced `Ornament.triggerEvent` as an alias for `Rails.fire`
-- `Ornament.triggerEvent` first argument is now optional. If the first argument is a string it will be treated as an event on `document`:
-  - `Ornament.triggerEvent("event-name") -> Ornament.triggerEvent(document, "event-name");`
-
 ### Layout changes
 
 - Merged `application` and `global` layouts, removing the `global` layout
@@ -53,6 +49,7 @@ This will make RailsUJS a hard dependancy.
 - Added support for `{passive: true}` event listeners in `Ornament.U.bindOnce($element, "scroll", func, { passive: true });`
 - Added docs for a2hs
 - Added jQuery-esque selector shorthand `Ornament.$()`
+- `Ornament.triggerEvent` first argument is now optional, if left out will be triggered on `document`
 
 ### Fixes
 
