@@ -44,12 +44,15 @@ This will make RailsUJS a hard dependancy.
 - Removed unnecessary `role='navigation'` on some `nav` elements
 - Added a jQuery-less `cocoon.js` alternative, present in `vendor.js`, disabled by default
 - Disabled jQuery by default along with any remaining components that require jQuery. These are considered opt-in and deprecated
+- Added docs for a2hs
 - Added base response in service worker to allow enhanced PWA banner and enhanced add2hs on Chrome for Android
 - Disabled the native appinstallbanner call via `beforeinstallprompt` when a2hs UI is disabled - this means there is no app install prompt of any kind by default. Developers can either enable the call in `register-service-worker.js` or build a UI for it.
 - Added support for `{passive: true}` event listeners in `Ornament.U.bindOnce($element, "scroll", func, { passive: true });`
-- Added docs for a2hs
 - Added jQuery-esque selector shorthand `Ornament.$()`
 - `Ornament.triggerEvent` first argument is now optional, if left out will be triggered on `document`
+- Navigation now has `selected` styling along with samples
+- Navigation focus styles only show for keyboard users
+- Navigation child menus appear when focused on parent links when not using toggles, as a keyboard user, in browsers that support `focus-within`
 
 ### Fixes
 
