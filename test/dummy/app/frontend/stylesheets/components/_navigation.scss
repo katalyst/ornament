@@ -227,7 +227,9 @@ $navigation-hover-bg: rgba($black, .05);
 
   // Second / third-level active state
   .selected {
-    a, button, span {
+    > a,
+    > button,
+    > span {
       @include color-link($primary-color, $primary-color);
     }
   }
