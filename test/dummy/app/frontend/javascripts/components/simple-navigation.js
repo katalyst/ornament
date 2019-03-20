@@ -73,7 +73,7 @@
     },
 
     bindItemFunctions: function($node) {
-      var $menuContainer = $node.closest(".simple-navigation--nested");
+      var $menuContainer = $node.closest("[data-navigation-nested]");
       var $parentAnchor = $menuContainer.parentElement.querySelector("[data-toggle-anchor]");
       var $listItem = $node.closest("li"); // li
       var $list = $listItem.closest("ul"); // ul

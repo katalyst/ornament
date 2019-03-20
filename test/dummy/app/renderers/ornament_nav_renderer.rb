@@ -1,4 +1,39 @@
-# Custom simple-navigation renderer to add some enhancements 
+#
+# Ornament SimpleNavigation Renderer
+#
+# Custom renderer to add some common enhancements
+#
+# Use basic version just renders a standard UL:
+# 
+# render_navigation({
+#   renderer: ornament_menu,
+#   levels: 1..3,
+#   expand_all: true,
+# })
+#
+# Custom options:
+# 
+# id_namespace: "string"
+# Namespace the `id` attributes to prevent duplicate IDs when navitems
+# appear on the same page more than once
+#
+# class_prefix: "string"
+# Namespace the classes to provide unique styling options without having to
+# worry about naming collisions or specificity
+#
+# toggles: true || "split"
+# Warning: This requires the ornament library `toggle`
+# Make parent links act as `button` elements with toggles to show child
+# menus
+# If set to true, the entire link acts as the toggle button
+# If set to "split", there will be a second button next to the link
+# that will act as the toggle
+#
+# icons: true || { expand: icon("plus"), collapse: icon("minus") }
+# Renders SVG icons inside parent links/toggle buttons
+# If set to true, the default chevron icons will be used
+# If set to a hash it will use the `expand` when closed and `collapse`
+# when opened
 
 class OrnamentNavRenderer < SimpleNavigation::Renderer::List
   include OrnamentSvgHelper
@@ -14,8 +49,8 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     item_container.dom_class = ""
     item_container.dom_class = options.delete(:dom_class) if options.has_key?(:dom_class)
     item_container.dom_id = options.delete(:dom_id) if options.has_key?(:dom_id)
-    item_container.dom_class += has_icons ? " simple-navigation__with-icons" : " simple-navigation__without-icons"
-    item_container.dom_class += has_toggles ? " simple-navigation__with-toggles" : " simple-navigation__without-toggles"
+    item_container.dom_class += " " + get_class(has_icons ? "__with-icons" : "__without-icons")
+    item_container.dom_class += " " + get_class(has_toggles ? "__with-toggles" : "__without-toggles")
     super
   end
 
@@ -46,22 +81,55 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
   # Flags and settings determined by wrapper
   # =========================================================================
 
+  def get_class(className)
+    prefix = options[:class_prefix] || "simple-navigation"
+    "#{prefix}#{className}"
+  end
+
   def has_toggles
-    !is_basic &&
-    !(options[:no_toggle] && options[:no_toggle].eql?(true))
+    options.has_key?(:toggles)
+  end
+
+  def has_temporary_toggles
+    options.has_key?(:temporary_toggles)
+  end
+
+  def has_split_toggles
+    options.has_key?(:toggles) && options[:toggles].eql?("split")
   end
 
   def has_icons
-    !is_basic &&
-    !(options[:no_icons] && options[:no_icons].eql?(true))
+    options.has_key?(:icons)
   end
 
-  def is_basic
-    options[:basic] && options[:basic].eql?(true)
-  end
+  def get_icons
+    icons = options[:icons]
+    if !icons
+      return
+    end
+    
+    if icons.eql?(true)
+      icons = { 
+        expand: icon('chevron_right'),
+        collapse: false,
+      }
+    end
+    icons
 
-  def has_split_icons
-    options[:split_parents] && options[:split_parents].eql?(true)
+    expand_icon = icons[:expand]
+
+    if icons[:collapse]
+      collapse_icon = icons[:collapse]
+    end
+
+    if collapse_icon
+      content_tag(:div, (
+        content_tag(:div, expand_icon, class: get_class("--icon--expand")) + 
+        (content_tag(:div, collapse_icon, class: get_class("--icon--collapse")) if collapse_icon)
+      ), class: get_class("--icon"));
+    else
+      content_tag(:div, expand_icon, class: get_class("--icon"));
+    end
   end
 
   def accessible
@@ -96,24 +164,26 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
         li_options[:class] += " has-children"
 
         li_options[:data] = li_options[:data] ||{}
-        if has_split_icons
+        if has_split_toggles
           li_options[:data][:split_icon_parent] = ""
         end
 
         # Build subnavigation with accessible considerations
         # if accessible is enabled
         subnav_container_options = {}
-        subnav_container_options[:class] = "simple-navigation--nested"
+        subnav_container_options[:class] = get_class("--nested")
+        subnav_container_options[:data] ||= {}
+        subnav_container_options[:data][:navigation_nested] = ""
 
         if accessible 
-          subnav_container_options[:data] = {}
+          subnav_container_options[:data] ||= {}
           if has_toggles
             subnav_container_options[:data][:toggle] = build_item_key(item)
-            subnav_container_options[:data][:toggle_temporary] = ""
+            subnav_container_options[:data][:toggle_temporary] = "" if has_temporary_toggles
           end
         end
 
-        if is_basic
+        if !has_toggles
           li_content << render_sub_navigation_for(item)
         else
           li_content << content_tag(:div, render_sub_navigation_for(item), subnav_container_options)
@@ -166,22 +236,22 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
       if has_toggles
         toggle_options[:data][:toggle_anchor] = build_item_key(item)
         toggle_options[:data][:toggle_timing] = "100"
-        toggle_options[:data][:toggle_temporary_anchor] = ""
+        toggle_options[:data][:toggle_temporary_anchor] = "" if has_temporary_toggles
       end
 
       # Render the button with all the options
-      if has_icons && !has_split_icons
-        item_content = "#{item.name} #{icon('chevron_right')}"
+      if has_icons && !has_split_toggles
+        item_content = "#{item.name} #{get_icons()}"
       else
         item_content = item.name
       end
 
       # Split parents have a link + button
-      if has_split_icons
+      if has_split_toggles
         content_tag(:div, (
           link_to(content_tag(:span, item_content), item.url, link_options) +
-          content_tag('button', icon('chevron_right'), toggle_options)
-        ), class: "simple-navigation--split-parent")
+          content_tag('button', get_icons(), toggle_options)
+        ), class: get_class("--split-parent"))
 
       # Non-split parents have just a button
       else
