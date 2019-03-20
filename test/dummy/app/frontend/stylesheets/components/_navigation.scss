@@ -2,6 +2,7 @@ $navigation-menu-width: 200px;
 $navigation-padding-y: $xxxx-small-unit;
 $navigation-padding-x: $xxx-small-unit;
 $navigation-hover-bg: rgba($black, .05);
+$navigation-selected-color: $primary-color;
 
 // =========================================================================
 // Navigation bar
@@ -58,7 +59,7 @@ $navigation-hover-bg: rgba($black, .05);
   > li.selected > .simple-navigation--split-parent {
     > a,
     > button {
-      @include color-link($primary-color, $primary-color);
+      @include color-link($navigation-selected-color, $navigation-selected-color);
     }
   }
 
@@ -73,7 +74,7 @@ $navigation-hover-bg: rgba($black, .05);
       left: $navigation-padding-x;
       right: $navigation-padding-x;
       height: 4px;
-      background-color: $primary-color;
+      background-color: $navigation-selected-color;
       z-index: 2;
     }
   }
@@ -226,11 +227,12 @@ $navigation-hover-bg: rgba($black, .05);
   }
 
   // Second / third-level active state
-  .selected {
+  li.selected,
+  li.selected .simple-navigation--split-parent {
     > a,
     > button,
     > span {
-      @include color-link($primary-color, $primary-color);
+      @include color-link($navigation-selected-color, $navigation-selected-color);
     }
   }
 
