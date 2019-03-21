@@ -26,8 +26,7 @@
     display: inline-block;
   }
 
-  > ul > li > a,
-  > ul > li > button,
+  > ul > li,
   > span {
     font-size: $base-font-size;
   }

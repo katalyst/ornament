@@ -304,9 +304,16 @@ li:last-child .simple-navigation--nested,
 // =========================================================================
 
 // Push third level to the right
-.navigation nav > .nav__dropdown-wrapper > ul.nav__dropdown ul,
 .navigation nav > .simple-navigation__with-toggles > li > .simple-navigation--nested .simple-navigation--nested,
 .navigation nav > .simple-navigation__without-toggles > li > ul ul {
   top: 0;
   left: 100%;
+}
+
+// Push priority nav to the right
+.nav__dropdown-wrapper > ul.nav__dropdown .simple-navigation--nested,
+.nav__dropdown-wrapper > ul.nav__dropdown ul {
+  top: 0;
+  right: 100%;
+  left: auto;
 }
