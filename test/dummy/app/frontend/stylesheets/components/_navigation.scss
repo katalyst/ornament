@@ -39,9 +39,9 @@ $navigation-selected-color: $primary-color;
   }
 }
 
-.navigation .level-1 {
-  > li > a,
-  > li > button,
+.navigation {
+  .level-1 > li > a,
+  .level-1 > li > button,
   .priority-nav__dropdown-toggle {
     position: relative;
     padding: $navigation-padding-y $navigation-padding-x;
@@ -56,8 +56,8 @@ $navigation-selected-color: $primary-color;
   }
 
   // Colouring links and buttons when selected
-  > li.selected,
-  > li.selected > .simple-navigation--split-parent {
+  .level-1 > li.selected,
+  .level-1 > li.selected > .simple-navigation--split-parent {
     > a,
     > button {
       @include color-link($navigation-selected-color, $navigation-selected-color);
@@ -65,9 +65,9 @@ $navigation-selected-color: $primary-color;
   }
 
   // Selected state bar at bottom of first level elements
-  > li.selected > a,
-  > li.selected > button,
-  > li.selected > .simple-navigation--split-parent {
+  .level-1 > li.selected > a,
+  .level-1 > li.selected > button,
+  .level-1 > li.selected > .simple-navigation--split-parent {
     &::before {
       content: "";
       position: absolute;
