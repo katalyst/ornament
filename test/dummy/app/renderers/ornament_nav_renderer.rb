@@ -115,7 +115,6 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
         collapse: false,
       }
     end
-    icons
 
     expand_icon = icons[:expand]
 
@@ -162,7 +161,6 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
       li_options[:class] = li_options[:class] || ""
 
       if include_sub_navigation?(item)
-
         li_options[:class] += " has-children"
 
         li_options[:data] = li_options[:data] ||{}
@@ -232,7 +230,7 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     end
 
     # Parent links
-    if accessible && include_sub_navigation?(item)
+    if include_sub_navigation?(item)
       
       # Add data-toggle attributes
       if has_toggles

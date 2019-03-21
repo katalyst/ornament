@@ -27,6 +27,7 @@ $navigation-selected-color: $primary-color;
   // Blockerising all link elements
   a, button {
     display: block;
+    @include decorate-link(none, none);
 
     > span {
       display: flex;
