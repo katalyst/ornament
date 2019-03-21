@@ -254,8 +254,10 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
         ), class: get_class("--split-parent"))
 
       # Non-split parents have just a button
-      else
+      elsif has_toggles
         content_tag('button', content_tag(:span, item_content), link_options.merge(toggle_options))
+      else
+        link_to(content_tag(:span, item_content), item.url, link_options.merge(toggle_options))
       end
 
     # Non-parents get either just a span (for no link) or a link
