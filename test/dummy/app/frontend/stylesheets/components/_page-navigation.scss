@@ -82,10 +82,6 @@ $page-navigation-selected-color: $primary-color;
 // Level 2
 // =========================================================================
 
-.page-navigation .level-2 {
-  border-top: $divider;
-}
-
 .page-navigation .level-2,
 .page-navigation .level-3 {
   padding: $xxx-small-unit;
@@ -94,6 +90,11 @@ $page-navigation-selected-color: $primary-color;
   li + li {
     margin-top: $xxxxx-small-unit;
   }
+}
+
+.page-navigation .level-2 {
+  border-top: $divider;
+  padding-left: $x-small-unit;
 }
 
 // =========================================================================
