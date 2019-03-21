@@ -78,60 +78,88 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     end
   end
 
-  # =========================================================================
-  # Flags and settings determined by wrapper
-  # =========================================================================
-
+  # Build a class with either an optional prefix or the default
+  # get_class("--my-class") => "simple-navigation--my-class"
   def get_class(className)
     prefix = options[:class_prefix] || "simple-navigation"
     "#{prefix}#{className}"
   end
 
-  def has_toggles
-    options.has_key?(:toggles)
-  end
-
-  def has_temporary_toggles
-    options.has_key?(:temporary_toggles)
-  end
-
-  def has_split_toggles
-    options.has_key?(:toggles) && options[:toggles].eql?("split")
-  end
-
-  def has_icons
-    options.has_key?(:icons)
-  end
-
+  # Helper to build out markup for icons
+  # Will return HTML
   def get_icons
+
+    # Get icons from settings
     icons = options[:icons]
+
+    # Return nothing if icons is false (default)
+    # To continue add the icons property to your navigation
     if !icons
       return
     end
     
+    # If icons = true, we need to build a quick hash of the expand/collapse
+    # icons to match the custom icon format
     if icons.eql?(true)
       icons = { 
         expand: icon('chevron_right'),
-        collapse: false,
       }
     end
 
+    # Store the icons as variables
     expand_icon = icons[:expand]
-
     if icons[:collapse]
       collapse_icon = icons[:collapse]
     end
 
+    # If there's a collapse icon, we want to render both icons
+    # CSS can be used to show/hide the exapnded/collapsed icons
     if collapse_icon
       content_tag(:div, (
         content_tag(:div, expand_icon, class: get_class("--icon--expand")) + 
         (content_tag(:div, collapse_icon, class: get_class("--icon--collapse")) if collapse_icon)
       ), class: get_class("--icon"));
+
+    # If there's only an expand icon, we simplify the markup
     else
       content_tag(:div, expand_icon, class: get_class("--icon"));
     end
   end
 
+  # =========================================================================
+  # Flags and settings determined by wrapper
+  # =========================================================================
+
+  # Flag to check if toggles should be present
+  # toggles: true
+  def has_toggles
+    options.has_key?(:toggles)
+  end
+
+  # Flag to see if toggles should be split
+  # toggles: "split"
+  def has_split_toggles
+    options.has_key?(:toggles) && options[:toggles].eql?("split")
+  end
+
+  # Flag to check if the item should be toggled open by default
+  def has_toggle_default_open(item)
+    options.has_key?(:open_active_toggle) && item.selected?
+  end
+
+  # Flag to check if temporary toggles should be present
+  # temporary_toggles: true
+  def has_temporary_toggles
+    options.has_key?(:temporary_toggles)
+  end
+
+  # Flag to check if icons should be present
+  # icons: true
+  def has_icons
+    options.has_key?(:icons)
+  end
+
+  # Flag to check if keyboard access attributes should be added
   def accessible
     has_toggles
   end
@@ -160,6 +188,7 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
       li_content = tag_for(item, item_container.level)
       li_options[:class] = li_options[:class] || ""
 
+      # Check if this item has children
       if include_sub_navigation?(item)
         li_options[:class] += " has-children"
 
@@ -174,13 +203,12 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
         subnav_container_options[:class] = get_class("--nested")
         subnav_container_options[:data] ||= {}
         subnav_container_options[:data][:navigation_nested] = ""
+        subnav_container_options[:data] ||= {}
 
-        if accessible 
-          subnav_container_options[:data] ||= {}
-          if has_toggles
-            subnav_container_options[:data][:toggle] = build_item_key(item)
-            subnav_container_options[:data][:toggle_temporary] = "" if has_temporary_toggles
-          end
+        if has_toggles
+          subnav_container_options[:data][:toggle] = build_item_key(item)
+          subnav_container_options[:data][:toggle_temporary] = "" if has_temporary_toggles
+          subnav_container_options[:data][:toggle_default] = "" if has_toggle_default_open(item)
         end
 
         if !has_toggles
@@ -205,11 +233,12 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
 
     # Get simple-navigation options
     link_options = options_for(item)
-    link_options[:data] = link_options[:data] || {}
+    link_options[:data] ||= {}
 
     # Store toggle options
     toggle_options = {}
-    toggle_options[:data] = toggle_options[:data] || {}
+    toggle_options[:data] ||= {}
+    toggle_options[:class] ||= ""
     toggle_options[:title] = "Open menu"
 
     if accessible
@@ -237,6 +266,7 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
         toggle_options[:data][:toggle_anchor] = build_item_key(item)
         toggle_options[:data][:toggle_timing] = "100"
         toggle_options[:data][:toggle_temporary_anchor] = "" if has_temporary_toggles
+        toggle_options[:class] += "active" if has_toggle_default_open(item)
       end
 
       # Render the button with all the options
@@ -257,15 +287,15 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
       elsif has_toggles
         content_tag('button', content_tag(:span, item_content), link_options.merge(toggle_options))
       else
-        link_to(content_tag(:span, item_content), item.url, link_options.merge(toggle_options))
+        link_to(content_tag(:span, item_content), item.url, link_options)
       end
 
     # Non-parents get either just a span (for no link) or a link
     else
       if suppress_link?(item)
-        content_tag('span', item.name, link_options.merge(toggle_options))
+        content_tag('span', item.name, link_options)
       else
-        link_to(content_tag(:span, item.name), item.url, link_options.merge(toggle_options))
+        link_to(content_tag(:span, item.name), item.url, link_options)
       end
     end
   end

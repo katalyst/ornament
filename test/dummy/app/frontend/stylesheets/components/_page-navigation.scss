@@ -1,0 +1,145 @@
+$page-navigation-hover-bg: rgba($black, .05);
+$page-navigation-selected-color: $primary-color;
+
+.page-navigation {
+
+  nav > ul {
+    border: $divider;
+    background: $white;
+  }
+
+  // Non-split buttons need to go full-width
+  .has-children > button {
+    width: 100%;
+
+    > span {
+      display: flex;
+      align-items: center;
+    }
+
+    .page-navigation--icon {
+      margin-left: auto;
+    }
+  }
+}
+
+// =========================================================================
+// Level 1
+// =========================================================================
+
+.page-navigation .level-1 {
+  > li + li {
+    border-top: $divider;
+  }
+
+  > li > div > a,
+  > li > a,
+  > li > button {
+    padding: $xxxx-small-unit;
+  }
+
+  > li > div > a,
+  > li > div > button,
+  > li > a,
+  > li > button {
+    display: block;
+    transition: .2s background;
+
+    &:hover,
+    [data-whatinput='keyboard'] &:focus {
+      background-color: $page-navigation-hover-bg;
+    }
+  }
+
+  .selected {
+    > .page-navigation--split-parent > a,
+    > .page-navigation--split-parent > button,
+    > a,
+    > button {
+      @include color-link($page-navigation-selected-color, $page-navigation-selected-color);
+    }
+  }
+
+  > li > .page-navigation--split-parent > button {
+    border-left: $divider;
+  }
+}
+
+.page-navigation .level-1,
+.page-navigation .level-2 {
+  .icon--stroke {
+    stroke: $grey;
+    transition: fill .2s;
+  }
+
+  button:hover .icon--stroke,
+  [data-whatinput='keyboard'] & button:focus .icon--stroke {
+    stroke: $link-hover-color;
+  }
+}
+
+// =========================================================================
+// Level 2
+// =========================================================================
+
+.page-navigation .level-2 {
+  border-top: $divider;
+}
+
+.page-navigation .level-2,
+.page-navigation .level-3 {
+  padding: $xxx-small-unit;
+  padding-right: 0;
+
+  li + li {
+    margin-top: $xxxxx-small-unit;
+  }
+}
+
+// =========================================================================
+// Toggle icon
+// =========================================================================
+
+.page-navigation--icon {
+
+  svg {
+    width: $xxx-small-unit;
+    height: $xxx-small-unit;
+    transform: rotateZ(45deg);
+    display: block;
+  }
+
+  .icon--close--one {
+    opacity: 1;
+    transition: opacity .2s;
+  }
+
+  .active > span > & .icon--close--one, // single parent
+  .active > & .icon--close--one { // split parent
+    opacity: 0;
+  }
+}
+
+.page-navigation--split-parent > button,
+.page-navigation .level-2 > li > button {
+  .page-navigation--icon {
+    padding: 0 $xxxx-small-unit;
+  }
+}
+
+// =========================================================================
+// Split toggle button
+// =========================================================================
+
+.page-navigation--split-parent {
+  display: flex;
+
+  a {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}
+
+.page-navigation--split-parent > button {
+  padding: 0;
+}
