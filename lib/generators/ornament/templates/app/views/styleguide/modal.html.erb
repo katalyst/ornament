@@ -215,6 +215,10 @@
 
   <p>You can use a <code>video</code> prop instead of the other render props to load in a responsive iframe:</p>
 
+  <div class="panel__error panel--padding">
+    <p>Warning: Currently video responsiveness isn't ideal. This will be addressed in future Ornament versions.</p>
+  </div>
+
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "video-youtube-iframe", no_html: true, ruby: capture { %>
 &lt;button data-modal="video-youtube-iframe" class="button">Open video from youtube&lt;/button>
 &lt;%= react_component "Modal", props: {
