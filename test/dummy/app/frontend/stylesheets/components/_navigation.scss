@@ -20,8 +20,12 @@ $navigation-selected-color: $primary-color;
 
 .navigation nav {
   > ul {
-    @include display-flex;
-    @include flex-wrap;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  > ul > li {
+    display: flex;
   }
 
   // Blockerising all link elements
@@ -29,8 +33,14 @@ $navigation-selected-color: $primary-color;
     display: block;
     @include decorate-link(none, none);
 
+    // Toggle elements need to push icons to the right and align center
     > span {
       display: flex;
+    }
+
+    > span > button,
+    > span > .simple-navigation--icon {
+      align-self: center;
     }
   }
 
@@ -316,4 +326,14 @@ li:last-child .simple-navigation--nested,
   top: 0;
   right: 100%;
   left: auto;
+}
+
+// =========================================================================
+// Descriptions
+// =========================================================================
+
+.simple-navigation--item-description {
+  display: block;
+  color: $grey;
+  font-size: $small-font-size;
 }

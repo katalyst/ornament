@@ -159,6 +159,11 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     options.has_key?(:icons)
   end
 
+  # Flag to check if descriptions should show
+  def has_descriptions
+    options[:descriptions]
+  end
+
   # Flag to check if keyboard access attributes should be added
   def accessible
     has_toggles
@@ -173,7 +178,7 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
   def list_content(item_container)
 
     item_container.items.map { |item|
-      li_options = item.html_options.except(:link)
+      li_options = item.html_options.except(:link, :description)
 
       # ID namespace 
       if options[:id_namespace] 
@@ -258,6 +263,19 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
       toggle_options[:data][:navigation_parent] = ""
     end
 
+    item_content = item.name
+
+    # Add description to link item
+    if has_descriptions
+      description = item.html_options[:description]
+      show_description = has_descriptions.eql?(true) || has_descriptions.include?(level)
+      if has_toggles
+        item_content = "<span>#{item_content}<span class='#{get_class("--item-description")}'>#{description}</span></span>" if show_description
+      else
+        link_options["data-description"] = description
+      end
+    end
+
     # Parent links
     if include_sub_navigation?(item)
       
@@ -269,11 +287,8 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
         toggle_options[:class] += "active" if has_toggle_default_open(item)
       end
 
-      # Render the button with all the options
       if has_icons && !has_split_toggles
-        item_content = "#{item.name} #{get_icons()}"
-      else
-        item_content = item.name
+        item_content = "#{item_content} #{get_icons()}"
       end
 
       # Split parents have a link + button
@@ -293,9 +308,9 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     # Non-parents get either just a span (for no link) or a link
     else
       if suppress_link?(item)
-        content_tag('span', item.name, link_options)
+        content_tag('span', item_content, link_options)
       else
-        link_to(content_tag(:span, item.name), item.url, link_options)
+        link_to(content_tag(:span, item_content), item.url, link_options)
       end
     end
   end

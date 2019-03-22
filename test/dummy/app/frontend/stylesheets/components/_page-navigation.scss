@@ -8,6 +8,13 @@ $page-navigation-selected-color: $primary-color;
     background: $white;
   }
 
+  // Hover and focus states already have background
+  // transitions so we can safely remove the underline
+  a,
+  button {
+    @include decorate-link(none, none);
+  }
+
   // Non-split buttons need to go full-width
   .has-children > button {
     width: 100%;
@@ -143,4 +150,14 @@ $page-navigation-selected-color: $primary-color;
 
 .page-navigation--split-parent > button {
   padding: 0;
+}
+
+// =========================================================================
+// Descriptions
+// =========================================================================
+
+.page-navigation--item-description {
+  display: block;
+  color: $grey;
+  font-size: $small-font-size;
 }

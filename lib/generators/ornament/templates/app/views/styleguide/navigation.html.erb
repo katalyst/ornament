@@ -217,6 +217,59 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <%- end -%>
 
   <hr />
+  <h2 class="heading-two">Descriptions</h2>
+
+  <p>Descriptions can be included in the <code>html</code> hash in your SimpleNavigation item configuration.</p>
+  <p>Adding <code>descriptions: true</code> to your navigation will show descriptions <em>at all levels</em>, where descriptions are present.</p>
+  <p>You can render descriptions per level by using eg. <code>descriptions (2..3)</code> to only render the descriptions at levels 2 to 3.</p>
+  <p>When not using toggles, the description is pushed to the <code>data-description</code> attribute on the link so it can seamlessly integrate with the drilldown component, which you can see below.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-descriptions", no_html: true, ruby: capture { -%>
+# SimpleNavigation Config
+primary.item :Foo, "Foo", "#Foo", html: { description: "This is a sample description" }
+
+# View
+&lt;div class="navigation">
+  &lt;nav aria-label="Global Navigation">
+    &lt;%= koi_render_navigation({
+      cache_key: "header_nav",
+      nav_items_fetch_key: "header_navigation",
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "nav-descriptions",
+      toggles: true,
+      temporary_toggles: true,
+      descriptions: (2..3),
+      icons: true,
+    }) %>
+  &lt;/nav>
+&lt;/div>
+  <%- } } do -%>
+<div class="navigation">
+  <nav aria-label="Global Navigation">
+    <%= render_navigation({
+      context: :styleguide_sample,
+      renderer: :ornament_menu,
+      level: 1..3,
+      expand_all: true,
+      id_namespace: "nav-descriptions",
+      toggles: true,
+      temporary_toggles: true,
+      descriptions: (2..3),
+      icons: true,
+    }) %>
+  </nav>
+</div>
+  <%- end -%>
+  <hr />
+  <h2 class="heading-two">Open active toggle by default</h2>
+
+  <p>Not very useful in the context of a horizontal, dropdown navigation like this, but you can default the active tree open with <code>open_active_toggle: true</code>.</p>
+  <p>In the context of a sidebar navigation this would be used to pop the current tree open, which is a common pattern.</p>
+  <p>See the <a href="/styleguide/page_navigation">Page Navigation</a> page for examples of this feature.</p>
+
+  <hr />
   <h2 class="heading-two">Basic</h2>
 
   <p>When you omit the icons and toggle options you end up with a pretty basic unordered list, which can be useful if you're pushing the list to another widget, such as the dropdown component.</p>
@@ -229,16 +282,18 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
     renderer: :ornament_menu,
     level: 1..3,
     expand_all: true,
+    descriptions: true,
     id_namespace: "basic",
   }) %>
 &lt;/div>
   <%- } } do -%>
-<div data-drilldown>
+<div data-drilldown data-drilldown-titles>
   <%= render_navigation({
     context: :styleguide_sample,
     renderer: :ornament_menu,
     level: 1..3,
     expand_all: true,
+    descriptions: true,
     id_namespace: "basic",
   }) %>
 </div>

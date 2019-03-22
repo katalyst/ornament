@@ -1,9 +1,9 @@
 SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer
 SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
-    primary.item :Eu, "Eu", "#Eu"
-    primary.item :magna, "magna", "#magna" do |secondary|
-      secondary.item :laborum, "laborum", "#laborum"
+    primary.item :Eu, "Eu", "#Eu", html: { description: "This is a sample description" }
+    primary.item :magna, "magna", "#magna", html: { description: "This is a sample description" } do |secondary|
+      secondary.item :laborum, "laborum", "#laborum", html: { description: "This is a sample description" }
       secondary.item :exercitation, "exercitation", "#exercitation"
       secondary.item :anim, "anim", "#anim"
     end
