@@ -54,6 +54,7 @@ This will make RailsUJS a hard dependancy.
 - Navigation focus styles only show for keyboard users
 - Navigation child menus appear when focused on parent links when not using toggles, as a keyboard user, in browsers that support `focus-within`
 - Added page navigation implementation example using the ornament simple-navigation renderer
+- `disable-mouse-outline` now also removes the outline on touch as well as mouse interaction
 
 ### Fixes
 
