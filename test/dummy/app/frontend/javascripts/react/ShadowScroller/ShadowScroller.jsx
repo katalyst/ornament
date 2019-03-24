@@ -85,13 +85,11 @@ export default class ShadowScroller extends React.Component {
   // =========================================================================
 
   getDomElement = (el, selector) => {
-    console.log("GETTING DOM EL", el, selector);
     if(this.scrollElement) {
       return;
     }
 
     const query = el.querySelector(selector);
-    console.log(query);
     if(query) {
       this.scrollElement = query;
       this.setState({
