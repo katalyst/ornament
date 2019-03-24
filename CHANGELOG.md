@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.3.1
+
+### Fixes
+
+- Removed console.log spam from `ShadowScroller`
+- Converted menu-with-more inline styles from `inline-block` to `inline-flex` to fix compilation issues
+
 ## v2.3.0
 
 ### Rails UJS integration

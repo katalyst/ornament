@@ -20,10 +20,10 @@
    */
   > ul, 
   .navigation & > ul {
-    display: inline-block;
+    display: inline-flex;
   }
   > ul > li{
-    display: inline-block;
+    display: inline-flex;
   }
 
   > ul > li,
