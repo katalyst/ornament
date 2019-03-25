@@ -170,6 +170,7 @@ $fullscreen-mobile: 450px;
 .lightbox--nested-body {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 // Loading (ajax)
