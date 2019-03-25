@@ -31,12 +31,17 @@
   </div>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "more-menu-tree", no_html: true, ruby: capture { -%>
-&lt;div class="page-navigation">
-  &lt;nav aria-label="Global Navigation">
+&lt;div class="navigation">
+  &lt;nav aria-label="Global Navigation" class="menu-more">
     &lt;%= render_navigation({
       context: :styleguide_sample,
       renderer: :ornament_menu,
       level: 1..3,
+      expand_all: true,
+      id_namespace: "more-menu-tree",
+      toggles: true,
+      temporary_toggles: true,
+      icons: true,
     }) %>
   &lt;/nav>
 &lt;/div>
