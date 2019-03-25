@@ -18,6 +18,10 @@
 
     init: function(){
       document.querySelectorAll("input").forEach(function($input) {
+        // Ignore hidden input types
+        if($input.type === "hidden") {
+          return;
+        }
         if(!$input.classList.contains(FormsEnhanced.enhancedClass) && FormsEnhanced.validateEnhancedInput($input)) {
           $input.insertAdjacentHTML('afterend', FormsEnhanced.enhancedElement);
           $input.classList.add(FormsEnhanced.enhancedClass);
