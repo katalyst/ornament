@@ -46,6 +46,10 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
   will-change: height;
   border: $drilldown-border;
   // perspective: 1200px;
+  
+  // if drilldown has a border this will prevent jumpiness when resizing to new content size
+  // If border-box is required consider moving border on to a wrapper element instead.
+  box-sizing: content-box;
 }
 
 .drilldown [data-drilldown],
