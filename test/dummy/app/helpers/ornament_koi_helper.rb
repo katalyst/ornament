@@ -15,7 +15,10 @@ module OrnamentKoiHelper
   # a list of specific keys
   # traverse_for_nearest_navigation_key(@page.get_nav_item) -> "contact"
   def traverse_for_nearest_navigation_key(nav_item)
-    if nav_item.key.include?(["header_navigation", "footer_navigation"])
+    if nav_item.key.include?([
+      "header_navigation",
+      "footer_navigation",
+    ])
       nav_item.key
     else
       nav_item.parent ? traverse_for_nearest_navigation_key(nav_item.parent) : nil
