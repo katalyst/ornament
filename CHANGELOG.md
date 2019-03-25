@@ -5,7 +5,9 @@
 ### Fixes
 
 - Removed console.log spam from `ShadowScroller`
+- Fixed the `navigation--item-description` element being rendered in the navigation renderer when the description was empty
 - Converted menu-with-more inline styles from `inline-block` to `inline-flex` to fix compilation issues
+- Fixed incorrect docs for menu with more renderer example
 
 ## v2.3.0
 
