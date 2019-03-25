@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.3.2
+
+### Fixes
+
+- Added missing modal layout in generated styleguide controller
+
 ## v2.3.1
 
 ### Fixes
