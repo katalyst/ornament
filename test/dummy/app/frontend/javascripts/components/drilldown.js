@@ -261,7 +261,7 @@ Attach to either a div or a unordered list with data-drilldown
         $drilldown.setAttribute("data-drilldown-init", "");
       }
       var $container = document.createElement("div");
-      if($drilldown.nodeName.toLowerCase() === "div") {
+      if($drilldown.nodeName.toLowerCase() === "div" || $drilldown.nodeName.toLowerCase() === "nav") {
         $container = $drilldown;
         var $childUl = Ornament.U.nodeListArray($drilldown.childNodes).filter(function(node){
           return node.nodeName.toLowerCase() === "ul";
