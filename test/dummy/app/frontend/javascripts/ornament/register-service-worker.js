@@ -2,6 +2,9 @@
 // Register ServiceWorker
 // =========================================================================
 
+// Flag to use a2hs UI behaviour
+Ornament.showA2HSUI = false;
+
 // Register a service worker 
 Ornament.registerServiceWorker = function(){
   navigator.serviceWorker.register('/service-worker.js')
@@ -30,22 +33,27 @@ Ornament.localServiceWorkerOptOut = function(){
 // We need to hijack the event and trigger .prompt();
 // https://developers.google.com/web/updates/2018/06/a2hs-updates
 Ornament.hijackServiceWorkerPrompt = function(){
-  // Flag to use UI behaviour
-  // if false, will just prompt A2HS like it used to
-  var showA2HSUI = false;
+
   window.addEventListener('beforeinstallprompt', function(event) {
     event.preventDefault();
     Ornament.addToHomescreenEvent = event;
-    if(showA2HSUI) {
+    if(Ornament.showA2HSUI) {
       var $a2hsUIElements = document.querySelectorAll("[data-a2hs]");
-      for(var i = 0; i < Ornament.$a2hsUIElements.length; i++) {
-        var $button = Ornament.$a2hsUIElements[i];
-        $button.display = "block";
-        $button.addEventListener("click", function(addEvent) {
+      var $a2hsUIButtons = document.querySelectorAll("[data-a2hs-button]");
+
+      // Show wrapper elements
+      $a2hsUIElements.forEach($node => {
+        $node.style.display = "block";
+      });
+
+      // Bind actions
+      $a2hsUIButtons.forEach($button => {
+        $button.addEventListener("click", addEvent => {
           $button.disabled = true;
           Ornament.addToHomescreen();
         });
-      }
+      });
+
     } else {
       // Call the app install banner
       // Ornament.addToHomescreen();
@@ -67,10 +75,9 @@ Ornament.addToHomescreen = function() {
       // Remove UI buttons after action
       if(Ornament.showA2HSUI) {
         var $a2hsUIElements = document.querySelectorAll("[data-a2hs]");
-        for(var i = 0; i < Ornament.$a2hsUIElements.length; i++) {
-          var $button = Ornament.$a2hsUIElements[i];
-          $button.style.display = "none";
-        }
+        $a2hsUIElements.forEach($node => {
+          $node.style.display = "none";
+        });
       }
     });
   }

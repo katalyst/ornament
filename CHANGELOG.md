@@ -4,6 +4,7 @@
 
 ### Changes
 
+- a2hs now supports seperate non-action elements to show so you can provide additional content around the add to homescreen action
 - Drilldown is now categorised as a navigation component
 - Restyled Drilldown defaults to look like the page navigation styles
 - Improved example of custom drilldown in documentation
