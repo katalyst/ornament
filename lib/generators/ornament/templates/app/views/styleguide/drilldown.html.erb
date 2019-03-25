@@ -258,40 +258,55 @@
   </div>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "drilldown-custom-ui" } do -%>
-<ul data-drilldown data-drilldown-custom>
-  <li>
-    <button data-drilldown-forward class="drilldown__custom--forward">
-      View Brand 1
-    </button>
-    <ul>
-      <li>
-        <div class="drilldown__custom--nested">
-          <div><h2>Brand 1</h2></div>
-          <div>
-            This is some content around brand 1, maybe a list of products or something.
+<div style="max-width: 320px;">
+  <ul data-drilldown data-drilldown-custom>
+    <li>
+      <button data-drilldown-forward class="drilldown__custom--forward">
+        View Brand 1
+      </button>
+      <ul>
+        <li>
+          <div class="drilldown__custom--nested">
+            <div style="background: #bada55 url('https://placehold.it/340x200') center; padding: 2rem;">
+              <h2 class="heading-four">Brand 1</h2>
+            </div>
+            <div class="panel--padding compressed">
+              <p>This is some content around brand 1, maybe a list of products or something.</p>
+            </div>
+            <div class="panel--padding panel--border-top">
+              <ul>
+                <li><a href="#">Product 1</a></li>
+                <li><a href="#">Product 2</a></li>
+                <li><a href="#">Product 3</a></li>
+              </ul>
+            </div>
+            <button class="panel--padding panel--border-top" data-drilldown-back style="width: 100%;">‹ Go back</button>
           </div>
-          <button data-drilldown-back>Go back</button>
-        </div>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <button data-drilldown-forward class="drilldown__custom--forward">
-      View contact information
-    </button>
-    <ul>
-      <li>
-        <div class="drilldown__custom--nested drilldown__custom--nested__contact">
-          <div><h2>Contact</h2></div>
-          <div>
-            Email, phone etc.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <button data-drilldown-forward class="drilldown__custom--forward">
+        View contact information
+      </button>
+      <ul>
+        <li>
+          <div class="drilldown__custom--nested drilldown__custom--nested__contact">
+            <div style="background: #bada55; padding: 2rem;">
+              <h2 class="heading-four">Contact</h2>
+            </div>
+            <div class="panel--padding compressed">
+              <p>Contact us today to answer any of your burning questions!</p>
+              <p>Address: Level 1, 234 King William Street, Adelaide, South Australia</p>
+              <p>Phone: 1234 5678</p>
+            </div>
+            <button class="panel--padding panel--border-top" data-drilldown-back style="width: 100%;">‹ Go back</button>
           </div>
-          <button data-drilldown-back>Go back</button>
-        </div>
-      </li>
-    </ul>
-  </li>
-</ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
   <%- end -%>
 
   <div class="content-spacing">

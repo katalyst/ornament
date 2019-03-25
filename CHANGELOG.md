@@ -6,6 +6,7 @@
 
 - Drilldown is now categorised as a navigation component
 - Restyled Drilldown defaults to look like the page navigation styles
+- Improved example of custom drilldown in documentation
 
 ### Fixes
 
