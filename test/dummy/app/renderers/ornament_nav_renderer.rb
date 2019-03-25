@@ -269,8 +269,8 @@ class OrnamentNavRenderer < SimpleNavigation::Renderer::List
     if has_descriptions
       description = item.html_options[:description]
       show_description = has_descriptions.eql?(true) || has_descriptions.include?(level)
-      if has_toggles
-        item_content = "<span>#{item_content}<span class='#{get_class("--item-description")}'>#{description}</span></span>" if show_description
+      if has_toggles && show_description  && description.present?
+        item_content = "<span>#{item_content}<span class='#{get_class("--item-description")}'>#{description}</span></span>"
       else
         link_options["data-description"] = description
       end
