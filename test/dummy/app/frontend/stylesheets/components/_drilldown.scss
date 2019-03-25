@@ -1,9 +1,10 @@
 // Styling settings 
-$drilldown-bg: $passive-color;
-$drilldown-links: $foreground-color;
-$drilldown-border: 1px solid $white;
-$drilldown-item-padding-y: $xxx-small-unit;
-$drilldown-item-padding-x: $x-small-unit;
+$drilldown-bg: $white;
+$drilldown-border: $divider;
+$drilldown-hover-bg: rgba($black, .05);
+$drilldown-selected-color: $primary-color;
+$drilldown-item-padding-y: $xxxx-small-unit;
+$drilldown-item-padding-x: $xxxx-small-unit;
 
 // If true, adds border between each drilldown item
 // If false, only adds border between back button and description block
@@ -43,6 +44,7 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
   overflow: hidden;
   transition: height $ease-timing $ease-in;
   will-change: height;
+  border: $drilldown-border;
   // perspective: 1200px;
 }
 
@@ -153,7 +155,7 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
   background: $drilldown-bg;
 
   a,button {
-    @include color-link($drilldown-links, $drilldown-links);
+    @include color-link($link-color, $link-hover-color);
     @include decorate-link(none, none);
   }
 }
@@ -188,8 +190,8 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
 
   @if $use-svg-icons == true {
     > div {
-      @include display-flex;
-      @include align-items(center);
+      display: flex;
+      align-items: center;
     }
   }
 }
@@ -199,6 +201,12 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
 .drilldown--back button {
   @include disable-mouse-outline;
   text-align: left; // ie10 fix
+  transition: .2s background;
+
+  &:hover,
+  [data-whatinput='keyboard'] &:focus {
+    background-color: $drilldown-hover-bg;
+  }
 }
 
 // Consistent padding on various elements
@@ -280,9 +288,8 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
     border: 0;
     width: 44px;
     text-align: center;
-    background: $primary-color;
+    border-left: $drilldown-border;
     cursor: pointer;
-    color: $white;
   }
 
   svg {
@@ -309,6 +316,9 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
 }
 
 // Active state
-.drilldown .simple-navigation-active-leaf a.selected {
-  background: rgba($primary-color, .2);
+.drilldown .selected {
+  button,
+  a {
+    @include color-link($drilldown-selected-color, $drilldown-selected-color);
+  }
 }

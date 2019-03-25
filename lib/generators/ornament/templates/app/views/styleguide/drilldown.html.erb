@@ -10,7 +10,7 @@
   </div>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "drilldown-wrapper" } do -%>
-<div data-drilldown>
+<nav data-drilldown aria-label="Global Navigation">
   <ul>
     <li>
       <a href="#">Item 1</a>
@@ -53,7 +53,7 @@
     </li>
     <li><a href="#item-4"> Item 4</a></li>
   </ul>
-</div>
+</nav>
   <%- end -%>
 
   <p>Here is an example of using it directly on a <code>ul</code>:</p>
@@ -203,11 +203,11 @@
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "drilldown-deeplinking" } do -%>
 <ul data-drilldown data-drilldown-overviews>
   <li><a href="#">Item 1</a></li>
-  <li><a href="#">Item 2</a>
+  <li class="selected"><a href="#">Item 2</a>
     <ul>
       <li><a href="#">Item 2.1</a></li>
       <li><a href="#">Item 2.2</a></li>
-      <li class="simple-navigation-active-leaf"><a href="#" class="selected">Item 2.3</a></li>
+      <li class="selected simple-navigation-active-leaf"><a href="#" class="selected">Item 2.3</a></li>
       <li><a href="#">Item 2.4</a></li>
       <li><a href="#">Item 2.5</a></li>
     </ul>
