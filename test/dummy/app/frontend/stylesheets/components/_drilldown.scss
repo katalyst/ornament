@@ -43,7 +43,7 @@ $drilldown-past-transforms: translateX($list-item-distance * -1);
   overflow: hidden;
   transition: height $ease-timing $ease-in;
   will-change: height;
-  perspective: 1200px;
+  // perspective: 1200px;
 }
 
 .drilldown [data-drilldown],

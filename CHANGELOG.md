@@ -5,6 +5,7 @@
 ### Fixes
 
 - Added missing modal layout in generated styleguide controller
+- Removed `perspective` from drilldown to fix blurriness in chrome, this means that any 3d transforms will no longer look 3d by default
 
 ## v2.3.1
 
