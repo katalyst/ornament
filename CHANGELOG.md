@@ -13,8 +13,6 @@
 - Carousels can now have a "counter" navigation style by setting the value of `data-carousel-nav` to "counter"
 - Carousels now default position of navigation to "bottom" and removed the need for the custom `data-carousel-nav` elements when just using dots
 - Added styling and example of a card with a carousel instead of an image
-- Removed npm `tiny-slider` for now and implemented custom version that implments [Pull Request 361](https://github.com/ganlanyuan/tiny-slider/issues/361) to fix reponsive issues with carousel of cards, once that pull request is approved and released we can switch back to npm version
-- Removed default lazyload setting on carousel as it doesn't appear to be working correctly
 
 ### Fixes
 
@@ -22,6 +20,8 @@
 - Removed `perspective` from drilldown to fix blurriness in chrome, this means that any 3d transforms will no longer look 3d by default
 - Allowed Drilldown container to be a `nav` element
 - Stopped `form-enhanced` from running against hidden input fields to fix issues with cocoon remove actions
+- Removed npm `tiny-slider` for now and implemented custom version that implments [Pull Request 361](https://github.com/ganlanyuan/tiny-slider/issues/361) to fix reponsive issues with carousel of cards, once that pull request is approved and released we can switch back to npm version
+- Removed default lazyload setting on carousel as it doesn't appear to be working correctly
 
 ## v2.3.1
 
