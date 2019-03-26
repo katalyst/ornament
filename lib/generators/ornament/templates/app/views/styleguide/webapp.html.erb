@@ -7,8 +7,9 @@
   <p>First, open up <code>register-service-worker.js</code> and enable the flag <code>showA2HSUI</code>.
   <p>Now in your application any element you add the attribute <code>data-a2hs</code> to, will appear when the add to homescreen requirements have been met. Any element that has <code>data-a2hs-button</code> will act as the trigger button. This allows you to have accompanying content along with the action. If all you need is a button simply add both attributes to the element.</p>
 
-  <pre class="prettyprint sg-pre">&lt;button class="a2hs-button" data-a2hs>
-  &lt;button data-a2hs-button>Add to homescreen&lt;/button>
-&lt;/button></pre>
+  <pre class="prettyprint sg-pre">&lt;div class="a2hs-button spacing-xxx-tight" data-a2hs>
+  &lt;p>Hey check this out!&lt;/p>
+  &lt;button class="button" data-a2hs-button>Add to homescreen&lt;/button>
+&lt;/div></pre>
 
 </div>
