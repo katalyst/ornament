@@ -5,7 +5,8 @@
   overflow: hidden;
 }
 
-a.card {
+a.card,
+a.card--content {
   display: block;
   @include nested-link;
 }
@@ -17,6 +18,17 @@ a.card {
 .card--image img {
   display: block;
   width: 100%;
+}
+
+.card--image .tns-nav__counter {
+  position: absolute;
+  bottom: $xxxx-small-unit;
+  left: $xxxx-small-unit;
+  padding: $xxxxxx-small-unit $xxxxx-small-unit;
+  color: $white;
+  background: rgba($black, .25);
+  border-radius: $xxxxx-small-unit;
+  font-size: $small-font-size;
 }
 
 .card--image__cover {

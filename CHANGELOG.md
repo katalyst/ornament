@@ -9,6 +9,9 @@
 - Restyled Drilldown defaults to look like the page navigation styles
 - Improved example of custom drilldown in documentation
 - Added warning to top of modal styleguide page noting the react dependancy
+- Carousels can now not render any navigation by adding `data-carousel-no-nav` to the container
+- Carousels can now have a "counter" navigation style by setting the value of `data-carousel-nav` to "counter"
+- Added styling and example of a card with a carousel instead of an image
 
 ### Fixes
 

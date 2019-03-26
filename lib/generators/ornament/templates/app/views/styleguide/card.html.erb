@@ -49,6 +49,32 @@
 
 <div class="content-spacing">
   <hr />
+  <h2 class="heading-two">Cards with carousel</h2>
+  <p>Cards can have carousels rather than a single image:</p>
+</div>
+
+<%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "card-carousel" } do -%>
+<div class="card">
+  <div class="card--image" data-carousel>
+    <div data-carousel-slides>
+      <img src="http://placehold.it/1024x600" />
+      <img src="http://placehold.it/1024x600" />
+      <img src="http://placehold.it/1024x600" />
+      <img src="http://placehold.it/1024x600" />
+      <img src="http://placehold.it/1024x600" />
+    </div>
+    <div data-carousel-nav="counter"></div>
+  </div>
+  <a href="#" class="card--content compressed">
+    <p><strong class="nested-link--target">Awesome card</strong></p>
+    <p>The awesome card is pretty awesome.</p>
+    <p><small class="type--grey">Posted Yesterday</small></p>
+  </a>
+</div>
+<%- end -%>
+
+<div class="content-spacing">
+  <hr />
   <h2 class="heading-two">Cover images</h2>
   <p>Normally card images are inline images, however you may want a responsive cover image that fills an aspect ratio block, you can move the image in to a background image and change the image class to <code>card--image__cover</code>.</p>
 </div>
