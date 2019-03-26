@@ -11,7 +11,10 @@
 - Added warning to top of modal styleguide page noting the react dependancy
 - Carousels can now not render any navigation by adding `data-carousel-no-nav` to the container
 - Carousels can now have a "counter" navigation style by setting the value of `data-carousel-nav` to "counter"
+- Carousels now default position of navigation to "bottom" and removed the need for the custom `data-carousel-nav` elements when just using dots
 - Added styling and example of a card with a carousel instead of an image
+- Removed npm `tiny-slider` for now and implemented custom version that implments [Pull Request 361](https://github.com/ganlanyuan/tiny-slider/issues/361) to fix reponsive issues with carousel of cards, once that pull request is approved and released we can switch back to npm version
+- Removed default lazyload setting on carousel as it doesn't appear to be working correctly
 
 ### Fixes
 

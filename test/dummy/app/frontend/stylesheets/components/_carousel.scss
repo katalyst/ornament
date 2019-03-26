@@ -110,6 +110,7 @@
 }
 
 // Add gutter between nav and slider
+.tns-ovh + .tns-nav,
 .tns-nav + .tns-ovh,
 .tns-outer + .tns-nav {
   margin-top: $xxx-small-unit;

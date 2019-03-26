@@ -1,4 +1,5 @@
-import { tns } from 'tiny-slider/src/tiny-slider';
+// import { tns } from 'tiny-slider/src/tiny-slider';
+import '../vendor/libs/tiny-slider';
 
 (function (document, window, tns) {
   "use strict";
@@ -27,9 +28,10 @@ import { tns } from 'tiny-slider/src/tiny-slider';
         container: $container,
         items: 1,
         slideBy: 'page',
-        lazyload: true,
+        lazyload: false,
         mouseDrag: true,
-        autoHeight: true
+        autoHeight: true,
+        navPosition: "bottom",
       }
 
       // Custom slides node
@@ -241,4 +243,4 @@ import { tns } from 'tiny-slider/src/tiny-slider';
 
   Ornament.registerComponent("Carousel", Carousel);
 
-}(document, window, tns));
+}(document, window, window.tns));
