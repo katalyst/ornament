@@ -13,6 +13,7 @@
 - Carousels can now have a "counter" navigation style by setting the value of `data-carousel-nav` to "counter"
 - Carousels now default position of navigation to "bottom" and removed the need for the custom `data-carousel-nav` elements when just using dots
 - Added styling and example of a card with a carousel instead of an image
+- Video and youtube modals now automatically ratio size to 16x9, which can be customised with a new `ratio` prop
 
 ### Fixes
 
