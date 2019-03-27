@@ -114,6 +114,11 @@ $fullscreen-mobile: 450px;
 // Video modals
 .ReactModal__Video {
   background: $black;
+
+  iframe { 
+    width: 100%;
+    height: 100%;
+  }
 }
 
 // Ajax States
