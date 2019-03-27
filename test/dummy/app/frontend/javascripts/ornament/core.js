@@ -13,7 +13,7 @@ if(!window.Rails) {
   "use strict";
 
   var Ornament = window.Ornament || {};
-  Ornament.version = "2.3.1";
+  Ornament.version = "2.3.2";
   Ornament.ready = false;
   Ornament.debug = false;
 
