@@ -261,8 +261,6 @@
 
   <p>If you're using a youtube video, you can use the youtube video ID and take advantage of the pre-baked youtube configuration by using <code>youtube</code> prop instead.</p>
 
-  <p>You can enable autoplaying with <code>autoplay: true</code>.</p>
-
   <p>Using <code>noHeader</code> is recommended for a more cinematic experience, but left optional.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "video-youtube", no_html: true, ruby: capture { %>
@@ -271,7 +269,6 @@
   id: "video-youtube",
   label: "Video",
   youtube: "6ZfuNTqbHE8",
-  autoplay: true,
   noHeader: true,
 } %>
   <% } } do %>
@@ -280,10 +277,11 @@
       id: "video-youtube",
       label: "Video",
       youtube: "6ZfuNTqbHE8",
-      autoplay: true,
       noHeader: true,
     } %>
   <% end %>
+
+  <p>Videos are automatically ratio sized to <strong>16x9</strong>, you can specify a custom ratio as a string with the <code>ratio</code> prop.</p>
 
   <hr />
 

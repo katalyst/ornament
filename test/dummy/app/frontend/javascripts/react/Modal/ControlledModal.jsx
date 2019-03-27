@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef } from "react";
 import ReactModal from 'react-modal';
 import ShadowScroller from '../ShadowScroller/ShadowScroller';
 
@@ -19,8 +19,10 @@ import ShadowScroller from '../ShadowScroller/ShadowScroller';
   size: string - a css className to specifiy the size of the modal
   label: string - screen reader and header labelling
   noHeader: boolean - don't render the header of the modal
+  ratio: string - "16x9" format, used for video sizing, defaults to 16x9 if not specified
   noBodyWrapper: boolean - only when using renderprops, don't put a modal--body wrapper around content
   onClose: function - the function to call to close the modal (eg. set state)
+  onOpen: function - optional function to call after opening the modal
 
   Content Props
   -------------
@@ -45,12 +47,24 @@ export default class ControlledModal extends React.Component {
 
   constructor(props){
     super(props);
+    this.modal = createRef();
+    this.header = createRef();
+    
     this.bodyOffset = 0;
     this.closeTimeout = 200;
+    this.ratio = this.calculateRatio();
+    this.isVideo = this.props.youtube || this.props.video;
+
     ReactModal.setAppElement("#top");
   }
 
+  componentWillUnmount() {
+    // Remove the resize listener if it's still bound
+    window.removeEventListener("resize", this._resizeListener);
+  }
 
+
+  // Set page offset when props are updated
   componentWillUpdate(nextProps){
 
     // Opening modal, offset page
@@ -61,6 +75,93 @@ export default class ControlledModal extends React.Component {
     // Closing modal, restore page scroll
     if(this.props.isOpen && !nextProps.isOpen) {
       Ornament.C.Modal && Ornament.C.Modal.restorePage && Ornament.C.Modal.restorePage();
+    }
+  }
+
+  // When resizing, do stuff
+  _resizeListener = () => {
+    if(this.props.isOpen && this.isVideo) {
+      this.setRatio();
+    }
+  }
+
+  // =========================================================================
+  // Lifecycle hooks
+  // =========================================================================
+
+  onModalOpen = () => {
+    // Set up resize listener when opening the modal
+    if(this.isVideo) {
+      window.addEventListener("resize", this._resizeListener);
+      this.setRatio();
+    }
+    // Callback for props
+    if(this.props.onOpen) {
+      this.props.onOpen();
+    }
+  }
+
+  onModalClose = () => {
+    // Remvoe resize listener when closing the modal
+    if(this.isVideo) {
+      window.removeEventListener("resize", this._resizeListener);
+    }
+    // Calback for props
+    if(this.props.onClose) {
+      this.props.onClose();
+    }
+  }
+
+  // =========================================================================
+  // Ratio sizing
+  // =========================================================================
+
+  calculateRatio = () => {
+    if(!this.props.ratio) {
+      return 9 / 16;
+    }
+    const ratioArray = this.props.ratio.split("x").map(number => parseInt(number));
+    return ratioArray[1] / ratioArray[0];
+  }
+
+  setRatio = () => {
+    if(!(this.props.isOpen && this.isVideo)) {
+      return;
+    }
+
+    // TODO: Hardcoded offsets defined in CSS is a bit nasty, see if we
+    // find these offsets in JS
+    // Could be a lot slower if we are descerning offset every resize though
+    let offset = 64; // 4rem
+    let headerOffset = 0;
+    
+    if(this.header.current) {
+      headerOffset = this.header.current.offsetHeight;
+    }
+    
+    if(this.modal.current) {
+      const modal = this.modal.current.node.querySelector(".ReactModal__Content");
+      
+      // Treat available height as (screen size - 4rem modal gutters - size of header)
+      const availableHeight = document.documentElement.offsetHeight - offset - headerOffset;
+
+      // Assume height is available
+      modal.style.width = "";
+      let desiredHeight = (modal.offsetWidth * this.ratio) + headerOffset;
+      let desiredWidth = false;
+      
+      // If new height is taller than available height
+      // Make height available height and size width instead
+      if(desiredHeight > availableHeight) {
+        desiredHeight = availableHeight + headerOffset;
+        desiredWidth = (availableHeight / this.ratio);
+      }
+
+      // Set node styles
+      modal.style.height = desiredHeight + "px";
+      if(desiredWidth) {
+        modal.style.width = desiredWidth + "px";
+      }
     }
   }
 
@@ -75,16 +176,12 @@ export default class ControlledModal extends React.Component {
     // Video content
     if(this.props.video) {
       content = 
-        <div className="embed__youtube">
-          <iframe src={this.props.video} frameBorder="0" allowFullScreen></iframe>
-        </div>
+        <iframe src={this.props.video} frameBorder="0" allowFullScreen></iframe>
 
     // Youtube embed
     } else if(this.props.youtube) {
       content = 
-        <div className="embed__youtube">
-          <iframe src={`https://www.youtube.com/embed/${this.props.youtube}?enablejsapi=1&autoplay=${this.props.autoplay ? "true" : "false"}&autohide=1&showinfo=0&modestbranding=1&fs=1&rel=0`} frameBorder="0" allowFullScreen></iframe>
-        </div>
+        <iframe src={`https://www.youtube.com/embed/${this.props.youtube}?enablejsapi=1&autoplay=${this.props.autoplay ? "true" : "false"}&autohide=1&showinfo=0&modestbranding=1&fs=1&rel=0`} frameBorder="0" allowFullScreen></iframe>
 
     // Render props
     } else if(this.props.render) {
@@ -143,7 +240,6 @@ export default class ControlledModal extends React.Component {
   // Build custom className from props
   getClassName = () => {
     let className = this.props.className || "ReactModal__Default";
-    const isVideo = this.props.youtube || this.props.video;
 
     // Size class
     if(this.props.size) {
@@ -151,11 +247,11 @@ export default class ControlledModal extends React.Component {
     }
 
     // Video class
-    if(isVideo) {
+    if(this.isVideo) {
       className += " ReactModal__Video";
     }
 
-    if(!isVideo && !this.props.noFullscreen) {
+    if(!this.isVideo && !this.props.noFullscreen) {
       className += " ReactModal__Fullscreenable";
     }
 
@@ -169,8 +265,10 @@ export default class ControlledModal extends React.Component {
   render(){
     return(
       <ReactModal
+        ref={this.modal}
         isOpen={this.props.isOpen}
-        onRequestClose={this.props.onClose}
+        onRequestClose={this.onModalClose}
+        onAfterOpen={this.onModalOpen}
         contentLabel={this.props.label}
         className={this.getClassName()}
         closeTimeoutMS={this.closeTimeout}
@@ -183,7 +281,7 @@ export default class ControlledModal extends React.Component {
         }}
       >
         {!this.props.noHeader &&
-          <div className="lightbox--header">
+          <div className="lightbox--header" ref={this.header}>
             <div className="lightbox--title">
               {this.props.label}
             </div>

@@ -71,3 +71,10 @@
 .embed__youtube {
   padding-bottom: ratio(560, 315);
 }
+
+.embed__react-ratio {
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
