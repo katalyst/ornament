@@ -78,12 +78,25 @@
 
   <h2 class="heading-two">Focus on field after toggling</h2>
 
-  <p>Add <code>data-toggle-focus</code> to focus on the first available input after toggling.</p>
+  <p>Add <code>data-toggle-focus</code> to focus on the first available input or textarea after toggling.</p>
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-focus" } do -%>
 <button data-toggle-anchor="example-focus" data-toggle-focus>Show</button>
 <div data-toggle="example-focus">
+  <input type="text" placeholder="This will be focused" />
   <input type="text" />
+  <input type="text" />
+</div>
+  <%- end -%>
+
+  <p>You can specify a selector as the value to focus on a specific element instead:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-focus-value" } do -%>
+<button data-toggle-anchor="example-focus-value" data-toggle-focus=".select-me">Show</button>
+<div data-toggle="example-focus-value">
+  <input type="text" />
+  <input type="text" />
+  <input type="text" class="select-me" placeholder="This will be focused" />
 </div>
   <%- end -%>
 

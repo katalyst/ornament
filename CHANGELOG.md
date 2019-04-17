@@ -4,13 +4,14 @@
 
 ### Changes
 
-- Added `:disabled` styling for enhanced form elements
-- Converted heading with button to flexbox
+- Form - Added `:disabled` styling for enhanced form elements
+- Heading with Button - Converted to flexbox
+- Toggle - `data-toggle-focus` can now take a selector value of which element to select when opening, defaults to input/textarea as previous behaviour if no value
 
 ### Fixes
 
-- Fixed sort order of icon list in icons documentation
-- Fixed icon code samples being collapsed by default
+- Icons - Fixed sort order of icon list in icons documentation
+- Icons - Fixed some code samples being collapsed by default
 
 ## v2.3.2
 

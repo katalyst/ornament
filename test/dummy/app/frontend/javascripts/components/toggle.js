@@ -184,12 +184,19 @@
 
       // Focus on the first input field when available
       if($anchor.hasAttribute(Toggle.focusOnFieldSelector)) {
-        var $input = $pane.querySelector("input");
-        var $textarea = $pane.querySelector("textarea");
-        if($input) {
-          $input.focus();
-        } else if($textarea) {
-          $textarea.focus();
+        var selector = $anchor.getAttribute(Toggle.focusOnFieldSelector);
+        var selection = false;
+
+        if(selector) {
+          selection = $pane.querySelector(selector);
+        } else {
+          selection = $pane.querySelector("input");
+          if(!selection) {
+            selection = $pane.querySelector("textarea");
+          }
+        }
+        if(selection) {
+          selection.focus();
         }
       }
     },
