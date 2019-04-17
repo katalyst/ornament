@@ -2,6 +2,10 @@
 
 ## v2.3.3
 
+### Changes
+
+- Added `:disabled` styling for enhanced form elements
+
 ### Fixes
 
 - Fixed sort order of icon list in icons documentation
