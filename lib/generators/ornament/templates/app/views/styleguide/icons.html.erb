@@ -111,7 +111,7 @@
 
   <p>Passing two values in will size the element as a square using the first value as the width and height, and size the icon as a square as well using the second value as the width and height:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-block-single", scss: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-block-double", scss: capture { -%>
 .icon-block-32-16 {
   @include icon-block(32px, 16px);
   background: orange;
@@ -124,7 +124,7 @@
 
   <p>You can also treat both values as a list of <code>($width, $height)</code>:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-block-single", scss: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-block-list", scss: capture { -%>
 .icon-block-lists {
   @include icon-block((64px, 32px), (11px, 16px));
   background: orange;
@@ -140,7 +140,7 @@
 
   <p>You can create some text aligned with an icon with the <code>table-icon($icon-size)</code> mixin, like so:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper", scss: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-table", scss: capture { -%>
 .icon-table-32 {
   @include icon-table(32px);
 }
@@ -157,7 +157,7 @@
 
   <p>You can pass in custom guttering with a second parameter:</p>
 
-  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-helper", scss: capture { -%>
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "icon-table-gutter", scss: capture { -%>
 .icon-table-16 {
   @include icon-table(16px, 8px);
 }

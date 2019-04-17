@@ -5,6 +5,7 @@
 ### Fixes
 
 - Fixed sort order of icon list in icons documentation
+- Fixed icon code samples being collapsed by default
 
 ## v2.3.2
 
