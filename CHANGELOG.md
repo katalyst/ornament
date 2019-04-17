@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.3.3
+
+### Fixes
+
+- Fixed sort order of icon list in icons documentation
+
 ## v2.3.2
 
 ### Changes

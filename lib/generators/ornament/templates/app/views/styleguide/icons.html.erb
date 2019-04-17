@@ -50,7 +50,7 @@
   -%>
   <%- begin -%>
     <div class="icon-grid">
-      <%- Dir.foreach(icon_path) do |file| -%>
+      <%- Dir.entries(icon_path).sort.each do |file| -%>
         <%- 
           next if file == '.' or file == '..' 
           icon_name = file.split(".svg")[0]
