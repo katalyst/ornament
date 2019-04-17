@@ -2,22 +2,16 @@ $heading-with-button-breakpoint: 800px;
 
 .heading-with-button {
   @include media-query($heading-with-button-breakpoint, min) {
-    display: table;
-    width: 100%;
-  }
-}
-
-.heading-with-button--heading,
-.heading-with-button--button {
-  @include media-query($heading-with-button-breakpoint, min) {
-    display: table-cell;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
   }
 }
 
 .heading-with-button--heading {
   @include media-query($heading-with-button-breakpoint, min) {
     padding-right: $site-gutters;
+    flex-grow: 1;
+    flex-shrink: 1;
   }
 }
 
@@ -27,10 +21,13 @@ $heading-with-button-breakpoint: 800px;
 
 
 .heading-with-button--button {
-  text-align: right;
-
   @include media-query($heading-with-button-breakpoint) {
-    text-align: left;
     margin-top: $xxxx-small-unit;
+  }
+
+  @include media-query($heading-with-button-breakpoint, min) {
+    text-align: right;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 }

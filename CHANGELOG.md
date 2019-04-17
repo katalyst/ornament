@@ -5,6 +5,7 @@
 ### Changes
 
 - Added `:disabled` styling for enhanced form elements
+- Converted heading with button to flexbox
 
 ### Fixes
 
