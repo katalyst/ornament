@@ -126,6 +126,7 @@
                 </div>
               <% end %>
               <main class="page--main <%= yield(:layout_class) -%>" role="main" id="main">
+
                 <% if has_page_title %>
                   <h1 class="heading-one page--title">
                     <% if content_for? :title %>
@@ -138,12 +139,20 @@
                 <% if content_for?(:global) || !yield.blank? %>
                   <%= content_for?(:global) ? yield(:global) : yield %>
                 <% end %>
+
+                <div class="a2hs-button" data-a2hs style="display: none;">
+                  <div class="panel panel--padding panel__border spacing-xxx-tight">
+                    <button class="button" data-a2hs-button>Add to homescreen</button>
+                  </div>
+                </div>
+
               </main>
             </div>
           </div>
         </div>
 
         <%= yield :below_layout -%>
+
         <footer class="footer" role="contentinfo">
           <div class="layout--container">
             &copy <%= Time.now.year %>

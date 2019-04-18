@@ -8,6 +8,7 @@
 - Heading with Button - Converted to flexbox
 - Toggle - `data-toggle-focus` can now take a selector value of which element to select when opening, defaults to input/textarea as previous behaviour if no value
 - Styleguide - Moved sass mixins section up under css classes section
+- A2HS - Defaulted UI flag to on, example implementation on application.html and ornament.html layouts
 
 ### Fixes
 

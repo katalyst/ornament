@@ -3,7 +3,7 @@
 // =========================================================================
 
 // Flag to use a2hs UI behaviour
-Ornament.showA2HSUI = false;
+Ornament.showA2HSUI = true;
 
 // Register a service worker 
 Ornament.registerServiceWorker = function(){
@@ -53,10 +53,6 @@ Ornament.hijackServiceWorkerPrompt = function(){
           Ornament.addToHomescreen();
         });
       });
-
-    } else {
-      // Call the app install banner
-      // Ornament.addToHomescreen();
     }
   });
 }
