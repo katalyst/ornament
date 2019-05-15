@@ -1,6 +1,6 @@
 class UploadsController < CrudController
 
-  skip_before_filter :verify_authenticity_token, only: [:create, :image]
+  skip_before_action :verify_authenticity_token, only: [:create, :image]
 
   def create
     image = Image.new
