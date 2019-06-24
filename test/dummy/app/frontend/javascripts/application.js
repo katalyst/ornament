@@ -46,6 +46,7 @@ import "./components/form-password-score";
 import "./components/modal";
 import "./components/menu-with-more";
 import "./components/pagination-helper";
+import "./components/permissions";
 import "./components/read-more";
 import "./components/scroll-to";
 import "./components/select-link";
