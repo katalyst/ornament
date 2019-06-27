@@ -48,7 +48,7 @@
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "page-nav-sample", no_html: true, ruby: capture { -%>
 &lt;div class="page-navigation">
   &lt;nav aria-label="Global Navigation">
-    &lt;%= koi_render_navigation({
+    &lt;%= koi_render_navigation(
       cache_key: "header_nav",
       nav_items_fetch_key: "header_navigation",
       renderer: :ornament_menu,
@@ -62,7 +62,7 @@
       icons: {
         expand: icon("close"),
       },
-    }) %>
+    ) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
@@ -91,7 +91,7 @@
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "page-nav-no-split", no_html: true, ruby: capture { -%>
 &lt;div class="page-navigation">
   &lt;nav aria-label="Global Navigation">
-    &lt;%= koi_render_navigation({
+    &lt;%= koi_render_navigation(
       cache_key: "header_nav",
       nav_items_fetch_key: "header_navigation",
       renderer: :ornament_menu,
@@ -105,7 +105,7 @@
       icons: {
         expand: icon("close"),
       },
-    }) %>
+    ) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>

@@ -13,7 +13,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament1", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav aria-label="Global Navigation">
-    &lt;%= koi_render_navigation({
+    &lt;%= koi_render_navigation(
       cache_key: "header_nav",
       nav_items_fetch_key: "header_navigation",
       renderer: :ornament_menu,
@@ -23,7 +23,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
       icons: true,
       toggles: true,
       temporary_toggles: true,
-    }) %>
+    ) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
@@ -71,7 +71,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament-split", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav aria-label="Global Navigation">
-    &lt;%= koi_render_navigation({
+    &lt;%= koi_render_navigation(
       cache_key: "header_nav",
       nav_items_fetch_key: "header_navigation",
       renderer: :ornament_menu,
@@ -81,7 +81,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
       toggles: "split",
       temporary_toggles: true,
       icons: true,
-    }) %>
+    ) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
@@ -109,7 +109,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament2", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav>
-    &lt;%= koi_render_navigation({
+    &lt;%= koi_render_navigation(
       cache_key: "header_nav",
       nav_items_fetch_key: "header_navigation",
       renderer: :ornament_menu,
@@ -118,7 +118,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
       id_namespace: "nav-no-icons",
       toggles: true,
       temporary_toggles: true,
-    }) %>
+    ) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
@@ -145,7 +145,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-icons-custom", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav>
-    &lt;%= koi_render_navigation({
+    &lt;%= koi_render_navigation(
       cache_key: "header_nav",
       nav_items_fetch_key: "header_navigation",
       renderer: :ornament_menu,
@@ -158,7 +158,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
         expand: icon("star_empty"),
         collapse: icon("star"),
       }
-    }) %>
+    ) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
@@ -190,7 +190,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament3", no_html: true, ruby: capture { -%>
 &lt;div class="navigation">
   &lt;nav>
-    &lt;%= koi_render_navigation({
+    &lt;%= koi_render_navigation(
       cache_key: "header_nav",
       nav_items_fetch_key: "header_navigation",
       renderer: :ornament_menu,
@@ -198,7 +198,7 @@ SimpleNavigation.register_renderer :ornament_menu => OrnamentNavRenderer</pre>
       expand_all: true,
       icons: true,
       id_namespace: "nav-hover",
-    }) %>
+    ) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
@@ -231,7 +231,7 @@ primary.item :Foo, "Foo", "#Foo", html: { description: "This is a sample descrip
 # View
 &lt;div class="navigation">
   &lt;nav aria-label="Global Navigation">
-    &lt;%= koi_render_navigation({
+    &lt;%= koi_render_navigation(
       cache_key: "header_nav",
       nav_items_fetch_key: "header_navigation",
       renderer: :ornament_menu,
@@ -242,7 +242,7 @@ primary.item :Foo, "Foo", "#Foo", html: { description: "This is a sample descrip
       temporary_toggles: true,
       descriptions: (2..3),
       icons: true,
-    }) %>
+    ) %>
   &lt;/nav>
 &lt;/div>
   <%- } } do -%>
@@ -276,7 +276,7 @@ primary.item :Foo, "Foo", "#Foo", html: { description: "This is a sample descrip
 
   <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "nav-ornament-basic", no_html: true, ruby: capture { -%>
 &lt;div data-drilldown>
-  &lt;%= koi_render_navigation({
+  &lt;%= koi_render_navigation(
     cache_key: "header_nav",
     nav_items_fetch_key: "header_navigation",
     renderer: :ornament_menu,
@@ -284,7 +284,7 @@ primary.item :Foo, "Foo", "#Foo", html: { description: "This is a sample descrip
     expand_all: true,
     descriptions: true,
     id_namespace: "basic",
-  }) %>
+  ) %>
 &lt;/div>
   <%- } } do -%>
 <div data-drilldown data-drilldown-titles>
