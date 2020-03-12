@@ -93,7 +93,10 @@
       // Add the transition and opening classes
       Tray.$classTarget.classList.add(Tray.classes.transitioning);
       Tray.$classTarget.classList.add(Tray.classes.open);
-      
+
+      // Resize Drilldowns
+      Tray.resizeDrilldowns();
+
       // Wait until transition is completed and remove the transitioning class
       Tray.transitionTimer = setTimeout(function(){
         Tray.$classTarget.classList.remove(Tray.classes.transitioning);
@@ -212,12 +215,23 @@
       });
     },
 
+    resizeDrilldowns: function(){
+      if (Ornament.C.Drilldown && Tray.$drilldowns) {
+        Tray.$drilldowns.forEach(function ($drilldown) {
+          Ornament.triggerEvent($drilldown, Ornament.C.Drilldown.triggerNamespace + ":resize");
+        });
+      }
+    },
+
     init: function(){
       Tray.$buttons = document.querySelectorAll("[" + Tray.selectors.buttons + "]");
       Tray.$closeButtons = document.querySelectorAll("[" + Tray.selectors.closeButtons + "]");
       Tray.$scrollPusher = document.querySelector("[" + Tray.selectors.scrollPusher + "]");
       Tray.$classTarget = document.body;
       Tray.$overlay = document.querySelector("[" + Tray.selectors.overlay + "]");
+      if(Tray.$overlay) {
+        Tray.$drilldowns = Tray.$overlay.querySelectorAll("[data-drilldown-init]");
+      }
 
       // Bind Toggle Buttons
       Tray.forEachButton(function($button) {
