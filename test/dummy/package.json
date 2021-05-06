@@ -19,7 +19,7 @@
     "tiny-slider": "^2.8.8",
     "tippy.js": "^2.6.0",
     "turbolinks": "^5.2.0",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "velocity": "^0.7.2",
     "webpack-bundle-analyzer": "^3.0.2",
     "what-input": "^5.1.2"
