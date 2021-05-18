@@ -1,3 +1,5 @@
+**IMPORTANT NOTE:** This repository is now archived and will not receive any further updates. Feel free to fork it or keep using it, though.
+
 Ornament
 ========
 
